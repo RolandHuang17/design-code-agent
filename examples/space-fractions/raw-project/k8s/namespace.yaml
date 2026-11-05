@@ -1,0 +1,17 @@
+# Space Fractions – Kubernetes namespace
+#
+# This is the top-level Kubernetes resource for the Space Fractions
+# deployment. It defines the single namespace that all other manifests
+# (deployments, services, configmaps, secrets, ingress) target.
+#
+# Reference-only configuration: this file is syntactically valid and
+# aligned with the compose.yaml project name. It has not been validated
+# against a live cluster.
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: space-fractions
+  labels:
+    app.kubernetes.io/name: space-fractions
+    app.kubernetes.io/part-of: space-fractions
+    app.kubernetes.io/managed-by: kubectl

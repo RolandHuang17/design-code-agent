@@ -1,0 +1,2304 @@
+{
+  "status": "completed_with_gaps",
+  "provider": "bailian",
+  "model": "deepseek-v4-pro-0813",
+  "official_api_compliant": false,
+  "real_api_run": true,
+  "checks": [
+    {
+      "profile": "static",
+      "status": "passed",
+      "results": [
+        {
+          "check": "required:package.json",
+          "status": "passed"
+        },
+        {
+          "check": "required:README.md",
+          "status": "passed"
+        },
+        {
+          "check": "required:openapi.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "required:internal.proto",
+          "status": "passed"
+        },
+        {
+          "check": "required:traceability.json",
+          "status": "passed"
+        },
+        {
+          "check": "compose.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "openapi.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "package-lock.json",
+          "status": "passed"
+        },
+        {
+          "check": "package.json",
+          "status": "passed"
+        },
+        {
+          "check": "plan.json",
+          "status": "passed"
+        },
+        {
+          "check": "traceability.json",
+          "status": "passed"
+        },
+        {
+          "check": "gateway/package.json",
+          "status": "passed"
+        },
+        {
+          "check": "gateway/public/js/api.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\gateway\\public\\js\\api.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "gateway/public/js/app.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\gateway\\public\\js\\app.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "gateway/public/js/ui.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\gateway\\public\\js\\ui.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "gateway/src/index.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\gateway\\src\\index.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "gateway/src/middleware.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\gateway\\src\\middleware.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "gateway/src/routes.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\gateway\\src\\routes.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "istio/destination-rules.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "istio/gateway.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "istio/peer-authentication.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "istio/virtual-service.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "k8s/admin-service-deployment.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "k8s/configmap.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "k8s/game-service-deployment.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "k8s/gateway-deployment.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "k8s/hpa.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "k8s/ingress.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "k8s/namespace.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "k8s/question-service-deployment.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "k8s/user-service-deployment.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "keycloak/realm.json",
+          "status": "passed"
+        },
+        {
+          "check": "prometheus/prometheus.yml",
+          "status": "passed"
+        },
+        {
+          "check": "scripts/check-sources.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\scripts\\check-sources.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "services/admin-service/package.json",
+          "status": "passed"
+        },
+        {
+          "check": "services/admin-service/src/index.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\services\\admin-service\\src\\index.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "services/admin-service/src/routes.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\services\\admin-service\\src\\routes.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "services/admin-service/test/admin.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\services\\admin-service\\test\\admin.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "services/game-service/package.json",
+          "status": "passed"
+        },
+        {
+          "check": "services/game-service/src/game-engine.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\services\\game-service\\src\\game-engine.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "services/game-service/src/index.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\services\\game-service\\src\\index.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "services/game-service/src/routes.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\services\\game-service\\src\\routes.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "services/game-service/test/game-engine.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\services\\game-service\\test\\game-engine.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "services/game-service/test/scoring.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\services\\game-service\\test\\scoring.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "services/question-service/package.json",
+          "status": "passed"
+        },
+        {
+          "check": "services/question-service/src/index.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\services\\question-service\\src\\index.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "services/question-service/src/routes.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\services\\question-service\\src\\routes.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "services/question-service/src/search.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\services\\question-service\\src\\search.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "services/user-service/package.json",
+          "status": "passed"
+        },
+        {
+          "check": "services/user-service/src/index.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\services\\user-service\\src\\index.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "services/user-service/src/routes.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\services\\user-service\\src\\routes.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "shared/package.json",
+          "status": "passed"
+        },
+        {
+          "check": "shared/src/auth.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\shared\\src\\auth.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "shared/src/cache.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\shared\\src\\cache.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "shared/src/db.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\shared\\src\\db.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "shared/src/errors.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\shared\\src\\errors.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "shared/src/fraction.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\shared\\src\\fraction.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "shared/src/identity.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\shared\\src\\identity.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "shared/src/metrics.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\shared\\src\\metrics.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "shared/src/mq.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\shared\\src\\mq.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "shared/test/auth.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\shared\\test\\auth.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "shared/test/db.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\shared\\test\\db.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "shared/test/fraction.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\shared\\test\\fraction.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "shared/test/metrics.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\shared\\test\\metrics.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/integration/_helpers.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\test\\integration\\_helpers.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/integration/admin.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\test\\integration\\admin.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/integration/api.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\test\\integration\\api.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/integration/auth.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\test\\integration\\auth.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/integration/game-flow.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project\\test\\integration\\game-flow.test.js"
+          ],
+          "output": ""
+        }
+      ]
+    },
+    {
+      "profile": "install",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "output": "npm warn deprecated prom-client@15.1.3: prom-client has been replaced by @prometheus-io/client\n\nadded 126 packages in 3s\n"
+    },
+    {
+      "profile": "test",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "run",
+        "test",
+        "--ignore-scripts"
+      ],
+      "output": "\n> space-fractions@1.0.0 test\n> node --test shared/test/*.test.js services/*/test/*.test.js\n\n✔ validateQuestionPayload normalizes a valid payload (1.8629ms)\n✔ validateQuestionPayload normalizes equivalent correctAnswer to canonical form (2.0562ms)\n✔ validateQuestionPayload rejects a null body (0.4118ms)\n✔ validateQuestionPayload rejects a missing or empty prompt (0.1909ms)\n✔ validateQuestionPayload rejects a non-string prompt (0.1372ms)\n✔ validateQuestionPayload rejects options that are not an array (0.1119ms)\n✔ validateQuestionPayload rejects too few options (0.128ms)\n✔ validateQuestionPayload rejects too many options (0.1864ms)\n✔ validateQuestionPayload rejects blank or non-string options (0.1821ms)\n✔ validateQuestionPayload rejects duplicate options (0.2483ms)\n✔ validateQuestionPayload rejects a malformed correctAnswer (0.2183ms)\n✔ validateQuestionPayload rejects correctAnswer not present among options (0.1406ms)\n✔ validateQuestionPayload accepts an equivalent correctAnswer listed as an option (0.1159ms)\n✔ toAdminQuestion maps a DB row to an admin response shape (0.1734ms)\n✔ createGame with explicit question ids (3.8325ms)\n✔ createGame fetches all questions when none provided (1.7608ms)\n✔ createGame throws when no questions available (2.8917ms)\n✔ getGame authorizes owner (1.8036ms)\n✔ getGame denies non-owner (returns NotFound) (1.6003ms)\n✔ getGame allows admin to access any game (1.3044ms)\n✔ getGame NotFound for missing game (0.9942ms)\n✔ pauseGame transitions playing -> paused (0.929ms)\n✔ pauseGame is idempotent when already paused (1.1443ms)\n✔ pauseGame throws ConflictError when completed (1.877ms)\n✔ resumeGame transitions paused -> playing (1.5221ms)\n✔ resumeGame is idempotent when already playing (1.3062ms)\n✔ resumeGame throws ConflictError when completed (1.5047ms)\n✔ getCurrentQuestion returns null when completed (1.7011ms)\n✔ getCurrentQuestion returns the question at the current index (1.445ms)\n✔ submitAnswer rejects answer while paused (1.6338ms)\n✔ submitAnswer rejects malformed fraction (1.8059ms)\n✔ submitAnswer rejects question not in game (1.5641ms)\n✔ submitAnswer correct answer scores 1 and transitions to completed (2.7679ms)\n✔ submitAnswer wrong answer does not increase score (1.5108ms)\n✔ re-answering a question correctly is idempotent (no double score) (3.0326ms)\n✔ getScore returns score and state (1.5384ms)\n✔ getScore NotFound for missing game (1.5435ms)\n✔ score starts at zero and increments once per distinct correct answer (6.897ms)\n✔ repeated correct answer to same question does not double-count (1.3643ms)\n✔ score never decreases when a previously-correct question is re-answered wrong (1.1285ms)\n✔ score caps at number of distinct questions (1.0215ms)\n✔ full correct run yields max score and completed state (2.3785ms)\n✔ decodeJWT parses header and payload (45.8655ms)\n✔ decodeJWT rejects malformed tokens (0.7465ms)\n✔ validateToken accepts a valid structural token (3.6697ms)\n✔ validateToken strips Bearer prefix (1.4697ms)\n✔ validateToken rejects expired tokens (2.0391ms)\n✔ validateToken rejects not-yet-valid tokens (1.5299ms)\n✔ validateToken rejects wrong issuer (1.346ms)\n✔ validateToken rejects wrong audience (1.28ms)\n✔ validateToken rejects tokens signed by a different key (67.2892ms)\n✔ validateToken accepts array audience containing expected value (1.6688ms)\n✔ validateToken throws when OIDC not configured (1.1134ms)\n✔ requireAdmin allows users with admin role (0.27ms)\n✔ requireAdmin rejects users without admin role (0.2233ms)\n✔ requireAdmin rejects missing realm_access (0.1397ms)\n✔ requireAdmin rejects unauthenticated requests (0.1267ms)\n✔ findKey locates a key by kid (0.7402ms)\n✔ runMigrations rolls back on script failure and leaves no record (5.9694ms)\n✔ runMigrations records success and skips on repeat startup (0.9861ms)\n✔ runMigrations unwraps explicit BEGIN/COMMIT wrapper (0.7972ms)\n✔ runMigrations acquires advisory lock for serialization (0.7133ms)\n✔ runMigrations releases the client on success (0.8743ms)\n✔ runMigrations releases the client on rollback error (0.5669ms)\n✔ parseFraction parses simple fractions (2.2127ms)\n✔ parseFraction parses integers as a/1 (1.1381ms)\n✔ parseFraction normalizes negative denominators (0.176ms)\n✔ parseFraction handles whitespace (0.2235ms)\n✔ parseFraction rejects zero denominator (0.4665ms)\n✔ parseFraction rejects malformed input (0.2177ms)\n✔ parseFraction rejects non-string input (0.1573ms)\n✔ gcd computes greatest common divisor (0.2375ms)\n✔ reduce simplifies fractions (0.284ms)\n✔ fractionsEqual treats equivalent fractions as equal (0.3891ms)\n✔ fractionsEqual distinguishes different values (0.2083ms)\n✔ fractionsEqual accepts objects (0.1416ms)\n✔ formatFraction renders reduced form (0.2527ms)\n✔ isValidFraction validates well-formed input (0.2281ms)\n✔ metrics module exposes Prometheus counters and gauges (0.7761ms)\n✔ metricsMiddleware records request duration and count (4.227ms)\n✔ getMetrics returns Prometheus text format (1.1247ms)\n✔ getContentType returns text/plain variant (0.1286ms)\n✔ counters can be incremented (0.2211ms)\nℹ tests 83\nℹ suites 0\nℹ pass 83\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 645.1749\n"
+    },
+    {
+      "profile": "build",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "run",
+        "build",
+        "--ignore-scripts"
+      ],
+      "output": "\n> space-fractions@1.0.0 build\n> node scripts/check-sources.js\n\nSpace Fractions — source check\n  ✓ syntax-checked 37 JavaScript file(s)\n  ✓ validated 3 JSON file(s)\n  ✓ structural-checked 15 YAML file(s)\n\nBuild OK: no source issues found.\n"
+    },
+    {
+      "profile": "compose",
+      "status": "unverified",
+      "reason": "缺少 Node.js/npm 或 Docker"
+    },
+    {
+      "profile": "auth",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "D:\\projects\\Task\\codeagent\\acceptance\\auth.cjs",
+        "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project",
+        "C:\\Users\\roland\\AppData\\Local\\Temp\\design-agent-auth-zik28bd9\\report.json"
+      ],
+      "output": "{\"kind\":\"independent_jwt_acceptance\",\"status\":\"passed\",\"checks\":[{\"check\":\"valid RSA-signed JWT\",\"status\":\"passed\",\"observed\":\"accepted\"},{\"check\":\"wrong signature rejected\",\"status\":\"passed\",\"observed\":\"rejected\"},{\"check\":\"expired token rejected\",\"status\":\"passed\",\"observed\":\"rejected\"},{\"check\":\"wrong issuer rejected\",\"status\":\"passed\",\"observed\":\"rejected\"},{\"check\":\"wrong audience rejected\",\"status\":\"passed\",\"observed\":\"rejected\"},{\"check\":\"future not-before rejected\",\"status\":\"passed\",\"observed\":\"rejected\"}]}\n",
+      "independent_report": {
+        "kind": "independent_jwt_acceptance",
+        "status": "passed",
+        "checks": [
+          {
+            "check": "valid RSA-signed JWT",
+            "status": "passed",
+            "observed": "accepted"
+          },
+          {
+            "check": "wrong signature rejected",
+            "status": "passed",
+            "observed": "rejected"
+          },
+          {
+            "check": "expired token rejected",
+            "status": "passed",
+            "observed": "rejected"
+          },
+          {
+            "check": "wrong issuer rejected",
+            "status": "passed",
+            "observed": "rejected"
+          },
+          {
+            "check": "wrong audience rejected",
+            "status": "passed",
+            "observed": "rejected"
+          },
+          {
+            "check": "future not-before rejected",
+            "status": "passed",
+            "observed": "rejected"
+          }
+        ]
+      }
+    },
+    {
+      "profile": "traceability_links",
+      "status": "passed",
+      "problems": [],
+      "limitation": "只检查链接和来源范围；语义覆盖需要独立审查"
+    },
+    {
+      "profile": "external_review_retest",
+      "status": "unverified",
+      "reason": "外部反馈已用于修复，但必须由独立验收重新验证；不能根据模型文字判为通过"
+    }
+  ],
+  "repair_rounds": 2,
+  "limitation": "Checks do not establish semantic architecture fidelity, production readiness or performance. Review traceability and run independent acceptance tests.",
+  "turns": 114,
+  "budget": {
+    "limit_cny": 200.0,
+    "charged_cny": 127.633281,
+    "uncertain_requests": 8,
+    "request_count": 440,
+    "prices": {
+      "input_per_million": 9.0,
+      "output_per_million": 27.0,
+      "reference_date": "2026-11-05"
+    }
+  },
+  "usage": [
+    {
+      "usage": {
+        "prompt_tokens": 17628,
+        "total_tokens": 17699,
+        "completion_tokens": 71,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.160569
+    },
+    {
+      "usage": {
+        "prompt_tokens": 20601,
+        "total_tokens": 21014,
+        "completion_tokens": 413,
+        "prompt_tokens_details": {
+          "cached_tokens": 17408
+        }
+      },
+      "estimated_cny": 0.19656
+    },
+    {
+      "usage": {
+        "prompt_tokens": 21101,
+        "total_tokens": 21171,
+        "completion_tokens": 70,
+        "prompt_tokens_details": {
+          "cached_tokens": 20480
+        }
+      },
+      "estimated_cny": 0.191799
+    },
+    {
+      "usage": {
+        "prompt_tokens": 21435,
+        "total_tokens": 21676,
+        "completion_tokens": 241,
+        "prompt_tokens_details": {
+          "cached_tokens": 20992
+        }
+      },
+      "estimated_cny": 0.199422
+    },
+    {
+      "usage": {
+        "prompt_tokens": 22547,
+        "total_tokens": 22873,
+        "completion_tokens": 326,
+        "prompt_tokens_details": {
+          "cached_tokens": 21248
+        }
+      },
+      "estimated_cny": 0.211725
+    },
+    {
+      "usage": {
+        "prompt_tokens": 22939,
+        "total_tokens": 22993,
+        "completion_tokens": 54,
+        "prompt_tokens_details": {
+          "cached_tokens": 22528
+        }
+      },
+      "estimated_cny": 0.207909
+    },
+    {
+      "usage": {
+        "prompt_tokens": 26927,
+        "total_tokens": 27040,
+        "completion_tokens": 113,
+        "prompt_tokens_details": {
+          "cached_tokens": 22784
+        }
+      },
+      "estimated_cny": 0.245394
+    },
+    {
+      "usage": {
+        "prompt_tokens": 29350,
+        "total_tokens": 29982,
+        "completion_tokens": 632,
+        "prompt_tokens_details": {
+          "cached_tokens": 26880
+        }
+      },
+      "estimated_cny": 0.281214
+    },
+    {
+      "usage": {
+        "prompt_tokens": 19741,
+        "total_tokens": 19800,
+        "completion_tokens": 59,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.179262
+    },
+    {
+      "usage": {
+        "prompt_tokens": 22110,
+        "total_tokens": 22427,
+        "completion_tokens": 317,
+        "prompt_tokens_details": {
+          "cached_tokens": 19712
+        }
+      },
+      "estimated_cny": 0.207549
+    },
+    {
+      "usage": {
+        "prompt_tokens": 24710,
+        "total_tokens": 26528,
+        "completion_tokens": 1818,
+        "prompt_tokens_details": {
+          "cached_tokens": 22016
+        }
+      },
+      "estimated_cny": 0.271476
+    },
+    {
+      "usage": {
+        "prompt_tokens": 26646,
+        "total_tokens": 26739,
+        "completion_tokens": 93,
+        "prompt_tokens_details": {
+          "cached_tokens": 24576
+        }
+      },
+      "estimated_cny": 0.242325
+    },
+    {
+      "usage": {
+        "prompt_tokens": 30549,
+        "total_tokens": 30761,
+        "completion_tokens": 212,
+        "prompt_tokens_details": {
+          "cached_tokens": 26624
+        }
+      },
+      "estimated_cny": 0.280665
+    },
+    {
+      "usage": {
+        "prompt_tokens": 21565,
+        "total_tokens": 21742,
+        "completion_tokens": 177,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.198864
+    },
+    {
+      "usage": {
+        "prompt_tokens": 30937,
+        "total_tokens": 39794,
+        "completion_tokens": 8857,
+        "prompt_tokens_details": {
+          "cached_tokens": 21504
+        }
+      },
+      "estimated_cny": 0.517572
+    },
+    {
+      "usage": {
+        "prompt_tokens": 39938,
+        "total_tokens": 40029,
+        "completion_tokens": 91,
+        "prompt_tokens_details": {
+          "cached_tokens": 30720
+        }
+      },
+      "estimated_cny": 0.361899
+    },
+    {
+      "usage": {
+        "prompt_tokens": 45055,
+        "total_tokens": 45769,
+        "completion_tokens": 714,
+        "prompt_tokens_details": {
+          "cached_tokens": 39680
+        }
+      },
+      "estimated_cny": 0.424773
+    },
+    {
+      "usage": {
+        "prompt_tokens": 45811,
+        "total_tokens": 46638,
+        "completion_tokens": 827,
+        "prompt_tokens_details": {
+          "cached_tokens": 44800
+        }
+      },
+      "estimated_cny": 0.434628
+    },
+    {
+      "usage": {
+        "prompt_tokens": 46712,
+        "total_tokens": 46773,
+        "completion_tokens": 61,
+        "prompt_tokens_details": {
+          "cached_tokens": 45568
+        }
+      },
+      "estimated_cny": 0.422055
+    },
+    {
+      "usage": {
+        "prompt_tokens": 49545,
+        "total_tokens": 49636,
+        "completion_tokens": 91,
+        "prompt_tokens_details": {
+          "cached_tokens": 46592
+        }
+      },
+      "estimated_cny": 0.448362
+    },
+    {
+      "usage": {
+        "prompt_tokens": 28850,
+        "total_tokens": 29012,
+        "completion_tokens": 162,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.264024
+    },
+    {
+      "usage": {
+        "prompt_tokens": 22460,
+        "total_tokens": 22613,
+        "completion_tokens": 153,
+        "prompt_tokens_details": {
+          "cached_tokens": 20992
+        }
+      },
+      "estimated_cny": 0.206271
+    },
+    {
+      "usage": {
+        "prompt_tokens": 29072,
+        "total_tokens": 30913,
+        "completion_tokens": 1841,
+        "prompt_tokens_details": {
+          "cached_tokens": 22272
+        }
+      },
+      "estimated_cny": 0.311355
+    },
+    {
+      "usage": {
+        "prompt_tokens": 30948,
+        "total_tokens": 31002,
+        "completion_tokens": 54,
+        "prompt_tokens_details": {
+          "cached_tokens": 28928
+        }
+      },
+      "estimated_cny": 0.27999
+    },
+    {
+      "usage": {
+        "prompt_tokens": 33527,
+        "total_tokens": 34964,
+        "completion_tokens": 1437,
+        "prompt_tokens_details": {
+          "cached_tokens": 30720
+        }
+      },
+      "estimated_cny": 0.340542
+    },
+    {
+      "usage": {
+        "prompt_tokens": 35000,
+        "total_tokens": 35047,
+        "completion_tokens": 47,
+        "prompt_tokens_details": {
+          "cached_tokens": 33280
+        }
+      },
+      "estimated_cny": 0.316269
+    },
+    {
+      "usage": {
+        "prompt_tokens": 36497,
+        "total_tokens": 36853,
+        "completion_tokens": 356,
+        "prompt_tokens_details": {
+          "cached_tokens": 34816
+        }
+      },
+      "estimated_cny": 0.338085
+    },
+    {
+      "usage": {
+        "prompt_tokens": 23846,
+        "total_tokens": 23940,
+        "completion_tokens": 94,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.217152
+    },
+    {
+      "usage": {
+        "prompt_tokens": 29081,
+        "total_tokens": 29189,
+        "completion_tokens": 108,
+        "prompt_tokens_details": {
+          "cached_tokens": 23808
+        }
+      },
+      "estimated_cny": 0.264645
+    },
+    {
+      "usage": {
+        "prompt_tokens": 29800,
+        "total_tokens": 29902,
+        "completion_tokens": 102,
+        "prompt_tokens_details": {
+          "cached_tokens": 28928
+        }
+      },
+      "estimated_cny": 0.270954
+    },
+    {
+      "usage": {
+        "prompt_tokens": 31348,
+        "total_tokens": 31514,
+        "completion_tokens": 166,
+        "prompt_tokens_details": {
+          "cached_tokens": 29696
+        }
+      },
+      "estimated_cny": 0.286614
+    },
+    {
+      "usage": {
+        "prompt_tokens": 32180,
+        "total_tokens": 32530,
+        "completion_tokens": 350,
+        "prompt_tokens_details": {
+          "cached_tokens": 31232
+        }
+      },
+      "estimated_cny": 0.29907
+    },
+    {
+      "usage": {
+        "prompt_tokens": 23511,
+        "total_tokens": 23573,
+        "completion_tokens": 62,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.213273
+    },
+    {
+      "usage": {
+        "prompt_tokens": 25887,
+        "total_tokens": 26097,
+        "completion_tokens": 210,
+        "prompt_tokens_details": {
+          "cached_tokens": 23296
+        }
+      },
+      "estimated_cny": 0.238653
+    },
+    {
+      "usage": {
+        "prompt_tokens": 28387,
+        "total_tokens": 28742,
+        "completion_tokens": 355,
+        "prompt_tokens_details": {
+          "cached_tokens": 25856
+        }
+      },
+      "estimated_cny": 0.265068
+    },
+    {
+      "usage": {
+        "prompt_tokens": 28907,
+        "total_tokens": 29190,
+        "completion_tokens": 283,
+        "prompt_tokens_details": {
+          "cached_tokens": 28160
+        }
+      },
+      "estimated_cny": 0.267804
+    },
+    {
+      "usage": {
+        "prompt_tokens": 21720,
+        "total_tokens": 21785,
+        "completion_tokens": 65,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.197235
+    },
+    {
+      "usage": {
+        "prompt_tokens": 26985,
+        "total_tokens": 27295,
+        "completion_tokens": 310,
+        "prompt_tokens_details": {
+          "cached_tokens": 21504
+        }
+      },
+      "estimated_cny": 0.251235
+    },
+    {
+      "usage": {
+        "prompt_tokens": 27326,
+        "total_tokens": 27422,
+        "completion_tokens": 96,
+        "prompt_tokens_details": {
+          "cached_tokens": 26880
+        }
+      },
+      "estimated_cny": 0.248526
+    },
+    {
+      "usage": {
+        "prompt_tokens": 27777,
+        "total_tokens": 28218,
+        "completion_tokens": 441,
+        "prompt_tokens_details": {
+          "cached_tokens": 27136
+        }
+      },
+      "estimated_cny": 0.2619
+    },
+    {
+      "usage": {
+        "prompt_tokens": 28884,
+        "total_tokens": 33517,
+        "completion_tokens": 4633,
+        "prompt_tokens_details": {
+          "cached_tokens": 27648
+        }
+      },
+      "estimated_cny": 0.385047
+    },
+    {
+      "usage": {
+        "prompt_tokens": 33546,
+        "total_tokens": 33814,
+        "completion_tokens": 268,
+        "prompt_tokens_details": {
+          "cached_tokens": 28672
+        }
+      },
+      "estimated_cny": 0.30915
+    },
+    {
+      "usage": {
+        "prompt_tokens": 33845,
+        "total_tokens": 34159,
+        "completion_tokens": 314,
+        "prompt_tokens_details": {
+          "cached_tokens": 33536
+        }
+      },
+      "estimated_cny": 0.313083
+    },
+    {
+      "usage": {
+        "prompt_tokens": 34192,
+        "total_tokens": 34482,
+        "completion_tokens": 290,
+        "prompt_tokens_details": {
+          "cached_tokens": 33792
+        }
+      },
+      "estimated_cny": 0.315558
+    },
+    {
+      "usage": {
+        "prompt_tokens": 21499,
+        "total_tokens": 21592,
+        "completion_tokens": 93,
+        "prompt_tokens_details": {
+          "cached_tokens": 20992
+        }
+      },
+      "estimated_cny": 0.196002
+    },
+    {
+      "usage": {
+        "prompt_tokens": 23707,
+        "total_tokens": 23964,
+        "completion_tokens": 257,
+        "prompt_tokens_details": {
+          "cached_tokens": 21248
+        }
+      },
+      "estimated_cny": 0.220302
+    },
+    {
+      "usage": {
+        "prompt_tokens": 25831,
+        "total_tokens": 26487,
+        "completion_tokens": 656,
+        "prompt_tokens_details": {
+          "cached_tokens": 23552
+        }
+      },
+      "estimated_cny": 0.250191
+    },
+    {
+      "usage": {
+        "prompt_tokens": 26619,
+        "total_tokens": 28327,
+        "completion_tokens": 1708,
+        "prompt_tokens_details": {
+          "cached_tokens": 25600
+        }
+      },
+      "estimated_cny": 0.285687
+    },
+    {
+      "usage": {
+        "prompt_tokens": 28362,
+        "total_tokens": 28558,
+        "completion_tokens": 196,
+        "prompt_tokens_details": {
+          "cached_tokens": 26368
+        }
+      },
+      "estimated_cny": 0.26055
+    },
+    {
+      "usage": {
+        "prompt_tokens": 33669,
+        "total_tokens": 35897,
+        "completion_tokens": 2228,
+        "prompt_tokens_details": {
+          "cached_tokens": 28160
+        }
+      },
+      "estimated_cny": 0.363177
+    },
+    {
+      "usage": {
+        "prompt_tokens": 35931,
+        "total_tokens": 35998,
+        "completion_tokens": 67,
+        "prompt_tokens_details": {
+          "cached_tokens": 33536
+        }
+      },
+      "estimated_cny": 0.325188
+    },
+    {
+      "usage": {
+        "prompt_tokens": 36319,
+        "total_tokens": 36461,
+        "completion_tokens": 142,
+        "prompt_tokens_details": {
+          "cached_tokens": 35840
+        }
+      },
+      "estimated_cny": 0.330705
+    },
+    {
+      "usage": {
+        "prompt_tokens": 21467,
+        "total_tokens": 21673,
+        "completion_tokens": 206,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.198765
+    },
+    {
+      "usage": {
+        "prompt_tokens": 29200,
+        "total_tokens": 29318,
+        "completion_tokens": 118,
+        "prompt_tokens_details": {
+          "cached_tokens": 21248
+        }
+      },
+      "estimated_cny": 0.265986
+    },
+    {
+      "usage": {
+        "prompt_tokens": 32308,
+        "total_tokens": 32509,
+        "completion_tokens": 201,
+        "prompt_tokens_details": {
+          "cached_tokens": 29184
+        }
+      },
+      "estimated_cny": 0.296199
+    },
+    {
+      "usage": {
+        "prompt_tokens": 34691,
+        "total_tokens": 35016,
+        "completion_tokens": 325,
+        "prompt_tokens_details": {
+          "cached_tokens": 32256
+        }
+      },
+      "estimated_cny": 0.320994
+    },
+    {
+      "usage": {
+        "prompt_tokens": 35054,
+        "total_tokens": 35201,
+        "completion_tokens": 147,
+        "prompt_tokens_details": {
+          "cached_tokens": 34560
+        }
+      },
+      "estimated_cny": 0.319455
+    },
+    {
+      "usage": {
+        "prompt_tokens": 35239,
+        "total_tokens": 35386,
+        "completion_tokens": 147,
+        "prompt_tokens_details": {
+          "cached_tokens": 34816
+        }
+      },
+      "estimated_cny": 0.32112
+    },
+    {
+      "usage": {
+        "prompt_tokens": 35424,
+        "total_tokens": 35717,
+        "completion_tokens": 293,
+        "prompt_tokens_details": {
+          "cached_tokens": 35072
+        }
+      },
+      "estimated_cny": 0.326727
+    },
+    {
+      "usage": {
+        "prompt_tokens": 35755,
+        "total_tokens": 35941,
+        "completion_tokens": 186,
+        "prompt_tokens_details": {
+          "cached_tokens": 35328
+        }
+      },
+      "estimated_cny": 0.326817
+    },
+    {
+      "usage": {
+        "prompt_tokens": 21458,
+        "total_tokens": 21597,
+        "completion_tokens": 139,
+        "prompt_tokens_details": {
+          "cached_tokens": 17664
+        }
+      },
+      "estimated_cny": 0.196875
+    },
+    {
+      "usage": {
+        "prompt_tokens": 29092,
+        "total_tokens": 29374,
+        "completion_tokens": 282,
+        "prompt_tokens_details": {
+          "cached_tokens": 21248
+        }
+      },
+      "estimated_cny": 0.269442
+    },
+    {
+      "usage": {
+        "prompt_tokens": 35175,
+        "total_tokens": 35556,
+        "completion_tokens": 381,
+        "prompt_tokens_details": {
+          "cached_tokens": 28928
+        }
+      },
+      "estimated_cny": 0.326862
+    },
+    {
+      "usage": {
+        "prompt_tokens": 37563,
+        "total_tokens": 45309,
+        "completion_tokens": 7746,
+        "prompt_tokens_details": {
+          "cached_tokens": 35072
+        }
+      },
+      "estimated_cny": 0.547209
+    },
+    {
+      "usage": {
+        "prompt_tokens": 45346,
+        "total_tokens": 47229,
+        "completion_tokens": 1883,
+        "prompt_tokens_details": {
+          "cached_tokens": 37376
+        }
+      },
+      "estimated_cny": 0.458955
+    },
+    {
+      "usage": {
+        "prompt_tokens": 47266,
+        "total_tokens": 47363,
+        "completion_tokens": 97,
+        "prompt_tokens_details": {
+          "cached_tokens": 45312
+        }
+      },
+      "estimated_cny": 0.428013
+    },
+    {
+      "usage": {
+        "prompt_tokens": 34202,
+        "total_tokens": 34283,
+        "completion_tokens": 81,
+        "prompt_tokens_details": {
+          "cached_tokens": 21248
+        }
+      },
+      "estimated_cny": 0.310005
+    },
+    {
+      "usage": {
+        "prompt_tokens": 39394,
+        "total_tokens": 40977,
+        "completion_tokens": 1583,
+        "prompt_tokens_details": {
+          "cached_tokens": 34048
+        }
+      },
+      "estimated_cny": 0.397287
+    },
+    {
+      "usage": {
+        "prompt_tokens": 21518,
+        "total_tokens": 21684,
+        "completion_tokens": 166,
+        "prompt_tokens_details": {
+          "cached_tokens": 21248
+        }
+      },
+      "estimated_cny": 0.198144
+    },
+    {
+      "usage": {
+        "prompt_tokens": 27291,
+        "total_tokens": 27466,
+        "completion_tokens": 175,
+        "prompt_tokens_details": {
+          "cached_tokens": 21504
+        }
+      },
+      "estimated_cny": 0.250344
+    },
+    {
+      "usage": {
+        "prompt_tokens": 28461,
+        "total_tokens": 31401,
+        "completion_tokens": 2940,
+        "prompt_tokens_details": {
+          "cached_tokens": 27136
+        }
+      },
+      "estimated_cny": 0.335529
+    },
+    {
+      "usage": {
+        "prompt_tokens": 31438,
+        "total_tokens": 31635,
+        "completion_tokens": 197,
+        "prompt_tokens_details": {
+          "cached_tokens": 28416
+        }
+      },
+      "estimated_cny": 0.288261
+    },
+    {
+      "usage": {
+        "prompt_tokens": 31787,
+        "total_tokens": 47197,
+        "completion_tokens": 15410,
+        "prompt_tokens_details": {
+          "cached_tokens": 31232
+        }
+      },
+      "estimated_cny": 0.702153
+    },
+    {
+      "usage": {
+        "prompt_tokens": 47436,
+        "total_tokens": 47608,
+        "completion_tokens": 172,
+        "prompt_tokens_details": {
+          "cached_tokens": 31744
+        }
+      },
+      "estimated_cny": 0.431568
+    },
+    {
+      "usage": {
+        "prompt_tokens": 48066,
+        "total_tokens": 48307,
+        "completion_tokens": 241,
+        "prompt_tokens_details": {
+          "cached_tokens": 47360
+        }
+      },
+      "estimated_cny": 0.439101
+    },
+    {
+      "usage": {
+        "prompt_tokens": 48373,
+        "total_tokens": 48467,
+        "completion_tokens": 94,
+        "prompt_tokens_details": {
+          "cached_tokens": 47872
+        }
+      },
+      "estimated_cny": 0.437895
+    },
+    {
+      "usage": {
+        "prompt_tokens": 20099,
+        "total_tokens": 20267,
+        "completion_tokens": 168,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.185427
+    },
+    {
+      "usage": {
+        "prompt_tokens": 26767,
+        "total_tokens": 26947,
+        "completion_tokens": 180,
+        "prompt_tokens_details": {
+          "cached_tokens": 19968
+        }
+      },
+      "estimated_cny": 0.245763
+    },
+    {
+      "usage": {
+        "prompt_tokens": 33397,
+        "total_tokens": 33572,
+        "completion_tokens": 175,
+        "prompt_tokens_details": {
+          "cached_tokens": 26624
+        }
+      },
+      "estimated_cny": 0.305298
+    },
+    {
+      "usage": {
+        "prompt_tokens": 33724,
+        "total_tokens": 39941,
+        "completion_tokens": 6217,
+        "prompt_tokens_details": {
+          "cached_tokens": 33280
+        }
+      },
+      "estimated_cny": 0.471375
+    },
+    {
+      "usage": {
+        "prompt_tokens": 39975,
+        "total_tokens": 40282,
+        "completion_tokens": 307,
+        "prompt_tokens_details": {
+          "cached_tokens": 33536
+        }
+      },
+      "estimated_cny": 0.368064
+    },
+    {
+      "usage": {
+        "prompt_tokens": 40318,
+        "total_tokens": 40539,
+        "completion_tokens": 221,
+        "prompt_tokens_details": {
+          "cached_tokens": 39936
+        }
+      },
+      "estimated_cny": 0.368829
+    },
+    {
+      "usage": {
+        "prompt_tokens": 40573,
+        "total_tokens": 41025,
+        "completion_tokens": 452,
+        "prompt_tokens_details": {
+          "cached_tokens": 40192
+        }
+      },
+      "estimated_cny": 0.377361
+    },
+    {
+      "usage": {
+        "prompt_tokens": 41059,
+        "total_tokens": 41370,
+        "completion_tokens": 311,
+        "prompt_tokens_details": {
+          "cached_tokens": 40448
+        }
+      },
+      "estimated_cny": 0.377928
+    },
+    {
+      "usage": {
+        "prompt_tokens": 17570,
+        "total_tokens": 17740,
+        "completion_tokens": 170,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.16272
+    },
+    {
+      "usage": {
+        "prompt_tokens": 23499,
+        "total_tokens": 23794,
+        "completion_tokens": 295,
+        "prompt_tokens_details": {
+          "cached_tokens": 17408
+        }
+      },
+      "estimated_cny": 0.219456
+    },
+    {
+      "usage": {
+        "prompt_tokens": 23827,
+        "total_tokens": 23885,
+        "completion_tokens": 58,
+        "prompt_tokens_details": {
+          "cached_tokens": 23296
+        }
+      },
+      "estimated_cny": 0.216009
+    },
+    {
+      "usage": {
+        "prompt_tokens": 28393,
+        "total_tokens": 28697,
+        "completion_tokens": 304,
+        "prompt_tokens_details": {
+          "cached_tokens": 23808
+        }
+      },
+      "estimated_cny": 0.263745
+    },
+    {
+      "usage": {
+        "prompt_tokens": 19755,
+        "total_tokens": 19876,
+        "completion_tokens": 121,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.181062
+    },
+    {
+      "usage": {
+        "prompt_tokens": 27976,
+        "total_tokens": 30317,
+        "completion_tokens": 2341,
+        "prompt_tokens_details": {
+          "cached_tokens": 19712
+        }
+      },
+      "estimated_cny": 0.314991
+    },
+    {
+      "usage": {
+        "prompt_tokens": 32646,
+        "total_tokens": 33973,
+        "completion_tokens": 1327,
+        "prompt_tokens_details": {
+          "cached_tokens": 27904
+        }
+      },
+      "estimated_cny": 0.329643
+    },
+    {
+      "usage": {
+        "prompt_tokens": 33997,
+        "total_tokens": 34081,
+        "completion_tokens": 84,
+        "prompt_tokens_details": {
+          "cached_tokens": 32512
+        }
+      },
+      "estimated_cny": 0.308241
+    },
+    {
+      "usage": {
+        "prompt_tokens": 39167,
+        "total_tokens": 39966,
+        "completion_tokens": 799,
+        "prompt_tokens_details": {
+          "cached_tokens": 33792
+        }
+      },
+      "estimated_cny": 0.374076
+    },
+    {
+      "usage": {
+        "prompt_tokens": 40004,
+        "total_tokens": 40795,
+        "completion_tokens": 791,
+        "prompt_tokens_details": {
+          "cached_tokens": 38912
+        }
+      },
+      "estimated_cny": 0.381393
+    },
+    {
+      "usage": {
+        "prompt_tokens": 40832,
+        "total_tokens": 40884,
+        "completion_tokens": 52,
+        "prompt_tokens_details": {
+          "cached_tokens": 39936
+        }
+      },
+      "estimated_cny": 0.368892
+    },
+    {
+      "usage": {
+        "prompt_tokens": 43675,
+        "total_tokens": 44344,
+        "completion_tokens": 669,
+        "prompt_tokens_details": {
+          "cached_tokens": 40704
+        }
+      },
+      "estimated_cny": 0.411138
+    },
+    {
+      "usage": {
+        "prompt_tokens": 20087,
+        "total_tokens": 20212,
+        "completion_tokens": 125,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.184158
+    },
+    {
+      "usage": {
+        "prompt_tokens": 25585,
+        "total_tokens": 31612,
+        "completion_tokens": 6027,
+        "prompt_tokens_details": {
+          "cached_tokens": 19968
+        }
+      },
+      "estimated_cny": 0.392994
+    },
+    {
+      "usage": {
+        "prompt_tokens": 34393,
+        "total_tokens": 34760,
+        "completion_tokens": 367,
+        "prompt_tokens_details": {
+          "cached_tokens": 25344
+        }
+      },
+      "estimated_cny": 0.319446
+    },
+    {
+      "usage": {
+        "prompt_tokens": 34784,
+        "total_tokens": 34864,
+        "completion_tokens": 80,
+        "prompt_tokens_details": {
+          "cached_tokens": 34304
+        }
+      },
+      "estimated_cny": 0.315216
+    },
+    {
+      "usage": {
+        "prompt_tokens": 34887,
+        "total_tokens": 34967,
+        "completion_tokens": 80,
+        "prompt_tokens_details": {
+          "cached_tokens": 34560
+        }
+      },
+      "estimated_cny": 0.316143
+    },
+    {
+      "usage": {
+        "prompt_tokens": 34990,
+        "total_tokens": 35048,
+        "completion_tokens": 58,
+        "prompt_tokens_details": {
+          "cached_tokens": 34816
+        }
+      },
+      "estimated_cny": 0.316476
+    },
+    {
+      "usage": {
+        "prompt_tokens": 37216,
+        "total_tokens": 37799,
+        "completion_tokens": 583,
+        "prompt_tokens_details": {
+          "cached_tokens": 34816
+        }
+      },
+      "estimated_cny": 0.350685
+    },
+    {
+      "usage": {
+        "prompt_tokens": 21793,
+        "total_tokens": 21887,
+        "completion_tokens": 94,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.198675
+    },
+    {
+      "usage": {
+        "prompt_tokens": 26233,
+        "total_tokens": 28309,
+        "completion_tokens": 2076,
+        "prompt_tokens_details": {
+          "cached_tokens": 21760
+        }
+      },
+      "estimated_cny": 0.292149
+    },
+    {
+      "usage": {
+        "prompt_tokens": 28341,
+        "total_tokens": 28701,
+        "completion_tokens": 360,
+        "prompt_tokens_details": {
+          "cached_tokens": 26112
+        }
+      },
+      "estimated_cny": 0.264789
+    },
+    {
+      "usage": {
+        "prompt_tokens": 28735,
+        "total_tokens": 28997,
+        "completion_tokens": 262,
+        "prompt_tokens_details": {
+          "cached_tokens": 28160
+        }
+      },
+      "estimated_cny": 0.265689
+    },
+    {
+      "usage": {
+        "prompt_tokens": 30557,
+        "total_tokens": 30799,
+        "completion_tokens": 242,
+        "prompt_tokens_details": {
+          "cached_tokens": 28672
+        }
+      },
+      "estimated_cny": 0.281547
+    },
+    {
+      "usage": {
+        "prompt_tokens": 22476,
+        "total_tokens": 22536,
+        "completion_tokens": 60,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.203904
+    },
+    {
+      "usage": {
+        "prompt_tokens": 27712,
+        "total_tokens": 27793,
+        "completion_tokens": 81,
+        "prompt_tokens_details": {
+          "cached_tokens": 22272
+        }
+      },
+      "estimated_cny": 0.251595
+    },
+    {
+      "usage": {
+        "prompt_tokens": 27824,
+        "total_tokens": 27886,
+        "completion_tokens": 62,
+        "prompt_tokens_details": {
+          "cached_tokens": 27648
+        }
+      },
+      "estimated_cny": 0.25209
+    },
+    {
+      "usage": {
+        "prompt_tokens": 28232,
+        "total_tokens": 44616,
+        "completion_tokens": 16384,
+        "prompt_tokens_details": {
+          "cached_tokens": 27648
+        }
+      },
+      "estimated_cny": 0.696456
+    },
+    {
+      "usage": {
+        "prompt_tokens": 28289,
+        "total_tokens": 35941,
+        "completion_tokens": 7652,
+        "prompt_tokens_details": {
+          "cached_tokens": 28160
+        }
+      },
+      "estimated_cny": 0.461205
+    },
+    {
+      "usage": {
+        "prompt_tokens": 35971,
+        "total_tokens": 36233,
+        "completion_tokens": 262,
+        "prompt_tokens_details": {
+          "cached_tokens": 28160
+        }
+      },
+      "estimated_cny": 0.330813
+    }
+  ],
+  "valid_api_responses": 114,
+  "files": [
+    {
+      "path": ".env.example",
+      "sha256": "794c61483e204339be7b0c01937b3e3ec8b1e437e2a270fc58453be5860eca82"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "4d65e9b26388919c166f3c7563135ce18fcb37dce333126d1fe2558e5ec8d508"
+    },
+    {
+      "path": "Jenkinsfile",
+      "sha256": "8bb3a37dbd5a14250a4df3bc9b2dbbf488c2549ef7e2283c65b85f89175216e0"
+    },
+    {
+      "path": "README.md",
+      "sha256": "137f2fed5b8a87a3e2ee7532b74bed44798de18f82d36e037945b0b4bc1f715b"
+    },
+    {
+      "path": "architecture-decisions.md",
+      "sha256": "b76261f712b87c797ed3a8323f3ec7307f951ef081f55bb28717921bff4ed060"
+    },
+    {
+      "path": "compose.yaml",
+      "sha256": "3779b486f9e6122b59652866ce86f1100f00453f9fe899b69ec79b138cc9cc35"
+    },
+    {
+      "path": "internal.proto",
+      "sha256": "66f5dcec7d18cbb3fca95d6fd6a956d671ef21dadbe82de9c3b818ddf28aed68"
+    },
+    {
+      "path": "openapi.yaml",
+      "sha256": "a1c8e8cd0fb84ae3abf4a14a49d89f3883067193b3ceb0f85e4945d3c49d65bf"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "81431123a7a713a9663249cf924ce0d240507ba1fc1d3fdbc7384143b872bae5"
+    },
+    {
+      "path": "package.json",
+      "sha256": "54073f894996fb6d770008fa7b290539e2e4d1ae8a94823bc33bb42da0ef064d"
+    },
+    {
+      "path": "plan.json",
+      "sha256": "0f46db9adf50d2ae5427a12fabda245caf650833a13fe1dbb9a444898509294a"
+    },
+    {
+      "path": "traceability.json",
+      "sha256": "a551eccc3d5396e49a6c4748dcd4e71ebf2c3a4cb0100caee03c127a57dc2171"
+    },
+    {
+      "path": "gateway/Dockerfile",
+      "sha256": "3e89b7ad5cb1b9ed64de911a8f6ae19d642f9f4ea0211ae7176d85c67c388d8b"
+    },
+    {
+      "path": "gateway/package.json",
+      "sha256": "c7bfa35a1bdb4205980a0d6f22a100666d026a2984abc92c4c9d2446930500b6"
+    },
+    {
+      "path": "gateway/public/index.html",
+      "sha256": "524ed90caa5008aa33eccf737c2815a0d2d7b733749c9ea3016b2a3dbeb0cdae"
+    },
+    {
+      "path": "gateway/public/css/style.css",
+      "sha256": "aed08f8ab94e25dd49a1e765d2c034ca111b1b40a7cbd0e7934fefd422e8dfe5"
+    },
+    {
+      "path": "gateway/public/js/api.js",
+      "sha256": "69b044ab3511a2c25efc01e87ef9a41e51b859f054f8dab5f2de98fa2d620c20"
+    },
+    {
+      "path": "gateway/public/js/app.js",
+      "sha256": "31ea91b962f880fc361912e3ce1fec50530f1f30708d5ef10d8b584e4486991f"
+    },
+    {
+      "path": "gateway/public/js/ui.js",
+      "sha256": "687078b2368ef9ed5d6a84ceefddd31e36c9917e20910b2bf6ac77201df4cc67"
+    },
+    {
+      "path": "gateway/src/index.js",
+      "sha256": "f6bd9a105bb2a2648b1632b3081a2b35f2fb8c7a3fdcefc8a88d208b8dfc4cfe"
+    },
+    {
+      "path": "gateway/src/middleware.js",
+      "sha256": "f2d4d51e34b0c7bb3cfa9749f35823bc3c5782966b9f290a19455b14d49bae1e"
+    },
+    {
+      "path": "gateway/src/routes.js",
+      "sha256": "8b569d8ba7998a654c08c2fc2782a4caa5ae6d977370ae9787b1d3c4c62e6658"
+    },
+    {
+      "path": "istio/destination-rules.yaml",
+      "sha256": "e69893f803ba571ff075ae5c6b556ad30a01c3e182298bb53ef193b5d32f2d0c"
+    },
+    {
+      "path": "istio/gateway.yaml",
+      "sha256": "6e6732a3586302d1f7ea7e0a2fa55ff08fa51729a017ff6bc50e6f04091d19ed"
+    },
+    {
+      "path": "istio/peer-authentication.yaml",
+      "sha256": "3e71671220cd97a86eba9f0a0d0e9681ac542a09b83c86eed013ab23052e7877"
+    },
+    {
+      "path": "istio/virtual-service.yaml",
+      "sha256": "3ed1848e618faf1c984876f906fb7d6cd1f2448b36671c0bb0b22354713237f1"
+    },
+    {
+      "path": "k8s/admin-service-deployment.yaml",
+      "sha256": "412e032447c5878f49de942679e76e74c27b077bc48b84125dcf103514108989"
+    },
+    {
+      "path": "k8s/configmap.yaml",
+      "sha256": "9b4cbb2c2979cfab9ab72af845a55c11f328bc382905d096256eb1b09fd82d29"
+    },
+    {
+      "path": "k8s/game-service-deployment.yaml",
+      "sha256": "2e0e5e26c4c6dd3c4413009c55e959d455f2576cd83d010650d21cd51e74e3de"
+    },
+    {
+      "path": "k8s/gateway-deployment.yaml",
+      "sha256": "aadec3acf393a113b4edba2dbe95c472f05b96ba6dc851bb6ed1a2d5f5ac7273"
+    },
+    {
+      "path": "k8s/hpa.yaml",
+      "sha256": "47196ccb04fbaabbc1f5f17d49468965be084bdc88239c2f825acb15372bcadb"
+    },
+    {
+      "path": "k8s/ingress.yaml",
+      "sha256": "bef2fb632779ca0cd2ddeb2f46589f559bbaf178e4e094080b35fa6a2ae4c227"
+    },
+    {
+      "path": "k8s/namespace.yaml",
+      "sha256": "add133888d3f6ec34a963e007c16bc8ea7ec3b4e647aa3cc1358e2c453e681f9"
+    },
+    {
+      "path": "k8s/question-service-deployment.yaml",
+      "sha256": "9e0f80def8dfad4f8dd22785d6adfd57b0e57a7af320726b448b693852dfe1fd"
+    },
+    {
+      "path": "k8s/user-service-deployment.yaml",
+      "sha256": "27b39537839e32be8a064ff453d14e35a7d4b9f8eee345b140b47fbd77b34e2c"
+    },
+    {
+      "path": "keycloak/realm.json",
+      "sha256": "864317b3e9b7f1889d8672fa50d66887ba0c4343dba881c0005ad7a97ddf6986"
+    },
+    {
+      "path": "prometheus/prometheus.yml",
+      "sha256": "1d91441026b9233ff1cbd6afd141002d4fa9621d963ea921502e6822526d3d24"
+    },
+    {
+      "path": "scripts/check-sources.js",
+      "sha256": "6a9c8cac3adebf7fcd78dd5194c36523e9e7fca5a6e6fde9d47b7bcd11f3eb7a"
+    },
+    {
+      "path": "services/admin-service/Dockerfile",
+      "sha256": "64b2d100d421ddd4c1ea2fcf4df7b31c7badf80a1b11e292df94b8d55ddac7b8"
+    },
+    {
+      "path": "services/admin-service/package.json",
+      "sha256": "d54799146984d920f2445a1aeb42c6f4378375e4f3b3bc45ca0075d0f3eae4f5"
+    },
+    {
+      "path": "services/admin-service/src/index.js",
+      "sha256": "6327f9b686b01c610cc8e69beda985d89146fec9ffb851923f60f8a91baa2ad2"
+    },
+    {
+      "path": "services/admin-service/src/routes.js",
+      "sha256": "ff1e30bb882b9d065930023a9598453982e299047045b512cfc90d74b1b45242"
+    },
+    {
+      "path": "services/admin-service/test/admin.test.js",
+      "sha256": "5af391a69eb38ed302f5d348985e2ed48c9e635a8546ec6c499c5938b8d1c0e4"
+    },
+    {
+      "path": "services/game-service/Dockerfile",
+      "sha256": "97dfd4f72f2d89c67a1bab2e61df17f74986d1d50f70ed1fdff44488e64486f1"
+    },
+    {
+      "path": "services/game-service/package.json",
+      "sha256": "55fabcc43cb548439322596c042eacb9ca982b962a06fb96a29f0e20a6b766db"
+    },
+    {
+      "path": "services/game-service/src/game-engine.js",
+      "sha256": "9c27f1a5d0738a0a11ee1689b10fc89810cdb08cb3aa5d3482eb99d3710fdb69"
+    },
+    {
+      "path": "services/game-service/src/index.js",
+      "sha256": "279bea7deffe8a1dbf61f9f2d93e896887d59699300199139909bab599578af4"
+    },
+    {
+      "path": "services/game-service/src/routes.js",
+      "sha256": "568ffa51f1bbba7db87caa5f119dcac489c35e707a1556a55ef53bdb67bc9b03"
+    },
+    {
+      "path": "services/game-service/test/game-engine.test.js",
+      "sha256": "2b97bc5d7e50b5e29444e10f8c8c12a35875ca1e505f472b8dc1215506fd1aa4"
+    },
+    {
+      "path": "services/game-service/test/scoring.test.js",
+      "sha256": "97e05cbbbb8cdde8a661acf6af10d38b1cfc51e22940a498f84b7e5c61f93570"
+    },
+    {
+      "path": "services/question-service/Dockerfile",
+      "sha256": "f9eead99abfe9aded0d8d0ea2476f2aac8e2e6a2984b4c25db9b6ba9290bba2d"
+    },
+    {
+      "path": "services/question-service/package.json",
+      "sha256": "783a25922efa8d109135c002d51b6f57155496ea21b12174fd75222c0d99e60f"
+    },
+    {
+      "path": "services/question-service/src/index.js",
+      "sha256": "01e12fd0316d4e3cf33fbdd0b6c2037575cca2f008bbd5e28776fba12f46aee7"
+    },
+    {
+      "path": "services/question-service/src/routes.js",
+      "sha256": "038cd43112374720e7ebce3bccc2d098f88d8b7649090f0addacf73310171efc"
+    },
+    {
+      "path": "services/question-service/src/search.js",
+      "sha256": "16fe77dc47dd323df27a62b7d7260fa82183c32ddd12ba5796eef60f5701571c"
+    },
+    {
+      "path": "services/user-service/Dockerfile",
+      "sha256": "3b487260292a52eda8fd1c14bd51702eb8273e5f25e5b9ef747caca03c0bb7b8"
+    },
+    {
+      "path": "services/user-service/package.json",
+      "sha256": "e0ae0d1275d24344bb0fd5639c717b25852c6ff485bb46b7bbd61ed4cf279147"
+    },
+    {
+      "path": "services/user-service/src/index.js",
+      "sha256": "cbbacdd9860c10a1478abaaec346986fbe7574eef61e9a058ba6a0809867a116"
+    },
+    {
+      "path": "services/user-service/src/routes.js",
+      "sha256": "18064f5df6968c5cdde256b8fbda460724689a01a5987d5e49bf31b15dc85846"
+    },
+    {
+      "path": "shared/package.json",
+      "sha256": "1128cf73603aa666e2ae554be41bea62184a080134a40f4075d98eb8bc4d4b21"
+    },
+    {
+      "path": "shared/src/auth.js",
+      "sha256": "dad92b7fb3317fc7589ba203dd1c8be92149e8c0be002a9611c18f9dd0079208"
+    },
+    {
+      "path": "shared/src/cache.js",
+      "sha256": "781be7f3ff6bfc658d371c39d4a890e271eede48a03cae5667434450b9ed50d0"
+    },
+    {
+      "path": "shared/src/db.js",
+      "sha256": "c11518e488a81d72cacc762c9092eb31f434ad113ee9b4f7e115095910ec7c4b"
+    },
+    {
+      "path": "shared/src/errors.js",
+      "sha256": "2930ea811c6990c5a2ba5e8460e9e1009ff6f22f0227215d227f7202485e6a68"
+    },
+    {
+      "path": "shared/src/fraction.js",
+      "sha256": "7c2e383dd06c1ac489dd0d796f41738281039e468a7b24c8188986aa76618fb3"
+    },
+    {
+      "path": "shared/src/identity.js",
+      "sha256": "0a1355220521f945ac806bf4bbcecd9be0457ee8e8750e580d38001bc7530565"
+    },
+    {
+      "path": "shared/src/metrics.js",
+      "sha256": "e4c950de24c7ffcaadd8a43e5d2c2c9a250381dde5adf719c54137bfc2dd7af5"
+    },
+    {
+      "path": "shared/src/mq.js",
+      "sha256": "4d02f1f66ca50d2a885a48e99fcf2fb2db7c3a1e9d36a6bbe1df073a0eef4fda"
+    },
+    {
+      "path": "shared/test/auth.test.js",
+      "sha256": "9dbb8551cfb5b2aba890c1f186bd88a30a49f006076c9759e5e6dca2b0bf54b8"
+    },
+    {
+      "path": "shared/test/db.test.js",
+      "sha256": "ae3090b24e4753b60f2d5948369c4e2d78f2b45d3ccf16d394416bb887f4ee8d"
+    },
+    {
+      "path": "shared/test/fraction.test.js",
+      "sha256": "84628cf3459b5a289b41e28f0ec043803c700a509562936ecddeace8dcbaa3b6"
+    },
+    {
+      "path": "shared/test/metrics.test.js",
+      "sha256": "d963e86b1cd7b55178f5be6008b51b9e7bd44801327fb7df25e88775c47cc6de"
+    },
+    {
+      "path": "sql/001_initial.sql",
+      "sha256": "5887b644e8d4c0bb7d20ffcbe2fb9de5309e7c33c2de3a8bd97a2b304c7e3bb8"
+    },
+    {
+      "path": "sql/002_seed.sql",
+      "sha256": "8218a286fb82ccaf2c15c3ac652f3dc837acefe43fa74750f2eed031a96778cb"
+    },
+    {
+      "path": "terraform/main.tf",
+      "sha256": "6d3a5fa24fd6728748ce937a9e3bf6ceb4d91413dd8af79e9f69e678d19c48fd"
+    },
+    {
+      "path": "terraform/outputs.tf",
+      "sha256": "1faa3d81e50d9bd097cf2f29492d05b21c7094e9e37b9a8fb3b4e289f2ef4fbd"
+    },
+    {
+      "path": "terraform/variables.tf",
+      "sha256": "5686bdd145b736a65bce927c953af3f02bc70a1caf23fbfd468fe360602c5b15"
+    },
+    {
+      "path": "test/integration/_helpers.js",
+      "sha256": "e273eb5b952fd113def52bf537cb9f1db7ccfaf2bf78cd6332885586c2315d33"
+    },
+    {
+      "path": "test/integration/admin.test.js",
+      "sha256": "81410ebaf9d828c8f89a0e9c06b3c9185992ef952286f033db22318c5bb46d59"
+    },
+    {
+      "path": "test/integration/api.test.js",
+      "sha256": "95f3c308f99a07b2ec68f638e8854f5e583f52a46337940da160b4ec47f159c8"
+    },
+    {
+      "path": "test/integration/auth.test.js",
+      "sha256": "ab088b2ab238d5de43afa9c87cdec65ae1c2b33170b7cb51aae38839adda8fb6"
+    },
+    {
+      "path": "test/integration/game-flow.test.js",
+      "sha256": "867da74d6f3e8304ccd67ee453dfe8738e402e99d6d43926c3569a48c67c302b"
+    },
+    {
+      "path": "vault/vault-config.hcl",
+      "sha256": "7cfe994778a911693ad515c007420f177a54fed1451106a6bc353ed89d8db5f9"
+    },
+    {
+      "path": "vault/vault-policy.hcl",
+      "sha256": "e519f4f0e706f0e9bd6d4183265a76e8f5305ded7ee4da8b709c0cf3ca6c64ce"
+    }
+  ]
+}

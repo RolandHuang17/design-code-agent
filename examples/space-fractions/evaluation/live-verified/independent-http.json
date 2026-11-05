@@ -1,0 +1,79 @@
+{
+  "kind": "independent_http_acceptance",
+  "status": "passed",
+  "checks": [
+    {
+      "check": "health",
+      "status": "passed"
+    },
+    {
+      "check": "missing authentication rejected",
+      "status": "passed"
+    },
+    {
+      "check": "invalid JWT signature rejected",
+      "status": "passed"
+    },
+    {
+      "check": "ordinary user denied admin mutation",
+      "status": "passed"
+    },
+    {
+      "check": "admin question creation",
+      "status": "passed"
+    },
+    {
+      "check": "game creation",
+      "status": "passed"
+    },
+    {
+      "check": "question answer not exposed",
+      "status": "passed"
+    },
+    {
+      "check": "cross-user game access denied",
+      "status": "passed"
+    },
+    {
+      "check": "pause",
+      "status": "passed"
+    },
+    {
+      "check": "paused game rejects answer",
+      "status": "passed"
+    },
+    {
+      "check": "resume",
+      "status": "passed"
+    },
+    {
+      "check": "invalid fraction rejected",
+      "status": "passed"
+    },
+    {
+      "check": "correct scoring",
+      "status": "passed"
+    },
+    {
+      "check": "duplicate answer handled",
+      "status": "passed"
+    },
+    {
+      "check": "score remains one after duplicate",
+      "status": "passed"
+    },
+    {
+      "check": "game reload",
+      "status": "passed"
+    },
+    {
+      "check": "cleanup",
+      "status": "passed"
+    }
+  ],
+  "error_type": null,
+  "limitations": [
+    "Does not prove persistence across service restart",
+    "Does not prove browser usability or production performance"
+  ]
+}

@@ -1,0 +1,725 @@
+[
+  {
+    "profile": "static",
+    "status": "passed",
+    "results": [
+      {
+        "check": "required:package.json",
+        "status": "passed"
+      },
+      {
+        "check": "required:README.md",
+        "status": "passed"
+      },
+      {
+        "check": "required:openapi.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "required:internal.proto",
+        "status": "passed"
+      },
+      {
+        "check": "required:traceability.json",
+        "status": "passed"
+      },
+      {
+        "check": "compose.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "openapi.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "package-lock.json",
+        "status": "passed"
+      },
+      {
+        "check": "package.json",
+        "status": "passed"
+      },
+      {
+        "check": "plan.json",
+        "status": "passed"
+      },
+      {
+        "check": "traceability.json",
+        "status": "passed"
+      },
+      {
+        "check": "gateway/package.json",
+        "status": "passed"
+      },
+      {
+        "check": "gateway/public/js/api.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\gateway\\public\\js\\api.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "gateway/public/js/app.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\gateway\\public\\js\\app.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "gateway/public/js/ui.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\gateway\\public\\js\\ui.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "gateway/src/index.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\gateway\\src\\index.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "gateway/src/middleware.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\gateway\\src\\middleware.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "gateway/src/routes.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\gateway\\src\\routes.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "istio/destination-rules.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "istio/gateway.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "istio/peer-authentication.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "istio/virtual-service.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "k8s/admin-service-deployment.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "k8s/configmap.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "k8s/game-service-deployment.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "k8s/gateway-deployment.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "k8s/hpa.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "k8s/ingress.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "k8s/namespace.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "k8s/question-service-deployment.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "k8s/user-service-deployment.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "keycloak/realm.json",
+        "status": "passed"
+      },
+      {
+        "check": "prometheus/prometheus.yml",
+        "status": "passed"
+      },
+      {
+        "check": "scripts/check-sources.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\scripts\\check-sources.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "services/admin-service/package.json",
+        "status": "passed"
+      },
+      {
+        "check": "services/admin-service/src/index.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\admin-service\\src\\index.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "services/admin-service/src/routes.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\admin-service\\src\\routes.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "services/admin-service/test/admin.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\admin-service\\test\\admin.test.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "services/game-service/package.json",
+        "status": "passed"
+      },
+      {
+        "check": "services/game-service/src/game-engine.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\game-service\\src\\game-engine.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "services/game-service/src/index.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\game-service\\src\\index.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "services/game-service/src/routes.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\game-service\\src\\routes.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "services/game-service/test/game-engine.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\game-service\\test\\game-engine.test.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "services/game-service/test/scoring.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\game-service\\test\\scoring.test.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "services/question-service/package.json",
+        "status": "passed"
+      },
+      {
+        "check": "services/question-service/src/index.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\question-service\\src\\index.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "services/question-service/src/routes.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\question-service\\src\\routes.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "services/question-service/src/search.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\question-service\\src\\search.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "services/user-service/package.json",
+        "status": "passed"
+      },
+      {
+        "check": "services/user-service/src/index.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\user-service\\src\\index.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "services/user-service/src/routes.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\user-service\\src\\routes.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "shared/package.json",
+        "status": "passed"
+      },
+      {
+        "check": "shared/src/auth.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\src\\auth.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "shared/src/cache.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\src\\cache.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "shared/src/db.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\src\\db.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "shared/src/errors.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\src\\errors.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "shared/src/fraction.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\src\\fraction.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "shared/src/identity.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\src\\identity.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "shared/src/metrics.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\src\\metrics.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "shared/src/mq.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\src\\mq.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "shared/test/auth.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\test\\auth.test.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "shared/test/db.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\test\\db.test.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "shared/test/fraction.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\test\\fraction.test.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "shared/test/metrics.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\test\\metrics.test.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "test/integration/_helpers.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\_helpers.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "test/integration/admin.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\admin.test.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "test/integration/api.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\api.test.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "test/integration/auth.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\auth.test.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "test/integration/game-flow.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\game-flow.test.js"
+        ],
+        "output": ""
+      }
+    ]
+  },
+  {
+    "profile": "install",
+    "status": "passed",
+    "exit_code": 0,
+    "timed_out": false,
+    "command": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+      "ci",
+      "--ignore-scripts",
+      "--no-audit",
+      "--no-fund"
+    ],
+    "output": "npm warn deprecated prom-client@15.1.3: prom-client has been replaced by @prometheus-io/client\n\nadded 126 packages in 2s\n"
+  },
+  {
+    "profile": "test",
+    "status": "passed",
+    "exit_code": 0,
+    "timed_out": false,
+    "command": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+      "run",
+      "test",
+      "--ignore-scripts"
+    ],
+    "output": "\n> space-fractions@1.0.0 test\n> node --test shared/test/*.test.js services/*/test/*.test.js\n\n✔ validateQuestionPayload normalizes a valid payload (1.923ms)\n✔ validateQuestionPayload normalizes equivalent correctAnswer to canonical form (0.3287ms)\n✔ validateQuestionPayload rejects a null body (0.4877ms)\n✔ validateQuestionPayload rejects a missing or empty prompt (0.2478ms)\n✔ validateQuestionPayload rejects a non-string prompt (0.1607ms)\n✔ validateQuestionPayload rejects options that are not an array (0.1307ms)\n✔ validateQuestionPayload rejects too few options (0.1651ms)\n✔ validateQuestionPayload rejects too many options (0.2096ms)\n✔ validateQuestionPayload rejects blank or non-string options (0.1936ms)\n✔ validateQuestionPayload rejects duplicate options (0.2547ms)\n✔ validateQuestionPayload rejects a malformed correctAnswer (0.2361ms)\n✔ validateQuestionPayload rejects correctAnswer not present among options (0.152ms)\n✔ validateQuestionPayload accepts an equivalent correctAnswer listed as an option (0.1701ms)\n✔ toAdminQuestion maps a DB row to an admin response shape (0.3116ms)\n✔ createGame with explicit question ids (6.5848ms)\n✔ createGame fetches all questions when none provided (3.4488ms)\n✔ createGame throws when no questions available (4.5083ms)\n✔ getGame authorizes owner (4.1852ms)\n✔ getGame denies non-owner (returns NotFound) (3.374ms)\n✔ getGame allows admin to access any game (3.118ms)\n✔ getGame NotFound for missing game (2.7076ms)\n✔ pauseGame transitions playing -> paused (2.8715ms)\n✔ pauseGame is idempotent when already paused (2.7379ms)\n✔ pauseGame throws ConflictError when completed (3.086ms)\n✔ resumeGame transitions paused -> playing (2.6323ms)\n✔ resumeGame is idempotent when already playing (2.2762ms)\n✔ resumeGame throws ConflictError when completed (2.7569ms)\n✔ getCurrentQuestion returns null when completed (2.5647ms)\n✔ getCurrentQuestion returns the question at the current index (3.01ms)\n✔ submitAnswer rejects answer while paused (3.7075ms)\n✔ submitAnswer rejects malformed fraction (3.2033ms)\n✔ submitAnswer rejects question not in game (2.8255ms)\n✔ submitAnswer correct answer scores 1 and transitions to completed (4.4053ms)\n✔ submitAnswer wrong answer does not increase score (2.5923ms)\n✔ re-answering a question correctly is idempotent (no double score) (5.4008ms)\n✔ getScore returns score and state (2.4345ms)\n✔ getScore NotFound for missing game (2.4352ms)\n✔ score starts at zero and increments once per distinct correct answer (11.9422ms)\n✔ repeated correct answer to same question does not double-count (2.5944ms)\n✔ score never decreases when a previously-correct question is re-answered wrong (2.5379ms)\n✔ score caps at number of distinct questions (2.5666ms)\n✔ full correct run yields max score and completed state (5.9164ms)\n✔ decodeJWT parses header and payload (42.1787ms)\n✔ decodeJWT rejects malformed tokens (0.7623ms)\n✔ validateToken accepts a valid structural token (6.4583ms)\n✔ validateToken strips Bearer prefix (3.5047ms)\n✔ validateToken rejects expired tokens (4.1141ms)\n✔ validateToken rejects not-yet-valid tokens (2.9152ms)\n✔ validateToken rejects wrong issuer (2.1426ms)\n✔ validateToken rejects wrong audience (2.7599ms)\n✔ validateToken rejects tokens signed by a different key (35.7852ms)\n✔ validateToken accepts array audience containing expected value (1.9345ms)\n✔ validateToken throws when OIDC not configured (2.248ms)\n✔ requireAdmin allows users with admin role (0.6263ms)\n✔ requireAdmin rejects users without admin role (0.4322ms)\n✔ requireAdmin rejects missing realm_access (0.2676ms)\n✔ requireAdmin rejects unauthenticated requests (0.65ms)\n✔ findKey locates a key by kid (1.3365ms)\n✔ runMigrations rolls back on script failure and leaves no record (11.4599ms)\n✔ runMigrations records success and skips on repeat startup (1.8789ms)\n✔ runMigrations unwraps explicit BEGIN/COMMIT wrapper (1.4904ms)\n✔ runMigrations acquires advisory lock for serialization (2.2554ms)\n✔ runMigrations releases the client on success (2.5979ms)\n✔ runMigrations releases the client on rollback error (2.215ms)\n✔ parseFraction parses simple fractions (3.5301ms)\n✔ parseFraction parses integers as a/1 (2.0749ms)\n✔ parseFraction normalizes negative denominators (0.2713ms)\n✔ parseFraction handles whitespace (0.2022ms)\n✔ parseFraction rejects zero denominator (0.6708ms)\n✔ parseFraction rejects malformed input (0.3057ms)\n✔ parseFraction rejects non-string input (0.2363ms)\n✔ gcd computes greatest common divisor (0.4043ms)\n✔ reduce simplifies fractions (0.3516ms)\n✔ fractionsEqual treats equivalent fractions as equal (1.0451ms)\n✔ fractionsEqual distinguishes different values (0.2391ms)\n✔ fractionsEqual accepts objects (0.2282ms)\n✔ formatFraction renders reduced form (0.2973ms)\n✔ isValidFraction validates well-formed input (0.2946ms)\n✔ metrics module exposes Prometheus counters and gauges (1.1359ms)\n✔ metricsMiddleware records request duration and count (7.1369ms)\n✔ getMetrics returns Prometheus text format (3.0388ms)\n✔ getContentType returns text/plain variant (0.3064ms)\n✔ counters can be incremented (0.6662ms)\nℹ tests 83\nℹ suites 0\nℹ pass 83\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 955.7395\n"
+  },
+  {
+    "profile": "integration",
+    "status": "failed",
+    "exit_code": 1,
+    "timed_out": false,
+    "command": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+      "run",
+      "test:integration",
+      "--ignore-scripts"
+    ],
+    "output": "est at test\\integration\\admin.test.js:361:1\n✖ invalid question id (non-numeric / zero / negative) returns 400 (11.5591ms)\n  AssertionError [ERR_ASSERTION]: GET id=abc\n  \n  404 !== 400\n  \n      at TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\admin.test.js:366:14)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: false,\n    code: 'ERR_ASSERTION',\n    actual: 404,\n    expected: 400,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\admin.test.js:380:1\n✖ invalid limit returns 400 (7.4703ms)\n  AssertionError [ERR_ASSERTION]: limit=0 should be 400\n  \n  404 !== 400\n  \n      at TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\admin.test.js:387:14)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: false,\n    code: 'ERR_ASSERTION',\n    actual: 404,\n    expected: 400,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\admin.test.js:419:1\n✖ admin cannot create with correctAnswer absent from options (8.048ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  404 !== 400\n  \n      at TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\admin.test.js:431:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 404,\n    expected: 400,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\api.test.js:109:1\n✖ POST /api/games creates a game with questions (201, no correctAnswer) (2717.3061ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  401 !== 201\n  \n      at TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\api.test.js:117:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 401,\n    expected: 201,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\api.test.js:133:1\n✖ POST /api/games without questionIds uses all questions (2709.3095ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  401 !== 201\n  \n      at TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\api.test.js:141:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 401,\n    expected: 201,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\api.test.js:150:1\n✖ GET /api/games/:id returns state and never leaks correctAnswer (5406.5769ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  401 !== 200\n  \n      at TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\api.test.js:164:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 401,\n    expected: 200,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\api.test.js:178:1\n✖ GET /api/games/:id by another user returns 404 (5393.4445ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  401 !== 404\n  \n      at TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\api.test.js:192:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 401,\n    expected: 404,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\api.test.js:199:1\n✖ GET /api/games/:id by admin succeeds even when not owner (5397.2267ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  401 !== 200\n  \n      at TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\api.test.js:213:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 401,\n    expected: 200,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\api.test.js:220:1\n✖ pause then resume round-trip (200 each), answering while paused is 409 (5403.3535ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  401 !== 200\n  \n      at TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\api.test.js:235:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 401,\n    expected: 200,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\api.test.js:258:1\n✖ pause is idempotent (200 when already paused) (8086.6094ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  401 !== 200\n  \n      at TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\api.test.js:277:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 401,\n    expected: 200,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\api.test.js:284:1\n✖ pause by another user returns 404 (no cross-user state change) (5405.3472ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  401 !== 404\n  \n      at TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\api.test.js:299:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 401,\n    expected: 404,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\api.test.js:306:1\n✖ correct answer scores 1 and returns correct:true (5405.4101ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  401 !== 200\n  \n      at TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\api.test.js:322:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 401,\n    expected: 200,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\api.test.js:338:1\n✖ wrong answer scores 0 and returns correct:false (5388.0023ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  401 !== 200\n  \n      at TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\api.test.js:354:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 401,\n    expected: 200,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\api.test.js:364:1\n✖ re-answering a correctly-answered question does not increase score (idempotent) (8148.9844ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  401 !== 200\n  \n      at TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\api.test.js:388:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 401,\n    expected: 200,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\api.test.js:403:1\n✖ answer uses exact rational equivalence (unreduced fraction accepted) (5391.6428ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  401 !== 200\n  \n      at TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\api.test.js:420:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 401,\n    expected: 200,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\api.test.js:428:1\n✖ malformed fraction answer is rejected with 400 (5417.1262ms)\n  AssertionError [ERR_ASSERTION]: answer \"abc\" should be 400\n  \n  401 !== 400\n  \n      at TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\api.test.js:445:14)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: false,\n    code: 'ERR_ASSERTION',\n    actual: 401,\n    expected: 400,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\api.test.js:453:1\n✖ answering a question not in the game returns 400 (5402.6543ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  401 !== 400\n  \n      at TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\api.test.js:469:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 401,\n    expected: 400,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\api.test.js:476:1\n✖ missing questionId/answer body is rejected with 400 (5391.3757ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  401 !== 400\n  \n      at TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\api.test.js:492:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 401,\n    expected: 400,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\api.test.js:499:1\n✖ completing all questions transitions game to completed (8126.3313ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  401 !== 200\n  \n      at TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\api.test.js:519:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 401,\n    expected: 200,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\api.test.js:527:1\n✖ score endpoint by another user returns 404 (5408.6123ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  401 !== 404\n  \n      at TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\api.test.js:541:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 401,\n    expected: 404,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\api.test.js:548:1\n✖ score endpoint publishes a score event on first correct answer (5418.4163ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  0 !== 1\n  \n      at TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\api.test.js:565:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 0,\n    expected: 1,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\auth.test.js:85:1\n✖ admin endpoints without credentials return 401 (366.1908ms)\n  AssertionError [ERR_ASSERTION]: GET /questions should be 401 without token\n  \n  404 !== 401\n  \n      at TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\auth.test.js:100:14)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {\n    generatedMessage: false,\n    code: 'ERR_ASSERTION',\n    actual: 404,\n    expected: 401,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\auth.test.js:108:1\n✖ malformed Authorization header returns 401 (11.816ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  404 !== 401\n  \n      at TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\auth.test.js:114:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 404,\n    expected: 401,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\auth.test.js:121:1\n✖ token with wrong issuer is rejected (401) (9.0874ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  404 !== 401\n  \n      at TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\auth.test.js:126:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 404,\n    expected: 401,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\auth.test.js:133:1\n✖ expired token is rejected (401) (9.5147ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  404 !== 401\n  \n      at TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\auth.test.js:138:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 404,\n    expected: 401,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\auth.test.js:145:1\n✖ token with wrong audience is rejected (401) (8.9546ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  404 !== 401\n  \n      at TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\auth.test.js:150:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 404,\n    expected: 401,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\auth.test.js:161:1\n✖ authenticated non-admin user gets 403 on admin endpoints (23.0936ms)\n  AssertionError [ERR_ASSERTION]: non-admin create should be 403\n  \n  404 !== 403\n  \n      at TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\auth.test.js:174:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: false,\n    code: 'ERR_ASSERTION',\n    actual: 404,\n    expected: 403,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\auth.test.js:196:1\n✖ admin can create a question (201) with correct_answer visible (9.5132ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  404 !== 201\n  \n      at TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\auth.test.js:208:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 404,\n    expected: 201,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\auth.test.js:220:1\n✖ admin can list questions (200) with correct_answer included (8.43ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  404 !== 200\n  \n      at TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\auth.test.js:224:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 404,\n    expected: 200,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\auth.test.js:236:1\n✖ admin can get a single question (200) with correct_answer (9.2494ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  404 !== 200\n  \n      at TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\auth.test.js:240:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 404,\n    expected: 200,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\auth.test.js:250:1\n✖ admin can update a question (200) (9.8756ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  404 !== 200\n  \n      at TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\auth.test.js:262:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 404,\n    expected: 200,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\auth.test.js:272:1\n✖ admin can delete a question (204) (6.4807ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  404 !== 204\n  \n      at TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\auth.test.js:279:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 404,\n    expected: 204,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\auth.test.js:316:1\n✖ game creation requires authentication (401) but works for any user (201) (5413.63ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  401 !== 201\n  \n      at TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\auth.test.js:333:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 401,\n    expected: 201,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\auth.test.js:340:1\n✖ admin role does not leak correctAnswer through game endpoints (5402.183ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  401 !== 200\n  \n      at TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\auth.test.js:354:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 401,\n    expected: 200,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\game-flow.test.js:88:1\n✖ full game lifecycle: play three questions to completion with correct score (5586.9902ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  401 !== 201\n  \n      at createGame (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\game-flow.test.js:84:10)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\game-flow.test.js:91:18)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 401,\n    expected: 201,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\game-flow.test.js:158:1\n✖ score only increments on correct answers across a mixed game (2722.0992ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  401 !== 201\n  \n      at createGame (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\game-flow.test.js:84:10)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\game-flow.test.js:161:18)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 401,\n    expected: 201,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\game-flow.test.js:204:1\n✖ paused game retains progress; resume allows answering next question (2716.6222ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  401 !== 201\n  \n      at createGame (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\game-flow.test.js:84:10)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\game-flow.test.js:207:18)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 401,\n    expected: 201,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\game-flow.test.js:265:1\n✖ re-answering an already-correct question never increases score beyond total (2704.8091ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  401 !== 201\n  \n      at createGame (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\game-flow.test.js:84:10)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\game-flow.test.js:268:18)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 401,\n    expected: 201,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\game-flow.test.js:299:1\n✖ answering after completion is rejected with 409 (409 on completed) (2695.0691ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  401 !== 201\n  \n      at createGame (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\game-flow.test.js:84:10)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\game-flow.test.js:302:18)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 401,\n    expected: 201,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\game-flow.test.js:322:1\n✖ cross-user: another user cannot answer or read score (404) (2709.3988ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  401 !== 201\n  \n      at createGame (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\game-flow.test.js:84:10)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\game-flow.test.js:325:18)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 401,\n    expected: 201,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\game-flow.test.js:358:1\n✖ cross-user pause attempt does not change owner state (404) (2691.6078ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  401 !== 201\n  \n      at createGame (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\game-flow.test.js:84:10)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\game-flow.test.js:361:18)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 401,\n    expected: 201,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\game-flow.test.js:380:1\n✖ admin can read score but game endpoints never leak correctAnswer (2696.5458ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  401 !== 201\n  \n      at createGame (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\game-flow.test.js:84:10)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\game-flow.test.js:383:18)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 401,\n    expected: 201,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration\\game-flow.test.js:410:1\n✖ score endpoint reflects cumulative total and state after partial answers (2703.412ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  401 !== 201\n  \n      at createGame (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\game-flow.test.js:84:10)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\game-flow.test.js:413:18)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 401,\n    expected: 201,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n"
+  },
+  {
+    "profile": "build",
+    "status": "passed",
+    "exit_code": 0,
+    "timed_out": false,
+    "command": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+      "run",
+      "build",
+      "--ignore-scripts"
+    ],
+    "output": "\n> space-fractions@1.0.0 build\n> node scripts/check-sources.js\n\nSpace Fractions — source check\n  ✓ syntax-checked 37 JavaScript file(s)\n  ✓ validated 3 JSON file(s)\n  ✓ structural-checked 15 YAML file(s)\n\nBuild OK: no source issues found.\n"
+  },
+  {
+    "profile": "compose",
+    "status": "unverified",
+    "reason": "缺少 Node.js/npm 或 Docker"
+  },
+  {
+    "profile": "auth",
+    "status": "passed",
+    "exit_code": 0,
+    "timed_out": false,
+    "command": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "D:\\projects\\Task\\codeagent\\acceptance\\auth.cjs",
+      "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project",
+      "C:\\Users\\roland\\AppData\\Local\\Temp\\design-agent-auth-q7alcnt0\\report.json"
+    ],
+    "output": "{\"kind\":\"independent_jwt_acceptance\",\"status\":\"passed\",\"checks\":[{\"check\":\"valid RSA-signed JWT\",\"status\":\"passed\",\"observed\":\"accepted\"},{\"check\":\"wrong signature rejected\",\"status\":\"passed\",\"observed\":\"rejected\"},{\"check\":\"expired token rejected\",\"status\":\"passed\",\"observed\":\"rejected\"},{\"check\":\"wrong issuer rejected\",\"status\":\"passed\",\"observed\":\"rejected\"},{\"check\":\"wrong audience rejected\",\"status\":\"passed\",\"observed\":\"rejected\"},{\"check\":\"future not-before rejected\",\"status\":\"passed\",\"observed\":\"rejected\"}]}\n",
+    "independent_report": {
+      "kind": "independent_jwt_acceptance",
+      "status": "passed",
+      "checks": [
+        {
+          "check": "valid RSA-signed JWT",
+          "status": "passed",
+          "observed": "accepted"
+        },
+        {
+          "check": "wrong signature rejected",
+          "status": "passed",
+          "observed": "rejected"
+        },
+        {
+          "check": "expired token rejected",
+          "status": "passed",
+          "observed": "rejected"
+        },
+        {
+          "check": "wrong issuer rejected",
+          "status": "passed",
+          "observed": "rejected"
+        },
+        {
+          "check": "wrong audience rejected",
+          "status": "passed",
+          "observed": "rejected"
+        },
+        {
+          "check": "future not-before rejected",
+          "status": "passed",
+          "observed": "rejected"
+        }
+      ]
+    }
+  },
+  {
+    "profile": "traceability_links",
+    "status": "passed",
+    "problems": [],
+    "limitation": "只检查链接和来源范围；语义覆盖需要独立审查"
+  },
+  {
+    "profile": "live_postgres_scoring",
+    "target": "services/game-service/src/game-engine.js",
+    "status": "failed",
+    "details": "Independent real Docker PostgreSQL16 HTTP acceptance passes auth, admin CRUD, creation, owner isolation, pause/resume and invalid fraction, but all correct answers return500. PostgreSQL42P01: invalid reference to FROM-clause entry for table excluded. EXCLUDED is not legal in RETURNING. Current CTE newly_scored also observes post-update scored so would miscount. Simplify submitAnswer inside existing withTransaction + SELECT game FOR UPDATE: load existing answer scored, compute newlyScored=correct&&!previous.scored, UPSERT answer preserving scored, UPDATE game score once + advance index/state, return. Preserve ownership/completed replay/pause/exact-fraction behavior. Update fake DB fixtures to execute equivalent real SQL paths, never remove tests. Real8 concurrent duplicates currently500/score0; must become one point. We will independently rerun real DB, don't claim passed from mocks.",
+    "origin": "external_review"
+  },
+  {
+    "profile": "browser_public_client",
+    "target": "keycloak/realm.json",
+    "status": "failed",
+    "details": "Frontend api.js now exchanges auth code WITHOUT secret (correct PKCE design), but realm remains publicClient:false with secret, so login cannot complete. Make this a public browser client, require S256 PKCE, remove client secret, preserve local fixture password grants for external acceptance. Add http://localhost:3100/* redirect and webOrigin alongside3000: THIS Windows host reserves2914..3013 so local host3000 forwarding cannot bind;3100 is operational alternate. Admin fixture lastName is empty: actual login returns invalid_grant Account is not fully set up. Set nonempty lastName for admin fixture; keep clear dev-only credential labeling. Check index.html login button wiring matches app.js + api.js, no manual token paste as main flow.",
+    "origin": "external_review"
+  },
+  {
+    "profile": "keycloak_healthcheck",
+    "target": "compose.yaml",
+    "status": "failed",
+    "details": "Real Keycloak24.0.5 image has neither curl nor wget (docker exec command -v verified); current wget healthcheck never passes despite working token endpoint. Use bash /dev/tcp HTTP healthcheck or equivalent executable actually in image. Do not disable health validation. Keep canonical browser issuer http://localhost:8080/realms/space-fractions and internal OIDC_JWKS_URI. Host gateway port may be ${GATEWAY_PORT:-3000}:3000, allowing3100 override on this host. Preserve Compose other successful services/migrations.",
+    "origin": "external_review"
+  },
+  {
+    "profile": "integration_fixture_upgrade",
+    "target": "test/integration/_helpers.js",
+    "status": "failed",
+    "details": "Root SDK now runs npm test:integration. Shared auth performs real jose RS256 verification, whereas current helper makeToken creates unsigned fake JWTs. Upgrade central integration helper to sign real RSA fixture tokens synchronously (crypto.sign), and serve local JWKS on an ephemeral loopback HTTP endpoint before running service requests; set OIDC_JWKS_URI, real issuer/audience and cleanup. Preserve wrong issuer/aud/expired rejection, all named cases across all four files. Central fake DB must implement new identity subject->int mapping + withTransaction + actual answer UPSERT/update SQL from submitAnswer. Never bypass/disable real auth or delete scenarios to make tests pass. First failures previously missing identity export; shared/package.json now exports it. These tests mock infrastructure; keep independent real Compose acceptance separate.",
+    "origin": "external_review"
+  }
+]

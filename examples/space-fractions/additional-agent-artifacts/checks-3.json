@@ -1,0 +1,702 @@
+[
+  {
+    "profile": "static",
+    "status": "passed",
+    "results": [
+      {
+        "check": "required:package.json",
+        "status": "passed"
+      },
+      {
+        "check": "required:README.md",
+        "status": "passed"
+      },
+      {
+        "check": "required:openapi.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "required:internal.proto",
+        "status": "passed"
+      },
+      {
+        "check": "required:traceability.json",
+        "status": "passed"
+      },
+      {
+        "check": "compose.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "openapi.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "package-lock.json",
+        "status": "passed"
+      },
+      {
+        "check": "package.json",
+        "status": "passed"
+      },
+      {
+        "check": "plan.json",
+        "status": "passed"
+      },
+      {
+        "check": "traceability.json",
+        "status": "passed"
+      },
+      {
+        "check": "gateway/package.json",
+        "status": "passed"
+      },
+      {
+        "check": "gateway/public/js/api.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\gateway\\public\\js\\api.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "gateway/public/js/app.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\gateway\\public\\js\\app.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "gateway/public/js/ui.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\gateway\\public\\js\\ui.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "gateway/src/index.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\gateway\\src\\index.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "gateway/src/middleware.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\gateway\\src\\middleware.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "gateway/src/routes.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\gateway\\src\\routes.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "istio/destination-rules.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "istio/gateway.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "istio/peer-authentication.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "istio/virtual-service.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "k8s/admin-service-deployment.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "k8s/configmap.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "k8s/game-service-deployment.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "k8s/gateway-deployment.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "k8s/hpa.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "k8s/ingress.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "k8s/namespace.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "k8s/question-service-deployment.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "k8s/user-service-deployment.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "keycloak/realm.json",
+        "status": "passed"
+      },
+      {
+        "check": "prometheus/prometheus.yml",
+        "status": "passed"
+      },
+      {
+        "check": "scripts/check-sources.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\scripts\\check-sources.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "services/admin-service/package.json",
+        "status": "passed"
+      },
+      {
+        "check": "services/admin-service/src/index.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\admin-service\\src\\index.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "services/admin-service/src/routes.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\admin-service\\src\\routes.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "services/admin-service/test/admin.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\admin-service\\test\\admin.test.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "services/game-service/package.json",
+        "status": "passed"
+      },
+      {
+        "check": "services/game-service/src/game-engine.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\game-service\\src\\game-engine.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "services/game-service/src/index.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\game-service\\src\\index.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "services/game-service/src/routes.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\game-service\\src\\routes.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "services/game-service/test/game-engine.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\game-service\\test\\game-engine.test.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "services/game-service/test/scoring.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\game-service\\test\\scoring.test.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "services/question-service/package.json",
+        "status": "passed"
+      },
+      {
+        "check": "services/question-service/src/index.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\question-service\\src\\index.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "services/question-service/src/routes.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\question-service\\src\\routes.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "services/question-service/src/search.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\question-service\\src\\search.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "services/user-service/package.json",
+        "status": "passed"
+      },
+      {
+        "check": "services/user-service/src/index.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\user-service\\src\\index.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "services/user-service/src/routes.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\user-service\\src\\routes.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "shared/package.json",
+        "status": "passed"
+      },
+      {
+        "check": "shared/src/auth.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\src\\auth.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "shared/src/cache.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\src\\cache.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "shared/src/db.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\src\\db.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "shared/src/errors.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\src\\errors.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "shared/src/fraction.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\src\\fraction.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "shared/src/identity.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\src\\identity.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "shared/src/metrics.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\src\\metrics.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "shared/src/mq.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\src\\mq.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "shared/test/auth.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\test\\auth.test.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "shared/test/db.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\test\\db.test.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "shared/test/fraction.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\test\\fraction.test.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "shared/test/metrics.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\test\\metrics.test.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "test/integration/_helpers.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\_helpers.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "test/integration/admin.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\admin.test.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "test/integration/api.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\api.test.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "test/integration/auth.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\auth.test.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "test/integration/game-flow.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\game-flow.test.js"
+        ],
+        "output": ""
+      }
+    ]
+  },
+  {
+    "profile": "install",
+    "status": "passed",
+    "exit_code": 0,
+    "timed_out": false,
+    "command": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+      "ci",
+      "--ignore-scripts",
+      "--no-audit",
+      "--no-fund"
+    ],
+    "output": "npm warn deprecated prom-client@15.1.3: prom-client has been replaced by @prometheus-io/client\n\nadded 126 packages in 3s\n"
+  },
+  {
+    "profile": "test",
+    "status": "failed",
+    "exit_code": 1,
+    "timed_out": false,
+    "command": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+      "run",
+      "test",
+      "--ignore-scripts"
+    ],
+    "output": "\n> space-fractions@1.0.0 test\n> node --test shared/test/*.test.js services/*/test/*.test.js\n\n✔ validateQuestionPayload normalizes a valid payload (4.1929ms)\n✔ validateQuestionPayload normalizes equivalent correctAnswer to canonical form (0.6239ms)\n✔ validateQuestionPayload rejects a null body (0.9869ms)\n✔ validateQuestionPayload rejects a missing or empty prompt (0.4751ms)\n✔ validateQuestionPayload rejects a non-string prompt (0.2999ms)\n✔ validateQuestionPayload rejects options that are not an array (0.2522ms)\n✔ validateQuestionPayload rejects too few options (0.2939ms)\n✔ validateQuestionPayload rejects too many options (0.3621ms)\n✔ validateQuestionPayload rejects blank or non-string options (0.9679ms)\n✔ validateQuestionPayload rejects duplicate options (0.5181ms)\n✔ validateQuestionPayload rejects a malformed correctAnswer (0.5773ms)\n✔ validateQuestionPayload rejects correctAnswer not present among options (0.3228ms)\n✔ validateQuestionPayload accepts an equivalent correctAnswer listed as an option (0.3167ms)\n✔ toAdminQuestion maps a DB row to an admin response shape (0.3514ms)\n✔ createGame with explicit question ids (5.4878ms)\n✔ createGame fetches all questions when none provided (2.406ms)\n✔ createGame throws when no questions available (4.3156ms)\n✔ getGame authorizes owner (2.2218ms)\n✔ getGame denies non-owner (returns NotFound) (4.9271ms)\n✔ getGame allows admin to access any game (1.5691ms)\n✔ getGame NotFound for missing game (1.3495ms)\n✔ pauseGame transitions playing -> paused (2.0747ms)\n✔ pauseGame is idempotent when already paused (1.8056ms)\n✔ pauseGame throws ConflictError when completed (2.0057ms)\n✔ resumeGame transitions paused -> playing (1.714ms)\n✔ resumeGame is idempotent when already playing (1.6306ms)\n✔ resumeGame throws ConflictError when completed (1.6889ms)\n✔ getCurrentQuestion returns null when completed (1.5427ms)\n✔ getCurrentQuestion returns the question at the current index (1.8502ms)\n✔ submitAnswer rejects answer while paused (2.12ms)\n✔ submitAnswer rejects malformed fraction (1.8326ms)\n✔ submitAnswer rejects question not in game (6.1784ms)\n✔ submitAnswer correct answer scores 1 and transitions to completed (7.5852ms)\n✔ submitAnswer wrong answer does not increase score (3.2302ms)\n✔ re-answering a question correctly is idempotent (no double score) (3.3336ms)\n✔ getScore returns score and state (1.5884ms)\n✔ getScore NotFound for missing game (1.4812ms)\n✔ score starts at zero and increments once per distinct correct answer (12.1594ms)\n✔ repeated correct answer to same question does not double-count (1.997ms)\n✔ score never decreases when a previously-correct question is re-answered wrong (2.439ms)\n✖ score caps at number of distinct questions (5.3455ms)\n✔ full correct run yields max score and completed state (1.5582ms)\n✔ decodeJWT parses header and payload (54.9429ms)\n✔ decodeJWT rejects malformed tokens (1.6498ms)\n✔ validateToken accepts a valid structural token (13.6598ms)\n✔ validateToken strips Bearer prefix (5.9355ms)\n✔ validateToken rejects expired tokens (7.5052ms)\n✔ validateToken rejects not-yet-valid tokens (10.3892ms)\n✔ validateToken rejects wrong issuer (6.6806ms)\n✔ validateToken rejects wrong audience (5.8611ms)\n✔ validateToken rejects tokens signed by a different key (102.3031ms)\n✔ validateToken accepts array audience containing expected value (14.2033ms)\n✔ validateToken throws when OIDC not configured (5.5036ms)\n✔ requireAdmin allows users with admin role (0.8354ms)\n✔ requireAdmin rejects users without admin role (0.5053ms)\n✔ requireAdmin rejects missing realm_access (0.2868ms)\n✔ requireAdmin rejects unauthenticated requests (0.247ms)\n✔ findKey locates a key by kid (3.7014ms)\n✔ runMigrations rolls back on script failure and leaves no record (7.4875ms)\n✔ runMigrations records success and skips on repeat startup (1.2217ms)\n✔ runMigrations unwraps explicit BEGIN/COMMIT wrapper (1.1665ms)\n✔ runMigrations acquires advisory lock for serialization (0.9609ms)\n✔ runMigrations releases the client on success (0.9749ms)\n✔ runMigrations releases the client on rollback error (0.8465ms)\n✔ parseFraction parses simple fractions (4.9916ms)\n✔ parseFraction parses integers as a/1 (1.8452ms)\n✔ parseFraction normalizes negative denominators (0.3364ms)\n✔ parseFraction handles whitespace (0.2832ms)\n✔ parseFraction rejects zero denominator (1.0069ms)\n✔ parseFraction rejects malformed input (0.5723ms)\n✔ parseFraction rejects non-string input (0.3407ms)\n✔ gcd computes greatest common divisor (0.3734ms)\n✔ reduce simplifies fractions (0.3362ms)\n✔ fractionsEqual treats equivalent fractions as equal (0.4295ms)\n✔ fractionsEqual distinguishes different values (2.4535ms)\n✔ fractionsEqual accepts objects (0.5103ms)\n✔ formatFraction renders reduced form (0.3423ms)\n✔ isValidFraction validates well-formed input (0.2939ms)\n✔ metrics module exposes Prometheus counters and gauges (1.5334ms)\n✔ metricsMiddleware records request duration and count (9.7978ms)\n✔ getMetrics returns Prometheus text format (2.8024ms)\n✔ getContentType returns text/plain variant (0.6356ms)\n✔ counters can be incremented (1.0408ms)\nℹ tests 83\nℹ suites 0\nℹ pass 82\nℹ fail 1\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 2289.7961\n\n✖ failing tests:\n\ntest at services\\game-service\\test\\scoring.test.js:170:1\n✖ score caps at number of distinct questions (5.3455ms)\n  Error [ConflictError]: Game is already completed\n      at D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\game-service\\src\\game-engine.js:221:13\n      at async TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\game-service\\test\\scoring.test.js:176:17)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    statusCode: 409,\n    code: 'CONFLICT'\n  }\n"
+  },
+  {
+    "profile": "integration",
+    "status": "passed",
+    "exit_code": 0,
+    "timed_out": false,
+    "command": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+      "run",
+      "test:integration",
+      "--ignore-scripts"
+    ],
+    "output": "\n> space-fractions@1.0.0 test:integration\n> node --test test/integration/*.test.js\n\n✔ admin CRUD without credentials returns 401 (1295.957ms)\n✔ malformed Authorization header returns 401 (17.1221ms)\n✔ token with wrong issuer is rejected (401) (20.1816ms)\n✔ expired token is rejected (401) (13.6821ms)\n✔ authenticated non-admin gets 403 on every admin endpoint (29.682ms)\n✔ admin create returns 201 with correctAnswer and normalized id (20.0437ms)\n✔ admin create normalizes equivalent correctAnswer to canonical form (17.3321ms)\n✔ admin list returns all seeded questions with correctAnswer (200) (17.0781ms)\n✔ admin list supports ?limit= (18.3822ms)\n✔ admin get single question returns 200 with correctAnswer (15.7355ms)\n✔ admin update (PUT) returns 200 and replaces the question (27.4941ms)\n✔ admin delete returns 204 and the question is gone (404 afterwards) (31.8009ms)\n✔ malformed create payloads return 400 (60.0595ms)\n✔ invalid question id (non-numeric / zero / negative) returns 400 (39.1427ms)\n✔ invalid limit returns 400 (28.2109ms)\n✔ update/delete on a non-existent question returns 404 (22.9453ms)\n✔ admin cannot create with correctAnswer absent from options (19.8131ms)\n✔ POST /api/games requires authentication (401) (351.5615ms)\n✔ POST /api/games rejects an invalid token (401) (42.0275ms)\n✔ POST /api/games creates a game with questions (201, no correctAnswer) (30.0248ms)\n✔ POST /api/games without questionIds uses all questions (19.6612ms)\n✔ GET /api/games/:id returns state and never leaks correctAnswer (35.3188ms)\n✔ GET /api/games/:id by another user returns 404 (32.7187ms)\n✔ GET /api/games/:id by admin succeeds even when not owner (31.695ms)\n✔ pause then resume round-trip (200 each), answering while paused is 409 (52.2785ms)\n✔ pause is idempotent (200 when already paused) (42.7876ms)\n✔ pause by another user returns 404 (no cross-user state change) (37.729ms)\n✔ correct answer scores 1 and returns correct:true (45.7268ms)\n✔ wrong answer scores 0 and returns correct:false (25.0851ms)\n✔ re-answering a correctly-answered question does not increase score (idempotent) (48.7967ms)\n✔ answer uses exact rational equivalence (unreduced fraction accepted) (31.9875ms)\n✔ malformed fraction answer is rejected with 400 (60.1061ms)\n✔ answering a question not in the game returns 400 (23.7784ms)\n✔ missing questionId/answer body is rejected with 400 (20.3027ms)\n✔ completing all questions transitions game to completed (33.1855ms)\n✔ score endpoint by another user returns 404 (29.5456ms)\n✔ score endpoint publishes a score event on first correct answer (30.048ms)\n✔ admin endpoints without credentials return 401 (1077.0777ms)\n✔ malformed Authorization header returns 401 (20.8983ms)\n✔ token with wrong issuer is rejected (401) (30.055ms)\n✔ expired token is rejected (401) (16.0864ms)\n✔ token with wrong audience is rejected (401) (20.7395ms)\n✔ authenticated non-admin user gets 403 on admin endpoints (32.0904ms)\n✔ admin can create a question (201) with correct_answer visible (26.0393ms)\n✔ admin can list questions (200) with correct_answer included (17.1201ms)\n✔ admin can get a single question (200) with correct_answer (17.7868ms)\n✔ admin can update a question (200) (15.6987ms)\n✔ admin can delete a question (204) (15.2641ms)\n✔ game creation requires authentication (401) but works for any user (201) (20.4824ms)\n✔ admin role does not leak correctAnswer through game endpoints (24.1565ms)\n✔ full game lifecycle: play three questions to completion with correct score (395.8079ms)\n✔ score only increments on correct answers across a mixed game (66.6069ms)\n✔ paused game retains progress; resume allows answering next question (85.1109ms)\n✔ re-answering an already-correct question never increases score beyond total (63.6485ms)\n✔ answering after completion is rejected with 409 (409 on completed) (43.1267ms)\n✔ cross-user: another user cannot answer or read score (404) (55.065ms)\n✔ cross-user pause attempt does not change owner state (404) (41.2195ms)\n✔ admin can read score but game endpoints never leak correctAnswer (47.1992ms)\n✔ score endpoint reflects cumulative total and state after partial answers (49.3141ms)\nℹ tests 59\nℹ suites 0\nℹ pass 59\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 2320.0659\n"
+  },
+  {
+    "profile": "build",
+    "status": "passed",
+    "exit_code": 0,
+    "timed_out": false,
+    "command": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+      "run",
+      "build",
+      "--ignore-scripts"
+    ],
+    "output": "\n> space-fractions@1.0.0 build\n> node scripts/check-sources.js\n\nSpace Fractions — source check\n  ✓ syntax-checked 37 JavaScript file(s)\n  ✓ validated 3 JSON file(s)\n  ✓ structural-checked 15 YAML file(s)\n\nBuild OK: no source issues found.\n"
+  },
+  {
+    "profile": "compose",
+    "status": "unverified",
+    "reason": "缺少 Node.js/npm 或 Docker"
+  },
+  {
+    "profile": "auth",
+    "status": "passed",
+    "exit_code": 0,
+    "timed_out": false,
+    "command": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "D:\\projects\\Task\\codeagent\\acceptance\\auth.cjs",
+      "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project",
+      "C:\\Users\\roland\\AppData\\Local\\Temp\\design-agent-auth-y0oxrfbs\\report.json"
+    ],
+    "output": "{\"kind\":\"independent_jwt_acceptance\",\"status\":\"passed\",\"checks\":[{\"check\":\"valid RSA-signed JWT\",\"status\":\"passed\",\"observed\":\"accepted\"},{\"check\":\"wrong signature rejected\",\"status\":\"passed\",\"observed\":\"rejected\"},{\"check\":\"expired token rejected\",\"status\":\"passed\",\"observed\":\"rejected\"},{\"check\":\"wrong issuer rejected\",\"status\":\"passed\",\"observed\":\"rejected\"},{\"check\":\"wrong audience rejected\",\"status\":\"passed\",\"observed\":\"rejected\"},{\"check\":\"future not-before rejected\",\"status\":\"passed\",\"observed\":\"rejected\"}]}\n",
+    "independent_report": {
+      "kind": "independent_jwt_acceptance",
+      "status": "passed",
+      "checks": [
+        {
+          "check": "valid RSA-signed JWT",
+          "status": "passed",
+          "observed": "accepted"
+        },
+        {
+          "check": "wrong signature rejected",
+          "status": "passed",
+          "observed": "rejected"
+        },
+        {
+          "check": "expired token rejected",
+          "status": "passed",
+          "observed": "rejected"
+        },
+        {
+          "check": "wrong issuer rejected",
+          "status": "passed",
+          "observed": "rejected"
+        },
+        {
+          "check": "wrong audience rejected",
+          "status": "passed",
+          "observed": "rejected"
+        },
+        {
+          "check": "future not-before rejected",
+          "status": "passed",
+          "observed": "rejected"
+        }
+      ]
+    }
+  },
+  {
+    "profile": "traceability_links",
+    "status": "passed",
+    "problems": [],
+    "limitation": "只检查链接和来源范围；语义覆盖需要独立审查"
+  },
+  {
+    "profile": "external_review_retest",
+    "status": "unverified",
+    "reason": "外部反馈已用于修复，但必须由独立验收重新验证；不能根据模型文字判为通过"
+  }
+]

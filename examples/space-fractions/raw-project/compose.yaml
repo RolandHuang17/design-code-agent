@@ -1,0 +1,331 @@
+# Space Fractions – Docker Compose topology
+#
+# Brings up the full system: gateway + four microservices, plus the
+# backing infrastructure (PostgreSQL, Redis, RabbitMQ, Elasticsearch,
+# Keycloak OIDC provider, Prometheus). This file pins all image versions
+# to reproducible tags (no `latest`).
+#
+# Port map (host):
+#   3000  gateway            (browser UI + REST API)
+#   5432  postgres
+#   6379  redis
+#   5672  rabbitmq (AMQP) / 15672 management UI
+#   9200  elasticsearch
+#   8080  keycloak
+#   9090  prometheus
+#   9091-9094  service metrics (game/question/user/admin)
+#   9095  gateway metrics
+#
+# OIDC note: Keycloak is configured with KC_HOSTNAME=localhost so the token
+# `iss` is browser-accessible at http://localhost:8080/realms/space-fractions.
+# Backend services validate that issuer but fetch the JWKS from the internal
+# http://keycloak:8080 address (OIDC_JWKS_URI) so signature verification works
+# on the internal network. This is the standard front-channel/back-channel
+# split; the internal address is not reachable from a browser running on the
+# host, so clients must use the public issuer.
+#
+# Note on migrations: services apply idempotent SQL at startup (see
+# sql/001_initial.sql, sql/002_seed.sql). The sql/ directory and the
+# OpenAPI spec are bind-mounted read-only so the images (which do not
+# bake these files in) can apply migrations and serve the spec.
+
+name: space-fractions
+
+# Shared environment for every backend service. Anchored here (not on a
+# service) so per-service ports never leak into sibling services and
+# Docker Compose does not report duplicate environment keys.
+x-service-env: &service-env
+  NODE_ENV: production
+  PGHOST: postgres
+  PGPORT: "5432"
+  PGDATABASE: ${PGDATABASE:-spacefractions}
+  PGUSER: ${PGUSER:-spacefractions}
+  PGPASSWORD: ${PGPASSWORD:-spacefractions}
+  REDIS_URL: redis://redis:6379
+  RABBITMQ_URL: ${RABBITMQ_URL:-amqp://guest:guest@rabbitmq:5672}
+  ELASTICSEARCH_URL: http://elasticsearch:9200
+  OIDC_ISSUER: ${OIDC_ISSUER:-http://localhost:8080/realms/space-fractions}
+  OIDC_JWKS_URI: ${OIDC_JWKS_URI:-http://keycloak:8080/realms/space-fractions/protocol/openid-connect/certs}
+  OIDC_CLIENT_ID: ${OIDC_CLIENT_ID:-space-fractions-client}
+  OIDC_AUDIENCE: ${OIDC_AUDIENCE:-account}
+
+services:
+  postgres:
+    image: postgres:16.4-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${PGDATABASE:-spacefractions}
+      POSTGRES_USER: ${PGUSER:-spacefractions}
+      POSTGRES_PASSWORD: ${PGPASSWORD:-spacefractions}
+      # Run the idempotent seed inside the DB container (authoritative).
+      POSTGRES_INITDB_ARGS: "--"
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./sql:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${PGUSER:-spacefractions} -d ${PGDATABASE:-spacefractions}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7.4-alpine
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes"]
+    ports:
+      - "6379:6379"
+    volumes:
+      - redisdata:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  rabbitmq:
+    image: rabbitmq:3.13-management-alpine
+    restart: unless-stopped
+    environment:
+      # Default credentials are fine for local development only.
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER:-guest}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS:-guest}
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - rabbitdata:/var/lib/rabbitmq
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.14.3
+    restart: unless-stopped
+    environment:
+      # Single-node dev cluster (reference config, not production-validated).
+      discovery.type: single-node
+      xpack.security.enabled: "false"
+      ES_JAVA_OPTS: "-Xms512m -Xmx512m"
+    ports:
+      - "9200:9200"
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fs http://localhost:9200/_cluster/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:24.0.5
+    restart: unless-stopped
+    command: ["start-dev", "--import-realm"]
+    environment:
+      KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN:-admin}
+      KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD:-admin}
+      KC_HTTP_PORT: "8080"
+      KC_HTTP_ENABLED: "true"
+      # Stable, browser-accessible issuer (http://localhost:8080/...).
+      KC_HOSTNAME: localhost
+      KC_HOSTNAME_PORT: "8080"
+      KC_HOSTNAME_STRICT: "false"
+      # Serve the JWKS using the internal request Host (keycloak:8080) so
+      # backend signature verification works on the internal network.
+      KC_HOSTNAME_BACKCHANNEL_DYNAMIC: "true"
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./keycloak/realm.json:/opt/keycloak/data/import/realm.json:ro
+      # Persist the dev H2 database so runtime identity changes (users,
+      # clients) survive container restarts. Realm import is idempotent.
+      - keycloakdata:/opt/keycloak/data
+    healthcheck:
+      # Keycloak 24 base image does not include curl; busybox wget is present.
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:8080/realms/master/.well-known/openid-configuration"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+
+  game-service:
+    build:
+      context: .
+      dockerfile: services/game-service/Dockerfile
+    restart: unless-stopped
+    environment:
+      <<: *service-env
+      GAME_SERVICE_PORT: "3001"
+      GAME_METRICS_PORT: "9091"
+    ports:
+      - "3001:3001"
+      - "9091:9091"
+    volumes:
+      - ./sql:/app/sql:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:3001/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  question-service:
+    build:
+      context: .
+      dockerfile: services/question-service/Dockerfile
+    restart: unless-stopped
+    environment:
+      <<: *service-env
+      QUESTION_SERVICE_PORT: "3002"
+      QUESTION_METRICS_PORT: "9092"
+    ports:
+      - "3002:3002"
+      - "9092:9092"
+    volumes:
+      - ./sql:/app/sql:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      elasticsearch:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:3002/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  user-service:
+    build:
+      context: .
+      dockerfile: services/user-service/Dockerfile
+    restart: unless-stopped
+    environment:
+      <<: *service-env
+      USER_SERVICE_PORT: "3003"
+      USER_METRICS_PORT: "9093"
+    ports:
+      - "3003:3003"
+      - "9093:9093"
+    volumes:
+      - ./sql:/app/sql:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      # Keycloak readiness is not required at startup (JWKS is validated
+      # lazily on first authenticated request), so only await start.
+      keycloak:
+        condition: service_started
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:3003/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  # admin-service routes import the shared question search module
+  # (services/question-service/src/search.js). That source is baked into
+  # this service's image (see its Dockerfile), so no source bind-mount is
+  # required at runtime.
+  admin-service:
+    build:
+      context: .
+      dockerfile: services/admin-service/Dockerfile
+    restart: unless-stopped
+    environment:
+      <<: *service-env
+      ADMIN_SERVICE_PORT: "3004"
+      ADMIN_METRICS_PORT: "9094"
+    ports:
+      - "3004:3004"
+      - "9094:9094"
+    volumes:
+      - ./sql:/app/sql:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      elasticsearch:
+        condition: service_healthy
+      keycloak:
+        condition: service_started
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:3004/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  gateway:
+    build:
+      context: .
+      dockerfile: gateway/Dockerfile
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+      GATEWAY_METRICS_PORT: "9095"
+      DOWNSTREAM_TIMEOUT_MS: "10000"
+      GAME_SERVICE_URL: http://game-service:3001
+      QUESTION_SERVICE_URL: http://question-service:3002
+      USER_SERVICE_URL: http://user-service:3003
+      ADMIN_SERVICE_URL: http://admin-service:3004
+      OIDC_ISSUER: ${OIDC_ISSUER:-http://localhost:8080/realms/space-fractions}
+      OIDC_JWKS_URI: ${OIDC_JWKS_URI:-http://keycloak:8080/realms/space-fractions/protocol/openid-connect/certs}
+      OIDC_CLIENT_ID: ${OIDC_CLIENT_ID:-space-fractions-client}
+      OIDC_AUDIENCE: ${OIDC_AUDIENCE:-account}
+    ports:
+      - "3000:3000"
+      - "9095:9095"
+    volumes:
+      - ./openapi.yaml:/app/openapi.yaml:ro
+    depends_on:
+      game-service:
+        condition: service_healthy
+      question-service:
+        condition: service_healthy
+      user-service:
+        condition: service_healthy
+      admin-service:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:3000/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  prometheus:
+    image: prom/prometheus:v2.54.0
+    restart: unless-stopped
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/prometheus"
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - promdata:/prometheus
+    depends_on:
+      - gateway
+      - game-service
+      - question-service
+      - user-service
+      - admin-service
+
+volumes:
+  pgdata:
+  redisdata:
+  rabbitdata:
+  esdata:
+  promdata:
+  keycloakdata:

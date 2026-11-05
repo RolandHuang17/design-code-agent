@@ -1,0 +1,79 @@
+[
+  {
+    "path": "README.md",
+    "origin": "operator revision",
+    "reason": "Operator-written current run/test/architecture instructions.",
+    "before_sha256": "137f2fed5b8a87a3e2ee7532b74bed44798de18f82d36e037945b0b4bc1f715b",
+    "after_sha256": "905f0bdb94d50b1cb6918670e5ed00ff60ba90a49a04fc43e4051871ddfc385e"
+  },
+  {
+    "path": "compose.yaml",
+    "origin": "operator revision",
+    "reason": "Use an executable Keycloak healthcheck; configurable gateway host port.",
+    "before_sha256": "3779b486f9e6122b59652866ce86f1100f00453f9fe899b69ec79b138cc9cc35",
+    "after_sha256": "37488745e57ae5963a1b3366bd1b219a93bc479ced472f5aee56f5315715f787"
+  },
+  {
+    "path": "gateway/public/index.html",
+    "origin": "Agent cherry-pick",
+    "reason": "Cherry-pick actual Agent revision0015 from run-20261106-011454-54e56b6d; remove unused token-paste modal.",
+    "before_sha256": "524ed90caa5008aa33eccf737c2815a0d2d7b733749c9ea3016b2a3dbeb0cdae",
+    "after_sha256": "625687d24f7504c2f7319c683307f8cb20a80f4e2fe0111f323d8d1998639caf"
+  },
+  {
+    "path": "gateway/public/js/api.js",
+    "origin": "operator revision",
+    "reason": "Supply client_id for OIDC logout.",
+    "before_sha256": "69b044ab3511a2c25efc01e87ef9a41e51b859f054f8dab5f2de98fa2d620c20",
+    "after_sha256": "6458d40497cf168beee83551d2ba3e054aee5371727c33b6f1cee11754bafc8a"
+  },
+  {
+    "path": "keycloak/realm.json",
+    "origin": "operator revision",
+    "reason": "Public PKCE client, valid demo admin profile and logout/alternate-origin configuration.",
+    "before_sha256": "864317b3e9b7f1889d8672fa50d66887ba0c4343dba881c0005ad7a97ddf6986",
+    "after_sha256": "c0ad8f8012879bd01746b0678995a8beb91582767b24bc656c2cd56fc5712c99"
+  },
+  {
+    "path": "services/game-service/src/game-engine.js",
+    "origin": "operator revision",
+    "reason": "Replace invalid CTE with serialized transaction; reject completed writes; stable question ordering.",
+    "before_sha256": "9c27f1a5d0738a0a11ee1689b10fc89810cdb08cb3aa5d3482eb99d3710fdb69",
+    "after_sha256": "56fd693178e85a9a7c19c4b5f238c93718b0c1d6a5eb8958c2d94a54b4700416"
+  },
+  {
+    "path": "services/game-service/test/game-engine.test.js",
+    "origin": "operator revision",
+    "reason": "Adapt fake DB SQL to transaction fix; no named scenario removed.",
+    "before_sha256": "2b97bc5d7e50b5e29444e10f8c8c12a35875ca1e505f472b8dc1215506fd1aa4",
+    "after_sha256": "a0a368e481a58927358a468135d6756db9004f63932f311a1362e89cd1777832"
+  },
+  {
+    "path": "services/game-service/test/scoring.test.js",
+    "origin": "operator revision",
+    "reason": "Adapt fake SQL; completed replay explicitly409 and score remains3, reconciling existing completion tests.",
+    "before_sha256": "97e05cbbbb8cdde8a661acf6af10d38b1cfc51e22940a498f84b7e5c61f93570",
+    "after_sha256": "7797003c38b24602402e6199d961624b96b7b2ccca2096c955349f477c29c2d0"
+  },
+  {
+    "path": "sql/002_seed.sql",
+    "origin": "operator revision",
+    "reason": "Single-fraction comparison fixture; empty-bank guard and transaction lock avoid repeated seeds.",
+    "before_sha256": "8218a286fb82ccaf2c15c3ac652f3dc837acefe43fa74750f2eed031a96778cb",
+    "after_sha256": "09da0b853c23fcaf5b192ddc6a2b3ff464c4a3ca26bbced8189cd74ba523ab7c"
+  },
+  {
+    "path": "test/integration/_helpers.js",
+    "origin": "operator revision",
+    "reason": "Real RSA-signed test tokens and local JWKS; correct SQL adapters, route base paths, cache invalidation.",
+    "before_sha256": "e273eb5b952fd113def52bf537cb9f1db7ccfaf2bf78cd6332885586c2315d33",
+    "after_sha256": "ec3c2af7dfa858dd7e7105631646a48a4d7d0bdd043c7a855d59542c48aab9d3"
+  },
+  {
+    "path": "test/support/answer-db.js",
+    "origin": "operator revision",
+    "reason": "Test-only common SQL adapter; real DB verified separately.",
+    "before_sha256": null,
+    "after_sha256": "627cf6b38e24c4f76a50b9a9c79bf8868ff8adcfbe9fc65acaffda77df758fc9"
+  }
+]

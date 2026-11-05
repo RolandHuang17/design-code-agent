@@ -1,0 +1,20 @@
+# Space Fractions - ConfigMap (non-sensitive shared configuration)
+#
+# Reference-only configuration: syntactically valid and aligned with the
+# env keys referenced by the deployment manifests and compose.yaml. It has
+# NOT been validated against a live cluster.
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: space-fractions-config
+  namespace: space-fractions
+  labels:
+    app.kubernetes.io/name: space-fractions
+    app.kubernetes.io/part-of: space-fractions
+data:
+  DOWNSTREAM_TIMEOUT_MS: "3000"
+  REDIS_URL: "redis://redis.space-fractions.svc:6379"
+  RABBITMQ_URL: "amqp://rabbitmq.space-fractions.svc:5672"
+  ELASTICSEARCH_URL: "http://elasticsearch.space-fractions.svc:9200"
+  OIDC_ISSUER: "http://keycloak.space-fractions.svc:8080/realms/space-fractions"
+  OIDC_AUDIENCE: "account"

@@ -1,0 +1,10 @@
+{
+  "kind": "independent_http_acceptance",
+  "status": "failed",
+  "checks": [],
+  "error_type": "URLError",
+  "limitations": [
+    "Does not prove persistence across service restart",
+    "Does not prove browser usability or production performance"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "checks": [
+    {
+      "check": "concurrent game creation",
+      "status": "passed",
+      "http_status": 201
+    },
+    {
+      "check": "8 concurrent duplicate answers score once",
+      "status": "passed",
+      "response_statuses": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "score": 1
+    },
+    {
+      "check": "score survives service restart",
+      "status": "passed"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "space-fractions",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Space Fractions - sixth-grade fraction learning system",
+  "workspaces": [
+    "shared",
+    "gateway",
+    "services/game-service",
+    "services/question-service",
+    "services/user-service",
+    "services/admin-service"
+  ],
+  "scripts": {
+    "build": "node scripts/check-sources.js",
+    "start": "echo 'Use compose.yaml to start all services. Gateway: node gateway/src/index.js'",
+    "test": "node --test shared/test/*.test.js services/*/test/*.test.js",
+    "test:integration": "node --test test/integration/*.test.js",
+    "test:all": "node --test shared/test/*.test.js services/*/test/*.test.js test/integration/*.test.js",
+    "lint": "node --check gateway/src/index.js"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "devDependencies": {
+  }
+}

@@ -119,11 +119,14 @@ class Agent:
                            "Existing file presence is not proof of correctness; final host checks follow all tasks.")
         messages = self.context(toolset) + [{"role": "user", "content": instruction}]
         truncations = 0
-        for _ in range(limit):
+        initial_revision = toolset.revision
+        for iteration in range(limit):
             if self.cancel.is_set():
                 raise Cancelled("用户取消")
             if self.turns >= MAX_TURNS:
                 raise RuntimeError(f"达到 {MAX_TURNS} 次模型轮次上限")
+            if name == "repair" and iteration == limit - 3 and toolset.revision == initial_revision:
+                messages.append({"role": "user", "content": "HOST NOTICE: Only three responses remain in this repair group and no file has changed. Use the files already read to apply ONE concrete small repair now, then check it. Avoid further repository exploration. Tool read_file accepts only path and optional offset (characters), not limit or line numbers."})
             self.turns += 1
             try:
                 message = self.provider.complete(messages, TOOL_SCHEMAS)
@@ -168,7 +171,8 @@ class Agent:
                         break
                 messages = self.context(toolset) + [{"role": "user", "content": instruction + "\nContinue from files already written. Do not rewrite completed modules unnecessarily."}] + tail
         if task or name == "repair":
-            self.event("phase_turn_limit", note="Return current progress to the host for remaining-file scheduling or verification")
+            self.event("phase_turn_limit", writes=toolset.revision - initial_revision,
+                       note="Return current progress to the host for remaining-file scheduling or verification")
             return
         raise RuntimeError(f"{name} 达到阶段轮次上限；已保留文件，可查看日志定位未完成任务")
 
@@ -273,7 +277,7 @@ class Agent:
                     break
                 report["repair_rounds"] = round_number + 1
                 for group in self.repair_groups(checks):
-                    self.phase_loop("repair", tools, 8, group)
+                    self.phase_loop("repair", tools, 12, group)
             if any(c["status"] == "failed" for c in report["checks"]):
                 report["status"] = "failed_validation"
             elif any(c["status"] == "unverified" for c in report["checks"]):

@@ -1,0 +1,229 @@
+syntax = "proto3";
+
+package spacefractions;
+
+// Internal gRPC contracts for inter-service communication within the
+// Space Fractions microservices system.
+//
+// This file defines service-to-service RPC interfaces that are NOT exposed
+// directly to browser clients. External traffic is handled by the gateway's
+// REST API (see openapi.yaml). These contracts are derived from the
+// architecture documentation (Architecture_Documentation.md "Internal
+// contracts") and consolidated for all four components:
+//   - GameComponent   (game logic, game state)
+//   - QuestionComponent (question persistence and search)
+//   - UserComponent   (authentication/authorization context)
+//   - AdminComponent  (question CRUD management)
+//
+// The original architecture supplied a single minimal GameService.Play rpc.
+// This file expands it into a coherent, internally consistent contract while
+// preserving the original Play rpc name and message shape for compatibility.
+
+// ---------------------------------------------------------------------------
+// GameService: game lifecycle and gameplay.
+// ---------------------------------------------------------------------------
+service GameService {
+  // Start a new game. Optionally constrained to a fixed set of questions for
+  // reproducible practice sessions.
+  rpc Play(PlayRequest) returns (PlayResponse) {}
+
+  // Retrieve the current state of a game. Never includes answer keys.
+  rpc GetGame(GetGameRequest) returns (GetGameResponse) {}
+
+  // Pause an in-progress game.
+  rpc Pause(ControlRequest) returns (ControlResponse) {}
+
+  // Resume a paused game.
+  rpc Resume(ControlRequest) returns (ControlResponse) {}
+
+  // Submit an answer to a question within a game. Idempotent with respect to
+  // scoring: re-answering an already-answered question must not increase score.
+  rpc SubmitAnswer(SubmitAnswerRequest) returns (SubmitAnswerResponse) {}
+
+  // Retrieve the current score for a game.
+  rpc GetScore(GetScoreRequest) returns (ScoreResponse) {}
+}
+
+message PlayRequest {
+  int32 game_id = 1;
+  // Subject identifier owning the game. Required for authorization.
+  string owner_sub = 2;
+  // Optional constrained question ids for reproducible practice.
+  repeated int32 question_ids = 3;
+}
+
+message PlayResponse {
+  int32 game_id = 1;
+  GameState state = 2;
+}
+
+message GetGameRequest {
+  int32 game_id = 1;
+  string owner_sub = 2;
+}
+
+message GetGameResponse {
+  int32 game_id = 1;
+  GameState state = 2;
+}
+
+message ControlRequest {
+  int32 game_id = 1;
+  string owner_sub = 2;
+}
+
+message ControlResponse {
+  int32 game_id = 1;
+  GameState state = 2;
+}
+
+message SubmitAnswerRequest {
+  int32 game_id = 1;
+  string owner_sub = 2;
+  int32 question_id = 3;
+  // Fraction answer represented exactly (no floating point). E.g. "3/4".
+  string answer = 4;
+}
+
+message SubmitAnswerResponse {
+  int32 game_id = 1;
+  bool correct = 2;
+  int32 score = 3;
+}
+
+message GetScoreRequest {
+  int32 game_id = 1;
+  string owner_sub = 2;
+}
+
+message ScoreResponse {
+  int32 game_id = 1;
+  int32 score = 2;
+}
+
+// GameState encodes the non-secret view of a game.
+message GameState {
+  int32 game_id = 1;
+  string status = 2;      // "playing" | "paused" | "game_over"
+  int32 score = 3;
+  repeated QuestionView questions = 4;
+}
+
+// QuestionView is a question as presented to a player. Deliberately excludes
+// the correct answer.
+message QuestionView {
+  int32 id = 1;
+  string prompt = 2;
+  repeated string options = 3;
+}
+
+// ---------------------------------------------------------------------------
+// QuestionService: question persistence and retrieval.
+// ---------------------------------------------------------------------------
+service QuestionService {
+  // Fetch a page of questions for gameplay. Excludes answer keys.
+  rpc ListQuestions(ListQuestionsRequest) returns (ListQuestionsResponse) {}
+
+  // Fetch a single question by id. Excludes answer key.
+  rpc GetQuestion(GetQuestionRequest) returns (QuestionView) {}
+
+  // Search questions. Delegates to Elasticsearch.
+  rpc SearchQuestions(SearchQuestionsRequest) returns (ListQuestionsResponse) {}
+}
+
+message ListQuestionsRequest {
+  int32 limit = 1;
+  int32 offset = 2;
+}
+
+message ListQuestionsResponse {
+  repeated QuestionView questions = 1;
+  int32 total = 2;
+}
+
+message GetQuestionRequest {
+  int32 question_id = 1;
+}
+
+message SearchQuestionsRequest {
+  string query = 1;
+  int32 limit = 2;
+  int32 offset = 3;
+}
+
+// ---------------------------------------------------------------------------
+// UserService: authentication/authorization context.
+// ---------------------------------------------------------------------------
+service UserService {
+  // Resolve an OIDC subject to an internal user profile. Used by the gateway
+  // to authorize per-user game ownership.
+  rpc GetProfile(GetProfileRequest) returns (Profile) {}
+}
+
+message GetProfileRequest {
+  string subject = 1; // OIDC "sub" claim
+}
+
+message Profile {
+  string subject = 1;
+  string username = 2;
+  repeated string roles = 3;
+}
+
+// ---------------------------------------------------------------------------
+// AdminService: question CRUD (admin only).
+// ---------------------------------------------------------------------------
+service AdminService {
+  // Create a new question. Returns the complete question including the
+  // correct answer (admin scope only).
+  rpc CreateQuestion(CreateQuestionRequest) returns (QuestionRecord) {}
+
+  // Delete a question by id.
+  rpc DeleteQuestion(DeleteQuestionRequest) returns (DeleteQuestionResponse) {}
+
+  // Update a question by id.
+  rpc UpdateQuestion(UpdateQuestionRequest) returns (QuestionRecord) {}
+
+  // List questions including answer keys (admin scope only).
+  rpc ListQuestionsAdmin(ListQuestionsRequest) returns (ListQuestionsAdminResponse) {}
+}
+
+message CreateQuestionRequest {
+  string prompt = 1;
+  repeated string options = 2;
+  string correct_answer = 3;
+  string actor_sub = 4;      // authenticated admin subject
+  string actor_roles = 5;    // comma-separated roles claim (validated server-side)
+}
+
+message QuestionRecord {
+  int32 id = 1;
+  string prompt = 2;
+  repeated string options = 3;
+  string correct_answer = 4; // admin scope only
+}
+
+message DeleteQuestionRequest {
+  int32 question_id = 1;
+  string actor_sub = 2;
+  string actor_roles = 3;
+}
+
+message DeleteQuestionResponse {
+  int32 question_id = 1;
+  bool deleted = 2;
+}
+
+message UpdateQuestionRequest {
+  int32 question_id = 1;
+  string prompt = 2;
+  repeated string options = 3;
+  string correct_answer = 4;
+  string actor_sub = 5;
+  string actor_roles = 6;
+}
+
+message ListQuestionsAdminResponse {
+  repeated QuestionRecord questions = 1;
+  int32 total = 2;
+}

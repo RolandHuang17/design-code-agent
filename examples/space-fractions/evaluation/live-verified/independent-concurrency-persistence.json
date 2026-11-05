@@ -1,0 +1,50 @@
+{
+  "checks": [
+    {
+      "check": "gateway downstream readiness",
+      "status": "passed",
+      "http_status": 200
+    },
+    {
+      "check": "question indexed and found through actual Elasticsearch",
+      "status": "failed"
+    },
+    {
+      "check": "Prometheus scrapes five service metrics endpoints",
+      "status": "passed",
+      "targets": 5
+    },
+    {
+      "check": "concurrent game creation",
+      "status": "passed",
+      "http_status": 201
+    },
+    {
+      "check": "8 concurrent duplicate answers score once",
+      "status": "passed",
+      "response_statuses": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "score": 1
+    },
+    {
+      "check": "score survives service restart",
+      "status": "passed"
+    },
+    {
+      "check": "actual Redis game cache contains latest persisted score",
+      "status": "passed"
+    },
+    {
+      "check": "real score event delivered through RabbitMQ",
+      "status": "passed"
+    }
+  ]
+}

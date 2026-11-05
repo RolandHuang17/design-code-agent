@@ -1,0 +1,6 @@
+{
+  "kind": "independent_rabbitmq_delivery",
+  "status": "passed",
+  "event": "score.updated",
+  "score": 1
+}

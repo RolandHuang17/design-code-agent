@@ -1,0 +1,22 @@
+[
+  {
+    "profile": "real_postgres_migrations",
+    "details": "CONFIRMED with real PostgreSQL 16.4: generated services start migrations on an already initialized DB, hit relation idx_users_sub already exists, then business APIs return 500 with SQLSTATE 25P02 current transaction is aborted. shared/src/db.js runMigrations splits scripts on semicolons and executes BEGIN/statements through independently borrowed pool clients, with no rollback on error. Fix using one owned client, proper rollback/release and repeatable, serialized migration handling; ensure repeated or concurrent service startup leaves the pool healthy. Preserve original SQL and game data; do not solve by deleting the DB. Add a regression for failure rollback and repeat startup. Evidence: parent run artifacts/runtime-probe.json and probe logs."
+  },
+  {
+    "profile": "identity_mapping_consistency",
+    "details": "STATIC INSPECTION: users.id and games.user_id are INTEGER/FK, but game-service routes getUserId returns raw OIDC sub (a UUID string). Resolve/upsert the stable users row by verified subject, use its numeric internal ID consistently for game ownership, and retain cross-user 403/404 behavior. Admin/user service mapping must agree. Real create-game success and cross-user denial will be independently retested after the DB failure is fixed."
+  },
+  {
+    "profile": "score_concurrency",
+    "details": "STATIC INSPECTION CONCERN (not yet reproduced live): submitAnswer reads existing answer then increments score separately from INSERT ON CONFLICT, so concurrent duplicate submissions can both increment. Make answer deduplication, score and progress/state mutation atomic using a transaction and row lock or equivalent correct DB primitive. Keep wrong answers/paused/completed behavior and enforce ownership in the same operation. Add a concurrent-duplicate regression without weakening existing cases."
+  },
+  {
+    "profile": "compose_real_runtime",
+    "details": "Actual docker compose config rejected duplicate environment in game-service; gateway and Prometheus both publish 9090. Also Keycloak 24 image has no curl, so the curl healthcheck cannot become healthy. Ensure full Compose starts, service/metrics ports match source env vars, admin can access the shared question search module in its image, and RabbitMQ/Redis/Elasticsearch initialize correctly. Use a stable browser-accessible OIDC issuer and working internal JWKS address; keep imported identity data stable across restarts. Mark K8s/AWS/Vault/Istio configurations as reference-only and correct obvious user-service 3003/3004 port mismatches. Never claim cloud deployment or load tests were run."
+  },
+  {
+    "profile": "student_login_flow",
+    "details": "Current browser UI requires manually pasting a Bearer JWT, which is unsuitable for sixth-grade players. Provide a normal Keycloak login/logout using Authorization Code + PKCE S256 for a public browser client; do not expose a client secret in browser code. Match realm redirect URIs/web origins and issuer configuration. Preserve all game screens, administrator question CRUD, pause/resume and score views. Demo users are local fixtures, must be clearly labeled non-production. Independently retest the real browser flow; a token-paste developer panel is not a replacement for login."
+  }
+]

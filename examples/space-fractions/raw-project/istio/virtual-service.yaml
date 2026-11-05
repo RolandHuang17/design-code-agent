@@ -1,0 +1,109 @@
+# Space Fractions – Istio VirtualService reference configuration
+#
+# REFERENCE-ONLY CONFIGURATION.
+#
+# This file is syntactically valid and aligned with:
+#   * the `space-fractions` namespace,
+#   * the `space-fractions-gateway` Gateway in gateway.yaml (hosts
+#     `spacefractions.example.com` and `www.spacefractions.example.com`),
+#   * the Kubernetes `gateway` Service (port name `http`, targetPort 3000)
+#     defined in k8s/gateway-deployment.yaml.
+#
+# It has NOT been validated against a live Istio mesh and must not be
+# treated as production-validated.
+#
+# Assumptions (documented, not measured):
+#   * The `gateway` Service in namespace `space-fractions` exposes a port
+#     named `http` (port 3000). The destination ref below keys on that port
+#     name rather than a numeric port so it is robust to port renumbering.
+#   * Authentication (OIDC bearer tokens) is enforced at the gateway
+#     application layer (see gateway/src/middleware.js and shared/src/auth.js).
+#     Istio is not assumed to perform request-authentication here; any
+#     RequestAuthentication/AuthorizationPolicy hardening lives in
+#     peer-authentication.yaml and companion policy files and is opt-in.
+#   * The relative path-based routing keeps the browser UI and /api/*,
+#     /health, and /play contract reachable through the single `gateway`
+#     service. No per-microservice external routes are exposed through the
+#     ingress; inter-service traffic stays in-mesh.
+#   * Fault/timeout values are reference defaults chosen to bound downstream
+#     latency (matching the gateway's own per-request timeout) and are not
+#     the result of load testing.
+#
+# Relationship to k8s/ingress.yaml:
+#   k8s/ingress.yaml targets an NGINX ingress controller. When Istio is the
+#   active ingress path, this VirtualService (with gateway.yaml) replaces
+#   that Ingress object. Only one ingress path should be active at a time.
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: space-fractions
+  namespace: space-fractions
+  labels:
+    app.kubernetes.io/name: space-fractions
+    app.kubernetes.io/part-of: space-fractions
+    app.kubernetes.io/managed-by: istio
+spec:
+  hosts:
+    - "spacefractions.example.com"
+    - "www.spacefractions.example.com"
+  # Attach only to the front-door Gateway, not to the mesh-wide "mesh"
+  # gateway, so these rules govern ingress traffic. Mesh-internal east-west
+  # routing is left to default service routing (K8s Services).
+  gateways:
+    - space-fractions/space-fractions-gateway
+  http:
+    # Health probe route. /health must return 200 per the acceptance
+    # contract; forwarded to the gateway service without timeout surgery.
+    - match:
+        - uri:
+            exact: /health
+      route:
+        - destination:
+            host: gateway.space-fractions.svc.cluster.local
+            port:
+              number: 3000
+
+    # Browser UI at / plus static assets (css/js/images).
+    - match:
+        - uri:
+            prefix: /
+      route:
+        - destination:
+            host: gateway.space-fractions.svc.cluster.local
+            port:
+              number: 3000
+      # Reference default: retry idempotent GETs once on 5xx/connect error.
+      # Answered via gateway's own bounded downstream timeouts.
+      retries:
+        attempts: 1
+        perTryTimeout: 5s
+        retryOn: "5xx,connect-failure,refused-stream"
+      # Align with gateway per-request timeout; not load-tested.
+      timeout: 15s
+
+    # Explicit /api/* catch-all. Included for clarity and to allow future
+    # finer-grained routing (e.g. splitting /api/admin to a canary). Today it
+    # resolves to the same gateway service as above.
+    - match:
+        - uri:
+            prefix: /api/
+      route:
+        - destination:
+            host: gateway.space-fractions.svc.cluster.local
+            port:
+              number: 3000
+      retries:
+        attempts: 0
+      timeout: 10s
+
+    # Backwards-compatible legacy /play route (returns 200 with a gameId per
+    # the original architectural contract). Forwarded unmodified.
+    - match:
+        - uri:
+            prefix: /play
+      route:
+        - destination:
+            host: gateway.space-fractions.svc.cluster.local
+            port:
+              number: 3000
+      timeout: 10s

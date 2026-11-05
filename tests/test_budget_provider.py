@@ -5,7 +5,7 @@ import urllib.error
 
 import pytest
 
-from codeagent.budget import Budget, BudgetError, Prices
+from codeagent.budget import Budget, BudgetError, Prices, parse_limit
 from codeagent.provider import Cancelled, DeepSeek, ProviderError, validate_endpoint
 
 
@@ -26,13 +26,27 @@ def test_persistent_budget_and_unknown_charges(tmp_path):
 
 
 def test_bad_budget_and_corrupt_ledger_fail_closed(tmp_path):
-    for value in (0, -1, 201, float("nan"), float("inf")):
+    for value in (0, -1, float("nan"), float("inf")):
         with pytest.raises(ValueError):
             Budget(tmp_path / "budget.json", value)
     ledger = tmp_path / "budget.json"
     ledger.write_text('{"schema_version":1,"reservations":{"bad":{"charged":-5}}}')
     with pytest.raises(BudgetError):
         Budget(ledger).reserve(100, 100)
+
+
+def test_explicit_unlimited_preserves_accounting_and_finite_caps(tmp_path):
+    ledger = tmp_path / "budget.json"
+    budget = Budget(ledger, parse_limit("unlimited"), Prices(10, 20))
+    key = budget.reserve(30_000_000, 1_000_000)
+    assert budget.snapshot()["limit_cny"] is None
+    assert budget.snapshot()["charged_cny"] == 320
+    budget.settle(key, {"prompt_tokens": 25_000_000, "completion_tokens": 1_000_000})
+    assert budget.snapshot()["charged_cny"] == 270
+    with pytest.raises(BudgetError):
+        Budget(ledger, 200).reserve(1, 1)
+    assert parse_limit("不限") is None
+    assert parse_limit("500") == 500
 
 
 @pytest.mark.parametrize("url", ["http://api.deepseek.com", "https://evil.com", "https://dashscope.aliyuncs.com.evil.com/compatible-mode/v1", "https://user:pass@dashscope.aliyuncs.com/compatible-mode/v1", "https://dashscope.aliyuncs.com/api/v1", "https://dashscope.aliyuncs.com:444/compatible-mode/v1"])

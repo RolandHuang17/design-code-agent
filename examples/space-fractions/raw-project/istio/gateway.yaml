@@ -1,0 +1,82 @@
+# Space Fractions – Istio Gateway (ingress) reference configuration
+#
+# REFERENCE-ONLY CONFIGURATION.
+#
+# This file is syntactically valid and aligned with the `space-fractions`
+# namespace, the `gateway` Service (port name `http`), and the
+# `spacefractions.example.com` host used across k8s/ingress.yaml and the
+# compose project. It has NOT been validated against a live Istio mesh and
+# must not be treated as production-validated.
+#
+# Assumptions (documented, not measured):
+#   * Istio (>= 1.17) is installed with the `istio-ingressgateway` Service
+#     in namespace `istio-system` exposing ports 80 (http2) and 443 (https).
+#   * mTLS between the ingress gateway and workloads is AUTO_PASSTHROUGH /
+#     permissive by default; strict PeerAuthentication is opt-in in
+#     peer-authentication.yaml (same directory).
+#   * TLS for the vanity host is terminated either at the ingress gateway
+#     (credentialName/secrets below) or by a fronting component. The
+#     `space-fractions-tls` Secret is provisioned out-of-band by
+#     cert-manager or Vault (see vault/ reference configs).
+#
+# This Gateway only declares the *front-door* listener/host wiring. Route
+# rules that map the host to the `gateway` Service live in
+# virtual-service.yaml for this same host.
+#
+# Relationship to k8s/ingress.yaml:
+#   k8s/ingress.yaml targets the NGINX ingress controller. When Istio is the
+#   active ingress path, this Gateway (plus virtual-service.yaml) replaces
+#   that Ingress object. Only one of the two should be active at a time to
+#   avoid conflicting host routing. This is an explicit assumption and a
+#   known deployment consideration, not an instance of running both.
+apiVersion: networking.istio.io/v1
+kind: Gateway
+metadata:
+  name: space-fractions-gateway
+  namespace: space-fractions
+  labels:
+    app.kubernetes.io/name: space-fractions-gateway
+    app.kubernetes.io/part-of: space-fractions
+    app.kubernetes.io/managed-by: istio
+spec:
+  # Assumption: the ingress gateway deployment selector below matches the
+  # default Istio install profile (`istio: ingressgateway`).
+  selector:
+    istio: ingressgateway
+  servers:
+    # HTTP listener – plaintext. Kept for local/dev exposure and to satisfy
+    # the "/health returns 200" contract without requiring TLS. In a
+    # hardened deployment this listener can be removed in favor of the
+    # HTTPS listener below.
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - "spacefractions.example.com"
+
+    # HTTPS listener – TLS terminated at the ingress gateway. The
+    # `space-fractions-tls` Secret (tls.crt + tls.key) must exist in the
+    # `space-fractions` namespace. REFERENCE-ONLY: provisioned out-of-band.
+    - port:
+        number: 443
+        name: https
+        protocol: HTTPS
+      tls:
+        mode: SIMPLE
+        credentialName: space-fractions-tls
+      hosts:
+        - "spacefractions.example.com"
+
+    # Optional wildcard/vanity alias used by the documentation. Reuses the
+    # same TLS credential; adjust credentialName if a separate cert is
+    # issued for this host.
+    - port:
+        number: 443
+        name: https-alias
+        protocol: HTTPS
+      tls:
+        mode: SIMPLE
+        credentialName: space-fractions-tls
+      hosts:
+        - "www.spacefractions.example.com"

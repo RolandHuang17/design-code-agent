@@ -1,0 +1,241 @@
+[
+  {
+    "run": "run-20261105-232952-8fc6427f",
+    "raw_status": "no_report",
+    "classification": "controller-development/generation/repair trial; see raw evidence",
+    "provider": "bailian",
+    "model": "deepseek-v4-pro",
+    "seed": null,
+    "turns": null,
+    "checks": []
+  },
+  {
+    "run": "run-20261105-233052-12f4c49f",
+    "raw_status": "no_report",
+    "classification": "controller-development/generation/repair trial; see raw evidence",
+    "provider": "bailian",
+    "model": "deepseek-v4-pro",
+    "seed": null,
+    "turns": null,
+    "checks": []
+  },
+  {
+    "run": "run-20261105-234144-19e47b2e",
+    "raw_status": "failed",
+    "classification": "controller-development/generation/repair trial; see raw evidence",
+    "provider": "bailian",
+    "model": "deepseek-v4-pro",
+    "seed": "D:\\projects\\Task\\runs\\run-20261105-233052-12f4c49f\\project",
+    "turns": 1,
+    "checks": []
+  },
+  {
+    "run": "run-20261105-234529-f7a95495",
+    "raw_status": "failed",
+    "classification": "controller-development/generation/repair trial; see raw evidence",
+    "provider": "bailian",
+    "model": "deepseek-v4-pro",
+    "seed": "D:\\projects\\Task\\runs\\run-20261105-233052-12f4c49f\\project",
+    "turns": 1,
+    "checks": []
+  },
+  {
+    "run": "run-20261105-234753-7ffa1796",
+    "raw_status": "failed",
+    "classification": "controller-development/generation/repair trial; see raw evidence",
+    "provider": "bailian",
+    "model": "deepseek-v4-pro-0813",
+    "seed": "D:\\projects\\Task\\runs\\run-20261105-233052-12f4c49f\\project",
+    "turns": 39,
+    "checks": []
+  },
+  {
+    "run": "run-20261105-235559-74229714",
+    "raw_status": "failed",
+    "classification": "controller-development/generation/repair trial; see raw evidence",
+    "provider": "bailian",
+    "model": "deepseek-v4-pro-0813",
+    "seed": "D:\\projects\\Task\\runs\\run-20261105-234753-7ffa1796\\project",
+    "turns": 21,
+    "checks": []
+  },
+  {
+    "run": "run-20261106-000307-a9917292",
+    "raw_status": "failed",
+    "classification": "controller-development/generation/repair trial; see raw evidence",
+    "provider": "bailian",
+    "model": "deepseek-v4-pro-0813",
+    "seed": "D:\\projects\\Task\\runs\\run-20261105-235559-74229714\\project",
+    "turns": 10,
+    "checks": []
+  },
+  {
+    "run": "run-20261106-000648-efc18cf0",
+    "raw_status": "failed",
+    "classification": "controller-development/generation/repair trial; see raw evidence",
+    "provider": "bailian",
+    "model": "deepseek-v4-pro-0813",
+    "seed": "D:\\projects\\Task\\runs\\run-20261106-000307-a9917292\\project",
+    "turns": 22,
+    "checks": []
+  },
+  {
+    "run": "run-20261106-001423-81ccab0f",
+    "raw_status": "running",
+    "classification": "unfinalized interrupted trial",
+    "provider": "bailian",
+    "model": "deepseek-v4-pro-0813",
+    "seed": "D:\\projects\\Task\\runs\\run-20261106-000648-efc18cf0\\project",
+    "turns": null,
+    "checks": []
+  },
+  {
+    "run": "run-20261106-003135-978abf9d",
+    "raw_status": "failed",
+    "classification": "controller-development/generation/repair trial; see raw evidence",
+    "provider": "bailian",
+    "model": "deepseek-v4-pro-0813",
+    "seed": "D:\\projects\\Task\\runs\\run-20261106-001423-81ccab0f\\project",
+    "turns": 74,
+    "checks": [
+      {
+        "profile": "static",
+        "status": "failed"
+      },
+      {
+        "profile": "install",
+        "status": "passed"
+      },
+      {
+        "profile": "test",
+        "status": "failed"
+      },
+      {
+        "profile": "build",
+        "status": "passed"
+      },
+      {
+        "profile": "compose",
+        "status": "unverified"
+      },
+      {
+        "profile": "auth",
+        "status": "failed"
+      },
+      {
+        "profile": "traceability_links",
+        "status": "failed"
+      },
+      {
+        "profile": "real_postgres_migrations",
+        "status": "failed"
+      },
+      {
+        "profile": "identity_mapping_consistency",
+        "status": "failed"
+      },
+      {
+        "profile": "score_concurrency",
+        "status": "failed"
+      },
+      {
+        "profile": "compose_real_runtime",
+        "status": "failed"
+      },
+      {
+        "profile": "student_login_flow",
+        "status": "failed"
+      }
+    ]
+  },
+  {
+    "run": "run-20261106-004631-f79548f8",
+    "raw_status": "completed_with_gaps",
+    "classification": "controller-development/generation/repair trial; see raw evidence",
+    "provider": "bailian",
+    "model": "deepseek-v4-pro-0813",
+    "seed": "D:\\projects\\Task\\runs\\run-20261106-003135-978abf9d\\project",
+    "turns": 114,
+    "checks": [
+      {
+        "profile": "static",
+        "status": "passed"
+      },
+      {
+        "profile": "install",
+        "status": "passed"
+      },
+      {
+        "profile": "test",
+        "status": "passed"
+      },
+      {
+        "profile": "build",
+        "status": "passed"
+      },
+      {
+        "profile": "compose",
+        "status": "unverified"
+      },
+      {
+        "profile": "auth",
+        "status": "passed"
+      },
+      {
+        "profile": "traceability_links",
+        "status": "passed"
+      },
+      {
+        "profile": "external_review_retest",
+        "status": "unverified"
+      }
+    ]
+  },
+  {
+    "run": "run-20261106-011454-54e56b6d",
+    "raw_status": "failed_validation",
+    "classification": "controller-development/generation/repair trial; see raw evidence",
+    "provider": "bailian",
+    "model": "deepseek-v4-pro-0813",
+    "seed": "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project",
+    "turns": 119,
+    "checks": [
+      {
+        "profile": "static",
+        "status": "passed"
+      },
+      {
+        "profile": "install",
+        "status": "passed"
+      },
+      {
+        "profile": "test",
+        "status": "failed"
+      },
+      {
+        "profile": "integration",
+        "status": "passed"
+      },
+      {
+        "profile": "build",
+        "status": "passed"
+      },
+      {
+        "profile": "compose",
+        "status": "unverified"
+      },
+      {
+        "profile": "auth",
+        "status": "passed"
+      },
+      {
+        "profile": "traceability_links",
+        "status": "passed"
+      },
+      {
+        "profile": "external_review_retest",
+        "status": "unverified"
+      }
+    ]
+  }
+]

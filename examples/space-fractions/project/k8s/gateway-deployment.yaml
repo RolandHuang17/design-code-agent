@@ -1,0 +1,112 @@
+# Space Fractions – API Gateway
+#
+# Kubernetes Deployment + Service for the single entrypoint (port 3000).
+# The gateway forwards /api/* to the four downstream services, serves the
+# browser UI at /, exposes /health and /health/ready, and serves Prometheus
+# metrics on a second port (9090) for scraping.
+#
+# Reference-only configuration: syntactically valid and aligned with the
+# compose.yaml project name and service DNS (<service>.<namespace>.svc). It
+# has NOT been validated against a live cluster.
+apiVersion: v1
+kind: Service
+metadata:
+  name: gateway
+  namespace: space-fractions
+  labels:
+    app.kubernetes.io/name: gateway
+    app.kubernetes.io/part-of: space-fractions
+spec:
+  type: ClusterIP
+  selector:
+    app: gateway
+  ports:
+    - name: http
+      port: 3000
+      targetPort: http
+      protocol: TCP
+    - name: metrics
+      port: 9090
+      targetPort: metrics
+      protocol: TCP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gateway
+  namespace: space-fractions
+  labels:
+    app.kubernetes.io/name: gateway
+    app.kubernetes.io/part-of: space-fractions
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: gateway
+  template:
+    metadata:
+      labels:
+        app: gateway
+    spec:
+      containers:
+        - name: gateway
+          image: spacefractions/gateway:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 3000
+              protocol: TCP
+            - name: metrics
+              containerPort: 9090
+              protocol: TCP
+          env:
+            - name: PORT
+              value: "3000"
+            - name: GATEWAY_METRICS_PORT
+              value: "9090"
+            - name: GAME_SERVICE_URL
+              value: "http://game-service.space-fractions.svc:3001"
+            - name: QUESTION_SERVICE_URL
+              value: "http://question-service.space-fractions.svc:3002"
+            - name: USER_SERVICE_URL
+              value: "http://user-service.space-fractions.svc:3003"
+            - name: ADMIN_SERVICE_URL
+              value: "http://admin-service.space-fractions.svc:3004"
+            - name: DOWNSTREAM_TIMEOUT_MS
+              valueFrom:
+                configMapKeyRef:
+                  name: space-fractions-config
+                  key: DOWNSTREAM_TIMEOUT_MS
+          readinessProbe:
+            httpGet:
+              path: /health/ready
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 3
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 15
+            timeoutSeconds: 3
+            failureThreshold: 3
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 256Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 1000
+            capabilities:
+              drop: ["ALL"]
+      # Downstream services are reached by their ClusterIP service DNS names;
+      # no external egress or secrets are required by the gateway itself.
+      automountServiceAccountToken: false

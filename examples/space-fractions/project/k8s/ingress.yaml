@@ -1,0 +1,47 @@
+# Space Fractions – Ingress
+#
+# Routes external HTTP(S) traffic to the API gateway Service running on
+# port 3000. The gateway serves the browser UI at "/" and proxies /api/*
+# to the downstream microservices, so a single host rule is sufficient.
+#
+# TLS is terminated at the ingress controller using a certificate referenced
+# from a Secret named `space-fractions-tls` (see compose.yaml and the Vault
+# reference configuration for how the secret is expected to be provisioned).
+# That Secret must be created out-of-band (e.g. via cert-manager or Vault
+# dynamic secrets) before HTTPS traffic is accepted on the vanity host below.
+#
+# Reference-only configuration: syntactically valid and aligned with the
+# `space-fractions` namespace and the `gateway` Service defined in
+# gateway-deployment.yaml. It has NOT been validated against a live cluster,
+# and ASSUMES an ingress controller that implements the networking.k8s.io/v1
+# API (e.g. NGINX Ingress Controller or Istio with the ingress gateway).
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: space-fractions-ingress
+  namespace: space-fractions
+  labels:
+    app.kubernetes.io/name: space-fractions-ingress
+    app.kubernetes.io/part-of: space-fractions
+  annotations:
+    # Assumption: NGINX ingress controller is installed in the cluster.
+    # Remove or change this annotation for other controllers (Istio, Traefik).
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "30"
+    nginx.ingress.kubernetes.io/proxy-body-size: "1m"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - spacefractions.example.com
+      secretName: space-fractions-tls
+  rules:
+    - host: spacefractions.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: gateway
+                port:
+                  name: http

@@ -1,0 +1,4 @@
+ Container designagent-final-game-service-1  Restarting
+ Container designagent-final-user-service-1  Restarting
+ Container designagent-final-user-service-1  Started
+ Container designagent-final-game-service-1  Started

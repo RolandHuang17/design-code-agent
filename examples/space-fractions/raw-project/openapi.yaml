@@ -1,0 +1,1005 @@
+openapi: 3.0.3
+info:
+  title: Space Fractions API
+  description: >
+    Public contract for the Space Fractions system, a web-based fraction
+    learning tool for sixth-grade students.
+
+    The single Gateway (port 3000) fronts four internal microservices
+    (game-service, question-service, user-service, admin-service). All
+    gameplay and administration state is persisted in PostgreSQL; Redis,
+    RabbitMQ, and Elasticsearch are supporting infrastructure.
+
+    Authentication uses OAuth2/OIDC (Keycloak in the reference topology).
+    Authenticated endpoints accept a Bearer OIDC access token. Admin endpoints
+    additionally require the `admin` realm role.
+
+    Important guarantee: player-facing responses (POST /api/games, GET
+    /api/games/:id, GET /api/questions*) never include `correctAnswer`.
+    Only authenticated admin endpoints expose it.
+  version: 1.0.0
+  contact:
+    name: Space Fractions Engineering
+
+servers:
+  - url: http://localhost:3000
+    description: Local gateway (docker compose up)
+
+security:
+  - bearerAuth: []
+
+tags:
+  - name: health
+    description: Liveness and readiness probes
+  - name: meta
+    description: Legacy compatibility and metadata endpoints
+  - name: games
+    description: Game lifecycle, pause/resume, answers and scoring
+  - name: questions
+    description: Public question reads (never expose correct answers)
+  - name: users
+    description: Authenticated user profile endpoints
+  - name: admin
+    description: Administrator question CRUD (requires admin role)
+
+paths:
+  # ------------------------------------------------------------------ #
+  # Health
+  # ------------------------------------------------------------------ #
+  /health:
+    get:
+      tags: [health]
+      summary: Gateway liveness probe
+      description: Returns 200 when the gateway process is up.
+      security: []
+      responses:
+        '200':
+          description: Gateway is alive
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+
+  /health/ready:
+    get:
+      tags: [health]
+      summary: Aggregate readiness probe
+      description: >
+        Reports each downstream service's reachability. Returns 200 when all
+        dependencies are reachable, otherwise 503.
+      security: []
+      responses:
+        '200':
+          description: All dependencies reachable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReadyResponse'
+        '503':
+          description: One or more downstream services unreachable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReadyResponse'
+
+  # ------------------------------------------------------------------ #
+  # Meta / compatibility
+  # ------------------------------------------------------------------ #
+  /openapi.yaml:
+    get:
+      tags: [meta]
+      summary: Serve this OpenAPI specification
+      description: Returns the raw OpenAPI YAML describing the gateway contract.
+      security: []
+      responses:
+        '200':
+          description: OpenAPI document
+          content:
+            text/yaml:
+              schema:
+                type: string
+
+  /play:
+    get:
+      tags: [meta]
+      summary: Legacy play entrypoint
+      description: >
+        Retained for backwards compatibility with the original architecture
+        document. Describes how to start a game; does not create state.
+      security: []
+      responses:
+        '200':
+          description: Play instructions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlayResponse'
+
+  # ------------------------------------------------------------------ #
+  # Games
+  # ------------------------------------------------------------------ #
+  /api/games:
+    post:
+      tags: [games]
+      summary: Create a new game
+      description: >
+        Starts a new game for the authenticated user. Optionally accepts
+        `questionIds` for reproducible practice sessions. The response never
+        includes `correctAnswer`.
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateGameRequest'
+      responses:
+        '201':
+          description: Game created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateGameResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+    get:
+      tags: [games]
+      summary: List the authenticated user's games
+      description: >
+        Returns the games owned by the caller. Never includes correct answers.
+        Other users' games are not visible.
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: List of games
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GameListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+  /api/games/{id}:
+    get:
+      tags: [games]
+      summary: Get game state
+      description: >
+        Returns the current game state. Only the owner (or an admin) may read
+        the game. Never includes `correctAnswer`.
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: '#/components/parameters/GameId'
+      responses:
+        '200':
+          description: Game state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GameStateResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /api/games/{id}/pause:
+    post:
+      tags: [games]
+      summary: Pause a game
+      description: Pauses the game. Owner only. Idempotent for a paused game.
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: '#/components/parameters/GameId'
+      responses:
+        '200':
+          description: Game paused
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GameTransitionResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /api/games/{id}/resume:
+    post:
+      tags: [games]
+      summary: Resume a game
+      description: Resumes a paused game. Owner only. Idempotent for an active game.
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: '#/components/parameters/GameId'
+      responses:
+        '200':
+          description: Game resumed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GameTransitionResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /api/games/{id}/answers:
+    post:
+      tags: [games]
+      summary: Submit an answer
+      description: >
+        Submits an answer for a question in this game. Each correct answer
+        scores exactly 1 point. Re-answering a question must not increase the
+        score (idempotent 200 or 409). Answering while the game is paused
+        returns 409. Never returns the correct answer.
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: '#/components/parameters/GameId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubmitAnswerRequest'
+      responses:
+        '200':
+          description: Answer result (correct flag + running score)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubmitAnswerResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+
+  /api/games/{id}/score:
+    get:
+      tags: [games]
+      summary: Get game score
+      description: Returns the current score (integer). Owner or admin only.
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: '#/components/parameters/GameId'
+      responses:
+        '200':
+          description: Game score
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScoreResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  # ------------------------------------------------------------------ #
+  # Questions (public reads)
+  # ------------------------------------------------------------------ #
+  /api/questions:
+    get:
+      tags: [questions]
+      summary: List questions
+      description: >
+        Lists questions. Never exposes correct answers. Supports optional
+        `ids` and `limit` query parameters.
+      security: []
+      parameters:
+        - name: ids
+          in: query
+          required: false
+          description: Comma-separated question ids (order preserved)
+          schema:
+            type: string
+            example: '1,2,3'
+        - name: limit
+          in: query
+          required: false
+          description: Maximum number of results (1..500)
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 500
+            default: 100
+      responses:
+        '200':
+          description: Question list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuestionListResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /api/questions/search:
+    get:
+      tags: [questions]
+      summary: Search questions
+      description: >
+        Full-text search over question prompts and options (Elasticsearch with
+        SQL fallback). Never exposes correct answers.
+      security: []
+      parameters:
+        - name: q
+          in: query
+          required: true
+          description: Search query string
+          schema:
+            type: string
+            example: 'fraction'
+      responses:
+        '200':
+          description: Matching questions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuestionListResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /api/questions/{id}:
+    get:
+      tags: [questions]
+      summary: Get a single question
+      description: Never includes `correctAnswer`.
+      security: []
+      parameters:
+        - $ref: '#/components/parameters/QuestionId'
+      responses:
+        '200':
+          description: Question
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Question'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  # ------------------------------------------------------------------ #
+  # Users
+  # ------------------------------------------------------------------ #
+  /api/users/me:
+    get:
+      tags: [users]
+      summary: Get the authenticated user's profile
+      description: >
+        Returns the caller's own profile resolved from the OIDC `sub` claim.
+        Other users cannot be enumerated through this route.
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: User profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+  /api/users/oidc/callback:
+    get:
+      tags: [users]
+      summary: OIDC token exchange / profile resolution helper
+      description: >
+        Accepts an `id_token` or `access_token` query parameter, validates it,
+        and returns the resulting profile. Primarily an extension point for the
+        authorization-code flow.
+      security: []
+      parameters:
+        - name: id_token
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: access_token
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Resolved profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OidcCallbackResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+  /api/users/{id}:
+    get:
+      tags: [users]
+      summary: Get a user profile by id
+      description: >
+        Restricted to the caller's own id (from the validated token). Reading
+        another user's profile returns 404 (indistinguishable from nonexistence).
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: '#/components/parameters/UserId'
+      responses:
+        '200':
+          description: User profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  # ------------------------------------------------------------------ #
+  # Admin (question CRUD)
+  # ------------------------------------------------------------------ #
+  /api/admin/questions:
+    get:
+      tags: [admin]
+      summary: List questions (includes correct answers)
+      description: >
+        Administrator-only. Returns questions including `correctAnswer`.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: limit
+          in: query
+          required: false
+          description: Maximum results (1..500)
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 500
+            default: 500
+      responses:
+        '200':
+          description: Question list (with correct answers)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdminQuestionListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+
+    post:
+      tags: [admin]
+      summary: Create a question
+      description: >
+        Administrator-only. Creates a question. `correctAnswer` must be a
+        well-formed exact rational and one of the provided options.
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateQuestionRequest'
+      responses:
+        '201':
+          description: Created question
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdminQuestion'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+
+  /api/admin/questions/{id}:
+    get:
+      tags: [admin]
+      summary: Get a question (includes correct answer)
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: '#/components/parameters/QuestionId'
+      responses:
+        '200':
+          description: Question
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdminQuestion'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+    put:
+      tags: [admin]
+      summary: Update (replace) a question
+      description: >
+        Administrator-only. Full replacement with the same validation as create.
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: '#/components/parameters/QuestionId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateQuestionRequest'
+      responses:
+        '200':
+          description: Updated question
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdminQuestion'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+    delete:
+      tags: [admin]
+      summary: Delete a question
+      description: Administrator-only. Returns 204 on success.
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: '#/components/parameters/QuestionId'
+      responses:
+        '204':
+          description: Deleted
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: >
+        OIDC access token issued by the configured identity provider
+        (Keycloak in the reference topology). The token's issuer, audience,
+        signature (JWKS), and expiration are validated server-side.
+
+  parameters:
+    GameId:
+      name: id
+      in: path
+      required: true
+      description: Game identifier
+      schema:
+        type: integer
+        minimum: 1
+    QuestionId:
+      name: id
+      in: path
+      required: true
+      description: Question identifier
+      schema:
+        type: integer
+        minimum: 1
+    UserId:
+      name: id
+      in: path
+      required: true
+      description: User identifier
+      schema:
+        type: integer
+        minimum: 1
+
+  responses:
+    BadRequest:
+      description: Malformed input (e.g. invalid fraction, invalid id)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Missing or invalid credentials
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Forbidden:
+      description: Authenticated but not permitted (e.g. non-admin on admin route, or another user's game)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    NotFound:
+      description: Resource not found (or hidden for authorization reasons)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Conflict:
+      description: State conflict (e.g. answering while paused, repeat answer)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+
+  schemas:
+    HealthResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: ok
+        service:
+          type: string
+          example: gateway
+        version:
+          type: string
+          example: 1.0.0
+        timestamp:
+          type: string
+          format: date-time
+
+    ReadyResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [ready, degraded]
+        services:
+          type: object
+          properties:
+            game:
+              type: integer
+            question:
+              type: integer
+            user:
+              type: integer
+            admin:
+              type: integer
+
+    PlayResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Space Fractions
+        play:
+          type: string
+          example: POST /api/games to start a new game
+        help:
+          type: string
+          example: GET /api/help for usage instructions
+
+    Question:
+      type: object
+      description: >
+        Public question shape. Deliberately excludes `correctAnswer`.
+      required:
+        - id
+        - prompt
+        - options
+      properties:
+        id:
+          type: integer
+        prompt:
+          type: string
+        options:
+          type: array
+          items:
+            type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+
+    QuestionListResponse:
+      type: object
+      properties:
+        questions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Question'
+        count:
+          type: integer
+
+    GameQuestion:
+      type: object
+      description: A question embedded in a player-facing game payload (no correct answer).
+      required:
+        - id
+        - prompt
+        - options
+      properties:
+        id:
+          type: integer
+        prompt:
+          type: string
+        options:
+          type: array
+          items:
+            type: string
+
+    CreateGameRequest:
+      type: object
+      properties:
+        questionIds:
+          type: array
+          description: >
+            Optional list of question ids for reproducible practice. If omitted,
+            a default question set is used.
+          items:
+            type: integer
+
+    CreateGameResponse:
+      type: object
+      required:
+        - id
+        - state
+        - questions
+      properties:
+        id:
+          type: integer
+        state:
+          type: string
+          enum: [playing, paused, done]
+        questions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GameQuestion'
+        currentQuestionIndex:
+          type: integer
+
+    GameStateResponse:
+      type: object
+      required:
+        - id
+        - state
+      properties:
+        id:
+          type: integer
+        state:
+          type: string
+          enum: [playing, paused, done]
+        score:
+          type: integer
+        questions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GameQuestion'
+        currentQuestionIndex:
+          type: integer
+        totalQuestions:
+          type: integer
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+
+    GameTransitionResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        state:
+          type: string
+          enum: [playing, paused, done]
+
+    GameListItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        state:
+          type: string
+          enum: [playing, paused, done]
+        score:
+          type: integer
+        totalQuestions:
+          type: integer
+        createdAt:
+          type: string
+          format: date-time
+
+    GameListResponse:
+      type: object
+      properties:
+        games:
+          type: array
+          items:
+            $ref: '#/components/schemas/GameListItem'
+        count:
+          type: integer
+
+    SubmitAnswerRequest:
+      type: object
+      required:
+        - questionId
+        - answer
+      properties:
+        questionId:
+          type: integer
+          description: The question being answered
+        answer:
+          type: string
+          description: >
+            The selected answer. For fraction questions this is an exact
+            rational ("a/b" or integer). Malformed fractions are rejected (400).
+
+    SubmitAnswerResponse:
+      type: object
+      required:
+        - correct
+        - score
+      properties:
+        correct:
+          type: boolean
+          description: Whether the submitted answer is correct
+        score:
+          type: integer
+          description: Running score after this answer
+        gameState:
+          type: string
+          enum: [playing, paused, done]
+
+    ScoreResponse:
+      type: object
+      required:
+        - score
+      properties:
+        score:
+          type: integer
+        state:
+          type: string
+          enum: [playing, paused, done]
+
+    UserProfile:
+      type: object
+      required:
+        - id
+        - username
+      properties:
+        id:
+          type: integer
+        username:
+          type: string
+        email:
+          type: string
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+
+    OidcCallbackResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        username:
+          type: string
+        email:
+          type: string
+          nullable: true
+        subject:
+          type: string
+          description: The OIDC sub claim
+
+    CreateQuestionRequest:
+      type: object
+      required:
+        - prompt
+        - options
+        - correctAnswer
+      properties:
+        prompt:
+          type: string
+          description: Non-empty question prompt (max 2000 chars)
+        options:
+          type: array
+          minItems: 2
+          maxItems: 10
+          description: Non-empty unique option strings (each max 200 chars)
+          items:
+            type: string
+        correctAnswer:
+          type: string
+          description: >
+            Well-formed exact rational ("a/b", denominator != 0). Must match
+            one of the options (compared as exact rationals, so "1/2" == "2/4").
+
+    AdminQuestion:
+      type: object
+      description: Question full shape including the correct answer (admin only).
+      required:
+        - id
+        - prompt
+        - options
+        - correctAnswer
+      properties:
+        id:
+          type: integer
+        prompt:
+          type: string
+        options:
+          type: array
+          items:
+            type: string
+        correctAnswer:
+          type: string
+        createdBy:
+          type: integer
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+
+    AdminQuestionListResponse:
+      type: object
+      properties:
+        questions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AdminQuestion'
+        count:
+          type: integer
+
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Machine-readable error code
+              example: BAD_REQUEST
+            message:
+              type: string
+              description: Human-readable error message

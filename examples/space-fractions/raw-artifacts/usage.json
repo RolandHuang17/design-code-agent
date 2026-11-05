@@ -1,0 +1,1269 @@
+{
+  "requests": [
+    {
+      "usage": {
+        "prompt_tokens": 17628,
+        "total_tokens": 17699,
+        "completion_tokens": 71,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.160569
+    },
+    {
+      "usage": {
+        "prompt_tokens": 20601,
+        "total_tokens": 21014,
+        "completion_tokens": 413,
+        "prompt_tokens_details": {
+          "cached_tokens": 17408
+        }
+      },
+      "estimated_cny": 0.19656
+    },
+    {
+      "usage": {
+        "prompt_tokens": 21101,
+        "total_tokens": 21171,
+        "completion_tokens": 70,
+        "prompt_tokens_details": {
+          "cached_tokens": 20480
+        }
+      },
+      "estimated_cny": 0.191799
+    },
+    {
+      "usage": {
+        "prompt_tokens": 21435,
+        "total_tokens": 21676,
+        "completion_tokens": 241,
+        "prompt_tokens_details": {
+          "cached_tokens": 20992
+        }
+      },
+      "estimated_cny": 0.199422
+    },
+    {
+      "usage": {
+        "prompt_tokens": 22547,
+        "total_tokens": 22873,
+        "completion_tokens": 326,
+        "prompt_tokens_details": {
+          "cached_tokens": 21248
+        }
+      },
+      "estimated_cny": 0.211725
+    },
+    {
+      "usage": {
+        "prompt_tokens": 22939,
+        "total_tokens": 22993,
+        "completion_tokens": 54,
+        "prompt_tokens_details": {
+          "cached_tokens": 22528
+        }
+      },
+      "estimated_cny": 0.207909
+    },
+    {
+      "usage": {
+        "prompt_tokens": 26927,
+        "total_tokens": 27040,
+        "completion_tokens": 113,
+        "prompt_tokens_details": {
+          "cached_tokens": 22784
+        }
+      },
+      "estimated_cny": 0.245394
+    },
+    {
+      "usage": {
+        "prompt_tokens": 29350,
+        "total_tokens": 29982,
+        "completion_tokens": 632,
+        "prompt_tokens_details": {
+          "cached_tokens": 26880
+        }
+      },
+      "estimated_cny": 0.281214
+    },
+    {
+      "usage": {
+        "prompt_tokens": 19741,
+        "total_tokens": 19800,
+        "completion_tokens": 59,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.179262
+    },
+    {
+      "usage": {
+        "prompt_tokens": 22110,
+        "total_tokens": 22427,
+        "completion_tokens": 317,
+        "prompt_tokens_details": {
+          "cached_tokens": 19712
+        }
+      },
+      "estimated_cny": 0.207549
+    },
+    {
+      "usage": {
+        "prompt_tokens": 24710,
+        "total_tokens": 26528,
+        "completion_tokens": 1818,
+        "prompt_tokens_details": {
+          "cached_tokens": 22016
+        }
+      },
+      "estimated_cny": 0.271476
+    },
+    {
+      "usage": {
+        "prompt_tokens": 26646,
+        "total_tokens": 26739,
+        "completion_tokens": 93,
+        "prompt_tokens_details": {
+          "cached_tokens": 24576
+        }
+      },
+      "estimated_cny": 0.242325
+    },
+    {
+      "usage": {
+        "prompt_tokens": 30549,
+        "total_tokens": 30761,
+        "completion_tokens": 212,
+        "prompt_tokens_details": {
+          "cached_tokens": 26624
+        }
+      },
+      "estimated_cny": 0.280665
+    },
+    {
+      "usage": {
+        "prompt_tokens": 21565,
+        "total_tokens": 21742,
+        "completion_tokens": 177,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.198864
+    },
+    {
+      "usage": {
+        "prompt_tokens": 30937,
+        "total_tokens": 39794,
+        "completion_tokens": 8857,
+        "prompt_tokens_details": {
+          "cached_tokens": 21504
+        }
+      },
+      "estimated_cny": 0.517572
+    },
+    {
+      "usage": {
+        "prompt_tokens": 39938,
+        "total_tokens": 40029,
+        "completion_tokens": 91,
+        "prompt_tokens_details": {
+          "cached_tokens": 30720
+        }
+      },
+      "estimated_cny": 0.361899
+    },
+    {
+      "usage": {
+        "prompt_tokens": 45055,
+        "total_tokens": 45769,
+        "completion_tokens": 714,
+        "prompt_tokens_details": {
+          "cached_tokens": 39680
+        }
+      },
+      "estimated_cny": 0.424773
+    },
+    {
+      "usage": {
+        "prompt_tokens": 45811,
+        "total_tokens": 46638,
+        "completion_tokens": 827,
+        "prompt_tokens_details": {
+          "cached_tokens": 44800
+        }
+      },
+      "estimated_cny": 0.434628
+    },
+    {
+      "usage": {
+        "prompt_tokens": 46712,
+        "total_tokens": 46773,
+        "completion_tokens": 61,
+        "prompt_tokens_details": {
+          "cached_tokens": 45568
+        }
+      },
+      "estimated_cny": 0.422055
+    },
+    {
+      "usage": {
+        "prompt_tokens": 49545,
+        "total_tokens": 49636,
+        "completion_tokens": 91,
+        "prompt_tokens_details": {
+          "cached_tokens": 46592
+        }
+      },
+      "estimated_cny": 0.448362
+    },
+    {
+      "usage": {
+        "prompt_tokens": 28850,
+        "total_tokens": 29012,
+        "completion_tokens": 162,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.264024
+    },
+    {
+      "usage": {
+        "prompt_tokens": 22460,
+        "total_tokens": 22613,
+        "completion_tokens": 153,
+        "prompt_tokens_details": {
+          "cached_tokens": 20992
+        }
+      },
+      "estimated_cny": 0.206271
+    },
+    {
+      "usage": {
+        "prompt_tokens": 29072,
+        "total_tokens": 30913,
+        "completion_tokens": 1841,
+        "prompt_tokens_details": {
+          "cached_tokens": 22272
+        }
+      },
+      "estimated_cny": 0.311355
+    },
+    {
+      "usage": {
+        "prompt_tokens": 30948,
+        "total_tokens": 31002,
+        "completion_tokens": 54,
+        "prompt_tokens_details": {
+          "cached_tokens": 28928
+        }
+      },
+      "estimated_cny": 0.27999
+    },
+    {
+      "usage": {
+        "prompt_tokens": 33527,
+        "total_tokens": 34964,
+        "completion_tokens": 1437,
+        "prompt_tokens_details": {
+          "cached_tokens": 30720
+        }
+      },
+      "estimated_cny": 0.340542
+    },
+    {
+      "usage": {
+        "prompt_tokens": 35000,
+        "total_tokens": 35047,
+        "completion_tokens": 47,
+        "prompt_tokens_details": {
+          "cached_tokens": 33280
+        }
+      },
+      "estimated_cny": 0.316269
+    },
+    {
+      "usage": {
+        "prompt_tokens": 36497,
+        "total_tokens": 36853,
+        "completion_tokens": 356,
+        "prompt_tokens_details": {
+          "cached_tokens": 34816
+        }
+      },
+      "estimated_cny": 0.338085
+    },
+    {
+      "usage": {
+        "prompt_tokens": 23846,
+        "total_tokens": 23940,
+        "completion_tokens": 94,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.217152
+    },
+    {
+      "usage": {
+        "prompt_tokens": 29081,
+        "total_tokens": 29189,
+        "completion_tokens": 108,
+        "prompt_tokens_details": {
+          "cached_tokens": 23808
+        }
+      },
+      "estimated_cny": 0.264645
+    },
+    {
+      "usage": {
+        "prompt_tokens": 29800,
+        "total_tokens": 29902,
+        "completion_tokens": 102,
+        "prompt_tokens_details": {
+          "cached_tokens": 28928
+        }
+      },
+      "estimated_cny": 0.270954
+    },
+    {
+      "usage": {
+        "prompt_tokens": 31348,
+        "total_tokens": 31514,
+        "completion_tokens": 166,
+        "prompt_tokens_details": {
+          "cached_tokens": 29696
+        }
+      },
+      "estimated_cny": 0.286614
+    },
+    {
+      "usage": {
+        "prompt_tokens": 32180,
+        "total_tokens": 32530,
+        "completion_tokens": 350,
+        "prompt_tokens_details": {
+          "cached_tokens": 31232
+        }
+      },
+      "estimated_cny": 0.29907
+    },
+    {
+      "usage": {
+        "prompt_tokens": 23511,
+        "total_tokens": 23573,
+        "completion_tokens": 62,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.213273
+    },
+    {
+      "usage": {
+        "prompt_tokens": 25887,
+        "total_tokens": 26097,
+        "completion_tokens": 210,
+        "prompt_tokens_details": {
+          "cached_tokens": 23296
+        }
+      },
+      "estimated_cny": 0.238653
+    },
+    {
+      "usage": {
+        "prompt_tokens": 28387,
+        "total_tokens": 28742,
+        "completion_tokens": 355,
+        "prompt_tokens_details": {
+          "cached_tokens": 25856
+        }
+      },
+      "estimated_cny": 0.265068
+    },
+    {
+      "usage": {
+        "prompt_tokens": 28907,
+        "total_tokens": 29190,
+        "completion_tokens": 283,
+        "prompt_tokens_details": {
+          "cached_tokens": 28160
+        }
+      },
+      "estimated_cny": 0.267804
+    },
+    {
+      "usage": {
+        "prompt_tokens": 21720,
+        "total_tokens": 21785,
+        "completion_tokens": 65,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.197235
+    },
+    {
+      "usage": {
+        "prompt_tokens": 26985,
+        "total_tokens": 27295,
+        "completion_tokens": 310,
+        "prompt_tokens_details": {
+          "cached_tokens": 21504
+        }
+      },
+      "estimated_cny": 0.251235
+    },
+    {
+      "usage": {
+        "prompt_tokens": 27326,
+        "total_tokens": 27422,
+        "completion_tokens": 96,
+        "prompt_tokens_details": {
+          "cached_tokens": 26880
+        }
+      },
+      "estimated_cny": 0.248526
+    },
+    {
+      "usage": {
+        "prompt_tokens": 27777,
+        "total_tokens": 28218,
+        "completion_tokens": 441,
+        "prompt_tokens_details": {
+          "cached_tokens": 27136
+        }
+      },
+      "estimated_cny": 0.2619
+    },
+    {
+      "usage": {
+        "prompt_tokens": 28884,
+        "total_tokens": 33517,
+        "completion_tokens": 4633,
+        "prompt_tokens_details": {
+          "cached_tokens": 27648
+        }
+      },
+      "estimated_cny": 0.385047
+    },
+    {
+      "usage": {
+        "prompt_tokens": 33546,
+        "total_tokens": 33814,
+        "completion_tokens": 268,
+        "prompt_tokens_details": {
+          "cached_tokens": 28672
+        }
+      },
+      "estimated_cny": 0.30915
+    },
+    {
+      "usage": {
+        "prompt_tokens": 33845,
+        "total_tokens": 34159,
+        "completion_tokens": 314,
+        "prompt_tokens_details": {
+          "cached_tokens": 33536
+        }
+      },
+      "estimated_cny": 0.313083
+    },
+    {
+      "usage": {
+        "prompt_tokens": 34192,
+        "total_tokens": 34482,
+        "completion_tokens": 290,
+        "prompt_tokens_details": {
+          "cached_tokens": 33792
+        }
+      },
+      "estimated_cny": 0.315558
+    },
+    {
+      "usage": {
+        "prompt_tokens": 21499,
+        "total_tokens": 21592,
+        "completion_tokens": 93,
+        "prompt_tokens_details": {
+          "cached_tokens": 20992
+        }
+      },
+      "estimated_cny": 0.196002
+    },
+    {
+      "usage": {
+        "prompt_tokens": 23707,
+        "total_tokens": 23964,
+        "completion_tokens": 257,
+        "prompt_tokens_details": {
+          "cached_tokens": 21248
+        }
+      },
+      "estimated_cny": 0.220302
+    },
+    {
+      "usage": {
+        "prompt_tokens": 25831,
+        "total_tokens": 26487,
+        "completion_tokens": 656,
+        "prompt_tokens_details": {
+          "cached_tokens": 23552
+        }
+      },
+      "estimated_cny": 0.250191
+    },
+    {
+      "usage": {
+        "prompt_tokens": 26619,
+        "total_tokens": 28327,
+        "completion_tokens": 1708,
+        "prompt_tokens_details": {
+          "cached_tokens": 25600
+        }
+      },
+      "estimated_cny": 0.285687
+    },
+    {
+      "usage": {
+        "prompt_tokens": 28362,
+        "total_tokens": 28558,
+        "completion_tokens": 196,
+        "prompt_tokens_details": {
+          "cached_tokens": 26368
+        }
+      },
+      "estimated_cny": 0.26055
+    },
+    {
+      "usage": {
+        "prompt_tokens": 33669,
+        "total_tokens": 35897,
+        "completion_tokens": 2228,
+        "prompt_tokens_details": {
+          "cached_tokens": 28160
+        }
+      },
+      "estimated_cny": 0.363177
+    },
+    {
+      "usage": {
+        "prompt_tokens": 35931,
+        "total_tokens": 35998,
+        "completion_tokens": 67,
+        "prompt_tokens_details": {
+          "cached_tokens": 33536
+        }
+      },
+      "estimated_cny": 0.325188
+    },
+    {
+      "usage": {
+        "prompt_tokens": 36319,
+        "total_tokens": 36461,
+        "completion_tokens": 142,
+        "prompt_tokens_details": {
+          "cached_tokens": 35840
+        }
+      },
+      "estimated_cny": 0.330705
+    },
+    {
+      "usage": {
+        "prompt_tokens": 21467,
+        "total_tokens": 21673,
+        "completion_tokens": 206,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.198765
+    },
+    {
+      "usage": {
+        "prompt_tokens": 29200,
+        "total_tokens": 29318,
+        "completion_tokens": 118,
+        "prompt_tokens_details": {
+          "cached_tokens": 21248
+        }
+      },
+      "estimated_cny": 0.265986
+    },
+    {
+      "usage": {
+        "prompt_tokens": 32308,
+        "total_tokens": 32509,
+        "completion_tokens": 201,
+        "prompt_tokens_details": {
+          "cached_tokens": 29184
+        }
+      },
+      "estimated_cny": 0.296199
+    },
+    {
+      "usage": {
+        "prompt_tokens": 34691,
+        "total_tokens": 35016,
+        "completion_tokens": 325,
+        "prompt_tokens_details": {
+          "cached_tokens": 32256
+        }
+      },
+      "estimated_cny": 0.320994
+    },
+    {
+      "usage": {
+        "prompt_tokens": 35054,
+        "total_tokens": 35201,
+        "completion_tokens": 147,
+        "prompt_tokens_details": {
+          "cached_tokens": 34560
+        }
+      },
+      "estimated_cny": 0.319455
+    },
+    {
+      "usage": {
+        "prompt_tokens": 35239,
+        "total_tokens": 35386,
+        "completion_tokens": 147,
+        "prompt_tokens_details": {
+          "cached_tokens": 34816
+        }
+      },
+      "estimated_cny": 0.32112
+    },
+    {
+      "usage": {
+        "prompt_tokens": 35424,
+        "total_tokens": 35717,
+        "completion_tokens": 293,
+        "prompt_tokens_details": {
+          "cached_tokens": 35072
+        }
+      },
+      "estimated_cny": 0.326727
+    },
+    {
+      "usage": {
+        "prompt_tokens": 35755,
+        "total_tokens": 35941,
+        "completion_tokens": 186,
+        "prompt_tokens_details": {
+          "cached_tokens": 35328
+        }
+      },
+      "estimated_cny": 0.326817
+    },
+    {
+      "usage": {
+        "prompt_tokens": 21458,
+        "total_tokens": 21597,
+        "completion_tokens": 139,
+        "prompt_tokens_details": {
+          "cached_tokens": 17664
+        }
+      },
+      "estimated_cny": 0.196875
+    },
+    {
+      "usage": {
+        "prompt_tokens": 29092,
+        "total_tokens": 29374,
+        "completion_tokens": 282,
+        "prompt_tokens_details": {
+          "cached_tokens": 21248
+        }
+      },
+      "estimated_cny": 0.269442
+    },
+    {
+      "usage": {
+        "prompt_tokens": 35175,
+        "total_tokens": 35556,
+        "completion_tokens": 381,
+        "prompt_tokens_details": {
+          "cached_tokens": 28928
+        }
+      },
+      "estimated_cny": 0.326862
+    },
+    {
+      "usage": {
+        "prompt_tokens": 37563,
+        "total_tokens": 45309,
+        "completion_tokens": 7746,
+        "prompt_tokens_details": {
+          "cached_tokens": 35072
+        }
+      },
+      "estimated_cny": 0.547209
+    },
+    {
+      "usage": {
+        "prompt_tokens": 45346,
+        "total_tokens": 47229,
+        "completion_tokens": 1883,
+        "prompt_tokens_details": {
+          "cached_tokens": 37376
+        }
+      },
+      "estimated_cny": 0.458955
+    },
+    {
+      "usage": {
+        "prompt_tokens": 47266,
+        "total_tokens": 47363,
+        "completion_tokens": 97,
+        "prompt_tokens_details": {
+          "cached_tokens": 45312
+        }
+      },
+      "estimated_cny": 0.428013
+    },
+    {
+      "usage": {
+        "prompt_tokens": 34202,
+        "total_tokens": 34283,
+        "completion_tokens": 81,
+        "prompt_tokens_details": {
+          "cached_tokens": 21248
+        }
+      },
+      "estimated_cny": 0.310005
+    },
+    {
+      "usage": {
+        "prompt_tokens": 39394,
+        "total_tokens": 40977,
+        "completion_tokens": 1583,
+        "prompt_tokens_details": {
+          "cached_tokens": 34048
+        }
+      },
+      "estimated_cny": 0.397287
+    },
+    {
+      "usage": {
+        "prompt_tokens": 21518,
+        "total_tokens": 21684,
+        "completion_tokens": 166,
+        "prompt_tokens_details": {
+          "cached_tokens": 21248
+        }
+      },
+      "estimated_cny": 0.198144
+    },
+    {
+      "usage": {
+        "prompt_tokens": 27291,
+        "total_tokens": 27466,
+        "completion_tokens": 175,
+        "prompt_tokens_details": {
+          "cached_tokens": 21504
+        }
+      },
+      "estimated_cny": 0.250344
+    },
+    {
+      "usage": {
+        "prompt_tokens": 28461,
+        "total_tokens": 31401,
+        "completion_tokens": 2940,
+        "prompt_tokens_details": {
+          "cached_tokens": 27136
+        }
+      },
+      "estimated_cny": 0.335529
+    },
+    {
+      "usage": {
+        "prompt_tokens": 31438,
+        "total_tokens": 31635,
+        "completion_tokens": 197,
+        "prompt_tokens_details": {
+          "cached_tokens": 28416
+        }
+      },
+      "estimated_cny": 0.288261
+    },
+    {
+      "usage": {
+        "prompt_tokens": 31787,
+        "total_tokens": 47197,
+        "completion_tokens": 15410,
+        "prompt_tokens_details": {
+          "cached_tokens": 31232
+        }
+      },
+      "estimated_cny": 0.702153
+    },
+    {
+      "usage": {
+        "prompt_tokens": 47436,
+        "total_tokens": 47608,
+        "completion_tokens": 172,
+        "prompt_tokens_details": {
+          "cached_tokens": 31744
+        }
+      },
+      "estimated_cny": 0.431568
+    },
+    {
+      "usage": {
+        "prompt_tokens": 48066,
+        "total_tokens": 48307,
+        "completion_tokens": 241,
+        "prompt_tokens_details": {
+          "cached_tokens": 47360
+        }
+      },
+      "estimated_cny": 0.439101
+    },
+    {
+      "usage": {
+        "prompt_tokens": 48373,
+        "total_tokens": 48467,
+        "completion_tokens": 94,
+        "prompt_tokens_details": {
+          "cached_tokens": 47872
+        }
+      },
+      "estimated_cny": 0.437895
+    },
+    {
+      "usage": {
+        "prompt_tokens": 20099,
+        "total_tokens": 20267,
+        "completion_tokens": 168,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.185427
+    },
+    {
+      "usage": {
+        "prompt_tokens": 26767,
+        "total_tokens": 26947,
+        "completion_tokens": 180,
+        "prompt_tokens_details": {
+          "cached_tokens": 19968
+        }
+      },
+      "estimated_cny": 0.245763
+    },
+    {
+      "usage": {
+        "prompt_tokens": 33397,
+        "total_tokens": 33572,
+        "completion_tokens": 175,
+        "prompt_tokens_details": {
+          "cached_tokens": 26624
+        }
+      },
+      "estimated_cny": 0.305298
+    },
+    {
+      "usage": {
+        "prompt_tokens": 33724,
+        "total_tokens": 39941,
+        "completion_tokens": 6217,
+        "prompt_tokens_details": {
+          "cached_tokens": 33280
+        }
+      },
+      "estimated_cny": 0.471375
+    },
+    {
+      "usage": {
+        "prompt_tokens": 39975,
+        "total_tokens": 40282,
+        "completion_tokens": 307,
+        "prompt_tokens_details": {
+          "cached_tokens": 33536
+        }
+      },
+      "estimated_cny": 0.368064
+    },
+    {
+      "usage": {
+        "prompt_tokens": 40318,
+        "total_tokens": 40539,
+        "completion_tokens": 221,
+        "prompt_tokens_details": {
+          "cached_tokens": 39936
+        }
+      },
+      "estimated_cny": 0.368829
+    },
+    {
+      "usage": {
+        "prompt_tokens": 40573,
+        "total_tokens": 41025,
+        "completion_tokens": 452,
+        "prompt_tokens_details": {
+          "cached_tokens": 40192
+        }
+      },
+      "estimated_cny": 0.377361
+    },
+    {
+      "usage": {
+        "prompt_tokens": 41059,
+        "total_tokens": 41370,
+        "completion_tokens": 311,
+        "prompt_tokens_details": {
+          "cached_tokens": 40448
+        }
+      },
+      "estimated_cny": 0.377928
+    },
+    {
+      "usage": {
+        "prompt_tokens": 17570,
+        "total_tokens": 17740,
+        "completion_tokens": 170,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.16272
+    },
+    {
+      "usage": {
+        "prompt_tokens": 23499,
+        "total_tokens": 23794,
+        "completion_tokens": 295,
+        "prompt_tokens_details": {
+          "cached_tokens": 17408
+        }
+      },
+      "estimated_cny": 0.219456
+    },
+    {
+      "usage": {
+        "prompt_tokens": 23827,
+        "total_tokens": 23885,
+        "completion_tokens": 58,
+        "prompt_tokens_details": {
+          "cached_tokens": 23296
+        }
+      },
+      "estimated_cny": 0.216009
+    },
+    {
+      "usage": {
+        "prompt_tokens": 28393,
+        "total_tokens": 28697,
+        "completion_tokens": 304,
+        "prompt_tokens_details": {
+          "cached_tokens": 23808
+        }
+      },
+      "estimated_cny": 0.263745
+    },
+    {
+      "usage": {
+        "prompt_tokens": 19755,
+        "total_tokens": 19876,
+        "completion_tokens": 121,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.181062
+    },
+    {
+      "usage": {
+        "prompt_tokens": 27976,
+        "total_tokens": 30317,
+        "completion_tokens": 2341,
+        "prompt_tokens_details": {
+          "cached_tokens": 19712
+        }
+      },
+      "estimated_cny": 0.314991
+    },
+    {
+      "usage": {
+        "prompt_tokens": 32646,
+        "total_tokens": 33973,
+        "completion_tokens": 1327,
+        "prompt_tokens_details": {
+          "cached_tokens": 27904
+        }
+      },
+      "estimated_cny": 0.329643
+    },
+    {
+      "usage": {
+        "prompt_tokens": 33997,
+        "total_tokens": 34081,
+        "completion_tokens": 84,
+        "prompt_tokens_details": {
+          "cached_tokens": 32512
+        }
+      },
+      "estimated_cny": 0.308241
+    },
+    {
+      "usage": {
+        "prompt_tokens": 39167,
+        "total_tokens": 39966,
+        "completion_tokens": 799,
+        "prompt_tokens_details": {
+          "cached_tokens": 33792
+        }
+      },
+      "estimated_cny": 0.374076
+    },
+    {
+      "usage": {
+        "prompt_tokens": 40004,
+        "total_tokens": 40795,
+        "completion_tokens": 791,
+        "prompt_tokens_details": {
+          "cached_tokens": 38912
+        }
+      },
+      "estimated_cny": 0.381393
+    },
+    {
+      "usage": {
+        "prompt_tokens": 40832,
+        "total_tokens": 40884,
+        "completion_tokens": 52,
+        "prompt_tokens_details": {
+          "cached_tokens": 39936
+        }
+      },
+      "estimated_cny": 0.368892
+    },
+    {
+      "usage": {
+        "prompt_tokens": 43675,
+        "total_tokens": 44344,
+        "completion_tokens": 669,
+        "prompt_tokens_details": {
+          "cached_tokens": 40704
+        }
+      },
+      "estimated_cny": 0.411138
+    },
+    {
+      "usage": {
+        "prompt_tokens": 20087,
+        "total_tokens": 20212,
+        "completion_tokens": 125,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.184158
+    },
+    {
+      "usage": {
+        "prompt_tokens": 25585,
+        "total_tokens": 31612,
+        "completion_tokens": 6027,
+        "prompt_tokens_details": {
+          "cached_tokens": 19968
+        }
+      },
+      "estimated_cny": 0.392994
+    },
+    {
+      "usage": {
+        "prompt_tokens": 34393,
+        "total_tokens": 34760,
+        "completion_tokens": 367,
+        "prompt_tokens_details": {
+          "cached_tokens": 25344
+        }
+      },
+      "estimated_cny": 0.319446
+    },
+    {
+      "usage": {
+        "prompt_tokens": 34784,
+        "total_tokens": 34864,
+        "completion_tokens": 80,
+        "prompt_tokens_details": {
+          "cached_tokens": 34304
+        }
+      },
+      "estimated_cny": 0.315216
+    },
+    {
+      "usage": {
+        "prompt_tokens": 34887,
+        "total_tokens": 34967,
+        "completion_tokens": 80,
+        "prompt_tokens_details": {
+          "cached_tokens": 34560
+        }
+      },
+      "estimated_cny": 0.316143
+    },
+    {
+      "usage": {
+        "prompt_tokens": 34990,
+        "total_tokens": 35048,
+        "completion_tokens": 58,
+        "prompt_tokens_details": {
+          "cached_tokens": 34816
+        }
+      },
+      "estimated_cny": 0.316476
+    },
+    {
+      "usage": {
+        "prompt_tokens": 37216,
+        "total_tokens": 37799,
+        "completion_tokens": 583,
+        "prompt_tokens_details": {
+          "cached_tokens": 34816
+        }
+      },
+      "estimated_cny": 0.350685
+    },
+    {
+      "usage": {
+        "prompt_tokens": 21793,
+        "total_tokens": 21887,
+        "completion_tokens": 94,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.198675
+    },
+    {
+      "usage": {
+        "prompt_tokens": 26233,
+        "total_tokens": 28309,
+        "completion_tokens": 2076,
+        "prompt_tokens_details": {
+          "cached_tokens": 21760
+        }
+      },
+      "estimated_cny": 0.292149
+    },
+    {
+      "usage": {
+        "prompt_tokens": 28341,
+        "total_tokens": 28701,
+        "completion_tokens": 360,
+        "prompt_tokens_details": {
+          "cached_tokens": 26112
+        }
+      },
+      "estimated_cny": 0.264789
+    },
+    {
+      "usage": {
+        "prompt_tokens": 28735,
+        "total_tokens": 28997,
+        "completion_tokens": 262,
+        "prompt_tokens_details": {
+          "cached_tokens": 28160
+        }
+      },
+      "estimated_cny": 0.265689
+    },
+    {
+      "usage": {
+        "prompt_tokens": 30557,
+        "total_tokens": 30799,
+        "completion_tokens": 242,
+        "prompt_tokens_details": {
+          "cached_tokens": 28672
+        }
+      },
+      "estimated_cny": 0.281547
+    },
+    {
+      "usage": {
+        "prompt_tokens": 22476,
+        "total_tokens": 22536,
+        "completion_tokens": 60,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.203904
+    },
+    {
+      "usage": {
+        "prompt_tokens": 27712,
+        "total_tokens": 27793,
+        "completion_tokens": 81,
+        "prompt_tokens_details": {
+          "cached_tokens": 22272
+        }
+      },
+      "estimated_cny": 0.251595
+    },
+    {
+      "usage": {
+        "prompt_tokens": 27824,
+        "total_tokens": 27886,
+        "completion_tokens": 62,
+        "prompt_tokens_details": {
+          "cached_tokens": 27648
+        }
+      },
+      "estimated_cny": 0.25209
+    },
+    {
+      "usage": {
+        "prompt_tokens": 28232,
+        "total_tokens": 44616,
+        "completion_tokens": 16384,
+        "prompt_tokens_details": {
+          "cached_tokens": 27648
+        }
+      },
+      "estimated_cny": 0.696456
+    },
+    {
+      "usage": {
+        "prompt_tokens": 28289,
+        "total_tokens": 35941,
+        "completion_tokens": 7652,
+        "prompt_tokens_details": {
+          "cached_tokens": 28160
+        }
+      },
+      "estimated_cny": 0.461205
+    },
+    {
+      "usage": {
+        "prompt_tokens": 35971,
+        "total_tokens": 36233,
+        "completion_tokens": 262,
+        "prompt_tokens_details": {
+          "cached_tokens": 28160
+        }
+      },
+      "estimated_cny": 0.330813
+    }
+  ],
+  "cumulative_budget": {
+    "limit_cny": 200.0,
+    "charged_cny": 127.633281,
+    "uncertain_requests": 8,
+    "request_count": 440,
+    "prices": {
+      "input_per_million": 9.0,
+      "output_per_million": 27.0,
+      "reference_date": "2026-11-05"
+    }
+  }
+}

@@ -6,6 +6,8 @@
 
 ![Windows 桌面界面与免费解析结果](docs/images/desktop.jpg)
 
+真实案例与验证：[Space Fractions 交付副本](examples/space-fractions/README.md) 包含原始输出、操作者修改差异及独立验收。项目单元测试 83/83、集成测试 59/59，真实 HTTP 17/17 通过；并发重复计分和服务重启持久化已复验。**交付副本经过修正，这不是一次全自动成功的声明。**
+
 > 作业要求 DeepSeek 官方 `deepseek-v4-pro` API。工具保留官方模式，也应使用者要求支持阿里云百炼模式。**百炼属于第三方服务，百炼运行不能视为满足官方 API 条件。**报告自动记录平台、地址、模型及该差异。
 
 ## 快速开始
@@ -96,7 +98,7 @@ run-时间-随机编号/
 
 ## 预算与边界
 
-- 默认累计上限 50 元，可按明确授权调整，工具上限 200 元；包含连接测试和此前运行。账本位于 `%LOCALAPPDATA%/DesignCodeAgent/budget.json`，没有界面内“重置费用”功能。本次开发实验使用者已将累计预算授权提高至 200 元，原有费用不清零。
+- 默认累计上限 50 元，包含连接测试和此前运行；可调整为其他正数。明确取消金额上限可在界面填写 `不限`，CLI 使用 `--budget unlimited`，仍保留计价、用量和未知请求预留。本次开发实验使用者已明确取消费用上限。账本位于 `%LOCALAPPDATA%/DesignCodeAgent/budget.json`，没有界面内“重置费用”功能，原有费用不清零。
 - 请求前按 UTF-8 字节数加协议余量及输出上限预留；有 usage 才结算。超时、重试和不确定错误保留预留，因此可能比实际账单更保守。缓存折扣不用于预算放宽。
 - 单价由用户核对确认。模型服务实际账单才是最终收费依据；价格上界失效时工具估算不能保证实际费用上限。
 - 最多 300 个模型轮次，限流 / 指定服务端错误最多重试两次；无网络响应时不盲目重发。生成按规划任务中的目标文件逐一推进，并提供接口索引和读取次数限制，避免反复遍历仓库。输出截断时不执行任何残缺调用，最多提示缩小单次写入后重试两次；超出限制或上下文上限则停止并保留结果。每次尝试均计入预算。
@@ -111,7 +113,7 @@ powershell -ExecutionPolicy Bypass -File scripts/build.ps1
 
 输出为 `dist/DesignCodeAgent.exe`，同时附带示例输入和 SHA256 校验值。GitHub Actions 在 Windows 测试和打包，产出 exe 构建附件。发布包在本机生成；干净 Windows 验收状态见 [验证记录](docs/validation.md)。
 
-更多材料：[机制调研](docs/research.md)、[架构与限制](docs/design.md)、[评价口径](docs/experiment-protocol.md)、[演示与讲解](docs/demo.md)、[实验记录](examples/README.md)。
+更多材料：[机制调研](docs/research.md)、[架构与限制](docs/design.md)、[评价口径](docs/experiment-protocol.md)、[演示与讲解](docs/demo.md)、[代码导读](docs/code-tour.md)、[实验记录](examples/README.md)。
 
 ## 许可与来源
 

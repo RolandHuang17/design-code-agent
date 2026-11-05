@@ -1,0 +1,29 @@
+{
+  "provider": "bailian",
+  "base_url": "https://ws-hzkcuvkt74i3d6ol.cn-beijing.maas.aliyuncs.com/compatible-mode/v1",
+  "model": "deepseek-v4-pro-0813",
+  "official_api_compliant": false,
+  "allow_project_execution": true,
+  "max_repair_rounds": 3,
+  "max_turns": 300,
+  "input_hashes": [
+    "111282df7817bca771e53c82ebb053707a3217cb8f11733a2c25b631ca81db55",
+    "77dac057e13f122ddc6fc19294490c6a961f00429b72f15df81a81adc91bdbc8"
+  ],
+  "seed_project": "D:\\projects\\Task\\runs\\run-20261106-004631-f79548f8\\project",
+  "agent_source_hashes": {
+    "budget.py": "b13a7e9a103024a2412e6bb2f0b4945e7b1f20b1778e9dd5beef4ac62e51187b",
+    "checks.py": "9b2724ce8af4372d2c325d4536cf0b65e3a76b19d7c5df01be7de9f31eabab92",
+    "cli.py": "680cecbec9499aecb9f225d4191b8ebf25cd45e63e2f670b561df78f1a30bace",
+    "config.py": "548cec1513f4b3e5fc4ab58260a59d983344768ed882823ba3ebe1dca65270fe",
+    "engine.py": "b2661d1b56f42e9a19b26c41c3836d954a4b4c0b05f877aeb6b52d2b636d6299",
+    "gui.py": "d03972ea3e576a544090533bb6a41b39e857bcd8e4ddb3db4cac6378192d7395",
+    "inputs.py": "6a2ad7d399a4c981a4d6ec55e2ea974c1c8dec2753e90685771064896f501f12",
+    "prompts.py": "a867d6a3b49005a23a25ae33ec37ac8d723aca862e92c7d70612a524348a579d",
+    "provider.py": "bcf4f0b560019a4293323e6084483bcc71445fcb3c824b07ed74f5d9d0626d70",
+    "safety.py": "e12c23689b4ef325013e2257905da6e0957397ff2ab64d260540d8b7fbbe5b4c",
+    "tools.py": "dc2fde90fcd8528f19030cbcfb198cbb681025da87682590e7ffcb1ae76ece25",
+    "__init__.py": "68479990e0da59210e2a5ffaf2eb3d01e4f0dd711ec13baa0bba3b8a7fcc717c",
+    "__main__.py": "3129adff95e0f38b87ab34cddfc27082c7892bcaec267ff5d40f160fdf55b44a"
+  }
+}

@@ -1,0 +1,55 @@
+# Space Fractions – Istio PeerAuthentication reference configuration
+#
+# REFERENCE-ONLY CONFIGURATION.
+#
+# This file is syntactically valid and aligned with the `space-fractions`
+# namespace and the DestinationRule traffic policy in destination-rules.yaml
+# (mTLS STRICT / ISTIO_MUTUAL). It has NOT been validated against a live
+# Istio mesh and must not be treated as production-validated.
+#
+# Assumptions (documented, not measured):
+#   * A single namespace-wide PeerAuthentication enables STRICT mTLS for all
+#     in-mesh east-west traffic. This matches the ISTIO_MUTUAL TLS mode set by
+#     the DestinationRules in destination-rules.yaml.
+#   * "OUTSIDE" (egress) is not constrained here: the `space-fractions`
+#     services reach out to Redis/RabbitMQ/Elasticsearch/PostgreSQL/Keycloak,
+#     which live outside the mesh (brokered by Kubernetes Services without
+#     sidecars). Leaving egress unset (default PERMISSIVE-at-the-application
+#     layer) avoids over-constraining those backend connections.
+#   * Port 3000 is the application HTTP port across the gateway and all
+#     backend microservices; the mtls configuration applies to it uniformly.
+#   * No per-workload overrides are defined because the accompanying
+#     architecture does not call for a permissive exempt list (for example a
+#     health-check-only or metrics-only workload). If Prometheus or the
+#     health probes need to scrape without mTLS, add a WorkloadSelector
+#     override rather than weakening the namespace default.
+#
+# Relationship to other Istio configs in this directory:
+#   * destination-rules.yaml sets trafficPolicy.tls.mode: ISTIO_MUTUAL on a
+#     wildcard host and on the gateway. This PeerAuthentication is the
+#     complementary control-plane declaration that makes STRICT mTLS the
+#     namespace default. Apply this before (or together with) the
+#     DestinationRules to avoid transient 503s from policy mismatch.
+#   * gateway.yaml / virtual-service.yaml govern ingress routing; ingress
+#     traffic from the Gateway to the front-door `gateway` Service is subject
+#     to this mTLS policy like any other in-mesh hop.
+#   * AuthorizationPolicy (RequestAuthentication enforcement) is
+#     intentionally NOT included here: authentication is verified at the
+#     application layer via OIDC bearer-token validation (shared/src/auth.js,
+#     gateway/src/middleware.js). This file only enforces transport identity
+#     (mTLS), not user identity.
+apiVersion: security.istio.io/v1
+kind: PeerAuthentication
+metadata:
+  name: space-fractions-mtls
+  namespace: space-fractions
+  labels:
+    app.kubernetes.io/name: space-fractions
+    app.kubernetes.io/part-of: space-fractions
+    app.kubernetes.io/managed-by: istio
+spec:
+  # Applying at the namespace level (no WorkloadSelector) makes STRICT mTLS
+  # the default for every workload in `space-fractions`, including the
+  # gateway and all microservices. This is the reference default.
+  mtls:
+    mode: STRICT

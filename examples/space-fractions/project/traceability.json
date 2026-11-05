@@ -1,0 +1,368 @@
+{
+  "items": [
+    {
+      "id": "FR-PLAY",
+      "source": {"document": "Architecture_View.md", "start_line": 3},
+      "description": "FR: Play Game – user can start and play a fraction game",
+      "files": ["services/game-service/src/routes.js", "gateway/src/routes.js", "gateway/public/js/app.js"],
+      "tests": ["test/integration/game-flow.test.js", "services/game-service/test/game-engine.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR-SCORE",
+      "source": {"document": "Architecture_View.md", "start_line": 8},
+      "description": "FR: View Score – user can view their game score",
+      "files": ["services/game-service/src/routes.js", "gateway/public/js/ui.js"],
+      "tests": ["test/integration/game-flow.test.js", "services/game-service/test/scoring.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR-HELP",
+      "source": {"document": "Architecture_View.md", "start_line": 10},
+      "description": "FR: View Help – user can access help content",
+      "files": ["gateway/public/index.html", "gateway/public/js/ui.js"],
+      "tests": ["test/integration/api.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR-ADMIN-CRUD",
+      "source": {"document": "Architecture_View.md", "start_line": 9},
+      "description": "FR: Update Questions – admin can create and delete questions",
+      "files": ["services/admin-service/src/routes.js", "gateway/src/routes.js"],
+      "tests": ["test/integration/admin.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR-PAUSE-RESUME",
+      "source": {"document": "Architecture_View.md", "start_line": 67},
+      "description": "FR: Pause/Resume – player can pause and resume game",
+      "files": ["services/game-service/src/routes.js", "services/game-service/src/game-engine.js", "gateway/public/js/app.js"],
+      "tests": ["test/integration/game-flow.test.js", "services/game-service/test/game-engine.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR-ENDING-FEEDBACK",
+      "source": {"document": "Architecture_View.md", "start_line": 81},
+      "description": "FR: Game ending with score display and feedback",
+      "files": ["services/game-service/src/game-engine.js", "gateway/public/js/ui.js"],
+      "tests": ["test/integration/game-flow.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR-INTRO-MENU",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 8},
+      "description": "FR: Introduction movie and main menu screens",
+      "files": ["gateway/public/index.html", "gateway/public/js/ui.js"],
+      "tests": ["test/integration/api.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "NFR-PERF",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 33},
+      "description": "NFR: Performance – game responds quickly with Redis caching (cache/mq/search modules implemented; no automated unit tests: cache, mq, and search require external Redis/RabbitMQ/Elasticsearch runtimes not available in the node:test unit suite)",
+      "files": ["shared/src/cache.js", "shared/src/mq.js", "services/question-service/src/search.js"],
+      "tests": [],
+      "status": "partial"
+    },
+    {
+      "id": "ASR-DURABILITY",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 35},
+      "description": "ASR: Data durability – PostgreSQL persistence with replication config",
+      "files": ["sql/001_initial.sql", "shared/src/db.js", "compose.yaml"],
+      "tests": ["test/integration/api.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "ASR-SECURITY",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 34},
+      "description": "ASR: Security – OAuth2/OIDC, authorization, TLS references",
+      "files": ["shared/src/auth.js", "gateway/src/middleware.js", "keycloak/realm.json", "istio/peer-authentication.yaml"],
+      "tests": ["test/integration/auth.test.js", "shared/test/auth.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "ASR-SCALABILITY",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 15},
+      "description": "ASR: Scalability via load balancing and autoscaling (K8s replicas; configuration-only artifacts, no automated unit test coverage)",
+      "files": ["k8s/gateway-deployment.yaml", "k8s/game-service-deployment.yaml", "k8s/hpa.yaml"],
+      "tests": [],
+      "status": "partial"
+    },
+    {
+      "id": "UC-PLAY-GAME",
+      "source": {"document": "Architecture_View.md", "start_line": 3},
+      "description": "UseCase: Play Game – EndUser interacts with PlayGame use case",
+      "files": ["gateway/src/routes.js", "services/game-service/src/routes.js"],
+      "tests": ["test/integration/game-flow.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "UC-VIEW-SCORE",
+      "source": {"document": "Architecture_View.md", "start_line": 8},
+      "description": "UseCase: View Score – EndUser views game score",
+      "files": ["services/game-service/src/routes.js"],
+      "tests": ["test/integration/game-flow.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "UC-VIEW-HELP",
+      "source": {"document": "Architecture_View.md", "start_line": 10},
+      "description": "UseCase: View Help – EndUser accesses help",
+      "files": ["gateway/public/index.html"],
+      "tests": ["test/integration/api.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "UC-UPDATE-QUESTIONS",
+      "source": {"document": "Architecture_View.md", "start_line": 9},
+      "description": "UseCase: Update Questions – Admin manages questions",
+      "files": ["services/admin-service/src/routes.js"],
+      "tests": ["test/integration/admin.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "CLS-GAME",
+      "source": {"document": "Architecture_View.md", "start_line": 23},
+      "description": "Class: Game entity with id, score, play(), viewScore()",
+      "files": ["services/game-service/src/game-engine.js"],
+      "tests": ["services/game-service/test/game-engine.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "CLS-QUESTION",
+      "source": {"document": "Architecture_View.md", "start_line": 29},
+      "description": "Class: Question entity with id, prompt, options, getPrompt(), getOptions()",
+      "files": ["services/question-service/src/routes.js", "sql/001_initial.sql"],
+      "tests": ["test/integration/admin.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "CLS-USER",
+      "source": {"document": "Architecture_View.md", "start_line": 37},
+      "description": "Class: User entity with id, username, playGame(), viewScore()",
+      "files": ["services/user-service/src/routes.js"],
+      "tests": ["test/integration/auth.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "CLS-ADMIN",
+      "source": {"document": "Architecture_View.md", "start_line": 43},
+      "description": "Class: Admin entity with id, username, updateQuestions()",
+      "files": ["services/admin-service/src/routes.js"],
+      "tests": ["test/integration/admin.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "ST-PLAYING-PAUSED-GAMEOVER",
+      "source": {"document": "Architecture_View.md", "start_line": 67},
+      "description": "State diagram: Playing, Paused, GameOver states with transitions",
+      "files": ["services/game-service/src/game-engine.js"],
+      "tests": ["services/game-service/test/game-engine.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "SEQ-PLAY-GAME",
+      "source": {"document": "Architecture_View.md", "start_line": 96},
+      "description": "Sequence: User→Game→Question play flow with submit answer",
+      "files": ["services/game-service/src/routes.js", "services/question-service/src/routes.js"],
+      "tests": ["test/integration/game-flow.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "SEQ-ADMIN-UPDATE",
+      "source": {"document": "Architecture_View.md", "start_line": 111},
+      "description": "Sequence: Admin→Question update flow",
+      "files": ["services/admin-service/src/routes.js"],
+      "tests": ["test/integration/admin.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "COL-PLAY-SCENARIO",
+      "source": {"document": "Architecture_View.md", "start_line": 120},
+      "description": "Collaboration: Play Game scenario with User, Game, Question",
+      "files": ["services/game-service/src/routes.js"],
+      "tests": ["test/integration/game-flow.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "COL-ADMIN-SCENARIO",
+      "source": {"document": "Architecture_View.md", "start_line": 136},
+      "description": "Collaboration: Update Questions scenario with Admin, Question",
+      "files": ["services/admin-service/src/routes.js"],
+      "tests": ["test/integration/admin.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "PKG-GAME-USER-ADMIN",
+      "source": {"document": "Architecture_View.md", "start_line": 148},
+      "description": "Package diagram: Game, User, Admin packages and dependencies (structural service packages; no dedicated automated test, structural artifacts only)",
+      "files": ["services/game-service/package.json", "services/question-service/package.json", "services/user-service/package.json", "services/admin-service/package.json"],
+      "tests": [],
+      "status": "partial"
+    },
+    {
+      "id": "CMP-FOUR-COMPONENTS",
+      "source": {"document": "Architecture_View.md", "start_line": 165},
+      "description": "Component diagram: GameComponent, QuestionComponent, UserComponent, AdminComponent (service entrypoints; no dedicated automated test, structural artifacts only)",
+      "files": ["services/game-service/src/index.js", "services/question-service/src/index.js", "services/user-service/src/index.js", "services/admin-service/src/index.js"],
+      "tests": [],
+      "status": "partial"
+    },
+    {
+      "id": "DEP-FOUR-NODES",
+      "source": {"document": "Architecture_View.md", "start_line": 179},
+      "description": "Deployment: GameServer, QuestionServer, UserClient, AdminClient nodes (compose/K8s configuration-only artifacts; no automated unit test coverage)",
+      "files": ["compose.yaml", "k8s/gateway-deployment.yaml", "k8s/game-service-deployment.yaml", "k8s/question-service-deployment.yaml", "k8s/user-service-deployment.yaml", "k8s/admin-service-deployment.yaml"],
+      "tests": [],
+      "status": "partial"
+    },
+    {
+      "id": "CNT-FOUR-CONTAINERS",
+      "source": {"document": "Architecture_View.md", "start_line": 191},
+      "description": "Container diagram: GameContainer, QuestionContainer, UserContainer, AdminContainer (Dockerfiles are build configuration; no dedicated automated test)",
+      "files": ["gateway/Dockerfile", "services/game-service/Dockerfile", "services/question-service/Dockerfile", "services/user-service/Dockerfile", "services/admin-service/Dockerfile"],
+      "tests": [],
+      "status": "partial"
+    },
+    {
+      "id": "ACT-GAME-FLOW",
+      "source": {"document": "Architecture_View.md", "start_line": 81},
+      "description": "Activity diagram: play, check game over, calculate score, display score",
+      "files": ["services/game-service/src/game-engine.js", "gateway/public/js/app.js"],
+      "tests": ["test/integration/game-flow.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "CTR-HEALTH",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 6},
+      "description": "Contract: GET /health returns 200 (derived from acceptance contract; unnumbered requirement)",
+      "files": ["gateway/src/routes.js"],
+      "tests": ["test/integration/api.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "CTR-ADMIN-CREATE",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 6},
+      "description": "Contract: POST /api/admin/questions creates question, returns 201 (derived from acceptance contract; unnumbered requirement)",
+      "files": ["services/admin-service/src/routes.js", "gateway/src/routes.js"],
+      "tests": ["test/integration/admin.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "CTR-ADMIN-DELETE",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 6},
+      "description": "Contract: DELETE /api/admin/questions/:id returns 200/204 (derived from acceptance contract; unnumbered requirement)",
+      "files": ["services/admin-service/src/routes.js"],
+      "tests": ["test/integration/admin.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "CTR-GAME-CREATE",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 6},
+      "description": "Contract: POST /api/games creates game, returns 201 with questions (derived from acceptance contract; unnumbered requirement)",
+      "files": ["services/game-service/src/routes.js"],
+      "tests": ["test/integration/game-flow.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "CTR-GAME-GET",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 6},
+      "description": "Contract: GET /api/games/:id returns game state without correctAnswer (derived from acceptance contract; unnumbered requirement)",
+      "files": ["services/game-service/src/routes.js"],
+      "tests": ["test/integration/game-flow.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "CTR-GAME-PAUSE",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 6},
+      "description": "Contract: POST /api/games/:id/pause returns 200; answer while paused→409 (derived from acceptance contract; unnumbered requirement)",
+      "files": ["services/game-service/src/routes.js", "services/game-service/src/game-engine.js"],
+      "tests": ["test/integration/game-flow.test.js", "services/game-service/test/game-engine.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "CTR-GAME-RESUME",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 6},
+      "description": "Contract: POST /api/games/:id/resume returns 200 (derived from acceptance contract; unnumbered requirement)",
+      "files": ["services/game-service/src/routes.js"],
+      "tests": ["test/integration/game-flow.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "CTR-GAME-ANSWER",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 6},
+      "description": "Contract: POST /api/games/:id/answers returns {correct,score}; idempotent scoring (derived from acceptance contract; unnumbered requirement)",
+      "files": ["services/game-service/src/routes.js", "services/game-service/src/game-engine.js"],
+      "tests": ["test/integration/game-flow.test.js", "services/game-service/test/scoring.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "CTR-GAME-SCORE",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 6},
+      "description": "Contract: GET /api/games/:id/score returns {score}; other users→403/404 (derived from acceptance contract; unnumbered requirement)",
+      "files": ["services/game-service/src/routes.js"],
+      "tests": ["test/integration/game-flow.test.js", "test/integration/auth.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "CTR-FRACTION-VALIDATION",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 6},
+      "description": "Contract: Malformed fractions→400; invalid credentials→401 (derived from acceptance contract; unnumbered requirement)",
+      "files": ["shared/src/fraction.js", "shared/src/auth.js", "gateway/src/middleware.js"],
+      "tests": ["shared/test/fraction.test.js", "test/integration/auth.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "CTR-NO-CORRECT-ANSWER",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 6},
+      "description": "Contract: Never include correctAnswer in player response (derived from acceptance contract; unnumbered requirement)",
+      "files": ["services/game-service/src/routes.js", "services/question-service/src/routes.js"],
+      "tests": ["test/integration/game-flow.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "INF-REDIS",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 51},
+      "description": "Infrastructure: Redis cache integration (module implemented; no automated unit test because Redis runtime is unavailable in the node:test unit suite)",
+      "files": ["shared/src/cache.js", "compose.yaml"],
+      "tests": [],
+      "status": "partial"
+    },
+    {
+      "id": "INF-RABBITMQ",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 51},
+      "description": "Infrastructure: RabbitMQ score events (module implemented; no automated unit test because RabbitMQ runtime is unavailable in the node:test unit suite)",
+      "files": ["shared/src/mq.js", "compose.yaml"],
+      "tests": [],
+      "status": "partial"
+    },
+    {
+      "id": "INF-ELASTICSEARCH",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 51},
+      "description": "Infrastructure: Elasticsearch question search (module implemented; no automated unit test because Elasticsearch runtime is unavailable in the node:test unit suite)",
+      "files": ["services/question-service/src/search.js", "compose.yaml"],
+      "tests": [],
+      "status": "partial"
+    },
+    {
+      "id": "INF-PROMETHEUS",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 51},
+      "description": "Infrastructure: Prometheus metrics (derived from acceptance contract; unnumbered requirement)",
+      "files": ["shared/src/metrics.js", "prometheus/prometheus.yml", "compose.yaml"],
+      "tests": ["shared/test/metrics.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "INF-KEYCLOAK",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 51},
+      "description": "Infrastructure: Keycloak OIDC provider (configuration-only artifact; no automated unit test because a running Keycloak is required)",
+      "files": ["keycloak/realm.json", "compose.yaml"],
+      "tests": [],
+      "status": "partial"
+    }
+  ],
+  "document_references": [
+    {"filename": "Architecture_Documentation.md", "type": "architecture"},
+    {"filename": "Architecture_View.md", "type": "views"}
+  ]
+}

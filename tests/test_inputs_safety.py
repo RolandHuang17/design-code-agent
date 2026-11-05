@@ -61,6 +61,17 @@ def test_tool_validation_and_redaction(tmp_path):
     assert Redactor("my-private-key").value({"key": "my-private-key", "other": "sk-abcdefghijk"}) == {"key": "[REDACTED]", "other": "[REDACTED]"}
 
 
+def test_unicode_file_continuation_uses_character_offsets(tmp_path):
+    content = "甲乙\n" * 6000
+    (tmp_path / "large.txt").write_text(content, encoding="utf-8")
+    tools = Toolset(tmp_path, threading.Event(), Redactor("placeholder"))
+    first = tools.execute("read_file", '{"path":"large.txt"}')
+    assert first["offset_unit"] == "characters"
+    second = tools.execute("read_file", json.dumps({"path": "large.txt", "offset": first["next_offset"]}))
+    assert second["next_offset"] is None
+    assert first["content"] + second["content"] == content
+
+
 def test_symlink_escape(tmp_path):
     outside = tmp_path.parent / (tmp_path.name + "-outside")
     outside.mkdir()

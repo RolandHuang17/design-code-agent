@@ -1,0 +1,1000 @@
+--- raw-project/README.md
++++ project/README.md
+@@ -1,322 +1,53 @@
+ # Space Fractions
+ 
+-A web-based, interactive fraction-learning tool for sixth-grade students, implemented as a
+-microservices system. Players watch an introduction, navigate a main menu, answer fraction
+-questions with exact rational arithmetic, pause/resume games, view scores, and receive ending
+-feedback. Administrators can create and delete questions through authenticated endpoints.
++六年级分数学习演示项目。由真实 Code Agent 生成后在独立副本修正，原始输出和差异见上级目录。本 README 由操作者整理，验证状态以 `../evaluation/` 为准。
+ 
+----
++## 运行
+ 
+-## Table of Contents
++需要 Docker Engine + Compose v2。占用 3000–3004、5432、5672、6379、8080、9090–9095、9200、15672 端口。首次启动需要下载镜像、安装 npm 依赖。
+ 
+-1. [Architecture Overview](#architecture-overview)
+-2. [Repository Layout](#repository-layout)
+-3. [Runtime Requirements](#runtime-requirements)
+-4. [Local Development (without Docker)](#local-development-without-docker)
+-5. [Docker Compose (recommended)](#docker-compose-recommended)
+-6. [URLs & Ports](#urls--ports)
+-7. [Accounts & Authentication](#accounts--authentication)
+-8. [Environment Variables](#environment-variables)
+-9. [API Contract](#api-contract)
+-10. [Testing](#testing)
+-11. [Build & Start Scripts](#build--start-scripts)
+-12. [Infrastructure Artifacts](#infrastructure-artifacts)
+-13. [Architecture Deviations & Assumptions](#architecture-deviations--assumptions)
+-14. [Known Limitations & Unverified Infrastructure](#known-limitations--unverified-infrastructure)
+-
+----
+-
+-## Architecture Overview
+-
+-The system follows a microservices architecture with four backend services behind a single
+-API gateway:
+-
+-| Component | Responsibility | Port (Compose) |
+-|-----------|----------------|----------------|
+-| `gateway` | API composition, browser UI serving, OpenAPI spec, metrics aggregation | 3000 |
+-| `game-service` | Game state, answers, scoring, pause/resume | 3001 |
+-| `question-service` | Question storage, search (Elasticsearch), question retrieval | 3002 |
+-| `user-service` | User profiles, OIDC token validation helper | 3003 |
+-| `admin-service` | Question CRUD (create/delete) with admin-role authorization | 3004 |
+-
+-Backing infrastructure (via Docker Compose): **PostgreSQL 16**, **Redis 7**, **RabbitMQ 3.13**,
+-**Elasticsearch 8**, **Keycloak 24** (OIDC), **Prometheus 2**.
+-
+-The original architecture document (*Architecture_Documentation.md*) lists three components
+-(Game, Question, User); per the prompt contract and the Component/Package/Container diagrams,
+-a fourth **Admin** component is implemented. See
+-[`architecture-decisions.md`](architecture-decisions.md) (AD-001).
+-
+----
+-
+-## Repository Layout
+-
+-```
+-.
+-├── gateway/                  # Express API gateway (port 3000) + browser UI
+-│   ├── public/               # Plain HTML/CSS/JS (no bundler)
+-│   │   ├── index.html
+-│   │   ├── css/style.css
+-│   │   └── js/{api,app,ui}.js
+-│   └── src/{index,routes,middleware}.js
+-├── services/
+-│   ├── game-service/         # Game logic, scoring, pause/resume
+-│   ├── question-service/     # Questions + Elasticsearch search
+-│   ├── user-service/         # User profile + OIDC
+-│   └── admin-service/        # Question CRUD (admin only)
+-├── shared/                   # Cross-cutting npm package
+-│   └── src/{fraction,auth,db,cache,mq,metrics,errors}.js
+-├── sql/                      # Idempotent migrations & seed (001, 002)
+-├── test/integration/         # Integration tests (require running stack)
+-├── k8s/                      # Kubernetes manifests (reference)
+-├── terraform/                # AWS Terraform example (reference)
+-├── istio/                    # Istio service-mesh config (reference)
+-├── vault/                    # Vault config (reference)
+-├── keycloak/realm.json       # Pre-provisioned OIDC realm
+-├── prometheus/prometheus.yml # Scrape config
+-├── openapi.yaml              # REST API contract
+-├── internal.proto            # Inter-service gRPC contract
+-├── compose.yaml              # Full-stack Docker Compose
+-├── Jenkinsfile               # CI/CD pipeline (reference)
+-├── plan.json                 # Implementation plan
+-├── traceability.json         # Requirement-to-artifact traceability
+-└── architecture-decisions.md # ADRs, assumptions, conflicts
++```sh
++docker compose up -d --build
++docker compose ps
+ ```
+ 
+----
++打开 http://localhost:3000，点击 Sign in。开发夹具学生 `student / student`、管理员 `admin / admin`。使用 Keycloak 公共浏览器客户端的 Authorization Code + PKCE S256 流程；服务验证 RS256 签名、issuer、audience、时间及管理员角色。无需手工粘贴 token。
+ 
+-## Runtime Requirements
++若 3000 端口不可用，在 PowerShell 设置 `$env:GATEWAY_PORT='3100'` 后启动；Linux/WSL 使用 `GATEWAY_PORT=3100 docker compose up -d --build`，访问 http://localhost:3100。realm 已允许这两个本机来源。更换域名需同步调整 OIDC issuer、重定向与内部 JWKS 地址。
+ 
+-- **Node.js >= 22** (the prompt mandates 22+; this overrides the architecture doc's Node 18–20 —
+-  see AD-003).
+-- **npm >= 9** (npm workspaces).
+-- **Docker >= 20** and **Docker Compose >= 2** for the full stack.
+-- Ports 3000–3004 (services), 5432 (Postgres), 6379 (Redis), 5672/15672 (RabbitMQ), 9200
+-  (Elasticsearch), 8080 (Keycloak), 9090 (Prometheus) free on the host.
++停止使用 `docker compose down`，保留数据卷。Keycloak 首次导入 realm，已有数据卷不会自动应用后续 realm 文件修改，需管理员更新配置。默认密码、HTTP、开放中间件端口和 Keycloak start-dev 仅供本机开发，不适用于公网。
+ 
+----
++## 架构
+ 
+-## Local Development (without Docker)
++| 服务 | 职责 | 内部端口 |
++| --- | --- | --- |
++| gateway | 网页、统一 API、超时与健康检查 | 3000 |
++| game-service | 游戏状态、答题、分数、所有权 | 3001 |
++| question-service | 公开题目与搜索 | 3002 |
++| user-service | OIDC 用户和内部用户资料 | 3003 |
++| admin-service | 管理员题目 CRUD | 3004 |
+ 
+-The services require PostgreSQL/Redis/RabbitMQ/Elasticsearch. For unit tests, no infrastructure
+-is required. To run a service standalone against already-running infrastructure:
++PostgreSQL 持久化用户、题目、游戏与答案，迁移幂等执行；Redis 缓存游戏；RabbitMQ 发送计分事件；Elasticsearch 索引维护的题目，搜索故障时可回退 PostgreSQL；Prometheus 抓取五个服务。
+ 
+-```bash
+-cp .env.example .env            # edit values as needed
+-npm install                     # installs all workspaces
+-npm test                        # run unit tests (no infra required)
++答题在同一数据库事务中锁定游戏行，完成去重、加分和状态更新。首次正确答案加 1 分；进行中的重复提交不重复计分，已结束游戏拒绝写入（409）。精确分数运算支持等价未约分答案；非法分数返回 400。游戏允许所有者或管理员访问。
++
++## 测试
++
++源码运行需要 Node.js 22+：
++
++```sh
++npm ci --ignore-scripts
++npm test
++npm run test:integration
++npm run build
+ ```
+ 
+-Each service reads its configuration from environment variables (see
+-[`.env.example`](.env.example)). Individual entrypoints:
++`build` 实际检查 JS、JSON 和配置结构；原生网页不需要打包器。集成测试经过真实 Express HTTP 边界，基础设施用内存替身，JWT 验证真实 RSA 签名；不能替代上级目录的真实服务验收。
+ 
+-```
+-node gateway/src/index.js
+-node services/game-service/src/index.js
+-node services/question-service/src/index.js
+-node services/user-service/src/index.js
+-node services/admin-service/src/index.js
+-```
++## 接口与参考配置
+ 
+-> Note: services do **not** auto-load `.env`; export variables in your shell or use a process
+-> manager. SQL migrations are applied at startup (idempotent — see `sql/001_initial.sql`).
++接口见 `openapi.yaml`：创建/读取游戏，答题，暂停/恢复，成绩，公开题目，用户资料及管理员题目 CRUD。`GET /play` 保留原始入口，说明新的 REST 调用方式。
+ 
+----
++实际服务通信使用 REST，`internal.proto` 仅为协议设计参考。`k8s/`、`terraform/`、`Jenkinsfile`、`vault/`、`istio/` 未部署；Terraform 为 AWS 示例，未创建云资源。需按环境配置镜像、存储、证书、域名、密钥和权限。
+ 
+-## Docker Compose (recommended)
+-
+-The full system, including all backing infrastructure and a pre-provisioned Keycloak realm,
+-starts with:
+-
+-```bash
+-cp .env.example .env   # optional; sane dev defaults exist
+-docker compose up --build
+-```
+-
+-Health checks gate startup order. Wait for `gateway` to report healthy before testing:
+-
+-```bash
+-curl http://localhost:3000/health
+-# {"status":"ok","timestamp":"..."}
+-```
+-
+-To tear down (and remove the named volumes including DB data):
+-
+-```bash
+-docker compose down -v
+-```
+-
+----
+-
+-## URLs & Ports
+-
+-| Service | URL |
+-|---------|-----|
+-| Browser UI / API gateway | http://localhost:3000 |
+-| Gateway metrics | http://localhost:3000/metrics (or 9090) |
+-| OpenAPI spec | http://localhost:3000/openapi.yaml |
+-| Keycloak admin console | http://localhost:8080 |
+-| RabbitMQ management UI | http://localhost:15672 |
+-| Elasticsearch | http://localhost:9200 |
+-| Prometheus | http://localhost:9090 |
+-
+----
+-
+-## Accounts & Authentication
+-
+-Keycloak is imported from `keycloak/realm.json` on first start (`--import-realm`). The realm
+-(`space-fractions`) pre-provisions two users **for local development only**:
+-
+-| Username | Password | Role | Capabilities |
+-|----------|----------|------|--------------|
+-| `student` | `student` | `student` | Play games, view own scores |
+-| `admin` | `admin` | `admin` | All of the above + question CRUD |
+-
+-> **Do not use these credentials in production.** They are development-only fixtures (AD-005).
+-> The Keycloak admin console login uses the `KEYCLOAK_ADMIN` / `KEYCLOAK_ADMIN_PASSWORD`
+-> environment variables (default `admin`/`admin`).
+-
+-The client uses the OAuth2/OIDC **Authorization Code + PKCE** flow where applicable, and validates
+-access tokens against the issuer's JWKS (`iss`, `aud`, signature). The `admin` realm role is
+-asserted via the `roles` claim (see `shared/src/auth.js`; AD-005).
+-
+-Authenticated endpoints require a `Bearer` access token. Unauthenticated requests return `401`;
+-non-admin users hitting admin endpoints get `403`.
+-
+----
+-
+-## Environment Variables
+-
+-Full list with placeholders in [`.env.example`](.env.example). Key variables:
+-
+-| Variable | Purpose |
+-|----------|---------|
+-| `PGHOST`, `PGPORT`, `PGDATABASE`, `PGUSER`, `PGPASSWORD` | PostgreSQL connection |
+-| `REDIS_URL` | Redis cache |
+-| `RABBITMQ_URL` | RabbitMQ for score events |
+-| `ELASTICSEARCH_URL` | Question search |
+-| `OIDC_ISSUER` | Keycloak realm issuer URL |
+-| `OIDC_CLIENT_ID`, `OIDC_CLIENT_SECRET` | OIDC client |
+-| `OIDC_AUDIENCE` | Expected `aud` claim (default `account`) |
+-| `PORT` | Gateway port (default 3000) |
+-
+-No real secrets are committed anywhere; the repository contains placeholders and
+-development-only fixtures only.
+-
+----
+-
+-## API Contract
+-
+-The full REST contract is in [`openapi.yaml`](openapi.yaml), served by the gateway at
+-`/openapi.yaml`. Summary of the independent acceptance contract (gateway on port 3000):
+-
+-- `GET /health` → `200`.
+-- Browser UI served at `/`.
+-- `POST /api/admin/questions` → `201 {id,...}` (admin only).
+-- `DELETE /api/admin/questions/:id` → `200`/`204` (admin only).
+-- `POST /api/games` `{questionIds?:[id]}` → `201 {id,questions:[{id,prompt,options}]}`.
+-- `GET /api/games/:id` → `200` game state. **Never** returns `correctAnswer` to players.
+-- `POST /api/games/:id/pause`, `POST /api/games/:id/resume` → `200`. Answering while paused → `409`.
+-- `POST /api/games/:id/answers` `{questionId,answer}` → `200 {correct,score}`; +1 per first
+-  correct answer; repeats are idempotent (`200`, no score change) or `409`.
+-- `GET /api/games/:id/score` → `200 {score}`. Other users' games → `403`/`404`.
+-- Malformed fractions → `400`; missing/invalid credentials → `401`.
+-
+-The legacy `GET /play` endpoint from the architecture doc is preserved for backward
+-compatibility (see AD-002).
+-
+----
+-
+-## Testing
+-
+-| Command | Scope | Requires infra? |
+-|---------|-------|-----------------|
+-| `npm test` | Unit tests (fraction arithmetic, auth, game engine, scoring) | No |
+-| `npm run test:integration` | API contract, authz, pause/resume, scoring idempotency, errors | Yes (running stack) |
+-| `npm run test:all` | Both of the above | Yes |
+-
+-Unit tests use Node's built-in `node:test` runner and assert:
+-
+-- Exact rational fraction arithmetic (`1/2 == 2/4`).
+-- Scoring (each correct answer +1; repeats do not increase score).
+-- Pause/resume state transitions and `409` on answer-while-paused.
+-- Authorization (admin vs. non-admin; game ownership).
+-- Invalid input (`400`) and downstream error behavior.
+-
+-Integration tests (`test/integration/*.test.js`) require the full stack:
+-
+-```bash
+-docker compose up -d --build
+-npm run test:integration
+-```
+-
+----
+-
+-## Build & Start Scripts
+-
+-- `npm run build` — verifies/prepares source. Since services are plain Node.js, there is no
+-  compilation; the script performs static integrity checks rather than printing a hollow
+-  success message.
+-- `npm start` — informational; the intended runtime entry is `docker compose up` (all services)
+-  or individual `node <service>/src/index.js`.
+-- `npm run lint` — syntactic check of the gateway entrypoint via `node --check`.
+-
+----
+-
+-## Infrastructure Artifacts
+-
+-The following are provided to satisfy the architecture/prompt and are **labeled reference-only,
+-not production-validated**:
+-
+-- `k8s/` — Deployments, Services, Ingress, ConfigMap, Namespace (syntactically valid manifests).
+-- `terraform/` — AWS example (ECS-style topology) for provisioning.
+-- `istio/` — Gateway, VirtualService, DestinationRules, PeerAuthentication.
+-- `vault/` — Policy and server config (HCL).
+-- `Jenkinsfile` — CI/CD pipeline stages (install → test → build → image publish).
+-- `prometheus/prometheus.yml` — scrape config for the per-service `/metrics` endpoints.
+-
+-These reference configs are **not** claimed to have been validated in a production Kubernetes,
+-Terraform, Istio, or Vault environment. The working, validated runtime is Docker Compose.
+-
+----
+-
+-## Architecture Deviations & Assumptions
+-
+-Deviations from *Architecture_Documentation.md*, with rationale, are recorded in
+-[`architecture-decisions.md`](architecture-decisions.md). Highlights:
+-
+-1. **Node.js 22+** (prompt) overrides the doc's Node 18–20 (AD-003).
+-2. **Four components** (Game, Question, User, **Admin**) vs. the doc's three (AD-001).
+-3. **Expanded schema** (users, questions, games, game_answers) vs. the doc's single
+-   `games(id, game_state JSONB)` (AD-010).
+-4. **SLO correction**: the doc lists 99.99% uptime with a 1% error budget, which are
+-   contradictory. Assumed intended SLO is **99.9%** (0.1% error budget) — AD-013, INPUT-001.
+-5. **Legacy `/play`** GET retained alongside `POST /api/games` (AD-002).
+-
+-Recorded assumptions include: ~1000 concurrent users (A1), ~1-hour sessions (A2), simple
+-`a/b` fractions with integer numerator/denominator (A4), the `admin` role carried in the
+-`roles` claim (A5), and multiple-choice questions with 4 options (A7). The complete table is
+-in `architecture-decisions.md`.
+-
+----
+-
+-## Known Limitations & Unverified Infrastructure
+-
+-- **No bundler/build step**: the UI and services ship plain source; `npm run build` performs
+-  integrity checks only (by design, per prompt "no bundler needed").
+-- **Reference-only configs**: Kubernetes, Terraform, Istio, Vault, and Jenkins artifacts are
+-  syntactically plausible but **not validated in a real cluster/cloud**. Compose is the tested
+-  deployment target.
+-- **No performance/security validation**: no load, chaos, penetration, or vulnerability-scan
+-  results are claimed. The architecture doc's SLO/availability figures are documented as
+-  targets, not measured outcomes.
+-- **Development credentials**: the Keycloak realm, Postgres, and RabbitMQ fixtures use default
+-  credentials; replace before any non-local use.
+-
+----
+-
+-## Traceability
+-
+-Requirement-to-artifact mapping (covering the architecture doc's FR/NFR/ASR and all 13 supplied
+-diagrams) is in [`traceability.json`](traceability.json), and the implementation plan
+-(including assumptions and conflicts) is in [`plan.json`](plan.json).+补充假设见 `architecture-decisions.md`，路径追溯见 `traceability.json`。没有验证负载、可用性 SLO、云部署或消息事务一致性；RabbitMQ 未实现 outbox / exactly-once。
+--- raw-project/compose.yaml
++++ project/compose.yaml
+@@ -144,8 +144,8 @@
+       # clients) survive container restarts. Realm import is idempotent.
+       - keycloakdata:/opt/keycloak/data
+     healthcheck:
+-      # Keycloak 24 base image does not include curl; busybox wget is present.
+-      test: ["CMD", "wget", "-q", "--spider", "http://localhost:8080/realms/master/.well-known/openid-configuration"]
++      # Keycloak 24 includes bash, but neither curl nor wget.
++      test: ["CMD-SHELL", "bash -c 'exec 3<>/dev/tcp/127.0.0.1/8080; printf \"GET /realms/master/.well-known/openid-configuration HTTP/1.0\\r\\nHost: localhost\\r\\n\\r\\n\" >&3; head -1 <&3 | grep -q 200'"]
+       interval: 10s
+       timeout: 5s
+       retries: 20
+@@ -285,7 +285,7 @@
+       OIDC_CLIENT_ID: ${OIDC_CLIENT_ID:-space-fractions-client}
+       OIDC_AUDIENCE: ${OIDC_AUDIENCE:-account}
+     ports:
+-      - "3000:3000"
++      - "${GATEWAY_PORT:-3000}:3000"
+       - "9095:9095"
+     volumes:
+       - ./openapi.yaml:/app/openapi.yaml:ro
+--- raw-project/gateway/public/index.html
++++ project/gateway/public/index.html
+@@ -29,24 +29,6 @@
+     </footer>
+   </div>
+ 
+-  <!-- Token modal (dev/OIDC manual entry fallback) -->
+-  <div id="auth-modal" class="modal" hidden>
+-    <div class="modal-card">
+-      <h2 id="auth-modal-title">Sign in</h2>
+-      <p class="muted">
+-        Paste an OIDC access token (Bearer) to authenticate. In the Compose
+-        setup, sign in through Keycloak and paste the access token here.
+-      </p>
+-      <label for="auth-token">Access token</label>
+-      <textarea id="auth-token" rows="4" placeholder="eyJhbGciOi..."></textarea>
+-      <div class="modal-actions">
+-        <button id="auth-cancel" class="btn btn-ghost" type="button">Cancel</button>
+-        <button id="auth-save" class="btn btn-primary" type="button">Use token</button>
+-        <button id="auth-clear" class="btn btn-danger-outline" type="button">Sign out</button>
+-      </div>
+-    </div>
+-  </div>
+-
+   <!-- Help modal -->
+   <div id="help-modal" class="modal" hidden>
+     <div class="modal-card">
+--- raw-project/gateway/public/js/api.js
++++ project/gateway/public/js/api.js
+@@ -238,7 +238,7 @@
+   setToken(null);
+   const postLogout = window.location.origin + '/';
+   window.location.assign(
+-    `${cfg.issuer.replace(/\/$/, '')}/protocol/openid-connect/logout?post_logout_redirect_uri=${encodeURIComponent(postLogout)}`
++    `${cfg.issuer.replace(/\/$/, '')}/protocol/openid-connect/logout?client_id=${encodeURIComponent(cfg.clientId)}&post_logout_redirect_uri=${encodeURIComponent(postLogout)}`
+   );
+ }
+ 
+--- raw-project/keycloak/realm.json
++++ project/keycloak/realm.json
+@@ -7,8 +7,14 @@
+   "ssoSessionMaxLifespan": 36000,
+   "roles": {
+     "realm": [
+-      { "name": "admin", "description": "Administrator role for question CRUD" },
+-      { "name": "student", "description": "End user / student role" }
++      {
++        "name": "admin",
++        "description": "Administrator role for question CRUD"
++      },
++      {
++        "name": "student",
++        "description": "End user / student role"
++      }
+     ]
+   },
+   "clients": [
+@@ -16,18 +22,26 @@
+       "clientId": "space-fractions-client",
+       "name": "Space Fractions Client",
+       "enabled": true,
+-      "publicClient": false,
+-      "secret": "space-fractions-client-secret",
++      "publicClient": true,
+       "standardFlowEnabled": true,
+       "directAccessGrantsEnabled": true,
+       "serviceAccountsEnabled": false,
+       "protocol": "openid-connect",
+       "redirectUris": [
+         "http://localhost:3000/*",
+-        "http://localhost:3000/api/users/oidc/callback"
++        "http://localhost:3000/api/users/oidc/callback",
++        "http://localhost:3100/*"
+       ],
+-      "webOrigins": ["http://localhost:3000"],
+-      "defaultClientScopes": ["web-origins", "profile", "roles", "email"],
++      "webOrigins": [
++        "http://localhost:3000",
++        "http://localhost:3100"
++      ],
++      "defaultClientScopes": [
++        "web-origins",
++        "profile",
++        "roles",
++        "email"
++      ],
+       "optionalClientScopes": [],
+       "protocolMappers": [
+         {
+@@ -54,7 +68,11 @@
+             "claim.name": "roles"
+           }
+         }
+-      ]
++      ],
++      "attributes": {
++        "pkce.code.challenge.method": "S256",
++        "post.logout.redirect.uris": "http://localhost:3000/*##http://localhost:3100/*"
++      }
+     }
+   ],
+   "users": [
+@@ -65,7 +83,7 @@
+       "email": "admin@spacefractions.local",
+       "emailVerified": true,
+       "firstName": "Administrator",
+-      "lastName": "",
++      "lastName": "Fixture",
+       "credentials": [
+         {
+           "type": "password",
+@@ -73,7 +91,9 @@
+           "temporary": false
+         }
+       ],
+-      "realmRoles": ["admin"]
++      "realmRoles": [
++        "admin"
++      ]
+     },
+     {
+       "username": "student",
+@@ -90,7 +110,9 @@
+           "temporary": false
+         }
+       ],
+-      "realmRoles": ["student"]
++      "realmRoles": [
++        "student"
++      ]
+     }
+   ],
+   "defaultDefaultClientScopes": [
+--- raw-project/services/game-service/src/game-engine.js
++++ project/services/game-service/src/game-engine.js
+@@ -23,7 +23,7 @@
+ async function createGame(userId, questionIds) {
+   // If no question IDs provided, fetch all available questions
+   if (!questionIds || questionIds.length === 0) {
+-    const result = await query('SELECT id FROM questions ORDER BY created_at');
++    const result = await query('SELECT id FROM questions ORDER BY created_at, id');
+     questionIds = result.rows.map(r => r.id);
+   }
+ 
+@@ -144,22 +144,9 @@
+ }
+ 
+ /**
+- * Submit an answer for a question in a game.
+- * Returns { correct, score, gameState }.
+- *
+- * Idempotent: re-answering the same question never increases score a second
+- * time, because the score increment is gated on the atomic `scored`
+- * FALSE -> TRUE transition of the single answer row (guarded by the
+- * UNIQUE (game_id, question_id) constraint).
+- *
+- * Concurrency: the whole mutation runs in one transaction holding a
+- * `SELECT ... FOR UPDATE` lock on the game row AND the answer
+- * deduplication, score increment, progress advance and state transition are
+- * performed in a SINGLE data-modifying CTE statement. This means the
+- * FALSE -> TRUE detection and the `score = score + 1` happen in one atomic
+- * unit: a concurrent duplicate submission cannot both observe a
+- * FALSE -> TRUE transition and double-increment the score, even in the
+- * absence of the row lock.
++ * Serialize each game's answer mutations with a PostgreSQL row lock.
++ * Deduplication, score and progress changes commit together on one client.
++ * External acceptance additionally checks real concurrent HTTP requests.
+  */
+ async function submitAnswer(gameId, questionId, answer, userId, isAdmin, publishScoreEvent) {
+   // Basic validation outside the transaction: a malformed fraction or an
+@@ -205,82 +192,39 @@
+ 
+     const completed = game.current_question_index >= game.question_ids.length;
+ 
+-    // Completed games: only an idempotent replay of an already-scored
+-    // question is permitted (returns current score without error).
++    // Completed sessions reject further writes; in-progress duplicate answers
++    // remain idempotent. This is within the documented 200-or-409 contract.
+     if (game.state === 'completed' || completed) {
+-      const replayed = await tx.queryOne(
+-        'SELECT scored FROM game_answers WHERE game_id = $1 AND question_id = $2',
+-        [gameId, questionId]
+-      );
+-      if (replayed && replayed.scored) {
+-        return { correct: true, score: game.score, gameState: 'completed' };
+-      }
+       throw new ConflictError('Game is already completed');
+     }
+ 
+-    // Atomic answer upsert + score increment + progress/state mutation, all in
+-    // ONE data-modifying CTE statement.
+-    //
+-    //  - answer_upsert: flips the single answer row's `scored` from FALSE to
+-    //    TRUE only on the FIRST correct answer (guarded by the UNIQUE
+-    //    (game_id, question_id) constraint), and returns `newly_scored`
+-    //    exactly once for that transition.
+-    //  - game_update: reads the CURRENT game score from the row and increments
+-    //    it only by `newly_scored`. Because this happens in the same statement
+-    //    as the dedup decision, two concurrent submissions of the same
+-    //    question cannot both observe a FALSE -> TRUE transition: the second
+-    //    one sees `scored = TRUE` already and its increment is 0.
+-    //  - Progress advances only when the answered question is the one at the
+-    //    current index (computed from the row's question_ids array, so it is
+-    //    not derived from a stale pre-lock JS read) and the game row flips to
+-    //    'completed' only when that advance exhausts the question list.
++    const previous = await tx.queryOne(
++      'SELECT * FROM game_answers WHERE game_id = $1 AND question_id = $2',
++      [gameId, questionId]
++    );
++    const newlyScored = correct && !previous?.scored;
++    await tx.query(
++      `INSERT INTO game_answers (game_id, question_id, answer, correct, scored)
++       VALUES ($1, $2, $3, $4, $5)
++       ON CONFLICT (game_id, question_id) DO UPDATE SET
++         answer = EXCLUDED.answer, correct = EXCLUDED.correct,
++         scored = game_answers.scored OR EXCLUDED.scored`,
++      [gameId, questionId, answer, correct, correct || !!previous?.scored]
++    );
++    const nextIndex = game.current_question_index +
++      Number(game.question_ids[game.current_question_index] === questionId);
++    const nextState = nextIndex >= game.question_ids.length ? 'completed' : game.state;
+     const row = await tx.queryOne(
+-      `WITH answer_upsert AS (
+-         INSERT INTO game_answers (game_id, question_id, answer, correct, scored)
+-         VALUES ($1, $2, $3, $4, $4)
+-         ON CONFLICT (game_id, question_id) DO UPDATE SET
+-           answer = EXCLUDED.answer,
+-           correct = EXCLUDED.correct,
+-           scored = CASE
+-             WHEN game_answers.scored = FALSE AND EXCLUDED.scored = TRUE THEN TRUE
+-             ELSE game_answers.scored
+-           END
+-         RETURNING
+-           (CASE WHEN game_answers.scored = FALSE AND EXCLUDED.scored = TRUE THEN TRUE ELSE FALSE END) AS newly_scored,
+-           correct AS is_correct
+-       ),
+-       game_update AS (
+-         UPDATE games g
+-         SET score = g.score + (SELECT newly_scored::int FROM answer_upsert),
+-             current_question_index = CASE
+-               WHEN g.question_ids[g.current_question_index + 1] = $2 THEN g.current_question_index + 1
+-               ELSE g.current_question_index
+-             END,
+-             state = CASE
+-               WHEN g.question_ids[g.current_question_index + 1] = $2
+-                    AND (g.current_question_index + 1) >= array_length(g.question_ids, 1)
+-               THEN 'completed'
+-               ELSE g.state
+-             END,
+-             updated_at = NOW()
+-         WHERE g.id = $1
+-         RETURNING g.score, g.current_question_index, g.state
+-       )
+-       SELECT
+-         (SELECT newly_scored FROM answer_upsert) AS newly_scored,
+-         (SELECT is_correct FROM answer_upsert) AS correct,
+-         (SELECT score FROM game_update) AS score,
+-         (SELECT state FROM game_update) AS state`,
+-      [gameId, questionId, answer, correct]
+-    );
+-
+-    const newlyScored = row && row.newly_scored === true;
++      `UPDATE games SET score = score + $1, current_question_index = $2,
++         state = $3, updated_at = NOW() WHERE id = $4 RETURNING score, state`,
++      [Number(newlyScored), nextIndex, nextState, gameId]
++    );
+     const finalScore = numberScore(row.score);
+     const finalState = row.state;
+ 
+     if (newlyScored && publishScoreEvent) {
+       try {
+-        publishScoreEvent(gameId, userId, finalScore, questionId);
++        await publishScoreEvent(gameId, userId, finalScore, questionId);
+       } catch {
+         // Non-critical; do not fail the transaction over telemetry.
+       }
+@@ -315,4 +259,4 @@
+   resumeGame,
+   submitAnswer,
+   getScore
+-};+};
+--- raw-project/services/game-service/test/game-engine.test.js
++++ project/services/game-service/test/game-engine.test.js
+@@ -5,6 +5,7 @@
+  * unit tests inject a fake db module into the require cache so that the pure
+  * state-transition and scoring logic can be tested without a live database.
+  */
++const answerMutation = require('../../../test/support/answer-db');
+ const { test } = require('node:test');
+ const assert = require('node:assert/strict');
+ const path = require('node:path');
+@@ -38,6 +39,8 @@
+   // support the statements the engine issues; anything else throws.
+   function handleQuery(sql, params) {
+     const s = sql.trim();
++    const mutation = answerMutation(store, s, params);
++    if (mutation) return mutation;
+ 
+     // SELECT a single game by id (optionally with FOR UPDATE lock)
+     if (/SELECT \* FROM games WHERE id = \$1( FOR UPDATE)?$/.test(s)) {
+@@ -115,39 +118,7 @@
+     // Consolidated data-modifying CTE issued by submitAnswer(): upsert the
+     // answer row and compute `newly_scored`, then update game score/index/state
+     // in one statement so the returned row has score + state (avoids NaN).
+-    if (/WITH answer_upsert AS/.test(s)) {
+-      const [gameId, questionId, answer, correct] = params;
+-      const game = store.games.find(g => g.id === gameId);
+-
+-      let existing = store.answers.find((a) => a.game_id === gameId && a.question_id === questionId);
+-      let newlyScored;
+-      if (existing) {
+-        newlyScored = existing.scored === false && correct === true;
+-        existing.answer = answer;
+-        existing.correct = correct;
+-        if (newlyScored) existing.scored = true;
+-      } else {
+-        newlyScored = correct === true;
+-        const id = store.answers.length + 1;
+-        const row = { id, game_id: gameId, question_id: questionId, answer, correct, scored: correct };
+-        store.answers.push(row);
+-      }
+-
+-      const qIds = game.question_ids;
+-      const curIdx = game.current_question_index;
+-      const isCurrent = qIds[curIdx] === questionId;
+-      if (newlyScored) game.score = (game.score || 0) + 1;
+-      if (isCurrent) {
+-        game.current_question_index = curIdx + 1;
+-        if (curIdx + 1 >= qIds.length) game.state = 'completed';
+-      }
+-
+-      return {
+-        rows: [{ newly_scored: newlyScored, correct, score: game.score, state: game.state }]
+-      };
+-    }
+-
+-    // UPDATE game_answers SET ...
++
+     if (/UPDATE game_answers SET/.test(s)) {
+       const [answer, correctStr, scoredStr, id] = params;
+       const row = store.answers.find(a => a.id === id);
+--- raw-project/services/game-service/test/scoring.test.js
++++ project/services/game-service/test/scoring.test.js
+@@ -8,6 +8,7 @@
+  *  - An incorrect answer never changes score.
+  *  - Score can never decrease (answering wrong after correct is a no-op).
+  */
++const answerMutation = require('../../../test/support/answer-db');
+ const { test } = require('node:test');
+ const assert = require('node:assert/strict');
+ const path = require('node:path');
+@@ -42,6 +43,8 @@
+ 
+   async function handleQuery(sql, params) {
+     const s = sql.trim();
++    const mutation = answerMutation(store, s, params);
++    if (mutation) return mutation;
+     if (/SELECT \* FROM games WHERE id = \$1(?:\s+FOR UPDATE)?\s*$/.test(s)) {
+       return { rows: store.games.filter(g => g.id === params[0]) };
+     }
+@@ -54,37 +57,7 @@
+     if (/SELECT scored FROM game_answers WHERE game_id = \$1 AND question_id = \$2/.test(s)) {
+       return { rows: store.answers.filter(a => a.game_id === params[0] && a.question_id === params[1]).map(a => ({ scored: a.scored })) };
+     }
+-    if (/WITH answer_upsert AS/.test(s)) {
+-      const [gameId, questionId, answer, correct] = params;
+-      const game = findGame(gameId);
+ 
+-      let existing = store.answers.find(a => a.game_id === gameId && a.question_id === questionId);
+-      let newlyScored;
+-      if (existing) {
+-        newlyScored = existing.scored === false && correct === true;
+-        existing.answer = answer;
+-        existing.correct = correct;
+-        if (newlyScored) existing.scored = true;
+-      } else {
+-        newlyScored = correct === true;
+-        const id = store.answers.length + 1;
+-        const row = { id, game_id: gameId, question_id: questionId, answer, correct, scored: correct };
+-        store.answers.push(row);
+-      }
+-
+-      const qIds = game.question_ids;
+-      const curIdx = game.current_question_index;
+-      const isCurrent = qIds[curIdx] === questionId;
+-      if (newlyScored) game.score = (game.score || 0) + 1;
+-      if (isCurrent) {
+-        game.current_question_index = curIdx + 1;
+-        if (curIdx + 1 >= qIds.length) game.state = 'completed';
+-      }
+-
+-      return {
+-        rows: [{ newly_scored: newlyScored, correct, score: game.score, state: game.state }]
+-      };
+-    }
+     if (/UPDATE games SET score = score \+ 1,\s*updated_at = NOW\(\)\s*WHERE id = \$1 RETURNING score/.test(s)) {
+       const game = findGame(params[0]);
+       if (game) game.score += 1;
+@@ -176,8 +149,8 @@
+   await engine.submitAnswer(1, 1, '1/2', 'user-1', false);
+   await engine.submitAnswer(1, 2, '3/4', 'user-1', false);
+   await engine.submitAnswer(1, 3, '2/3', 'user-1', false);
+-  const final = await engine.submitAnswer(1, 1, '1/2', 'user-1', false);
+-  assert.equal(final.score, 3);
++  await assert.rejects(engine.submitAnswer(1, 1, '1/2', 'user-1', false), { statusCode: 409 });
++  assert.equal((await engine.getScore(1)).score, 3);
+ });
+ 
+ test('full correct run yields max score and completed state', async () => {
+--- raw-project/sql/002_seed.sql
++++ project/sql/002_seed.sql
+@@ -1,8 +1,9 @@
+ -- Space Fractions: Seed Data
+--- Idempotent: uses ON CONFLICT DO NOTHING to avoid duplicates on re-run.
++-- Idempotent: only populate an empty question bank; never overwrite administrator edits.
+ -- Depends on: 001_initial.sql
+ 
+ BEGIN;
++SELECT pg_advisory_xact_lock(7410201);
+ 
+ -- Seed admin user (sub matches Keycloak admin user from realm.json)
+ INSERT INTO users (sub, username, email)
+@@ -20,6 +21,8 @@
+     admin_id INTEGER;
+ BEGIN
+     SELECT id INTO admin_id FROM users WHERE sub = 'admin-user-sub';
++
++    IF EXISTS (SELECT 1 FROM questions) THEN RETURN; END IF;
+ 
+     -- Seed fraction questions (6th-grade level)
+     INSERT INTO questions (prompt, options, correct_answer, created_by) VALUES
+@@ -66,9 +69,9 @@
+         admin_id
+     ),
+     (
+-        'Order from least to greatest: 1/2, 1/4, 3/4',
+-        '["1/2, 1/4, 3/4", "1/4, 1/2, 3/4", "3/4, 1/2, 1/4", "1/4, 3/4, 1/2"]',
+-        '1/4, 1/2, 3/4',
++        'Which fraction is smallest: 1/2, 1/4, 3/4?',
++        '["1/2", "1/4", "3/4", "1"]',
++        '1/4',
+         admin_id
+     ),
+     (
+--- raw-project/test/integration/_helpers.js
++++ project/test/integration/_helpers.js
+@@ -9,7 +9,7 @@
+  *     require cache, plus fake cache/mq modules, so the real route handlers
+  *     exercise real request/response/error-handling logic.
+  *   - Use the REAL auth module (`validateToken` performs structural + issuer/
+- *     audience/expiry checks; signature verification is exercised by the
++ *     audience/expiry and RS256 signature checks; remote JWKS is exercised by the
+  *     separate acceptance/auth profile). We craft local JWTs for known
+  *     identities (admin/student).
+  *   - Mount the real router into a fresh Express app and serve over HTTP on an
+@@ -20,6 +20,12 @@
+  * infrastructure; the full stack is exercised by compose and the auth profile.
+  */
+ 
++const answerMutation = require('../support/answer-db');
++const { generateKeyPairSync, sign } = require('node:crypto');
++const fixtureKeys = generateKeyPairSync('rsa', { modulusLength: 2048 });
++const fixtureJwk = { ...fixtureKeys.publicKey.export({ format: 'jwk' }), kid: 'k1', alg: 'RS256', use: 'sig' };
++// Real local JWKS signature validation; remote JWKS is independently tested.
++process.env.OIDC_JWKS = JSON.stringify({ keys: [fixtureJwk] });
+ const express = require('express');
+ const path = require('node:path');
+ const { once } = require('node:events');
+@@ -55,9 +61,11 @@
+ 
+   function handleQuery(sql, params = []) {
+     const s = sql.trim();
++    const mutation = answerMutation(store, s, params);
++    if (mutation) return mutation;
+ 
+     // ----- games -----
+-    if (/SELECT \* FROM games WHERE id = \$1$/.test(s)) {
++    if (/SELECT \* FROM games WHERE id = \$1(?: FOR UPDATE)?$/.test(s)) {
+       return { rows: store.games.filter((g) => g.id === params[0]) };
+     }
+     if (/SELECT id FROM questions ORDER BY created_at/.test(s)) {
+@@ -68,10 +76,10 @@
+       const game = {
+         id: store.nextGameId++,
+         user_id: params[0],
+-        state: params[1],
+-        score: params[2],
+-        question_ids: params[3],
+-        current_question_index: params[4]
++        state: 'playing',
++        score: 0,
++        question_ids: params[1],
++        current_question_index: 0
+       };
+       store.games.push(game);
+       return { rows: [game] };
+@@ -112,14 +120,14 @@
+     if (/SELECT id, prompt, options, created_at, updated_at\s*FROM questions WHERE id = \$1/.test(s)) {
+       return { rows: store.questions.filter((q) => q.id === params[0]).map(q => ({ id: q.id, prompt: q.prompt, options: q.options, created_at: q.created_at, updated_at: q.updated_at })) };
+     }
+-    if (/SELECT id, prompt, options FROM questions ORDER BY created_at DESC LIMIT \$1/.test(s)) {
++    if (/SELECT id, prompt, options FROM questions\s+ORDER BY created_at DESC\s+LIMIT \$1/.test(s)) {
+       return { rows: store.questions.map(q => ({ id: q.id, prompt: q.prompt, options: q.options })).slice(0, params[0]) };
+     }
+     if (/SELECT id, prompt, options FROM questions WHERE id = ANY/.test(s)) {
+       const ids = params[0] || [];
+       return { rows: store.questions.filter(q => ids.includes(q.id)).map(q => ({ id: q.id, prompt: q.prompt, options: q.options })) };
+     }
+-    if (/FROM questions\s+ORDER BY created_at DESC\s+LIMIT \$1\b/.test(s)) {
++    if (/FROM questions\s+ORDER BY created_at DESC\s+LIMIT \$1\b/.test(s) && !s.includes("correct_answer")) {
+       return { rows: store.questions.map(q => ({ id: q.id, prompt: q.prompt, options: q.options })).slice(0, params[0]) };
+     }
+     if (/INSERT INTO questions \(prompt, options, correct_answer, created_by\)/.test(s)) {
+@@ -135,7 +143,7 @@
+       store.questions.push(row);
+       return { rows: [row] };
+     }
+-    if (/SELECT id, prompt, options, correct_answer, created_by, created_at, updated_at\s*FROM questions ORDER BY created_at DESC LIMIT \$1/.test(s)) {
++    if (/SELECT id, prompt, options, correct_answer, created_by, created_at, updated_at\s*FROM questions\s+ORDER BY created_at DESC\s+LIMIT \$1/.test(s)) {
+       return { rows: store.questions.map(q => ({ ...q })).slice(0, params[0]) };
+     }
+     if (/SELECT id, prompt, options, correct_answer, created_by, created_at, updated_at\s*FROM questions WHERE id = \$1/.test(s)) {
+@@ -180,6 +188,14 @@
+       return { rows: [row] };
+     }
+ 
++    if (/SELECT scored FROM game_answers WHERE game_id/.test(s)) {
++      return { rows: store.answers.filter(a => a.game_id === params[0] && a.question_id === params[1]) };
++    }
++    if (/UPDATE users SET username/.test(s)) {
++      const user = store.users.find(u => u.id === params[0]);
++      if (user) { user.username = params[1]; user.email = params[2] || user.email; }
++      return { rows: user ? [user] : [] };
++    }
+     // ----- users -----
+     if (/SELECT \* FROM users WHERE sub = \$1/.test(s)) {
+       return { rows: store.users.filter(u => u.sub === params[0]) };
+@@ -196,7 +212,7 @@
+     throw new Error(`Unexpected SQL in integration fake DB: ${sql.slice(0, 120)}`);
+   }
+ 
+-  return {
++  const fake = {
+     store,
+     query: async (sql, params) => handleQuery(sql, params),
+     queryOne: async (sql, params) => {
+@@ -204,6 +220,8 @@
+       return r.rows[0] || null;
+     }
+   };
++  fake.withTransaction = async fn => fn(fake);
++  return fake;
+ }
+ 
+ /**
+@@ -234,7 +252,7 @@
+ 
+ /**
+  * Build a JWT header/payload/signature string for the REAL validateToken
+- * (which does structural + issuer/audience/exp checks, not signature).
++ * with actual RS256 signature verification using the local fixture JWKS.
+  */
+ function b64url(obj) {
+   return Buffer.from(JSON.stringify(obj)).toString('base64url');
+@@ -252,7 +270,8 @@
+     realm_access: claims.realm_access || { roles: claims.roles || [] },
+     ...claims
+   });
+-  return `${header}.${payload}.fake-signature`;
++  const input = `${header}.${payload}`;
++  return `${input}.${sign("RSA-SHA256", Buffer.from(input), fixtureKeys.privateKey).toString("base64url")}`;
+ }
+ 
+ const ADMIN_TOKEN = () => makeToken({ sub: 'admin-user-sub', roles: ['admin', 'user'] });
+@@ -280,7 +299,7 @@
+     server,
+     baseUrl,
+     port,
+-    request: (subPath, options = {}) => fetch(`${baseUrl}${subPath}`, options),
++    request: (subPath, options = {}) => fetch(`${baseUrl}${subPath.startsWith("/api/") ? subPath : mountPath + subPath}`, options),
+     close: () => new Promise((resolve) => server.close(resolve))
+   };
+ }
+@@ -290,6 +309,7 @@
+  * Returns a restore function.
+  */
+ function installFakes({ db, cache, mq, auth }) {
++  delete require.cache[require.resolve('@spacefractions/shared/identity')];
+   const saved = {};
+   const paths = { db: DB_MODULE_PATH, cache: CACHE_MODULE_PATH, mq: MQ_MODULE_PATH, auth: AUTH_MODULE_PATH };
+ 
+--- raw-project/test/support/answer-db.js
++++ project/test/support/answer-db.js
+@@ -0,0 +1,26 @@
++// Test-only SQL adapter shared by generated test suites after the operator's
++// transaction fix. It is not a substitute for the independent PostgreSQL test.
++module.exports = function answerMutation(store, sql, params) {
++  if (/^SELECT id, score, state FROM games WHERE id/.test(sql)) {
++    return { rows: store.games.filter(g => g.id === params[0]).map(g => ({ id: g.id, score: g.score, state: g.state })) };
++  }
++  if (/^INSERT INTO game_answers /.test(sql)) {
++    const [gameId, questionId, answer, correct, scored] = params;
++    let row = store.answers.find(a => a.game_id === gameId && a.question_id === questionId);
++    if (!row) {
++      row = { id: store.answers.length + 1, game_id: gameId, question_id: questionId };
++      store.answers.push(row);
++    }
++    Object.assign(row, { answer, correct, scored: !!row.scored || scored });
++    return { rows: [row] };
++  }
++  if (/^UPDATE games SET score = score \+ \$1, current_question_index/.test(sql)) {
++    const row = store.games.find(g => g.id === params[3]);
++    if (!row) return { rows: [] };
++    row.score += params[0];
++    row.current_question_index = params[1];
++    row.state = params[2];
++    return { rows: [row] };
++  }
++  return null;
++};

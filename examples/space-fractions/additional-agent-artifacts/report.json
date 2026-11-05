@@ -1,0 +1,2373 @@
+{
+  "status": "failed_validation",
+  "provider": "bailian",
+  "model": "deepseek-v4-pro-0813",
+  "official_api_compliant": false,
+  "real_api_run": true,
+  "checks": [
+    {
+      "profile": "static",
+      "status": "passed",
+      "results": [
+        {
+          "check": "required:package.json",
+          "status": "passed"
+        },
+        {
+          "check": "required:README.md",
+          "status": "passed"
+        },
+        {
+          "check": "required:openapi.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "required:internal.proto",
+          "status": "passed"
+        },
+        {
+          "check": "required:traceability.json",
+          "status": "passed"
+        },
+        {
+          "check": "compose.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "openapi.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "package-lock.json",
+          "status": "passed"
+        },
+        {
+          "check": "package.json",
+          "status": "passed"
+        },
+        {
+          "check": "plan.json",
+          "status": "passed"
+        },
+        {
+          "check": "traceability.json",
+          "status": "passed"
+        },
+        {
+          "check": "gateway/package.json",
+          "status": "passed"
+        },
+        {
+          "check": "gateway/public/js/api.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\gateway\\public\\js\\api.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "gateway/public/js/app.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\gateway\\public\\js\\app.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "gateway/public/js/ui.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\gateway\\public\\js\\ui.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "gateway/src/index.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\gateway\\src\\index.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "gateway/src/middleware.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\gateway\\src\\middleware.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "gateway/src/routes.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\gateway\\src\\routes.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "istio/destination-rules.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "istio/gateway.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "istio/peer-authentication.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "istio/virtual-service.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "k8s/admin-service-deployment.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "k8s/configmap.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "k8s/game-service-deployment.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "k8s/gateway-deployment.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "k8s/hpa.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "k8s/ingress.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "k8s/namespace.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "k8s/question-service-deployment.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "k8s/user-service-deployment.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "keycloak/realm.json",
+          "status": "passed"
+        },
+        {
+          "check": "prometheus/prometheus.yml",
+          "status": "passed"
+        },
+        {
+          "check": "scripts/check-sources.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\scripts\\check-sources.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "services/admin-service/package.json",
+          "status": "passed"
+        },
+        {
+          "check": "services/admin-service/src/index.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\admin-service\\src\\index.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "services/admin-service/src/routes.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\admin-service\\src\\routes.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "services/admin-service/test/admin.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\admin-service\\test\\admin.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "services/game-service/package.json",
+          "status": "passed"
+        },
+        {
+          "check": "services/game-service/src/game-engine.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\game-service\\src\\game-engine.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "services/game-service/src/index.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\game-service\\src\\index.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "services/game-service/src/routes.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\game-service\\src\\routes.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "services/game-service/test/game-engine.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\game-service\\test\\game-engine.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "services/game-service/test/scoring.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\game-service\\test\\scoring.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "services/question-service/package.json",
+          "status": "passed"
+        },
+        {
+          "check": "services/question-service/src/index.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\question-service\\src\\index.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "services/question-service/src/routes.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\question-service\\src\\routes.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "services/question-service/src/search.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\question-service\\src\\search.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "services/user-service/package.json",
+          "status": "passed"
+        },
+        {
+          "check": "services/user-service/src/index.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\user-service\\src\\index.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "services/user-service/src/routes.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\user-service\\src\\routes.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "shared/package.json",
+          "status": "passed"
+        },
+        {
+          "check": "shared/src/auth.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\src\\auth.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "shared/src/cache.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\src\\cache.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "shared/src/db.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\src\\db.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "shared/src/errors.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\src\\errors.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "shared/src/fraction.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\src\\fraction.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "shared/src/identity.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\src\\identity.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "shared/src/metrics.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\src\\metrics.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "shared/src/mq.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\src\\mq.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "shared/test/auth.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\test\\auth.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "shared/test/db.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\test\\db.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "shared/test/fraction.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\test\\fraction.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "shared/test/metrics.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\shared\\test\\metrics.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/integration/_helpers.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\_helpers.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/integration/admin.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\admin.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/integration/api.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\api.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/integration/auth.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\auth.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/integration/game-flow.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\test\\integration\\game-flow.test.js"
+          ],
+          "output": ""
+        }
+      ]
+    },
+    {
+      "profile": "install",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "output": "npm warn deprecated prom-client@15.1.3: prom-client has been replaced by @prometheus-io/client\n\nadded 126 packages in 3s\n"
+    },
+    {
+      "profile": "test",
+      "status": "failed",
+      "exit_code": 1,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "run",
+        "test",
+        "--ignore-scripts"
+      ],
+      "output": "\n> space-fractions@1.0.0 test\n> node --test shared/test/*.test.js services/*/test/*.test.js\n\n✔ validateQuestionPayload normalizes a valid payload (4.1929ms)\n✔ validateQuestionPayload normalizes equivalent correctAnswer to canonical form (0.6239ms)\n✔ validateQuestionPayload rejects a null body (0.9869ms)\n✔ validateQuestionPayload rejects a missing or empty prompt (0.4751ms)\n✔ validateQuestionPayload rejects a non-string prompt (0.2999ms)\n✔ validateQuestionPayload rejects options that are not an array (0.2522ms)\n✔ validateQuestionPayload rejects too few options (0.2939ms)\n✔ validateQuestionPayload rejects too many options (0.3621ms)\n✔ validateQuestionPayload rejects blank or non-string options (0.9679ms)\n✔ validateQuestionPayload rejects duplicate options (0.5181ms)\n✔ validateQuestionPayload rejects a malformed correctAnswer (0.5773ms)\n✔ validateQuestionPayload rejects correctAnswer not present among options (0.3228ms)\n✔ validateQuestionPayload accepts an equivalent correctAnswer listed as an option (0.3167ms)\n✔ toAdminQuestion maps a DB row to an admin response shape (0.3514ms)\n✔ createGame with explicit question ids (5.4878ms)\n✔ createGame fetches all questions when none provided (2.406ms)\n✔ createGame throws when no questions available (4.3156ms)\n✔ getGame authorizes owner (2.2218ms)\n✔ getGame denies non-owner (returns NotFound) (4.9271ms)\n✔ getGame allows admin to access any game (1.5691ms)\n✔ getGame NotFound for missing game (1.3495ms)\n✔ pauseGame transitions playing -> paused (2.0747ms)\n✔ pauseGame is idempotent when already paused (1.8056ms)\n✔ pauseGame throws ConflictError when completed (2.0057ms)\n✔ resumeGame transitions paused -> playing (1.714ms)\n✔ resumeGame is idempotent when already playing (1.6306ms)\n✔ resumeGame throws ConflictError when completed (1.6889ms)\n✔ getCurrentQuestion returns null when completed (1.5427ms)\n✔ getCurrentQuestion returns the question at the current index (1.8502ms)\n✔ submitAnswer rejects answer while paused (2.12ms)\n✔ submitAnswer rejects malformed fraction (1.8326ms)\n✔ submitAnswer rejects question not in game (6.1784ms)\n✔ submitAnswer correct answer scores 1 and transitions to completed (7.5852ms)\n✔ submitAnswer wrong answer does not increase score (3.2302ms)\n✔ re-answering a question correctly is idempotent (no double score) (3.3336ms)\n✔ getScore returns score and state (1.5884ms)\n✔ getScore NotFound for missing game (1.4812ms)\n✔ score starts at zero and increments once per distinct correct answer (12.1594ms)\n✔ repeated correct answer to same question does not double-count (1.997ms)\n✔ score never decreases when a previously-correct question is re-answered wrong (2.439ms)\n✖ score caps at number of distinct questions (5.3455ms)\n✔ full correct run yields max score and completed state (1.5582ms)\n✔ decodeJWT parses header and payload (54.9429ms)\n✔ decodeJWT rejects malformed tokens (1.6498ms)\n✔ validateToken accepts a valid structural token (13.6598ms)\n✔ validateToken strips Bearer prefix (5.9355ms)\n✔ validateToken rejects expired tokens (7.5052ms)\n✔ validateToken rejects not-yet-valid tokens (10.3892ms)\n✔ validateToken rejects wrong issuer (6.6806ms)\n✔ validateToken rejects wrong audience (5.8611ms)\n✔ validateToken rejects tokens signed by a different key (102.3031ms)\n✔ validateToken accepts array audience containing expected value (14.2033ms)\n✔ validateToken throws when OIDC not configured (5.5036ms)\n✔ requireAdmin allows users with admin role (0.8354ms)\n✔ requireAdmin rejects users without admin role (0.5053ms)\n✔ requireAdmin rejects missing realm_access (0.2868ms)\n✔ requireAdmin rejects unauthenticated requests (0.247ms)\n✔ findKey locates a key by kid (3.7014ms)\n✔ runMigrations rolls back on script failure and leaves no record (7.4875ms)\n✔ runMigrations records success and skips on repeat startup (1.2217ms)\n✔ runMigrations unwraps explicit BEGIN/COMMIT wrapper (1.1665ms)\n✔ runMigrations acquires advisory lock for serialization (0.9609ms)\n✔ runMigrations releases the client on success (0.9749ms)\n✔ runMigrations releases the client on rollback error (0.8465ms)\n✔ parseFraction parses simple fractions (4.9916ms)\n✔ parseFraction parses integers as a/1 (1.8452ms)\n✔ parseFraction normalizes negative denominators (0.3364ms)\n✔ parseFraction handles whitespace (0.2832ms)\n✔ parseFraction rejects zero denominator (1.0069ms)\n✔ parseFraction rejects malformed input (0.5723ms)\n✔ parseFraction rejects non-string input (0.3407ms)\n✔ gcd computes greatest common divisor (0.3734ms)\n✔ reduce simplifies fractions (0.3362ms)\n✔ fractionsEqual treats equivalent fractions as equal (0.4295ms)\n✔ fractionsEqual distinguishes different values (2.4535ms)\n✔ fractionsEqual accepts objects (0.5103ms)\n✔ formatFraction renders reduced form (0.3423ms)\n✔ isValidFraction validates well-formed input (0.2939ms)\n✔ metrics module exposes Prometheus counters and gauges (1.5334ms)\n✔ metricsMiddleware records request duration and count (9.7978ms)\n✔ getMetrics returns Prometheus text format (2.8024ms)\n✔ getContentType returns text/plain variant (0.6356ms)\n✔ counters can be incremented (1.0408ms)\nℹ tests 83\nℹ suites 0\nℹ pass 82\nℹ fail 1\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 2289.7961\n\n✖ failing tests:\n\ntest at services\\game-service\\test\\scoring.test.js:170:1\n✖ score caps at number of distinct questions (5.3455ms)\n  Error [ConflictError]: Game is already completed\n      at D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\game-service\\src\\game-engine.js:221:13\n      at async TestContext.<anonymous> (D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project\\services\\game-service\\test\\scoring.test.js:176:17)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    statusCode: 409,\n    code: 'CONFLICT'\n  }\n"
+    },
+    {
+      "profile": "integration",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "run",
+        "test:integration",
+        "--ignore-scripts"
+      ],
+      "output": "\n> space-fractions@1.0.0 test:integration\n> node --test test/integration/*.test.js\n\n✔ admin CRUD without credentials returns 401 (1295.957ms)\n✔ malformed Authorization header returns 401 (17.1221ms)\n✔ token with wrong issuer is rejected (401) (20.1816ms)\n✔ expired token is rejected (401) (13.6821ms)\n✔ authenticated non-admin gets 403 on every admin endpoint (29.682ms)\n✔ admin create returns 201 with correctAnswer and normalized id (20.0437ms)\n✔ admin create normalizes equivalent correctAnswer to canonical form (17.3321ms)\n✔ admin list returns all seeded questions with correctAnswer (200) (17.0781ms)\n✔ admin list supports ?limit= (18.3822ms)\n✔ admin get single question returns 200 with correctAnswer (15.7355ms)\n✔ admin update (PUT) returns 200 and replaces the question (27.4941ms)\n✔ admin delete returns 204 and the question is gone (404 afterwards) (31.8009ms)\n✔ malformed create payloads return 400 (60.0595ms)\n✔ invalid question id (non-numeric / zero / negative) returns 400 (39.1427ms)\n✔ invalid limit returns 400 (28.2109ms)\n✔ update/delete on a non-existent question returns 404 (22.9453ms)\n✔ admin cannot create with correctAnswer absent from options (19.8131ms)\n✔ POST /api/games requires authentication (401) (351.5615ms)\n✔ POST /api/games rejects an invalid token (401) (42.0275ms)\n✔ POST /api/games creates a game with questions (201, no correctAnswer) (30.0248ms)\n✔ POST /api/games without questionIds uses all questions (19.6612ms)\n✔ GET /api/games/:id returns state and never leaks correctAnswer (35.3188ms)\n✔ GET /api/games/:id by another user returns 404 (32.7187ms)\n✔ GET /api/games/:id by admin succeeds even when not owner (31.695ms)\n✔ pause then resume round-trip (200 each), answering while paused is 409 (52.2785ms)\n✔ pause is idempotent (200 when already paused) (42.7876ms)\n✔ pause by another user returns 404 (no cross-user state change) (37.729ms)\n✔ correct answer scores 1 and returns correct:true (45.7268ms)\n✔ wrong answer scores 0 and returns correct:false (25.0851ms)\n✔ re-answering a correctly-answered question does not increase score (idempotent) (48.7967ms)\n✔ answer uses exact rational equivalence (unreduced fraction accepted) (31.9875ms)\n✔ malformed fraction answer is rejected with 400 (60.1061ms)\n✔ answering a question not in the game returns 400 (23.7784ms)\n✔ missing questionId/answer body is rejected with 400 (20.3027ms)\n✔ completing all questions transitions game to completed (33.1855ms)\n✔ score endpoint by another user returns 404 (29.5456ms)\n✔ score endpoint publishes a score event on first correct answer (30.048ms)\n✔ admin endpoints without credentials return 401 (1077.0777ms)\n✔ malformed Authorization header returns 401 (20.8983ms)\n✔ token with wrong issuer is rejected (401) (30.055ms)\n✔ expired token is rejected (401) (16.0864ms)\n✔ token with wrong audience is rejected (401) (20.7395ms)\n✔ authenticated non-admin user gets 403 on admin endpoints (32.0904ms)\n✔ admin can create a question (201) with correct_answer visible (26.0393ms)\n✔ admin can list questions (200) with correct_answer included (17.1201ms)\n✔ admin can get a single question (200) with correct_answer (17.7868ms)\n✔ admin can update a question (200) (15.6987ms)\n✔ admin can delete a question (204) (15.2641ms)\n✔ game creation requires authentication (401) but works for any user (201) (20.4824ms)\n✔ admin role does not leak correctAnswer through game endpoints (24.1565ms)\n✔ full game lifecycle: play three questions to completion with correct score (395.8079ms)\n✔ score only increments on correct answers across a mixed game (66.6069ms)\n✔ paused game retains progress; resume allows answering next question (85.1109ms)\n✔ re-answering an already-correct question never increases score beyond total (63.6485ms)\n✔ answering after completion is rejected with 409 (409 on completed) (43.1267ms)\n✔ cross-user: another user cannot answer or read score (404) (55.065ms)\n✔ cross-user pause attempt does not change owner state (404) (41.2195ms)\n✔ admin can read score but game endpoints never leak correctAnswer (47.1992ms)\n✔ score endpoint reflects cumulative total and state after partial answers (49.3141ms)\nℹ tests 59\nℹ suites 0\nℹ pass 59\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 2320.0659\n"
+    },
+    {
+      "profile": "build",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "run",
+        "build",
+        "--ignore-scripts"
+      ],
+      "output": "\n> space-fractions@1.0.0 build\n> node scripts/check-sources.js\n\nSpace Fractions — source check\n  ✓ syntax-checked 37 JavaScript file(s)\n  ✓ validated 3 JSON file(s)\n  ✓ structural-checked 15 YAML file(s)\n\nBuild OK: no source issues found.\n"
+    },
+    {
+      "profile": "compose",
+      "status": "unverified",
+      "reason": "缺少 Node.js/npm 或 Docker"
+    },
+    {
+      "profile": "auth",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "D:\\projects\\Task\\codeagent\\acceptance\\auth.cjs",
+        "D:\\projects\\Task\\runs\\run-20261106-011454-54e56b6d\\project",
+        "C:\\Users\\roland\\AppData\\Local\\Temp\\design-agent-auth-y0oxrfbs\\report.json"
+      ],
+      "output": "{\"kind\":\"independent_jwt_acceptance\",\"status\":\"passed\",\"checks\":[{\"check\":\"valid RSA-signed JWT\",\"status\":\"passed\",\"observed\":\"accepted\"},{\"check\":\"wrong signature rejected\",\"status\":\"passed\",\"observed\":\"rejected\"},{\"check\":\"expired token rejected\",\"status\":\"passed\",\"observed\":\"rejected\"},{\"check\":\"wrong issuer rejected\",\"status\":\"passed\",\"observed\":\"rejected\"},{\"check\":\"wrong audience rejected\",\"status\":\"passed\",\"observed\":\"rejected\"},{\"check\":\"future not-before rejected\",\"status\":\"passed\",\"observed\":\"rejected\"}]}\n",
+      "independent_report": {
+        "kind": "independent_jwt_acceptance",
+        "status": "passed",
+        "checks": [
+          {
+            "check": "valid RSA-signed JWT",
+            "status": "passed",
+            "observed": "accepted"
+          },
+          {
+            "check": "wrong signature rejected",
+            "status": "passed",
+            "observed": "rejected"
+          },
+          {
+            "check": "expired token rejected",
+            "status": "passed",
+            "observed": "rejected"
+          },
+          {
+            "check": "wrong issuer rejected",
+            "status": "passed",
+            "observed": "rejected"
+          },
+          {
+            "check": "wrong audience rejected",
+            "status": "passed",
+            "observed": "rejected"
+          },
+          {
+            "check": "future not-before rejected",
+            "status": "passed",
+            "observed": "rejected"
+          }
+        ]
+      }
+    },
+    {
+      "profile": "traceability_links",
+      "status": "passed",
+      "problems": [],
+      "limitation": "只检查链接和来源范围；语义覆盖需要独立审查"
+    },
+    {
+      "profile": "external_review_retest",
+      "status": "unverified",
+      "reason": "外部反馈已用于修复，但必须由独立验收重新验证；不能根据模型文字判为通过"
+    }
+  ],
+  "repair_rounds": 3,
+  "limitation": "Checks do not establish semantic architecture fidelity, production readiness or performance. Review traceability and run independent acceptance tests.",
+  "turns": 119,
+  "budget": {
+    "limit_cny": 200.0,
+    "charged_cny": 167.569206,
+    "uncertain_requests": 8,
+    "request_count": 559,
+    "prices": {
+      "input_per_million": 9.0,
+      "output_per_million": 27.0,
+      "reference_date": "2026-11-05"
+    }
+  },
+  "usage": [
+    {
+      "usage": {
+        "prompt_tokens": 19613,
+        "total_tokens": 19718,
+        "completion_tokens": 105,
+        "prompt_tokens_details": {
+          "cached_tokens": 1280
+        }
+      },
+      "estimated_cny": 0.179352
+    },
+    {
+      "usage": {
+        "prompt_tokens": 28653,
+        "total_tokens": 28732,
+        "completion_tokens": 79,
+        "prompt_tokens_details": {
+          "cached_tokens": 19456
+        }
+      },
+      "estimated_cny": 0.26001
+    },
+    {
+      "usage": {
+        "prompt_tokens": 31578,
+        "total_tokens": 32189,
+        "completion_tokens": 611,
+        "prompt_tokens_details": {
+          "cached_tokens": 28416
+        }
+      },
+      "estimated_cny": 0.300699
+    },
+    {
+      "usage": {
+        "prompt_tokens": 33108,
+        "total_tokens": 33288,
+        "completion_tokens": 180,
+        "prompt_tokens_details": {
+          "cached_tokens": 31488
+        }
+      },
+      "estimated_cny": 0.302832
+    },
+    {
+      "usage": {
+        "prompt_tokens": 36119,
+        "total_tokens": 38083,
+        "completion_tokens": 1964,
+        "prompt_tokens_details": {
+          "cached_tokens": 33024
+        }
+      },
+      "estimated_cny": 0.378099
+    },
+    {
+      "usage": {
+        "prompt_tokens": 38106,
+        "total_tokens": 38155,
+        "completion_tokens": 49,
+        "prompt_tokens_details": {
+          "cached_tokens": 36096
+        }
+      },
+      "estimated_cny": 0.344277
+    },
+    {
+      "usage": {
+        "prompt_tokens": 43165,
+        "total_tokens": 46431,
+        "completion_tokens": 3266,
+        "prompt_tokens_details": {
+          "cached_tokens": 37888
+        }
+      },
+      "estimated_cny": 0.476667
+    },
+    {
+      "usage": {
+        "prompt_tokens": 47440,
+        "total_tokens": 48300,
+        "completion_tokens": 860,
+        "prompt_tokens_details": {
+          "cached_tokens": 43008
+        }
+      },
+      "estimated_cny": 0.45018
+    },
+    {
+      "usage": {
+        "prompt_tokens": 21149,
+        "total_tokens": 21327,
+        "completion_tokens": 178,
+        "prompt_tokens_details": {
+          "cached_tokens": 18944
+        }
+      },
+      "estimated_cny": 0.195147
+    },
+    {
+      "usage": {
+        "prompt_tokens": 33760,
+        "total_tokens": 34218,
+        "completion_tokens": 458,
+        "prompt_tokens_details": {
+          "cached_tokens": 20992
+        }
+      },
+      "estimated_cny": 0.316206
+    },
+    {
+      "usage": {
+        "prompt_tokens": 36849,
+        "total_tokens": 38814,
+        "completion_tokens": 1965,
+        "prompt_tokens_details": {
+          "cached_tokens": 33536
+        }
+      },
+      "estimated_cny": 0.384696
+    },
+    {
+      "usage": {
+        "prompt_tokens": 46657,
+        "total_tokens": 50185,
+        "completion_tokens": 3528,
+        "prompt_tokens_details": {
+          "cached_tokens": 36608
+        }
+      },
+      "estimated_cny": 0.515169
+    },
+    {
+      "usage": {
+        "prompt_tokens": 50220,
+        "total_tokens": 51188,
+        "completion_tokens": 968,
+        "prompt_tokens_details": {
+          "cached_tokens": 46592
+        }
+      },
+      "estimated_cny": 0.478116
+    },
+    {
+      "usage": {
+        "prompt_tokens": 51225,
+        "total_tokens": 51370,
+        "completion_tokens": 145,
+        "prompt_tokens_details": {
+          "cached_tokens": 50176
+        }
+      },
+      "estimated_cny": 0.46494
+    },
+    {
+      "usage": {
+        "prompt_tokens": 51407,
+        "total_tokens": 51821,
+        "completion_tokens": 414,
+        "prompt_tokens_details": {
+          "cached_tokens": 51200
+        }
+      },
+      "estimated_cny": 0.473841
+    },
+    {
+      "usage": {
+        "prompt_tokens": 51858,
+        "total_tokens": 52187,
+        "completion_tokens": 329,
+        "prompt_tokens_details": {
+          "cached_tokens": 51200
+        }
+      },
+      "estimated_cny": 0.475605
+    },
+    {
+      "usage": {
+        "prompt_tokens": 21133,
+        "total_tokens": 21299,
+        "completion_tokens": 166,
+        "prompt_tokens_details": {
+          "cached_tokens": 18944
+        }
+      },
+      "estimated_cny": 0.194679
+    },
+    {
+      "usage": {
+        "prompt_tokens": 29770,
+        "total_tokens": 29952,
+        "completion_tokens": 182,
+        "prompt_tokens_details": {
+          "cached_tokens": 20992
+        }
+      },
+      "estimated_cny": 0.272844
+    },
+    {
+      "usage": {
+        "prompt_tokens": 35625,
+        "total_tokens": 36339,
+        "completion_tokens": 714,
+        "prompt_tokens_details": {
+          "cached_tokens": 29696
+        }
+      },
+      "estimated_cny": 0.339903
+    },
+    {
+      "usage": {
+        "prompt_tokens": 42479,
+        "total_tokens": 43432,
+        "completion_tokens": 953,
+        "prompt_tokens_details": {
+          "cached_tokens": 35584
+        }
+      },
+      "estimated_cny": 0.408042
+    },
+    {
+      "usage": {
+        "prompt_tokens": 45460,
+        "total_tokens": 45577,
+        "completion_tokens": 117,
+        "prompt_tokens_details": {
+          "cached_tokens": 42240
+        }
+      },
+      "estimated_cny": 0.412299
+    },
+    {
+      "usage": {
+        "prompt_tokens": 45598,
+        "total_tokens": 45663,
+        "completion_tokens": 65,
+        "prompt_tokens_details": {
+          "cached_tokens": 45312
+        }
+      },
+      "estimated_cny": 0.412137
+    },
+    {
+      "usage": {
+        "prompt_tokens": 50674,
+        "total_tokens": 54013,
+        "completion_tokens": 3339,
+        "prompt_tokens_details": {
+          "cached_tokens": 45568
+        }
+      },
+      "estimated_cny": 0.546219
+    },
+    {
+      "usage": {
+        "prompt_tokens": 29767,
+        "total_tokens": 29879,
+        "completion_tokens": 112,
+        "prompt_tokens_details": {
+          "cached_tokens": 20992
+        }
+      },
+      "estimated_cny": 0.270927
+    },
+    {
+      "usage": {
+        "prompt_tokens": 21116,
+        "total_tokens": 21237,
+        "completion_tokens": 121,
+        "prompt_tokens_details": {
+          "cached_tokens": 18944
+        }
+      },
+      "estimated_cny": 0.193311
+    },
+    {
+      "usage": {
+        "prompt_tokens": 30734,
+        "total_tokens": 30871,
+        "completion_tokens": 137,
+        "prompt_tokens_details": {
+          "cached_tokens": 20992
+        }
+      },
+      "estimated_cny": 0.280305
+    },
+    {
+      "usage": {
+        "prompt_tokens": 33702,
+        "total_tokens": 34235,
+        "completion_tokens": 533,
+        "prompt_tokens_details": {
+          "cached_tokens": 30720
+        }
+      },
+      "estimated_cny": 0.317709
+    },
+    {
+      "usage": {
+        "prompt_tokens": 34275,
+        "total_tokens": 34324,
+        "completion_tokens": 49,
+        "prompt_tokens_details": {
+          "cached_tokens": 33536
+        }
+      },
+      "estimated_cny": 0.309798
+    },
+    {
+      "usage": {
+        "prompt_tokens": 39334,
+        "total_tokens": 39837,
+        "completion_tokens": 503,
+        "prompt_tokens_details": {
+          "cached_tokens": 34048
+        }
+      },
+      "estimated_cny": 0.367587
+    },
+    {
+      "usage": {
+        "prompt_tokens": 39874,
+        "total_tokens": 39931,
+        "completion_tokens": 57,
+        "prompt_tokens_details": {
+          "cached_tokens": 39168
+        }
+      },
+      "estimated_cny": 0.360405
+    },
+    {
+      "usage": {
+        "prompt_tokens": 50613,
+        "total_tokens": 51478,
+        "completion_tokens": 865,
+        "prompt_tokens_details": {
+          "cached_tokens": 39680
+        }
+      },
+      "estimated_cny": 0.478872
+    },
+    {
+      "usage": {
+        "prompt_tokens": 38677,
+        "total_tokens": 39069,
+        "completion_tokens": 392,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.358677
+    },
+    {
+      "usage": {
+        "prompt_tokens": 19765,
+        "total_tokens": 19901,
+        "completion_tokens": 136,
+        "prompt_tokens_details": {
+          "cached_tokens": 19200
+        }
+      },
+      "estimated_cny": 0.181557
+    },
+    {
+      "usage": {
+        "prompt_tokens": 27077,
+        "total_tokens": 29441,
+        "completion_tokens": 2364,
+        "prompt_tokens_details": {
+          "cached_tokens": 19712
+        }
+      },
+      "estimated_cny": 0.307521
+    },
+    {
+      "usage": {
+        "prompt_tokens": 29478,
+        "total_tokens": 29586,
+        "completion_tokens": 108,
+        "prompt_tokens_details": {
+          "cached_tokens": 26880
+        }
+      },
+      "estimated_cny": 0.268218
+    },
+    {
+      "usage": {
+        "prompt_tokens": 37118,
+        "total_tokens": 37615,
+        "completion_tokens": 497,
+        "prompt_tokens_details": {
+          "cached_tokens": 29440
+        }
+      },
+      "estimated_cny": 0.347481
+    },
+    {
+      "usage": {
+        "prompt_tokens": 37639,
+        "total_tokens": 37953,
+        "completion_tokens": 314,
+        "prompt_tokens_details": {
+          "cached_tokens": 36864
+        }
+      },
+      "estimated_cny": 0.347229
+    },
+    {
+      "usage": {
+        "prompt_tokens": 37991,
+        "total_tokens": 38515,
+        "completion_tokens": 524,
+        "prompt_tokens_details": {
+          "cached_tokens": 37632
+        }
+      },
+      "estimated_cny": 0.356067
+    },
+    {
+      "usage": {
+        "prompt_tokens": 38553,
+        "total_tokens": 38819,
+        "completion_tokens": 266,
+        "prompt_tokens_details": {
+          "cached_tokens": 37888
+        }
+      },
+      "estimated_cny": 0.354159
+    },
+    {
+      "usage": {
+        "prompt_tokens": 38842,
+        "total_tokens": 38926,
+        "completion_tokens": 84,
+        "prompt_tokens_details": {
+          "cached_tokens": 38400
+        }
+      },
+      "estimated_cny": 0.351846
+    },
+    {
+      "usage": {
+        "prompt_tokens": 19730,
+        "total_tokens": 19898,
+        "completion_tokens": 168,
+        "prompt_tokens_details": {
+          "cached_tokens": 19200
+        }
+      },
+      "estimated_cny": 0.182106
+    },
+    {
+      "usage": {
+        "prompt_tokens": 28010,
+        "total_tokens": 28119,
+        "completion_tokens": 109,
+        "prompt_tokens_details": {
+          "cached_tokens": 19712
+        }
+      },
+      "estimated_cny": 0.255033
+    },
+    {
+      "usage": {
+        "prompt_tokens": 32728,
+        "total_tokens": 32802,
+        "completion_tokens": 74,
+        "prompt_tokens_details": {
+          "cached_tokens": 27904
+        }
+      },
+      "estimated_cny": 0.29655
+    },
+    {
+      "usage": {
+        "prompt_tokens": 34590,
+        "total_tokens": 35340,
+        "completion_tokens": 750,
+        "prompt_tokens_details": {
+          "cached_tokens": 32512
+        }
+      },
+      "estimated_cny": 0.33156
+    },
+    {
+      "usage": {
+        "prompt_tokens": 35404,
+        "total_tokens": 35530,
+        "completion_tokens": 126,
+        "prompt_tokens_details": {
+          "cached_tokens": 34560
+        }
+      },
+      "estimated_cny": 0.322038
+    },
+    {
+      "usage": {
+        "prompt_tokens": 36526,
+        "total_tokens": 36984,
+        "completion_tokens": 458,
+        "prompt_tokens_details": {
+          "cached_tokens": 35328
+        }
+      },
+      "estimated_cny": 0.3411
+    },
+    {
+      "usage": {
+        "prompt_tokens": 37020,
+        "total_tokens": 37553,
+        "completion_tokens": 533,
+        "prompt_tokens_details": {
+          "cached_tokens": 36352
+        }
+      },
+      "estimated_cny": 0.347571
+    },
+    {
+      "usage": {
+        "prompt_tokens": 37584,
+        "total_tokens": 37877,
+        "completion_tokens": 293,
+        "prompt_tokens_details": {
+          "cached_tokens": 36864
+        }
+      },
+      "estimated_cny": 0.346167
+    },
+    {
+      "usage": {
+        "prompt_tokens": 17872,
+        "total_tokens": 17935,
+        "completion_tokens": 63,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.162549
+    },
+    {
+      "usage": {
+        "prompt_tokens": 21326,
+        "total_tokens": 21785,
+        "completion_tokens": 459,
+        "prompt_tokens_details": {
+          "cached_tokens": 17664
+        }
+      },
+      "estimated_cny": 0.204327
+    },
+    {
+      "usage": {
+        "prompt_tokens": 21816,
+        "total_tokens": 21947,
+        "completion_tokens": 131,
+        "prompt_tokens_details": {
+          "cached_tokens": 21248
+        }
+      },
+      "estimated_cny": 0.199881
+    },
+    {
+      "usage": {
+        "prompt_tokens": 21978,
+        "total_tokens": 22709,
+        "completion_tokens": 731,
+        "prompt_tokens_details": {
+          "cached_tokens": 21760
+        }
+      },
+      "estimated_cny": 0.217539
+    },
+    {
+      "usage": {
+        "prompt_tokens": 22742,
+        "total_tokens": 22862,
+        "completion_tokens": 120,
+        "prompt_tokens_details": {
+          "cached_tokens": 21760
+        }
+      },
+      "estimated_cny": 0.207918
+    },
+    {
+      "usage": {
+        "prompt_tokens": 23027,
+        "total_tokens": 23124,
+        "completion_tokens": 97,
+        "prompt_tokens_details": {
+          "cached_tokens": 22528
+        }
+      },
+      "estimated_cny": 0.209862
+    },
+    {
+      "usage": {
+        "prompt_tokens": 26861,
+        "total_tokens": 27222,
+        "completion_tokens": 361,
+        "prompt_tokens_details": {
+          "cached_tokens": 22784
+        }
+      },
+      "estimated_cny": 0.251496
+    },
+    {
+      "usage": {
+        "prompt_tokens": 27254,
+        "total_tokens": 27335,
+        "completion_tokens": 81,
+        "prompt_tokens_details": {
+          "cached_tokens": 26624
+        }
+      },
+      "estimated_cny": 0.247473
+    },
+    {
+      "usage": {
+        "prompt_tokens": 17925,
+        "total_tokens": 18058,
+        "completion_tokens": 133,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.164916
+    },
+    {
+      "usage": {
+        "prompt_tokens": 26539,
+        "total_tokens": 26671,
+        "completion_tokens": 132,
+        "prompt_tokens_details": {
+          "cached_tokens": 17920
+        }
+      },
+      "estimated_cny": 0.242415
+    },
+    {
+      "usage": {
+        "prompt_tokens": 34415,
+        "total_tokens": 35689,
+        "completion_tokens": 1274,
+        "prompt_tokens_details": {
+          "cached_tokens": 26368
+        }
+      },
+      "estimated_cny": 0.344133
+    },
+    {
+      "usage": {
+        "prompt_tokens": 41958,
+        "total_tokens": 42142,
+        "completion_tokens": 184,
+        "prompt_tokens_details": {
+          "cached_tokens": 34304
+        }
+      },
+      "estimated_cny": 0.38259
+    },
+    {
+      "usage": {
+        "prompt_tokens": 42184,
+        "total_tokens": 42265,
+        "completion_tokens": 81,
+        "prompt_tokens_details": {
+          "cached_tokens": 41728
+        }
+      },
+      "estimated_cny": 0.381843
+    },
+    {
+      "usage": {
+        "prompt_tokens": 42288,
+        "total_tokens": 42369,
+        "completion_tokens": 81,
+        "prompt_tokens_details": {
+          "cached_tokens": 41984
+        }
+      },
+      "estimated_cny": 0.382779
+    },
+    {
+      "usage": {
+        "prompt_tokens": 42392,
+        "total_tokens": 42473,
+        "completion_tokens": 81,
+        "prompt_tokens_details": {
+          "cached_tokens": 42240
+        }
+      },
+      "estimated_cny": 0.383715
+    },
+    {
+      "usage": {
+        "prompt_tokens": 42496,
+        "total_tokens": 42576,
+        "completion_tokens": 80,
+        "prompt_tokens_details": {
+          "cached_tokens": 42240
+        }
+      },
+      "estimated_cny": 0.384624
+    },
+    {
+      "usage": {
+        "prompt_tokens": 21116,
+        "total_tokens": 21219,
+        "completion_tokens": 103,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.192825
+    },
+    {
+      "usage": {
+        "prompt_tokens": 26428,
+        "total_tokens": 27729,
+        "completion_tokens": 1301,
+        "prompt_tokens_details": {
+          "cached_tokens": 20992
+        }
+      },
+      "estimated_cny": 0.272979
+    },
+    {
+      "usage": {
+        "prompt_tokens": 27766,
+        "total_tokens": 27885,
+        "completion_tokens": 119,
+        "prompt_tokens_details": {
+          "cached_tokens": 26368
+        }
+      },
+      "estimated_cny": 0.253107
+    },
+    {
+      "usage": {
+        "prompt_tokens": 29446,
+        "total_tokens": 29800,
+        "completion_tokens": 354,
+        "prompt_tokens_details": {
+          "cached_tokens": 27648
+        }
+      },
+      "estimated_cny": 0.274572
+    },
+    {
+      "usage": {
+        "prompt_tokens": 21111,
+        "total_tokens": 21230,
+        "completion_tokens": 119,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.193212
+    },
+    {
+      "usage": {
+        "prompt_tokens": 27370,
+        "total_tokens": 27557,
+        "completion_tokens": 187,
+        "prompt_tokens_details": {
+          "cached_tokens": 20992
+        }
+      },
+      "estimated_cny": 0.251379
+    },
+    {
+      "usage": {
+        "prompt_tokens": 35364,
+        "total_tokens": 35844,
+        "completion_tokens": 480,
+        "prompt_tokens_details": {
+          "cached_tokens": 27136
+        }
+      },
+      "estimated_cny": 0.331236
+    },
+    {
+      "usage": {
+        "prompt_tokens": 44447,
+        "total_tokens": 44914,
+        "completion_tokens": 467,
+        "prompt_tokens_details": {
+          "cached_tokens": 35328
+        }
+      },
+      "estimated_cny": 0.412632
+    },
+    {
+      "usage": {
+        "prompt_tokens": 44950,
+        "total_tokens": 45004,
+        "completion_tokens": 54,
+        "prompt_tokens_details": {
+          "cached_tokens": 44288
+        }
+      },
+      "estimated_cny": 0.406008
+    },
+    {
+      "usage": {
+        "prompt_tokens": 32519,
+        "total_tokens": 32833,
+        "completion_tokens": 314,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.301149
+    },
+    {
+      "usage": {
+        "prompt_tokens": 38487,
+        "total_tokens": 39000,
+        "completion_tokens": 513,
+        "prompt_tokens_details": {
+          "cached_tokens": 32512
+        }
+      },
+      "estimated_cny": 0.360234
+    },
+    {
+      "usage": {
+        "prompt_tokens": 39033,
+        "total_tokens": 39352,
+        "completion_tokens": 319,
+        "prompt_tokens_details": {
+          "cached_tokens": 38400
+        }
+      },
+      "estimated_cny": 0.35991
+    },
+    {
+      "usage": {
+        "prompt_tokens": 21154,
+        "total_tokens": 21306,
+        "completion_tokens": 152,
+        "prompt_tokens_details": {
+          "cached_tokens": 18944
+        }
+      },
+      "estimated_cny": 0.19449
+    },
+    {
+      "usage": {
+        "prompt_tokens": 29080,
+        "total_tokens": 29290,
+        "completion_tokens": 210,
+        "prompt_tokens_details": {
+          "cached_tokens": 20992
+        }
+      },
+      "estimated_cny": 0.26739
+    },
+    {
+      "usage": {
+        "prompt_tokens": 37123,
+        "total_tokens": 37362,
+        "completion_tokens": 239,
+        "prompt_tokens_details": {
+          "cached_tokens": 28928
+        }
+      },
+      "estimated_cny": 0.34056
+    },
+    {
+      "usage": {
+        "prompt_tokens": 39544,
+        "total_tokens": 43442,
+        "completion_tokens": 3898,
+        "prompt_tokens_details": {
+          "cached_tokens": 37120
+        }
+      },
+      "estimated_cny": 0.461142
+    },
+    {
+      "usage": {
+        "prompt_tokens": 43475,
+        "total_tokens": 43585,
+        "completion_tokens": 110,
+        "prompt_tokens_details": {
+          "cached_tokens": 39424
+        }
+      },
+      "estimated_cny": 0.394245
+    },
+    {
+      "usage": {
+        "prompt_tokens": 48629,
+        "total_tokens": 48826,
+        "completion_tokens": 197,
+        "prompt_tokens_details": {
+          "cached_tokens": 43264
+        }
+      },
+      "estimated_cny": 0.44298
+    },
+    {
+      "usage": {
+        "prompt_tokens": 48861,
+        "total_tokens": 48915,
+        "completion_tokens": 54,
+        "prompt_tokens_details": {
+          "cached_tokens": 48384
+        }
+      },
+      "estimated_cny": 0.441207
+    },
+    {
+      "usage": {
+        "prompt_tokens": 38276,
+        "total_tokens": 38370,
+        "completion_tokens": 94,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.347022
+    },
+    {
+      "usage": {
+        "prompt_tokens": 21555,
+        "total_tokens": 21758,
+        "completion_tokens": 203,
+        "prompt_tokens_details": {
+          "cached_tokens": 20736
+        }
+      },
+      "estimated_cny": 0.199476
+    },
+    {
+      "usage": {
+        "prompt_tokens": 35932,
+        "total_tokens": 36777,
+        "completion_tokens": 845,
+        "prompt_tokens_details": {
+          "cached_tokens": 21504
+        }
+      },
+      "estimated_cny": 0.346203
+    },
+    {
+      "usage": {
+        "prompt_tokens": 44713,
+        "total_tokens": 47208,
+        "completion_tokens": 2495,
+        "prompt_tokens_details": {
+          "cached_tokens": 35840
+        }
+      },
+      "estimated_cny": 0.469782
+    },
+    {
+      "usage": {
+        "prompt_tokens": 47272,
+        "total_tokens": 47498,
+        "completion_tokens": 226,
+        "prompt_tokens_details": {
+          "cached_tokens": 44544
+        }
+      },
+      "estimated_cny": 0.43155
+    },
+    {
+      "usage": {
+        "prompt_tokens": 35954,
+        "total_tokens": 36269,
+        "completion_tokens": 315,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.332091
+    },
+    {
+      "usage": {
+        "prompt_tokens": 44032,
+        "total_tokens": 45635,
+        "completion_tokens": 1603,
+        "prompt_tokens_details": {
+          "cached_tokens": 35840
+        }
+      },
+      "estimated_cny": 0.439569
+    },
+    {
+      "usage": {
+        "prompt_tokens": 39573,
+        "total_tokens": 40651,
+        "completion_tokens": 1078,
+        "prompt_tokens_details": {
+          "cached_tokens": 23296
+        }
+      },
+      "estimated_cny": 0.385263
+    },
+    {
+      "usage": {
+        "prompt_tokens": 43347,
+        "total_tokens": 45890,
+        "completion_tokens": 2543,
+        "prompt_tokens_details": {
+          "cached_tokens": 39424
+        }
+      },
+      "estimated_cny": 0.458784
+    },
+    {
+      "usage": {
+        "prompt_tokens": 24765,
+        "total_tokens": 24963,
+        "completion_tokens": 198,
+        "prompt_tokens_details": {
+          "cached_tokens": 22528
+        }
+      },
+      "estimated_cny": 0.228231
+    },
+    {
+      "usage": {
+        "prompt_tokens": 39383,
+        "total_tokens": 39515,
+        "completion_tokens": 132,
+        "prompt_tokens_details": {
+          "cached_tokens": 24576
+        }
+      },
+      "estimated_cny": 0.358011
+    },
+    {
+      "usage": {
+        "prompt_tokens": 45259,
+        "total_tokens": 47912,
+        "completion_tokens": 2653,
+        "prompt_tokens_details": {
+          "cached_tokens": 39168
+        }
+      },
+      "estimated_cny": 0.478962
+    },
+    {
+      "usage": {
+        "prompt_tokens": 38185,
+        "total_tokens": 38403,
+        "completion_tokens": 218,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.349551
+    },
+    {
+      "usage": {
+        "prompt_tokens": 46271,
+        "total_tokens": 49190,
+        "completion_tokens": 2919,
+        "prompt_tokens_details": {
+          "cached_tokens": 38144
+        }
+      },
+      "estimated_cny": 0.495252
+    },
+    {
+      "usage": {
+        "prompt_tokens": 49229,
+        "total_tokens": 57144,
+        "completion_tokens": 7915,
+        "prompt_tokens_details": {
+          "cached_tokens": 46080
+        }
+      },
+      "estimated_cny": 0.656766
+    },
+    {
+      "usage": {
+        "prompt_tokens": 37102,
+        "total_tokens": 37160,
+        "completion_tokens": 58,
+        "prompt_tokens_details": {
+          "cached_tokens": 26112
+        }
+      },
+      "estimated_cny": 0.335484
+    },
+    {
+      "usage": {
+        "prompt_tokens": 39421,
+        "total_tokens": 39728,
+        "completion_tokens": 307,
+        "prompt_tokens_details": {
+          "cached_tokens": 36864
+        }
+      },
+      "estimated_cny": 0.363078
+    },
+    {
+      "usage": {
+        "prompt_tokens": 19180,
+        "total_tokens": 19290,
+        "completion_tokens": 110,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.17559
+    },
+    {
+      "usage": {
+        "prompt_tokens": 26527,
+        "total_tokens": 26674,
+        "completion_tokens": 147,
+        "prompt_tokens_details": {
+          "cached_tokens": 18944
+        }
+      },
+      "estimated_cny": 0.242712
+    },
+    {
+      "usage": {
+        "prompt_tokens": 31682,
+        "total_tokens": 31971,
+        "completion_tokens": 289,
+        "prompt_tokens_details": {
+          "cached_tokens": 26368
+        }
+      },
+      "estimated_cny": 0.292941
+    },
+    {
+      "usage": {
+        "prompt_tokens": 37014,
+        "total_tokens": 37106,
+        "completion_tokens": 92,
+        "prompt_tokens_details": {
+          "cached_tokens": 31488
+        }
+      },
+      "estimated_cny": 0.33561
+    },
+    {
+      "usage": {
+        "prompt_tokens": 42226,
+        "total_tokens": 42350,
+        "completion_tokens": 124,
+        "prompt_tokens_details": {
+          "cached_tokens": 36864
+        }
+      },
+      "estimated_cny": 0.383382
+    },
+    {
+      "usage": {
+        "prompt_tokens": 47489,
+        "total_tokens": 49257,
+        "completion_tokens": 1768,
+        "prompt_tokens_details": {
+          "cached_tokens": 41984
+        }
+      },
+      "estimated_cny": 0.475137
+    },
+    {
+      "usage": {
+        "prompt_tokens": 49321,
+        "total_tokens": 49759,
+        "completion_tokens": 438,
+        "prompt_tokens_details": {
+          "cached_tokens": 47360
+        }
+      },
+      "estimated_cny": 0.455715
+    },
+    {
+      "usage": {
+        "prompt_tokens": 51577,
+        "total_tokens": 52124,
+        "completion_tokens": 547,
+        "prompt_tokens_details": {
+          "cached_tokens": 49152
+        }
+      },
+      "estimated_cny": 0.478962
+    },
+    {
+      "usage": {
+        "prompt_tokens": 19400,
+        "total_tokens": 19516,
+        "completion_tokens": 116,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.177732
+    },
+    {
+      "usage": {
+        "prompt_tokens": 28078,
+        "total_tokens": 28186,
+        "completion_tokens": 108,
+        "prompt_tokens_details": {
+          "cached_tokens": 19200
+        }
+      },
+      "estimated_cny": 0.255618
+    },
+    {
+      "usage": {
+        "prompt_tokens": 31032,
+        "total_tokens": 31900,
+        "completion_tokens": 868,
+        "prompt_tokens_details": {
+          "cached_tokens": 27904
+        }
+      },
+      "estimated_cny": 0.302724
+    },
+    {
+      "usage": {
+        "prompt_tokens": 36957,
+        "total_tokens": 37036,
+        "completion_tokens": 79,
+        "prompt_tokens_details": {
+          "cached_tokens": 30976
+        }
+      },
+      "estimated_cny": 0.334746
+    },
+    {
+      "usage": {
+        "prompt_tokens": 42164,
+        "total_tokens": 48679,
+        "completion_tokens": 6515,
+        "prompt_tokens_details": {
+          "cached_tokens": 36864
+        }
+      },
+      "estimated_cny": 0.555381
+    },
+    {
+      "usage": {
+        "prompt_tokens": 50501,
+        "total_tokens": 52261,
+        "completion_tokens": 1760,
+        "prompt_tokens_details": {
+          "cached_tokens": 41984
+        }
+      },
+      "estimated_cny": 0.502029
+    },
+    {
+      "usage": {
+        "prompt_tokens": 19654,
+        "total_tokens": 19775,
+        "completion_tokens": 121,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.180153
+    },
+    {
+      "usage": {
+        "prompt_tokens": 27122,
+        "total_tokens": 28561,
+        "completion_tokens": 1439,
+        "prompt_tokens_details": {
+          "cached_tokens": 19456
+        }
+      },
+      "estimated_cny": 0.282951
+    },
+    {
+      "usage": {
+        "prompt_tokens": 28596,
+        "total_tokens": 28706,
+        "completion_tokens": 110,
+        "prompt_tokens_details": {
+          "cached_tokens": 26880
+        }
+      },
+      "estimated_cny": 0.260334
+    },
+    {
+      "usage": {
+        "prompt_tokens": 31455,
+        "total_tokens": 31710,
+        "completion_tokens": 255,
+        "prompt_tokens_details": {
+          "cached_tokens": 28416
+        }
+      },
+      "estimated_cny": 0.28998
+    },
+    {
+      "usage": {
+        "prompt_tokens": 33037,
+        "total_tokens": 33287,
+        "completion_tokens": 250,
+        "prompt_tokens_details": {
+          "cached_tokens": 31232
+        }
+      },
+      "estimated_cny": 0.304083
+    }
+  ],
+  "valid_api_responses": 119,
+  "files": [
+    {
+      "path": ".env.example",
+      "sha256": "794c61483e204339be7b0c01937b3e3ec8b1e437e2a270fc58453be5860eca82"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "4d65e9b26388919c166f3c7563135ce18fcb37dce333126d1fe2558e5ec8d508"
+    },
+    {
+      "path": "Jenkinsfile",
+      "sha256": "8bb3a37dbd5a14250a4df3bc9b2dbbf488c2549ef7e2283c65b85f89175216e0"
+    },
+    {
+      "path": "README.md",
+      "sha256": "9652b6c61949b171a0c8a52d4c6f2b18226b6609de1b0610d4539bbaae8cda5b"
+    },
+    {
+      "path": "architecture-decisions.md",
+      "sha256": "b76261f712b87c797ed3a8323f3ec7307f951ef081f55bb28717921bff4ed060"
+    },
+    {
+      "path": "compose.yaml",
+      "sha256": "7c3d03d0f87fd09d2eb84ed44e6f8bfb871acc5f31236fa458a2f6e6969996e5"
+    },
+    {
+      "path": "internal.proto",
+      "sha256": "66f5dcec7d18cbb3fca95d6fd6a956d671ef21dadbe82de9c3b818ddf28aed68"
+    },
+    {
+      "path": "openapi.yaml",
+      "sha256": "a1c8e8cd0fb84ae3abf4a14a49d89f3883067193b3ceb0f85e4945d3c49d65bf"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "81431123a7a713a9663249cf924ce0d240507ba1fc1d3fdbc7384143b872bae5"
+    },
+    {
+      "path": "package.json",
+      "sha256": "54073f894996fb6d770008fa7b290539e2e4d1ae8a94823bc33bb42da0ef064d"
+    },
+    {
+      "path": "plan.json",
+      "sha256": "0f46db9adf50d2ae5427a12fabda245caf650833a13fe1dbb9a444898509294a"
+    },
+    {
+      "path": "traceability.json",
+      "sha256": "a551eccc3d5396e49a6c4748dcd4e71ebf2c3a4cb0100caee03c127a57dc2171"
+    },
+    {
+      "path": "gateway/Dockerfile",
+      "sha256": "3e89b7ad5cb1b9ed64de911a8f6ae19d642f9f4ea0211ae7176d85c67c388d8b"
+    },
+    {
+      "path": "gateway/package.json",
+      "sha256": "c7bfa35a1bdb4205980a0d6f22a100666d026a2984abc92c4c9d2446930500b6"
+    },
+    {
+      "path": "gateway/public/index.html",
+      "sha256": "625687d24f7504c2f7319c683307f8cb20a80f4e2fe0111f323d8d1998639caf"
+    },
+    {
+      "path": "gateway/public/css/style.css",
+      "sha256": "aed08f8ab94e25dd49a1e765d2c034ca111b1b40a7cbd0e7934fefd422e8dfe5"
+    },
+    {
+      "path": "gateway/public/js/api.js",
+      "sha256": "69b044ab3511a2c25efc01e87ef9a41e51b859f054f8dab5f2de98fa2d620c20"
+    },
+    {
+      "path": "gateway/public/js/app.js",
+      "sha256": "31ea91b962f880fc361912e3ce1fec50530f1f30708d5ef10d8b584e4486991f"
+    },
+    {
+      "path": "gateway/public/js/ui.js",
+      "sha256": "687078b2368ef9ed5d6a84ceefddd31e36c9917e20910b2bf6ac77201df4cc67"
+    },
+    {
+      "path": "gateway/src/index.js",
+      "sha256": "f6bd9a105bb2a2648b1632b3081a2b35f2fb8c7a3fdcefc8a88d208b8dfc4cfe"
+    },
+    {
+      "path": "gateway/src/middleware.js",
+      "sha256": "f2d4d51e34b0c7bb3cfa9749f35823bc3c5782966b9f290a19455b14d49bae1e"
+    },
+    {
+      "path": "gateway/src/routes.js",
+      "sha256": "8b569d8ba7998a654c08c2fc2782a4caa5ae6d977370ae9787b1d3c4c62e6658"
+    },
+    {
+      "path": "istio/destination-rules.yaml",
+      "sha256": "e69893f803ba571ff075ae5c6b556ad30a01c3e182298bb53ef193b5d32f2d0c"
+    },
+    {
+      "path": "istio/gateway.yaml",
+      "sha256": "6e6732a3586302d1f7ea7e0a2fa55ff08fa51729a017ff6bc50e6f04091d19ed"
+    },
+    {
+      "path": "istio/peer-authentication.yaml",
+      "sha256": "3e71671220cd97a86eba9f0a0d0e9681ac542a09b83c86eed013ab23052e7877"
+    },
+    {
+      "path": "istio/virtual-service.yaml",
+      "sha256": "3ed1848e618faf1c984876f906fb7d6cd1f2448b36671c0bb0b22354713237f1"
+    },
+    {
+      "path": "k8s/admin-service-deployment.yaml",
+      "sha256": "412e032447c5878f49de942679e76e74c27b077bc48b84125dcf103514108989"
+    },
+    {
+      "path": "k8s/configmap.yaml",
+      "sha256": "9b4cbb2c2979cfab9ab72af845a55c11f328bc382905d096256eb1b09fd82d29"
+    },
+    {
+      "path": "k8s/game-service-deployment.yaml",
+      "sha256": "2e0e5e26c4c6dd3c4413009c55e959d455f2576cd83d010650d21cd51e74e3de"
+    },
+    {
+      "path": "k8s/gateway-deployment.yaml",
+      "sha256": "aadec3acf393a113b4edba2dbe95c472f05b96ba6dc851bb6ed1a2d5f5ac7273"
+    },
+    {
+      "path": "k8s/hpa.yaml",
+      "sha256": "47196ccb04fbaabbc1f5f17d49468965be084bdc88239c2f825acb15372bcadb"
+    },
+    {
+      "path": "k8s/ingress.yaml",
+      "sha256": "bef2fb632779ca0cd2ddeb2f46589f559bbaf178e4e094080b35fa6a2ae4c227"
+    },
+    {
+      "path": "k8s/namespace.yaml",
+      "sha256": "add133888d3f6ec34a963e007c16bc8ea7ec3b4e647aa3cc1358e2c453e681f9"
+    },
+    {
+      "path": "k8s/question-service-deployment.yaml",
+      "sha256": "9e0f80def8dfad4f8dd22785d6adfd57b0e57a7af320726b448b693852dfe1fd"
+    },
+    {
+      "path": "k8s/user-service-deployment.yaml",
+      "sha256": "27b39537839e32be8a064ff453d14e35a7d4b9f8eee345b140b47fbd77b34e2c"
+    },
+    {
+      "path": "keycloak/realm.json",
+      "sha256": "949de450946153baf6ce229b067e2415d1d8d1535b569db04693b3a4b0fb17a3"
+    },
+    {
+      "path": "prometheus/prometheus.yml",
+      "sha256": "1d91441026b9233ff1cbd6afd141002d4fa9621d963ea921502e6822526d3d24"
+    },
+    {
+      "path": "scripts/check-sources.js",
+      "sha256": "6a9c8cac3adebf7fcd78dd5194c36523e9e7fca5a6e6fde9d47b7bcd11f3eb7a"
+    },
+    {
+      "path": "services/admin-service/Dockerfile",
+      "sha256": "64b2d100d421ddd4c1ea2fcf4df7b31c7badf80a1b11e292df94b8d55ddac7b8"
+    },
+    {
+      "path": "services/admin-service/package.json",
+      "sha256": "d54799146984d920f2445a1aeb42c6f4378375e4f3b3bc45ca0075d0f3eae4f5"
+    },
+    {
+      "path": "services/admin-service/src/index.js",
+      "sha256": "6327f9b686b01c610cc8e69beda985d89146fec9ffb851923f60f8a91baa2ad2"
+    },
+    {
+      "path": "services/admin-service/src/routes.js",
+      "sha256": "ff1e30bb882b9d065930023a9598453982e299047045b512cfc90d74b1b45242"
+    },
+    {
+      "path": "services/admin-service/test/admin.test.js",
+      "sha256": "5af391a69eb38ed302f5d348985e2ed48c9e635a8546ec6c499c5938b8d1c0e4"
+    },
+    {
+      "path": "services/game-service/Dockerfile",
+      "sha256": "97dfd4f72f2d89c67a1bab2e61df17f74986d1d50f70ed1fdff44488e64486f1"
+    },
+    {
+      "path": "services/game-service/package.json",
+      "sha256": "55fabcc43cb548439322596c042eacb9ca982b962a06fb96a29f0e20a6b766db"
+    },
+    {
+      "path": "services/game-service/src/game-engine.js",
+      "sha256": "cde0c0e53be1c53bdb09ac676dc4862f99309af22aa252e101075966a9caf59f"
+    },
+    {
+      "path": "services/game-service/src/index.js",
+      "sha256": "279bea7deffe8a1dbf61f9f2d93e896887d59699300199139909bab599578af4"
+    },
+    {
+      "path": "services/game-service/src/routes.js",
+      "sha256": "568ffa51f1bbba7db87caa5f119dcac489c35e707a1556a55ef53bdb67bc9b03"
+    },
+    {
+      "path": "services/game-service/test/game-engine.test.js",
+      "sha256": "bfc16881d683188c3056259c5657a8ea048b4a42c575fc83b11ce00e1c40e02a"
+    },
+    {
+      "path": "services/game-service/test/scoring.test.js",
+      "sha256": "4c1aaa2593d4dbaa0cffe7507ce7b34fc44d2a1b60e256f06ec116f62d932a9f"
+    },
+    {
+      "path": "services/question-service/Dockerfile",
+      "sha256": "f9eead99abfe9aded0d8d0ea2476f2aac8e2e6a2984b4c25db9b6ba9290bba2d"
+    },
+    {
+      "path": "services/question-service/package.json",
+      "sha256": "783a25922efa8d109135c002d51b6f57155496ea21b12174fd75222c0d99e60f"
+    },
+    {
+      "path": "services/question-service/src/index.js",
+      "sha256": "01e12fd0316d4e3cf33fbdd0b6c2037575cca2f008bbd5e28776fba12f46aee7"
+    },
+    {
+      "path": "services/question-service/src/routes.js",
+      "sha256": "038cd43112374720e7ebce3bccc2d098f88d8b7649090f0addacf73310171efc"
+    },
+    {
+      "path": "services/question-service/src/search.js",
+      "sha256": "16fe77dc47dd323df27a62b7d7260fa82183c32ddd12ba5796eef60f5701571c"
+    },
+    {
+      "path": "services/user-service/Dockerfile",
+      "sha256": "3b487260292a52eda8fd1c14bd51702eb8273e5f25e5b9ef747caca03c0bb7b8"
+    },
+    {
+      "path": "services/user-service/package.json",
+      "sha256": "e0ae0d1275d24344bb0fd5639c717b25852c6ff485bb46b7bbd61ed4cf279147"
+    },
+    {
+      "path": "services/user-service/src/index.js",
+      "sha256": "cbbacdd9860c10a1478abaaec346986fbe7574eef61e9a058ba6a0809867a116"
+    },
+    {
+      "path": "services/user-service/src/routes.js",
+      "sha256": "18064f5df6968c5cdde256b8fbda460724689a01a5987d5e49bf31b15dc85846"
+    },
+    {
+      "path": "shared/package.json",
+      "sha256": "1128cf73603aa666e2ae554be41bea62184a080134a40f4075d98eb8bc4d4b21"
+    },
+    {
+      "path": "shared/src/auth.js",
+      "sha256": "dad92b7fb3317fc7589ba203dd1c8be92149e8c0be002a9611c18f9dd0079208"
+    },
+    {
+      "path": "shared/src/cache.js",
+      "sha256": "781be7f3ff6bfc658d371c39d4a890e271eede48a03cae5667434450b9ed50d0"
+    },
+    {
+      "path": "shared/src/db.js",
+      "sha256": "c11518e488a81d72cacc762c9092eb31f434ad113ee9b4f7e115095910ec7c4b"
+    },
+    {
+      "path": "shared/src/errors.js",
+      "sha256": "2930ea811c6990c5a2ba5e8460e9e1009ff6f22f0227215d227f7202485e6a68"
+    },
+    {
+      "path": "shared/src/fraction.js",
+      "sha256": "7c2e383dd06c1ac489dd0d796f41738281039e468a7b24c8188986aa76618fb3"
+    },
+    {
+      "path": "shared/src/identity.js",
+      "sha256": "0a1355220521f945ac806bf4bbcecd9be0457ee8e8750e580d38001bc7530565"
+    },
+    {
+      "path": "shared/src/metrics.js",
+      "sha256": "e4c950de24c7ffcaadd8a43e5d2c2c9a250381dde5adf719c54137bfc2dd7af5"
+    },
+    {
+      "path": "shared/src/mq.js",
+      "sha256": "4d02f1f66ca50d2a885a48e99fcf2fb2db7c3a1e9d36a6bbe1df073a0eef4fda"
+    },
+    {
+      "path": "shared/test/auth.test.js",
+      "sha256": "9dbb8551cfb5b2aba890c1f186bd88a30a49f006076c9759e5e6dca2b0bf54b8"
+    },
+    {
+      "path": "shared/test/db.test.js",
+      "sha256": "ae3090b24e4753b60f2d5948369c4e2d78f2b45d3ccf16d394416bb887f4ee8d"
+    },
+    {
+      "path": "shared/test/fraction.test.js",
+      "sha256": "84628cf3459b5a289b41e28f0ec043803c700a509562936ecddeace8dcbaa3b6"
+    },
+    {
+      "path": "shared/test/metrics.test.js",
+      "sha256": "d963e86b1cd7b55178f5be6008b51b9e7bd44801327fb7df25e88775c47cc6de"
+    },
+    {
+      "path": "sql/001_initial.sql",
+      "sha256": "5887b644e8d4c0bb7d20ffcbe2fb9de5309e7c33c2de3a8bd97a2b304c7e3bb8"
+    },
+    {
+      "path": "sql/002_seed.sql",
+      "sha256": "8218a286fb82ccaf2c15c3ac652f3dc837acefe43fa74750f2eed031a96778cb"
+    },
+    {
+      "path": "terraform/main.tf",
+      "sha256": "6d3a5fa24fd6728748ce937a9e3bf6ceb4d91413dd8af79e9f69e678d19c48fd"
+    },
+    {
+      "path": "terraform/outputs.tf",
+      "sha256": "1faa3d81e50d9bd097cf2f29492d05b21c7094e9e37b9a8fb3b4e289f2ef4fbd"
+    },
+    {
+      "path": "terraform/variables.tf",
+      "sha256": "5686bdd145b736a65bce927c953af3f02bc70a1caf23fbfd468fe360602c5b15"
+    },
+    {
+      "path": "test/integration/_helpers.js",
+      "sha256": "cc94345662c57dbd4bc0300402dc6d719b73ec4b48d5db9957edfd0e51a117eb"
+    },
+    {
+      "path": "test/integration/admin.test.js",
+      "sha256": "e4d3af6cde8cc9e416b854ae4c9916af19239e6e00eeeaf6c89cda3ed50e1844"
+    },
+    {
+      "path": "test/integration/api.test.js",
+      "sha256": "52a357b7e155c08655f22893f2643177714e1adb02feaa1fdcdd4460746d042d"
+    },
+    {
+      "path": "test/integration/auth.test.js",
+      "sha256": "b23cd765a853987e6ca5ac28d5458fa9ff798cfdaded74be55a77d288e7086ac"
+    },
+    {
+      "path": "test/integration/game-flow.test.js",
+      "sha256": "fd29f1c4b90d4be639e485dc7bb034fa25572e39bfcc58c08c6f155a9b164722"
+    },
+    {
+      "path": "vault/vault-config.hcl",
+      "sha256": "7cfe994778a911693ad515c007420f177a54fed1451106a6bc353ed89d8db5f9"
+    },
+    {
+      "path": "vault/vault-policy.hcl",
+      "sha256": "e519f4f0e706f0e9bd6d4183265a76e8f5305ded7ee4da8b709c0cf3ca6c64ce"
+    }
+  ]
+}

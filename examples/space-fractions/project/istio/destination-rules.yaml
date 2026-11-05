@@ -1,0 +1,93 @@
+# Space Fractions – Istio DestinationRule reference configurations
+#
+# REFERENCE-ONLY CONFIGURATION.
+#
+# This file is syntactically valid and aligned with the `space-fractions`
+# namespace, the Kubernetes Services and Deployments under k8s/ (gateway,
+# game-service, question-service, user-service, admin-service), and the
+# Gateway/VirtualService in this directory. It has NOT been validated
+# against a live Istio mesh and must not be treated as production-validated.
+#
+# Assumptions (documented, not measured):
+#   * Each destination Service exposes a port named `http`. The subset/port
+#     selection below is minimal and intentionally does not require a custom
+#     ServiceEntry or port protocol overrides.
+#   * Traffic policy is mTLS STRICT, matching the intent of
+#     peer-authentication.yaml (same directory). This is an explicit security
+#     hardening choice and has not been exercised end-to-end; the mesh-wide
+#     PeerAuthentication must be applied (or permissive mode accepted) for
+#     these DestinationRules to behave as written.
+#   * Connection pool and outlier-detection values are reference defaults to
+#     bound downstream latency/retries, not load-tested tuning. They mirror
+#     the gateway's own bounded request timeouts.
+#   * `gateway` is a single logical front door; all other services are named
+#     for their application role. No east-west subsetting (canary/blue-green)
+#     is configured because none is defined in the accompanying architecture.
+#
+# Relationship to k8s Service mesh defaults:
+#   Without these DestinationRules Istio uses permissive/none traffic policy.
+#   These rules are opt-in hardening. They are safe to apply per-namespace
+#   after the mesh-wide PeerAuthentication is in place.
+apiVersion: networking.istio.io/v1
+kind: DestinationRule
+metadata:
+  name: space-fractions-mtls
+  namespace: space-fractions
+  labels:
+    app.kubernetes.io/name: space-fractions
+    app.kubernetes.io/part-of: space-fractions
+    app.kubernetes.io/managed-by: istio
+spec:
+  # Applies the mTLS + connection settings to every host in the namespace via
+  # the wildcard host. A single rule keeps the reference config readable;
+  # split per-host if finer-grained tuning is ever required.
+  host: "*.space-fractions.svc.cluster.local"
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL
+    connectionPool:
+      tcp:
+        maxConnections: 100
+        connectTimeout: 3s
+      http:
+        http1MaxPendingRequests: 64
+        http2MaxRequests: 128
+        maxRequestsPerConnection: 1
+        maxRetries: 2
+    outlierDetection:
+      consecutive5xxErrors: 3
+      interval: 30s
+      baseEjectionTime: 60s
+      maxEjectionPercent: 50
+---
+# Separate explicit rule for the gateway front door. This is functionally
+# included in the wildcard rule above but is kept as an explicit destination
+# so operators can tune the ingress-facing service independently (for
+# example, removing retry amplification at the front door).
+apiVersion: networking.istio.io/v1
+kind: DestinationRule
+metadata:
+  name: space-fractions-gateway
+  namespace: space-fractions
+  labels:
+    app.kubernetes.io/name: space-fractions-gateway
+    app.kubernetes.io/part-of: space-fractions
+    app.kubernetes.io/managed-by: istio
+spec:
+  host: gateway.space-fractions.svc.cluster.local
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL
+    connectionPool:
+      tcp:
+        maxConnections: 200
+        connectTimeout: 5s
+      http:
+        http1MaxPendingRequests: 128
+        http2MaxRequests: 256
+        maxRetries: 1
+    outlierDetection:
+      consecutive5xxErrors: 5
+      interval: 30s
+      baseEjectionTime: 60s
+      maxEjectionPercent: 50

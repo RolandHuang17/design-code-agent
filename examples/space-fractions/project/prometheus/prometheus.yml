@@ -1,0 +1,28 @@
+# Prometheus scrape configuration for the Space Fractions system.
+# Each service exposes its own /metrics on a dedicated port (see compose.yaml).
+# Reference configuration; not production-validated.
+
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: "gateway"
+    static_configs:
+      - targets: ["gateway:9095"]
+
+  - job_name: "game-service"
+    static_configs:
+      - targets: ["game-service:9091"]
+
+  - job_name: "question-service"
+    static_configs:
+      - targets: ["question-service:9092"]
+
+  - job_name: "user-service"
+    static_configs:
+      - targets: ["user-service:9093"]
+
+  - job_name: "admin-service"
+    static_configs:
+      - targets: ["admin-service:9094"]

@@ -15,4 +15,6 @@ node_modules/
 acceptance-report.json
 auth-acceptance-report.json
 .local/
+.playwright-cli/
+output/
 

@@ -1,0 +1,14 @@
+{
+  "profile": "build",
+  "status": "passed",
+  "exit_code": 0,
+  "timed_out": false,
+  "command": [
+    "C:\\Program Files\\nodejs\\node.EXE",
+    "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+    "run",
+    "build",
+    "--ignore-scripts"
+  ],
+  "output": "\n> space-fractions@1.0.0 build\n> node scripts/check-sources.js\n\nSpace Fractions — source check\n  ✓ syntax-checked 38 JavaScript file(s)\n  ✓ validated 3 JSON file(s)\n  ✓ structural-checked 15 YAML file(s)\n\nBuild OK: no source issues found.\n"
+}

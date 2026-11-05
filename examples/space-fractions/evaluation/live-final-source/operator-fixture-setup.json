@@ -1,0 +1,6 @@
+[
+  {
+    "action": "synchronize local fixture client with repository realm after persisted-volume update",
+    "status": 204
+  }
+]

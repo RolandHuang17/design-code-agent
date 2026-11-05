@@ -1,0 +1,67 @@
+{
+  "kind": "independent_http_acceptance",
+  "status": "failed",
+  "checks": [
+    {
+      "check": "health",
+      "status": "passed"
+    },
+    {
+      "check": "missing authentication rejected",
+      "status": "passed"
+    },
+    {
+      "check": "invalid JWT signature rejected",
+      "status": "passed"
+    },
+    {
+      "check": "ordinary user denied admin mutation",
+      "status": "passed"
+    },
+    {
+      "check": "admin question creation",
+      "status": "passed"
+    },
+    {
+      "check": "game creation",
+      "status": "passed"
+    },
+    {
+      "check": "question answer not exposed",
+      "status": "passed"
+    },
+    {
+      "check": "cross-user game access denied",
+      "status": "passed"
+    },
+    {
+      "check": "pause",
+      "status": "passed"
+    },
+    {
+      "check": "paused game rejects answer",
+      "status": "passed"
+    },
+    {
+      "check": "resume",
+      "status": "passed"
+    },
+    {
+      "check": "invalid fraction rejected",
+      "status": "passed"
+    },
+    {
+      "check": "correct scoring",
+      "status": "failed"
+    },
+    {
+      "check": "cleanup",
+      "status": "passed"
+    }
+  ],
+  "error_type": "AssertionError",
+  "limitations": [
+    "Does not prove persistence across service restart",
+    "Does not prove browser usability or production performance"
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "realm": "space-fractions",
+  "enabled": true,
+  "displayName": "Space Fractions",
+  "accessTokenLifespan": 300,
+  "ssoSessionIdleTimeout": 1800,
+  "ssoSessionMaxLifespan": 36000,
+  "roles": {
+    "realm": [
+      {
+        "name": "admin",
+        "description": "Administrator role for question CRUD"
+      },
+      {
+        "name": "student",
+        "description": "End user / student role"
+      }
+    ]
+  },
+  "clients": [
+    {
+      "clientId": "space-fractions-client",
+      "name": "Space Fractions Client",
+      "enabled": true,
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": false,
+      "protocol": "openid-connect",
+      "redirectUris": [
+        "http://localhost:3000/*",
+        "http://localhost:3000/api/users/oidc/callback",
+        "http://localhost:3100/*"
+      ],
+      "webOrigins": [
+        "http://localhost:3000",
+        "http://localhost:3100"
+      ],
+      "defaultClientScopes": [
+        "web-origins",
+        "profile",
+        "roles",
+        "email"
+      ],
+      "optionalClientScopes": [],
+      "protocolMappers": [
+        {
+          "name": "audience",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "consentRequired": false,
+          "config": {
+            "included.client.audience": "account",
+            "id.token.claim": "false",
+            "access.token.claim": "true"
+          }
+        },
+        {
+          "name": "realm roles",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-realm-role-mapper",
+          "consentRequired": false,
+          "config": {
+            "multivalued": "true",
+            "userinfo.token.claim": "true",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "claim.name": "roles"
+          }
+        }
+      ],
+      "attributes": {
+        "pkce.code.challenge.method": "S256",
+        "post.logout.redirect.uris": "http://localhost:3000/*##http://localhost:3100/*"
+      }
+    }
+  ],
+  "users": [
+    {
+      "username": "admin",
+      "enabled": true,
+      "id": "admin-user-sub",
+      "email": "admin@spacefractions.local",
+      "emailVerified": true,
+      "firstName": "Administrator",
+      "lastName": "Fixture",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "admin",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "admin"
+      ]
+    },
+    {
+      "username": "student",
+      "enabled": true,
+      "id": "student-user-sub",
+      "email": "student@spacefractions.local",
+      "emailVerified": true,
+      "firstName": "Student",
+      "lastName": "User",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "student",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "student"
+      ]
+    }
+  ],
+  "defaultDefaultClientScopes": [
+    "web-origins",
+    "profile",
+    "roles",
+    "email"
+  ],
+  "defaultOptionalClientScopes": []
+}

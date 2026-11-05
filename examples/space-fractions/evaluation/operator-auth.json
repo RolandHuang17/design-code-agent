@@ -1,0 +1,49 @@
+{
+  "profile": "auth",
+  "status": "passed",
+  "exit_code": 0,
+  "timed_out": false,
+  "command": [
+    "C:\\Program Files\\nodejs\\node.EXE",
+    "D:\\projects\\Task\\codeagent\\acceptance\\auth.cjs",
+    "D:\\projects\\Task\\examples\\space-fractions\\project",
+    "C:\\Users\\roland\\AppData\\Local\\Temp\\design-agent-auth-ptyls8h8\\report.json"
+  ],
+  "output": "{\"kind\":\"independent_jwt_acceptance\",\"status\":\"passed\",\"checks\":[{\"check\":\"valid RSA-signed JWT\",\"status\":\"passed\",\"observed\":\"accepted\"},{\"check\":\"wrong signature rejected\",\"status\":\"passed\",\"observed\":\"rejected\"},{\"check\":\"expired token rejected\",\"status\":\"passed\",\"observed\":\"rejected\"},{\"check\":\"wrong issuer rejected\",\"status\":\"passed\",\"observed\":\"rejected\"},{\"check\":\"wrong audience rejected\",\"status\":\"passed\",\"observed\":\"rejected\"},{\"check\":\"future not-before rejected\",\"status\":\"passed\",\"observed\":\"rejected\"}]}\n",
+  "independent_report": {
+    "kind": "independent_jwt_acceptance",
+    "status": "passed",
+    "checks": [
+      {
+        "check": "valid RSA-signed JWT",
+        "status": "passed",
+        "observed": "accepted"
+      },
+      {
+        "check": "wrong signature rejected",
+        "status": "passed",
+        "observed": "rejected"
+      },
+      {
+        "check": "expired token rejected",
+        "status": "passed",
+        "observed": "rejected"
+      },
+      {
+        "check": "wrong issuer rejected",
+        "status": "passed",
+        "observed": "rejected"
+      },
+      {
+        "check": "wrong audience rejected",
+        "status": "passed",
+        "observed": "rejected"
+      },
+      {
+        "check": "future not-before rejected",
+        "status": "passed",
+        "observed": "rejected"
+      }
+    ]
+  }
+}

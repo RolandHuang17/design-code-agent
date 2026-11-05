@@ -1,0 +1,16 @@
+{
+  "kind": "independent_browser_acceptance",
+  "status": "passed",
+  "checks": [
+    "student PKCE login",
+    "answer and score feedback",
+    "pause/resume",
+    "help",
+    "logout and return",
+    "admin login",
+    "admin question create/list/delete",
+    "ten questions score10 and Mission Complete",
+    "View Score shows10/10"
+  ],
+  "note": "Actual Playwright CLI browser interaction; observed snapshots and real video. Full-flow script checks visible prompts and feedback. An initial order-assuming script stopped at question8; it was corrected to follow visible prompts. Source ordering was made stable."
+}

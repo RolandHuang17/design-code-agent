@@ -1,0 +1,15 @@
+{
+  "limit_cny": null,
+  "charged_cny": 167.569206,
+  "uncertain_requests": 8,
+  "request_count": 559,
+  "prices": {
+    "input_per_million": 10.56,
+    "output_per_million": 31.68,
+    "reference_date": "2026-11-05"
+  },
+  "settled_estimate_cny": 161.247705,
+  "unknown_request_reservations_cny": 6.3215010000000005,
+  "note": "Conservative estimate including development, probes, failures, retries and unknown reservations. Not an Aliyun invoice. Historical reservations retain per-request prices; snapshot prices are defaults only.",
+  "current_authorization": "User explicitly removed monetary limit; operational loop/time limits remain."
+}

@@ -1,0 +1,6 @@
+[
+  {
+    "action": "supply missing admin fixture lastName for Keycloak required profile",
+    "status": 204
+  }
+]

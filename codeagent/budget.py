@@ -13,6 +13,15 @@ class BudgetError(RuntimeError):
     pass
 
 
+def parse_limit(value) -> float | None:
+    if value is None or str(value).strip().lower() in ("unlimited", "不限"):
+        return None
+    limit = float(value)
+    if not math.isfinite(limit) or limit <= 0:
+        raise ValueError("累计预算必须为正数；明确取消上限请填写 unlimited 或 不限")
+    return limit
+
+
 @dataclass(frozen=True)
 class Prices:
     # Conservative RMB ceilings: peak USD 1.32 / 3.96 times 8 RMB/USD.
@@ -51,10 +60,8 @@ def locked(path: Path):
 
 
 class Budget:
-    def __init__(self, path: Path, limit: float = 50, prices: Prices | None = None):
-        if not math.isfinite(limit) or not 0 < limit <= 200:
-            raise ValueError("累计预算必须大于 0 且不超过 200 元")
-        self.path, self.limit, self.prices = path, limit, prices or Prices()
+    def __init__(self, path: Path, limit: float | None = 50, prices: Prices | None = None):
+        self.path, self.limit, self.prices = path, parse_limit(limit), prices or Prices()
 
     def _read(self):
         if self.path.exists():
@@ -77,7 +84,7 @@ class Budget:
         with locked(self.path.with_suffix(".lock")):
             data = self._read()
             total = sum(item["charged"] for item in data["reservations"].values())
-            if total + amount > self.limit:
+            if self.limit is not None and total + amount > self.limit:
                 raise BudgetError(f"预算不足：累计已计 {total:.4f} 元，本次需预留 {amount:.4f} 元，上限 {self.limit:.2f} 元")
             key = uuid.uuid4().hex
             data["reservations"][key] = {"charged": amount, "reserved": amount, "state": "uncertain",

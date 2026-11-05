@@ -5,7 +5,7 @@ import sys
 import threading
 from pathlib import Path
 
-from .budget import Budget, Prices, default_ledger
+from .budget import Budget, Prices, default_ledger, parse_limit
 from .config import user_variable
 from .engine import Agent
 from .inputs import load_inputs
@@ -29,7 +29,8 @@ def main():
         command.add_argument("--confirm-pricing", action="store_true", help="已核对当前价格不超过给定计价上界")
         command.add_argument("--input-price", type=float, default=None, help="输入元/百万 tokens；百炼必须填写")
         command.add_argument("--output-price", type=float, default=None, help="输出元/百万 tokens；百炼必须填写")
-        command.add_argument("--budget", type=float, default=user_variable("DESIGN_CODE_AGENT_BUDGET_CNY") or "50")
+        command.add_argument("--budget", type=parse_limit, default=user_variable("DESIGN_CODE_AGENT_BUDGET_CNY") or "50",
+                             help="累计金额上限；明确取消上限用 unlimited，仍记录全部费用")
         if name == "run":
             command.add_argument("architecture", type=Path)
             command.add_argument("views", type=Path)

@@ -16,7 +16,7 @@ def schema(name, description, properties, required):
 STRING = {"type": "string"}
 TOOL_SCHEMAS = [
     schema("list_files", "List all project source paths. Dependencies are excluded.", {}, []),
-    schema("read_file", "Read a project file, optionally from character offset (max 16000 chars).", {"path": STRING, "offset": {"type": "integer", "minimum": 0}}, ["path"]),
+    schema("read_file", "Read max 16000 characters. offset is a CHARACTER position, NOT a line number. For continuation use returned next_offset exactly.", {"path": STRING, "offset": {"type": "integer", "minimum": 0}}, ["path"]),
     schema("write_file", "Create a UTF-8 source file, or replace a file previously read in this context. Max 80000 bytes.", {"path": STRING, "content": STRING}, ["path", "content"]),
     schema("edit_file", "Replace exactly one occurrence in a file previously read; fails if ambiguous or stale.", {"path": STRING, "old": STRING, "new": STRING}, ["path", "old", "new"]),
     schema("run_check", "Run a fixed check profile; integration runs npm test:integration; auth runs independent RSA/JWKS JWT acceptance. No arbitrary shell commands.", {"profile": {"type": "string", "enum": ["static", "install", "test", "integration", "build", "compose", "auth"]}}, ["profile"]),
@@ -43,7 +43,7 @@ class Toolset:
             args = json.loads(arguments)
             params = spec["parameters"]
             if not isinstance(args, dict) or set(args) - set(params["properties"]) or not set(params["required"]).issubset(args):
-                raise ValueError("工具参数字段不匹配")
+                raise ValueError(f"工具参数字段不匹配；允许字段：{', '.join(params['properties'])}；必填字段：{', '.join(params['required'])}")
             for key, value in args.items():
                 expected = params["properties"][key]
                 if expected["type"] == "string" and not isinstance(value, str):
@@ -66,7 +66,8 @@ class Toolset:
                 content = path.read_text(encoding="utf-8")
                 self.read_hashes[path] = hashlib.sha256(path.read_bytes()).hexdigest()
                 offset = args.get("offset", 0)
-                return {"content": content[offset:offset + 16000], "offset": offset, "total_chars": len(content)}
+                return {"content": content[offset:offset + 16000], "offset": offset, "offset_unit": "characters",
+                        "next_offset": offset + 16000 if offset + 16000 < len(content) else None, "total_chars": len(content)}
             if path.exists():
                 digest = hashlib.sha256(path.read_bytes()).hexdigest()
                 if self.read_hashes.get(path) != digest:

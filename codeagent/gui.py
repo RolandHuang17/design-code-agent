@@ -8,7 +8,7 @@ import webbrowser
 from pathlib import Path
 from tkinter import filedialog, messagebox, ttk
 
-from .budget import Budget, Prices, default_ledger
+from .budget import Budget, Prices, default_ledger, parse_limit
 from .config import user_variable
 from .engine import Agent
 from .inputs import load_inputs
@@ -79,7 +79,7 @@ class Application:
         ttk.Button(account, text="读取环境变量", command=self.read_key).grid(row=2, column=3, sticky="e")
         price = ttk.Frame(account)
         price.grid(row=3, column=0, columnspan=4, sticky="ew", pady=5)
-        for label, variable, width in (("输入 元/百万 tokens", self.input_price, 8), ("输出 元/百万 tokens", self.output_price, 8), ("累计上限 元（≤200）", self.budget, 6)):
+        for label, variable, width in (("输入 元/百万 tokens", self.input_price, 8), ("输出 元/百万 tokens", self.output_price, 8), ("累计上限 元 / 不限", self.budget, 9)):
             ttk.Label(price, text=label).pack(side="left", padx=(0, 6))
             ttk.Entry(price, textvariable=variable, width=width).pack(side="left", padx=(0, 16))
         ttk.Checkbutton(account, text="已核对当前官方计价；上述单价为本地域 / 模型价格的上界（不扣优惠）", variable=self.pricing_confirmed).grid(row=4, column=0, columnspan=4, sticky="w")
@@ -160,7 +160,7 @@ class Application:
             return
         try:
             self.cancel.clear()
-            provider = DeepSeek(self.api_key.get(), Budget(default_ledger(), float(self.budget.get()), Prices(float(self.input_price.get()), float(self.output_price.get()))), self.cancel,
+            provider = DeepSeek(self.api_key.get(), Budget(default_ledger(), parse_limit(self.budget.get()), Prices(float(self.input_price.get()), float(self.output_price.get()))), self.cancel,
                                 pricing_confirmed=self.pricing_confirmed.get(), provider="bailian" if self.provider_name.get().startswith("百炼") else "deepseek",
                                 base_url=self.base_url.get(), model=self.model.get())
             arch, views, output = Path(self.architecture.get()), Path(self.views.get()), Path(self.output.get())

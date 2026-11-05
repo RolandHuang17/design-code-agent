@@ -1,0 +1,126 @@
+{
+  "summary": "Implement Space Fractions microservices system: gateway (Express, port 3000), game-service, question-service, user-service, admin-service with PostgreSQL, Redis, RabbitMQ, Elasticsearch, Prometheus, Keycloak OIDC. Browser UI at /. Full OpenAPI contract, internal.proto, Docker Compose, Kubernetes, Jenkinsfile, Terraform, Vault/Istio reference configs.",
+  "tasks": [
+    {
+      "id": "T001",
+      "description": "Create project scaffolding: package.json with npm workspaces, .env.example, .gitignore, shared package with fraction arithmetic and auth middleware",
+      "files": ["package.json", ".env.example", ".gitignore", "shared/package.json", "shared/src/fraction.js", "shared/src/auth.js", "shared/src/errors.js", "shared/src/db.js", "shared/src/cache.js", "shared/src/mq.js", "shared/src/metrics.js"]
+    },
+    {
+      "id": "T002",
+      "description": "Create SQL migrations: users, questions, games, game_answers tables with indexes and seed data",
+      "files": ["sql/001_initial.sql", "sql/002_seed.sql"]
+    },
+    {
+      "id": "T003",
+      "description": "Implement game-service: create game, get game, pause, resume, submit answer, get score, list games",
+      "files": ["services/game-service/package.json", "services/game-service/src/index.js", "services/game-service/src/routes.js", "services/game-service/src/game-engine.js"]
+    },
+    {
+      "id": "T004",
+      "description": "Implement question-service: get questions, search questions (Elasticsearch), get question by id",
+      "files": ["services/question-service/package.json", "services/question-service/src/index.js", "services/question-service/src/routes.js", "services/question-service/src/search.js"]
+    },
+    {
+      "id": "T005",
+      "description": "Implement user-service: user profile, OIDC callback, token validation helper",
+      "files": ["services/user-service/package.json", "services/user-service/src/index.js", "services/user-service/src/routes.js"]
+    },
+    {
+      "id": "T006",
+      "description": "Implement admin-service: create question, delete question, update question, list questions with correct answers",
+      "files": ["services/admin-service/package.json", "services/admin-service/src/index.js", "services/admin-service/src/routes.js"]
+    },
+    {
+      "id": "T007",
+      "description": "Implement gateway: route composition, health check, browser UI serving, OpenAPI spec endpoint, metrics aggregation",
+      "files": ["gateway/package.json", "gateway/src/index.js", "gateway/src/routes.js", "gateway/src/middleware.js"]
+    },
+    {
+      "id": "T008",
+      "description": "Create browser UI: introduction, main menu, play, help, score view, ending feedback, pause/resume controls",
+      "files": ["gateway/public/index.html", "gateway/public/css/style.css", "gateway/public/js/app.js", "gateway/public/js/api.js", "gateway/public/js/ui.js"]
+    },
+    {
+      "id": "T009",
+      "description": "Create OpenAPI specification covering all endpoints per contract",
+      "files": ["openapi.yaml"]
+    },
+    {
+      "id": "T010",
+      "description": "Create internal.proto for inter-service gRPC contracts",
+      "files": ["internal.proto"]
+    },
+    {
+      "id": "T011",
+      "description": "Create Dockerfiles for gateway and all services",
+      "files": ["gateway/Dockerfile", "services/game-service/Dockerfile", "services/question-service/Dockerfile", "services/user-service/Dockerfile", "services/admin-service/Dockerfile"]
+    },
+    {
+      "id": "T012",
+      "description": "Create Docker Compose with all services, PostgreSQL, Redis, RabbitMQ, Elasticsearch, Keycloak, Prometheus",
+      "files": ["compose.yaml", "keycloak/realm.json", "prometheus/prometheus.yml"]
+    },
+    {
+      "id": "T013",
+      "description": "Create unit tests: fraction arithmetic, auth middleware, game engine, scoring, pause/resume logic",
+      "files": ["shared/test/fraction.test.js", "shared/test/auth.test.js", "services/game-service/test/game-engine.test.js", "services/game-service/test/scoring.test.js", "services/admin-service/test/admin.test.js"]
+    },
+    {
+      "id": "T014",
+      "description": "Create integration tests: API contract, authorization, pause/resume flow, scoring idempotency, error cases",
+      "files": ["test/integration/api.test.js", "test/integration/auth.test.js", "test/integration/game-flow.test.js", "test/integration/admin.test.js"]
+    },
+    {
+      "id": "T015",
+      "description": "Create Kubernetes resources: deployments, services, configmaps, secrets references",
+      "files": ["k8s/namespace.yaml", "k8s/gateway-deployment.yaml", "k8s/game-service-deployment.yaml", "k8s/question-service-deployment.yaml", "k8s/user-service-deployment.yaml", "k8s/admin-service-deployment.yaml", "k8s/ingress.yaml", "k8s/configmap.yaml"]
+    },
+    {
+      "id": "T016",
+      "description": "Create Jenkinsfile for CI/CD pipeline",
+      "files": ["Jenkinsfile"]
+    },
+    {
+      "id": "T017",
+      "description": "Create Terraform AWS reference configuration",
+      "files": ["terraform/main.tf", "terraform/variables.tf", "terraform/outputs.tf"]
+    },
+    {
+      "id": "T018",
+      "description": "Create Vault and Istio reference configurations (syntactically valid, labeled reference-only)",
+      "files": ["vault/vault-policy.hcl", "vault/vault-config.hcl", "istio/gateway.yaml", "istio/virtual-service.yaml", "istio/destination-rules.yaml", "istio/peer-authentication.yaml"]
+    },
+    {
+      "id": "T019",
+      "description": "Create traceability.json mapping all requirements, diagrams, and components",
+      "files": ["traceability.json"]
+    },
+    {
+      "id": "T020",
+      "description": "Create README.md with setup instructions, URLs, accounts, test commands, and architecture deviations",
+      "files": ["README.md"]
+    }
+  ],
+  "assumptions": [
+    "A1: ~1000 concurrent users (from Architecture_Documentation.md)",
+    "A2: ~1 hour session length (from Architecture_Documentation.md)",
+    "A3: Keycloak realm and users pre-provisioned via realm.json import",
+    "A4: Fraction answers are simple fractions 'a/b' where a,b are integers, b≠0",
+    "A5: Admin role claim is realm_access.roles containing 'admin'",
+    "A6: Game ending triggers after all questions answered",
+    "A7: Questions are multiple-choice with 4 options",
+    "A8: Elasticsearch indices created at startup",
+    "A9: Prometheus metrics on separate port 9090 per service",
+    "A10: Node.js 22+ per prompt, overriding Architecture_Documentation.md Node 18-20",
+    "A11: SLO is 99.9% (not 99.99%); error budget contradiction resolved in AD-013"
+  ],
+  "conflicts": [
+    "INPUT-001: Architecture_Documentation.md line 181: 99.99% uptime implies 0.01% error budget, not 1%. Resolved: assume 99.9% SLO.",
+    "Architecture_Documentation.md lists 3 components (Game, Question, User) but prompt and ComponentDiagram show 4 (adds Admin). Resolved: implement all 4.",
+    "Architecture doc specifies Node 18-20, prompt requires Node 22+. Resolved: use Node 22.",
+    "Architecture doc specifies Redis 6-7, ES 7-8, PG 14-15. Prompt is silent on versions. Resolved: use latest stable in ranges (Redis 7, ES 8, PG 16).",
+    "Architecture doc shows minimal DB schema (games table only). Prompt requires users, questions, games, answers. Resolved: expand schema.",
+    "Architecture doc has /play endpoint. Prompt contract has POST /api/games. Resolved: implement both, /play redirects or proxies."
+  ]
+}

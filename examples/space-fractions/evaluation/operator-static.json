@@ -1,0 +1,590 @@
+{
+  "profile": "static",
+  "status": "passed",
+  "results": [
+    {
+      "check": "required:package.json",
+      "status": "passed"
+    },
+    {
+      "check": "required:README.md",
+      "status": "passed"
+    },
+    {
+      "check": "required:openapi.yaml",
+      "status": "passed"
+    },
+    {
+      "check": "required:internal.proto",
+      "status": "passed"
+    },
+    {
+      "check": "required:traceability.json",
+      "status": "passed"
+    },
+    {
+      "check": "compose.yaml",
+      "status": "passed"
+    },
+    {
+      "check": "openapi.yaml",
+      "status": "passed"
+    },
+    {
+      "check": "package-lock.json",
+      "status": "passed"
+    },
+    {
+      "check": "package.json",
+      "status": "passed"
+    },
+    {
+      "check": "plan.json",
+      "status": "passed"
+    },
+    {
+      "check": "traceability.json",
+      "status": "passed"
+    },
+    {
+      "check": "gateway/package.json",
+      "status": "passed"
+    },
+    {
+      "check": "gateway/public/js/api.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\gateway\\public\\js\\api.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "gateway/public/js/app.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\gateway\\public\\js\\app.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "gateway/public/js/ui.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\gateway\\public\\js\\ui.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "gateway/src/index.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\gateway\\src\\index.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "gateway/src/middleware.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\gateway\\src\\middleware.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "gateway/src/routes.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\gateway\\src\\routes.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "istio/destination-rules.yaml",
+      "status": "passed"
+    },
+    {
+      "check": "istio/gateway.yaml",
+      "status": "passed"
+    },
+    {
+      "check": "istio/peer-authentication.yaml",
+      "status": "passed"
+    },
+    {
+      "check": "istio/virtual-service.yaml",
+      "status": "passed"
+    },
+    {
+      "check": "k8s/admin-service-deployment.yaml",
+      "status": "passed"
+    },
+    {
+      "check": "k8s/configmap.yaml",
+      "status": "passed"
+    },
+    {
+      "check": "k8s/game-service-deployment.yaml",
+      "status": "passed"
+    },
+    {
+      "check": "k8s/gateway-deployment.yaml",
+      "status": "passed"
+    },
+    {
+      "check": "k8s/hpa.yaml",
+      "status": "passed"
+    },
+    {
+      "check": "k8s/ingress.yaml",
+      "status": "passed"
+    },
+    {
+      "check": "k8s/namespace.yaml",
+      "status": "passed"
+    },
+    {
+      "check": "k8s/question-service-deployment.yaml",
+      "status": "passed"
+    },
+    {
+      "check": "k8s/user-service-deployment.yaml",
+      "status": "passed"
+    },
+    {
+      "check": "keycloak/realm.json",
+      "status": "passed"
+    },
+    {
+      "check": "prometheus/prometheus.yml",
+      "status": "passed"
+    },
+    {
+      "check": "scripts/check-sources.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\scripts\\check-sources.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "services/admin-service/package.json",
+      "status": "passed"
+    },
+    {
+      "check": "services/admin-service/src/index.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\services\\admin-service\\src\\index.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "services/admin-service/src/routes.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\services\\admin-service\\src\\routes.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "services/admin-service/test/admin.test.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\services\\admin-service\\test\\admin.test.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "services/game-service/package.json",
+      "status": "passed"
+    },
+    {
+      "check": "services/game-service/src/game-engine.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\services\\game-service\\src\\game-engine.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "services/game-service/src/index.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\services\\game-service\\src\\index.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "services/game-service/src/routes.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\services\\game-service\\src\\routes.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "services/game-service/test/game-engine.test.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\services\\game-service\\test\\game-engine.test.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "services/game-service/test/scoring.test.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\services\\game-service\\test\\scoring.test.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "services/question-service/package.json",
+      "status": "passed"
+    },
+    {
+      "check": "services/question-service/src/index.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\services\\question-service\\src\\index.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "services/question-service/src/routes.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\services\\question-service\\src\\routes.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "services/question-service/src/search.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\services\\question-service\\src\\search.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "services/user-service/package.json",
+      "status": "passed"
+    },
+    {
+      "check": "services/user-service/src/index.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\services\\user-service\\src\\index.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "services/user-service/src/routes.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\services\\user-service\\src\\routes.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "shared/package.json",
+      "status": "passed"
+    },
+    {
+      "check": "shared/src/auth.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\shared\\src\\auth.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "shared/src/cache.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\shared\\src\\cache.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "shared/src/db.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\shared\\src\\db.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "shared/src/errors.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\shared\\src\\errors.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "shared/src/fraction.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\shared\\src\\fraction.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "shared/src/identity.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\shared\\src\\identity.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "shared/src/metrics.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\shared\\src\\metrics.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "shared/src/mq.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\shared\\src\\mq.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "shared/test/auth.test.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\shared\\test\\auth.test.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "shared/test/db.test.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\shared\\test\\db.test.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "shared/test/fraction.test.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\shared\\test\\fraction.test.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "shared/test/metrics.test.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\shared\\test\\metrics.test.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "test/integration/_helpers.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\test\\integration\\_helpers.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "test/integration/admin.test.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\test\\integration\\admin.test.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "test/integration/api.test.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\test\\integration\\api.test.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "test/integration/auth.test.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\test\\integration\\auth.test.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "test/integration/game-flow.test.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\test\\integration\\game-flow.test.js"
+      ],
+      "output": ""
+    },
+    {
+      "check": "test/support/answer-db.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task\\examples\\space-fractions\\project\\test\\support\\answer-db.js"
+      ],
+      "output": ""
+    }
+  ]
+}

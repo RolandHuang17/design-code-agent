@@ -1,0 +1,26 @@
+[
+  {
+    "profile": "live_postgres_scoring",
+    "target": "services/game-service/src/game-engine.js",
+    "status": "failed",
+    "details": "Independent real Docker PostgreSQL16 HTTP acceptance passes auth, admin CRUD, creation, owner isolation, pause/resume and invalid fraction, but all correct answers return500. PostgreSQL42P01: invalid reference to FROM-clause entry for table excluded. EXCLUDED is not legal in RETURNING. Current CTE newly_scored also observes post-update scored so would miscount. Simplify submitAnswer inside existing withTransaction + SELECT game FOR UPDATE: load existing answer scored, compute newlyScored=correct&&!previous.scored, UPSERT answer preserving scored, UPDATE game score once + advance index/state, return. Preserve ownership/completed replay/pause/exact-fraction behavior. Update fake DB fixtures to execute equivalent real SQL paths, never remove tests. Real8 concurrent duplicates currently500/score0; must become one point. We will independently rerun real DB, don't claim passed from mocks."
+  },
+  {
+    "profile": "browser_public_client",
+    "target": "keycloak/realm.json",
+    "status": "failed",
+    "details": "Frontend api.js now exchanges auth code WITHOUT secret (correct PKCE design), but realm remains publicClient:false with secret, so login cannot complete. Make this a public browser client, require S256 PKCE, remove client secret, preserve local fixture password grants for external acceptance. Add http://localhost:3100/* redirect and webOrigin alongside3000: THIS Windows host reserves2914..3013 so local host3000 forwarding cannot bind;3100 is operational alternate. Admin fixture lastName is empty: actual login returns invalid_grant Account is not fully set up. Set nonempty lastName for admin fixture; keep clear dev-only credential labeling. Check index.html login button wiring matches app.js + api.js, no manual token paste as main flow."
+  },
+  {
+    "profile": "keycloak_healthcheck",
+    "target": "compose.yaml",
+    "status": "failed",
+    "details": "Real Keycloak24.0.5 image has neither curl nor wget (docker exec command -v verified); current wget healthcheck never passes despite working token endpoint. Use bash /dev/tcp HTTP healthcheck or equivalent executable actually in image. Do not disable health validation. Keep canonical browser issuer http://localhost:8080/realms/space-fractions and internal OIDC_JWKS_URI. Host gateway port may be ${GATEWAY_PORT:-3000}:3000, allowing3100 override on this host. Preserve Compose other successful services/migrations."
+  },
+  {
+    "profile": "integration_fixture_upgrade",
+    "target": "test/integration/_helpers.js",
+    "status": "failed",
+    "details": "Root SDK now runs npm test:integration. Shared auth performs real jose RS256 verification, whereas current helper makeToken creates unsigned fake JWTs. Upgrade central integration helper to sign real RSA fixture tokens synchronously (crypto.sign), and serve local JWKS on an ephemeral loopback HTTP endpoint before running service requests; set OIDC_JWKS_URI, real issuer/audience and cleanup. Preserve wrong issuer/aud/expired rejection, all named cases across all four files. Central fake DB must implement new identity subject->int mapping + withTransaction + actual answer UPSERT/update SQL from submitAnswer. Never bypass/disable real auth or delete scenarios to make tests pass. First failures previously missing identity export; shared/package.json now exports it. These tests mock infrastructure; keep independent real Compose acceptance separate."
+  }
+]

@@ -4,4 +4,8 @@
 
 真实任务默认写入本机 runs（已忽略）。发布示例前需完成密钥扫描，并将选定 run 的 project、artifacts、inputs 原样复制到这里；若做人工修正，额外记录修改文件、原因与前后版本，不覆盖原始证据。
 
-当前验证状态见 docs/validation.md。没有完整真实生成记录时，不宣称已完成 Space Fractions 项目验收。
+已发布的 [Space Fractions 案例](space-fractions/README.md) 包含原始起点、交付副本、修改清单和独立验收。实验经历多次控制器调试及 seed 续跑，不将这些运行当作固定基准的重复实验，也不宣称一次全自动成功。
+
+所有 12 次本机运行的原始输入、源码、工具事件、检查、用量与写入快照（不含依赖目录）归档为 Release 附件 `experiment-evidence.zip`。索引见根目录 `experiments/runs.json`。未正常写出报告的运行与残留 running 状态明确保留，不计为成功。
+
+累计记录 559 次请求尝试，保守估算约 167.57 元，其中有效 usage 的估算约 161.25 元，未知请求预留约 6.32 元；包含开发、连接、失败与重试，并非账单。历史请求保留各自计价参数，详见 `experiments/fees.json`。使用者随后明确取消金额上限，既有费用未清零。

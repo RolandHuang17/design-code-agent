@@ -1,0 +1,15 @@
+{
+  "profile": "install",
+  "status": "passed",
+  "exit_code": 0,
+  "timed_out": false,
+  "command": [
+    "C:\\Program Files\\nodejs\\node.EXE",
+    "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+    "ci",
+    "--ignore-scripts",
+    "--no-audit",
+    "--no-fund"
+  ],
+  "output": "npm warn deprecated prom-client@15.1.3: prom-client has been replaced by @prometheus-io/client\n\nadded 126 packages in 3s\n"
+}

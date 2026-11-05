@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Space Fractions</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div id="app" class="app-shell">
+    <header class="app-header">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">&#9790;</span>
+        <span class="brand-name">Space Fractions</span>
+      </div>
+      <div class="header-actions">
+        <button id="btn-help" class="btn btn-ghost" type="button">Help</button>
+        <button id="btn-auth" class="btn btn-ghost" type="button">Sign in</button>
+      </div>
+    </header>
+
+    <main id="view" class="view">
+      <!-- Views are rendered here by ui.js -->
+    </main>
+
+    <footer class="app-footer">
+      <span>Space Fractions &middot; A fraction adventure for sixth graders</span>
+      <span id="session-status" class="session-status"></span>
+    </footer>
+  </div>
+
+  <!-- Token modal (dev/OIDC manual entry fallback) -->
+  <div id="auth-modal" class="modal" hidden>
+    <div class="modal-card">
+      <h2 id="auth-modal-title">Sign in</h2>
+      <p class="muted">
+        Paste an OIDC access token (Bearer) to authenticate. In the Compose
+        setup, sign in through Keycloak and paste the access token here.
+      </p>
+      <label for="auth-token">Access token</label>
+      <textarea id="auth-token" rows="4" placeholder="eyJhbGciOi..."></textarea>
+      <div class="modal-actions">
+        <button id="auth-cancel" class="btn btn-ghost" type="button">Cancel</button>
+        <button id="auth-save" class="btn btn-primary" type="button">Use token</button>
+        <button id="auth-clear" class="btn btn-danger-outline" type="button">Sign out</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Help modal -->
+  <div id="help-modal" class="modal" hidden>
+    <div class="modal-card">
+      <h2>How to play</h2>
+      <ul class="help-list">
+        <li>From the main menu, choose <strong>Play</strong> to start a new game.</li>
+        <li>Each question shows a fraction prompt and several options.</li>
+        <li>Write the answer as a fraction, e.g. <code>1/2</code> or <code>3/4</code>.</li>
+        <li>You can <strong>pause</strong> a game any time and <strong>resume</strong> later.</li>
+        <li>Each correct answer earns <strong>1 point</strong>. Answering again won't change your score.</li>
+        <li>View your <strong>score</strong> from the main menu.</li>
+        <li>When you answer every question, you'll see your ending feedback.</li>
+      </ul>
+      <div class="modal-actions">
+        <button id="help-close" class="btn btn-primary" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/ui.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

@@ -10,3 +10,5 @@
 /Architecture_Documentation.md -text
 /Architecture_View.md -text
 examples/**/inputs/*.md -text
+# Preserve byte-for-byte evidence and source hashes, including original whitespace.
+examples/space-fractions/** -text whitespace=-trailing-space
