@@ -3,6 +3,8 @@ import json
 import os
 import shutil
 import subprocess
+import sys
+import tempfile
 import threading
 import time
 from pathlib import Path
@@ -12,7 +14,7 @@ import yaml
 from .provider import Cancelled
 from .safety import project_files
 
-PROFILES = ("static", "install", "test", "build", "compose")
+PROFILES = ("static", "install", "test", "build", "compose", "auth")
 
 
 def clean_environment():
@@ -97,6 +99,10 @@ def validate(root: Path, profile: str, cancel: threading.Event, allow_execution=
                         parsed = json.loads(content)
                         if path.name == "package.json" and (not isinstance(parsed, dict) or not isinstance(parsed.get("scripts"), dict) or not parsed["scripts"].get("test")):
                             raise ValueError("package.json 缺少 test 脚本")
+                        if path == root / "package.json":
+                            build = parsed["scripts"].get("build", "").strip()
+                            if not build or build.lower().startswith(("echo ", "printf ", "exit 0", "true")):
+                                raise ValueError("根 build 脚本必须实际检查或构建源码，不能只输出成功信息")
                     else:
                         list(yaml.safe_load_all(content))
                     results.append({"check": relative, "status": "passed"})
@@ -113,6 +119,20 @@ def validate(root: Path, profile: str, cancel: threading.Event, allow_execution=
         return summarize(profile, results)
     if not allow_execution:
         return {"profile": profile, "status": "unverified", "reason": "尚未允许执行生成项目；此功能会以当前用户权限运行代码"}
+    if profile == "auth":
+        node = shutil.which("node")
+        if not node or not (root / "shared/src/auth.js").exists():
+            return {"profile": profile, "status": "unverified", "reason": "缺少 Node.js 或当前案例的 JWT 模块"}
+        asset_root = Path(getattr(sys, "_MEIPASS", Path(__file__).parent.parent))
+        harness = asset_root / "codeagent/acceptance/auth.cjs"
+        if not harness.exists():
+            raise ValueError("独立验收资源缺失，请重新安装或打包工具")
+        with tempfile.TemporaryDirectory(prefix="design-agent-auth-") as temporary:
+            report_path = Path(temporary) / "report.json"
+            result = run_command([node, str(harness), str(root), str(report_path)], root, cancel, timeout=30)
+            if report_path.exists():
+                result["independent_report"] = json.loads(report_path.read_text(encoding="utf-8"))
+            return {"profile": profile, **result}
     if profile == "compose":
         if not (root / "compose.yaml").exists() and not (root / "docker-compose.yml").exists():
             return {"profile": profile, "status": "failed", "reason": "缺少 Compose 文件"}

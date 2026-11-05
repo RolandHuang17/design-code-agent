@@ -5,7 +5,7 @@ if (-not (Test-Path '.venv/Scripts/python.exe')) { python -m venv .venv }
 if ($LASTEXITCODE -ne 0) { throw 'Dependency installation failed' }
 & .venv/Scripts/python.exe -m pytest -q
 if ($LASTEXITCODE -ne 0) { throw 'Tests failed' }
-& .venv/Scripts/python.exe -m PyInstaller --noconfirm --clean --onefile --windowed --name DesignCodeAgent --collect-data yaml desktop.py
+& .venv/Scripts/python.exe -m PyInstaller --noconfirm --clean --onefile --windowed --name DesignCodeAgent --collect-data yaml --add-data 'codeagent/acceptance/auth.cjs;codeagent/acceptance' desktop.py
 if ($LASTEXITCODE -ne 0) { throw 'Packaging failed' }
 $releaseDir = Join-Path (Get-Location) 'dist'
 New-Item -ItemType Directory -Force (Join-Path $releaseDir 'examples/inputs') | Out-Null

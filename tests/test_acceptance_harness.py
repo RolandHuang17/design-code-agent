@@ -25,6 +25,8 @@ def test_independent_harness_detects_duplicate_score_bug(tmp_path):
                 pass
             elif not actor:
                 status = 401
+            elif actor == "Bearer invalid.jwt.signature":
+                status = 401
             elif self.path.startswith("/api/admin/"):
                 if actor != "Bearer admin":
                     status = 403

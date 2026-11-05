@@ -123,6 +123,7 @@ class Application:
 
     def platform_changed(self):
         bailian = self.provider_name.get().startswith("百炼")
+        self.model.set(user_variable("DASHSCOPE_MODEL") or "deepseek-v4-pro-0813" if bailian else "deepseek-v4-pro")
         self.base_url.set(user_variable("DASHSCOPE_BASE_URL") or "https://dashscope.aliyuncs.com/compatible-mode/v1" if bailian else API_ROOT)
         self.input_price.set("12" if bailian else "10.56")
         self.output_price.set("27" if bailian else "31.68")
@@ -204,7 +205,7 @@ class Application:
                         button.configure(state="normal")
                     self.cancel_button.configure(state="disabled")
                 elif kind == "phase_started":
-                    self.status.set(PHASE_LABELS.get(event["phase"], event["phase"]))
+                    self.status.set(PHASE_LABELS.get(event["phase"], event["phase"]) + (" · " + event["task"] if event.get("task") else ""))
                     self.append("→ " + self.status.get())
                 elif kind == "tool_result":
                     self.append(f"  {event['tool']}  {json.dumps(event['result'], ensure_ascii=False)[:450]}")

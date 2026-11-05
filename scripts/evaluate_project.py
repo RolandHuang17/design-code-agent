@@ -52,6 +52,10 @@ def main():
         check("health", status == 200)
         status, _ = request("POST", "/api/games", body={})
         check("missing authentication rejected", status == 401)
+        token_parts = tokens["user"].rsplit(".", 1)
+        tokens["forged"] = token_parts[0] + ".invalid-signature" if len(token_parts) == 2 else "invalid.jwt.signature"
+        status, _ = request("POST", "/api/games", "forged", {})
+        check("invalid JWT signature rejected", status == 401)
         fixture = {"prompt": "Independent acceptance: 1/2 + 1/4 = ?", "options": ["3/4", "1/4", "1/2", "1"], "correctAnswer": "3/4"}
         status, _ = request("POST", "/api/admin/questions", "user", fixture)
         check("ordinary user denied admin mutation", status == 403)

@@ -47,7 +47,7 @@ python -m venv .venv
 百炼真实生成（示例地址中替换自己的业务空间；北京单价上界须核对）：
 
 ```powershell
-.venv/Scripts/python.exe -m codeagent run Architecture_Documentation.md Architecture_View.md --provider bailian --base-url https://YOUR-WORKSPACE.cn-beijing.maas.aliyuncs.com/compatible-mode/v1 --model deepseek-v4-pro --input-price 12 --output-price 27 --confirm-pricing --allow-project-execution --output runs
+.venv/Scripts/python.exe -m codeagent run Architecture_Documentation.md Architecture_View.md --provider bailian --base-url https://YOUR-WORKSPACE.cn-beijing.maas.aliyuncs.com/compatible-mode/v1 --model deepseek-v4-pro-0813 --input-price 12 --output-price 27 --confirm-pricing --allow-project-execution --output runs
 ```
 
 上述命令会付费并执行生成项目脚本。取消按 Ctrl+C，等待结果落盘。连接测试可将 `run` 和两个文档路径替换为 `connection`，保留平台、计价参数。
@@ -67,9 +67,11 @@ flowchart LR
   F --> H[项目与证据报告]
 ```
 
-单一控制器按阶段组织任务，并非多进程多智能体系统。模型通过工具创建、读取和修改真实文件；宿主独立执行检查，不能由模型自行宣布“测试通过”。完整工具交换按轮保留；上下文达到阈值时由原始输入、保存计划、文件目录与最近检查重新构建，不凭空伪造工具消息。当前不支持中断任务自动续跑，失败文件保留以便审查。
+单一控制器按阶段组织任务，并非多进程多智能体系统。规划后的生成按任务逐项推进；模型通过工具创建、读取和修改真实文件。宿主独立执行检查，不能由模型自行宣布“测试通过”。完整工具交换按轮保留；上下文达到字节阈值时由原始输入、保存计划、文件进度与最近检查重建，不凭空伪造工具消息。
 
-工具：`list_files`、`read_file`、`write_file`、`edit_file`、`run_check`。修改文件需先读取并校验哈希；局部替换要求唯一匹配。检查类型固定为静态语法、依赖安装、测试、构建和 Compose 配置。安装禁用生命周期脚本；测试 / 构建本身会执行生成代码。
+失败后可在 CLI 加 `--seed-project 上一轮/project` 续跑：复制原始输出到全新 run，记录来源和文件哈希，跳过已具备目标文件的任务，再进行完整验证。文件存在不视为测试通过；原始运行不被覆盖。桌面 GUI 当前只支持新建任务。
+
+工具：`list_files`、`read_file`、`write_file`、`edit_file`、`run_check`。修改文件需先读取并校验哈希；局部替换要求唯一匹配。检查类型固定为静态语法、依赖安装、测试、构建、Compose 配置和当前案例的独立 JWT 验收。安装禁用生命周期脚本；测试 / 构建及 JWT 检查会执行生成代码。
 
 ## 输出和证据
 
@@ -107,7 +109,7 @@ powershell -ExecutionPolicy Bypass -File scripts/build.ps1
 
 输出为 `dist/DesignCodeAgent.exe`，同时附带示例输入和 SHA256 校验值。GitHub Actions 在 Windows 测试和打包，产出 exe 构建附件。发布包在本机生成；干净 Windows 验收状态见 [验证记录](docs/validation.md)。
 
-更多材料：[机制调研](docs/research.md)、[架构与限制](docs/design.md)、[演示与讲解](docs/demo.md)、[实验记录](examples/README.md)。
+更多材料：[机制调研](docs/research.md)、[架构与限制](docs/design.md)、[评价口径](docs/experiment-protocol.md)、[演示与讲解](docs/demo.md)、[实验记录](examples/README.md)。
 
 ## 许可与来源
 

@@ -115,3 +115,39 @@ def test_cancel_after_response_still_settles(tmp_path):
     with pytest.raises(Cancelled):
         provider.test_connection()
     assert provider.budget.snapshot()["uncertain_requests"] == 0
+
+
+def test_wall_clock_deadline_retains_reservation(tmp_path, monkeypatch):
+    import codeagent.provider as module
+    provider = make_provider(tmp_path)
+    gate = threading.Event()
+    def stalled(*a, **k):
+        gate.wait(3)
+        return Response(response())
+    provider.opener.open = stalled
+    monkeypatch.setattr(module, "REQUEST_DEADLINE_SECONDS", 0.01)
+    try:
+        with pytest.raises(ProviderError, match="超时"):
+            provider.test_connection()
+        assert provider.budget.snapshot()["uncertain_requests"] == 1
+    finally:
+        gate.set()
+
+
+def test_cancel_inflight_returns_without_resending(tmp_path):
+    provider = make_provider(tmp_path)
+    gate = threading.Event()
+    def stalled(*a, **k):
+        gate.wait(3)
+        return Response(response())
+    provider.opener.open = stalled
+    timer = threading.Timer(0.02, provider.cancel.set)
+    timer.start()
+    try:
+        with pytest.raises(Cancelled):
+            provider.test_connection()
+        assert provider.budget.snapshot()["uncertain_requests"] == 1
+        assert provider.calls == 1
+    finally:
+        gate.set()
+        timer.join()

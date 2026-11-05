@@ -47,6 +47,37 @@ def test_static_check_resolves_relative_project_paths(tmp_path, monkeypatch):
     assert source["status"] == "passed"
 
 
+def test_static_check_rejects_noop_build(tmp_path):
+    (tmp_path / "package.json").write_text('{"scripts":{"test":"node --test","build":"echo success"}}')
+    result = validate(tmp_path, "static", threading.Event())
+    manifest = next(r for r in result["results"] if r["check"] == "package.json")
+    assert manifest["status"] == "failed"
+    assert "build" in manifest["error"]
+
+
+def test_seed_resume_preserves_original_without_network(tmp_path):
+    arch, view = tmp_path / "arch.md", tmp_path / "view.md"
+    arch.write_text("# Architecture\nFixture\n")
+    view.write_text("```plantuml\n@startuml\nclass X\n@enduml\n```")
+    seed = tmp_path / "previous/project"
+    seed.mkdir(parents=True)
+    files = {"plan.json": '{"tasks":[{"id":"done","files":["already.js"]}]}',
+             "already.js": "const existing = 1;", "already.test.js": "// fixture",
+             "package.json": '{"scripts":{"test":"node --test","build":"node --check already.js"}}',
+             "README.md": "fixture", "internal.proto": 'syntax = "proto3";', "openapi.yaml": "openapi: 3.0.3",
+             "traceability.json": '{"items":[{"id":"F1","source":{"document":"arch.md","start_line":1},"files":["already.js"],"tests":["already.test.js"],"status":"implemented"}]}'}
+    for name, content in files.items():
+        (seed / name).write_text(content, encoding="utf-8")
+    provider = ReplayProvider(tmp_path)
+    run, report = Agent(provider, threading.Event()).run(arch, view, tmp_path / "runs", seed_project=seed)
+    assert report["status"] == "completed_with_gaps"
+    assert provider.position == 0
+    assert (seed / "already.js").read_text() == (run / "project/already.js").read_text()
+    manifest = json.loads((run / "artifacts/seed-manifest.json").read_text(encoding="utf-8"))
+    assert len(manifest["files"]) == len(files)
+    assert manifest["source_project"] == str(seed)
+
+
 class ReplayProvider:
     """A scripted offline fixture ONLY. It cannot produce a real API run."""
     api_key = "fixture-key"
@@ -80,7 +111,7 @@ def test_actual_static_failure_drives_read_edit_recheck(tmp_path):
     arch.write_text("# Architecture\nA small fixture.\n", encoding="utf-8")
     view.write_text("```plantuml\n@startuml\nclass Test\n@enduml\n```", encoding="utf-8")
     provider = ReplayProvider(tmp_path)
-    provider.add("write_file", {"path": "plan.json", "content": '{"tasks":[{"id":"T1"}]}'})
+    provider.add("write_file", {"path": "plan.json", "content": '{"tasks":[{"id":"T1","files":["math.js"]}]}'})
     provider.done()
     files = {"package.json": '{"scripts":{"test":"node --test","build":"node --check math.js"}}',
              "README.md": "Offline test fixture, never a real generation example.", "openapi.yaml": "openapi: 3.0.3\n", "internal.proto": 'syntax = "proto3";',

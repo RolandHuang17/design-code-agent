@@ -13,4 +13,5 @@ runs/
 node_modules/
 .agent-budget*
 acceptance-report.json
+auth-acceptance-report.json
 

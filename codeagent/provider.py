@@ -1,13 +1,17 @@
 import json
+import queue
 import threading
+import time
 import urllib.error
 import urllib.request
 from urllib.parse import urlsplit
 
 from .budget import Budget
+from .safety import Redactor
 
 API_ROOT = "https://api.deepseek.com"
 MODEL = "deepseek-v4-pro"
+REQUEST_DEADLINE_SECONDS = 90
 
 
 def validate_endpoint(provider: str, base_url: str) -> str:
@@ -56,6 +60,39 @@ class DeepSeek:
         self.calls = 0
         self.usage = []
 
+    def _request(self, request):
+        """A wall-clock deadline, in addition to urllib's per-socket timeout.
+
+        Cancellation leaves the prepaid reservation intact if no response is known.
+        A daemon reader cannot hold the desktop process open after cancellation.
+        """
+        delivered = queue.Queue(maxsize=1)
+
+        def receive():
+            try:
+                with self.opener.open(request, timeout=90) as response:
+                    raw = response.read(2_000_001)
+                    if len(raw) > 2_000_000:
+                        raise ValueError("API response exceeds size limit")
+                    data = json.loads(raw)
+                delivered.put((data, None))
+            except Exception as exc:
+                delivered.put((None, exc))
+
+        threading.Thread(target=receive, daemon=True).start()
+        deadline = time.monotonic() + REQUEST_DEADLINE_SECONDS
+        while True:
+            try:
+                data, error = delivered.get(timeout=0.1)
+                if error:
+                    raise error
+                return data
+            except queue.Empty:
+                if self.cancel.is_set():
+                    raise Cancelled("请求已取消；响应费用不确定，保留预留")
+                if time.monotonic() >= deadline:
+                    raise TimeoutError("API wall-clock deadline exceeded")
+
     def complete(self, messages, tools=None, max_tokens=8192):
         payload = {"model": self.model, "messages": messages, "max_tokens": max_tokens, "stream": False}
         if self.provider == "deepseek":
@@ -79,8 +116,7 @@ class DeepSeek:
                                                       "Content-Type": "application/json"})
             self.calls += 1
             try:
-                with self.opener.open(request, timeout=90) as response:
-                    data = json.load(response)
+                data = self._request(request)
             except urllib.error.HTTPError as exc:
                 # Keep the reservation: even server-side errors have uncertain billing semantics.
                 if exc.code in (429, 500, 502, 503, 504) and attempt < 2:
@@ -88,7 +124,15 @@ class DeepSeek:
                         raise Cancelled("用户取消")
                     continue
                 label = {401: "API Key 无效", 402: "账户余额不足", 403: "访问被拒绝", 429: "请求限流"}.get(exc.code, "API 请求失败")
-                raise ProviderError(f"{label}（HTTP {exc.code}）；不确定费用已保留") from None
+                try:
+                    detail = exc.read(4096).decode("utf-8", errors="replace")
+                    error_data = json.loads(detail)
+                    if isinstance(error_data, dict):
+                        detail = str(error_data.get("error", error_data))
+                except (OSError, ValueError, AttributeError):
+                    detail = ""
+                detail = Redactor(self.api_key).text(detail)[:600]
+                raise ProviderError(f"{label}（HTTP {exc.code}）；不确定费用已保留。{detail}") from None
             except (OSError, ValueError) as exc:
                 raise ProviderError("连接超时、网络或 JSON 响应异常；为避免重复计费未自动重发。费用预留已保留") from exc
             usage = data.get("usage", {})
