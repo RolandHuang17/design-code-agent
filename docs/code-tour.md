@@ -20,3 +20,7 @@
 展示输入解析及冲突提示，一次工具请求和真实结果，失败检查与修复快照，最后演示游戏登录、答题、暂停恢复和管理员维护。用报告区分单元测试、真实服务验收和未部署参考配置。
 
 当前是单控制器、多阶段、可追溯原型。后续可比较规划、修复预算和上下文策略，扩展工业案例；没有对照实验时，不声称多 Agent 优势或效率提升百分比。
+
+v0.2 新增阅读路径：`cases.py` 区分领域补充和通用控制器；`runtime.ComposeSession` 管理实际构建、临时端口及清理；`acceptance/http_checks.py` 在生成目录之外验证真实业务。`scripts/run_benchmark.py` 固定实验版本，`scripts/summarize_benchmark.py` 汇总所有结果并核验最终文件哈希。
+
+现场演练见 [五分钟讲解与三个免费练习](explain-in-five-minutes.md)，浏览器发现问题再反馈给 Agent 的实例见 [v0.2 浏览器修复证据](browser-feedback-v02.md)。

@@ -17,6 +17,7 @@ def main():
     parser.add_argument('project',type=Path)
     parser.add_argument('--profile',choices=('space-fractions','library'),required=True)
     parser.add_argument('--artifacts',type=Path,required=True)
+    parser.add_argument('--stop-file',type=Path,help='Cooperative stop marker; cleanup runs in finally')
     args=parser.parse_args()
     cancel=threading.Event()
     signal.signal(signal.SIGINT,lambda *_:cancel.set())
@@ -28,7 +29,9 @@ def main():
         if result['status']!='passed':
             raise RuntimeError(result.get('error','Independent preflight failed'))
         print(json.dumps({'base_url':session.base,'identity_url':f'http://localhost:{session.oidc_port}','project':session.project}),flush=True)
-        while not cancel.wait(1):pass
+        while not cancel.wait(1):
+            if args.stop_file and args.stop_file.exists():
+                cancel.set()
     finally:
         session.close()
 

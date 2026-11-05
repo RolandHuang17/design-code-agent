@@ -1,0 +1,8 @@
+[
+  {
+    "profile": "browser_ui",
+    "status": "failed",
+    "target": "public/app.js",
+    "details": "Actual browser acceptance on 2026-11-06: created Browser acceptance title with one copy, borrowed as browser-reader, clicked Return for loan3. POST succeeded; stock returned from0 to1 and GET /api/loans reports loan3 status returned. Screenshot output/playwright/v02-library-return.png shows loan3 still under Active loans with a Return button. Existing preflight loans1,2 are also returned yet displayed as active. Preserve backend and all tests. Fix rendering so only active loans appear under Active loans (or show truthful separate history with status). Do not conceal an active loan. Then real browser retest will be required independently; model text is not proof."
+  }
+]

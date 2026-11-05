@@ -1,0 +1,138 @@
+{
+  "scope": "Development/seeded demonstration; excluded from fresh frozen-cohort success counts. No operator-generated source edits within this lineage. Host dependency lock derivation is separately identified in tool events.",
+  "lineage": [
+    {
+      "status": "failed",
+      "generation_origin": "fresh",
+      "turns": 32,
+      "repair_rounds": 0,
+      "tool_metrics": {
+        "reads": 33,
+        "repeated_reads": 0,
+        "tool_errors": 0,
+        "writes": 17
+      },
+      "elapsed_seconds": 192.47,
+      "run": "runs/v02-development/run-20261106-042344-f7859e15",
+      "valid_usage_estimate_cny": 2.140515,
+      "checks": []
+    },
+    {
+      "status": "checks_passed_requires_review",
+      "generation_origin": "seed",
+      "turns": 83,
+      "repair_rounds": 3,
+      "tool_metrics": {
+        "reads": 86,
+        "repeated_reads": 0,
+        "tool_errors": 3,
+        "writes": 33
+      },
+      "elapsed_seconds": 930.64,
+      "run": "runs/v02-development/run-20261106-042915-a39e84d1",
+      "valid_usage_estimate_cny": 14.940225,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "status": "completed_with_gaps",
+      "generation_origin": "seed",
+      "turns": 7,
+      "repair_rounds": 1,
+      "tool_metrics": {
+        "reads": 4,
+        "repeated_reads": 0,
+        "tool_errors": 0,
+        "writes": 3,
+        "host_derived_writes": 0
+      },
+      "elapsed_seconds": 119.64,
+      "run": "runs/v02-development/run-20261106-044759-c995baaf",
+      "valid_usage_estimate_cny": 0.84897,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "passed"
+        },
+        {
+          "profile": "external_review_retest",
+          "status": "unverified"
+        }
+      ]
+    }
+  ],
+  "browser_finding": {
+    "before": "run-20261106-042915-a39e84d1",
+    "after": "run-20261106-044759-c995baaf",
+    "failure": "Returned loans displayed as active despite returned status from real API",
+    "feedback": "browser-feedback.json",
+    "agent_changed_ui_files": [
+      "public/index.html",
+      "public/app.js",
+      "public/style.css"
+    ],
+    "independent_retest": "Actual headed Chromium: borrow adds active loan and decreases stock; return followed by reload shows No active loans, truthful returned history and stock1. Fixed runtime preflight12/12. favicon404 remains cosmetic.",
+    "after_run_status_note": "completed_with_gaps deliberately retained: controller cannot self-certify external browser feedback; browser retest is this separate evidence."
+  },
+  "project_tests_note": "Seeded implementation has9 passing unit tests and27 integration tests skipped without host PostgreSQL; do not claim36 passed. Independent Docker HTTP checks execute real persistence/concurrency."
+}

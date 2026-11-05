@@ -4,7 +4,9 @@
 
 本项目用于 coding agent 作业。核心实现采用 Python / Tkinter；不依赖 Claude Code 安装，不使用预写的 Space Fractions 项目替代模型生成。
 
-![Windows 桌面界面与免费解析结果](docs/images/desktop.jpg)
+![Windows 桌面界面与免费解析结果](docs/images/desktop-v02.jpg)
+
+v0.2 源码新增案例输入分离、独立 Docker/HTTP 反馈、0/3轮修复设置、宿主派生锁文件和冻结实验记录。正式重复实验正在进行，结果以 [v0.2 实验协议](docs/v02-experiments.md) 和对应 cohort 的逐次状态为准；不把开发续跑计入全新生成成功数。[浏览器反馈修复示例](docs/browser-feedback-v02.md) 保留了接口检查通过后仍发现页面错误的真实过程。
 
 真实案例与验证：[Space Fractions 交付副本](examples/space-fractions/README.md) 包含原始输出、操作者修改差异及独立验收。项目单元测试 83/83、集成测试 59/59，真实 HTTP 17/17 通过；并发重复计分和服务重启持久化已复验。**交付副本经过修正，这不是一次全自动成功的声明。**
 
@@ -117,7 +119,7 @@ powershell -ExecutionPolicy Bypass -File scripts/build.ps1
 
 输出为 `dist/DesignCodeAgent.exe`，同时附带示例输入和 SHA256 校验值。GitHub Actions 在 Windows 测试和打包，产出 exe 构建附件。发布包在本机生成；干净 Windows 验收状态见 [验证记录](docs/validation.md)。
 
-更多材料：[机制调研](docs/research.md)、[架构与限制](docs/design.md)、[评价口径](docs/experiment-protocol.md)、[演示与讲解](docs/demo.md)、[代码导读](docs/code-tour.md)、[实验记录](examples/README.md)。
+更多材料：[机制调研](docs/research.md)、[架构与限制](docs/design.md)、[评价口径](docs/experiment-protocol.md)、[演示与讲解](docs/demo.md)、[代码导读](docs/code-tour.md)、[五分钟讲解与免费练习](docs/explain-in-five-minutes.md)、[干净 Windows 验收安排](docs/clean-windows.md)、[实验记录](examples/README.md)。
 
 ## 许可与来源
 

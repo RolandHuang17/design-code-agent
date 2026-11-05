@@ -10,8 +10,9 @@ $iso = (Resolve-Path -LiteralPath $IsoPath).Path
 if ($MachineName -ne 'DesignCodeAgent-Clean-Windows') { throw '此脚本只管理本次验收的固定机器名。' }
 $root = [IO.Path]::GetFullPath($VmDirectory)
 if (-not $root.StartsWith('D:\projects\Task\.local\vm\', [StringComparison]::OrdinalIgnoreCase)) { throw '虚拟机目录越界。' }
-& $VBox showvminfo $MachineName --machinereadable 2>$null | Out-Null
-if ($LASTEXITCODE -eq 0) { throw '验收虚拟机已存在；保留现状，不自动覆盖。' }
+$existing = & $VBox list vms
+if ($LASTEXITCODE -ne 0) { throw '无法列出现有虚拟机；停止以免覆盖已有机器。' }
+if ($existing | Where-Object { $_.StartsWith('"' + $MachineName + '" ') }) { throw '验收虚拟机已存在；保留现状，不自动覆盖。' }
 New-Item -ItemType Directory -Force -Path $root | Out-Null
 & $VBox createvm --name $MachineName --ostype Windows11_64 --basefolder $root --register
 if ($LASTEXITCODE -ne 0) { throw '创建虚拟机失败。' }
