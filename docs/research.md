@@ -1,16 +1,16 @@
 # Code Agent 机制调研
 
-调研时间：2026-11-05。以下区分实际访问到的代码、项目说明和无法访问的材料，不将推测写成源码结论。
+调研时间：2026-11-05 至 2026-11-06。以下区分实际访问到的代码、项目说明与作者分析，不将推测写成源码结论。
 
 ## 参考材料核验
 
 | 作业链接 | 实际核验情况 | 使用边界 |
 | --- | --- | --- |
 | ultraworkers/clawcode | 原链接 404；访问到 ultraworkers/claw-code | 调研其当前 Rust 会话结构与工具路径边界测试 |
-| Windy3f3f3f3f/howclaudecodeworks | 网页及已认证 GitHub API 均返回 404 | 未取得内容，不据此声称完成源码分析 |
+| Windy3f3f3f3f/howclaudecodeworks | 原链接 404；经仓库搜索找到 how-claude-code-works | 阅读 README 和主循环、上下文工程、工具系统章节；作为非官方教育性分析引用 |
 | anthropics/claudecode | 原链接 404；访问到 anthropics/claude-code | 阅读官方 README，作为产品能力和资料入口，不当作完整内部实现源码 |
 
-固定版本：Claw Code `ab8561dc378150e9e65868233dd872937aa68299`；Claude Code `26382c08758260c9f5deb2019d8fe851f89fa9ae`。通过 `git ls-remote` 核对，并读取 GitHub 内容 API 返回的相应文件。
+固定版本：Claw Code `ab8561dc378150e9e65868233dd872937aa68299`；Claude Code `26382c08758260c9f5deb2019d8fe851f89fa9ae`；Windy 学习笔记 `f4d6505ed9162a0ee6be089190f74c419ecacb19`。通过 `git ls-remote` 核对，并读取 GitHub 内容 API 返回的相应文件。
 
 ## 从已读代码提炼的机制
 
@@ -25,6 +25,8 @@ Claw Code 的 [session.rs](https://github.com/ultraworkers/claw-code/blob/ab8561
 Claude Code 的 [官方 README](https://github.com/anthropics/claude-code/blob/26382c08758260c9f5deb2019d8fe851f89fa9ae/README.md) 说明其仓库理解、开发和 Git 工作流能力，并链接官方文档。仅凭此 README 不能得出完整内部循环或调度实现结论。
 
 ## 本项目的具体实现
+
+Windy 的 [主循环章节](https://github.com/Windy3f3f3f3f/how-claude-code-works/blob/f4d6505ed9162a0ee6be089190f74c419ecacb19/docs/02-agent-loop.md) 将会话生命周期管理和单次查询执行分开讨论；[上下文工程](https://github.com/Windy3f3f3f3f/how-claude-code-works/blob/f4d6505ed9162a0ee6be089190f74c419ecacb19/docs/03-context-engineering.md) 强调系统提示、项目知识与消息历史的不同变化频率；[工具系统](https://github.com/Windy3f3f3f3f/how-claude-code-works/blob/f4d6505ed9162a0ee6be089190f74c419ecacb19/docs/04-tool-system.md) 从契约、组装与执行讨论工具。这些是该作者的独立教育性分析，README 明确不保证与真实内部实现一致；本项目不将其中的具体规模、性能数字或逆向结论视为官方事实。
 
 1. **模型与工具分离**：模型生成结构化调用；Python 宿主校验并执行，将真实结果用对应 tool_call_id 返回。
 2. **文件作为工程状态**：代码实际落盘。每次写入另存快照，修复时读后修改，避免只给聊天中的代码片段。

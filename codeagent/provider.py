@@ -39,6 +39,10 @@ class ProviderError(RuntimeError):
     pass
 
 
+class TruncatedOutput(ProviderError):
+    pass
+
+
 class NoRedirect(urllib.request.HTTPRedirectHandler):
     def redirect_request(self, req, fp, code, msg, headers, newurl):
         return None
@@ -93,7 +97,7 @@ class DeepSeek:
                 if time.monotonic() >= deadline:
                     raise TimeoutError("API wall-clock deadline exceeded")
 
-    def complete(self, messages, tools=None, max_tokens=8192):
+    def complete(self, messages, tools=None, max_tokens=16384):
         payload = {"model": self.model, "messages": messages, "max_tokens": max_tokens, "stream": False}
         if self.provider == "deepseek":
             payload["thinking"] = {"type": "disabled"}
@@ -146,7 +150,7 @@ class DeepSeek:
                 choice = data["choices"][0]
                 message = choice["message"]
                 if choice["finish_reason"] == "length":
-                    raise ProviderError("模型输出被截断；未执行本次工具调用，请缩小单文件规模后重新运行")
+                    raise TruncatedOutput("模型输出被截断；未执行本次工具调用")
                 if choice["finish_reason"] not in ("stop", "tool_calls") or message.get("role") != "assistant":
                     raise ProviderError("API 返回了不支持的结束状态")
                 return {k: v for k, v in message.items() if k in {"role", "content", "tool_calls"}}

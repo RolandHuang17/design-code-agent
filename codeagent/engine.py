@@ -9,7 +9,7 @@ from uuid import uuid4
 
 from .inputs import load_inputs
 from .prompts import PHASES, SYSTEM
-from .provider import Cancelled
+from .provider import Cancelled, TruncatedOutput
 from .safety import Redactor, project_files, safe_path
 from .tools import TOOL_SCHEMAS, Toolset
 
@@ -118,13 +118,23 @@ class Agent:
                            "Do not run full-repository checks while other tasks are still missing. "
                            "Existing file presence is not proof of correctness; final host checks follow all tasks.")
         messages = self.context(toolset) + [{"role": "user", "content": instruction}]
+        truncations = 0
         for _ in range(limit):
             if self.cancel.is_set():
                 raise Cancelled("用户取消")
             if self.turns >= MAX_TURNS:
                 raise RuntimeError(f"达到 {MAX_TURNS} 次模型轮次上限")
             self.turns += 1
-            message = self.provider.complete(messages, TOOL_SCHEMAS)
+            try:
+                message = self.provider.complete(messages, TOOL_SCHEMAS)
+            except TruncatedOutput:
+                truncations += 1
+                self.artifact("usage.json", {"requests": self.provider.usage, "cumulative_budget": self.provider.budget.snapshot()})
+                self.event("response_truncated", retry=truncations, note="No partial tool calls executed")
+                if truncations > 2:
+                    raise
+                messages.append({"role": "user", "content": "HOST NOTICE: Your previous response was truncated. NONE of its tool calls were executed. Send only ONE small file mutation per response, and split helpers into separate files if needed. All prior successfully written files remain on disk. Continue the current task without repeating the whole plan."})
+                continue
             self.artifact("usage.json", {"requests": self.provider.usage, "cumulative_budget": self.provider.budget.snapshot()})
             self.event("assistant", turn=self.turns, message=message)
             calls = message.get("tool_calls") or []

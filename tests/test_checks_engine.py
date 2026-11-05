@@ -9,7 +9,7 @@ import pytest
 from codeagent.budget import Budget
 from codeagent.checks import UniqueKeyLoader, clean_environment, compose_port_conflicts, run_command, validate
 from codeagent.engine import Agent
-from codeagent.provider import Cancelled
+from codeagent.provider import Cancelled, TruncatedOutput
 from codeagent.safety import Redactor
 from codeagent.tools import Toolset
 
@@ -204,6 +204,28 @@ def test_task_limit_yields_progress_for_remaining_file_retry(tmp_path):
     assert not (project / "remaining.js").exists()
     agent.phase_loop("generation", tools, limit=1, task=task)
     assert (project / "remaining.js").is_file()
+
+
+def test_truncated_output_retries_without_executing_partial_calls(tmp_path):
+    class TruncatingFixture(ReplayProvider):
+        attempts = 0
+        def complete(self, messages, tools):
+            self.attempts += 1
+            if self.attempts == 1:
+                raise TruncatedOutput("fixture truncation")
+            assert any("NONE of its tool calls" in (m.get("content") or "") for m in messages)
+            return super().complete(messages, tools)
+    project = tmp_path / "project"
+    project.mkdir()
+    provider = TruncatingFixture(tmp_path)
+    provider.add("write_file", {"path": "complete.js", "content": "const complete = true;"})
+    agent = Agent(provider, threading.Event())
+    agent.run_dir = tmp_path / "run"
+    (agent.run_dir / "artifacts").mkdir(parents=True)
+    agent.phase_loop("generation", Toolset(project, agent.cancel, Redactor()), 2, task={"id": "truncated", "files": ["complete.js"]})
+    assert provider.attempts == 2
+    assert provider.position == 1
+    assert (project / "complete.js").read_text() == "const complete = true;"
 
 
 def test_repair_feedback_groups_real_node_failure_sections():
