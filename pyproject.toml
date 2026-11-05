@@ -19,5 +19,5 @@ design-code-agent-gui = "codeagent.gui:main"
 include = ["codeagent*"]
 
 [tool.setuptools.package-data]
-codeagent = ["acceptance/*.cjs"]
+codeagent = ["acceptance/*.cjs", "cases/*.md"]
 
