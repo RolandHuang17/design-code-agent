@@ -26,6 +26,7 @@ def test_domain_is_explicit_supplement_not_generic_system():
 
 
 def test_runtime_isolates_names_ports_and_bind_mounts_without_source_mutation(tmp_path):
+    (tmp_path / "sql").mkdir()
     raw = {"name": "user-demo", "services": {"gateway": {"container_name": "shared-name", "build": {"context": str(tmp_path)},
             "ports": [3000], "volumes": [{"type": "bind", "source": str(tmp_path / "sql"), "target": "/sql"}]},
             "postgres": {"ports": [5432]}, "keycloak": {"environment": {"KC_HOSTNAME": "localhost", "KC_HOSTNAME_PORT": "8080"}}},
@@ -38,10 +39,29 @@ def test_runtime_isolates_names_ports_and_bind_mounts_without_source_mutation(tm
     assert isolated["services"]["gateway"]["ports"][0]["host_ip"] == "127.0.0.1"
     assert isolated["services"]["keycloak"]["environment"]["KC_HOSTNAME_URL"] == "http://localhost:31002"
     assert "KC_HOSTNAME" not in isolated["services"]["keycloak"]["environment"]
+    assert isolated["services"]["keycloak"]["environment"]["KEYCLOAK_ADMIN_PASSWORD"] == "admin"
+    assert isolated["services"]["gateway"]["volumes"][0]["bind"]["create_host_path"] is False
     assert "name" not in isolated["volumes"]["data"]
     raw["services"]["gateway"]["volumes"][0]["source"] = str(tmp_path.parent / "private")
     with pytest.raises(ValueError, match="bind mount"):
         isolate_compose(raw, tmp_path, 31001, 31002)
+
+
+def test_missing_bind_config_fails_before_docker_can_create_directory(tmp_path):
+    missing = tmp_path / "prometheus.yml"
+    config = {"services": {"gateway": {"volumes": [{"type": "bind", "source": str(missing), "target": "/config.yml"}]}}}
+    with pytest.raises(ValueError, match="Missing bind source prometheus.yml"):
+        isolate_compose(config, tmp_path, 31001, 31002)
+    assert not missing.exists()
+
+
+def test_deployment_fixture_overrides_placeholder_bootstrap_credentials_without_repairing_roles(tmp_path):
+    raw = {"services": {"gateway": {}, "keycloak": {"environment": {"KEYCLOAK_ADMIN": "custom", "KEYCLOAK_ADMIN_PASSWORD": "CHANGE_ME"}}}}
+    fixed = isolate_compose(raw, tmp_path, 31001, 31002)
+    env = fixed["services"]["keycloak"]["environment"]
+    assert env["KEYCLOAK_ADMIN"] == env["KEYCLOAK_ADMIN_PASSWORD"] == "admin"
+    assert raw["services"]["keycloak"]["environment"]["KEYCLOAK_ADMIN_PASSWORD"] == "CHANGE_ME"
+    assert "volumes" not in fixed["services"]["keycloak"]  # No realm, role or business-data replacement.
 
 
 @pytest.mark.parametrize("spec", [{"privileged": True}, {"network_mode": "host"}, {"devices": ["/dev/x"]}, {"cap_add": ["SYS_ADMIN"]}])

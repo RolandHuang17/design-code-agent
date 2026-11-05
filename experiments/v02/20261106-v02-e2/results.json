@@ -1,0 +1,75 @@
+[
+  {
+    "trial": 1,
+    "case": "space-fractions",
+    "repair_rounds": 3,
+    "repeat": 1,
+    "status": "failed_validation",
+    "run": "D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e2\\run-20261106-044151-45700d9f",
+    "turns": 160,
+    "elapsed_seconds": 1902.66,
+    "run_estimated_cny": 38.16477,
+    "tool_metrics": {
+      "reads": 151,
+      "repeated_reads": 0,
+      "tool_errors": 11,
+      "writes": 64,
+      "host_derived_writes": 1
+    },
+    "checks": [
+      {
+        "profile": "static",
+        "status": "passed"
+      },
+      {
+        "profile": "install",
+        "status": "passed"
+      },
+      {
+        "profile": "test",
+        "status": "passed"
+      },
+      {
+        "profile": "integration",
+        "status": "passed"
+      },
+      {
+        "profile": "build",
+        "status": "passed"
+      },
+      {
+        "profile": "compose",
+        "status": "passed"
+      },
+      {
+        "profile": "traceability_links",
+        "status": "passed"
+      },
+      {
+        "profile": "runtime",
+        "status": "failed"
+      }
+    ],
+    "source_unchanged": true
+  },
+  {
+    "trial": 2,
+    "case": "space-fractions",
+    "repair_rounds": 3,
+    "repeat": 2,
+    "status": "cancelled",
+    "run": "D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e2\\run-20261106-051334-2f958e83",
+    "turns": 14,
+    "elapsed_seconds": 146.75,
+    "run_estimated_cny": 1.888722,
+    "tool_metrics": {
+      "reads": 3,
+      "repeated_reads": 0,
+      "tool_errors": 1,
+      "writes": 8,
+      "host_derived_writes": 0
+    },
+    "checks": [],
+    "source_unchanged": true
+  }
+]

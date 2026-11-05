@@ -1,0 +1,10 @@
+{
+  "classification": "development pilot; unsuitable as completed frozen comparison",
+  "reason": "Trial1 reached76 passing unit tests, then HTTP stopped at Keycloak deployment bootstrap admin401. Harness assumed admin/admin while generated Compose used a configurable CHANGE_ME placeholder; operator supplement did not define bootstrap fixture credentials. Missing bind configuration also allowed Docker to create a source directory, obstructing later writes.",
+  "trial1_original_status": "failed_validation (preserved)",
+  "trial2_original_status": "cancelled cooperatively through STOP; preserve output and paid usage",
+  "remaining_trials": "not started; no reruns inside this cohort",
+  "correction": "Explicit local fixture bootstrap env in isolated deployment, without changing application realm roles/users/logic; reject nonexistent bind sources and set create_host_path=false. New controller and input hashes will be frozen in e3 after regression and actual adapter smoke.",
+  "not_a_business_correctness_result": "The401 occurred in fixture administration, before business HTTP assertions; do not count it as demonstrated application authentication failure.",
+  "additional_observation": "An unchanged-source supplementary adapter smoke hit generated PostgreSQL cold-start health failure and question-service ReferenceError (interface_list undefined). This is separate from the original fixture401, and preserves genuine generated-code failures."
+}

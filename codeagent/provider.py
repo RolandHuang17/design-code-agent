@@ -141,7 +141,8 @@ class DeepSeek:
                 raise ProviderError("连接超时、网络或 JSON 响应异常；为避免重复计费未自动重发。费用预留已保留") from exc
             usage = data.get("usage", {})
             cost = self.budget.settle(reservation, usage)
-            self.usage.append({"usage": usage, "estimated_cny": cost})
+            self.usage.append({"usage": usage, "estimated_cny": cost, "requested_model": self.model,
+                               "response_model": data.get("model"), "request_id": data.get("id")})
             if self.cancel.is_set():
                 raise Cancelled("用户取消；本次响应用量已记录")
             try:

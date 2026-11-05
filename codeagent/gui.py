@@ -8,6 +8,7 @@ import webbrowser
 from pathlib import Path
 from tkinter import filedialog, messagebox, ttk
 
+from . import __version__
 from .budget import Budget, Prices, default_ledger, parse_limit
 from .config import user_variable
 from .engine import Agent
@@ -21,9 +22,11 @@ PHASE_LABELS = {"initializing": "准备", "planning": "理解与规划", "genera
 class Application:
     def __init__(self, root):
         self.root = root
-        root.title("DesignCodeAgent · 设计到代码")
-        root.geometry("1080x850")
-        root.minsize(940, 760)
+        root.title(f"DesignCodeAgent {__version__} · 设计到代码")
+        width = min(1080, max(840, root.winfo_screenwidth() - 80))
+        height = min(850, max(620, root.winfo_screenheight() - 100))
+        root.geometry(f"{width}x{height}")
+        root.minsize(min(940, width), min(760, height))
         root.configure(bg="#f2f5f9")
         self.events = queue.Queue()
         self.cancel = threading.Event()

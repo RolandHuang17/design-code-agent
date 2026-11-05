@@ -1,0 +1,87 @@
+{
+  "created_utc": "2026-11-05T20:41:51.355934+00:00",
+  "model": "deepseek-v4-pro-0813",
+  "provider": "bailian",
+  "base_url": "https://ws-hzkcuvkt74i3d6ol.cn-beijing.maas.aliyuncs.com/compatible-mode/v1",
+  "prices": {
+    "input": 9,
+    "output": 27
+  },
+  "max_turns": 300,
+  "git_commit": "0185a712f11f5b21aacc0bdcbc4bbeb03eb98633",
+  "source_hashes": {
+    "codeagent/__init__.py": "68479990e0da59210e2a5ffaf2eb3d01e4f0dd711ec13baa0bba3b8a7fcc717c",
+    "codeagent/__main__.py": "3129adff95e0f38b87ab34cddfc27082c7892bcaec267ff5d40f160fdf55b44a",
+    "codeagent/budget.py": "1e9c3222ddd7624114b62086b8f36c2f9a646571fa946c30da61bb0b13b23f52",
+    "codeagent/cases.py": "17efbd819b5908e0ca7ffca5532c9486db47108018b984e49d5eb6a2e982148c",
+    "codeagent/checks.py": "b8cc3722989bd4304390c9e7d45c0347be455bb5c77fb163cf0d6d6e924f77d2",
+    "codeagent/cli.py": "29c92505fc121ad507807ebe87b32c4c327d0bfdb49aa7f81c19bed5f72f50e6",
+    "codeagent/config.py": "548cec1513f4b3e5fc4ab58260a59d983344768ed882823ba3ebe1dca65270fe",
+    "codeagent/engine.py": "9bbfc3269a7be58094a4147764aaf256ac69fcb1da8980fb278a6376c454e6e0",
+    "codeagent/gui.py": "87a467f98fe229899487f0b1d18441139572f59647ee88e8ddbf2a2ee5f82dbf",
+    "codeagent/inputs.py": "6a2ad7d399a4c981a4d6ec55e2ea974c1c8dec2753e90685771064896f501f12",
+    "codeagent/prompts.py": "f36e64b1f69ea68342c27f1eef0c331aa64d95e50b79f53923bc754ee5462331",
+    "codeagent/provider.py": "bcf4f0b560019a4293323e6084483bcc71445fcb3c824b07ed74f5d9d0626d70",
+    "codeagent/runtime.py": "ced372b1023bd8e3168894c9aafb621019404a5c397965824457f45404fbb4a3",
+    "codeagent/safety.py": "e12c23689b4ef325013e2257905da6e0957397ff2ab64d260540d8b7fbbe5b4c",
+    "codeagent/tools.py": "804e48f64d882bbd74896ae8004e8db1813a0b3dcb91755fb57b96c6e3e39601",
+    "codeagent/acceptance/__init__.py": "a3a5f4b3c36c7a68f9e7f65a05eb6cb5fa61c7d39a9cecc0625e18a6bc256f7d",
+    "codeagent/acceptance/auth.cjs": "2b74b5dda31ec22569b2c870fd062c4a6a84cd963aed0e41e240f7a74c61c26c",
+    "codeagent/acceptance/http_checks.py": "137c4d444f513fcb83419527b3305afa9f28f1b5ea8bbabe11fa5673b105a4f0",
+    "codeagent/cases/library.md": "07cc2a8520420f189ca37bdb07dbae000144aa1c3577e9d3e528051b9545cbb4",
+    "codeagent/cases/space-fractions.md": "ed21c4cb4d042fc036780ca3afa5ae0c4f63bde7f83ea03204e9fca35e21d7df",
+    "benchmarks/library/Architecture_Documentation.md": "6c1dcea22c483670756fc9c91ad102864290399063b3e15a90fdd93ab7057cea",
+    "benchmarks/library/Architecture_View.md": "8fa9ea8c9a2bce9fc5a5a3627488d913865bbe77b5e18e1d3c1e7291e739254c",
+    "Architecture_Documentation.md": "111282df7817bca771e53c82ebb053707a3217cb8f11733a2c25b631ca81db55",
+    "Architecture_View.md": "77dac057e13f122ddc6fc19294490c6a961f00429b72f15df81a81adc91bdbc8",
+    "scripts/run_benchmark.py": "622a4ed2d17f7b486c58431099517734c27d60cd0f4229a6d0ee529f773d29fd"
+  },
+  "jobs": [
+    {
+      "case": "space-fractions",
+      "repair_rounds": 3,
+      "repeat": 1
+    },
+    {
+      "case": "space-fractions",
+      "repair_rounds": 3,
+      "repeat": 2
+    },
+    {
+      "case": "space-fractions",
+      "repair_rounds": 3,
+      "repeat": 3
+    },
+    {
+      "case": "library",
+      "repair_rounds": 0,
+      "repeat": 1
+    },
+    {
+      "case": "library",
+      "repair_rounds": 3,
+      "repeat": 1
+    },
+    {
+      "case": "library",
+      "repair_rounds": 0,
+      "repeat": 2
+    },
+    {
+      "case": "library",
+      "repair_rounds": 3,
+      "repeat": 2
+    },
+    {
+      "case": "library",
+      "repair_rounds": 0,
+      "repeat": 3
+    },
+    {
+      "case": "library",
+      "repair_rounds": 3,
+      "repeat": 3
+    }
+  ],
+  "policy": "All trials from empty directory; no manual generated-code edits; no seed. Small sample, no significance claim."
+}

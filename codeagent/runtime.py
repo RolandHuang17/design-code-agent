@@ -95,6 +95,13 @@ def isolate_compose(data, root, gateway_port, oidc_port):
                     raise ValueError("运行检查禁止项目外 bind mount")
                 if "docker.sock" in candidate:
                     raise ValueError("运行检查禁止 Docker socket")
+                relative = candidate[len(allowed):].lstrip("/")
+                local_source = (root / relative).resolve()
+                if not local_source.is_relative_to(root.resolve()):
+                    raise ValueError("运行检查禁止项目外 bind mount（链接目标越界）")
+                if not local_source.exists():
+                    raise ValueError(f"Missing bind source {relative or '.'}: generate this config/file/directory before runtime. Docker must not create it automatically.")
+                mount.setdefault("bind", {})["create_host_path"] = False
         if name in ("gateway", "keycloak"):
             port, target = (gateway_port, 3000) if name == "gateway" else (oidc_port, 8080)
             spec["ports"] = [{"target": target, "published": str(port), "host_ip": "127.0.0.1", "protocol": "tcp"}]
@@ -102,7 +109,8 @@ def isolate_compose(data, root, gateway_port, oidc_port):
             env = spec.setdefault("environment", {})
             env.pop("KC_HOSTNAME", None)  # Keycloak24 rejects hostname + hostname-url together.
             env.pop("KC_HOSTNAME_PORT", None)
-            env.update(KC_HOSTNAME_URL=f"http://localhost:{oidc_port}", KC_HOSTNAME_STRICT="false", KC_HTTP_PORT="8080")
+            env.update(KC_HOSTNAME_URL=f"http://localhost:{oidc_port}", KC_HOSTNAME_STRICT="false", KC_HTTP_PORT="8080",
+                       KEYCLOAK_ADMIN="admin", KEYCLOAK_ADMIN_PASSWORD="admin")
     return data
 
 

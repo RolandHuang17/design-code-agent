@@ -1,0 +1,11 @@
+{
+  "snapshot_archive_root": ".local/v02-e2-source",
+  "source_files_verified": 25,
+  "git_commit": "0185a712f11f5b21aacc0bdcbc4bbeb03eb98633",
+  "git_byte_mismatches": [
+    "codeagent/cases/space-fractions.md",
+    "Architecture_Documentation.md",
+    "Architecture_View.md"
+  ],
+  "note": "Source/input snapshot is byte-identical to frozen manifest. Packaging metadata is supplemental, not part of frozen algorithm hashes."
+}
