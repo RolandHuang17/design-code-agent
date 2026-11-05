@@ -73,7 +73,7 @@ flowchart LR
 
 独立验收发现问题后，可再加 `--feedback findings.json`，文件为检查对象数组（例如 `[{"profile":"database_restart","details":"实际失败输出及预期行为"}]`）。反馈触发至多三轮修复中的一轮；结果保留“外部复验待完成”状态，必须由原验收重新检查，不能由模型自行宣布修复成功。
 
-工具：`list_files`、`read_file`、`write_file`、`edit_file`、`run_check`。修改文件需先读取并校验哈希；局部替换要求唯一匹配。检查类型固定为静态语法、依赖安装、测试、构建、Compose 配置和当前案例的独立 JWT 验收。安装禁用生命周期脚本；测试 / 构建及 JWT 检查会执行生成代码。
+工具：`list_files`、`read_file`、`write_file`、`edit_file`、`run_check`。修改文件需先读取并校验哈希；局部替换要求唯一匹配。检查类型固定为静态语法、依赖安装、单元测试、HTTP 集成测试、构建、Compose 配置和当前案例的独立 JWT 验收。安装禁用生命周期脚本；测试 / 构建及 JWT 检查会执行生成代码。
 
 ## 输出和证据
 

@@ -228,12 +228,13 @@ def test_truncated_output_retries_without_executing_partial_calls(tmp_path):
     assert (project / "complete.js").read_text() == "const complete = true;"
 
 
-def test_repair_feedback_groups_real_node_failure_sections():
-    checks = [{"profile": "test", "status": "failed", "output": "summary\ntest at shared/auth.test.js:12:1\nSignature failure\ntest at services/admin.test.js:30:1\nValidation failure\n"},
+@pytest.mark.parametrize("profile", ["test", "integration"])
+def test_repair_feedback_groups_real_node_failure_sections(profile):
+    checks = [{"profile": profile, "status": "failed", "output": "summary\ntest at shared/auth.test.js:12:1\nSignature failure\ntest at services/admin.test.js:30:1\nValidation failure\n"},
               {"profile": "auth", "status": "failed", "output": "wrong signature accepted"},
               {"profile": "static", "status": "failed", "results": [{"check": "compose.yaml", "status": "failed", "error": "duplicate environment"}, {"check": "fine.js", "status": "passed"}]}]
     groups = Agent.repair_groups(checks)
     assert len(groups) == 3
-    assert [c["profile"] for c in groups[0]] == ["test", "auth"]
+    assert [c["profile"] for c in groups[0]] == [profile, "auth"]
     assert groups[1][0]["target"] == "services/admin.test.js"
     assert groups[2][0]["target"] == "compose.yaml"

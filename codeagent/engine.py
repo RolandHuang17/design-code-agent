@@ -82,13 +82,13 @@ class Agent:
             if check.get("profile") == "static" and check.get("results"):
                 groups.extend([{"profile": "static", "status": "failed", "target": r.get("check"), "details": r}]
                               for r in check["results"] if r.get("status") == "failed")
-            elif check.get("profile") == "test" and re.search(r"(?m)^test at .+:\d+:\d+", check.get("output", "")):
+            elif check.get("profile") in ("test", "integration") and re.search(r"(?m)^test at .+:\d+:\d+", check.get("output", "")):
                 chunks = re.split(r"(?m)^test at (.+?):\d+:\d+\s*$", check["output"])
                 files = {}
                 for index in range(1, len(chunks), 2):
                     files.setdefault(chunks[index], []).append(chunks[index + 1])
                 for filename, failures in files.items():
-                    group = [{"profile": "test", "status": "failed", "target": filename, "output": "\n".join(failures)[:18000]}]
+                    group = [{"profile": check["profile"], "status": "failed", "target": filename, "output": "\n".join(failures)[:18000]}]
                     if auth and "auth.test" in filename:
                         group.append(auth)
                         auth_grouped = True
@@ -298,7 +298,7 @@ class Agent:
         return self.run_dir, report
 
     def verify(self, tools):
-        checks = [tools.execute("run_check", json.dumps({"profile": p})) for p in ("static", "install", "test", "build", "compose")]
+        checks = [tools.execute("run_check", json.dumps({"profile": p})) for p in ("static", "install", "test", "integration", "build", "compose")]
         if (tools.root / "shared/src/auth.js").exists():
             checks.append(tools.execute("run_check", '{"profile":"auth"}'))
         checks.append(self.verify_traceability(tools.root))

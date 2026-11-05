@@ -14,7 +14,7 @@ import yaml
 from .provider import Cancelled
 from .safety import project_files
 
-PROFILES = ("static", "install", "test", "build", "compose", "auth")
+PROFILES = ("static", "install", "test", "integration", "build", "compose", "auth")
 
 
 class UniqueKeyLoader(yaml.SafeLoader):
@@ -199,11 +199,12 @@ def validate(root: Path, profile: str, cancel: threading.Event, allow_execution=
             if not manifest.exists():
                 return {"profile": profile, "status": "failed", "reason": "缺少 package.json"}
             scripts = json.loads(manifest.read_text(encoding="utf-8"))["scripts"]
+            script_name = "test:integration" if profile == "integration" else profile
             # Explicit execution through npm is allowed only after local user opt-in.
-            if not scripts.get(profile):
-                return {"profile": profile, "status": "unverified", "reason": f"缺少 {profile} 脚本"}
+            if not scripts.get(script_name):
+                return {"profile": profile, "status": "unverified", "reason": f"缺少 {script_name} 脚本"}
             npm_cli = Path(npm).parent / "node_modules/npm/bin/npm-cli.js" if npm else Path("__missing__")
-            argv = [binary, str(npm_cli), "run", profile, "--ignore-scripts"] if binary and npm_cli.exists() else None
+            argv = [binary, str(npm_cli), "run", script_name, "--ignore-scripts"] if binary and npm_cli.exists() else None
     if not argv:
         return {"profile": profile, "status": "unverified", "reason": "缺少 Node.js/npm 或 Docker"}
     return {"profile": profile, **run_command(argv, root, cancel, timeout=180 if profile == "install" else 120)}
