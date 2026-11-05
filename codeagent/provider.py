@@ -11,7 +11,7 @@ from .safety import Redactor
 
 API_ROOT = "https://api.deepseek.com"
 MODEL = "deepseek-v4-pro"
-REQUEST_DEADLINE_SECONDS = 90
+REQUEST_DEADLINE_SECONDS = 300
 
 
 def validate_endpoint(provider: str, base_url: str) -> str:
@@ -70,7 +70,7 @@ class DeepSeek:
 
         def receive():
             try:
-                with self.opener.open(request, timeout=90) as response:
+                with self.opener.open(request, timeout=REQUEST_DEADLINE_SECONDS) as response:
                     raw = response.read(2_000_001)
                     if len(raw) > 2_000_000:
                         raise ValueError("API response exceeds size limit")

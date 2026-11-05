@@ -17,6 +17,49 @@ from .safety import project_files
 PROFILES = ("static", "install", "test", "build", "compose", "auth")
 
 
+class UniqueKeyLoader(yaml.SafeLoader):
+    """Compose rejects duplicate mapping keys; PyYAML's default silently loses data."""
+    def construct_mapping(self, node, deep=False):
+        seen = set()
+        for key_node, value_node in node.value:
+            if key_node.tag == "tag:yaml.org,2002:merge":
+                continue
+            key = self.construct_object(key_node, deep=deep)
+            try:
+                duplicate = key in seen
+            except TypeError:
+                raise yaml.constructor.ConstructorError(None, None, "unhashable mapping key", key_node.start_mark) from None
+            if duplicate:
+                raise yaml.constructor.ConstructorError(None, None, f"duplicate mapping key: {key}", key_node.start_mark)
+            seen.add(key)
+        return super().construct_mapping(node, deep=deep)
+
+
+def compose_port_conflicts(data):
+    if not isinstance(data, dict) or not isinstance(data.get("services"), dict):
+        raise ValueError("Compose 缺少 services 对象")
+    bindings = {}
+    for service, spec in data["services"].items():
+        for port in spec.get("ports", []):
+            if isinstance(port, str):
+                address, _, protocol = port.partition("/")
+                parts = address.split(":")
+                if len(parts) < 2:
+                    continue  # Random published port, allocated by Docker.
+                host_ip = parts[-3] if len(parts) > 2 else "0.0.0.0"
+                published = parts[-2]
+                protocol = protocol or "tcp"
+            elif isinstance(port, dict) and port.get("published"):
+                host_ip, published, protocol = port.get("host_ip", "0.0.0.0"), str(port["published"]), port.get("protocol", "tcp")
+            else:
+                continue
+            key = (published, protocol)
+            for existing_ip, existing_service in bindings.get(key, []):
+                if host_ip == existing_ip or host_ip == "0.0.0.0" or existing_ip == "0.0.0.0":
+                    raise ValueError(f"Compose 宿主端口冲突：{existing_service} / {service} 共享 {published}/{protocol}")
+            bindings.setdefault(key, []).append((host_ip, service))
+
+
 def clean_environment():
     keep = {"SYSTEMROOT", "WINDIR", "COMSPEC", "PATH", "PATHEXT", "TEMP", "TMP", "USERPROFILE",
             "APPDATA", "LOCALAPPDATA", "PROGRAMFILES", "PROGRAMFILES(X86)", "PROGRAMDATA", "HOME"}
@@ -104,7 +147,9 @@ def validate(root: Path, profile: str, cancel: threading.Event, allow_execution=
                             if not build or build.lower().startswith(("echo ", "printf ", "exit 0", "true")):
                                 raise ValueError("根 build 脚本必须实际检查或构建源码，不能只输出成功信息")
                     else:
-                        list(yaml.safe_load_all(content))
+                        parsed_yaml = list(yaml.load_all(content, Loader=UniqueKeyLoader))
+                        if path == root / "compose.yaml" or path == root / "docker-compose.yml":
+                            compose_port_conflicts(parsed_yaml[0])
                     results.append({"check": relative, "status": "passed"})
                 except (ValueError, yaml.YAMLError) as exc:
                     results.append({"check": relative, "status": "failed", "error": str(exc)[:2000]})

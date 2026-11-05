@@ -36,7 +36,7 @@ class Application:
         self.model = tk.StringVar(value="deepseek-v4-pro")
         self.input_price = tk.StringVar()
         self.output_price = tk.StringVar()
-        self.budget = tk.StringVar(value="50")
+        self.budget = tk.StringVar(value=user_variable("DESIGN_CODE_AGENT_BUDGET_CNY") or "50")
         self.pricing_confirmed = tk.BooleanVar(value=False)
         self.allow_execution = tk.BooleanVar(value=False)
         base = Path(sys.executable).parent if getattr(sys, "frozen", False) else Path.cwd()
@@ -79,7 +79,7 @@ class Application:
         ttk.Button(account, text="读取环境变量", command=self.read_key).grid(row=2, column=3, sticky="e")
         price = ttk.Frame(account)
         price.grid(row=3, column=0, columnspan=4, sticky="ew", pady=5)
-        for label, variable, width in (("输入 元/百万 tokens", self.input_price, 8), ("输出 元/百万 tokens", self.output_price, 8), ("累计上限 元（≤50）", self.budget, 6)):
+        for label, variable, width in (("输入 元/百万 tokens", self.input_price, 8), ("输出 元/百万 tokens", self.output_price, 8), ("累计上限 元（≤200）", self.budget, 6)):
             ttk.Label(price, text=label).pack(side="left", padx=(0, 6))
             ttk.Entry(price, textvariable=variable, width=width).pack(side="left", padx=(0, 16))
         ttk.Checkbutton(account, text="已核对当前官方计价；上述单价为本地域 / 模型价格的上界（不扣优惠）", variable=self.pricing_confirmed).grid(row=4, column=0, columnspan=4, sticky="w")
@@ -230,7 +230,7 @@ class Application:
 
     def request_cancel(self):
         self.cancel.set()
-        self.status.set("正在取消… 网络请求最长可能需 90 秒结束；已产生的用量会保留")
+        self.status.set("正在取消本地等待… 远端请求可能继续完成，不确定费用预留会保留")
 
     def open_output(self):
         path = Path(self.result_dir or self.output.get())

@@ -1,5 +1,6 @@
 import hashlib
 import json
+import re
 import shutil
 import threading
 from datetime import datetime, timezone
@@ -11,6 +12,8 @@ from .prompts import PHASES, SYSTEM
 from .provider import Cancelled
 from .safety import Redactor, project_files, safe_path
 from .tools import TOOL_SCHEMAS, Toolset
+
+MAX_TURNS = 300
 
 
 class Agent:
@@ -38,6 +41,20 @@ class Agent:
         state = {"input": self.documents, "files": [p.relative_to(toolset.root).as_posix() for p in project_files(toolset.root)],
                  "host_observation": "Files on disk are authoritative. Read files needed for remaining tasks. This is a fresh context, not a claim about completion.",
                  "recent_checks": self.bounded_checks(toolset.check_history[-5:])}
+        interfaces = {}
+        available = 20_000
+        for path in project_files(toolset.root):
+            if path.suffix not in (".js", ".cjs", ".mjs") or "test" in path.parts:
+                continue
+            text = path.read_text(encoding="utf-8")
+            signatures = re.findall(r"(?:async\s+)?function\s+\w+\s*\([^)]{0,180}\)", text)
+            exports = re.findall(r"module\.exports\s*=\s*\{([^}]{0,1000})\}", text)
+            summary = ("; ".join(signatures) + "; exports: " + ",".join(exports))[:700]
+            if len(summary) > available:
+                break
+            interfaces[path.relative_to(toolset.root).as_posix()] = summary
+            available -= len(summary)
+        state["interface_index"] = interfaces
         plan = toolset.root / "plan.json"
         if plan.exists():
             state["saved_plan"] = plan.read_text(encoding="utf-8")[:16000]
@@ -55,20 +72,23 @@ class Agent:
 
     def phase_loop(self, name, toolset, limit, feedback=None, task=None):
         self.phase = name
+        toolset.read_limit = 8 if task else None
+        toolset.phase_reads = 0
         self.event("phase_started", task=task.get("id") if task else None)
         instruction = PHASES[name] + (json.dumps(self.bounded_checks(feedback), ensure_ascii=False) if feedback is not None else "")
         if task:
             instruction = ("CURRENT TASK ONLY: " + json.dumps(task, ensure_ascii=False) +
                            "\nImplement these files now, then finish this phase. The host schedules other tasks separately. "
-                           "Do not re-read all files or repeat the saved plan. Read only dependencies needed for this task. "
+                           "Only write the focus target; reuse existing helpers. Do not re-read all files or repeat the saved plan. "
+                           "File inventory, task progress and interface signatures are already provided. Read only necessary dependencies, at most eight reads before writing. "
                            "Do not run full-repository checks while other tasks are still missing. "
                            "Existing file presence is not proof of correctness; final host checks follow all tasks.")
         messages = self.context(toolset) + [{"role": "user", "content": instruction}]
         for _ in range(limit):
             if self.cancel.is_set():
                 raise Cancelled("用户取消")
-            if self.turns >= 130:
-                raise RuntimeError("达到 130 次模型轮次上限")
+            if self.turns >= MAX_TURNS:
+                raise RuntimeError(f"达到 {MAX_TURNS} 次模型轮次上限")
             self.turns += 1
             message = self.provider.complete(messages, TOOL_SCHEMAS)
             self.artifact("usage.json", {"requests": self.provider.usage, "cumulative_budget": self.provider.budget.snapshot()})
@@ -86,10 +106,18 @@ class Agent:
                 result = toolset.execute(function.get("name"), function.get("arguments", ""))
                 self.event("tool_result", tool=function.get("name"), arguments=function.get("arguments"), result=result)
                 messages.append({"role": "tool", "tool_call_id": call["id"], "content": json.dumps(self.redactor.value(result), ensure_ascii=False)})
+            # A scoped generation task ends on observable file completion, not an
+            # extra paid summary request. Execute the entire tool batch first.
+            if task and all(safe_path(toolset.root, f).is_file() for f in task["files"]):
+                self.event("task_files_generated", task=task.get("id"))
+                return
             # Drop complete exchanges only. Files, plan and host observations reconstruct state.
             if len(json.dumps(messages, ensure_ascii=False).encode("utf-8")) > 190_000:
                 self.event("context_compacted", reason="bounded complete tool exchanges; state retained on disk")
                 messages = self.context(toolset) + [{"role": "user", "content": instruction + "\nContinue from files already written. Do not rewrite completed modules unnecessarily."}]
+        if task or name == "repair":
+            self.event("phase_turn_limit", note="Return current progress to the host for remaining-file scheduling or verification")
+            return
         raise RuntimeError(f"{name} 达到阶段轮次上限；已保留文件，可查看日志定位未完成任务")
 
     def run(self, architecture: Path, views: Path, output: Path, seed_project: Path | None = None):
@@ -129,7 +157,7 @@ class Agent:
         self.artifact("run-config.json", {"provider": self.provider.provider, "base_url": self.provider.base_url,
                                            "model": self.provider.model, "official_api_compliant": self.provider.provider == "deepseek",
                                            "allow_project_execution": self.allow_execution, "max_repair_rounds": 3,
-                                           "max_turns": 130, "input_hashes": [d["sha256"] for d in self.documents["documents"]],
+                                           "max_turns": MAX_TURNS, "input_hashes": [d["sha256"] for d in self.documents["documents"]],
                                            "seed_project": str(seed_project) if seed_project else None,
                                            "agent_source_hashes": {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in Path(__file__).parent.glob("*.py")}})
 
@@ -161,10 +189,13 @@ class Agent:
                     self.event("task_files_present", task=task.get("id"), note="file presence only; final validation still required")
                     continue
                 self.event("task_started", task=task.get("id"), missing=missing)
-                self.phase_loop("generation", tools, 10, task=task)
-                remaining = [f for f in task["files"] if not safe_path(project, f).is_file()]
-                if remaining:
-                    self.phase_loop("generation", tools, 5, task={**task, "missing_files": remaining, "instruction": "Finish these remaining files only"})
+                for target in missing:
+                    if safe_path(project, target).is_file():
+                        continue
+                    focused_task = {**task, "files": [target], "focus_file": target}
+                    self.phase_loop("generation", tools, 10, task=focused_task)
+                    if not safe_path(project, target).is_file():
+                        self.phase_loop("generation", tools, 5, task=focused_task)
                 if any(not safe_path(project, f).is_file() for f in task["files"]):
                     raise RuntimeError(f"任务 {task.get('id')} 未完成目标文件；停止并保留结果")
             for round_number in range(4):

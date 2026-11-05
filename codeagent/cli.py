@@ -29,7 +29,7 @@ def main():
         command.add_argument("--confirm-pricing", action="store_true", help="已核对当前价格不超过给定计价上界")
         command.add_argument("--input-price", type=float, default=None, help="输入元/百万 tokens；百炼必须填写")
         command.add_argument("--output-price", type=float, default=None, help="输出元/百万 tokens；百炼必须填写")
-        command.add_argument("--budget", type=float, default=50)
+        command.add_argument("--budget", type=float, default=user_variable("DESIGN_CODE_AGENT_BUDGET_CNY") or "50")
         if name == "run":
             command.add_argument("architecture", type=Path)
             command.add_argument("views", type=Path)

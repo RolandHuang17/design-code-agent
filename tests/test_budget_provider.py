@@ -26,7 +26,7 @@ def test_persistent_budget_and_unknown_charges(tmp_path):
 
 
 def test_bad_budget_and_corrupt_ledger_fail_closed(tmp_path):
-    for value in (0, -1, 51, float("nan"), float("inf")):
+    for value in (0, -1, 201, float("nan"), float("inf")):
         with pytest.raises(ValueError):
             Budget(tmp_path / "budget.json", value)
     ledger = tmp_path / "budget.json"
@@ -63,7 +63,7 @@ def test_provider_sends_tools_and_records_usage(tmp_path):
     def open_request(req, timeout):
         seen.append(json.loads(req.data))
         assert req.full_url == "https://api.deepseek.com/chat/completions"
-        assert timeout == 90
+        assert timeout == 300
         return Response(response())
     provider.opener.open = open_request
     assert provider.test_connection()["reply"] == "OK"

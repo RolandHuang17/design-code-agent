@@ -5,13 +5,13 @@
 | 项目 | 当前记录 |
 | --- | --- |
 | 开发环境 | Windows 11 x64；Python 3.12.13；Tk 8.6；Node 24.22.1 |
-| Python 回归测试 | 40 passed，1 skipped；符号链接测试因账户无创建权限跳过 |
+| Python 回归测试 | 41 passed，1 skipped；符号链接测试因账户无创建权限跳过 |
 | 独立 exe 构建 | PyInstaller 6.16.0，onefile / windowed 构建成功 |
 | exe 窗口 / 按钮检查 | 已通过实际窗口操作验证启动、默认示例路径、免费解析按钮；正确显示 2 份文档、13 个图和指标冲突 |
-| 中文与空格路径 | 文件工具回归已覆盖；打包 GUI 完整运行待验收 |
+| 中文与空格路径 | 已在 .local/验收 空格 下启动 exe，进程 PATH 仅保留 Windows 系统目录；实际完成文档解析和 0813 API 连接（返回 OK） |
 | 无 Python 的干净 Windows | 尚未验证；本机有 Python，不能代替干净机器验收 |
 | DeepSeek 官方真实调用 | 尚未运行 |
-| 百炼真实调用 | 已成功调用 deepseek-v4-pro，连接返回 OK；累计预算账本已记录 |
+| 百炼真实调用 | deepseek-v4-pro 初始试跑后，按使用者选择统一改用 deepseek-v4-pro-0813；CLI 与 exe 真实连接均成功，累计预算账本已记录 |
 | 完整 Space Fractions 生成 | 已真实试跑并生成共享模块、SQL 和游戏服务，尚未完成全量生成；试跑发现上下文重复读取，已改为逐任务调度和显式续跑 |
 | Docker / 云部署 | 已在现有 WSL Ubuntu 24.04 中安装并启动 Docker 29.1.3 / Compose 2.40.3；未创建云资源 |
 | 独立业务 E2E / 权限 / 持久化 | 待真实项目生成后执行 |

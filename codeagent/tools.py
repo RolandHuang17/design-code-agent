@@ -30,6 +30,8 @@ class Toolset:
         self.read_hashes = {}
         self.check_history = []
         self.revision = 0
+        self.read_limit = None
+        self.phase_reads = 0
 
     def execute(self, name: str, arguments: str):
         if self.cancel.is_set():
@@ -56,6 +58,9 @@ class Toolset:
                 return self.redactor.value(result)
             path = safe_path(self.root, args["path"])
             if name == "read_file":
+                if self.read_limit is not None and self.phase_reads >= self.read_limit:
+                    raise ValueError("当前目标读取上限已到，请使用已提供的接口索引和读取结果编写目标文件，不要重复遍历仓库")
+                self.phase_reads += 1
                 if path.stat().st_size > 80_000:
                     raise ValueError("文件超过读取上限")
                 content = path.read_text(encoding="utf-8")
@@ -86,6 +91,7 @@ class Toolset:
             path.write_text(content, encoding="utf-8", newline="\n")
             self.read_hashes[path] = hashlib.sha256(path.read_bytes()).hexdigest()
             self.revision += 1
+            self.phase_reads = 0
             if self.on_write:
                 self.on_write(args["path"], content, self.revision)
             return {"written": args["path"], "bytes": path.stat().st_size, "revision": self.revision}

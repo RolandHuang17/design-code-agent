@@ -52,8 +52,8 @@ def locked(path: Path):
 
 class Budget:
     def __init__(self, path: Path, limit: float = 50, prices: Prices | None = None):
-        if not math.isfinite(limit) or not 0 < limit <= 50:
-            raise ValueError("累计预算必须大于 0 且不超过 50 元")
+        if not math.isfinite(limit) or not 0 < limit <= 200:
+            raise ValueError("累计预算必须大于 0 且不超过 200 元")
         self.path, self.limit, self.prices = path, limit, prices or Prices()
 
     def _read(self):

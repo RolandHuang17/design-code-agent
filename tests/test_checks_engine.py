@@ -7,9 +7,11 @@ from pathlib import Path
 import pytest
 
 from codeagent.budget import Budget
-from codeagent.checks import clean_environment, run_command, validate
+from codeagent.checks import UniqueKeyLoader, clean_environment, compose_port_conflicts, run_command, validate
 from codeagent.engine import Agent
 from codeagent.provider import Cancelled
+from codeagent.safety import Redactor
+from codeagent.tools import Toolset
 
 
 def test_environment_omits_keys_and_runtime_injection(monkeypatch):
@@ -53,6 +55,23 @@ def test_static_check_rejects_noop_build(tmp_path):
     manifest = next(r for r in result["results"] if r["check"] == "package.json")
     assert manifest["status"] == "failed"
     assert "build" in manifest["error"]
+
+
+def test_yaml_duplicate_environment_keys_are_rejected(tmp_path):
+    (tmp_path / "compose.yaml").write_text("services:\n  app:\n    environment:\n      A: one\n    environment:\n      B: two\n", encoding="utf-8")
+    report = validate(tmp_path, "static", threading.Event())
+    result = next(r for r in report["results"] if r["check"] == "compose.yaml")
+    assert result["status"] == "failed"
+    assert "duplicate mapping key" in result["error"]
+
+
+def test_yaml_merge_override_is_valid_but_host_port_collision_is_not():
+    import yaml
+    data = yaml.load("base: &base {A: one}\nmerged: {<<: *base, A: two}\n", Loader=UniqueKeyLoader)
+    assert data["merged"]["A"] == "two"
+    with pytest.raises(ValueError, match="端口冲突"):
+        compose_port_conflicts({"services": {"a": {"ports": ["9090:9090"]}, "b": {"ports": ["127.0.0.1:9090:9090"]}}})
+    compose_port_conflicts({"services": {"a": {"ports": ["9090:9090/tcp"]}, "b": {"ports": ["9090:9090/udp"]}}})
 
 
 def test_seed_resume_preserves_original_without_network(tmp_path):
@@ -111,7 +130,8 @@ def test_actual_static_failure_drives_read_edit_recheck(tmp_path):
     arch.write_text("# Architecture\nA small fixture.\n", encoding="utf-8")
     view.write_text("```plantuml\n@startuml\nclass Test\n@enduml\n```", encoding="utf-8")
     provider = ReplayProvider(tmp_path)
-    provider.add("write_file", {"path": "plan.json", "content": '{"tasks":[{"id":"T1","files":["math.js"]}]}'})
+    targets = ["package.json", "README.md", "openapi.yaml", "internal.proto", "math.js", "math.test.js", "traceability.json"]
+    provider.add("write_file", {"path": "plan.json", "content": json.dumps({"tasks": [{"id": "T1", "files": targets}]})})
     provider.done()
     files = {"package.json": '{"scripts":{"test":"node --test","build":"node --check math.js"}}',
              "README.md": "Offline test fixture, never a real generation example.", "openapi.yaml": "openapi: 3.0.3\n", "internal.proto": 'syntax = "proto3";',
@@ -119,7 +139,6 @@ def test_actual_static_failure_drives_read_edit_recheck(tmp_path):
              "traceability.json": json.dumps({"items": [{"id": "T1", "source": {"document": "arch.md", "start_line": 1}, "files": ["math.js"], "tests": ["math.test.js"], "status": "implemented"}]})}
     for path, content in files.items():
         provider.add("write_file", {"path": path, "content": content})
-    provider.done()
     provider.add("read_file", {"path": "math.js"})
     provider.add("edit_file", {"path": "math.js", "old": "function broken( {", "new": "function fixed() { return 1; }"})
     provider.done()
@@ -143,3 +162,35 @@ def test_actual_static_failure_drives_read_edit_recheck(tmp_path):
             if message["role"] == "tool":
                 assert message["tool_call_id"] in pending
                 pending.remove(message["tool_call_id"])
+
+
+def test_task_completing_on_last_turn_does_not_fail(tmp_path):
+    project = tmp_path / "project"
+    project.mkdir()
+    provider = ReplayProvider(tmp_path)
+    provider.add("write_file", {"path": "last.js", "content": "const done = true;"})
+    agent = Agent(provider, threading.Event())
+    agent.run_dir = tmp_path / "run"
+    (agent.run_dir / "artifacts").mkdir(parents=True)
+    tools = Toolset(project, agent.cancel, Redactor())
+    agent.phase_loop("generation", tools, limit=1, task={"id": "last", "files": ["last.js"]})
+    assert (project / "last.js").is_file()
+    assert provider.position == 1
+
+
+def test_task_limit_yields_progress_for_remaining_file_retry(tmp_path):
+    project = tmp_path / "project"
+    project.mkdir()
+    (project / "dependency.js").write_text("const existing = 1;")
+    provider = ReplayProvider(tmp_path)
+    provider.add("read_file", {"path": "dependency.js"})
+    provider.add("write_file", {"path": "remaining.js", "content": "const completed = true;"})
+    agent = Agent(provider, threading.Event())
+    agent.run_dir = tmp_path / "run"
+    (agent.run_dir / "artifacts").mkdir(parents=True)
+    tools = Toolset(project, agent.cancel, Redactor())
+    task = {"id": "partial", "files": ["remaining.js"]}
+    agent.phase_loop("generation", tools, limit=1, task=task)
+    assert not (project / "remaining.js").exists()
+    agent.phase_loop("generation", tools, limit=1, task=task)
+    assert (project / "remaining.js").is_file()
