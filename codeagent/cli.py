@@ -36,6 +36,7 @@ def main():
             command.add_argument("--output", type=Path, default=Path("runs"))
             command.add_argument("--allow-project-execution", action="store_true", help="允许以当前用户权限执行生成项目的 npm 脚本（非沙箱）")
             command.add_argument("--seed-project", type=Path, help="复制已有生成项目并从未完成任务续跑；不修改原始运行")
+            command.add_argument("--feedback", type=Path, help="外部检查 JSON 数组；用于触发修复，修复后仍需独立复验")
     args = parser.parse_args()
     if args.command == "gui":
         from .gui import main as gui
@@ -67,7 +68,12 @@ def main():
                 print(json.dumps(event, ensure_ascii=False), flush=True)
 
         agent = Agent(provider, cancel, emit, allow_execution=args.allow_project_execution)
-        run_dir, report = agent.run(args.architecture, args.views, args.output, seed_project=args.seed_project)
+        feedback = None
+        if args.feedback:
+            if args.feedback.stat().st_size > 64000:
+                raise ValueError("外部反馈超过 64KB，请保留关键检查结果")
+            feedback = json.loads(args.feedback.read_text(encoding="utf-8"))
+        run_dir, report = agent.run(args.architecture, args.views, args.output, seed_project=args.seed_project, review_feedback=feedback)
         print(json.dumps({"run_dir": str(run_dir), "status": report["status"]}, ensure_ascii=False))
         if report["status"] in ("failed", "failed_validation", "cancelled"):
             raise SystemExit(1)

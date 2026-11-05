@@ -95,6 +95,16 @@ def test_seed_resume_preserves_original_without_network(tmp_path):
     manifest = json.loads((run / "artifacts/seed-manifest.json").read_text(encoding="utf-8"))
     assert len(manifest["files"]) == len(files)
     assert manifest["source_project"] == str(seed)
+    provider.add("read_file", {"path": "already.js"})
+    provider.add("edit_file", {"path": "already.js", "old": "const existing = 1;", "new": "const existing = 2;"})
+    provider.done()
+    revised, revised_report = Agent(provider, threading.Event()).run(arch, view, tmp_path / "runs", seed_project=seed,
+        review_feedback=[{"profile": "independent_example", "details": "For this offline fixture, change existing from 1 to 2."}])
+    assert revised_report["repair_rounds"] == 1
+    assert (seed / "already.js").read_text() == "const existing = 1;"
+    assert (revised / "project/already.js").read_text() == "const existing = 2;"
+    external = next(c for c in revised_report["checks"] if c["profile"] == "external_review_retest")
+    assert external["status"] == "unverified"
 
 
 class ReplayProvider:
@@ -194,3 +204,14 @@ def test_task_limit_yields_progress_for_remaining_file_retry(tmp_path):
     assert not (project / "remaining.js").exists()
     agent.phase_loop("generation", tools, limit=1, task=task)
     assert (project / "remaining.js").is_file()
+
+
+def test_repair_feedback_groups_real_node_failure_sections():
+    checks = [{"profile": "test", "status": "failed", "output": "summary\ntest at shared/auth.test.js:12:1\nSignature failure\ntest at services/admin.test.js:30:1\nValidation failure\n"},
+              {"profile": "auth", "status": "failed", "output": "wrong signature accepted"},
+              {"profile": "static", "status": "failed", "results": [{"check": "compose.yaml", "status": "failed", "error": "duplicate environment"}, {"check": "fine.js", "status": "passed"}]}]
+    groups = Agent.repair_groups(checks)
+    assert len(groups) == 3
+    assert [c["profile"] for c in groups[0]] == ["test", "auth"]
+    assert groups[1][0]["target"] == "services/admin.test.js"
+    assert groups[2][0]["target"] == "compose.yaml"

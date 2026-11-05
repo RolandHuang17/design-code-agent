@@ -70,12 +70,46 @@ class Agent:
         return [{"profile": c.get("profile"), "status": c.get("status"),
                  "details_excerpt": json.dumps(c, ensure_ascii=False)[:6000]} for c in checks]
 
+    @staticmethod
+    def repair_groups(checks):
+        """Keep a repair focused on one failure cluster, not the entire repository."""
+        groups = []
+        auth = next((c for c in checks if c.get("profile") == "auth" and c.get("status") == "failed"), None)
+        auth_grouped = False
+        for check in checks:
+            if check.get("status") != "failed" or check.get("profile") == "auth":
+                continue
+            if check.get("profile") == "static" and check.get("results"):
+                groups.extend([{"profile": "static", "status": "failed", "target": r.get("check"), "details": r}]
+                              for r in check["results"] if r.get("status") == "failed")
+            elif check.get("profile") == "test" and re.search(r"(?m)^test at .+:\d+:\d+", check.get("output", "")):
+                chunks = re.split(r"(?m)^test at (.+?):\d+:\d+\s*$", check["output"])
+                files = {}
+                for index in range(1, len(chunks), 2):
+                    files.setdefault(chunks[index], []).append(chunks[index + 1])
+                for filename, failures in files.items():
+                    group = [{"profile": "test", "status": "failed", "target": filename, "output": "\n".join(failures)[:18000]}]
+                    if auth and "auth.test" in filename:
+                        group.append(auth)
+                        auth_grouped = True
+                    groups.append(group)
+            else:
+                groups.append([check])
+        if auth and not auth_grouped:
+            groups.append([auth])
+        return groups
+
     def phase_loop(self, name, toolset, limit, feedback=None, task=None):
         self.phase = name
-        toolset.read_limit = 8 if task else None
+        toolset.read_limit = 8 if task or name == "repair" else None
         toolset.phase_reads = 0
         self.event("phase_started", task=task.get("id") if task else None)
         instruction = PHASES[name] + (json.dumps(self.bounded_checks(feedback), ensure_ascii=False) if feedback is not None else "")
+        if name == "repair":
+            instruction += ("\nFix ONLY this check group and its direct dependencies. Do not re-read the whole repository. "
+                            "Use the interface index; after at most eight reads, apply a concrete repair. "
+                            "Preserve test scenarios; replace unsigned JWT fixtures with signed JWKS fixtures if signature validation is added. "
+                            "Do not repair unrelated groups now; the host schedules them separately.")
         if task:
             instruction = ("CURRENT TASK ONLY: " + json.dumps(task, ensure_ascii=False) +
                            "\nImplement these files now, then finish this phase. The host schedules other tasks separately. "
@@ -114,14 +148,25 @@ class Agent:
             # Drop complete exchanges only. Files, plan and host observations reconstruct state.
             if len(json.dumps(messages, ensure_ascii=False).encode("utf-8")) > 190_000:
                 self.event("context_compacted", reason="bounded complete tool exchanges; state retained on disk")
-                messages = self.context(toolset) + [{"role": "user", "content": instruction + "\nContinue from files already written. Do not rewrite completed modules unnecessarily."}]
+                positions = [i for i, m in enumerate(messages) if m["role"] == "assistant"]
+                tail = []
+                for index in reversed(positions[-3:]):
+                    candidate = messages[index:]
+                    if len(json.dumps(candidate, ensure_ascii=False).encode("utf-8")) <= 60000:
+                        tail = candidate
+                    else:
+                        break
+                messages = self.context(toolset) + [{"role": "user", "content": instruction + "\nContinue from files already written. Do not rewrite completed modules unnecessarily."}] + tail
         if task or name == "repair":
             self.event("phase_turn_limit", note="Return current progress to the host for remaining-file scheduling or verification")
             return
         raise RuntimeError(f"{name} 达到阶段轮次上限；已保留文件，可查看日志定位未完成任务")
 
-    def run(self, architecture: Path, views: Path, output: Path, seed_project: Path | None = None):
+    def run(self, architecture: Path, views: Path, output: Path, seed_project: Path | None = None, review_feedback: list | None = None):
         output = output.resolve()
+        if review_feedback is not None and (not isinstance(review_feedback, list) or any(not isinstance(c, dict) for c in review_feedback)):
+            raise ValueError("外部反馈必须为检查对象组成的 JSON 数组")
+        review_feedback = self.redactor.value(review_feedback or [])
         self.documents = load_inputs(architecture, views)
         # Refuse to upload a document that appears to contain the currently configured credential.
         if any(self.redactor.text(d["text"]) != d["text"] for d in self.documents["documents"]):
@@ -136,6 +181,8 @@ class Agent:
         for index, path in enumerate((architecture, views), 1):
             (self.run_dir / "inputs" / f"{index}-{path.name}").write_bytes(path.read_bytes())
         self.artifact("structured-input.json", self.documents)
+        if review_feedback:
+            self.artifact("external-feedback.json", review_feedback)
         seed_manifest = []
         if seed_project:
             seed_project = seed_project.resolve()
@@ -202,6 +249,12 @@ class Agent:
                 self.phase = "verification"
                 self.event("phase_started", round=round_number)
                 checks = self.verify(tools)
+                if review_feedback:
+                    if round_number == 0:
+                        checks += [{**c, "status": "failed", "origin": "external_review"} for c in review_feedback]
+                    else:
+                        checks.append({"profile": "external_review_retest", "status": "unverified",
+                                       "reason": "外部反馈已用于修复，但必须由独立验收重新验证；不能根据模型文字判为通过"})
                 self.artifact(f"checks-{round_number}.json", checks)
                 report["checks"] = checks
                 if not any(c["status"] == "failed" for c in checks):
@@ -209,7 +262,8 @@ class Agent:
                 if round_number == 3:
                     break
                 report["repair_rounds"] = round_number + 1
-                self.phase_loop("repair", tools, 12, checks)
+                for group in self.repair_groups(checks):
+                    self.phase_loop("repair", tools, 8, group)
             if any(c["status"] == "failed" for c in report["checks"]):
                 report["status"] = "failed_validation"
             elif any(c["status"] == "unverified" for c in report["checks"]):

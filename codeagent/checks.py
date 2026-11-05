@@ -140,9 +140,11 @@ def validate(root: Path, profile: str, cancel: threading.Event, allow_execution=
                     content = path.read_text(encoding="utf-8-sig")
                     if path.suffix == ".json":
                         parsed = json.loads(content)
-                        if path.name == "package.json" and (not isinstance(parsed, dict) or not isinstance(parsed.get("scripts"), dict) or not parsed["scripts"].get("test")):
-                            raise ValueError("package.json 缺少 test 脚本")
+                        if path.name == "package.json" and not isinstance(parsed, dict):
+                            raise ValueError("package.json 必须为对象")
                         if path == root / "package.json":
+                            if not isinstance(parsed.get("scripts"), dict) or not parsed["scripts"].get("test"):
+                                raise ValueError("根 package.json 缺少 test 脚本")
                             build = parsed["scripts"].get("build", "").strip()
                             if not build or build.lower().startswith(("echo ", "printf ", "exit 0", "true")):
                                 raise ValueError("根 build 脚本必须实际检查或构建源码，不能只输出成功信息")
