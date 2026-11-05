@@ -19,12 +19,12 @@ TOOL_SCHEMAS = [
     schema("read_file", "Read max 16000 characters. offset is a CHARACTER position, NOT a line number. For continuation use returned next_offset exactly.", {"path": STRING, "offset": {"type": "integer", "minimum": 0}}, ["path"]),
     schema("write_file", "Create a UTF-8 source file, or replace a file previously read in this context. Max 80000 bytes.", {"path": STRING, "content": STRING}, ["path", "content"]),
     schema("edit_file", "Replace exactly one occurrence in a file previously read; fails if ambiguous or stale.", {"path": STRING, "old": STRING, "new": STRING}, ["path", "old", "new"]),
-    schema("run_check", "Run a fixed check profile; integration runs npm test:integration; auth runs independent RSA/JWKS JWT acceptance. No arbitrary shell commands.", {"profile": {"type": "string", "enum": ["static", "install", "test", "integration", "build", "compose", "auth"]}}, ["profile"]),
+    schema("run_check", "Run fixed validation. runtime starts the protected host-selected Docker/HTTP acceptance and returns actual failures. No arbitrary shell commands.", {"profile": {"type": "string", "enum": ["static", "install", "test", "integration", "build", "compose", "auth", "runtime"]}}, ["profile"]),
 ]
 
 
 class Toolset:
-    def __init__(self, root: Path, cancel: threading.Event, redactor: Redactor, allow_execution=False, on_write=None):
+    def __init__(self, root: Path, cancel: threading.Event, redactor: Redactor, allow_execution=False, on_write=None, runtime_check=None):
         self.root, self.cancel, self.redactor = root, cancel, redactor
         self.allow_execution, self.on_write = allow_execution, on_write
         self.read_hashes = {}
@@ -32,6 +32,11 @@ class Toolset:
         self.revision = 0
         self.read_limit = None
         self.phase_reads = 0
+        self.runtime_check = runtime_check
+        self.phase = None
+        self.focus_path = None
+        self.read_counts = {}
+        self.metrics = {"reads": 0, "repeated_reads": 0, "tool_errors": 0, "writes": 0}
 
     def execute(self, name: str, arguments: str):
         if self.cancel.is_set():
@@ -53,10 +58,17 @@ class Toolset:
             if name == "list_files":
                 return {"files": [p.relative_to(self.root).as_posix() for p in project_files(self.root)]}
             if name == "run_check":
-                result = validate(self.root, args["profile"], self.cancel, self.allow_execution)
+                if self.phase in ("planning", "generation") and args["profile"] != "static":
+                    return {"profile": args["profile"], "status": "unverified", "reason": "生成阶段仅开放静态检查；生成结束后宿主统一执行测试与独立运行验收"}
+                if args["profile"] == "runtime":
+                    result = self.runtime_check() if self.runtime_check else {"profile": "runtime", "status": "unverified", "reason": "未选择宿主运行验收方案"}
+                else:
+                    result = validate(self.root, args["profile"], self.cancel, self.allow_execution)
                 self.check_history.append({"revision": self.revision, **result})
                 return self.redactor.value(result)
             path = safe_path(self.root, args["path"])
+            if name in ("write_file", "edit_file") and self.focus_path and args["path"].replace("\\", "/") != self.focus_path:
+                raise ValueError(f"当前生成目标必须精确为 {self.focus_path}；不要改写到 {args['path']}。依赖路径冲突将在生成结束后统一修复。")
             if name == "read_file":
                 if self.read_limit is not None and self.phase_reads >= self.read_limit:
                     raise ValueError("当前目标读取上限已到，请使用已提供的接口索引和读取结果编写目标文件，不要重复遍历仓库")
@@ -64,8 +76,16 @@ class Toolset:
                 if path.stat().st_size > 80_000:
                     raise ValueError("文件超过读取上限")
                 content = path.read_text(encoding="utf-8")
-                self.read_hashes[path] = hashlib.sha256(path.read_bytes()).hexdigest()
+                digest = hashlib.sha256(path.read_bytes()).hexdigest()
+                self.read_hashes[path] = digest
                 offset = args.get("offset", 0)
+                key = (path, offset, digest)
+                self.read_counts[key] = self.read_counts.get(key, 0) + 1
+                self.metrics["reads"] += 1
+                if self.read_counts[key] > 1:
+                    self.metrics["repeated_reads"] += 1
+                if self.read_counts[key] > 2:
+                    raise ValueError("同一文件片段重复读取；请使用已返回内容修改文件，或用 next_offset 继续读取（字符位置，不是行号）")
                 return {"content": content[offset:offset + 16000], "offset": offset, "offset_unit": "characters",
                         "next_offset": offset + 16000 if offset + 16000 < len(content) else None, "total_chars": len(content)}
             if path.exists():
@@ -92,6 +112,7 @@ class Toolset:
             path.write_text(content, encoding="utf-8", newline="\n")
             self.read_hashes[path] = hashlib.sha256(path.read_bytes()).hexdigest()
             self.revision += 1
+            self.metrics["writes"] += 1
             self.phase_reads = 0
             if self.on_write:
                 self.on_write(args["path"], content, self.revision)
@@ -99,4 +120,5 @@ class Toolset:
         except Cancelled:
             raise
         except (ValueError, OSError, KeyError, TypeError) as exc:
+            self.metrics["tool_errors"] += 1
             return {"error": self.redactor.text(str(exc))[:2000]}

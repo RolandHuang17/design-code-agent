@@ -31,6 +31,6 @@
 
 案例源码、逐文件差异、原始起点与复验报告见 [Space Fractions](../examples/space-fractions/README.md)。最后一轮额外 Agent 修复仍有测试失败，保留 failed_validation 状态；其结果没有被改写为成功。单元测试与集成测试属于模型生成后调整的测试集合，不是固定基准准确率。
 
-Kubernetes / AWS Terraform / Jenkins / Vault / Istio 未部署；internal.proto 未实现 gRPC 传输。未验证生产安全、可用性指标、性能压测或无 Python 干净 Windows。本次使用百炼，尚未进行 DeepSeek 官方 API 实验。
+Kubernetes / AWS Terraform / Jenkins / Vault / Istio 未部署；internal.proto 未实现 gRPC 传输。未验证生产安全、可用性指标、性能压测或无 Python 干净 Windows。本次使用百炼，使用者已向老师确认允许该平台。
 
 真实运行遇到的外部条件：百炼免费额度耗尽且开启“仅使用免费额度”时，返回 HTTP 403 / insufficient_quota。关闭开关后需等待服务端配置生效，再继续运行。预算包含中断请求及已拒绝请求的保守预留，因此不等同于实际账单。

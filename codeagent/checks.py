@@ -83,18 +83,20 @@ def terminate_tree(process):
             pass
 
 
-def run_command(argv, root: Path, cancel: threading.Event, timeout=120):
+def run_command(argv, root: Path, cancel: threading.Event, timeout=120, *, extra_env=None, output_limit=32000):
     """Drain pipes continuously, bound memory, terminate child tree on cancel/timeout."""
     kwargs = {"creationflags": subprocess.CREATE_NO_WINDOW | subprocess.CREATE_NEW_PROCESS_GROUP} if os.name == "nt" else {"start_new_session": True}
-    process = subprocess.Popen(argv, cwd=root, env=clean_environment(), stdout=subprocess.PIPE,
+    env = clean_environment()
+    env.update(extra_env or {})
+    process = subprocess.Popen(argv, cwd=root, env=env, stdout=subprocess.PIPE,
                                stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL, **kwargs)
     output = bytearray()
 
     def drain():
         while data := process.stdout.read(4096):
             output.extend(data)
-            if len(output) > 32_000:
-                del output[:-32_000]
+            if len(output) > output_limit:
+                del output[:-output_limit]
 
     reader = threading.Thread(target=drain, daemon=True)
     reader.start()
@@ -128,7 +130,7 @@ def validate(root: Path, profile: str, cancel: threading.Event, allow_execution=
         results = []
         files = list(project_files(root))
         names = {p.relative_to(root).as_posix() for p in files}
-        for required in ("package.json", "README.md", "openapi.yaml", "internal.proto", "traceability.json"):
+        for required in ("package.json", "README.md", "openapi.yaml", "traceability.json"):
             results.append({"check": f"required:{required}", "status": "passed" if required in names else "failed"})
         for path in files:
             relative = path.relative_to(root).as_posix()

@@ -39,6 +39,8 @@ class Application:
         self.budget = tk.StringVar(value=user_variable("DESIGN_CODE_AGENT_BUDGET_CNY") or "50")
         self.pricing_confirmed = tk.BooleanVar(value=False)
         self.allow_execution = tk.BooleanVar(value=False)
+        self.acceptance_profile = tk.StringVar(value="space-fractions")
+        self.repair_rounds = tk.StringVar(value="3")
         base = Path(sys.executable).parent if getattr(sys, "frozen", False) else Path.cwd()
         examples = base / "examples" / "inputs"
         if not examples.exists():
@@ -93,7 +95,13 @@ class Application:
             ttk.Label(inputs, text=label).grid(row=row, column=0, padx=(0, 10), pady=4)
             ttk.Entry(inputs, textvariable=variable).grid(row=row, column=1, sticky="ew", padx=(0, 8))
             ttk.Button(inputs, text="选择…", command=lambda v=variable, d=row == 2: self.browse(v, d)).grid(row=row, column=2)
-        ttk.Checkbutton(inputs, text="允许执行生成项目的依赖安装和测试脚本（当前用户权限，非沙箱；项目运行另需 Node.js / Docker）", variable=self.allow_execution).grid(row=3, column=0, columnspan=3, sticky="w", pady=(6, 0))
+        options = ttk.Frame(inputs)
+        options.grid(row=3, column=0, columnspan=3, sticky="w", pady=4)
+        ttk.Label(options, text="独立验收方案").pack(side="left", padx=(0, 8))
+        ttk.Combobox(options, textvariable=self.acceptance_profile, values=("space-fractions", "generic-node", "library"), state="readonly", width=21).pack(side="left")
+        ttk.Label(options, text="最多修复轮数（0 = 不反馈修复）").pack(side="left", padx=12)
+        ttk.Combobox(options, textvariable=self.repair_rounds, values=("0", "1", "2", "3"), state="readonly", width=3).pack(side="left")
+        ttk.Checkbutton(inputs, text="允许执行生成项目及 Docker 真实验收（当前用户权限，非沙箱；需 Node.js / Docker）", variable=self.allow_execution).grid(row=4, column=0, columnspan=3, sticky="w", pady=(6, 0))
         actions = ttk.Frame(body)
         actions.grid(row=2, column=0, sticky="ew", pady=(0, 10))
         self.run_button = ttk.Button(actions, text="开始生成", style="Primary.TButton", command=lambda: self.start("run"))
@@ -167,6 +175,7 @@ class Application:
             if mode == "run":
                 load_inputs(arch, views)
             allow = self.allow_execution.get()
+            profile, rounds = self.acceptance_profile.get(), int(self.repair_rounds.get())
         except Exception as exc:
             messagebox.showerror("配置检查", str(exc))
             return
@@ -184,7 +193,8 @@ class Application:
                     result = provider.test_connection()
                     self.events.put({"event": "connection", "result": redactor.value(result)})
                 else:
-                    agent = Agent(provider, self.cancel, self.events.put, allow_execution=allow)
+                    agent = Agent(provider, self.cancel, self.events.put, allow_execution=allow,
+                                  acceptance_profile=profile, max_repair_rounds=rounds)
                     result_dir, report = agent.run(arch, views, output)
                     self.events.put({"event": "result", "path": str(result_dir), "status": report["status"]})
             except Exception as exc:

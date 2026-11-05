@@ -162,7 +162,7 @@ def test_actual_static_failure_drives_read_edit_recheck(tmp_path):
     assert second[0]["status"] == "passed"
     assert (run / "artifacts/revisions/0006/math.js").read_text() == "function broken( {"
     assert (run / "project/math.js").read_text() == "function fixed() { return 1; }"
-    assert not report["official_api_compliant"]
+    assert not report["uses_official_endpoint"]
     # Every tool result is paired with a preceding assistant tool call.
     for messages in provider.messages:
         pending = set()
@@ -235,6 +235,6 @@ def test_repair_feedback_groups_real_node_failure_sections(profile):
               {"profile": "static", "status": "failed", "results": [{"check": "compose.yaml", "status": "failed", "error": "duplicate environment"}, {"check": "fine.js", "status": "passed"}]}]
     groups = Agent.repair_groups(checks)
     assert len(groups) == 3
-    assert [c["profile"] for c in groups[0]] == [profile, "auth"]
-    assert groups[1][0]["target"] == "services/admin.test.js"
-    assert groups[2][0]["target"] == "compose.yaml"
+    assert groups[0][0]["target"] == "compose.yaml"
+    assert [c["profile"] for c in groups[1]] == [profile, "auth"]
+    assert groups[2][0]["target"] == "services/admin.test.js"

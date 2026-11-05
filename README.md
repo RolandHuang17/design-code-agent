@@ -8,7 +8,7 @@
 
 真实案例与验证：[Space Fractions 交付副本](examples/space-fractions/README.md) 包含原始输出、操作者修改差异及独立验收。项目单元测试 83/83、集成测试 59/59，真实 HTTP 17/17 通过；并发重复计分和服务重启持久化已复验。**交付副本经过修正，这不是一次全自动成功的声明。**
 
-> 作业要求 DeepSeek 官方 `deepseek-v4-pro` API。工具保留官方模式，也应使用者要求支持阿里云百炼模式。**百炼属于第三方服务，百炼运行不能视为满足官方 API 条件。**报告自动记录平台、地址、模型及该差异。
+> 使用者已向老师确认：本作业允许使用阿里云百炼。本项目后续实验固定使用 `deepseek-v4-pro-0813`，报告如实记录实际平台、地址和模型；工具也保留 DeepSeek 官方模式。v0.1 的原始历史报告不回写。
 
 ## 快速开始
 
@@ -55,6 +55,10 @@ python -m venv .venv
 上述命令会付费并执行生成项目脚本。取消按 Ctrl+C，等待结果落盘。连接测试可将 `run` 和两个文档路径替换为 `connection`，保留平台、计价参数。
 
 ## Agent 工作机制
+
+v0.2 将通用控制器和案例补充输入分离。界面可选择 `space-fractions`、`library` 或 `generic-node` 验收方案，并设定 0–3 轮修复。案例补充材料会与两份原始输入分别保存并标明来源，不属于原始设计。`runtime` 检查会自动启动独立 Docker Compose 项目，在临时回环端口执行项目外 HTTP 验收，返回启动/SQL/功能失败用于修复，随后清理本次资源；没有可用引擎则标记未验证。本机优先 Docker CLI，其次现有 WSL Ubuntu Docker。
+
+CLI 对应参数：`--acceptance-profile library --max-repair-rounds 3 --runtime-backend auto`。`--max-repair-rounds 0` 用于不反馈修复的对照。选择 `generic-node` 只进行通用检查，没有独立领域运行验收，不能据此宣称业务功能通过。
 
 ```mermaid
 flowchart LR

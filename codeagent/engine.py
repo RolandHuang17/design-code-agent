@@ -8,6 +8,7 @@ from pathlib import Path
 from uuid import uuid4
 
 from .inputs import load_inputs
+from .cases import PROFILES, supplement
 from .prompts import PHASES, SYSTEM
 from .provider import Cancelled, TruncatedOutput
 from .safety import Redactor, project_files, safe_path
@@ -17,7 +18,12 @@ MAX_TURNS = 300
 
 
 class Agent:
-    def __init__(self, provider, cancel: threading.Event, emit=None, *, allow_execution=False):
+    def __init__(self, provider, cancel: threading.Event, emit=None, *, allow_execution=False,
+                 acceptance_profile="generic-node", max_repair_rounds=3, runtime_backend="auto"):
+        if acceptance_profile not in PROFILES or type(max_repair_rounds) is not int or not 0 <= max_repair_rounds <= 3:
+            raise ValueError("未知验收方案或修复轮数（允许0–3）")
+        if runtime_backend not in ("auto", "docker", "wsl"):
+            raise ValueError("未知运行后端")
         self.provider, self.cancel = provider, cancel
         self.redactor = Redactor(provider.api_key)
         self.emit = emit or (lambda event: None)
@@ -26,6 +32,9 @@ class Agent:
         self.turns = 0
         self.phase = "initializing"
         self.documents = None
+        self.acceptance_profile, self.max_repair_rounds, self.runtime_backend = acceptance_profile, max_repair_rounds, runtime_backend
+        self.runtime_index = 0
+        self.started_at = None
 
     def event(self, kind, **data):
         event = self.redactor.value({"time": datetime.now(timezone.utc).isoformat(), "event": kind, "phase": self.phase, **data})
@@ -67,8 +76,17 @@ class Agent:
 
     @staticmethod
     def bounded_checks(checks):
-        return [{"profile": c.get("profile"), "status": c.get("status"),
-                 "details_excerpt": json.dumps(c, ensure_ascii=False)[:6000]} for c in checks]
+        result = []
+        for c in checks:
+            if c.get("profile") == "runtime":
+                detail = {k: c[k] for k in ("error", "reason", "checks", "cleanup") if k in c}
+                detail["diagnostics"] = [{"stage": s.get("stage"), "output": s.get("output", "")[-10000:]}
+                                         for s in c.get("stages", []) if s.get("status") == "failed" or s.get("stage", [""])[0] == "logs"]
+            else:
+                detail = c
+            result.append({"profile": c.get("profile"), "status": c.get("status"),
+                           "details_excerpt": json.dumps(detail, ensure_ascii=False)[:18000 if c.get("profile") == "runtime" else 6000]})
+        return result
 
     @staticmethod
     def repair_groups(checks):
@@ -87,6 +105,10 @@ class Agent:
                 files = {}
                 for index in range(1, len(chunks), 2):
                     files.setdefault(chunks[index], []).append(chunks[index + 1])
+                if re.search(r"SyntaxError:|ERR_MODULE_NOT_FOUND|ERR_PACKAGE_PATH_NOT_EXPORTED|ECONNREFUSED|does not provide an export", chunks[0]):
+                    groups.append([{"profile": check["profile"], "status": "failed", "target": "shared module/infrastructure root cause",
+                                    "targets": list(files), "output": chunks[0][-14000:]}])
+                    continue
                 for filename, failures in files.items():
                     group = [{"profile": check["profile"], "status": "failed", "target": filename, "output": "\n".join(failures)[:18000]}]
                     if auth and "auth.test" in filename:
@@ -97,12 +119,17 @@ class Agent:
                 groups.append([check])
         if auth and not auth_grouped:
             groups.append([auth])
-        return groups
+        # Runtime/SQL/auth failures take precedence over in-memory test fixtures.
+        priority = {"runtime": 0, "static": 1, "install": 2, "auth": 3}
+        return sorted(groups, key=lambda group: priority.get(group[0].get("profile"), 4))
 
     def phase_loop(self, name, toolset, limit, feedback=None, task=None):
         self.phase = name
+        toolset.phase = name
+        toolset.focus_path = task.get("focus_file", task["files"][0]) if task else None
         toolset.read_limit = 8 if task or name == "repair" else None
         toolset.phase_reads = 0
+        toolset.read_counts.clear()
         self.event("phase_started", task=task.get("id") if task else None)
         instruction = PHASES[name] + (json.dumps(self.bounded_checks(feedback), ensure_ascii=False) if feedback is not None else "")
         if name == "repair":
@@ -120,6 +147,7 @@ class Agent:
         messages = self.context(toolset) + [{"role": "user", "content": instruction}]
         truncations = 0
         initial_revision = toolset.revision
+        consecutive_errors = 0
         for iteration in range(limit):
             if self.cancel.is_set():
                 raise Cancelled("用户取消")
@@ -142,6 +170,10 @@ class Agent:
             self.event("assistant", turn=self.turns, message=message)
             calls = message.get("tool_calls") or []
             if not calls:
+                if task and any(not safe_path(toolset.root, f).is_file() for f in task["files"]):
+                    messages.append(message)
+                    messages.append({"role": "user", "content": "HOST OBSERVATION: Your summary does not match disk. The EXACT target path is still absent: " + json.dumps(task["files"]) + ". Use write_file for this exact path; a similarly named file in a different directory is not completion."})
+                    continue
                 return
             if len(calls) > 16:
                 raise RuntimeError("单轮工具调用超过 16 个，停止异常响应")
@@ -153,6 +185,10 @@ class Agent:
                 result = toolset.execute(function.get("name"), function.get("arguments", ""))
                 self.event("tool_result", tool=function.get("name"), arguments=function.get("arguments"), result=result)
                 messages.append({"role": "tool", "tool_call_id": call["id"], "content": json.dumps(self.redactor.value(result), ensure_ascii=False)})
+                consecutive_errors = consecutive_errors + 1 if result.get("error") else 0
+            if name == "repair" and consecutive_errors >= 4 and toolset.revision == initial_revision:
+                self.event("repair_no_progress", reason="Four consecutive tool errors without a file change", writes=0)
+                return
             # A scoped generation task ends on observable file completion, not an
             # extra paid summary request. Execute the entire tool batch first.
             if task and all(safe_path(toolset.root, f).is_file() for f in task["files"]):
@@ -170,6 +206,7 @@ class Agent:
                     else:
                         break
                 messages = self.context(toolset) + [{"role": "user", "content": instruction + "\nContinue from files already written. Do not rewrite completed modules unnecessarily."}] + tail
+                toolset.read_counts.clear()
         if task or name == "repair":
             self.event("phase_turn_limit", writes=toolset.revision - initial_revision,
                        note="Return current progress to the host for remaining-file scheduling or verification")
@@ -182,6 +219,9 @@ class Agent:
             raise ValueError("外部反馈必须为检查对象组成的 JSON 数组")
         review_feedback = self.redactor.value(review_feedback or [])
         self.documents = load_inputs(architecture, views)
+        supplement_path, supplement_doc = supplement(self.acceptance_profile)
+        if supplement_doc:
+            self.documents["documents"].append(supplement_doc)
         # Refuse to upload a document that appears to contain the currently configured credential.
         if any(self.redactor.text(d["text"]) != d["text"] for d in self.documents["documents"]):
             raise ValueError("输入文件疑似含 API 密钥，请先移除")
@@ -194,6 +234,8 @@ class Agent:
         (self.run_dir / "inputs").mkdir()
         for index, path in enumerate((architecture, views), 1):
             (self.run_dir / "inputs" / f"{index}-{path.name}").write_bytes(path.read_bytes())
+        if supplement_path:
+            shutil.copyfile(supplement_path, self.run_dir / "inputs" / supplement_path.name)
         self.artifact("structured-input.json", self.documents)
         if review_feedback:
             self.artifact("external-feedback.json", review_feedback)
@@ -216,21 +258,35 @@ class Agent:
                 seed_manifest.append({"path": name, "sha256": hashlib.sha256(content).hexdigest()})
             self.artifact("seed-manifest.json", {"source_project": str(seed_project), "files": seed_manifest})
         self.artifact("run-config.json", {"provider": self.provider.provider, "base_url": self.provider.base_url,
-                                           "model": self.provider.model, "official_api_compliant": self.provider.provider == "deepseek",
-                                           "allow_project_execution": self.allow_execution, "max_repair_rounds": 3,
+                                           "model": self.provider.model, "uses_official_endpoint": self.provider.provider == "deepseek",
+                                           "allow_project_execution": self.allow_execution, "max_repair_rounds": self.max_repair_rounds,
+                                           "acceptance_profile": self.acceptance_profile, "runtime_backend": self.runtime_backend,
                                            "max_turns": MAX_TURNS, "input_hashes": [d["sha256"] for d in self.documents["documents"]],
                                            "seed_project": str(seed_project) if seed_project else None,
-                                           "agent_source_hashes": {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in Path(__file__).parent.glob("*.py")}})
+                                           "agent_source_hashes": {p.relative_to(Path(__file__).parent).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
+                                                                   for p in project_files(Path(__file__).parent) if p.suffix in (".py", ".md", ".cjs")}})
 
         def snapshot(name, content, revision):
             path = safe_path(self.run_dir / "artifacts/revisions" / f"{revision:04}", name)
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(content, encoding="utf-8")
 
-        tools = Toolset(project, self.cancel, self.redactor, self.allow_execution, snapshot)
+        def runtime_check():
+            if not self.allow_execution or self.acceptance_profile == "generic-node":
+                return {"profile": "runtime", "status": "unverified", "reason": "未授权项目执行或未选择案例独立验收方案"}
+            from .runtime import validate_runtime
+            self.runtime_index += 1
+            return validate_runtime(project, self.acceptance_profile, self.run_dir / "artifacts" / f"runtime-{self.runtime_index:02}",
+                                    self.cancel, self.redactor, self.runtime_backend, self.event)
+
+        tools = Toolset(project, self.cancel, self.redactor, self.allow_execution, snapshot, runtime_check)
         report = {"status": "failed", "provider": self.provider.provider, "model": self.provider.model,
-                  "official_api_compliant": self.provider.provider == "deepseek", "real_api_run": self.provider.provider in ("deepseek", "bailian"),
-                  "checks": [], "repair_rounds": 0}
+                  "uses_official_endpoint": self.provider.provider == "deepseek", "real_api_run": self.provider.provider in ("deepseek", "bailian"),
+                  "checks": [], "repair_rounds": 0, "acceptance_profile": self.acceptance_profile,
+                  "generation_origin": "seed" if seed_project else "fresh", "schema_version": 2}
+        import time
+        started = time.monotonic()
+        starting_fee = self.provider.budget.snapshot()["charged_cny"]
         self.artifact("report.json", {**report, "status": "running", "note": "If this status remains after the process exits, the process was externally interrupted."})
         try:
             self.event("run_started", output=str(self.run_dir), diagrams=self.documents["diagram_count"])
@@ -259,7 +315,7 @@ class Agent:
                         self.phase_loop("generation", tools, 5, task=focused_task)
                 if any(not safe_path(project, f).is_file() for f in task["files"]):
                     raise RuntimeError(f"任务 {task.get('id')} 未完成目标文件；停止并保留结果")
-            for round_number in range(4):
+            for round_number in range(self.max_repair_rounds + 1):
                 self.phase = "verification"
                 self.event("phase_started", round=round_number)
                 checks = self.verify(tools)
@@ -273,7 +329,7 @@ class Agent:
                 report["checks"] = checks
                 if not any(c["status"] == "failed" for c in checks):
                     break
-                if round_number == 3:
+                if round_number == self.max_repair_rounds:
                     break
                 report["repair_rounds"] = round_number + 1
                 for group in self.repair_groups(checks):
@@ -292,7 +348,10 @@ class Agent:
         finally:
             self.phase = "finished"
             report["turns"] = self.turns
+            report["elapsed_seconds"] = round(time.monotonic() - started, 2)
+            report["tool_metrics"] = tools.metrics
             report["budget"] = self.provider.budget.snapshot()
+            report["run_estimated_cny"] = report["budget"]["charged_cny"] - starting_fee
             report["usage"] = self.provider.usage
             report["valid_api_responses"] = len(self.provider.usage)
             report["files"] = [{"path": p.relative_to(project).as_posix(), "sha256": hashlib.sha256(p.read_bytes()).hexdigest()} for p in project_files(project)]
@@ -302,10 +361,30 @@ class Agent:
         return self.run_dir, report
 
     def verify(self, tools):
+        tools.phase = "verification"
+        tools.focus_path = None
         checks = [tools.execute("run_check", json.dumps({"profile": p})) for p in ("static", "install", "test", "integration", "build", "compose")]
-        if (tools.root / "shared/src/auth.js").exists():
+        manifest = tools.root / "package.json"
+        try:
+            scripts = json.loads(manifest.read_text(encoding="utf-8")).get("scripts", {})
+            if not scripts.get("test:integration"):
+                checks[3] = {"profile": "integration", "status": "not_applicable", "optional": True,
+                             "reason": "项目未声明独立 test:integration；不计为通过，领域 HTTP 由项目外 runtime 验收"}
+        except (OSError, ValueError, AttributeError):
+            pass  # static/install reports remain authoritative for malformed manifests
+        if self.acceptance_profile == "space-fractions" and (tools.root / "shared/src/auth.js").exists():
             checks.append(tools.execute("run_check", '{"profile":"auth"}'))
         checks.append(self.verify_traceability(tools.root))
+        if self.acceptance_profile != "generic-node":
+            if checks[0].get("status") == "passed":
+                runtime = tools.execute("run_check", '{"profile":"runtime"}')
+                checks.append(runtime)
+                config = next((stage for stage in runtime.get("stages", []) if stage.get("stage", [])[:1] == ["config"]), None)
+                if config and config.get("status") == "passed":
+                    checks[5] = {"profile": "compose", "status": "passed", "backend": runtime.get("backend"),
+                                 "evidence": "Actual compose config command in protected runtime stages"}
+            else:
+                checks.append({"profile": "runtime", "status": "unverified", "reason": "静态检查失败，修复后再启动服务"})
         for item in checks:
             if "status" not in item:
                 item["status"] = "failed"
@@ -342,7 +421,7 @@ class Agent:
     @staticmethod
     def report_markdown(report):
         lines = ["# 生成验证报告", "", f"状态：`{report['status']}`", f"平台：{report['provider']}；模型：{report['model']}",
-                 f"官方 API 要求：{'满足平台条件' if report['official_api_compliant'] else '不满足：本次使用第三方百炼平台'}", "",
+                 "平台仅记录实际调用渠道；本作业已确认允许百炼，不作为未满足项。", "",
                  "| 检查 | 状态 |", "| --- | --- |"]
         lines += [f"| {c.get('profile', 'check')} | {c.get('status', 'failed')} |" for c in report["checks"]]
         lines += ["", f"修复轮次：{report['repair_rounds']}；模型轮次：{report['turns']}",
