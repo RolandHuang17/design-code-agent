@@ -36,7 +36,7 @@ class Toolset:
         self.phase = None
         self.focus_path = None
         self.read_counts = {}
-        self.metrics = {"reads": 0, "repeated_reads": 0, "tool_errors": 0, "writes": 0}
+        self.metrics = {"reads": 0, "repeated_reads": 0, "tool_errors": 0, "writes": 0, "host_derived_writes": 0}
 
     def execute(self, name: str, arguments: str):
         if self.cancel.is_set():
@@ -63,10 +63,21 @@ class Toolset:
                 if args["profile"] == "runtime":
                     result = self.runtime_check() if self.runtime_check else {"profile": "runtime", "status": "unverified", "reason": "未选择宿主运行验收方案"}
                 else:
+                    lock = self.root / "package-lock.json"
+                    previous = lock.read_bytes() if lock.is_file() else None
                     result = validate(self.root, args["profile"], self.cancel, self.allow_execution)
+                    if args["profile"] == "install" and lock.is_file() and lock.read_bytes() != previous:
+                        self.revision += 1
+                        self.metrics["host_derived_writes"] += 1
+                        if self.on_write:
+                            self.on_write("package-lock.json", lock.read_text(encoding="utf-8"), self.revision)
+                        result["derived_artifact"] = {"path": "package-lock.json", "origin": "npm dependency resolution (host fixed command)",
+                                                      "sha256": hashlib.sha256(lock.read_bytes()).hexdigest(), "revision": self.revision}
                 self.check_history.append({"revision": self.revision, **result})
                 return self.redactor.value(result)
             path = safe_path(self.root, args["path"])
+            if name in ("write_file", "edit_file") and path.name == "package-lock.json":
+                raise ValueError("package-lock.json is derived by the host npm install check; do not invent lockfile contents or hashes. Update package.json instead.")
             if name in ("write_file", "edit_file") and self.focus_path and args["path"].replace("\\", "/") != self.focus_path:
                 raise ValueError(f"当前生成目标必须精确为 {self.focus_path}；不要改写到 {args['path']}。依赖路径冲突将在生成结束后统一修复。")
             if name == "read_file":

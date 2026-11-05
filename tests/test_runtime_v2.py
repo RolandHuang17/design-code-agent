@@ -135,3 +135,36 @@ def test_shared_import_failure_is_one_group_and_keeps_root_cause():
     assert len(groups) == 1
     assert len(groups[0][0]["targets"]) == 2
     assert "export named Pool" in groups[0][0]["output"]
+
+
+def test_lockfile_is_host_derived_and_model_cannot_fabricate_it(tmp_path, monkeypatch):
+    snapshots = []
+    tools = Toolset(tmp_path, threading.Event(), Redactor(), allow_execution=True,
+                    on_write=lambda *args: snapshots.append(args))
+    result = tools.execute("write_file", json.dumps({"path": "package-lock.json", "content": "{}"}))
+    assert "host npm" in result["error"] and not (tmp_path / "package-lock.json").exists()
+    def install(*args):
+        (tmp_path / "package-lock.json").write_text('{"lockfileVersion":3}')
+        return {"profile": "install", "status": "passed"}
+    monkeypatch.setattr("codeagent.tools.validate", install)
+    result = tools.execute("run_check", '{"profile":"install"}')
+    assert result["derived_artifact"]["origin"].startswith("npm")
+    assert snapshots == [("package-lock.json", '{"lockfileVersion":3}', 1)]
+    assert tools.metrics["host_derived_writes"] == 1
+
+
+def test_install_resolves_lock_before_reproducible_ci(tmp_path, monkeypatch):
+    from codeagent.checks import validate
+    cli = tmp_path / "node_modules/npm/bin/npm-cli.js"
+    cli.parent.mkdir(parents=True)
+    cli.write_text("// fixture")
+    monkeypatch.setattr("codeagent.checks.shutil.which", lambda name: str(tmp_path / name))
+    commands = []
+    def command(argv, *args, **kwargs):
+        commands.append(argv)
+        return {"status": "passed", "exit_code": 0}
+    monkeypatch.setattr("codeagent.checks.run_command", command)
+    assert validate(tmp_path, "install", threading.Event(), True)["status"] == "passed"
+    assert commands[0][2:4] == ["install", "--package-lock-only"]
+    assert commands[1][2] == "ci"
+    assert all("--ignore-scripts" in argv for argv in commands)

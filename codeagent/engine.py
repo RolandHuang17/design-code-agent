@@ -301,7 +301,10 @@ class Agent:
             for task in tasks:
                 if not isinstance(task.get("files"), list) or not task["files"]:
                     raise ValueError("每个规划任务必须列出目标文件")
-                missing = [f for f in task["files"] if not safe_path(project, f).is_file()]
+                generated_targets = [f for f in task["files"] if Path(f).name != "package-lock.json"]
+                if len(generated_targets) != len(task["files"]):
+                    self.event("derived_targets_deferred", task=task.get("id"), note="npm lockfiles are produced by fixed install check, not model text")
+                missing = [f for f in generated_targets if not safe_path(project, f).is_file()]
                 if not missing:
                     self.event("task_files_present", task=task.get("id"), note="file presence only; final validation still required")
                     continue
@@ -313,7 +316,7 @@ class Agent:
                     self.phase_loop("generation", tools, 10, task=focused_task)
                     if not safe_path(project, target).is_file():
                         self.phase_loop("generation", tools, 5, task=focused_task)
-                if any(not safe_path(project, f).is_file() for f in task["files"]):
+                if any(not safe_path(project, f).is_file() for f in generated_targets):
                     raise RuntimeError(f"任务 {task.get('id')} 未完成目标文件；停止并保留结果")
             for round_number in range(self.max_repair_rounds + 1):
                 self.phase = "verification"
@@ -351,7 +354,9 @@ class Agent:
             report["elapsed_seconds"] = round(time.monotonic() - started, 2)
             report["tool_metrics"] = tools.metrics
             report["budget"] = self.provider.budget.snapshot()
-            report["run_estimated_cny"] = report["budget"]["charged_cny"] - starting_fee
+            report["global_ledger_delta_cny"] = report["budget"]["charged_cny"] - starting_fee
+            report["run_estimated_cny"] = sum(item["estimated_cny"] for item in self.provider.usage)
+            report["cost_scope"] = "This run's responses with valid usage only; uncertain reservations stay charged in the global ledger. Global delta may include concurrent runs."
             report["usage"] = self.provider.usage
             report["valid_api_responses"] = len(self.provider.usage)
             report["files"] = [{"path": p.relative_to(project).as_posix(), "sha256": hashlib.sha256(p.read_bytes()).hexdigest()} for p in project_files(project)]

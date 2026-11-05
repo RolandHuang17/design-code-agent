@@ -195,7 +195,14 @@ def validate(root: Path, profile: str, cancel: threading.Event, allow_execution=
             npm_cli = Path(npm).parent / "node_modules/npm/bin/npm-cli.js" if npm else Path("__missing__")
             if not npm_cli.exists():
                 return {"profile": profile, "status": "unverified", "reason": "未找到标准 Node/npm 安装；请按 README 手动安装依赖"}
-            argv = [binary, str(npm_cli), "ci" if (root / "package-lock.json").exists() else "install", "--ignore-scripts", "--no-audit", "--no-fund"] if binary else None
+            if binary:
+                # npm, rather than the language model, resolves transitive versions/integrities.
+                locked = run_command([binary, str(npm_cli), "install", "--package-lock-only", "--ignore-scripts", "--no-audit", "--no-fund"], root, cancel, timeout=180)
+                if locked["status"] != "passed":
+                    return {"profile": profile, "stage": "derive_lockfile", **locked}
+                argv = [binary, str(npm_cli), "ci", "--ignore-scripts", "--no-audit", "--no-fund"]
+            else:
+                argv = None
         else:
             manifest = root / "package.json"
             if not manifest.exists():

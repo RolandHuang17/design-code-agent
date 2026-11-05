@@ -1,0 +1,12 @@
+[
+  {
+    "trial": 1,
+    "case": "space-fractions",
+    "repair_rounds": 3,
+    "repeat": 1,
+    "status": "externally_interrupted_controller_defect",
+    "run": "runs/v02-formal/20261106-v02-e1/run-20261106-043404-d9d7a2ec",
+    "interrupted_utc": "2026-11-05T20:41:09.630034+00:00",
+    "reason": "Model attempted to synthesize npm transitive lockfile and response truncated. Owned runner terminated before runtime started; preserve pending request reservation. Controller will derive lockfile using fixed npm commands; this development cohort is not included in frozen e2 comparison."
+  }
+]

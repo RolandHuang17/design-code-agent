@@ -38,7 +38,7 @@ def main():
     folder.mkdir(parents=True, exist_ok=True)
     manifest_path = folder / 'manifest.json'
     jobs = [{'case': 'space-fractions', 'repair_rounds': 3, 'repeat': n} for n in range(1, 4)]
-    jobs += [{'case': 'library', 'repair_rounds': rounds, 'repeat': n} for rounds in (0, 3) for n in range(1, 4)]
+    jobs += [{'case': 'library', 'repair_rounds': rounds, 'repeat': n} for n in range(1, 4) for rounds in (0, 3)]
     hashes = fingerprint()
     if manifest_path.exists():
         manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
@@ -56,6 +56,11 @@ def main():
         raise RuntimeError('An interrupted trial remains running; classify it explicitly before resuming, never silently rerun it')
     cancel = threading.Event()
     signal.signal(signal.SIGINT, lambda *_:cancel.set())
+    def watch_stop():
+        while not cancel.wait(1):
+            if (folder / 'STOP').exists():
+                cancel.set()
+    threading.Thread(target=watch_stop, daemon=True).start()
     for index, job in enumerate(jobs[len(results):], start=len(results)+1):
         if cancel.is_set(): break
         if fingerprint() != hashes: raise RuntimeError('Frozen source changed before trial')

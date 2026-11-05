@@ -1,7 +1,7 @@
 # -*- mode: python ; coding: utf-8 -*-
 from PyInstaller.utils.hooks import collect_data_files
 
-datas = [('codeagent/acceptance/auth.cjs', 'codeagent/acceptance')]
+datas = [('codeagent/acceptance/auth.cjs', 'codeagent/acceptance'), ('codeagent/cases', 'codeagent/cases')]
 datas += collect_data_files('yaml')
 
 

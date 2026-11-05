@@ -12,3 +12,4 @@
 examples/**/inputs/*.md -text
 # Preserve byte-for-byte evidence and source hashes, including original whitespace.
 examples/space-fractions/** -text whitespace=-trailing-space
+codeagent/cases/*.md -text

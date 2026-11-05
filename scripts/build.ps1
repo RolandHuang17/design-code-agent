@@ -1,3 +1,4 @@
+param([string]$OutputDirectory = 'dist')
 $ErrorActionPreference = 'Stop'
 Set-Location (Join-Path $PSScriptRoot '..')
 if (-not (Test-Path '.venv/Scripts/python.exe')) { python -m venv .venv }
@@ -5,11 +6,12 @@ if (-not (Test-Path '.venv/Scripts/python.exe')) { python -m venv .venv }
 if ($LASTEXITCODE -ne 0) { throw 'Dependency installation failed' }
 & .venv/Scripts/python.exe -m pytest -q
 if ($LASTEXITCODE -ne 0) { throw 'Tests failed' }
-& .venv/Scripts/python.exe -m PyInstaller --noconfirm --clean --onefile --windowed --name DesignCodeAgent --collect-data yaml --add-data 'codeagent/acceptance/auth.cjs;codeagent/acceptance' --add-data 'codeagent/cases;codeagent/cases' desktop.py
+& .venv/Scripts/python.exe -m PyInstaller --noconfirm --clean --onefile --windowed --distpath $OutputDirectory --name DesignCodeAgent --collect-data yaml --add-data 'codeagent/acceptance/auth.cjs;codeagent/acceptance' --add-data 'codeagent/cases;codeagent/cases' desktop.py
 if ($LASTEXITCODE -ne 0) { throw 'Packaging failed' }
-$releaseDir = Join-Path (Get-Location) 'dist'
+$releaseDir = Join-Path (Get-Location) $OutputDirectory
 New-Item -ItemType Directory -Force (Join-Path $releaseDir 'examples/inputs') | Out-Null
 Copy-Item -LiteralPath 'Architecture_Documentation.md','Architecture_View.md' -Destination (Join-Path $releaseDir 'examples/inputs')
+Copy-Item -LiteralPath 'benchmarks/library' -Destination (Join-Path $releaseDir 'examples') -Recurse -Force
 Copy-Item -LiteralPath 'README.md' -Destination $releaseDir
 Copy-Item -LiteralPath 'LICENSE' -Destination $releaseDir
 Copy-Item -LiteralPath 'docs' -Destination $releaseDir -Recurse -Force
