@@ -18,15 +18,17 @@ def main():
     parser.add_argument('--profile',choices=('space-fractions','library'),required=True)
     parser.add_argument('--artifacts',type=Path,required=True)
     parser.add_argument('--stop-file',type=Path,help='Cooperative stop marker; cleanup runs in finally')
+    parser.add_argument('--demo-only',action='store_true',help='Serve for recording without rerunning acceptance; explicitly marked unverified')
     args=parser.parse_args()
     cancel=threading.Event()
     signal.signal(signal.SIGINT,lambda *_:cancel.set())
     session=ComposeSession(args.project,args.artifacts,cancel,Redactor())
     try:
         session.start()
-        result=exercise(session,args.profile)
+        result=({'status':'unverified','reason':'Demo-only server; acceptance preflight deliberately not run'}
+                if args.demo_only else exercise(session,args.profile))
         (args.artifacts/'browser-preflight.json').write_text(json.dumps(result,indent=2),encoding='utf-8')
-        if result['status']!='passed':
+        if result['status']!='passed' and not args.demo_only:
             raise RuntimeError(result.get('error','Independent preflight failed'))
         print(json.dumps({'base_url':session.base,'identity_url':f'http://localhost:{session.oidc_port}','project':session.project}),flush=True)
         while not cancel.wait(1):

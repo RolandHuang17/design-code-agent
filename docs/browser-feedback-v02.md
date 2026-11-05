@@ -23,3 +23,5 @@
 这条开发谱系的项目自带测试为9项通过、27项因宿主无可用 PostgreSQL 跳过；独立 Docker HTTP 验收另行验证真实数据库，不将跳过计为通过。浏览器还有 favicon 404 的外观缺项，未伪装为零控制台错误。
 
 逐次状态、用量和谱系见 [开发记录](../experiments/v02/development/summary.json)。原始工具交换、源码快照和 runtime 构建/启动/重启/清理输出随 v0.2 证据包交付。
+
+[一分钟真实操作视频](media/library-feedback-demo-v02.mp4)：新增、借出、库存不足拒绝、归还和刷新。取自同一个开发修复结果；剪掉 CLI 联网等待，按1.5倍播放，只裁去录制器右侧灰色留白，没有改写页面数据。原始163.84秒录屏与剪辑哈希、范围见 [视频来源](../experiments/v02/development/video-provenance.json)。视频演示业务页面，不冒充从空目录生成的连续录像。

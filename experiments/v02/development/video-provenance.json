@@ -1,0 +1,25 @@
+{
+  "source_run": "runs/v02-development/run-20261106-044759-c995baaf",
+  "scope": "Actual headed Chromium UI recording of a seeded development case, not a fresh formal success or a recording of the generation itself.",
+  "cli_version": "@playwright/cli0.1.23;playwright1.65.0-alpha-2026-10-30",
+  "edits": "Retained source seconds0-85 and159-end to remove CLI network wait;1.5x playback; cropped only gray recording padding on right. No application data or code edited for video.",
+  "actions": [
+    "create Software Architecture with1 copy",
+    "borrow as reader-demo",
+    "reject reader-second because no copies",
+    "return loan1",
+    "reload and observe inventory1, no active loans, returned history"
+  ],
+  "files": [
+    {
+      "path": "output/playwright/library-feedback-demo.webm",
+      "sha256": "e5707d4125696ffb3fa65e579a7ce8a5ea71815d79d7a78df99889fbb33a0c30",
+      "bytes": 7361386
+    },
+    {
+      "path": "docs/media/library-feedback-demo-v02.mp4",
+      "sha256": "a4e1c67ac884d2b8c926a8ac1053518256a27a1c616b8d14f2b25f7e30dbf3c5",
+      "bytes": 280291
+    }
+  ]
+}

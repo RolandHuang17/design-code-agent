@@ -30,6 +30,8 @@ v0.1 及 v0.2-development 是开发/排错过程，不合并为固定基准实�
 
 只读汇总入口：`python scripts/summarize_benchmark.py experiments/v02/<cohort>`。按每次运行的有效响应usage估算费用；全局账本的差额可能包含并行开发调用，不用作分组成本比较。网络不确定预留另外披露。
 
+离线审阅页：`python scripts/render_review.py experiments/v02/<cohort> --output experiments/v02/<cohort>/review.html`。按组和逐次展示实际结果，展开查看原始检查；所有模型/运行日志文本先转义，页面没有脚本。生成页与原始JSON共同交付，不替代原始证据。
+
 ## 开发 pilot 与冻结版本
 
 `20261106-v02-e1` 首次运行在尝试让模型编写 npm 锁文件时出现输出截断，操作者中止控制器。保留原始目录、事件和不确定请求费用；结果标记 `externally_interrupted_controller_defect`。更改锁文件机制后，重新建立 `20261106-v02-e2` 冻结 cohort。e1 不视作完成的九次对照，不将其缺陷抹除。
