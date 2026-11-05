@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "design-code-agent"
+version = "0.1.0"
+description = "Traceable architecture-to-repository coding agent for Windows"
+requires-python = ">=3.12"
+dependencies = ["PyYAML==6.0.3"]
+
+[project.scripts]
+design-code-agent = "codeagent.cli:main"
+
+[project.gui-scripts]
+design-code-agent-gui = "codeagent.gui:main"
+
+[tool.setuptools.packages.find]
+include = ["codeagent*"]
+

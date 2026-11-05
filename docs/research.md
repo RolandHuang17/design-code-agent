@@ -1,0 +1,39 @@
+# Code Agent 机制调研
+
+调研时间：2026-11-05。以下区分实际访问到的代码、项目说明和无法访问的材料，不将推测写成源码结论。
+
+## 参考材料核验
+
+| 作业链接 | 实际核验情况 | 使用边界 |
+| --- | --- | --- |
+| ultraworkers/clawcode | 原链接 404；访问到 ultraworkers/claw-code | 调研其当前 Rust 会话结构与工具路径边界测试 |
+| Windy3f3f3f3f/howclaudecodeworks | 网页及已认证 GitHub API 均返回 404 | 未取得内容，不据此声称完成源码分析 |
+| anthropics/claudecode | 原链接 404；访问到 anthropics/claude-code | 阅读官方 README，作为产品能力和资料入口，不当作完整内部实现源码 |
+
+固定版本：Claw Code `ab8561dc378150e9e65868233dd872937aa68299`；Claude Code `26382c08758260c9f5deb2019d8fe851f89fa9ae`。通过 `git ls-remote` 核对，并读取 GitHub 内容 API 返回的相应文件。
+
+## 从已读代码提炼的机制
+
+Claw Code 的 [session.rs](https://github.com/ultraworkers/claw-code/blob/ab8561dc378150e9e65868233dd872937aa68299/rust/crates/runtime/src/session.rs) 定义了区分消息角色的会话、工具调用与结果内容块、用量元数据，以及上下文压缩和持久化信息。其会话代码还包含日志字段长度和脱敏相关处理。这表明 Agent 工程除了模型请求，还需管理工具配对、可追溯会话与资源边界。
+
+其 [path_scope_enforcement.rs](https://github.com/ultraworkers/claw-code/blob/ab8561dc378150e9e65868233dd872937aa68299/rust/crates/tools/tests/path_scope_enforcement.rs) 测试构造工作区写入权限下的工具注册表，并测试目录内路径和外部绝对路径的权限行为。本实现参考的是“路径约束应由宿主强制并测试”的原则，没有直接移植该仓库代码。
+
+Claude Code 的 [官方 README](https://github.com/anthropics/claude-code/blob/26382c08758260c9f5deb2019d8fe851f89fa9ae/README.md) 说明其仓库理解、开发和 Git 工作流能力，并链接官方文档。仅凭此 README 不能得出完整内部循环或调度实现结论。
+
+## 本项目的具体实现
+
+1. **模型与工具分离**：模型生成结构化调用；Python 宿主校验并执行，将真实结果用对应 tool_call_id 返回。
+2. **文件作为工程状态**：代码实际落盘。每次写入另存快照，修复时读后修改，避免只给聊天中的代码片段。
+3. **验证作为反馈**：宿主固定检查得到失败输出，最多三轮修复。没有运行的检查保持 unverified。
+4. **上下文有界**：完整工具交换才允许丢弃，使用磁盘计划、原始输入和宿主观察重建，不杜撰压缩后的执行结果。
+5. **可核验记录**：输入哈希、模型与平台、工具结果、检查状态、API usage 和累计费用构成证据链。
+
+这些是本工具的工程选择，不宣称与任一参考工具完全一致。作业只要求简易 Agent，因此没有引入多 Agent 调度框架、浏览器工具或任意终端工具。
+
+## 协议与发行依据
+
+- [DeepSeek 工具调用](https://api-docs.deepseek.com/guides/tool_calls/)：客户端执行工具并返回结果。实现显式关闭思考模式，避免混用不同思考历史协议。
+- [DeepSeek 模型及价格](https://api-docs.deepseek.com/quick_start/pricing/)：官方模型 ID、上下文及计价信息；上线前再次核对。
+- [百炼 DeepSeek 接口](https://help.aliyun.com/zh/model-studio/deepseek-api)：使用对应业务空间及地域的 OpenAI 兼容地址，采用 enable_thinking 参数。
+- [百炼 V4 Pro 价格](https://help.aliyun.com/zh/model-studio/deepseek-v4-pro)：按地域 / 模型核对人民币计价；本机北京模式上界采用输入 12、输出 27 元 / 百万 tokens，覆盖本次已读页面列出的标准与快照型号北京价格。
+- [PyInstaller 打包机制](https://pyinstaller.org/en/stable/operating-mode.html)：在 Windows 构建自带 Python 解释器的独立 exe；生成项目的 Node / Docker 不属于打包的 Python 工具运行时。

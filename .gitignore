@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+build/
+dist/
+runs/
+.env
+.env.*
+!.env.example
+~$*
+*.log
+node_modules/
+.agent-budget*
+acceptance-report.json
+

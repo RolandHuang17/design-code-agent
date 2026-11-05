@@ -1,0 +1,5 @@
+-r requirements.txt
+pytest==8.4.2
+pyinstaller==6.16.0
+setuptools==80.9.0
+
