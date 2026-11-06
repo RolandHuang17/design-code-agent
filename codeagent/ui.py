@@ -54,8 +54,16 @@ def protect_secret(entry):
 
 def workbench(root, title, subtitle):
     root.title(title)
-    width, height = min(1180, root.winfo_screenwidth() - 70), min(820, root.winfo_screenheight() - 90)
-    root.geometry(f"{width}x{height}")
+    left, top, right, bottom = 0, 0, root.winfo_screenwidth(), root.winfo_screenheight()
+    if os.name == "nt":
+        import ctypes
+        from ctypes import wintypes
+        area = wintypes.RECT()
+        if ctypes.windll.user32.SystemParametersInfoW(0x0030, 0, ctypes.byref(area), 0):
+            left, top, right, bottom = area.left, area.top, area.right, area.bottom
+    width = max(480, min(1180, right - left - 60))
+    height = max(360, min(820, bottom - top - 80))
+    root.geometry(f"{width}x{height}+{left + 20}+{top + 20}")
     root.minsize(min(900, width), min(600, height))
     root.configure(background=BG)
     style = ttk.Style(root)
