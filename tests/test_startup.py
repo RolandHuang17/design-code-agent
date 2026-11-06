@@ -73,6 +73,15 @@ http.createServer((req,res)=>{res.end('ok');setTimeout(()=>process.exit(0),20);}
 
 
 @pytest.mark.skipif(not available(), reason="Standard Node/npm runtime unavailable")
+def test_startup_counts_redirect_without_following_external_location(tmp_path):
+    source = """const http=require('node:http');
+http.createServer((req,res)=>{res.statusCode=302;res.setHeader('Location','http://nonexistent.invalid/login');res.end();}).listen(Number(process.env.PORT),'127.0.0.1');"""
+    result = probe_startup(project(tmp_path, source), threading.Event(), True, timeout=5)
+    assert result["status"] == "passed"
+    assert [item["status"] for item in result["http_observations"]] == [302, 302]
+
+
+@pytest.mark.skipif(not available(), reason="Standard Node/npm runtime unavailable")
 def test_startup_cancellation_stops_the_process(tmp_path):
     cancel = threading.Event()
     source = "setInterval(()=>{},1000);"

@@ -12,7 +12,7 @@ from pathlib import Path
 
 from .checks import clean_environment, terminate_tree
 from .evidence import bind_check, project_snapshot
-from .provider import Cancelled
+from .provider import Cancelled, NoRedirect
 from .safety import Redactor
 
 
@@ -58,7 +58,7 @@ def _probe(root, cancel, allow_execution, endpoint, timeout):
 
         reader = threading.Thread(target=drain, daemon=True)
         reader.start()
-        opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+        opener = urllib.request.build_opener(urllib.request.ProxyHandler({}), NoRedirect())
         deadline = time.monotonic() + timeout
         consecutive = 0
         while time.monotonic() < deadline:
