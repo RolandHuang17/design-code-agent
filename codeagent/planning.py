@@ -130,6 +130,7 @@ def project_digest(root):
 
 def local_context(documents, task, plan):
     """Keep source pointers and bounded exact excerpts; never summarize away provenance."""
+    documents = documents or {}
     result = {"source_catalogue": source_catalogue(documents), "issues": (documents or {}).get("issues", [])}
     if not task:
         result["original_input"] = documents
