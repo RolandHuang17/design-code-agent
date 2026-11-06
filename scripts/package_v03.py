@@ -10,10 +10,13 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from codeagent.config import user_variable
+from codeagent import __version__
 from codeagent.safety import project_files
 
 
-def package(main_exe, prototype_exe, output, evidence_roots=()):
+def package(main_exe, prototype_exe, output, evidence_roots=(), *, bundle_version=__version__):
+    if not re.fullmatch(r'\d+\.\d+\.\d+', bundle_version):
+        raise ValueError('Bundle version must be major.minor.patch')
     workspace = Path.cwd().resolve()
     output = output.resolve()
     if output.exists() or not output.is_relative_to(workspace / 'dist'):
@@ -47,7 +50,7 @@ def package(main_exe, prototype_exe, output, evidence_roots=()):
                 for track in ('main', 'prototype'):
                     entries[f'{track}/examples/{case}/{path.name}'] = path
     secrets = [user_variable(name).encode() for name in ('DASHSCOPE_API_KEY', 'DEEPSEEK_API_KEY') if user_variable(name)]
-    manifest = {'bundle': '0.3.0', 'source_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(),
+    manifest = {'bundle': bundle_version, 'source_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(),
                 'policy': 'Two independent programs. Read acceptance evidence for each; presence in archive does not establish verification.', 'files': {}}
     for name, path in sorted(entries.items()):
         data = path.read_bytes()
@@ -82,5 +85,6 @@ if __name__ == '__main__':
     parser.add_argument('--prototype-exe', required=True, type=Path)
     parser.add_argument('--output', required=True, type=Path)
     parser.add_argument('--evidence', nargs='*', default=[], type=Path)
+    parser.add_argument('--bundle-version', default=__version__)
     args = parser.parse_args()
-    print(json.dumps(package(args.main_exe, args.prototype_exe, args.output, args.evidence), indent=2))
+    print(json.dumps(package(args.main_exe, args.prototype_exe, args.output, args.evidence, bundle_version=args.bundle_version), indent=2))

@@ -15,6 +15,7 @@ examples/space-fractions/** -text whitespace=-trailing-space
 examples/library/** -text whitespace=-trailing-space
 experiments/v02/** -text whitespace=-trailing-space
 experiments/v03/** -text whitespace=-trailing-space
+experiments/v031/** -text whitespace=-trailing-space
 examples/temperature-converter/** -text whitespace=-trailing-space
 examples/superagent-health/** -text whitespace=-trailing-space
 codeagent/cases/*.md -text whitespace=-trailing-space

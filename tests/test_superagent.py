@@ -282,3 +282,124 @@ def test_reviewer_cannot_invent_blocking_requirements(tmp_path):
     review = c._review()
     assert review["approved"] and review["advisories"]
     c.close()
+
+
+def test_new_run_uses_unique_children_and_preserves_parent_project(tmp_path):
+    existing = tmp_path / "project"
+    existing.mkdir()
+    (existing / "README.md").write_text("Do not overwrite")
+    provider = lambda *args: pytest.fail("Creating a task must not call the model")
+    first = Coordinator.new_run(tmp_path, DOCUMENTS, provider)
+    second = Coordinator.new_run(tmp_path, DOCUMENTS, provider)
+    try:
+        assert first.directory != second.directory
+        assert first.directory.parent == second.directory.parent == tmp_path
+        assert first.store.get("run", "state")["state"] == "pending"
+        assert (existing / "README.md").read_text() == "Do not overwrite"
+        assert not (tmp_path / "state.sqlite").exists()
+    finally:
+        first.close()
+        second.close()
+
+
+@pytest.mark.parametrize("existing", ["project", "inputs"])
+def test_legacy_create_rejects_existing_product_or_input_bytes(tmp_path, existing):
+    c = Coordinator(tmp_path, lambda *args: pytest.fail("No model call"))
+    target = tmp_path / existing / "existing.txt"
+    target.parent.mkdir(exist_ok=True)
+    target.write_bytes(b"original bytes")
+    try:
+        with pytest.raises(ValueError, match="reuse existing"):
+            c.create(DOCUMENTS)
+        assert target.read_bytes() == b"original bytes"
+        assert c.store.get("run", "state") is None
+        assert c.store.resources() == []
+    finally:
+        c.close()
+
+
+def test_resume_invalid_paths_do_not_create_or_modify_files(tmp_path):
+    import sqlite3
+
+    wrong = tmp_path / "ordinary-folder"
+    wrong.mkdir()
+    (wrong / "note.txt").write_bytes(b"private note")
+    malformed = tmp_path / "unrelated-database"
+    malformed.mkdir()
+    (malformed / "project").mkdir()
+    with sqlite3.connect(malformed / "state.sqlite") as connection:
+        connection.execute("CREATE TABLE unrelated(value TEXT)")
+
+    def files():
+        return {p.relative_to(tmp_path).as_posix(): p.read_bytes() for p in tmp_path.rglob("*") if p.is_file()}
+
+    before = files()
+    for directory in ("", tmp_path / "missing", wrong, malformed):
+        with pytest.raises(ValueError):
+            Coordinator.open_existing(directory, lambda *args: pytest.fail("No paid calls on an invalid task"))
+        assert files() == before
+    assert not (tmp_path / "missing").exists()
+
+
+def test_resume_rejects_schema_only_database_without_task_metadata(tmp_path):
+    c = Coordinator(tmp_path, lambda *args: None)
+    c.close()
+    before = {p.name: p.read_bytes() for p in tmp_path.iterdir() if p.is_file()}
+    with pytest.raises(ValueError, match="任务状态"):
+        Coordinator.open_existing(tmp_path, lambda *args: pytest.fail("No model request"))
+    assert {p.name: p.read_bytes() for p in tmp_path.iterdir() if p.is_file()} == before
+
+
+def test_resume_preflight_reads_live_wal_copy_without_touching_original(tmp_path):
+    c = Coordinator(tmp_path, lambda *args: None)
+    c.create(DOCUMENTS)
+    try:
+        assert (tmp_path / "state.sqlite-wal").is_file()
+        before = {p.name: p.read_bytes() for p in tmp_path.glob("state.sqlite*")}
+        assert Store.validate_existing(tmp_path) == tmp_path.resolve()
+        assert {p.name: p.read_bytes() for p in tmp_path.glob("state.sqlite*")} == before
+    finally:
+        c.close()
+
+
+def test_open_existing_preserves_unknown_attempt_and_lease(tmp_path):
+    c = Coordinator(tmp_path, lambda *args: None)
+    c.create(DOCUMENTS)
+    c.store.put("run", "lease", "old-process")
+    c.store.put("attempt", "unknown-request", {"state": "unknown", "usage": []})
+    c.close()
+    restored = Coordinator.open_existing(tmp_path, lambda *args: pytest.fail("Opening must not contact the provider"))
+    try:
+        assert restored.store.get("run", "lease") == "old-process"
+        assert restored.store.get("attempt", "unknown-request")["state"] == "unknown"
+        assert restored.store.get("run", "state")["state"] == "pending"
+    finally:
+        restored.close()
+
+
+def test_state_transition_clears_stale_display_but_preserves_history(tmp_path):
+    c = Coordinator(tmp_path, lambda *args: None)
+    c.create(DOCUMENTS)
+    c._state("cancelled", reason="Earlier cancellation", verification="failed", review={"approved": False}, checks=[{"status": "failed"}])
+    c.store.put("attempt", "unknown-request", {"state": "unknown"})
+    c._state("running")
+    state = c.store.get("run", "state")
+    assert not {"reason", "verification", "review", "checks"} & state.keys()
+    c._state("completed", verification="unverified", checks=[])
+    assert "reason" not in c.store.get("run", "state")
+    assert any(event["details"].get("reason") == "Earlier cancellation" for event in c.store.events())
+    assert c.store.get("attempt", "unknown-request") == {"state": "unknown"}
+    c.close()
+
+
+def test_resource_descriptors_do_not_create_versions_or_expose_full_text(tmp_path):
+    s = Store(tmp_path)
+    first = s.resource("design", "一😀二abc")
+    second = s.resource("design", "new text")
+    descriptors = s.resources()
+    assert {row["resource"] for row in descriptors} == {first["resource"], second["resource"]}
+    assert all(set(row) == {"resource", "version", "summary", "chars"} for row in descriptors)
+    assert next(row["chars"] for row in descriptors if row["resource"] == first["resource"]) == 6
+    assert s.resources() == descriptors
+    assert s.read(first["resource"])["text"] == "一😀二abc"
+    s.close()

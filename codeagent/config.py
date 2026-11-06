@@ -1,10 +1,10 @@
 import os
 
 
-def user_variable(name: str) -> str:
-    """Read Windows user settings even when the desktop process predates the change."""
+def user_variable(name: str, *, refresh: bool = False) -> str:
+    """Keep CLI environment overrides; explicit GUI refresh rereads user settings."""
     value = os.environ.get(name)
-    if value:
+    if value and not refresh:
         return value
     if os.name == "nt":
         import winreg
@@ -13,4 +13,4 @@ def user_variable(name: str) -> str:
                 return str(winreg.QueryValueEx(key, name)[0])
         except OSError:
             pass
-    return ""
+    return value or ""

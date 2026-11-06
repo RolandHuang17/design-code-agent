@@ -63,6 +63,29 @@ class Coordinator:
     One process owns a run at a time. SQLite lease is claimed transactionally and
     must be explicitly released after a crashed process, never stolen by a worker.
     """
+    @classmethod
+    def new_run(cls, parent, documents, provider_factory, cancel=None, allow_execution=False, on_event=None, secrets=()):
+        """Create a unique child task; never treat an existing project as new output."""
+        if isinstance(parent, str) and not parent.strip():
+            raise ValueError("请选择新任务的输出父目录")
+        parent = Path(parent).resolve()
+        parent.mkdir(parents=True, exist_ok=True)
+        directory = parent / ("run-" + time.strftime("%Y%m%d-%H%M%S") + "-" + uuid.uuid4().hex[:12])
+        directory.mkdir(exist_ok=False)
+        coordinator = cls(directory, provider_factory, cancel, allow_execution, on_event, secrets)
+        try:
+            coordinator.create(documents)
+        except BaseException:
+            coordinator.close()
+            raise
+        return coordinator
+
+    @classmethod
+    def open_existing(cls, directory, provider_factory, cancel=None, allow_execution=False, on_event=None, secrets=()):
+        """Validate on a temporary copy before opening a persistent Store."""
+        directory = Store.validate_existing(directory)
+        return cls(directory, provider_factory, cancel, allow_execution, on_event, secrets)
+
     def __init__(self, directory, provider_factory, cancel=None, allow_execution=False, on_event=None, secrets=()):
         self.store = Store(directory)
         self.directory = self.store.directory
@@ -86,6 +109,8 @@ class Coordinator:
     def create(self, documents):
         if self.store.get("run", "state"):
             raise ValueError("This directory already contains a run; use resume")
+        if any(self.project.iterdir()) or ((self.directory / "inputs").exists() and any((self.directory / "inputs").iterdir())):
+            raise ValueError("New task would reuse existing project/input files; select a new task directory")
         raw = json.dumps(documents, ensure_ascii=False)
         if self.redactor.text(raw) != raw:
             raise ValueError("Input appears to contain credentials; remove them before creating a task")
@@ -100,6 +125,11 @@ class Coordinator:
 
     def _state(self, state, **extra):
         current = self.store.get("run", "state", {})
+        if state == "running":
+            for key in ("reason", "verification", "review", "checks"):
+                current.pop(key, None)
+        elif state not in ("pending", "cancelled", "blocked", "failed"):
+            current.pop("reason", None)
         self.store.put("run", "state", {**current, "state": state, "updated": time.time(), **extra})
         self.event("state", state=state, **extra)
 

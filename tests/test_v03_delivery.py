@@ -126,6 +126,8 @@ def test_dual_package_hashes_and_preserves_two_separate_programs(tmp_path, monke
     package(Path('dist/main/app.exe'), Path('dist/prototype/app.exe'), Path('dist/bundle.zip'))
     with zipfile.ZipFile('dist/bundle.zip') as archive:
         manifest = json.loads(archive.read('BUNDLE-MANIFEST.json'))
+        from codeagent import __version__
+        assert manifest['bundle'] == __version__
         assert archive.read('README.md') == b'original\r\nbytes'
         assert 'main/DesignCodeAgent.exe' in manifest['files']
         assert 'prototype/DesignCodeAgent-Superagent.exe' in manifest['files']
