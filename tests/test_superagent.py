@@ -159,11 +159,11 @@ def test_reviewer_cannot_write_files(tmp_path):
             if not any(m["role"] == "assistant" for m in messages):
                 return call("write_file", {"path": "sum.js", "content": "bad"})
             assert "no write capability" in messages[-1]["content"]
-            return call("submit_review", {"approved": False, "issues": ["Needs operator review"]})
+            return call("submit_review", {"approved": True, "issues": [], "advisories": ["Optional operator review"]})
 
     c = Coordinator(tmp_path, lambda role, cancel: Reviewer(role, seen))
     c.create(DOCUMENTS)
-    assert not c._review()["approved"]
+    assert c._review()["approved"]
     assert not (c.project / "sum.js").exists()
     c.close()
 
@@ -262,4 +262,23 @@ def test_install_only_ignores_host_derived_root_lockfile(tmp_path, monkeypatch):
     (c.project / "source.js").write_text('original')
     _, future = c.submit_check("install")
     assert future.result(timeout=3)["state"] == "stale"
+    c.close()
+
+
+def test_reviewer_cannot_invent_blocking_requirements(tmp_path):
+    class Invented(Scripted):
+        def complete(self, messages, tools, max_tokens):
+            if not any(m["role"] == "assistant" for m in messages):
+                return call("submit_review", {"approved": False, "issues": [{
+                    "source_resource": c.store.get("run", "inputs")[0]["resource"],
+                    "requirement": "You must use a PostgreSQL database", "file": "sum.js",
+                    "problem": "No PostgreSQL database", "reproduction": "There is no PostgreSQL configuration"}]})
+            assert "literal original requirement" in messages[-1]["content"]
+            return call("submit_review", {"approved": True, "issues": [], "advisories": ["A database is optional"]})
+
+    c = Coordinator(tmp_path, lambda role, cancel: Invented(role, []))
+    c.create(DOCUMENTS)
+    (c.project / "sum.js").write_text('module.exports=(a,b)=>a+b')
+    review = c._review()
+    assert review["approved"] and review["advisories"]
     c.close()
