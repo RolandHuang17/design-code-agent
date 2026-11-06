@@ -147,3 +147,37 @@ def test_repeated_failure_runs_only_one_bounded_replan(tmp_path, monkeypatch):
     assert report["status"] == "failed_validation"
     assert report["repair_rounds"] == 3
     assert provider.position == 4
+
+
+def test_model_source_tool_uses_fixed_pages_and_rejects_repeated_page(tmp_path):
+    project = tmp_path / "project"
+    project.mkdir()
+    provider = ReplayProvider(tmp_path)
+    docs = documents()
+    resource = source_catalogue(docs)[0]["id"]
+    for _ in range(3):
+        provider.add("read_source", {"resource_id": resource})
+    provider.done()
+    events = []
+    agent = Agent(provider, threading.Event(), emit=events.append)
+    agent.documents = docs
+    agent.run_dir = tmp_path / "run"
+    (agent.run_dir / "artifacts").mkdir(parents=True)
+    agent.phase_loop("repair", Toolset(project, agent.cancel, Redactor()), 5, [])
+    results = [e["result"] for e in events if e["event"] == "tool_result"]
+    assert results[0]["content"] == docs["documents"][0]["text"]
+    assert results[1]["content"] == results[0]["content"]
+    assert "already returned twice" in results[2]["error"]
+    assert "limit" not in SOURCE_TOOL["function"]["parameters"]["properties"]
+
+
+def test_task_context_inlines_supplement_once_without_source_excerpt_duplicate():
+    docs = documents()
+    supplement = {**docs["documents"][0], "filename": "supplement.md", "kind": "operator_supplement", "origin": "operator supplied, not original design"}
+    docs["documents"].append(supplement)
+    task = {"id": "config", "files": ["config.js"], "sources": [{"document": "supplement.md", "start_line": 1, "end_line": 3}]}
+    context = local_context(docs, task, {"tasks": [task]})
+    assert len(context["operator_supplements"]) == 1
+    assert context["operator_supplements"][0]["content"] == supplement["text"]
+    assert context["source_excerpts"] == []
+    assert "original_input" not in context
