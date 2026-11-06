@@ -106,12 +106,14 @@ class Candidates:
                     parent = parent.parent
             for item in items:
                 staged = folder / "after" / item["path"]
-                check = {"path": item["path"], "status": "passed"}
+                check = {"path": item["path"], "status": "not_applicable", "kind": "syntax_format"}
                 try:
                     if staged.suffix == ".json":
                         json.loads(staged.read_text(encoding="utf-8"))
+                        check["status"] = "passed"
                     elif staged.suffix in (".yaml", ".yml"):
                         list(yaml.load_all(staged.read_text(encoding="utf-8"), Loader=UniqueKeyLoader))
+                        check["status"] = "passed"
                     elif staged.suffix in (".js", ".mjs", ".cjs"):
                         node = shutil.which("node")
                         if node:
