@@ -34,6 +34,7 @@
 | [space-03-wide-context](../experiments/v03/main/space-03-wide-context/) | 续跑，344829d控制器 | 四轮修复后全部宿主检查及 HTTP 流程通过，56 轮模型响应 | 浏览器登录重定向 404；静态审查发现四个占位服务，整体仍未通过完整验收 |
 | [space-04-final-fresh](../experiments/v03/main/space-04-final-fresh/) | 全新原始 Space 材料，344829d控制器 | 四轮修复、249轮响应，44项自带测试与27项HTTP通过 | 再次部署HTTP27/27通过；浏览器登录写死8080而连接失败，后续六项网页流程跳过 |
 | [space-04-browser-repair](../experiments/v03/main/space-04-browser-repair/) | 上项续跑，5531e14控制器 | 17轮响应、8.989035元；修复运行时身份地址配置 | HTTP27/27，学生与管理员登录通过；登录后空白页面，3项浏览器通过、2失败、6跳过 |
+| [space-04-ui-repair](../experiments/v03/main/space-04-ui-repair/) | 上项续跑，5531e14控制器 | 一轮修复，18响应、9.45132元，44项自带测试通过 | HTTP27/27；浏览器18项：16通过、1失败、1跳过；八题计分与管理员CRD通过，刷新后成绩及Update界面仍缺失 |
 
 `generic-02` 暴露“测试通过但 npm start 不监听”的缺口，因此加入固定 HTTP 就绪探测。就绪探测只证明服务真实监听，不能代替温度转换业务验收。借阅浏览器检查覆盖新增、借出、库存不足、归还、刷新后的状态；全部由外部浏览器操作完成，未人工修改生成源码。
 

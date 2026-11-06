@@ -119,5 +119,10 @@
     "codeagent/superagent/runtime.py": "474ac535917549b5704b4f103eb730cc402d214d99e1191fa7b1129e39321c0b",
     "codeagent/superagent/store.py": "7fbce58135cfb3b74f5760f323a52eeaddf286a998ee96079e6c7a724055cf63",
     "codeagent/tools.py": "9662abcda75cbaad24eeffafc76da3b686f3fc3c366e4cfd099f9c717f6dbe07"
+  },
+  "frozen_build_source": {
+    "main": "build-source/main",
+    "prototype": "build-source/prototype",
+    "policy": "Exact Python source bytes bound by the two source_hashes maps; source commits retained for dependency/build configuration history. Main checks.py has working-tree line endings distinct from Git normalization; exact build bytes are preserved here."
   }
 }

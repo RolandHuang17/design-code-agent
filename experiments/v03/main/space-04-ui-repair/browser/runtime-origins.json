@@ -1,0 +1,13 @@
+{
+  "gateway_public_origin": "http://localhost:4259",
+  "identity_public_origin": "http://localhost:4260",
+  "keycloak_ports": [
+    {
+      "target": 8080,
+      "published": "4260",
+      "host_ip": "127.0.0.1",
+      "protocol": "tcp"
+    }
+  ],
+  "project": "dca-995c08348c86"
+}

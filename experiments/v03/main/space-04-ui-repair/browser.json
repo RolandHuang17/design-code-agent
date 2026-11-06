@@ -1,0 +1,129 @@
+{
+  "kind": "independent_browser",
+  "status": "failed",
+  "base_url": "http://localhost:4259",
+  "identity_url": "http://localhost:4260",
+  "checks": [
+    {
+      "check": "entry",
+      "status": "passed",
+      "observation": "Introduction visible"
+    },
+    {
+      "check": "student real PKCE login",
+      "status": "passed",
+      "observation": "student/student through actual Keycloak localhost4260 returned to gateway4259"
+    },
+    {
+      "check": "student start",
+      "status": "passed",
+      "observation": "Start a new game displayed first fraction question"
+    },
+    {
+      "check": "pause",
+      "status": "passed",
+      "observation": "Pause displayed Game Paused and Resume"
+    },
+    {
+      "check": "resume",
+      "status": "passed",
+      "observation": "Resume returned to unchanged question1 and score0"
+    },
+    {
+      "check": "answer and scoring",
+      "status": "passed",
+      "observation": "8 answers entered through UI:3/4,1/2,1/2,2/3,1/2,3/5,1/6,1/2; scores advanced0→8"
+    },
+    {
+      "check": "ending feedback",
+      "status": "passed",
+      "observation": "Mission Complete:8 questions, final score8"
+    },
+    {
+      "check": "score view before reload",
+      "status": "passed",
+      "observation": "View Score displayed8 points"
+    },
+    {
+      "check": "help",
+      "status": "passed",
+      "observation": "Help displayed fraction input and equivalence guidance"
+    },
+    {
+      "check": "authentication after reload",
+      "status": "passed",
+      "observation": "Student name and main menu survive reload"
+    },
+    {
+      "check": "admin real PKCE login",
+      "status": "passed",
+      "observation": "Separate browser admin/admin login succeeded"
+    },
+    {
+      "check": "admin list",
+      "status": "passed",
+      "observation": "Manage Questions displayed8 seed questions"
+    },
+    {
+      "check": "admin create",
+      "status": "passed",
+      "observation": "Created Browser audit20261106 question through form; listed ninth item"
+    },
+    {
+      "check": "admin creation reload persistence",
+      "status": "passed",
+      "observation": "Reloaded entire page, reentered admin list; created item still present"
+    },
+    {
+      "check": "admin delete",
+      "status": "passed",
+      "observation": "Clicked newly created item Delete; Question deleted feedback"
+    },
+    {
+      "check": "admin list refresh after delete",
+      "status": "passed",
+      "observation": "Refresh list removed created item; seed8remain"
+    },
+    {
+      "check": "student score/game recovery after reload",
+      "status": "failed",
+      "observation": "After score8, reload returned Main Menu; clicking View Score left Main Menu unchanged rather than recovering previous score. Authentication alone persisted."
+    },
+    {
+      "check": "admin update question",
+      "status": "skipped",
+      "reason": "No Edit/Update control exists in actual admin UI; only create/list/delete observed. Update cannot be claimed tested."
+    }
+  ],
+  "counts": {
+    "passed": 16,
+    "failed": 1,
+    "skipped": 1
+  },
+  "source_matches_original_run": true,
+  "original_report_files": 46,
+  "source_unchanged": true,
+  "archive_entries_unchanged": true,
+  "manual_project_edits": false,
+  "cleanup": {
+    "stop_method": "cooperative stop file",
+    "server_exit_code": 0,
+    "playwright_sessions_closed": [
+      "v03space04ui",
+      "v03space04uiadmin"
+    ],
+    "owned_project": "dca-995c08348c86",
+    "post_stop_ps_exit_code": 0,
+    "post_stop_ps_stdout": "",
+    "post_stop_ps_stderr": "",
+    "no_owned_containers_remain": true
+  },
+  "lineage": "Fresh Space04 generation followed by browser-origin Agent seed repair and this UI Agent seed repair; not another fresh generation.",
+  "original_host_test_count": 44,
+  "original_host_skipped_count": 0,
+  "remaining_gaps": [
+    "Student cannot recover server-backed prior game/score through UI after reload",
+    "Administrator Update UI missing; only Create/Read/Delete independently covered"
+  ],
+  "limitations": "No browser DOM/CSS changes; no API calls substituted for UI actions; no general success-rate/production claim."
+}

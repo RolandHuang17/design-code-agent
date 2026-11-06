@@ -1,4 +1,6 @@
-# 干净 Windows 验收：已完成
+# 干净 Windows 验收：v0.2 历史记录
+
+v0.3 两个最终程序的原生验收、源码绑定与导出记录见 [v0.3 验证](v03-validation.md) 和 [最终主程序清单](../experiments/v03/clean-windows/main06-summary.json)。
 
 当前状态：最终exe的独立工具验收已完成。Windows11企业评估版26H2，初始build26300.9457，更新后26300.9711；注册表ProductName仍写Windows10，原始值保留。系统没有预装Python、Node或Docker，先保存干净快照，再运行桌面工具。
 

@@ -1,0 +1,305 @@
+/* Space Fractions - browser UI styles (plain CSS, no bundler) */
+:root {
+  --sf-bg: #0b1026;
+  --sf-surface: #141b3d;
+  --sf-surface-2: #1d2653;
+  --sf-accent: #6c8cff;
+  --sf-accent-2: #9d7bff;
+  --sf-ok: #3ddc84;
+  --sf-err: #ff6b81;
+  --sf-text: #eaf0ff;
+  --sf-muted: #9aa5cc;
+  --sf-border: #2b3566;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(108, 140, 255, 0.25), transparent 60%),
+    radial-gradient(900px 500px at 10% 110%, rgba(157, 123, 255, 0.2), transparent 60%),
+    var(--sf-bg);
+  color: var(--sf-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#app {
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+  flex: 1;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0 20px;
+}
+
+.brand {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  background: linear-gradient(90deg, var(--sf-accent), var(--sf-accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.auth-panel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#profile-name {
+  color: var(--sf-muted);
+  font-size: 14px;
+}
+
+button {
+  background: var(--sf-surface-2);
+  color: var(--sf-text);
+  border: 1px solid var(--sf-border);
+  border-radius: 8px;
+  padding: 9px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+button:hover {
+  background: #253064;
+  border-color: var(--sf-accent);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button.primary {
+  background: var(--sf-accent);
+  border-color: var(--sf-accent);
+  color: #0b1026;
+  font-weight: 600;
+}
+
+button.primary:hover {
+  background: #7f9cff;
+}
+
+/* Views are shown/hidden via the `hidden` attribute (see app.js show()).
+   Explicitly restoring display here avoids any UA(default) ambiguity and keeps
+   styling consistent with the JS toggling rather than a separate .active class. */
+.view[hidden] {
+  display: none;
+}
+
+.view:not([hidden]) {
+  display: block;
+}
+
+.card {
+  background: var(--sf-surface);
+  border: 1px solid var(--sf-border);
+  border-radius: 14px;
+  padding: 22px;
+  margin-bottom: 16px;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 12px;
+}
+
+h1 {
+  font-size: 26px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+p {
+  color: var(--sf-muted);
+  line-height: 1.55;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  display: grid;
+  gap: 10px;
+}
+
+.menu button {
+  text-align: left;
+  font-size: 16px;
+  padding: 14px;
+  width: 100%;
+}
+
+.options {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-size: 15px;
+  padding: 12px 14px;
+}
+
+.option.selected {
+  border-color: var(--sf-accent);
+  box-shadow: 0 0 0 1px var(--sf-accent);
+}
+
+.option.correct {
+  border-color: var(--sf-ok);
+  background: rgba(61, 220, 132, 0.12);
+}
+
+.option.wrong {
+  border-color: var(--sf-err);
+  background: rgba(255, 107, 129, 0.12);
+}
+
+.options.locked .option {
+  cursor: default;
+}
+
+.score-display {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--sf-accent-2);
+  margin-bottom: 8px;
+}
+
+.feedback {
+  min-height: 24px;
+  margin-top: 12px;
+  font-weight: 600;
+}
+
+.feedback.ok {
+  color: var(--sf-ok);
+}
+
+.feedback.err {
+  color: var(--sf-err);
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.help-list {
+  color: var(--sf-muted);
+  line-height: 1.7;
+  padding-left: 20px;
+}
+
+.finish-banner {
+  text-align: center;
+  padding: 12px 0 4px;
+}
+
+.finish-banner .final-score {
+  font-size: 34px;
+  font-weight: 800;
+  background: linear-gradient(90deg, var(--sf-accent), var(--sf-accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.footer {
+  text-align: center;
+  color: var(--sf-muted);
+  font-size: 12px;
+  padding: 16px;
+  opacity: 0.8;
+}
+
+#admin-create-form label {
+  display: block;
+  margin-top: 12px;
+  color: var(--sf-muted);
+  font-size: 13px;
+}
+
+#admin-create-form input[type='text'],
+#admin-create-form input:not([type]) {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  background: var(--sf-surface-2);
+  color: var(--sf-text);
+  border: 1px solid var(--sf-border);
+  border-radius: 8px;
+  padding: 9px 12px;
+  font-size: 14px;
+}
+
+#admin-create-form button[type='submit'] {
+  margin-top: 16px;
+}
+
+.question-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+  display: grid;
+  gap: 8px;
+}
+
+.question-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: var(--sf-surface-2);
+  border: 1px solid var(--sf-border);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.question-list .q-text {
+  color: var(--sf-text);
+  font-size: 14px;
+}
+
+@media (max-width: 560px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  h1 {
+    font-size: 22px;
+  }
+}

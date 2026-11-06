@@ -8,7 +8,7 @@ powershell -ExecutionPolicy Bypass -File scripts/build_dual.ps1 -OutputDirectory
 
 脚本先执行工具回归，再分别构建 `main/DesignCodeAgent.exe` 和 `prototype/DesignCodeAgent-Superagent.exe`，每个目录包含输入示例与 SHA256。输出目录必须是工作区 dist 下尚不存在的新目录。可用 `-Track main` 或 `-Track prototype` 单独构建；不能沿用另一个文件的验收结论。
 
-本轮本机回归为 **171 通过、1 跳过**（Windows 符号链接权限）。最终文件与源码绑定见 [构建清单](../experiments/v03/build-final.json)，真实运行和干净 Windows 状态见 [v0.3 验证](v03-validation.md)。下文 v0.2 构建和 CI 记录作为历史资料保留。
+本轮本机回归为 **171 通过、1 跳过**（Windows 符号链接权限）。最终文件与源码绑定见 [构建清单](../experiments/v03/build-final.json)，其中两个程序的精确Python源码字节另存于 `experiments/v03/build-source/`（含构建时的行尾），真实运行和干净 Windows 状态见 [v0.3 验证](v03-validation.md)。下文 v0.2 构建和 CI 记录作为历史资料保留。
 
 ## 本机构建
 

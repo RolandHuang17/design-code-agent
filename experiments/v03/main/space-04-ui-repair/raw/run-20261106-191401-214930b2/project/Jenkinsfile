@@ -1,0 +1,92 @@
+// Jenkinsfile — Space Fractions (REFERENCE-ONLY, NOT validated)
+//
+// Origin: operator-provided benchmark supplement (space-fractions.md, lines 24-29)
+// and Architecture_Documentation.md (lines 132-152, "Kubernetes-ready plan").
+//
+// This file is intentionally illustrative CI/CD configuration. It has NOT been
+// executed against a real Jenkins controller, cloud registry, or cluster, and no
+// production validation is claimed. Credentials are referenced, never stored.
+// Review and adapt before any use.
+
+pipeline {
+    agent any
+
+    environment {
+        // Image registry (e.g. <account>.dkr.ecr.<region>.amazonaws.com/spacefractions)
+        IMAGE_REGISTRY = credentials('spacefractions-image-registry')
+        IMAGE_NAME     = 'spacefractions'
+        IMAGE_TAG      = "${env.BUILD_NUMBER}"
+        NODE_VERSION   = '22'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Install') {
+            steps {
+                sh 'npm ci'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                // Real source check/prep, never an echo-only no-op.
+                sh 'npm run build'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                // Unit tests run without live infrastructure by design.
+                sh 'npm test'
+            }
+        }
+
+        stage('Package') {
+            steps {
+                sh "docker build -t ${IMAGE_REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG} -t ${IMAGE_REGISTRY}/${IMAGE_NAME}:latest -f packages/gateway/Dockerfile ."
+            }
+        }
+
+        stage('Publish') {
+            when {
+                branch 'main'
+            }
+            steps {
+                script {
+                    withCredentials([string(credentialsId: 'spacefractions-registry-token', variable: 'REGISTRY_TOKEN')]) {
+                        sh "echo \"${REGISTRY_TOKEN}\" | docker login ${IMAGE_REGISTRY} --username oauth2accesstoken --password-stdin"
+                        sh "docker push ${IMAGE_REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG}"
+                        sh "docker push ${IMAGE_REGISTRY}/${IMAGE_NAME}:latest"
+                    }
+                }
+            }
+        }
+
+        stage('Deploy (reference, gated)') {
+            when {
+                branch 'main'
+                environment name: 'DEPLOY_ENABLED', value: 'true'
+            }
+            steps {
+                // Illustrative only; requires a configured kubeconfig in the agent.
+                // NOT validated — do not assume this works in production.
+                sh 'kubectl apply -f k8s/spacefractions-deployment.yaml'
+            }
+        }
+    }
+
+    post {
+        always {
+            cleanWs()
+        }
+        failure {
+            // Reference-only: wire to your own notifier.
+            echo 'Space Fractions pipeline failed (reference pipeline, not validated).'
+        }
+    }
+}

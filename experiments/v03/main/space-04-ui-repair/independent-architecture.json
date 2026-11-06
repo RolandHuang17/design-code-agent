@@ -1,0 +1,181 @@
+{
+  "kind": "independent_static_architecture_review",
+  "status": "findings",
+  "functional_verification": "This static review does not establish functional pass. Separate independent HTTP27/27 passed; browser16passed1failed1skipped with2gaps.",
+  "source_matches_original_run": true,
+  "services": [
+    {
+      "service": "gateway",
+      "compose_build_dockerfile": "packages/gateway/Dockerfile",
+      "dockerfile_cmd": "[\"node\", \"packages/gateway/src/index.js\"]",
+      "entrypoint": "packages/gateway/src/index.js",
+      "entrypoint_exists": true,
+      "has_real_listen_call": true,
+      "dockerfile_sha256": "ecc8d9c98d3a1d21a180845d4b94dfedbcc9fafd50d0f89e78706dea2d614260",
+      "entrypoint_sha256": "36c69f6c07dc3d5465f99fcd632f3c1788f28473c71e0349e230e976c4b6cf01",
+      "observation": "Independent Node service entrypoint; no keepalive placeholder CMD."
+    },
+    {
+      "service": "game-service",
+      "compose_build_dockerfile": "packages/game-service/Dockerfile",
+      "dockerfile_cmd": "[\"node\", \"packages/game-service/src/index.js\"]",
+      "entrypoint": "packages/game-service/src/index.js",
+      "entrypoint_exists": true,
+      "has_real_listen_call": true,
+      "dockerfile_sha256": "f81cdcc8c6189bc56ed1b64669584b1e93d59e7a71c95600fb3c9cf84d325921",
+      "entrypoint_sha256": "f9e9432c9a752d908fc122125fec1e556d0ad647991fbf09d399de77b5e48880",
+      "observation": "Independent Node service entrypoint; no keepalive placeholder CMD."
+    },
+    {
+      "service": "question-service",
+      "compose_build_dockerfile": "packages/question-service/Dockerfile",
+      "dockerfile_cmd": "[\"node\", \"packages/question-service/src/index.js\"]",
+      "entrypoint": "packages/question-service/src/index.js",
+      "entrypoint_exists": true,
+      "has_real_listen_call": true,
+      "dockerfile_sha256": "a1037788201cd377c6568082541c0b7d608df32f242e9536cf69e0a7fefdbc7c",
+      "entrypoint_sha256": "9e1a3b412602b0e660d2c9899bc2bc1d0447918bb4a28ab90c0428f61c45b12f",
+      "observation": "Independent Node service entrypoint; no keepalive placeholder CMD."
+    },
+    {
+      "service": "user-service",
+      "compose_build_dockerfile": "packages/user-service/Dockerfile",
+      "dockerfile_cmd": "[\"node\", \"packages/user-service/src/index.js\"]",
+      "entrypoint": "packages/user-service/src/index.js",
+      "entrypoint_exists": true,
+      "has_real_listen_call": true,
+      "dockerfile_sha256": "a99dc338b1b225e0152c44480b93864799f914423315da5adac1cf2a5b23581b",
+      "entrypoint_sha256": "1e6a24a81600351cfde8ca5bcdfa834bd1b4b2e2cc692560fb58852f0e3f912b",
+      "observation": "Independent Node service entrypoint; no keepalive placeholder CMD."
+    },
+    {
+      "service": "admin-service",
+      "compose_build_dockerfile": "packages/admin-service/Dockerfile",
+      "dockerfile_cmd": "[\"node\", \"packages/admin-service/src/index.js\"]",
+      "entrypoint": "packages/admin-service/src/index.js",
+      "entrypoint_exists": true,
+      "has_real_listen_call": true,
+      "dockerfile_sha256": "03e2fe23e2c15d903cb0ea73f79c3eebd43d858c882201374806add73964c5a8",
+      "entrypoint_sha256": "12c4031a5bf902ec95a9ccc132eaf35bad0de7b488b2bd38cdfd2ec204bc8362",
+      "observation": "Independent Node service entrypoint; no keepalive placeholder CMD."
+    }
+  ],
+  "interservice_calls": [
+    {
+      "file": "packages/gateway/src/index.js",
+      "observation": "buildProductionDeps routes games/questions/users/auth/admin to GAME_SERVICE_URL/QUESTION_SERVICE_URL/USER_SERVICE_URL/ADMIN_SERVICE_URL; actual http/https request proxy and bounded downstream timeout."
+    },
+    {
+      "file": "packages/game-service/src/index.js",
+      "observation": "Game service imports PgQuestionRepository and PgUserRepository and uses shared PostgreSQL directly; no question/user HTTP call inferred."
+    },
+    {
+      "file": "packages/admin-service/src/index.js",
+      "observation": "Admin imports PgUserRepository/PgQuestionRepository and Elasticsearch QuestionSearch directly; no remote question-service call inferred."
+    }
+  ],
+  "postgresql": {
+    "observation": "Production PgGameRepository/PgQuestionRepository/PgUserRepository instantiate pg Pool with DATABASE_URL. SQL schema/seed and named pg_data Compose volume exist. Game answer path uses owned client transaction, SELECT FOR UPDATE, answer insert and score update. This is static persistence implementation evidence, not a new restart test.",
+    "files": [
+      "packages/game-service/src/repository.js",
+      "packages/question-service/src/repository.js",
+      "packages/user-service/src/index.js",
+      "sql/migrations/001_schema.sql",
+      "sql/seed.sql",
+      "compose.yaml"
+    ]
+  },
+  "integrations": {
+    "redis": {
+      "observed": "Redis Compose service exists; no runtime Redis require/createClient/call site found in generated JS. Cache integration not established.",
+      "status": "missing_observed_client"
+    },
+    "rabbitmq": {
+      "observed": "amqplib connect/createConfirmChannel/publish in game-service/src/events.js, production dependency and publishScore call sites exist; delivery/consumer correctness not independently tested here.",
+      "status": "static_client_observed"
+    },
+    "elasticsearch": {
+      "observed": "@elastic/elasticsearch Client in question/admin production dependencies; QuestionSearch issues index/search/delete. Query/index outcomes not independently tested here.",
+      "status": "static_client_observed"
+    },
+    "oauth": {
+      "observed": "Runtime /config.js injection now uses remapped origins; actual student/admin PKCE browser logins passed. Full post-login UI remains failed.",
+      "status": "browser_login_passed_ui_failed"
+    },
+    "prometheus": {
+      "observed": "Gateway dynamic request/downstream metrics registry and /metrics output, scrape config exists; no scrape ingestion/metric accuracy test here.",
+      "status": "static_endpoint_and_config_observed"
+    },
+    "deployment_references": {
+      "observed": "Kubernetes, Terraform, Jenkins, Vault/Istio reference files exist. No cloud/cluster/production deployment verified.",
+      "status": "reference_only"
+    }
+  },
+  "findings": [
+    {
+      "severity": "browser_gap",
+      "file": "packages/gateway/public/app.js",
+      "description": "UI score recovery after reload failed; current game object not restored from server."
+    },
+    {
+      "severity": "browser_gap",
+      "file": "packages/gateway/public/index.html",
+      "description": "No administrator Edit/Update control observed."
+    },
+    {
+      "severity": "unverified_requirement",
+      "file": "compose.yaml",
+      "description": "Redis container remains declared without observed runtime JS cache client."
+    }
+  ],
+  "comparison_to_space03": "Five real service entrypoints remain; no keepalive service placeholders observed.",
+  "project_file_sha256": {
+    ".env.example": "30473611dd8aa4856b57814174051e64f96ec302d31b8a5c7447e204be0ebe2d",
+    "architecture-decisions.md": "f69d8f5587538d2d52cb132a3524f9ec60905cefc0d2769efaca2abad9542923",
+    "compose.yaml": "1c384e72119f3174e60710ff9d2d9b31a174791743777847136eb58a6bb135d6",
+    "internal.proto": "d72be380b0d49a57591ba59b3b24c77dd178ccf36fb92ded021e5e5575ec02ca",
+    "Jenkinsfile": "9d3afef4f7795774e32f63119b208c6d1bc68ded690e07394cf6ca5eaa59932a",
+    "openapi.yaml": "06fdf46026ec0830c22efbd81b296f3be7e73b71cef055f2644d24094befb9cd",
+    "package-lock.json": "f9d8da5c333a01285f4ed11bba861387423087448618a8d8378b377a07303d2c",
+    "package.json": "5315f7358114028873cf5a04c5dde2611e9bb0b0ebe37eee43f6221bfa52b866",
+    "plan.json": "1de7d54ec6bb0aa96c15295d0a4c9677945c00b0899182445fe8e3aa90187f56",
+    "README.md": "3ffa519203cc1ab1389dea3ce43b62381ca56bdcdcd056164ca9fe49d96a7b7f",
+    "traceability.json": "07da1b030296d27eef41d772179e8041d93900250466c0cce99d286503f4530d",
+    "infra/istio-gateway.yaml": "1dce004e64d9ab742e3535bded65eba5821ebdf74e71c553fc141a0af6028877",
+    "infra/prometheus.yml": "c655aa4232e878646d561a6d0a7c0e34e3f1cf5ced9015245450325cffb87379",
+    "infra/vault-policy.hcl": "c1ddab16d4e3ad0f2dec6f80cf9bd4b646a28d0c8c7cc1f139d207e7c60363ab",
+    "k8s/spacefractions-deployment.yaml": "5ae32689894e6be2c576c05eaa2ee6c25d93828d4f6bab0475a9859e4b868e6b",
+    "scripts/build.mjs": "0a9000e16a2c6fcc055576fcbfd97ea4641502810cbceaa4a7a9b468aaaf631c",
+    "sql/game_ddl.sql": "09dcc8cc964d71f0038a8256e2176e36c46518c5885d323c448e1cbcfc43488c",
+    "sql/seed.sql": "06d3b65a035c3e032da7b817939dd8f991db1b2ac24846154de12cf201845c5b",
+    "src/metrics.js": "af439a82d134dba20b9523106937dba75f22a758fb0f75b137ebf51335dbc6e4",
+    "terraform/main.tf": "74c7c08ed2e921bf49946280de37f05d300923acd0fdc0397c094682c810c793",
+    "test/auth.test.js": "72bbbfa918c15e1cb1555e3590850b5c8c84c60064be11a249eadc7009f72fa5",
+    "test/fraction.test.js": "e23e0d9edc3de4cf13d7e7ae5f822e8fc2f29da101ff64b2bb69c210d28b8989",
+    "test/game-routes.test.js": "a0fab4dc114c91ae702769bbe4fe9efffb38f1cbd5534b799d00c04fc14f107a",
+    "test/scoring.test.js": "4ca37894707010db6348ebb4d13cdfb9c61c24fd155086e48066d3409e922279",
+    "infra/keycloak/realm.json": "14a5cea1ab0bf39803aa32e2104bd8ab66bab5b3d85786507c78160a80da5dce",
+    "packages/admin-service/Dockerfile": "03e2fe23e2c15d903cb0ea73f79c3eebd43d858c882201374806add73964c5a8",
+    "packages/game-service/Dockerfile": "f81cdcc8c6189bc56ed1b64669584b1e93d59e7a71c95600fb3c9cf84d325921",
+    "packages/gateway/Dockerfile": "ecc8d9c98d3a1d21a180845d4b94dfedbcc9fafd50d0f89e78706dea2d614260",
+    "packages/question-service/Dockerfile": "a1037788201cd377c6568082541c0b7d608df32f242e9536cf69e0a7fefdbc7c",
+    "packages/user-service/Dockerfile": "a99dc338b1b225e0152c44480b93864799f914423315da5adac1cf2a5b23581b",
+    "packages/admin-service/src/index.js": "12c4031a5bf902ec95a9ccc132eaf35bad0de7b488b2bd38cdfd2ec204bc8362",
+    "packages/game-service/src/events.js": "37c4cc5fe94a1bdb32329569743c3f73d8651c2ba870377f39fa063e365ec26c",
+    "packages/game-service/src/index.js": "f9e9432c9a752d908fc122125fec1e556d0ad647991fbf09d399de77b5e48880",
+    "packages/game-service/src/repository.js": "e5cecef1b5f3ea29e7246fe2dd5067b23287c57f98c8ad9f897a1a910959bcec",
+    "packages/gateway/public/app.js": "dab728f8907aa70debe72e830dab66c0b582a1a60e4d0d016d19cb41272e8593",
+    "packages/gateway/public/index.html": "c82ce55029c51b501e9e7a69f551cf49d87d9baa91eb7e6deab9042ce46d473d",
+    "packages/gateway/public/style.css": "bada000702f50b90468f9eb2963a7af835389b0f556598ff2d4c1b08b0efb1f8",
+    "packages/gateway/src/index.js": "36c69f6c07dc3d5465f99fcd632f3c1788f28473c71e0349e230e976c4b6cf01",
+    "packages/question-service/src/index.js": "9e1a3b412602b0e660d2c9899bc2bc1d0447918bb4a28ab90c0428f61c45b12f",
+    "packages/question-service/src/repository.js": "f132f4fd021a077ef9a645c2705a1d1e5d475b8838e3ceef946d3a4acaf271a5",
+    "packages/question-service/src/search.js": "0f71be2a24c9dd3ec7457bb0e18c49f2dec84f792e61421f771fc1d208a838fd",
+    "packages/user-service/src/index.js": "1e6a24a81600351cfde8ca5bcdfa834bd1b4b2e2cc692560fb58852f0e3f912b",
+    "sql/migrations/001_schema.sql": "07f6255bf5009962ee380d36d2030e4a4d888bd7c6aea09e20014a0702595229",
+    "src/shared/fraction.js": "004ba794409a437cd23184f05e394d462bc0a8079ea5b452a5bafb7c18b6d2be",
+    "src/shared/oidc.js": "86c6f5a6f5aa0bf2c710f22e53dc8bee4331a5ecdbb8f3f9e54b85b08b11c8d4",
+    "test/helpers/http.js": "d4c445d68ddd6e382ce7774c55a4523ae7f73d28817b77aab70aba2e467aed1a"
+  },
+  "comparison_to_parent": "Only gateway/public app.js,index.html,style.css changed. Server service entrypoints/repositories/integrations unchanged. Visible student game and admin CRD now independently work; reload score recovery and admin Update remain gaps."
+}

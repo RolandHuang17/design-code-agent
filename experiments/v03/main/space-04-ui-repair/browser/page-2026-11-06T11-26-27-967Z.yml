@@ -1,0 +1,24 @@
+- generic [ref=f2e1]:
+  - banner [ref=f2e2]:
+    - heading "Space Fractions" [level=1] [ref=f2e3]
+    - generic [ref=f2e4]:
+      - text: student
+      - button "Sign out" [ref=f2e5] [cursor=pointer]
+  - main [ref=f2e6]:
+    - generic [ref=f2e14]:
+      - heading "Question 8" [level=2] [ref=f2e62]
+      - paragraph [ref=f2e16]: Simplify 4/8.
+      - generic [ref=f2e17]:
+        - button "1/2" [ref=f2e63] [cursor=pointer]
+        - button "4/8" [ref=f2e64] [cursor=pointer]
+        - button "2/4" [ref=f2e65] [cursor=pointer]
+        - button "1/4" [ref=f2e66] [cursor=pointer]
+      - generic [ref=f2e22]:
+        - text: Your answer
+        - textbox "Your answer" [ref=f2e23]:
+          - /placeholder: e.g. 3/4
+        - button "Submit" [active] [ref=f2e24] [cursor=pointer]
+      - button "Pause" [ref=f2e26] [cursor=pointer]
+      - generic [ref=f2e27]: "Score: 7"
+  - contentinfo [ref=f2e12]:
+    - paragraph [ref=f2e13]: Space Fractions — a sixth-grade fraction learning game.
