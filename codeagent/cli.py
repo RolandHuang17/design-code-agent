@@ -40,7 +40,7 @@ def main():
             command.add_argument("--seed-project", type=Path, help="复制已有生成项目并从未完成任务续跑；不修改原始运行")
             command.add_argument("--feedback", type=Path, help="外部检查 JSON 数组；用于触发修复，修复后仍需独立复验")
             command.add_argument("--acceptance-profile", choices=PROFILES, default="space-fractions", help="独立验收及显式案例补充输入")
-            command.add_argument("--max-repair-rounds", type=int, choices=range(4), default=3)
+            command.add_argument("--max-repair-rounds", type=int, choices=range(11), default=3)
             command.add_argument("--runtime-backend", choices=("auto", "docker", "wsl"), default="auto")
     args = parser.parse_args()
     if args.command == "gui":
