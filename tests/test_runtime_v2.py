@@ -129,7 +129,7 @@ def test_runtime_failure_feedback_retains_sql_log_and_prioritizes_it():
 
 def test_generation_defers_test_feedback_for_both_experiment_groups(tmp_path, monkeypatch):
     called = []
-    monkeypatch.setattr("codeagent.tools.validate", lambda *args: called.append(args[1]) or {"profile": args[1], "status": "passed"})
+    monkeypatch.setattr("codeagent.tools.validate", lambda *args, **kwargs: called.append(args[1]) or {"profile": args[1], "status": "passed"})
     tools = Toolset(tmp_path, threading.Event(), Redactor(), allow_execution=True)
     tools.phase = "generation"
     assert tools.execute("run_check", '{"profile":"test"}')["status"] == "unverified"
@@ -163,7 +163,7 @@ def test_lockfile_is_host_derived_and_model_cannot_fabricate_it(tmp_path, monkey
                     on_write=lambda *args: snapshots.append(args))
     result = tools.execute("write_file", json.dumps({"path": "package-lock.json", "content": "{}"}))
     assert "host npm" in result["error"] and not (tmp_path / "package-lock.json").exists()
-    def install(*args):
+    def install(*args, **kwargs):
         (tmp_path / "package-lock.json").write_text('{"lockfileVersion":3}')
         return {"profile": "install", "status": "passed"}
     monkeypatch.setattr("codeagent.tools.validate", install)
