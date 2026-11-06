@@ -8,7 +8,7 @@ import uuid
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
-from ..checks import summarize, validate
+from ..checks import validate
 from ..provider import Cancelled
 from ..safety import Redactor, project_files, safe_path
 from ..tools import TOOL_SCHEMAS, Toolset, schema
@@ -232,6 +232,7 @@ class Coordinator:
         self.event("worker_started", task=key, directory=str(stage))
         toolset = Toolset(stage, self.cancel, Redactor(""), allow_execution=False)
         toolset.phase = "generation"
+        toolset.required_files = ("package.json", "README.md")
         owned = set(task["files"])
 
         def handle(name, args):
@@ -309,15 +310,8 @@ class Coordinator:
 
         def work():
             try:
-                result = validate(self.project, profile, self.cancel, self.allow_execution)
-                if profile == "static" and "results" in result:
-                    # Prototype's declared minimum is a Node package, README and
-                    # tests. REST/traceability manifests are not mandatory for a
-                    # pure library task; all content/syntax checks still run.
-                    entries = [{**entry, "status": "not_applicable", "reason": "Not a mandatory prototype artifact"}
-                               if entry.get("check") in ("required:openapi.yaml", "required:traceability.json") else entry
-                               for entry in result["results"]]
-                    result = summarize(profile, entries)
+                result = validate(self.project, profile, self.cancel, self.allow_execution,
+                                  required_files=("package.json", "README.md"))
                 current, _ = snapshot(self.project)
                 stale = current != version and profile != "install"
                 record_result = {**record, "state": "stale" if stale else "completed", "result": result,

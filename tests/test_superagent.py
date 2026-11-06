@@ -119,7 +119,7 @@ def test_merge_rejects_stale_base(tmp_path):
 def test_async_check_rejects_stale_result(tmp_path, monkeypatch):
     started, release = threading.Event(), threading.Event()
 
-    def check(*args):
+    def check(*args, **kwargs):
         started.set()
         release.wait(3)
         return {"status": "passed"}
