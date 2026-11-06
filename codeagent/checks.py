@@ -249,5 +249,7 @@ def validate(root: Path, profile: str, cancel: threading.Event, allow_execution=
     from .evidence import project_snapshot, bind_check
     root = Path(root).resolve()
     before = project_snapshot(root)
+    sources_before = project_snapshot(root, excluded=("package-lock.json",))
     result = _validate(root, profile, cancel, allow_execution, required_files)
-    return bind_check(result, before, project_snapshot(root))
+    lock_only = sources_before == project_snapshot(root, excluded=("package-lock.json",))
+    return bind_check(result, before, project_snapshot(root), allow_derived_install=lock_only)

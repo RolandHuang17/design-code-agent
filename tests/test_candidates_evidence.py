@@ -76,6 +76,20 @@ def test_snapshot_invalidates_changed_sources(tmp_path):
     assert check["stale"] and check["status"] == "unverified"
 
 
+def test_install_cannot_hide_source_changes(tmp_path, monkeypatch):
+    from codeagent.checks import validate
+    root = tmp_path / "project"
+    root.mkdir()
+    (root / "a.js").write_text("const x=1;")
+    def install(*args):
+        (root / "a.js").write_text("const x=2;")
+        (root / "package-lock.json").write_text("{}")
+        return {"profile":"install","status":"passed"}
+    monkeypatch.setattr("codeagent.checks._validate", install)
+    assert validate(root,"install",threading.Event(),True)["status"] == "unverified"
+    assert validate(root,"install",threading.Event(),True)["status"] == "passed"
+
+
 @pytest.mark.parametrize("output", ["# tests 0\n# skipped 0\n", "ℹ tests 0\n", "# tests 2\n# skipped 2\n"])
 def test_empty_or_all_skipped_tests_do_not_pass(output):
     assert assess_test_output({"status":"passed","output":output})["status"] != "passed"

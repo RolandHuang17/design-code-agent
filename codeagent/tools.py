@@ -107,6 +107,7 @@ class Toolset:
                 return self._commit(args["changes"])
             if name == "run_check":
                 before = self.snapshot_id()
+                sources_before = project_snapshot(self.root, excluded=("package-lock.json",))
                 if self.phase in ("planning", "generation") and args["profile"] != "static":
                     return {"profile": args["profile"], "status": "unverified", "reason": "生成阶段仅开放静态检查；生成结束后宿主统一执行测试与独立运行验收"}
                 if args["profile"] == "runtime":
@@ -124,7 +125,8 @@ class Toolset:
                         result["derived_artifact"] = {"path": "package-lock.json", "origin": "npm dependency resolution (host fixed command)",
                                                       "sha256": hashlib.sha256(lock.read_bytes()).hexdigest(), "revision": self.revision}
                 if "snapshot_id" not in result:
-                    result = bind_check(result, before, self.snapshot_id())
+                    lock_only = sources_before == project_snapshot(self.root, excluded=("package-lock.json",))
+                    result = bind_check(result, before, self.snapshot_id(), allow_derived_install=lock_only)
                 self.check_history.append({"revision": self.revision, **result})
                 return self.redactor.value(result)
             path = safe_path(self.root, args["path"])
