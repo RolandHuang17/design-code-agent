@@ -1,4 +1,6 @@
 import json
+import shutil
+import socket
 import threading
 import zipfile
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -9,6 +11,7 @@ import pytest
 from scripts.check_temperature import evaluate
 from scripts.evidence_v03 import render, summarize
 from scripts.package_v03 import package
+from scripts.check_temperature_project import check_project
 
 
 def test_evidence_index_keeps_failures_and_unreadable_reports_and_escapes_html(tmp_path):
@@ -94,3 +97,36 @@ def test_independent_checker_detects_wrong_conversion_and_keeps_all_checks():
 def test_independent_checker_refuses_nonlocal_targets():
     with pytest.raises(ValueError, match='local HTTP'):
         evaluate('https://example.com')
+
+
+def test_project_checker_records_missing_runtime_as_unverified(tmp_path, monkeypatch):
+    project = tmp_path / 'project'
+    project.mkdir()
+    monkeypatch.setattr('scripts.check_temperature_project.shutil.which', lambda _: None)
+    report = check_project(project, tmp_path / 'report.json')
+    assert report['status'] == 'unverified'
+    assert report['source_unchanged'] is True
+    with pytest.raises(ValueError, match='NEW report'):
+        check_project(project, tmp_path / 'report.json')
+
+
+@pytest.mark.skipif(not shutil.which('node'), reason='Node runtime unavailable')
+def test_project_checker_stops_real_generated_server_and_does_not_edit_sources(tmp_path):
+    project = tmp_path / 'project'
+    project.mkdir()
+    (project / 'package.json').write_text(json.dumps({'scripts': {'start': 'node app.cjs'}}))
+    (project / 'app.cjs').write_text("""const http = require('node:http');
+http.createServer((req,res)=>{req.resume();req.on('end',()=>{
+res.setHeader('Content-Type',req.url==='/'?'text/html':'application/json');
+res.end(req.url==='/'?'<html></html>':req.url==='/health'?'{"status":"ok"}':'{"value":32,"unit":"F"}');
+});}).listen(Number(process.env.PORT),'127.0.0.1');""")
+    report = check_project(project, tmp_path / 'report.json', startup_timeout=10)
+    assert report['status'] == 'failed'  # The deliberately wrong application is rejected.
+    assert report['source_unchanged'] is True
+    assert report['cleanup']['process_stopped'] is True
+    assert len(report['checks']) == 17
+    from urllib.parse import urlsplit
+    port = urlsplit(report['base_url']).port
+    with socket.socket() as connection:
+        connection.settimeout(0.3)
+        assert connection.connect_ex(('127.0.0.1', port)) != 0
