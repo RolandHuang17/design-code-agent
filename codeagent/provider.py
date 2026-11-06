@@ -1,10 +1,12 @@
 import json
 import queue
+import ssl
 import threading
 import time
 import urllib.error
 import urllib.request
 from urllib.parse import urlsplit
+import certifi
 
 from .budget import Budget
 from .safety import Redactor
@@ -60,7 +62,9 @@ class DeepSeek:
         if model not in {"deepseek-v4-pro", "deepseek-v4-pro-0813"}:
             raise ValueError("本作业仅支持 DeepSeek V4 Pro 系列模型")
         self.provider, self.model = provider, model
-        self.opener = urllib.request.build_opener(urllib.request.ProxyHandler({}), NoRedirect())
+        context = ssl.create_default_context(cafile=certifi.where())
+        self.opener = urllib.request.build_opener(urllib.request.ProxyHandler({}), NoRedirect(),
+                                                  urllib.request.HTTPSHandler(context=context))
         self.calls = 0
         self.usage = []
 
@@ -138,7 +142,8 @@ class DeepSeek:
                 detail = Redactor(self.api_key).text(detail)[:600]
                 raise ProviderError(f"{label}（HTTP {exc.code}）；不确定费用已保留。{detail}") from None
             except (OSError, ValueError) as exc:
-                raise ProviderError("连接超时、网络或 JSON 响应异常；为避免重复计费未自动重发。费用预留已保留") from exc
+                diagnostic = Redactor(self.api_key).text(f"{type(exc).__name__}: {exc}")[:400]
+                raise ProviderError("连接超时、网络或 JSON 响应异常；为避免重复计费未自动重发。费用预留已保留。诊断：" + diagnostic) from exc
             usage = data.get("usage", {})
             cost = self.budget.settle(reservation, usage)
             self.usage.append({"usage": usage, "estimated_cny": cost, "requested_model": self.model,

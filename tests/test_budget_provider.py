@@ -165,3 +165,26 @@ def test_cancel_inflight_returns_without_resending(tmp_path):
     finally:
         gate.set()
         timer.join()
+
+
+def test_network_diagnostic_is_redacted_and_never_retried(tmp_path):
+    provider = make_provider(tmp_path)
+    def fail(*args, **kwargs):
+        raise urllib.error.URLError('certificate verify failed ' + provider.api_key)
+    provider.opener.open = fail
+    with pytest.raises(ProviderError) as raised:
+        provider.test_connection()
+    assert 'certificate verify failed' in str(raised.value)
+    assert provider.api_key not in str(raised.value)
+    assert provider.calls == 1
+    assert provider.budget.snapshot()['uncertain_requests'] == 1
+
+
+def test_bundled_roots_keep_hostname_and_chain_validation_enabled(tmp_path):
+    import ssl
+    provider = make_provider(tmp_path)
+    handler = next(h for h in provider.opener.handlers if isinstance(h, urllib.request.HTTPSHandler))
+    context = handler._context
+    assert context.check_hostname is True
+    assert context.verify_mode == ssl.CERT_REQUIRED
+    assert context.cert_store_stats()['x509_ca'] > 50
