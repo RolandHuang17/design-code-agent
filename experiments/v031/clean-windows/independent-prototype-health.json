@@ -1,0 +1,91 @@
+{
+  "kind": "independent_health_http_restart",
+  "status": "passed",
+  "source_hashes_before": {
+    "README.md": "b4d148c3dd2f00b226473961f908710e8d1240a449afe51800205ebfeb217994",
+    "package.json": "94ee7724a9e01f12b0c46a1b5e82c2ca91019e2012b7608aa3ae6ef4e74cb109",
+    "src/app.cjs": "bc4da13f53cfa231e317835845b907664252c61eed5ae80b89ccf0dd39aa8243",
+    "src/index.cjs": "b69ea0a5e2f6b6f9cd2edc16441fb15e1bbbc0a9f5aa739eeb07f37a7fa11d9d",
+    "test/health.test.cjs": "0f2a5226d65cdbd24d4193891a58b676489157fd1f2ea28e8c8e2e0083906725"
+  },
+  "checks": [
+    {
+      "restart_index": 0,
+      "path": "/health",
+      "http_status": 200,
+      "body": {
+        "status": "ok"
+      },
+      "passed": true
+    },
+    {
+      "restart_index": 0,
+      "path": "/unknown-route",
+      "http_status": 404,
+      "body": {
+        "status": "error",
+        "error": "Not Found"
+      },
+      "passed": true
+    },
+    {
+      "restart_index": 0,
+      "path": "/health",
+      "http_status": 200,
+      "body": {
+        "status": "ok"
+      },
+      "passed": true
+    },
+    {
+      "restart_index": 1,
+      "path": "/health",
+      "http_status": 200,
+      "body": {
+        "status": "ok"
+      },
+      "passed": true
+    },
+    {
+      "restart_index": 1,
+      "path": "/unknown-route",
+      "http_status": 404,
+      "body": {
+        "status": "error",
+        "error": "Not Found"
+      },
+      "passed": true
+    },
+    {
+      "restart_index": 1,
+      "path": "/health",
+      "http_status": 200,
+      "body": {
+        "status": "ok"
+      },
+      "passed": true
+    }
+  ],
+  "cleanup": [
+    {
+      "restart_index": 0,
+      "process_stopped": true,
+      "port_closed": true,
+      "output_tail": "\n> minimal-http-health-service@1.0.0 start\n> node src/index.cjs\n\nHealth service listening on port 1089\n"
+    },
+    {
+      "restart_index": 1,
+      "process_stopped": true,
+      "port_closed": true,
+      "output_tail": "\n> minimal-http-health-service@1.0.0 start\n> node src/index.cjs\n\nHealth service listening on port 1103\n"
+    }
+  ],
+  "source_hashes_after": {
+    "README.md": "b4d148c3dd2f00b226473961f908710e8d1240a449afe51800205ebfeb217994",
+    "package.json": "94ee7724a9e01f12b0c46a1b5e82c2ca91019e2012b7608aa3ae6ef4e74cb109",
+    "src/app.cjs": "bc4da13f53cfa231e317835845b907664252c61eed5ae80b89ccf0dd39aa8243",
+    "src/index.cjs": "b69ea0a5e2f6b6f9cd2edc16441fb15e1bbbc0a9f5aa739eeb07f37a7fa11d9d",
+    "test/health.test.cjs": "0f2a5226d65cdbd24d4193891a58b676489157fd1f2ea28e8c8e2e0083906725"
+  },
+  "source_unchanged": true
+}

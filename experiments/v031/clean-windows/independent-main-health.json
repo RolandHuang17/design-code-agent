@@ -1,0 +1,95 @@
+{
+  "kind": "independent_health_http_restart",
+  "status": "passed",
+  "source_hashes_before": {
+    "README.md": "9def52bbeb7da55ab83b70d6c8974a9eb5709ec1a6df98ac633430c27f9196fb",
+    "architecture-decisions.md": "b8ff4531419db88506dff7737ecd9bcf1a0676bf6dc6f902eca8dd0fec2cec47",
+    "package.json": "fd6ac8b7492e67c952f5be9df8f675841337de413b427f433f13c66dd7c50405",
+    "plan.json": "fa3084fb21fb45966497787d6a01f8fe767dfd131dfeb2065fd6ab8ee3dad240",
+    "traceability.json": "6923a69e31e09c77f914da7b97459c40cfb5e25af2aa71a0b2655d634cff18c7",
+    "src/app.cjs": "e40988e5415f01e05cf18809db9517ea9ede7e838ee86f47eb4ffb695909d1dd",
+    "src/index.cjs": "b7583dcf9368865d15f0bc67f325060dc8829b38fa442625ee90a0b95643de80",
+    "test/health.test.cjs": "3dd97f1a3c525e133e36c84ac65ccd2de47fd768d33732812a3ede48efbed750"
+  },
+  "checks": [
+    {
+      "restart_index": 0,
+      "path": "/health",
+      "http_status": 200,
+      "body": {
+        "status": "ok"
+      },
+      "passed": true
+    },
+    {
+      "restart_index": 0,
+      "path": "/unknown-route",
+      "http_status": 404,
+      "body": {
+        "error": "not found"
+      },
+      "passed": true
+    },
+    {
+      "restart_index": 0,
+      "path": "/health",
+      "http_status": 200,
+      "body": {
+        "status": "ok"
+      },
+      "passed": true
+    },
+    {
+      "restart_index": 1,
+      "path": "/health",
+      "http_status": 200,
+      "body": {
+        "status": "ok"
+      },
+      "passed": true
+    },
+    {
+      "restart_index": 1,
+      "path": "/unknown-route",
+      "http_status": 404,
+      "body": {
+        "error": "not found"
+      },
+      "passed": true
+    },
+    {
+      "restart_index": 1,
+      "path": "/health",
+      "http_status": 200,
+      "body": {
+        "status": "ok"
+      },
+      "passed": true
+    }
+  ],
+  "cleanup": [
+    {
+      "restart_index": 0,
+      "process_stopped": true,
+      "port_closed": true,
+      "output_tail": "\n> minimal-http-health-service@1.0.0 start\n> node src/index.cjs\n\nhealth service listening on port 1090\n"
+    },
+    {
+      "restart_index": 1,
+      "process_stopped": true,
+      "port_closed": true,
+      "output_tail": "\n> minimal-http-health-service@1.0.0 start\n> node src/index.cjs\n\nhealth service listening on port 1101\n"
+    }
+  ],
+  "source_hashes_after": {
+    "README.md": "9def52bbeb7da55ab83b70d6c8974a9eb5709ec1a6df98ac633430c27f9196fb",
+    "architecture-decisions.md": "b8ff4531419db88506dff7737ecd9bcf1a0676bf6dc6f902eca8dd0fec2cec47",
+    "package.json": "fd6ac8b7492e67c952f5be9df8f675841337de413b427f433f13c66dd7c50405",
+    "plan.json": "fa3084fb21fb45966497787d6a01f8fe767dfd131dfeb2065fd6ab8ee3dad240",
+    "traceability.json": "6923a69e31e09c77f914da7b97459c40cfb5e25af2aa71a0b2655d634cff18c7",
+    "src/app.cjs": "e40988e5415f01e05cf18809db9517ea9ede7e838ee86f47eb4ffb695909d1dd",
+    "src/index.cjs": "b7583dcf9368865d15f0bc67f325060dc8829b38fa442625ee90a0b95643de80",
+    "test/health.test.cjs": "3dd97f1a3c525e133e36c84ac65ccd2de47fd768d33732812a3ede48efbed750"
+  },
+  "source_unchanged": true
+}

@@ -1,0 +1,67 @@
+{
+  "kind": "v031_regression_history",
+  "scope": "Local implementation and packaging; these are not model-generation benchmark trials",
+  "observations": [
+    {
+      "stage": "starting_baseline",
+      "passed": 172,
+      "skipped": 1,
+      "seconds": 17.44
+    },
+    {
+      "stage": "first_mixed_Tk_run",
+      "status": "aborted",
+      "observed": "Windows fatal0x80000003 during GC in later prototype worker",
+      "source_frozen": false,
+      "interpretation": "Native Tk test-object lifetime leaked across tests; later independent-process Tk scenarios and product close-race regressions were added"
+    },
+    {
+      "stage": "isolated_Tk_candidate",
+      "passed": 193,
+      "skipped": 1,
+      "seconds": 21.68
+    },
+    {
+      "stage": "close_and_empty_output_candidate",
+      "passed": 197,
+      "skipped": 1,
+      "seconds": 24.55
+    },
+    {
+      "stage": "visible_key_and_lifecycle_targets",
+      "passed": 13,
+      "seconds": 8.68
+    },
+    {
+      "stage": "build01",
+      "passed": 198,
+      "skipped": 1,
+      "seconds": 25.09
+    },
+    {
+      "stage": "build02",
+      "passed": 198,
+      "skipped": 1,
+      "seconds": 26.46
+    },
+    {
+      "stage": "build03",
+      "passed": 198,
+      "skipped": 1,
+      "seconds": 26.17
+    },
+    {
+      "stage": "native_ime_policy_and_gui_targets",
+      "passed": 15,
+      "seconds": 9.5,
+      "scope": "Focused subset, not additional to full regression"
+    },
+    {
+      "stage": "build04_final",
+      "passed": 200,
+      "skipped": 1,
+      "seconds": 25.39,
+      "source_commit": "fc3059f5707ff78d715774464ba72e2500fbd613"
+    }
+  ]
+}

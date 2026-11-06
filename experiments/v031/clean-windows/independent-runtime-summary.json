@@ -1,0 +1,239 @@
+{
+  "kind": "independent_native_and_host_runtime_summary",
+  "created_utc": "2026-11-06T14:01:16.182055+00:00",
+  "policy": "New derived summary only; original guest reports, SQLite files, cancellation states and host failures remain unchanged. No SQLite was opened during this summary and no model requests were sent.",
+  "native_tasks": {
+    "main_generated": {
+      "original_directory": "run-20261106-213717-d4ce73df",
+      "status": "completed_with_gaps",
+      "responses": 19,
+      "repair_rounds": 1,
+      "elapsed_seconds": 117.53,
+      "known_estimated_cny": 2.049213,
+      "prompt_tokens": 151960,
+      "completion_tokens": 8359,
+      "check_statuses": [
+        {
+          "profile": "static",
+          "status": "unverified"
+        },
+        {
+          "profile": "install",
+          "status": "unverified"
+        },
+        {
+          "profile": "test",
+          "status": "unverified"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "unverified"
+        },
+        {
+          "profile": "compose",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "startup",
+          "status": "unverified"
+        }
+      ],
+      "error": null,
+      "cumulative_guest_ledger_uncertain_requests": 7,
+      "uncertain_count_scope": "Cumulative ledger includes historical and concurrent tasks; not attributed to this task alone.",
+      "model_rounds_started": 19,
+      "responses_with_valid_usage": 19,
+      "incomplete_logical_model_rounds": 0
+    },
+    "main_cancelled": {
+      "original_directory": "run-20261106-214246-76f014f7",
+      "status": "cancelled",
+      "responses": 1,
+      "repair_rounds": 0,
+      "elapsed_seconds": 8.88,
+      "known_estimated_cny": 0.049503,
+      "prompt_tokens": 3745,
+      "completion_tokens": 169,
+      "check_statuses": [],
+      "error": "请求已取消；响应费用不确定，保留预留",
+      "cumulative_guest_ledger_uncertain_requests": 8,
+      "uncertain_count_scope": "Cumulative ledger includes historical and concurrent tasks; not attributed to this task alone.",
+      "model_rounds_started": 2,
+      "responses_with_valid_usage": 1,
+      "incomplete_logical_model_rounds": 1
+    },
+    "prototype_recovered": {
+      "original_directory": "run-20261106-214023-4dd224412757",
+      "state": "completed",
+      "verification": "unverified",
+      "reason": null,
+      "attempt_records": 22,
+      "attempt_states": {
+        "completed": 22
+      },
+      "new_role_sessions": [
+        "coder-t1",
+        "coder-t2",
+        "coder-t3",
+        "coder-t4",
+        "planner",
+        "reviewer"
+      ],
+      "tasks": 4,
+      "task_states": {
+        "completed": 4
+      },
+      "recorded_wall_span_seconds_including_pause_and_relaunch": 477.623,
+      "usage": {
+        "responses_with_valid_usage": 22,
+        "known_estimated_cny": 1.205442,
+        "prompt_tokens": 83322,
+        "completion_tokens": 7614
+      },
+      "review": {
+        "approved": true,
+        "issues": [],
+        "advisories": [
+          "health.test.cjs closes server twice (t.after plus explicit close); second close may error/reject. Rely on t.after alone."
+        ]
+      },
+      "uncertain_attempt_records": 0
+    },
+    "prototype_cancelled": {
+      "original_directory": "run-20261106-215337-85ac5c791aa7",
+      "state": "cancelled",
+      "verification": "not_recorded",
+      "reason": "请求已取消；响应费用不确定，保留预留",
+      "attempt_records": 2,
+      "attempt_states": {
+        "unknown": 1,
+        "completed": 1
+      },
+      "new_role_sessions": [
+        "planner"
+      ],
+      "tasks": 0,
+      "task_states": {},
+      "recorded_wall_span_seconds_including_pause_and_relaunch": 10.266,
+      "usage": {
+        "responses_with_valid_usage": 1,
+        "known_estimated_cny": 0.014724,
+        "prompt_tokens": 867,
+        "completion_tokens": 160
+      },
+      "review": null,
+      "uncertain_attempt_records": 1
+    }
+  },
+  "host_validation": {
+    "main": {
+      "checks_report": "independent-host-checks.json",
+      "profile_statuses": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        }
+      ],
+      "executed_test_count": 4,
+      "http_report": "independent-main-health.json",
+      "independent_http_status": "passed",
+      "independent_http_checks": 6,
+      "http_source_unchanged": true,
+      "host_raw_source_unchanged": true,
+      "unit_passed": 4,
+      "unit_failed": 0,
+      "unit_skipped": 0
+    },
+    "prototype": {
+      "checks_report": "independent-host-checks.json",
+      "profile_statuses": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "failed"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        }
+      ],
+      "executed_test_count": null,
+      "http_report": "independent-prototype-health.json",
+      "independent_http_status": "passed",
+      "independent_http_checks": 6,
+      "http_source_unchanged": true,
+      "host_raw_source_unchanged": true,
+      "unit_passed": 0,
+      "unit_failed": 1,
+      "unit_skipped": 0,
+      "unit_failure": "ERR_SERVER_NOT_RUNNING: generated test closes its HTTP server both explicitly and again in t.after; the original reviewer already retained this as an advisory.",
+      "unit_count_source": "Actual Node test output in independent-host-checks.json; no test code edited."
+    }
+  },
+  "recovery": {
+    "operator_observed_attempt_records_before_pause": 6,
+    "final_attempt_records": 22,
+    "operator_observed_growth": 16,
+    "same_task_identity": "run-20261106-214023-4dd224412757",
+    "operator_evidence": [
+      "prototype04-paused.png",
+      "prototype04-resumed.png",
+      "prototype04-completed.png"
+    ],
+    "final_completed_attempts": 22,
+    "unknown_attempts_in_completed_task": 0,
+    "final_reason_absent": true,
+    "scope": "Before-pause count and close/relaunch are operator-observed GUI evidence; final22 and states are verified from raw report JSON. No separate before-resume database byte snapshot was supplied, and no independent event-level or byte-equality recovery claim is made."
+  },
+  "limitations": [
+    "Guest environment did not execute Node checks; host results are separate and do not rewrite guest unverified states.",
+    "Prototype generated service passed independent HTTP6/6 while its self-test failed during duplicate cleanup; this is retained as a generated-test defect, not counted as test success.",
+    "Prototype has no automatic repair loop equivalent to the formal tool. No manual generated-source fix or paid continuation was performed.",
+    "Unknown prototype cancellation attempt and its existing usage/error metadata remain in the raw report and database; cumulative guest budget ledger is not copied or cleared.",
+    "200passed/1skipped concerns the tool regression; generated project tests are distinct."
+  ],
+  "all_imported_raw_bytes_unchanged": true,
+  "raw_files_checked": 114,
+  "known_usage_totals_selected_tasks": {
+    "valid_responses": 43,
+    "known_estimated_cny": 3.318882,
+    "scope": "Four imported task records only. Connection checks and uncertain remote billing are excluded; this is not the final platform bill.",
+    "model_rounds_or_attempt_records": 45
+  },
+  "status": "completed_with_known_generated_test_failure"
+}

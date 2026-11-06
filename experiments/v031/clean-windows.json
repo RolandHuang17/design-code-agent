@@ -1,0 +1,58 @@
+{
+  "kind": "final_standalone_desktop_acceptance",
+  "status": "desktop_acceptance_completed_with_generated_test_failure",
+  "created_utc": "2026-11-06T14:04:27.086112+00:00",
+  "source_commit": "fc3059f5707ff78d715774464ba72e2500fbd613",
+  "binary_hashes": {
+    "main": "2011b9e73e80f1361bc277ad02873470734a55f770f7ece5eba9986bbf527c5b",
+    "prototype": "cc2faaf6ff7d56f503d38eb6b5b7d4846d603dba7508eb21ca26e3a4a17e6ac8"
+  },
+  "environment": {
+    "os": "Windows 11 Enterprise Evaluation 26H2 build26300.9711",
+    "resolution": "1024x768",
+    "display_scaling": "125%",
+    "python_node_docker_system_installations": "None found in inventory; original clean snapshot preserved. WindowsApps Python alias is not an installed interpreter.",
+    "inventory": "clean-windows/environment-final.txt",
+    "path": "D:/中文 空格/{Main,Prototype}",
+    "credential_setup": "Private in-memory local validation launcher populated process-only environment variables; no key files, clipboard sharing or command-line key arguments. This helper is not a release dependency."
+  },
+  "observed_desktop_checks": {
+    "main": [
+      "Double-click launch without installed Python",
+      "Original Markdown parse:13 diagrams,1 conflict hint",
+      "Real 0813 connection",
+      "Real small-project file generation",
+      "Node absence explicitly unverified",
+      "Open current result directory",
+      "Second task cancellation and normal close"
+    ],
+    "prototype": [
+      "Standalone native launch",
+      "Real independent role requests",
+      "Safe pause at6 recorded requests",
+      "Close and relaunch",
+      "Restore same task directory and continue to22 completed request records",
+      "4 candidates merged shown separately from verification",
+      "Checks remain unverified without Node",
+      "Resource EOF disables next page",
+      "Open actual result directory",
+      "Close during second task waits for cancellation report; unknown request retained"
+    ],
+    "ime": "See independent-ime-guest.json: public dummy in Chinese IME; ordinary input context restored. Single configuration only.",
+    "operator_input_error": "One mistyped recovery path was rejected; actual directory selected through folder picker and resumed. Screenshot retained."
+  },
+  "generated_project_results": {
+    "main": "Host4 self-tests and6 independent HTTP/restart checks passed.",
+    "prototype": "Host6 independent HTTP/restart checks passed;1 self-test FAILED with ERR_SERVER_NOT_RUNNING from double-close. No manual source fix."
+  },
+  "raw_import": "clean-windows/import-manifest.json",
+  "runtime_summary": "clean-windows/independent-runtime-summary.json",
+  "scope": "One operator-authored health demonstration per program plus cancellation tasks. No new Space benchmark or universal success-rate claim.",
+  "cleanup": {
+    "guest": "Graceful shutdown; poweroff verified",
+    "local_validation_servers": "Stopped; no8766/8767 listeners",
+    "nat_localhost_reachable": false,
+    "nat_persistence": "Explicit false in active VM XML; new VBox service read reports0; clean snapshot unchanged",
+    "clipboard_and_dragdrop": "disabled"
+  }
+}

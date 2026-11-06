@@ -1,0 +1,1408 @@
+{
+  "kind": "native_tk_layout_stress",
+  "paid_calls": 0,
+  "synthetic_task_data": true,
+  "os_dpi_unchanged": true,
+  "all_test_windows_closed": true,
+  "cases": [
+    {
+      "program": "main",
+      "requested_scale_factor": 1.0,
+      "tk_pixels_per_point": 1.3339898243886428,
+      "scale_mapping": "96dpi/72points * factor; local Tk interpreter only",
+      "requested_size": [
+        1024,
+        720
+      ],
+      "actual_size": [
+        1024,
+        720
+      ],
+      "buttons": {
+        "preview_button": {
+          "bbox": [
+            14,
+            640,
+            114,
+            37
+          ],
+          "visible": true,
+          "state": "normal"
+        },
+        "run_button": {
+          "bbox": [
+            135,
+            640,
+            114,
+            37
+          ],
+          "visible": true,
+          "state": "normal"
+        },
+        "cancel_button": {
+          "bbox": [
+            256,
+            640,
+            114,
+            37
+          ],
+          "visible": true,
+          "state": "disabled"
+        },
+        "output_button": {
+          "bbox": [
+            896,
+            640,
+            114,
+            37
+          ],
+          "visible": true,
+          "state": "disabled"
+        }
+      },
+      "button_overlaps": [],
+      "long_path_entries": [
+        {
+          "bbox": [
+            26,
+            158,
+            187,
+            31
+          ],
+          "xview": [
+            0.9224137931034483,
+            1.0
+          ],
+          "end_accessible": true
+        },
+        {
+          "bbox": [
+            26,
+            232,
+            187,
+            31
+          ],
+          "xview": [
+            0.9233038348082596,
+            1.0
+          ],
+          "end_accessible": true
+        },
+        {
+          "bbox": [
+            26,
+            306,
+            187,
+            31
+          ],
+          "xview": [
+            0.9150943396226415,
+            1.0
+          ],
+          "end_accessible": true
+        }
+      ],
+      "task_scroll": null,
+      "passed": true
+    },
+    {
+      "program": "main",
+      "requested_scale_factor": 1.0,
+      "tk_pixels_per_point": 1.3339898243886428,
+      "scale_mapping": "96dpi/72points * factor; local Tk interpreter only",
+      "requested_size": [
+        900,
+        600
+      ],
+      "actual_size": [
+        900,
+        600
+      ],
+      "buttons": {
+        "preview_button": {
+          "bbox": [
+            14,
+            520,
+            114,
+            37
+          ],
+          "visible": true,
+          "state": "normal"
+        },
+        "run_button": {
+          "bbox": [
+            135,
+            520,
+            114,
+            37
+          ],
+          "visible": true,
+          "state": "normal"
+        },
+        "cancel_button": {
+          "bbox": [
+            256,
+            520,
+            114,
+            37
+          ],
+          "visible": true,
+          "state": "disabled"
+        },
+        "output_button": {
+          "bbox": [
+            772,
+            520,
+            114,
+            37
+          ],
+          "visible": true,
+          "state": "disabled"
+        }
+      },
+      "button_overlaps": [],
+      "long_path_entries": [
+        {
+          "bbox": [
+            26,
+            158,
+            187,
+            31
+          ],
+          "xview": [
+            0.9224137931034483,
+            1.0
+          ],
+          "end_accessible": true
+        },
+        {
+          "bbox": [
+            26,
+            232,
+            187,
+            31
+          ],
+          "xview": [
+            0.9233038348082596,
+            1.0
+          ],
+          "end_accessible": true
+        },
+        {
+          "bbox": [
+            26,
+            306,
+            187,
+            31
+          ],
+          "xview": [
+            0.9150943396226415,
+            1.0
+          ],
+          "end_accessible": true
+        }
+      ],
+      "task_scroll": null,
+      "passed": true
+    },
+    {
+      "program": "main",
+      "requested_scale_factor": 1.25,
+      "tk_pixels_per_point": 1.6662566625666255,
+      "scale_mapping": "96dpi/72points * factor; local Tk interpreter only",
+      "requested_size": [
+        1024,
+        720
+      ],
+      "actual_size": [
+        1024,
+        720
+      ],
+      "buttons": {
+        "preview_button": {
+          "bbox": [
+            14,
+            632,
+            136,
+            41
+          ],
+          "visible": true,
+          "state": "normal"
+        },
+        "run_button": {
+          "bbox": [
+            157,
+            632,
+            136,
+            41
+          ],
+          "visible": true,
+          "state": "normal"
+        },
+        "cancel_button": {
+          "bbox": [
+            300,
+            632,
+            136,
+            41
+          ],
+          "visible": true,
+          "state": "disabled"
+        },
+        "output_button": {
+          "bbox": [
+            874,
+            632,
+            136,
+            41
+          ],
+          "visible": true,
+          "state": "disabled"
+        }
+      },
+      "button_overlaps": [],
+      "long_path_entries": [
+        {
+          "bbox": [
+            26,
+            172,
+            177,
+            34
+          ],
+          "xview": [
+            0.9482758620689655,
+            1.0
+          ],
+          "end_accessible": true
+        },
+        {
+          "bbox": [
+            26,
+            254,
+            177,
+            34
+          ],
+          "xview": [
+            0.9410029498525073,
+            1.0
+          ],
+          "end_accessible": true
+        },
+        {
+          "bbox": [
+            26,
+            336,
+            177,
+            34
+          ],
+          "xview": [
+            0.9371069182389937,
+            1.0
+          ],
+          "end_accessible": true
+        }
+      ],
+      "task_scroll": null,
+      "passed": true
+    },
+    {
+      "program": "main",
+      "requested_scale_factor": 1.25,
+      "tk_pixels_per_point": 1.6662566625666255,
+      "scale_mapping": "96dpi/72points * factor; local Tk interpreter only",
+      "requested_size": [
+        900,
+        600
+      ],
+      "actual_size": [
+        900,
+        600
+      ],
+      "buttons": {
+        "preview_button": {
+          "bbox": [
+            14,
+            512,
+            136,
+            41
+          ],
+          "visible": true,
+          "state": "normal"
+        },
+        "run_button": {
+          "bbox": [
+            157,
+            512,
+            136,
+            41
+          ],
+          "visible": true,
+          "state": "normal"
+        },
+        "cancel_button": {
+          "bbox": [
+            300,
+            512,
+            136,
+            41
+          ],
+          "visible": true,
+          "state": "disabled"
+        },
+        "output_button": {
+          "bbox": [
+            750,
+            512,
+            136,
+            41
+          ],
+          "visible": true,
+          "state": "disabled"
+        }
+      },
+      "button_overlaps": [],
+      "long_path_entries": [
+        {
+          "bbox": [
+            26,
+            172,
+            177,
+            34
+          ],
+          "xview": [
+            0.9482758620689655,
+            1.0
+          ],
+          "end_accessible": true
+        },
+        {
+          "bbox": [
+            26,
+            254,
+            177,
+            34
+          ],
+          "xview": [
+            0.9410029498525073,
+            1.0
+          ],
+          "end_accessible": true
+        },
+        {
+          "bbox": [
+            26,
+            336,
+            177,
+            34
+          ],
+          "xview": [
+            0.9371069182389937,
+            1.0
+          ],
+          "end_accessible": true
+        }
+      ],
+      "task_scroll": null,
+      "passed": true
+    },
+    {
+      "program": "main",
+      "requested_scale_factor": 1.5,
+      "tk_pixels_per_point": 1.9980334316617503,
+      "scale_mapping": "96dpi/72points * factor; local Tk interpreter only",
+      "requested_size": [
+        1024,
+        720
+      ],
+      "actual_size": [
+        1024,
+        720
+      ],
+      "buttons": {
+        "preview_button": {
+          "bbox": [
+            14,
+            624,
+            158,
+            45
+          ],
+          "visible": true,
+          "state": "normal"
+        },
+        "run_button": {
+          "bbox": [
+            179,
+            624,
+            158,
+            45
+          ],
+          "visible": true,
+          "state": "normal"
+        },
+        "cancel_button": {
+          "bbox": [
+            344,
+            624,
+            158,
+            45
+          ],
+          "visible": true,
+          "state": "disabled"
+        },
+        "output_button": {
+          "bbox": [
+            852,
+            624,
+            158,
+            45
+          ],
+          "visible": true,
+          "state": "disabled"
+        }
+      },
+      "button_overlaps": [],
+      "long_path_entries": [
+        {
+          "bbox": [
+            26,
+            187,
+            167,
+            38
+          ],
+          "xview": [
+            0.9597701149425287,
+            1.0
+          ],
+          "end_accessible": true
+        },
+        {
+          "bbox": [
+            26,
+            277,
+            167,
+            38
+          ],
+          "xview": [
+            0.9528023598820059,
+            1.0
+          ],
+          "end_accessible": true
+        },
+        {
+          "bbox": [
+            26,
+            367,
+            167,
+            38
+          ],
+          "xview": [
+            0.9528301886792453,
+            1.0
+          ],
+          "end_accessible": true
+        }
+      ],
+      "task_scroll": null,
+      "passed": true
+    },
+    {
+      "program": "main",
+      "requested_scale_factor": 1.5,
+      "tk_pixels_per_point": 1.9980334316617503,
+      "scale_mapping": "96dpi/72points * factor; local Tk interpreter only",
+      "requested_size": [
+        900,
+        600
+      ],
+      "actual_size": [
+        900,
+        600
+      ],
+      "buttons": {
+        "preview_button": {
+          "bbox": [
+            14,
+            504,
+            158,
+            45
+          ],
+          "visible": true,
+          "state": "normal"
+        },
+        "run_button": {
+          "bbox": [
+            179,
+            504,
+            158,
+            45
+          ],
+          "visible": true,
+          "state": "normal"
+        },
+        "cancel_button": {
+          "bbox": [
+            344,
+            504,
+            158,
+            45
+          ],
+          "visible": true,
+          "state": "disabled"
+        },
+        "output_button": {
+          "bbox": [
+            728,
+            504,
+            158,
+            45
+          ],
+          "visible": true,
+          "state": "disabled"
+        }
+      },
+      "button_overlaps": [],
+      "long_path_entries": [
+        {
+          "bbox": [
+            26,
+            187,
+            167,
+            38
+          ],
+          "xview": [
+            0.9597701149425287,
+            1.0
+          ],
+          "end_accessible": true
+        },
+        {
+          "bbox": [
+            26,
+            277,
+            167,
+            38
+          ],
+          "xview": [
+            0.9528023598820059,
+            1.0
+          ],
+          "end_accessible": true
+        },
+        {
+          "bbox": [
+            26,
+            367,
+            167,
+            38
+          ],
+          "xview": [
+            0.9528301886792453,
+            1.0
+          ],
+          "end_accessible": true
+        }
+      ],
+      "task_scroll": null,
+      "passed": true
+    },
+    {
+      "program": "prototype",
+      "requested_scale_factor": 1.0,
+      "tk_pixels_per_point": 1.3339898243886428,
+      "scale_mapping": "96dpi/72points * factor; local Tk interpreter only",
+      "requested_size": [
+        1024,
+        720
+      ],
+      "actual_size": [
+        1024,
+        720
+      ],
+      "buttons": {
+        "start_button": {
+          "bbox": [
+            14,
+            640,
+            114,
+            37
+          ],
+          "visible": true,
+          "state": "normal"
+        },
+        "resume_button": {
+          "bbox": [
+            134,
+            640,
+            114,
+            37
+          ],
+          "visible": true,
+          "state": "normal"
+        },
+        "pause_button": {
+          "bbox": [
+            254,
+            640,
+            114,
+            37
+          ],
+          "visible": true,
+          "state": "disabled"
+        },
+        "cancel_button": {
+          "bbox": [
+            374,
+            640,
+            114,
+            37
+          ],
+          "visible": true,
+          "state": "disabled"
+        },
+        "output_button": {
+          "bbox": [
+            776,
+            640,
+            114,
+            37
+          ],
+          "visible": true,
+          "state": "disabled"
+        },
+        "report_button": {
+          "bbox": [
+            896,
+            640,
+            114,
+            37
+          ],
+          "visible": true,
+          "state": "disabled"
+        }
+      },
+      "button_overlaps": [],
+      "long_path_entries": [
+        {
+          "bbox": [
+            26,
+            158,
+            187,
+            31
+          ],
+          "xview": [
+            0.9224137931034483,
+            1.0
+          ],
+          "end_accessible": true
+        },
+        {
+          "bbox": [
+            26,
+            232,
+            187,
+            31
+          ],
+          "xview": [
+            0.9233038348082596,
+            1.0
+          ],
+          "end_accessible": true
+        },
+        {
+          "bbox": [
+            26,
+            306,
+            187,
+            31
+          ],
+          "xview": [
+            0.9150943396226415,
+            1.0
+          ],
+          "end_accessible": true
+        }
+      ],
+      "task_scroll": {
+        "rows": 80,
+        "yview": [
+          0.85,
+          1.0
+        ],
+        "xview": [
+          0.0,
+          1.0
+        ],
+        "last_row_accessible": true,
+        "last_column_accessible": true,
+        "note": "Cell values stay in the model; long values can be clipped by a column until the user expands its heading. Test establishes scroll reach, not an automatic full-cell tooltip."
+      },
+      "passed": true
+    },
+    {
+      "program": "prototype",
+      "requested_scale_factor": 1.0,
+      "tk_pixels_per_point": 1.3339898243886428,
+      "scale_mapping": "96dpi/72points * factor; local Tk interpreter only",
+      "requested_size": [
+        900,
+        600
+      ],
+      "actual_size": [
+        900,
+        600
+      ],
+      "buttons": {
+        "start_button": {
+          "bbox": [
+            14,
+            520,
+            114,
+            37
+          ],
+          "visible": true,
+          "state": "normal"
+        },
+        "resume_button": {
+          "bbox": [
+            134,
+            520,
+            114,
+            37
+          ],
+          "visible": true,
+          "state": "normal"
+        },
+        "pause_button": {
+          "bbox": [
+            254,
+            520,
+            114,
+            37
+          ],
+          "visible": true,
+          "state": "disabled"
+        },
+        "cancel_button": {
+          "bbox": [
+            374,
+            520,
+            114,
+            37
+          ],
+          "visible": true,
+          "state": "disabled"
+        },
+        "output_button": {
+          "bbox": [
+            652,
+            520,
+            114,
+            37
+          ],
+          "visible": true,
+          "state": "disabled"
+        },
+        "report_button": {
+          "bbox": [
+            772,
+            520,
+            114,
+            37
+          ],
+          "visible": true,
+          "state": "disabled"
+        }
+      },
+      "button_overlaps": [],
+      "long_path_entries": [
+        {
+          "bbox": [
+            26,
+            158,
+            187,
+            31
+          ],
+          "xview": [
+            0.9224137931034483,
+            1.0
+          ],
+          "end_accessible": true
+        },
+        {
+          "bbox": [
+            26,
+            232,
+            187,
+            31
+          ],
+          "xview": [
+            0.9233038348082596,
+            1.0
+          ],
+          "end_accessible": true
+        },
+        {
+          "bbox": [
+            26,
+            306,
+            187,
+            31
+          ],
+          "xview": [
+            0.9150943396226415,
+            1.0
+          ],
+          "end_accessible": true
+        }
+      ],
+      "task_scroll": {
+        "rows": 80,
+        "yview": [
+          0.9,
+          1.0
+        ],
+        "xview": [
+          0.07796610169491526,
+          1.0
+        ],
+        "last_row_accessible": true,
+        "last_column_accessible": true,
+        "note": "Cell values stay in the model; long values can be clipped by a column until the user expands its heading. Test establishes scroll reach, not an automatic full-cell tooltip."
+      },
+      "passed": true
+    },
+    {
+      "program": "prototype",
+      "requested_scale_factor": 1.25,
+      "tk_pixels_per_point": 1.6662566625666255,
+      "scale_mapping": "96dpi/72points * factor; local Tk interpreter only",
+      "requested_size": [
+        1024,
+        720
+      ],
+      "actual_size": [
+        1024,
+        720
+      ],
+      "buttons": {
+        "start_button": {
+          "bbox": [
+            14,
+            632,
+            136,
+            41
+          ],
+          "visible": true,
+          "state": "normal"
+        },
+        "resume_button": {
+          "bbox": [
+            156,
+            632,
+            136,
+            41
+          ],
+          "visible": true,
+          "state": "normal"
+        },
+        "pause_button": {
+          "bbox": [
+            298,
+            632,
+            136,
+            41
+          ],
+          "visible": true,
+          "state": "disabled"
+        },
+        "cancel_button": {
+          "bbox": [
+            440,
+            632,
+            136,
+            41
+          ],
+          "visible": true,
+          "state": "disabled"
+        },
+        "output_button": {
+          "bbox": [
+            732,
+            632,
+            136,
+            41
+          ],
+          "visible": true,
+          "state": "disabled"
+        },
+        "report_button": {
+          "bbox": [
+            874,
+            632,
+            136,
+            41
+          ],
+          "visible": true,
+          "state": "disabled"
+        }
+      },
+      "button_overlaps": [],
+      "long_path_entries": [
+        {
+          "bbox": [
+            26,
+            172,
+            177,
+            34
+          ],
+          "xview": [
+            0.9482758620689655,
+            1.0
+          ],
+          "end_accessible": true
+        },
+        {
+          "bbox": [
+            26,
+            254,
+            177,
+            34
+          ],
+          "xview": [
+            0.9410029498525073,
+            1.0
+          ],
+          "end_accessible": true
+        },
+        {
+          "bbox": [
+            26,
+            336,
+            177,
+            34
+          ],
+          "xview": [
+            0.9371069182389937,
+            1.0
+          ],
+          "end_accessible": true
+        }
+      ],
+      "task_scroll": {
+        "rows": 80,
+        "yview": [
+          0.8625,
+          1.0
+        ],
+        "xview": [
+          0.0,
+          1.0
+        ],
+        "last_row_accessible": true,
+        "last_column_accessible": true,
+        "note": "Cell values stay in the model; long values can be clipped by a column until the user expands its heading. Test establishes scroll reach, not an automatic full-cell tooltip."
+      },
+      "passed": true
+    },
+    {
+      "program": "prototype",
+      "requested_scale_factor": 1.25,
+      "tk_pixels_per_point": 1.6662566625666255,
+      "scale_mapping": "96dpi/72points * factor; local Tk interpreter only",
+      "requested_size": [
+        900,
+        600
+      ],
+      "actual_size": [
+        900,
+        600
+      ],
+      "buttons": {
+        "start_button": {
+          "bbox": [
+            14,
+            512,
+            136,
+            41
+          ],
+          "visible": true,
+          "state": "normal"
+        },
+        "resume_button": {
+          "bbox": [
+            156,
+            512,
+            136,
+            41
+          ],
+          "visible": true,
+          "state": "normal"
+        },
+        "pause_button": {
+          "bbox": [
+            298,
+            512,
+            136,
+            41
+          ],
+          "visible": true,
+          "state": "disabled"
+        },
+        "cancel_button": {
+          "bbox": [
+            440,
+            512,
+            136,
+            41
+          ],
+          "visible": true,
+          "state": "disabled"
+        },
+        "output_button": {
+          "bbox": [
+            608,
+            512,
+            136,
+            41
+          ],
+          "visible": true,
+          "state": "disabled"
+        },
+        "report_button": {
+          "bbox": [
+            750,
+            512,
+            136,
+            41
+          ],
+          "visible": true,
+          "state": "disabled"
+        }
+      },
+      "button_overlaps": [],
+      "long_path_entries": [
+        {
+          "bbox": [
+            26,
+            172,
+            177,
+            34
+          ],
+          "xview": [
+            0.9482758620689655,
+            1.0
+          ],
+          "end_accessible": true
+        },
+        {
+          "bbox": [
+            26,
+            254,
+            177,
+            34
+          ],
+          "xview": [
+            0.9410029498525073,
+            1.0
+          ],
+          "end_accessible": true
+        },
+        {
+          "bbox": [
+            26,
+            336,
+            177,
+            34
+          ],
+          "xview": [
+            0.9371069182389937,
+            1.0
+          ],
+          "end_accessible": true
+        }
+      ],
+      "task_scroll": {
+        "rows": 80,
+        "yview": [
+          0.9125,
+          1.0
+        ],
+        "xview": [
+          0.07796610169491526,
+          1.0
+        ],
+        "last_row_accessible": true,
+        "last_column_accessible": true,
+        "note": "Cell values stay in the model; long values can be clipped by a column until the user expands its heading. Test establishes scroll reach, not an automatic full-cell tooltip."
+      },
+      "passed": true
+    },
+    {
+      "program": "prototype",
+      "requested_scale_factor": 1.5,
+      "tk_pixels_per_point": 1.9980334316617503,
+      "scale_mapping": "96dpi/72points * factor; local Tk interpreter only",
+      "requested_size": [
+        1024,
+        720
+      ],
+      "actual_size": [
+        1024,
+        720
+      ],
+      "buttons": {
+        "start_button": {
+          "bbox": [
+            14,
+            624,
+            158,
+            45
+          ],
+          "visible": true,
+          "state": "normal"
+        },
+        "resume_button": {
+          "bbox": [
+            178,
+            624,
+            158,
+            45
+          ],
+          "visible": true,
+          "state": "normal"
+        },
+        "pause_button": {
+          "bbox": [
+            342,
+            624,
+            158,
+            45
+          ],
+          "visible": true,
+          "state": "disabled"
+        },
+        "cancel_button": {
+          "bbox": [
+            506,
+            624,
+            158,
+            45
+          ],
+          "visible": true,
+          "state": "disabled"
+        },
+        "output_button": {
+          "bbox": [
+            688,
+            624,
+            158,
+            45
+          ],
+          "visible": true,
+          "state": "disabled"
+        },
+        "report_button": {
+          "bbox": [
+            852,
+            624,
+            158,
+            45
+          ],
+          "visible": true,
+          "state": "disabled"
+        }
+      },
+      "button_overlaps": [],
+      "long_path_entries": [
+        {
+          "bbox": [
+            26,
+            187,
+            167,
+            38
+          ],
+          "xview": [
+            0.9597701149425287,
+            1.0
+          ],
+          "end_accessible": true
+        },
+        {
+          "bbox": [
+            26,
+            277,
+            167,
+            38
+          ],
+          "xview": [
+            0.9528023598820059,
+            1.0
+          ],
+          "end_accessible": true
+        },
+        {
+          "bbox": [
+            26,
+            367,
+            167,
+            38
+          ],
+          "xview": [
+            0.9528301886792453,
+            1.0
+          ],
+          "end_accessible": true
+        }
+      ],
+      "task_scroll": {
+        "rows": 80,
+        "yview": [
+          0.875,
+          1.0
+        ],
+        "xview": [
+          0.0,
+          1.0
+        ],
+        "last_row_accessible": true,
+        "last_column_accessible": true,
+        "note": "Cell values stay in the model; long values can be clipped by a column until the user expands its heading. Test establishes scroll reach, not an automatic full-cell tooltip."
+      },
+      "passed": true
+    },
+    {
+      "program": "prototype",
+      "requested_scale_factor": 1.5,
+      "tk_pixels_per_point": 1.9980334316617503,
+      "scale_mapping": "96dpi/72points * factor; local Tk interpreter only",
+      "requested_size": [
+        900,
+        600
+      ],
+      "actual_size": [
+        900,
+        600
+      ],
+      "buttons": {
+        "start_button": {
+          "bbox": [
+            14,
+            504,
+            158,
+            45
+          ],
+          "visible": true,
+          "state": "normal"
+        },
+        "resume_button": {
+          "bbox": [
+            178,
+            504,
+            158,
+            45
+          ],
+          "visible": true,
+          "state": "normal"
+        },
+        "pause_button": {
+          "bbox": [
+            342,
+            504,
+            158,
+            45
+          ],
+          "visible": true,
+          "state": "disabled"
+        },
+        "cancel_button": {
+          "bbox": [
+            506,
+            504,
+            158,
+            45
+          ],
+          "visible": true,
+          "state": "disabled"
+        },
+        "output_button": {
+          "bbox": [
+            676,
+            504,
+            46,
+            45
+          ],
+          "visible": true,
+          "state": "disabled"
+        },
+        "report_button": {
+          "bbox": [
+            728,
+            504,
+            158,
+            45
+          ],
+          "visible": true,
+          "state": "disabled"
+        }
+      },
+      "button_overlaps": [],
+      "long_path_entries": [
+        {
+          "bbox": [
+            26,
+            187,
+            167,
+            38
+          ],
+          "xview": [
+            0.9597701149425287,
+            1.0
+          ],
+          "end_accessible": true
+        },
+        {
+          "bbox": [
+            26,
+            277,
+            167,
+            38
+          ],
+          "xview": [
+            0.9528023598820059,
+            1.0
+          ],
+          "end_accessible": true
+        },
+        {
+          "bbox": [
+            26,
+            367,
+            167,
+            38
+          ],
+          "xview": [
+            0.9528301886792453,
+            1.0
+          ],
+          "end_accessible": true
+        }
+      ],
+      "task_scroll": {
+        "rows": 80,
+        "yview": [
+          0.9375,
+          1.0
+        ],
+        "xview": [
+          0.07796610169491526,
+          1.0
+        ],
+        "last_row_accessible": true,
+        "last_column_accessible": true,
+        "note": "Cell values stay in the model; long values can be clipped by a column until the user expands its heading. Test establishes scroll reach, not an automatic full-cell tooltip."
+      },
+      "passed": true
+    }
+  ],
+  "passed": true
+}

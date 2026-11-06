@@ -1,0 +1,503 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>v0.3.1 evidence index</title><style>body{font:16px system-ui;max-width:1100px;margin:32px auto;padding:16px}details{margin:12px 0;padding:12px;border:1px solid #ddd}pre{white-space:pre-wrap;overflow-wrap:anywhere}</style><h1>v0.3.1 evidence index</h1><p>All discovered reports are listed, including failures and interruptions. No general success-rate claim.</p><details><summary>build-final.json — unclassified</summary><p><a href="build-final.json">Open original JSON</a></p><pre>{
+  &quot;report&quot;: &quot;build-final.json&quot;,
+  &quot;sha256&quot;: &quot;e92108ea1ba51c566e17a6481666465ce374fdc7152841c36c649d86ee904e9a&quot;,
+  &quot;record_kind&quot;: &quot;build-final&quot;,
+  &quot;program&quot;: &quot;main_or_independent_acceptance&quot;,
+  &quot;status&quot;: &quot;unclassified&quot;,
+  &quot;recorded_status&quot;: &quot;unclassified&quot;,
+  &quot;verification&quot;: &quot;not_recorded&quot;,
+  &quot;generation_origin&quot;: &quot;not_recorded&quot;,
+  &quot;turns&quot;: null,
+  &quot;estimated_cny&quot;: null,
+  &quot;checks&quot;: [],
+  &quot;details&quot;: {
+    &quot;source_commit&quot;: &quot;fc3059f5707ff78d715774464ba72e2500fbd613&quot;
+  },
+  &quot;independent_acceptance&quot;: &quot;Only separately recorded operator acceptance establishes this; not inferred from model text&quot;
+}</pre></details><details><summary>clean-windows/independent-host-checks.json — failed</summary><p><a href="clean-windows/independent-host-checks.json">Open original JSON</a></p><pre>{
+  &quot;report&quot;: &quot;clean-windows/independent-host-checks.json&quot;,
+  &quot;sha256&quot;: &quot;786ad894c605284e27729e9ef0a9df91b904c92c4a6d0728ed33fc29aeb07a6e&quot;,
+  &quot;record_kind&quot;: &quot;independent_host_validation_on_private_copies&quot;,
+  &quot;program&quot;: &quot;main_or_independent_acceptance&quot;,
+  &quot;status&quot;: &quot;failed&quot;,
+  &quot;recorded_status&quot;: &quot;failed&quot;,
+  &quot;verification&quot;: &quot;not_recorded&quot;,
+  &quot;generation_origin&quot;: &quot;not_recorded&quot;,
+  &quot;turns&quot;: null,
+  &quot;estimated_cny&quot;: null,
+  &quot;checks&quot;: [],
+  &quot;details&quot;: {
+    &quot;policy&quot;: &quot;Raw guest outputs remain unchanged. Node checks run only on new private copies; resulting host checks do not replace guest unverified checks. Host installation may derive package-lock.json on the copy.&quot;
+  },
+  &quot;independent_acceptance&quot;: &quot;Only separately recorded operator acceptance establishes this; not inferred from model text&quot;
+}</pre></details><details><summary>clean-windows/independent-main-health.json — passed</summary><p><a href="clean-windows/independent-main-health.json">Open original JSON</a></p><pre>{
+  &quot;report&quot;: &quot;clean-windows/independent-main-health.json&quot;,
+  &quot;sha256&quot;: &quot;f99d35ee2c491d7ac94473a72fe81ca3dad6fa173a673b85852d1304e150802b&quot;,
+  &quot;record_kind&quot;: &quot;independent_health_http_restart&quot;,
+  &quot;program&quot;: &quot;main_or_independent_acceptance&quot;,
+  &quot;status&quot;: &quot;passed&quot;,
+  &quot;recorded_status&quot;: &quot;passed&quot;,
+  &quot;verification&quot;: &quot;not_recorded&quot;,
+  &quot;generation_origin&quot;: &quot;not_recorded&quot;,
+  &quot;turns&quot;: null,
+  &quot;estimated_cny&quot;: null,
+  &quot;checks&quot;: [
+    {
+      &quot;profile&quot;: &quot;unknown&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;unknown&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;unknown&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;unknown&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;unknown&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;unknown&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    }
+  ],
+  &quot;details&quot;: {
+    &quot;source_unchanged&quot;: true,
+    &quot;cleanup&quot;: [
+      {
+        &quot;restart_index&quot;: 0,
+        &quot;process_stopped&quot;: true,
+        &quot;port_closed&quot;: true,
+        &quot;output_tail&quot;: &quot;\n&gt; minimal-http-health-service@1.0.0 start\n&gt; node src/index.cjs\n\nhealth service listening on port 1090\n&quot;
+      },
+      {
+        &quot;restart_index&quot;: 1,
+        &quot;process_stopped&quot;: true,
+        &quot;port_closed&quot;: true,
+        &quot;output_tail&quot;: &quot;\n&gt; minimal-http-health-service@1.0.0 start\n&gt; node src/index.cjs\n\nhealth service listening on port 1101\n&quot;
+      }
+    ]
+  },
+  &quot;independent_acceptance&quot;: &quot;Only separately recorded operator acceptance establishes this; not inferred from model text&quot;
+}</pre></details><details><summary>clean-windows/independent-prototype-health.json — passed</summary><p><a href="clean-windows/independent-prototype-health.json">Open original JSON</a></p><pre>{
+  &quot;report&quot;: &quot;clean-windows/independent-prototype-health.json&quot;,
+  &quot;sha256&quot;: &quot;fde02e942a7821016fdbe9ec21a308a0d1e5b601ae25f69bc31e64f3e2c82408&quot;,
+  &quot;record_kind&quot;: &quot;independent_health_http_restart&quot;,
+  &quot;program&quot;: &quot;main_or_independent_acceptance&quot;,
+  &quot;status&quot;: &quot;passed&quot;,
+  &quot;recorded_status&quot;: &quot;passed&quot;,
+  &quot;verification&quot;: &quot;not_recorded&quot;,
+  &quot;generation_origin&quot;: &quot;not_recorded&quot;,
+  &quot;turns&quot;: null,
+  &quot;estimated_cny&quot;: null,
+  &quot;checks&quot;: [
+    {
+      &quot;profile&quot;: &quot;unknown&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;unknown&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;unknown&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;unknown&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;unknown&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;unknown&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    }
+  ],
+  &quot;details&quot;: {
+    &quot;source_unchanged&quot;: true,
+    &quot;cleanup&quot;: [
+      {
+        &quot;restart_index&quot;: 0,
+        &quot;process_stopped&quot;: true,
+        &quot;port_closed&quot;: true,
+        &quot;output_tail&quot;: &quot;\n&gt; minimal-http-health-service@1.0.0 start\n&gt; node src/index.cjs\n\nHealth service listening on port 1089\n&quot;
+      },
+      {
+        &quot;restart_index&quot;: 1,
+        &quot;process_stopped&quot;: true,
+        &quot;port_closed&quot;: true,
+        &quot;output_tail&quot;: &quot;\n&gt; minimal-http-health-service@1.0.0 start\n&gt; node src/index.cjs\n\nHealth service listening on port 1103\n&quot;
+      }
+    ]
+  },
+  &quot;independent_acceptance&quot;: &quot;Only separately recorded operator acceptance establishes this; not inferred from model text&quot;
+}</pre></details><details><summary>clean-windows/independent-runtime-summary.json — completed_with_known_generated_test_failure</summary><p><a href="clean-windows/independent-runtime-summary.json">Open original JSON</a></p><pre>{
+  &quot;report&quot;: &quot;clean-windows/independent-runtime-summary.json&quot;,
+  &quot;sha256&quot;: &quot;31e5176d42467e1cc8c487f443f70044dfe77020f16443235cd91cb7df7516c6&quot;,
+  &quot;record_kind&quot;: &quot;independent_native_and_host_runtime_summary&quot;,
+  &quot;program&quot;: &quot;main_or_independent_acceptance&quot;,
+  &quot;status&quot;: &quot;completed_with_known_generated_test_failure&quot;,
+  &quot;recorded_status&quot;: &quot;completed_with_known_generated_test_failure&quot;,
+  &quot;verification&quot;: &quot;not_recorded&quot;,
+  &quot;generation_origin&quot;: &quot;not_recorded&quot;,
+  &quot;turns&quot;: null,
+  &quot;estimated_cny&quot;: null,
+  &quot;checks&quot;: [],
+  &quot;details&quot;: {
+    &quot;limitations&quot;: [
+      &quot;Guest environment did not execute Node checks; host results are separate and do not rewrite guest unverified states.&quot;,
+      &quot;Prototype generated service passed independent HTTP6/6 while its self-test failed during duplicate cleanup; this is retained as a generated-test defect, not counted as test success.&quot;,
+      &quot;Prototype has no automatic repair loop equivalent to the formal tool. No manual generated-source fix or paid continuation was performed.&quot;,
+      &quot;Unknown prototype cancellation attempt and its existing usage/error metadata remain in the raw report and database; cumulative guest budget ledger is not copied or cleared.&quot;,
+      &quot;200passed/1skipped concerns the tool regression; generated project tests are distinct.&quot;
+    ],
+    &quot;policy&quot;: &quot;New derived summary only; original guest reports, SQLite files, cancellation states and host failures remain unchanged. No SQLite was opened during this summary and no model requests were sent.&quot;
+  },
+  &quot;independent_acceptance&quot;: &quot;Only separately recorded operator acceptance establishes this; not inferred from model text&quot;
+}</pre></details><details><summary>clean-windows/raw/main/cancelled/artifacts/report.json — cancelled</summary><p><a href="clean-windows/raw/main/cancelled/artifacts/report.json">Open original JSON</a></p><pre>{
+  &quot;report&quot;: &quot;clean-windows/raw/main/cancelled/artifacts/report.json&quot;,
+  &quot;sha256&quot;: &quot;a6033e7c51d0841025866cb77d4646280f2a3ed30958e5287584bcf89260a26c&quot;,
+  &quot;record_kind&quot;: &quot;report&quot;,
+  &quot;program&quot;: &quot;main_or_independent_acceptance&quot;,
+  &quot;status&quot;: &quot;cancelled&quot;,
+  &quot;recorded_status&quot;: &quot;cancelled&quot;,
+  &quot;verification&quot;: &quot;not_recorded&quot;,
+  &quot;generation_origin&quot;: &quot;fresh&quot;,
+  &quot;turns&quot;: 2,
+  &quot;estimated_cny&quot;: 0.049503,
+  &quot;checks&quot;: [],
+  &quot;details&quot;: {},
+  &quot;independent_acceptance&quot;: &quot;Only separately recorded operator acceptance establishes this; not inferred from model text&quot;
+}</pre></details><details><summary>clean-windows/raw/main/generated/artifacts/checks-0.json — recorded_checks</summary><p><a href="clean-windows/raw/main/generated/artifacts/checks-0.json">Open original JSON</a></p><pre>{
+  &quot;report&quot;: &quot;clean-windows/raw/main/generated/artifacts/checks-0.json&quot;,
+  &quot;sha256&quot;: &quot;a1ad2778a8d39242eb92fdd0e72917caac248ecd143e6bee5845566cb7dcac1d&quot;,
+  &quot;record_kind&quot;: &quot;original_check_batch&quot;,
+  &quot;program&quot;: &quot;main_or_independent_acceptance&quot;,
+  &quot;status&quot;: &quot;recorded_checks&quot;,
+  &quot;recorded_status&quot;: &quot;recorded_checks&quot;,
+  &quot;verification&quot;: &quot;not_recorded&quot;,
+  &quot;generation_origin&quot;: &quot;not_recorded&quot;,
+  &quot;turns&quot;: null,
+  &quot;estimated_cny&quot;: null,
+  &quot;checks&quot;: [
+    {
+      &quot;profile&quot;: &quot;static&quot;,
+      &quot;status&quot;: &quot;unverified&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;install&quot;,
+      &quot;status&quot;: &quot;unverified&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;test&quot;,
+      &quot;status&quot;: &quot;unverified&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;integration&quot;,
+      &quot;status&quot;: &quot;not_applicable&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;build&quot;,
+      &quot;status&quot;: &quot;unverified&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;compose&quot;,
+      &quot;status&quot;: &quot;not_applicable&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;plan_references&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;traceability_links&quot;,
+      &quot;status&quot;: &quot;failed&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;runtime&quot;,
+      &quot;status&quot;: &quot;not_applicable&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;startup&quot;,
+      &quot;status&quot;: &quot;unverified&quot;
+    }
+  ],
+  &quot;details&quot;: {},
+  &quot;independent_acceptance&quot;: &quot;Only separately recorded operator acceptance establishes this; not inferred from model text&quot;
+}</pre></details><details><summary>clean-windows/raw/main/generated/artifacts/checks-1.json — recorded_checks</summary><p><a href="clean-windows/raw/main/generated/artifacts/checks-1.json">Open original JSON</a></p><pre>{
+  &quot;report&quot;: &quot;clean-windows/raw/main/generated/artifacts/checks-1.json&quot;,
+  &quot;sha256&quot;: &quot;e4e6d7adc98106503d0721823230d5bc0a3667f803c2d25dbe728d01d5f87cda&quot;,
+  &quot;record_kind&quot;: &quot;original_check_batch&quot;,
+  &quot;program&quot;: &quot;main_or_independent_acceptance&quot;,
+  &quot;status&quot;: &quot;recorded_checks&quot;,
+  &quot;recorded_status&quot;: &quot;recorded_checks&quot;,
+  &quot;verification&quot;: &quot;not_recorded&quot;,
+  &quot;generation_origin&quot;: &quot;not_recorded&quot;,
+  &quot;turns&quot;: null,
+  &quot;estimated_cny&quot;: null,
+  &quot;checks&quot;: [
+    {
+      &quot;profile&quot;: &quot;static&quot;,
+      &quot;status&quot;: &quot;unverified&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;install&quot;,
+      &quot;status&quot;: &quot;unverified&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;test&quot;,
+      &quot;status&quot;: &quot;unverified&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;integration&quot;,
+      &quot;status&quot;: &quot;not_applicable&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;build&quot;,
+      &quot;status&quot;: &quot;unverified&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;compose&quot;,
+      &quot;status&quot;: &quot;not_applicable&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;plan_references&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;traceability_links&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;runtime&quot;,
+      &quot;status&quot;: &quot;not_applicable&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;startup&quot;,
+      &quot;status&quot;: &quot;unverified&quot;
+    }
+  ],
+  &quot;details&quot;: {},
+  &quot;independent_acceptance&quot;: &quot;Only separately recorded operator acceptance establishes this; not inferred from model text&quot;
+}</pre></details><details><summary>clean-windows/raw/main/generated/artifacts/report.json — completed_with_gaps</summary><p><a href="clean-windows/raw/main/generated/artifacts/report.json">Open original JSON</a></p><pre>{
+  &quot;report&quot;: &quot;clean-windows/raw/main/generated/artifacts/report.json&quot;,
+  &quot;sha256&quot;: &quot;574d511ca3af903f42d10f981de3c19adc4ce6cc4c1238416fef10752e089e75&quot;,
+  &quot;record_kind&quot;: &quot;report&quot;,
+  &quot;program&quot;: &quot;main_or_independent_acceptance&quot;,
+  &quot;status&quot;: &quot;completed_with_gaps&quot;,
+  &quot;recorded_status&quot;: &quot;completed_with_gaps&quot;,
+  &quot;verification&quot;: &quot;not_recorded&quot;,
+  &quot;generation_origin&quot;: &quot;fresh&quot;,
+  &quot;turns&quot;: 19,
+  &quot;estimated_cny&quot;: 2.049213,
+  &quot;checks&quot;: [
+    {
+      &quot;profile&quot;: &quot;static&quot;,
+      &quot;status&quot;: &quot;unverified&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;install&quot;,
+      &quot;status&quot;: &quot;unverified&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;test&quot;,
+      &quot;status&quot;: &quot;unverified&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;integration&quot;,
+      &quot;status&quot;: &quot;not_applicable&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;build&quot;,
+      &quot;status&quot;: &quot;unverified&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;compose&quot;,
+      &quot;status&quot;: &quot;not_applicable&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;plan_references&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;traceability_links&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;runtime&quot;,
+      &quot;status&quot;: &quot;not_applicable&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;startup&quot;,
+      &quot;status&quot;: &quot;unverified&quot;
+    }
+  ],
+  &quot;details&quot;: {},
+  &quot;independent_acceptance&quot;: &quot;Only separately recorded operator acceptance establishes this; not inferred from model text&quot;
+}</pre></details><details><summary>clean-windows/raw/prototype/cancelled/report.json — cancelled</summary><p><a href="clean-windows/raw/prototype/cancelled/report.json">Open original JSON</a></p><pre>{
+  &quot;report&quot;: &quot;clean-windows/raw/prototype/cancelled/report.json&quot;,
+  &quot;sha256&quot;: &quot;bc6852c788a06854bcec1d4449b9da908022dfbc459dd293b8c0430b779aaf53&quot;,
+  &quot;record_kind&quot;: &quot;report&quot;,
+  &quot;program&quot;: &quot;prototype&quot;,
+  &quot;status&quot;: &quot;cancelled&quot;,
+  &quot;recorded_status&quot;: &quot;cancelled&quot;,
+  &quot;verification&quot;: &quot;not_recorded&quot;,
+  &quot;generation_origin&quot;: &quot;not_recorded&quot;,
+  &quot;turns&quot;: null,
+  &quot;estimated_cny&quot;: null,
+  &quot;checks&quot;: [],
+  &quot;details&quot;: {},
+  &quot;independent_acceptance&quot;: &quot;Only separately recorded operator acceptance establishes this; not inferred from model text&quot;
+}</pre></details><details><summary>clean-windows/raw/prototype/recovered/report.json — completed</summary><p><a href="clean-windows/raw/prototype/recovered/report.json">Open original JSON</a></p><pre>{
+  &quot;report&quot;: &quot;clean-windows/raw/prototype/recovered/report.json&quot;,
+  &quot;sha256&quot;: &quot;35b8f7009bed61efafb4f84595de06b5f25e329873f8deca3524182b1e9350dc&quot;,
+  &quot;record_kind&quot;: &quot;report&quot;,
+  &quot;program&quot;: &quot;prototype&quot;,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;recorded_status&quot;: &quot;completed&quot;,
+  &quot;verification&quot;: &quot;unverified&quot;,
+  &quot;generation_origin&quot;: &quot;not_recorded&quot;,
+  &quot;turns&quot;: null,
+  &quot;estimated_cny&quot;: null,
+  &quot;checks&quot;: [
+    {
+      &quot;profile&quot;: &quot;static&quot;,
+      &quot;status&quot;: &quot;unverified&quot;,
+      &quot;job_state&quot;: &quot;completed&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;install&quot;,
+      &quot;status&quot;: &quot;unverified&quot;,
+      &quot;job_state&quot;: &quot;completed&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;test&quot;,
+      &quot;status&quot;: &quot;unverified&quot;,
+      &quot;job_state&quot;: &quot;completed&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;build&quot;,
+      &quot;status&quot;: &quot;unverified&quot;,
+      &quot;job_state&quot;: &quot;completed&quot;
+    }
+  ],
+  &quot;details&quot;: {},
+  &quot;independent_acceptance&quot;: &quot;Only separately recorded operator acceptance establishes this; not inferred from model text&quot;
+}</pre></details><details><summary>clean-windows.json — desktop_acceptance_completed_with_generated_test_failure</summary><p><a href="clean-windows.json">Open original JSON</a></p><pre>{
+  &quot;report&quot;: &quot;clean-windows.json&quot;,
+  &quot;sha256&quot;: &quot;e122ab9d688ca1eb40cc6a55c9a8a2b4ddb66e06736a19223541e032c1c9124d&quot;,
+  &quot;record_kind&quot;: &quot;final_standalone_desktop_acceptance&quot;,
+  &quot;program&quot;: &quot;main_or_independent_acceptance&quot;,
+  &quot;status&quot;: &quot;desktop_acceptance_completed_with_generated_test_failure&quot;,
+  &quot;recorded_status&quot;: &quot;desktop_acceptance_completed_with_generated_test_failure&quot;,
+  &quot;verification&quot;: &quot;not_recorded&quot;,
+  &quot;generation_origin&quot;: &quot;not_recorded&quot;,
+  &quot;turns&quot;: null,
+  &quot;estimated_cny&quot;: null,
+  &quot;checks&quot;: [],
+  &quot;details&quot;: {
+    &quot;cleanup&quot;: {
+      &quot;guest&quot;: &quot;Graceful shutdown; poweroff verified&quot;,
+      &quot;local_validation_servers&quot;: &quot;Stopped; no8766/8767 listeners&quot;,
+      &quot;nat_localhost_reachable&quot;: false,
+      &quot;nat_persistence&quot;: &quot;Explicit false in active VM XML; new VBox service read reports0; clean snapshot unchanged&quot;,
+      &quot;clipboard_and_dragdrop&quot;: &quot;disabled&quot;
+    },
+    &quot;source_commit&quot;: &quot;fc3059f5707ff78d715774464ba72e2500fbd613&quot;
+  },
+  &quot;independent_acceptance&quot;: &quot;Only separately recorded operator acceptance establishes this; not inferred from model text&quot;
+}</pre></details><details><summary>independent-ime-dummy-host.json — passed</summary><p><a href="independent-ime-dummy-host.json">Open original JSON</a></p><pre>{
+  &quot;report&quot;: &quot;independent-ime-dummy-host.json&quot;,
+  &quot;sha256&quot;: &quot;43169791ff02257fa72a075c9ff0f7b486b250bd6a1356a0421e38f50142e8ba&quot;,
+  &quot;record_kind&quot;: &quot;native_dummy_ime_association_probe&quot;,
+  &quot;program&quot;: &quot;main_or_independent_acceptance&quot;,
+  &quot;status&quot;: &quot;passed&quot;,
+  &quot;recorded_status&quot;: &quot;passed&quot;,
+  &quot;verification&quot;: &quot;not_recorded&quot;,
+  &quot;generation_origin&quot;: &quot;not_recorded&quot;,
+  &quot;turns&quot;: null,
+  &quot;estimated_cny&quot;: null,
+  &quot;checks&quot;: [],
+  &quot;details&quot;: {},
+  &quot;independent_acceptance&quot;: &quot;Only separately recorded operator acceptance establishes this; not inferred from model text&quot;
+}</pre></details><details><summary>independent-ime-guest.json — passed_in_observed_configuration</summary><p><a href="independent-ime-guest.json">Open original JSON</a></p><pre>{
+  &quot;report&quot;: &quot;independent-ime-guest.json&quot;,
+  &quot;sha256&quot;: &quot;41e3292eb753fe3559ce9bde76597c99710e51b9820413d32a0c74ba07bfd051&quot;,
+  &quot;record_kind&quot;: &quot;independent_native_ime_observation&quot;,
+  &quot;program&quot;: &quot;main_or_independent_acceptance&quot;,
+  &quot;status&quot;: &quot;passed_in_observed_configuration&quot;,
+  &quot;recorded_status&quot;: &quot;passed_in_observed_configuration&quot;,
+  &quot;verification&quot;: &quot;not_recorded&quot;,
+  &quot;generation_origin&quot;: &quot;not_recorded&quot;,
+  &quot;turns&quot;: null,
+  &quot;estimated_cny&quot;: null,
+  &quot;checks&quot;: [
+    {
+      &quot;profile&quot;: &quot;unknown&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;profile&quot;: &quot;unknown&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    }
+  ],
+  &quot;details&quot;: {
+    &quot;limitations&quot;: &quot;One OS/IME configuration only. This is observed IMM behavior, not a guarantee for all input methods or secret handling in other applications.&quot;,
+    &quot;source_commit&quot;: &quot;fc3059f5707ff78d715774464ba72e2500fbd613&quot;
+  },
+  &quot;independent_acceptance&quot;: &quot;Only separately recorded operator acceptance establishes this; not inferred from model text&quot;
+}</pre></details><details><summary>independent-layout.json — passed</summary><p><a href="independent-layout.json">Open original JSON</a></p><pre>{
+  &quot;report&quot;: &quot;independent-layout.json&quot;,
+  &quot;sha256&quot;: &quot;d44fdcd4f037a9756bbf71dd8f087b7ccaed4211d324d648fbac6cec4a61232b&quot;,
+  &quot;record_kind&quot;: &quot;native_tk_layout_stress&quot;,
+  &quot;program&quot;: &quot;main_or_independent_acceptance&quot;,
+  &quot;status&quot;: &quot;passed&quot;,
+  &quot;recorded_status&quot;: &quot;passed&quot;,
+  &quot;verification&quot;: &quot;not_recorded&quot;,
+  &quot;generation_origin&quot;: &quot;not_recorded&quot;,
+  &quot;turns&quot;: null,
+  &quot;estimated_cny&quot;: null,
+  &quot;checks&quot;: [],
+  &quot;details&quot;: {},
+  &quot;independent_acceptance&quot;: &quot;Only separately recorded operator acceptance establishes this; not inferred from model text&quot;
+}</pre></details><details><summary>independent-source-audit-final.json — source_checks_passed_publication_pending</summary><p><a href="independent-source-audit-final.json">Open original JSON</a></p><pre>{
+  &quot;report&quot;: &quot;independent-source-audit-final.json&quot;,
+  &quot;sha256&quot;: &quot;44722bf49dad67a7753aed5ee4748671a5ed30f6b4767a6abbea7cb5a3fbed67&quot;,
+  &quot;record_kind&quot;: &quot;v031_final_source_candidate_audit&quot;,
+  &quot;program&quot;: &quot;main_or_independent_acceptance&quot;,
+  &quot;status&quot;: &quot;source_checks_passed_publication_pending&quot;,
+  &quot;recorded_status&quot;: &quot;source_checks_passed_publication_pending&quot;,
+  &quot;verification&quot;: &quot;not_recorded&quot;,
+  &quot;generation_origin&quot;: &quot;not_recorded&quot;,
+  &quot;turns&quot;: null,
+  &quot;estimated_cny&quot;: null,
+  &quot;checks&quot;: [],
+  &quot;details&quot;: {
+    &quot;source_commit&quot;: &quot;fc3059f5707ff78d715774464ba72e2500fbd613&quot;
+  },
+  &quot;independent_acceptance&quot;: &quot;Only separately recorded operator acceptance establishes this; not inferred from model text&quot;
+}</pre></details><details><summary>independent-source-audit.json — passed_with_scope_limits</summary><p><a href="independent-source-audit.json">Open original JSON</a></p><pre>{
+  &quot;report&quot;: &quot;independent-source-audit.json&quot;,
+  &quot;sha256&quot;: &quot;105dc02230fbd0e4e190f62be151a1adb626b4570d52c38f87b254e633263342&quot;,
+  &quot;record_kind&quot;: &quot;v031_read_only_prepublication_audit&quot;,
+  &quot;program&quot;: &quot;main_or_independent_acceptance&quot;,
+  &quot;status&quot;: &quot;passed_with_scope_limits&quot;,
+  &quot;recorded_status&quot;: &quot;passed_with_scope_limits&quot;,
+  &quot;verification&quot;: &quot;not_recorded&quot;,
+  &quot;generation_origin&quot;: &quot;not_recorded&quot;,
+  &quot;turns&quot;: null,
+  &quot;estimated_cny&quot;: null,
+  &quot;checks&quot;: [],
+  &quot;details&quot;: {
+    &quot;source_commit&quot;: &quot;f304841625fd17e0e7a4e378073c7ec55607b4bf&quot;
+  },
+  &quot;independent_acceptance&quot;: &quot;Only separately recorded operator acceptance establishes this; not inferred from model text&quot;
+}</pre></details></html>

@@ -1,0 +1,210 @@
+{
+  "kind": "v031_build_history",
+  "attempts": [
+    {
+      "stage": "baseline",
+      "observed": "172 passed,1 skipped in17.44s"
+    },
+    {
+      "stage": "first_mixed_Tk_regression",
+      "result": "aborted",
+      "observed": "Windows fatal0x80000003 during garbage collection in later prototype worker",
+      "source_state": "Non-frozen working tree; no pass count claimed",
+      "resolution": "Native Tk scenarios isolated in child processes with main-thread cleanup; product close races separately corrected"
+    },
+    {
+      "stage": "isolated_Tk_regression",
+      "observed": "193 passed,1 skipped in21.68s"
+    },
+    {
+      "stage": "close_and_empty_path_regression",
+      "observed": "197 passed,1 skipped in24.55s"
+    },
+    {
+      "stage": "candidate01",
+      "build": {
+        "version": "0.3.1",
+        "source_commit": "50601245fd43c91d45b565b3babb598476c27c4c",
+        "files": {
+          "main": {
+            "path": "dist/v031-build-01/main/DesignCodeAgent.exe",
+            "sha256": "4136b89ff1ccd964637a20dac730ceb1d490b6394efc63a886364f5e3404e33c",
+            "bytes": 13601575
+          },
+          "prototype": {
+            "path": "dist/v031-build-01/prototype/DesignCodeAgent-Superagent.exe",
+            "sha256": "84413ee171819ccb9e8594f8830049bbdbbe4260f2c066330e48ea450e3bacda",
+            "bytes": 14284412
+          }
+        },
+        "source_hashes": {
+          "codeagent/__init__.py": "c84f3c3a79c794753a9b5bc718c9e81a9ed4959372d800d480b4494636011f54",
+          "codeagent/__main__.py": "3129adff95e0f38b87ab34cddfc27082c7892bcaec267ff5d40f160fdf55b44a",
+          "codeagent/acceptance/__init__.py": "a3a5f4b3c36c7a68f9e7f65a05eb6cb5fa61c7d39a9cecc0625e18a6bc256f7d",
+          "codeagent/acceptance/http_checks.py": "137c4d444f513fcb83419527b3305afa9f28f1b5ea8bbabe11fa5673b105a4f0",
+          "codeagent/budget.py": "1e9c3222ddd7624114b62086b8f36c2f9a646571fa946c30da61bb0b13b23f52",
+          "codeagent/candidates.py": "d9c193071e25d055d2e37233abd315eb84a9591d27dc29ca10ea975013d2b97a",
+          "codeagent/cases.py": "17efbd819b5908e0ca7ffca5532c9486db47108018b984e49d5eb6a2e982148c",
+          "codeagent/checks.py": "c69b9844e8f9555849e8205bada8a6bb8c4da8850203374a6ab92aa4bf44198d",
+          "codeagent/cli.py": "6ed91cb9f26d0f0cd26b4ba539ec50021e78c6060edfbf69b04faa8c85a77d7f",
+          "codeagent/config.py": "5c1359e967c3564d5e9e67b803789309cec08b9e046268c0d7057a1afb838886",
+          "codeagent/engine.py": "1d0ec5a304e42fcddbf2d2950f96483034efefed399a6d1f83ea9b67fd19828b",
+          "codeagent/evidence.py": "81f349081cda31b8d3f230b51d80bd9f74b4187c7084c7b46b2f07398ae89db0",
+          "codeagent/gui.py": "83151254d61e454a5390c6ac7f8f9ea37ad3b9a2273b4f03a3d78c2d2d86f443",
+          "codeagent/inputs.py": "6a2ad7d399a4c981a4d6ec55e2ea974c1c8dec2753e90685771064896f501f12",
+          "codeagent/planning.py": "7d36d1ba1f8ec4b2485b9c44dfe97053d4660fbd0495760b4c6893cd385c2873",
+          "codeagent/prompts.py": "fa714ab91405719ea401866b42841a81dbbbe0505fc975a4f5c92435d5d80fde",
+          "codeagent/provider.py": "454317f3579994a56c3804ee368faa91fbfa872d6cf203c3d9d2f51ad7c1d21c",
+          "codeagent/runtime.py": "eddd3de20a88cf0c7453353338ac9c7c3c75855d992f8b3ef2b2e7d9d98180a3",
+          "codeagent/safety.py": "e12c23689b4ef325013e2257905da6e0957397ff2ab64d260540d8b7fbbe5b4c",
+          "codeagent/startup.py": "ee92839da1994ffa63f0c69ec6dc1d6dee94d02170ac4ddc22d7400aff677593",
+          "codeagent/superagent/__init__.py": "2280624d0198a434340c06e15b7dc7ddfb888aa9016a3be03dec4fe4c6d0efd1",
+          "codeagent/superagent/gui.py": "b38c531a43b82099310b6c7a25b3c7c3ca5b47d58df0d6e951a52e9b3c4da6c0",
+          "codeagent/superagent/runtime.py": "f1408b108f1691cbdacade3c255fb4e81a9eee214f8db18822a2449258a8af65",
+          "codeagent/superagent/store.py": "4581e4dfdbcc9483f4b6de8de6b40ce6a7a85a69b33cdbb7123d7bf9b91ae341",
+          "codeagent/tools.py": "abff885a2378edb989d055cdc3cec46cd71737f7de83cbcb7dd557410b4c82be",
+          "codeagent/ui.py": "9304388a7642cc891080859d4dc0ac03c397becf0e57f28d6bc2f499cbb60b4f"
+        },
+        "regression": {
+          "passed": 198,
+          "skipped": 1,
+          "seconds": 25.09,
+          "skip_reason": "Windows symlink privilege",
+          "record_type": "Observed local build command output, not CI"
+        },
+        "build_command": "powershell -ExecutionPolicy Bypass -File scripts/build_dual.ps1 -OutputDirectory dist/v031-build-01"
+      },
+      "result": "built; native host launch and original13-diagram preview observed; superseded by readable preview hints"
+    },
+    {
+      "stage": "candidate02",
+      "result": "built",
+      "regression": "198 passed,1 skipped in26.46s"
+    },
+    {
+      "stage": "candidate02",
+      "build": {
+        "version": "0.3.1",
+        "source_commit": "f304841625fd17e0e7a4e378073c7ec55607b4bf",
+        "files": {
+          "main": {
+            "path": "dist/v031-build-02/main/DesignCodeAgent.exe",
+            "sha256": "355c6d33a926f09452ce2c8cb32aaf954f153bd229a6452b9e818f28b204fa43",
+            "bytes": 13601775
+          },
+          "prototype": {
+            "path": "dist/v031-build-02/prototype/DesignCodeAgent-Superagent.exe",
+            "sha256": "dc0258e48607a48e9d082e8e4c55557b64d1f38661a94054f29bc62ba0797b44",
+            "bytes": 14284602
+          }
+        },
+        "source_hashes": {
+          "codeagent/__init__.py": "c84f3c3a79c794753a9b5bc718c9e81a9ed4959372d800d480b4494636011f54",
+          "codeagent/__main__.py": "3129adff95e0f38b87ab34cddfc27082c7892bcaec267ff5d40f160fdf55b44a",
+          "codeagent/acceptance/__init__.py": "a3a5f4b3c36c7a68f9e7f65a05eb6cb5fa61c7d39a9cecc0625e18a6bc256f7d",
+          "codeagent/acceptance/http_checks.py": "137c4d444f513fcb83419527b3305afa9f28f1b5ea8bbabe11fa5673b105a4f0",
+          "codeagent/budget.py": "1e9c3222ddd7624114b62086b8f36c2f9a646571fa946c30da61bb0b13b23f52",
+          "codeagent/candidates.py": "d9c193071e25d055d2e37233abd315eb84a9591d27dc29ca10ea975013d2b97a",
+          "codeagent/cases.py": "17efbd819b5908e0ca7ffca5532c9486db47108018b984e49d5eb6a2e982148c",
+          "codeagent/checks.py": "c69b9844e8f9555849e8205bada8a6bb8c4da8850203374a6ab92aa4bf44198d",
+          "codeagent/cli.py": "6ed91cb9f26d0f0cd26b4ba539ec50021e78c6060edfbf69b04faa8c85a77d7f",
+          "codeagent/config.py": "5c1359e967c3564d5e9e67b803789309cec08b9e046268c0d7057a1afb838886",
+          "codeagent/engine.py": "1d0ec5a304e42fcddbf2d2950f96483034efefed399a6d1f83ea9b67fd19828b",
+          "codeagent/evidence.py": "81f349081cda31b8d3f230b51d80bd9f74b4187c7084c7b46b2f07398ae89db0",
+          "codeagent/gui.py": "b9f9f02581eca1a742af6b76fc42854dd2b05b63dc172725ec40e699efb87684",
+          "codeagent/inputs.py": "6a2ad7d399a4c981a4d6ec55e2ea974c1c8dec2753e90685771064896f501f12",
+          "codeagent/planning.py": "7d36d1ba1f8ec4b2485b9c44dfe97053d4660fbd0495760b4c6893cd385c2873",
+          "codeagent/prompts.py": "fa714ab91405719ea401866b42841a81dbbbe0505fc975a4f5c92435d5d80fde",
+          "codeagent/provider.py": "454317f3579994a56c3804ee368faa91fbfa872d6cf203c3d9d2f51ad7c1d21c",
+          "codeagent/runtime.py": "eddd3de20a88cf0c7453353338ac9c7c3c75855d992f8b3ef2b2e7d9d98180a3",
+          "codeagent/safety.py": "e12c23689b4ef325013e2257905da6e0957397ff2ab64d260540d8b7fbbe5b4c",
+          "codeagent/startup.py": "ee92839da1994ffa63f0c69ec6dc1d6dee94d02170ac4ddc22d7400aff677593",
+          "codeagent/superagent/__init__.py": "2280624d0198a434340c06e15b7dc7ddfb888aa9016a3be03dec4fe4c6d0efd1",
+          "codeagent/superagent/gui.py": "b38c531a43b82099310b6c7a25b3c7c3ca5b47d58df0d6e951a52e9b3c4da6c0",
+          "codeagent/superagent/runtime.py": "f1408b108f1691cbdacade3c255fb4e81a9eee214f8db18822a2449258a8af65",
+          "codeagent/superagent/store.py": "4581e4dfdbcc9483f4b6de8de6b40ce6a7a85a69b33cdbb7123d7bf9b91ae341",
+          "codeagent/tools.py": "abff885a2378edb989d055cdc3cec46cd71737f7de83cbcb7dd557410b4c82be",
+          "codeagent/ui.py": "9304388a7642cc891080859d4dc0ac03c397becf0e57f28d6bc2f499cbb60b4f"
+        },
+        "regression": {
+          "passed": 198,
+          "skipped": 1,
+          "seconds": 26.46,
+          "skip_reason": "Windows symlink privilege",
+          "record_type": "Observed local build command output, not CI"
+        },
+        "build_command": "powershell -ExecutionPolicy Bypass -File scripts/build_dual.ps1 -OutputDirectory dist/v031-build-02",
+        "source_directory": "build-source-final"
+      },
+      "result": "built; read-only guest launch observed; superseded to fit default window inside OS work area"
+    },
+    {
+      "stage": "candidate03",
+      "result": "built",
+      "regression": "198 passed,1 skipped in26.17s"
+    },
+    {
+      "stage": "candidate03",
+      "build": {
+        "version": "0.3.1",
+        "source_commit": "33f791230b0bdae39a33ee9b9dba4783db7c6ff5",
+        "files": {
+          "main": {
+            "path": "dist/v031-build-03/main/DesignCodeAgent.exe",
+            "sha256": "e1e51fed3aa5a061182554655fb546c72d6f99e651ec369ad58ea885391fb49a",
+            "bytes": 13605915
+          },
+          "prototype": {
+            "path": "dist/v031-build-03/prototype/DesignCodeAgent-Superagent.exe",
+            "sha256": "b49a3400c21e9c3cef8e38d25c0b9f764b2e5c03e60ad2a216ba0af494c828f8",
+            "bytes": 14288168
+          }
+        },
+        "source_hashes": {
+          "codeagent/__init__.py": "c84f3c3a79c794753a9b5bc718c9e81a9ed4959372d800d480b4494636011f54",
+          "codeagent/__main__.py": "3129adff95e0f38b87ab34cddfc27082c7892bcaec267ff5d40f160fdf55b44a",
+          "codeagent/acceptance/__init__.py": "a3a5f4b3c36c7a68f9e7f65a05eb6cb5fa61c7d39a9cecc0625e18a6bc256f7d",
+          "codeagent/acceptance/http_checks.py": "137c4d444f513fcb83419527b3305afa9f28f1b5ea8bbabe11fa5673b105a4f0",
+          "codeagent/budget.py": "1e9c3222ddd7624114b62086b8f36c2f9a646571fa946c30da61bb0b13b23f52",
+          "codeagent/candidates.py": "d9c193071e25d055d2e37233abd315eb84a9591d27dc29ca10ea975013d2b97a",
+          "codeagent/cases.py": "17efbd819b5908e0ca7ffca5532c9486db47108018b984e49d5eb6a2e982148c",
+          "codeagent/checks.py": "c69b9844e8f9555849e8205bada8a6bb8c4da8850203374a6ab92aa4bf44198d",
+          "codeagent/cli.py": "6ed91cb9f26d0f0cd26b4ba539ec50021e78c6060edfbf69b04faa8c85a77d7f",
+          "codeagent/config.py": "5c1359e967c3564d5e9e67b803789309cec08b9e046268c0d7057a1afb838886",
+          "codeagent/engine.py": "1d0ec5a304e42fcddbf2d2950f96483034efefed399a6d1f83ea9b67fd19828b",
+          "codeagent/evidence.py": "81f349081cda31b8d3f230b51d80bd9f74b4187c7084c7b46b2f07398ae89db0",
+          "codeagent/gui.py": "b9f9f02581eca1a742af6b76fc42854dd2b05b63dc172725ec40e699efb87684",
+          "codeagent/inputs.py": "6a2ad7d399a4c981a4d6ec55e2ea974c1c8dec2753e90685771064896f501f12",
+          "codeagent/planning.py": "7d36d1ba1f8ec4b2485b9c44dfe97053d4660fbd0495760b4c6893cd385c2873",
+          "codeagent/prompts.py": "fa714ab91405719ea401866b42841a81dbbbe0505fc975a4f5c92435d5d80fde",
+          "codeagent/provider.py": "454317f3579994a56c3804ee368faa91fbfa872d6cf203c3d9d2f51ad7c1d21c",
+          "codeagent/runtime.py": "eddd3de20a88cf0c7453353338ac9c7c3c75855d992f8b3ef2b2e7d9d98180a3",
+          "codeagent/safety.py": "e12c23689b4ef325013e2257905da6e0957397ff2ab64d260540d8b7fbbe5b4c",
+          "codeagent/startup.py": "ee92839da1994ffa63f0c69ec6dc1d6dee94d02170ac4ddc22d7400aff677593",
+          "codeagent/superagent/__init__.py": "2280624d0198a434340c06e15b7dc7ddfb888aa9016a3be03dec4fe4c6d0efd1",
+          "codeagent/superagent/gui.py": "b38c531a43b82099310b6c7a25b3c7c3ca5b47d58df0d6e951a52e9b3c4da6c0",
+          "codeagent/superagent/runtime.py": "f1408b108f1691cbdacade3c255fb4e81a9eee214f8db18822a2449258a8af65",
+          "codeagent/superagent/store.py": "4581e4dfdbcc9483f4b6de8de6b40ce6a7a85a69b33cdbb7123d7bf9b91ae341",
+          "codeagent/tools.py": "abff885a2378edb989d055cdc3cec46cd71737f7de83cbcb7dd557410b4c82be",
+          "codeagent/ui.py": "6a3dae03f2c36fa4c5a43df03882e475817cb4d097ba488d7eba9019acc7bf3e"
+        },
+        "regression": {
+          "passed": 198,
+          "skipped": 1,
+          "seconds": 26.17,
+          "skip_reason": "Windows symlink privilege",
+          "record_type": "Observed local build command output, not CI"
+        },
+        "build_command": "powershell -ExecutionPolicy Bypass -File scripts/build_dual.ps1 -OutputDirectory dist/v031-build-03",
+        "source_directory": "build-source-03"
+      },
+      "result": "built, default work area and original13 diagrams observed on guest; superseded after IME composition issue discovered before any API request"
+    },
+    {
+      "stage": "candidate04",
+      "result": "built",
+      "regression": "200 passed,1 skipped in25.39s",
+      "reason": "Protect actual native Tk focus/ancestor IME contexts; credential composition tested with dummy values separately"
+    }
+  ]
+}

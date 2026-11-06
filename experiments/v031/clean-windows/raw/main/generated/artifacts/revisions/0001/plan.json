@@ -1,0 +1,75 @@
+{
+  "summary": "Minimal stateless Node.js 22 HTTP health service using only built-in http and node:test. Exported server factory (src/app.cjs) is separate from executable startup (src/index.cjs). npm test runs real HTTP requests on an ephemeral loopback port; npm run build syntax-checks source via node --check. CommonJS .cjs conventions throughout.",
+  "tasks": [
+    {
+      "id": "T1",
+      "description": "Exported HTTP server factory in src/app.cjs: creates an http.Server whose request handler returns 200 JSON {\"status\":\"ok\"} for GET /health and 404 JSON error for any other route, with Content-Type application/json.",
+      "files": ["src/app.cjs"],
+      "depends_on": [],
+      "sources": [
+        {"document": "a.md", "start_line": 7, "end_line": 9},
+        {"document": "v.md", "start_line": 9, "end_line": 13}
+      ],
+      "contracts": [
+        {"description": "Module exports a createServer() factory returning an http.Server configured with the route handler; no listening side effects.", "source": {"document": "a.md", "start_line": 9}},
+        {"description": "health route responds HTTP 200 with JSON body {\"status\":\"ok\"}; unknown routes respond HTTP 404 with a JSON error body.", "source": {"document": "a.md", "start_line": 7}}
+      ]
+    },
+    {
+      "id": "T2",
+      "description": "Executable startup entry src/index.cjs: imports the factory, reads process.env.PORT defaulting to 3000, and listens so the process stays alive.",
+      "files": ["src/index.cjs"],
+      "depends_on": ["T1"],
+      "sources": [
+        {"document": "a.md", "start_line": 9, "end_line": 9},
+        {"document": "v.md", "start_line": 9, "end_line": 9}
+      ],
+      "contracts": [
+        {"description": "Startup entry listens on process.env.PORT (default 3000); kept separate from the factory so tests do not open a fixed port.", "source": {"document": "a.md", "start_line": 9}}
+      ]
+    },
+    {
+      "id": "T3",
+      "description": "package.json declaring type commonjs, scripts (start, test, build), and engine Node.js >=22. build runs node --check on each .cjs source file.",
+      "files": ["package.json"],
+      "depends_on": ["T1", "T2"],
+      "sources": [
+        {"document": "a.md", "start_line": 9, "end_line": 11}
+      ],
+      "contracts": [
+        {"description": "npm start executes the startup entry on PORT; npm run build runs node --check on all source .cjs files; npm test runs the test file.", "source": {"document": "a.md", "start_line": 11}}
+      ]
+    },
+    {
+      "id": "T4",
+      "description": "Real ephemeral-port HTTP tests in test/health.test.cjs using node:test and built-in http client: assert GET /health returns 200 {\"status\":\"ok\"}, unknown route returns 404 JSON, and a follow-up /health still returns 200; close the server after tests.",
+      "files": ["test/health.test.cjs"],
+      "depends_on": ["T1"],
+      "sources": [
+        {"document": "a.md", "start_line": 7, "end_line": 10}
+      ],
+      "contracts": [
+        {"description": "Tests listen on loopback port 0 (ephemeral) and exercise real HTTP behavior, never mocks; server is closed after test completion.", "source": {"document": "a.md", "start_line": 10}}
+      ]
+    },
+    {
+      "id": "T5",
+      "description": "README.md with install/start/test instructions and a source-to-requirement mapping table.",
+      "files": ["README.md"],
+      "depends_on": ["T1", "T2", "T3", "T4"],
+      "sources": [
+        {"document": "a.md", "start_line": 11, "end_line": 11}
+      ],
+      "contracts": [
+        {"description": "README includes install, start, test instructions and a small source-to-requirement mapping.", "source": {"document": "a.md", "start_line": 11}}
+      ]
+    }
+  ],
+  "assumptions": [
+    "No database, Docker, identity provider, third-party packages, or cloud infrastructure are used; the design explicitly excludes them.",
+    "The JSON error body shape (e.g. {\"error\":\"not found\"}) is not specified by the source, so a minimal {\"error\":\"not found\"} is chosen (origin=assumption).",
+    "The build script uses node --check rather than a bundler/transpiler, since the service is plain CommonJS with no third-party tooling.",
+    "Content-Type is set to application/json for all responses to keep JSON semantics unambiguous."
+  ],
+  "conflicts": []
+}

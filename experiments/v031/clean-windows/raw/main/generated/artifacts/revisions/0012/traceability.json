@@ -1,0 +1,76 @@
+{
+  "items": [
+    {
+      "id": "FR1",
+      "source": {"document": "a.md", "start_line": 7},
+      "description": "GET /health returns HTTP 200 with JSON {\"status\":\"ok\"}.",
+      "files": ["src/app.cjs"],
+      "tests": ["test/health.test.cjs"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR2",
+      "source": {"document": "a.md", "start_line": 8},
+      "description": "Unknown routes return HTTP 404 with a JSON error; /health still answers after an unknown request.",
+      "files": ["src/app.cjs"],
+      "tests": ["test/health.test.cjs"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR3",
+      "source": {"document": "a.md", "start_line": 9},
+      "description": "npm start listens on process.env.PORT (default 3000); exported factory kept separate from executable startup.",
+      "files": ["src/app.cjs", "src/index.cjs", "package.json"],
+      "tests": ["test/health.test.cjs"],
+      "status": "implemented"
+    },
+    {
+      "id": "NFR1",
+      "source": {"document": "a.md", "start_line": 10},
+      "description": "npm test runs real HTTP tests on an ephemeral loopback port (health, unknown, health again) and closes the server; no mocks.",
+      "files": ["test/health.test.cjs"],
+      "tests": ["test/health.test.cjs"],
+      "status": "implemented"
+    },
+    {
+      "id": "NFR2",
+      "source": {"document": "a.md", "start_line": 11},
+      "description": "npm run build checks source JS syntax; deliver package.json, source, tests, README with install/start/test instructions and source-to-requirement mapping; CommonJS .cjs files.",
+      "files": ["package.json", "src/app.cjs", "src/index.cjs", "test/health.test.cjs", "README.md"],
+      "tests": ["test/health.test.cjs"],
+      "status": "implemented"
+    },
+    {
+      "id": "UML-V1",
+      "source": {"document": "v.md", "start_line": 9},
+      "description": "Startup entry creates the application and listens on PORT (UML component 'Startup entry').",
+      "files": ["src/index.cjs"],
+      "tests": [],
+      "status": "implemented"
+    },
+    {
+      "id": "UML-V2",
+      "source": {"document": "v.md", "start_line": 9},
+      "description": "Exported HTTP server factory (UML component 'Application') returns a configured server without side effects.",
+      "files": ["src/app.cjs"],
+      "tests": ["test/health.test.cjs"],
+      "status": "implemented"
+    },
+    {
+      "id": "UML-V3",
+      "source": {"document": "v.md", "start_line": 11},
+      "description": "Real ephemeral-port tests create and listen on a loopback random port (UML component 'Tests').",
+      "files": ["test/health.test.cjs"],
+      "tests": ["test/health.test.cjs"],
+      "status": "implemented"
+    },
+    {
+      "id": "UML-V4",
+      "source": {"document": "v.md", "start_line": 12},
+      "description": "Client performs GET /health or an unknown route against the application.",
+      "files": ["src/app.cjs"],
+      "tests": ["test/health.test.cjs"],
+      "status": "implemented"
+    }
+  ]
+}

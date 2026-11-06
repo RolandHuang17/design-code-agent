@@ -1,0 +1,33 @@
+{
+  "kind": "native_dummy_ime_association_probe",
+  "dummy_only": true,
+  "physical_typing": false,
+  "candidate_window_not_tested": true,
+  "before": {
+    "6294644": 982911821,
+    "8194610": 982911821,
+    "12585914": 982911821
+  },
+  "saved_originals": {
+    "6294644": 982911821,
+    "8194610": 982911821,
+    "12585914": 982911821
+  },
+  "during": {
+    "6294644": 0,
+    "8194610": 0,
+    "12585914": 0
+  },
+  "after": {
+    "6294644": 982911821,
+    "8194610": 982911821,
+    "12585914": 982911821
+  },
+  "native_focus_while_protected": 8194610,
+  "native_focus_in_saved": true,
+  "detached_all_protected_handles": true,
+  "normal_field_contexts_restored": true,
+  "original_contexts_nonzero": true,
+  "os_ime_or_keyboard_layout_changed": false,
+  "passed": true
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "design:f91f2225801db7527855186d88e9b93b92848b2847b975ed9af7ca05fbcd2ae6",
+    "document": "a.md",
+    "version": "f91f2225801db7527855186d88e9b93b92848b2847b975ed9af7ca05fbcd2ae6",
+    "origin": "original input",
+    "line_count": 11,
+    "headings": [
+      {
+        "level": 1,
+        "title": "Minimal HTTP health service",
+        "start_line": 1,
+        "end_line": 11
+      }
+    ],
+    "preview": "# Minimal HTTP health service\n\nOrigin: operator-authored architecture-prototype demonstration input. This is not an original teacher document or a formal benchmark trial.\n\nBuild a small stateless Node.js 22 HTTP service using only built-in http and node:test. No database, Docker, identity provider, third-party packages"
+  },
+  {
+    "id": "design:446c5fbd88e637f94c98eabe698bf7d20bc08646b70c6d0053011eb1a923947b",
+    "document": "v.md",
+    "version": "446c5fbd88e637f94c98eabe698bf7d20bc08646b70c6d0053011eb1a923947b",
+    "origin": "original input",
+    "line_count": 15,
+    "headings": [
+      {
+        "level": 1,
+        "title": "Health service structure",
+        "start_line": 1,
+        "end_line": 15
+      }
+    ],
+    "preview": "# Health service structure\n\nOrigin: operator-authored architecture-prototype demonstration input.\n\n```plantuml\n@startuml\nactor Client\ncomponent \"Startup entry\" as Startup\ncomponent \"Exported HTTP server factory\" as Application\ncomponent \"Real ephemeral-port tests\" as Tests\nStartup --> Application : create and listen on"
+  }
+]

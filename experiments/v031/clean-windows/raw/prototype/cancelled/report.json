@@ -1,0 +1,66 @@
+{
+  "prototype": true,
+  "reference": "https://github.com/deepseek-ai/dsh-superagent-prototype/tree/8c32a9dc5d72c033816c6a8110b37f40cf94fba4",
+  "run": {
+    "state": "cancelled",
+    "created": 1793973217.3111477,
+    "reference": "https://github.com/deepseek-ai/dsh-superagent-prototype/tree/8c32a9dc5d72c033816c6a8110b37f40cf94fba4",
+    "updated": 1793973227.577229,
+    "reason": "请求已取消；响应费用不确定，保留预留"
+  },
+  "tasks": {},
+  "attempts": {
+    "4b216d942416273bf34ce7ed6f27efc8997e0e3df23cefa0b3483a1e95387367": {
+      "state": "unknown",
+      "role": "planner",
+      "error": "请求已取消；响应费用不确定，保留预留",
+      "usage": []
+    },
+    "81902128549386f54be9d46c23023f371ec35ecf4f06a0bf9bf81b9b9d023029": {
+      "state": "completed",
+      "role": "planner",
+      "response": {
+        "role": "assistant",
+        "content": "I'll read both resources to understand the design before planning.\n\n",
+        "tool_calls": [
+          {
+            "id": "call_c279da0f06144a10b0d32459",
+            "type": "function",
+            "function": {
+              "name": "read_resource",
+              "arguments": "{\"resource\": \"input/0@f07c58ac8c699dbedb8104627ed42bef89953f5c6200b888c1f43a16ab2afdce\"}"
+            },
+            "index": 0
+          },
+          {
+            "id": "call_3978bc58f27c4b7f9ae64fd3",
+            "type": "function",
+            "function": {
+              "name": "read_resource",
+              "arguments": "{\"resource\": \"input/1@35ebe611da5d03d48e291b226326d51febda329a318673a1349a37fd3607ebba\"}"
+            },
+            "index": 1
+          }
+        ]
+      },
+      "usage": [
+        {
+          "usage": {
+            "prompt_tokens": 867,
+            "total_tokens": 1027,
+            "completion_tokens": 160,
+            "prompt_tokens_details": {
+              "cached_tokens": 768
+            }
+          },
+          "estimated_cny": 0.014724,
+          "requested_model": "deepseek-v4-pro-0813",
+          "response_model": "deepseek-v4-pro-0813",
+          "request_id": "chatcmpl-1c624d2e-5a01-921c-990c-1838d221cf6b"
+        }
+      ]
+    }
+  },
+  "jobs": {},
+  "limitation": "Directory isolation is not an OS sandbox. Review approval is not execution evidence. No comparative capability claim."
+}

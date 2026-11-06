@@ -1,0 +1,430 @@
+{
+  "kind": "independent_host_validation_on_private_copies",
+  "status": "failed",
+  "policy": "Raw guest outputs remain unchanged. Node checks run only on new private copies; resulting host checks do not replace guest unverified checks. Host installation may derive package-lock.json on the copy.",
+  "build_source_commit": "fc3059f5707ff78d715774464ba72e2500fbd613",
+  "check_implementation_sha256": "c69b9844e8f9555849e8205bada8a6bb8c4da8850203374a6ab92aa4bf44198d",
+  "projects": {
+    "main": {
+      "original_raw_project": "raw/main/generated/project",
+      "copied_source_hashes": {
+        "README.md": "9def52bbeb7da55ab83b70d6c8974a9eb5709ec1a6df98ac633430c27f9196fb",
+        "architecture-decisions.md": "b8ff4531419db88506dff7737ecd9bcf1a0676bf6dc6f902eca8dd0fec2cec47",
+        "package.json": "fd6ac8b7492e67c952f5be9df8f675841337de413b427f433f13c66dd7c50405",
+        "plan.json": "fa3084fb21fb45966497787d6a01f8fe767dfd131dfeb2065fd6ab8ee3dad240",
+        "traceability.json": "6923a69e31e09c77f914da7b97459c40cfb5e25af2aa71a0b2655d634cff18c7",
+        "src/app.cjs": "e40988e5415f01e05cf18809db9517ea9ede7e838ee86f47eb4ffb695909d1dd",
+        "src/index.cjs": "b7583dcf9368865d15f0bc67f325060dc8829b38fa442625ee90a0b95643de80",
+        "test/health.test.cjs": "3dd97f1a3c525e133e36c84ac65ccd2de47fd768d33732812a3ede48efbed750"
+      },
+      "copy_before_matches_raw": true,
+      "required_files": [
+        "package.json",
+        "README.md",
+        "traceability.json"
+      ],
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed",
+          "results": [
+            {
+              "check": "required:package.json",
+              "status": "passed"
+            },
+            {
+              "check": "required:README.md",
+              "status": "passed"
+            },
+            {
+              "check": "required:traceability.json",
+              "status": "passed"
+            },
+            {
+              "check": "package.json",
+              "status": "passed"
+            },
+            {
+              "check": "plan.json",
+              "status": "passed"
+            },
+            {
+              "check": "traceability.json",
+              "status": "passed"
+            },
+            {
+              "check": "src/app.cjs",
+              "status": "passed",
+              "exit_code": 0,
+              "timed_out": false,
+              "command": [
+                "C:\\Program Files\\nodejs\\node.EXE",
+                "--check",
+                "D:\\projects\\Task\\.local\\v031-host-checks\\main\\src\\app.cjs"
+              ],
+              "output": ""
+            },
+            {
+              "check": "src/index.cjs",
+              "status": "passed",
+              "exit_code": 0,
+              "timed_out": false,
+              "command": [
+                "C:\\Program Files\\nodejs\\node.EXE",
+                "--check",
+                "D:\\projects\\Task\\.local\\v031-host-checks\\main\\src\\index.cjs"
+              ],
+              "output": ""
+            },
+            {
+              "check": "test/health.test.cjs",
+              "status": "passed",
+              "exit_code": 0,
+              "timed_out": false,
+              "command": [
+                "C:\\Program Files\\nodejs\\node.EXE",
+                "--check",
+                "D:\\projects\\Task\\.local\\v031-host-checks\\main\\test\\health.test.cjs"
+              ],
+              "output": ""
+            }
+          ],
+          "snapshot_id": "5432da790faa4fddd5a4272fa2aedb76cd6d721d88d1d1f922349a564fe896c4",
+          "snapshot_after": "5432da790faa4fddd5a4272fa2aedb76cd6d721d88d1d1f922349a564fe896c4",
+          "stale": false
+        },
+        {
+          "profile": "install",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+            "ci",
+            "--ignore-scripts",
+            "--no-audit",
+            "--no-fund"
+          ],
+          "output": "\nup to date in 668ms\n",
+          "snapshot_id": "3bd5438e3948d8168fdae099bebf48f2c9c5e24ada4fede42b4931b23260fc13",
+          "snapshot_after": "3bd5438e3948d8168fdae099bebf48f2c9c5e24ada4fede42b4931b23260fc13",
+          "stale": false
+        },
+        {
+          "profile": "test",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+            "run",
+            "test",
+            "--ignore-scripts"
+          ],
+          "output": "\n> minimal-http-health-service@1.0.0 test\n> node --test test/health.test.cjs\n\n✔ GET /health returns 200 with JSON {\"status\":\"ok\"} (12.0237ms)\n✔ unknown route returns 404 with a JSON error (2.6969ms)\n✔ service still answers /health after an unknown request (2.0343ms)\n✔ startup entry listens on process.env.PORT (59.3917ms)\nℹ tests 4\nℹ suites 0\nℹ pass 4\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 189.353\n",
+          "test_count": 4,
+          "skipped_count": 0,
+          "test_execution": "observed",
+          "snapshot_id": "3bd5438e3948d8168fdae099bebf48f2c9c5e24ada4fede42b4931b23260fc13",
+          "snapshot_after": "3bd5438e3948d8168fdae099bebf48f2c9c5e24ada4fede42b4931b23260fc13",
+          "stale": false
+        },
+        {
+          "profile": "build",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+            "run",
+            "build",
+            "--ignore-scripts"
+          ],
+          "output": "\n> minimal-http-health-service@1.0.0 build\n> node --check src/app.cjs && node --check src/index.cjs && node --check test/health.test.cjs\n\n",
+          "snapshot_id": "3bd5438e3948d8168fdae099bebf48f2c9c5e24ada4fede42b4931b23260fc13",
+          "snapshot_after": "3bd5438e3948d8168fdae099bebf48f2c9c5e24ada4fede42b4931b23260fc13",
+          "stale": false
+        }
+      ],
+      "copy_hashes_after": {
+        "README.md": "9def52bbeb7da55ab83b70d6c8974a9eb5709ec1a6df98ac633430c27f9196fb",
+        "architecture-decisions.md": "b8ff4531419db88506dff7737ecd9bcf1a0676bf6dc6f902eca8dd0fec2cec47",
+        "package-lock.json": "bf0b7148efd50eb55a6af05d525f888b301f9869298e185db81a5f0e167e3fce",
+        "package.json": "fd6ac8b7492e67c952f5be9df8f675841337de413b427f433f13c66dd7c50405",
+        "plan.json": "fa3084fb21fb45966497787d6a01f8fe767dfd131dfeb2065fd6ab8ee3dad240",
+        "traceability.json": "6923a69e31e09c77f914da7b97459c40cfb5e25af2aa71a0b2655d634cff18c7",
+        "src/app.cjs": "e40988e5415f01e05cf18809db9517ea9ede7e838ee86f47eb4ffb695909d1dd",
+        "src/index.cjs": "b7583dcf9368865d15f0bc67f325060dc8829b38fa442625ee90a0b95643de80",
+        "test/health.test.cjs": "3dd97f1a3c525e133e36c84ac65ccd2de47fd768d33732812a3ede48efbed750"
+      },
+      "private_copy_changed_files": [
+        "package-lock.json"
+      ],
+      "only_host_derived_root_lockfile_changed": true,
+      "raw_source_unchanged": true,
+      "elapsed_seconds": 3.45,
+      "status": "passed"
+    },
+    "prototype": {
+      "original_raw_project": "raw/prototype/recovered/project",
+      "copied_source_hashes": {
+        "README.md": "b4d148c3dd2f00b226473961f908710e8d1240a449afe51800205ebfeb217994",
+        "package.json": "94ee7724a9e01f12b0c46a1b5e82c2ca91019e2012b7608aa3ae6ef4e74cb109",
+        "src/app.cjs": "bc4da13f53cfa231e317835845b907664252c61eed5ae80b89ccf0dd39aa8243",
+        "src/index.cjs": "b69ea0a5e2f6b6f9cd2edc16441fb15e1bbbc0a9f5aa739eeb07f37a7fa11d9d",
+        "test/health.test.cjs": "0f2a5226d65cdbd24d4193891a58b676489157fd1f2ea28e8c8e2e0083906725"
+      },
+      "copy_before_matches_raw": true,
+      "required_files": [
+        "package.json",
+        "README.md"
+      ],
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed",
+          "results": [
+            {
+              "check": "required:package.json",
+              "status": "passed"
+            },
+            {
+              "check": "required:README.md",
+              "status": "passed"
+            },
+            {
+              "check": "package.json",
+              "status": "passed"
+            },
+            {
+              "check": "src/app.cjs",
+              "status": "passed",
+              "exit_code": 0,
+              "timed_out": false,
+              "command": [
+                "C:\\Program Files\\nodejs\\node.EXE",
+                "--check",
+                "D:\\projects\\Task\\.local\\v031-host-checks\\prototype\\src\\app.cjs"
+              ],
+              "output": ""
+            },
+            {
+              "check": "src/index.cjs",
+              "status": "passed",
+              "exit_code": 0,
+              "timed_out": false,
+              "command": [
+                "C:\\Program Files\\nodejs\\node.EXE",
+                "--check",
+                "D:\\projects\\Task\\.local\\v031-host-checks\\prototype\\src\\index.cjs"
+              ],
+              "output": ""
+            },
+            {
+              "check": "test/health.test.cjs",
+              "status": "passed",
+              "exit_code": 0,
+              "timed_out": false,
+              "command": [
+                "C:\\Program Files\\nodejs\\node.EXE",
+                "--check",
+                "D:\\projects\\Task\\.local\\v031-host-checks\\prototype\\test\\health.test.cjs"
+              ],
+              "output": ""
+            }
+          ],
+          "snapshot_id": "9aabc5e625cdbb54f6c267cd0e74b52304c08f3c2ca3c685cabf07acbc6f8885",
+          "snapshot_after": "9aabc5e625cdbb54f6c267cd0e74b52304c08f3c2ca3c685cabf07acbc6f8885",
+          "stale": false
+        },
+        {
+          "profile": "install",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+            "ci",
+            "--ignore-scripts",
+            "--no-audit",
+            "--no-fund"
+          ],
+          "output": "\nup to date in 665ms\n",
+          "snapshot_id": "af673084d7dec88a4148fe147bcf72e39a2faa4a0f704d9389bd736fb461599e",
+          "snapshot_after": "af673084d7dec88a4148fe147bcf72e39a2faa4a0f704d9389bd736fb461599e",
+          "stale": false
+        },
+        {
+          "profile": "test",
+          "status": "failed",
+          "exit_code": 1,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+            "run",
+            "test",
+            "--ignore-scripts"
+          ],
+          "output": "\n> minimal-http-health-service@1.0.0 test\n> node --test\n\n✖ health, unknown route, and health again over an ephemeral loopback port (37.419ms)\nℹ tests 1\nℹ suites 0\nℹ pass 0\nℹ fail 1\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 114.3463\n\n✖ failing tests:\n\ntest at test\\health.test.cjs:34:1\n✖ health, unknown route, and health again over an ephemeral loopback port (37.419ms)\n  Error [ERR_SERVER_NOT_RUNNING]: Server is not running.\n      at Server.close (node:net:2881:12)\n      at Server.wrapper (node:events:639:12)\n      at Server.emit (node:events:514:28)\n      at emitCloseNT (node:net:2941:8)\n      at process.processTicksAndRejections (node:internal/process/task_queues:89:21) {\n    code: 'ERR_SERVER_NOT_RUNNING'\n  }\n",
+          "snapshot_id": "af673084d7dec88a4148fe147bcf72e39a2faa4a0f704d9389bd736fb461599e",
+          "snapshot_after": "af673084d7dec88a4148fe147bcf72e39a2faa4a0f704d9389bd736fb461599e",
+          "stale": false
+        },
+        {
+          "profile": "build",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+            "run",
+            "build",
+            "--ignore-scripts"
+          ],
+          "output": "\n> minimal-http-health-service@1.0.0 build\n> node --check src/app.cjs && node --check src/index.cjs && node --check test/health.test.cjs\n\n",
+          "snapshot_id": "af673084d7dec88a4148fe147bcf72e39a2faa4a0f704d9389bd736fb461599e",
+          "snapshot_after": "af673084d7dec88a4148fe147bcf72e39a2faa4a0f704d9389bd736fb461599e",
+          "stale": false
+        }
+      ],
+      "copy_hashes_after": {
+        "README.md": "b4d148c3dd2f00b226473961f908710e8d1240a449afe51800205ebfeb217994",
+        "package-lock.json": "c2b128e6b549ca511fb769439db33e141adf170983ed954ecc290d91cf0bd90f",
+        "package.json": "94ee7724a9e01f12b0c46a1b5e82c2ca91019e2012b7608aa3ae6ef4e74cb109",
+        "src/app.cjs": "bc4da13f53cfa231e317835845b907664252c61eed5ae80b89ccf0dd39aa8243",
+        "src/index.cjs": "b69ea0a5e2f6b6f9cd2edc16441fb15e1bbbc0a9f5aa739eeb07f37a7fa11d9d",
+        "test/health.test.cjs": "0f2a5226d65cdbd24d4193891a58b676489157fd1f2ea28e8c8e2e0083906725"
+      },
+      "private_copy_changed_files": [
+        "package-lock.json"
+      ],
+      "only_host_derived_root_lockfile_changed": true,
+      "raw_source_unchanged": true,
+      "elapsed_seconds": 3.34,
+      "status": "failed"
+    }
+  },
+  "all_raw_files_unchanged": true,
+  "raw_file_hashes_before": {
+    "main/cancelled/artifacts/events.jsonl": "20f6b05e912fb1363208afcdaad004e97d4b5a80e0489192b57f977a22903a09",
+    "main/cancelled/artifacts/report.json": "a6033e7c51d0841025866cb77d4646280f2a3ed30958e5287584bcf89260a26c",
+    "main/cancelled/artifacts/report.md": "e272b26b06409ad8908679177733c2af5ec7a45bdb2f2165d6909752b6ac52d6",
+    "main/cancelled/artifacts/run-config.json": "0f53226564972900b905c42d001f8139e799bccc55a3ec1bac886a3e7c957bae",
+    "main/cancelled/artifacts/structured-input.json": "1a6a3a3981db8f5398411b6e649f6d76caeab97b45ba3140d57b44032c8afa9c",
+    "main/cancelled/artifacts/usage.json": "28229817f9096278b0ad4b3b786686352b6fbb8cd40c3a950f91f4e6206cb8ec",
+    "main/cancelled/inputs/1-a.md": "f91f2225801db7527855186d88e9b93b92848b2847b975ed9af7ca05fbcd2ae6",
+    "main/cancelled/inputs/2-v.md": "446c5fbd88e637f94c98eabe698bf7d20bc08646b70c6d0053011eb1a923947b",
+    "main/generated/artifacts/checks-0.json": "a1ad2778a8d39242eb92fdd0e72917caac248ecd143e6bee5845566cb7dcac1d",
+    "main/generated/artifacts/checks-1.json": "e4e6d7adc98106503d0721823230d5bc0a3667f803c2d25dbe728d01d5f87cda",
+    "main/generated/artifacts/design-resources.json": "0428d00b9d62c22b7ccb374954f8590727d8418807f6f3ce354b67fa6ee60bda",
+    "main/generated/artifacts/events.jsonl": "b88ffa0a568f75e6ae141d7167fe5af009c70b3223232bd0da09092c116f1562",
+    "main/generated/artifacts/report.json": "574d511ca3af903f42d10f981de3c19adc4ce6cc4c1238416fef10752e089e75",
+    "main/generated/artifacts/report.md": "96dccb97ee9e14c2f3045e9d55a606b992bf1f01331a901f92e2735223ec75e9",
+    "main/generated/artifacts/run-config.json": "0f53226564972900b905c42d001f8139e799bccc55a3ec1bac886a3e7c957bae",
+    "main/generated/artifacts/structured-input.json": "1a6a3a3981db8f5398411b6e649f6d76caeab97b45ba3140d57b44032c8afa9c",
+    "main/generated/artifacts/task-state.json": "772cf22dd1ea11dcfbab916e8530e4e087cffeb672d5c352919c27360d062cb1",
+    "main/generated/artifacts/usage.json": "6ad50576c8baffce7f5ed7fc79027ad90c96c014f394c6808b8a257a985dd869",
+    "main/generated/artifacts/validated-plan.json": "b2b42ee9dc616a1b78d7ca73404d9971ed864914a98e8be877df2ce252ed5f09",
+    "main/generated/artifacts/candidates/01d90870b362446c93d27a8026e1887d/journal.json": "0a10f6339b01133721f482d13253316d818c40ebfe868fe9151dcf911f03a236",
+    "main/generated/artifacts/candidates/01d90870b362446c93d27a8026e1887d/after/package.json": "fd6ac8b7492e67c952f5be9df8f675841337de413b427f433f13c66dd7c50405",
+    "main/generated/artifacts/candidates/01d90870b362446c93d27a8026e1887d/after/test/health.test.cjs": "96e8f7459a54c1c2b7d4fe75820031b2f8c6136603237b514c0bf55ff1e7e0f4",
+    "main/generated/artifacts/candidates/01d90870b362446c93d27a8026e1887d/before/test/health.test.cjs": "82f0c0cc0f9e628f232ff0805b8f9f5f1ba9a0e2965530caa433c79955dc1cd7",
+    "main/generated/artifacts/candidates/1a51099b65d94251b0a3604f4a29b7a5/journal.json": "7a47f7a22ebb2f36d48b184282d4a39cc23508cfeab82b4744538dd757bc81c9",
+    "main/generated/artifacts/candidates/1a51099b65d94251b0a3604f4a29b7a5/after/package.json": "fd6ac8b7492e67c952f5be9df8f675841337de413b427f433f13c66dd7c50405",
+    "main/generated/artifacts/candidates/1a51099b65d94251b0a3604f4a29b7a5/after/traceability.json": "6923a69e31e09c77f914da7b97459c40cfb5e25af2aa71a0b2655d634cff18c7",
+    "main/generated/artifacts/candidates/1a51099b65d94251b0a3604f4a29b7a5/before/traceability.json": "3bd4e107a8440663f248b643dfb8925ee0e303164dbd14f75a64dbf8af5b3ac2",
+    "main/generated/artifacts/candidates/1f122c79dbfa440bbfdbfd6cfce1c703/journal.json": "f62f0a1484bb5969445ef81f5bbd9975d44a87698b85ace16a2b67949f5d5918",
+    "main/generated/artifacts/candidates/1f122c79dbfa440bbfdbfd6cfce1c703/after/test/health.test.cjs": "82f0c0cc0f9e628f232ff0805b8f9f5f1ba9a0e2965530caa433c79955dc1cd7",
+    "main/generated/artifacts/candidates/43e98ca00a9f4f62b68cd0c1d38bb349/journal.json": "69bad8fb2394d6271df55d43bc68219df589cda4491f8c64871c7ce528224382",
+    "main/generated/artifacts/candidates/43e98ca00a9f4f62b68cd0c1d38bb349/after/src/index.cjs": "b7583dcf9368865d15f0bc67f325060dc8829b38fa442625ee90a0b95643de80",
+    "main/generated/artifacts/candidates/47cefe9767754697bca62b720a404dcc/journal.json": "7d2f7b5beb53309f36c20f55eb7b28cd2a669833c1cb6f7138a6e0b3689e1501",
+    "main/generated/artifacts/candidates/47cefe9767754697bca62b720a404dcc/after/traceability.json": "20c6aaec79931c41d106d196f49443291a8ffb94b96f6f002200b56644c35645",
+    "main/generated/artifacts/candidates/5e76e396f5e94c16810e0c1fef8e7cbf/journal.json": "cdf7a407f52d068e655103d4bfacfb6921631fd540b76aa72ece08309241e488",
+    "main/generated/artifacts/candidates/5e76e396f5e94c16810e0c1fef8e7cbf/after/plan.json": "fa3084fb21fb45966497787d6a01f8fe767dfd131dfeb2065fd6ab8ee3dad240",
+    "main/generated/artifacts/candidates/bfae32c963184ab08df030cd8bf31a50/journal.json": "d22c16abd128b94571019b0e1c5c489baf30cf1d92908bd9a8fb2d6c637e68c5",
+    "main/generated/artifacts/candidates/bfae32c963184ab08df030cd8bf31a50/after/package.json": "fd6ac8b7492e67c952f5be9df8f675841337de413b427f433f13c66dd7c50405",
+    "main/generated/artifacts/candidates/bfae32c963184ab08df030cd8bf31a50/after/test/health.test.cjs": "3dd97f1a3c525e133e36c84ac65ccd2de47fd768d33732812a3ede48efbed750",
+    "main/generated/artifacts/candidates/bfae32c963184ab08df030cd8bf31a50/before/test/health.test.cjs": "96e8f7459a54c1c2b7d4fe75820031b2f8c6136603237b514c0bf55ff1e7e0f4",
+    "main/generated/artifacts/candidates/cb7e3abd87504ce3a923591d39df81d1/journal.json": "bef75667cabbf57cbb12adfe8ce1c796958cc096b06b863c28ee98760a132102",
+    "main/generated/artifacts/candidates/cb7e3abd87504ce3a923591d39df81d1/after/src/app.cjs": "e40988e5415f01e05cf18809db9517ea9ede7e838ee86f47eb4ffb695909d1dd",
+    "main/generated/artifacts/candidates/e56bae52c4294e8e946fc5445f790f0e/journal.json": "2d32519b0ce4aefe445c543e87fb615c3058885da137c9066add248d514b96bd",
+    "main/generated/artifacts/candidates/e56bae52c4294e8e946fc5445f790f0e/after/package.json": "fd6ac8b7492e67c952f5be9df8f675841337de413b427f433f13c66dd7c50405",
+    "main/generated/artifacts/candidates/e56bae52c4294e8e946fc5445f790f0e/after/traceability.json": "3bd4e107a8440663f248b643dfb8925ee0e303164dbd14f75a64dbf8af5b3ac2",
+    "main/generated/artifacts/candidates/e56bae52c4294e8e946fc5445f790f0e/before/traceability.json": "c25d517b028fb7911a7b1e5c39efc9ada1762566e32797caf75a8ad4775d3808",
+    "main/generated/artifacts/candidates/eb9e6583e2db45648d9abb2e86bd8bf6/journal.json": "eb25374028c8e87af4d62ae7daa473a40d94157fe19067b8fe901143ca6f9983",
+    "main/generated/artifacts/candidates/eb9e6583e2db45648d9abb2e86bd8bf6/after/package.json": "fd6ac8b7492e67c952f5be9df8f675841337de413b427f433f13c66dd7c50405",
+    "main/generated/artifacts/candidates/eb9e6583e2db45648d9abb2e86bd8bf6/after/traceability.json": "c25d517b028fb7911a7b1e5c39efc9ada1762566e32797caf75a8ad4775d3808",
+    "main/generated/artifacts/candidates/eb9e6583e2db45648d9abb2e86bd8bf6/before/traceability.json": "20c6aaec79931c41d106d196f49443291a8ffb94b96f6f002200b56644c35645",
+    "main/generated/artifacts/candidates/f0152ba80f76472c98131ccd1e983ad3/journal.json": "cc4d8955eb40e42a87c2dc0a6e76c2d83dba6a4b413ce62c9809fae03db7f294",
+    "main/generated/artifacts/candidates/f0152ba80f76472c98131ccd1e983ad3/after/package.json": "fd6ac8b7492e67c952f5be9df8f675841337de413b427f433f13c66dd7c50405",
+    "main/generated/artifacts/candidates/f09f0ca878494d48b384dba06eb2bcbd/journal.json": "a2dc29591872151621b9a58d759f90072a50afffd31523986dff8e5abd244bdd",
+    "main/generated/artifacts/candidates/f09f0ca878494d48b384dba06eb2bcbd/after/README.md": "9def52bbeb7da55ab83b70d6c8974a9eb5709ec1a6df98ac633430c27f9196fb",
+    "main/generated/artifacts/candidates/f09f0ca878494d48b384dba06eb2bcbd/after/package.json": "fd6ac8b7492e67c952f5be9df8f675841337de413b427f433f13c66dd7c50405",
+    "main/generated/artifacts/candidates/f45698e33f1247d1832235d3f66cdddb/journal.json": "6d460869579c1b04677ec1162a26851445afc95e1ebff444754dfadbd7c81f69",
+    "main/generated/artifacts/candidates/f45698e33f1247d1832235d3f66cdddb/after/architecture-decisions.md": "b8ff4531419db88506dff7737ecd9bcf1a0676bf6dc6f902eca8dd0fec2cec47",
+    "main/generated/artifacts/revisions/0001/plan.json": "6f7f5430bb6b34494b8b7abe7c89accc0c2e68ee0736efc61a90c567e80386a6",
+    "main/generated/artifacts/revisions/0002/architecture-decisions.md": "ea9d1365f7fc904561037f5aaec001b54265f3949b8062bcc6f7a2879390af7c",
+    "main/generated/artifacts/revisions/0003/traceability.json": "d48d87184b250c24d65d1943400e4b77598ee74878a87ce78da583f001cf5171",
+    "main/generated/artifacts/revisions/0004/src/app.cjs": "78277b269003f9d4bebc00a20bc9563b6e3bf6b214c1aa12ae19052389b79ad9",
+    "main/generated/artifacts/revisions/0005/src/index.cjs": "cf76c242c31c302c3e6effe0234194ea389bf5119f12bd5b768f1f65ff91f97e",
+    "main/generated/artifacts/revisions/0006/test/health.test.cjs": "cb258c200ebc23814f0caf0c58ea807fec6f39598ffa6d063c4dd6613a727e3d",
+    "main/generated/artifacts/revisions/0007/package.json": "abea6d5e46c79d0d13c5236a0f1107d3194bbaef41d741e03dc1238f1c086438",
+    "main/generated/artifacts/revisions/0008/README.md": "baf1e19fabc3a38ee0498e7be18dc60cbeff4b7db1866041a379d13f8c52c08e",
+    "main/generated/artifacts/revisions/0009/test/health.test.cjs": "012727849e379e81f45ef4f1f2e7bfcf50ebb18ca17591167c48cbcd0b9c84ed",
+    "main/generated/artifacts/revisions/0010/test/health.test.cjs": "280296ae9c3eb10ab8bb46faaf482cccb2c2032f39293189ec98ac30077bcfca",
+    "main/generated/artifacts/revisions/0011/traceability.json": "cf1eb55e582c03dfa193ee24a0be09e9503606973ddf4fb328b0d048248d64b7",
+    "main/generated/artifacts/revisions/0012/traceability.json": "9eac449891f18758b733fa7cf70947d67aea7323f1400cf87e81d5df15958734",
+    "main/generated/artifacts/revisions/0013/traceability.json": "01767c0e541cb9b9a07b37517b77fdd469076953035fecb10440944f8cc07498",
+    "main/generated/inputs/1-a.md": "f91f2225801db7527855186d88e9b93b92848b2847b975ed9af7ca05fbcd2ae6",
+    "main/generated/inputs/2-v.md": "446c5fbd88e637f94c98eabe698bf7d20bc08646b70c6d0053011eb1a923947b",
+    "main/generated/project/README.md": "9def52bbeb7da55ab83b70d6c8974a9eb5709ec1a6df98ac633430c27f9196fb",
+    "main/generated/project/architecture-decisions.md": "b8ff4531419db88506dff7737ecd9bcf1a0676bf6dc6f902eca8dd0fec2cec47",
+    "main/generated/project/package.json": "fd6ac8b7492e67c952f5be9df8f675841337de413b427f433f13c66dd7c50405",
+    "main/generated/project/plan.json": "fa3084fb21fb45966497787d6a01f8fe767dfd131dfeb2065fd6ab8ee3dad240",
+    "main/generated/project/traceability.json": "6923a69e31e09c77f914da7b97459c40cfb5e25af2aa71a0b2655d634cff18c7",
+    "main/generated/project/src/app.cjs": "e40988e5415f01e05cf18809db9517ea9ede7e838ee86f47eb4ffb695909d1dd",
+    "main/generated/project/src/index.cjs": "b7583dcf9368865d15f0bc67f325060dc8829b38fa442625ee90a0b95643de80",
+    "main/generated/project/test/health.test.cjs": "3dd97f1a3c525e133e36c84ac65ccd2de47fd768d33732812a3ede48efbed750",
+    "prototype/cancelled/report.json": "bc6852c788a06854bcec1d4449b9da908022dfbc459dd293b8c0430b779aaf53",
+    "prototype/cancelled/state.sqlite": "3e8e1e46ce1e42570aaee0786bae05a19510ba7f1c1c5f9de002a500a4e6d281",
+    "prototype/cancelled/inputs/0-Architecture_Documentation.md": "249dbc7d66c2597c7ba047a46b277e724abafd4ed6c53ab760b4903cc0299a8b",
+    "prototype/cancelled/inputs/1-Architecture_View.md": "b97525f56e0f3a81dad0b1dfc9425955991232e6b4c689876fee7679bb0e52ca",
+    "prototype/recovered/report.json": "35b8f7009bed61efafb4f84595de06b5f25e329873f8deca3524182b1e9350dc",
+    "prototype/recovered/state.sqlite": "b85bcabcf409eeab1329d6381c1fd4649acdc185e39e90b370c2162d4c2fb92c",
+    "prototype/recovered/inputs/0-Architecture_Documentation.md": "249dbc7d66c2597c7ba047a46b277e724abafd4ed6c53ab760b4903cc0299a8b",
+    "prototype/recovered/inputs/1-Architecture_View.md": "b97525f56e0f3a81dad0b1dfc9425955991232e6b4c689876fee7679bb0e52ca",
+    "prototype/recovered/project/README.md": "b4d148c3dd2f00b226473961f908710e8d1240a449afe51800205ebfeb217994",
+    "prototype/recovered/project/package.json": "94ee7724a9e01f12b0c46a1b5e82c2ca91019e2012b7608aa3ae6ef4e74cb109",
+    "prototype/recovered/project/src/app.cjs": "bc4da13f53cfa231e317835845b907664252c61eed5ae80b89ccf0dd39aa8243",
+    "prototype/recovered/project/src/index.cjs": "b69ea0a5e2f6b6f9cd2edc16441fb15e1bbbc0a9f5aa739eeb07f37a7fa11d9d",
+    "prototype/recovered/project/test/health.test.cjs": "0f2a5226d65cdbd24d4193891a58b676489157fd1f2ea28e8c8e2e0083906725",
+    "prototype/recovered/stages/artifacts/candidates/06cd77c6494749f7b0b412f6cc5d9d99/journal.json": "2a2b916314f2ea85ee17fcc11f7d9390ab3559972261789c19eda680bd17bf60",
+    "prototype/recovered/stages/artifacts/candidates/06cd77c6494749f7b0b412f6cc5d9d99/after/package.json": "94ee7724a9e01f12b0c46a1b5e82c2ca91019e2012b7608aa3ae6ef4e74cb109",
+    "prototype/recovered/stages/artifacts/candidates/06cd77c6494749f7b0b412f6cc5d9d99/after/test/health.test.cjs": "0f2a5226d65cdbd24d4193891a58b676489157fd1f2ea28e8c8e2e0083906725",
+    "prototype/recovered/stages/artifacts/candidates/6ac4ed3453764c5784aa94121a497110/journal.json": "54e6bfbe64b7a15b02ab4179067d9d3522d566598ab58bef78db2281556bf253",
+    "prototype/recovered/stages/artifacts/candidates/6ac4ed3453764c5784aa94121a497110/after/README.md": "b4d148c3dd2f00b226473961f908710e8d1240a449afe51800205ebfeb217994",
+    "prototype/recovered/stages/artifacts/candidates/6ac4ed3453764c5784aa94121a497110/after/package.json": "94ee7724a9e01f12b0c46a1b5e82c2ca91019e2012b7608aa3ae6ef4e74cb109",
+    "prototype/recovered/stages/artifacts/candidates/e15aacf7b7fa44c1a24ddafcc1c7b4e6/journal.json": "2a8aca742eff8e1687f0d10a5e36eeea72b34c52e669e8badd12ddb87205a821",
+    "prototype/recovered/stages/artifacts/candidates/e15aacf7b7fa44c1a24ddafcc1c7b4e6/after/src/app.cjs": "bc4da13f53cfa231e317835845b907664252c61eed5ae80b89ccf0dd39aa8243",
+    "prototype/recovered/stages/artifacts/candidates/e4ade5127c02428098ceef64ab785348/journal.json": "3cb81f8c1d0d9632fe97579effdb9a96ddff84a610b58ca7db107aa69f60da07",
+    "prototype/recovered/stages/artifacts/candidates/e4ade5127c02428098ceef64ab785348/after/package.json": "94ee7724a9e01f12b0c46a1b5e82c2ca91019e2012b7608aa3ae6ef4e74cb109",
+    "prototype/recovered/stages/artifacts/candidates/e4ade5127c02428098ceef64ab785348/after/src/index.cjs": "b69ea0a5e2f6b6f9cd2edc16441fb15e1bbbc0a9f5aa739eeb07f37a7fa11d9d",
+    "prototype/recovered/stages/t1/README.md": "b4d148c3dd2f00b226473961f908710e8d1240a449afe51800205ebfeb217994",
+    "prototype/recovered/stages/t1/package.json": "94ee7724a9e01f12b0c46a1b5e82c2ca91019e2012b7608aa3ae6ef4e74cb109",
+    "prototype/recovered/stages/t2/src/app.cjs": "bc4da13f53cfa231e317835845b907664252c61eed5ae80b89ccf0dd39aa8243",
+    "prototype/recovered/stages/t3/README.md": "b4d148c3dd2f00b226473961f908710e8d1240a449afe51800205ebfeb217994",
+    "prototype/recovered/stages/t3/package.json": "94ee7724a9e01f12b0c46a1b5e82c2ca91019e2012b7608aa3ae6ef4e74cb109",
+    "prototype/recovered/stages/t3/src/app.cjs": "bc4da13f53cfa231e317835845b907664252c61eed5ae80b89ccf0dd39aa8243",
+    "prototype/recovered/stages/t3/src/index.cjs": "b69ea0a5e2f6b6f9cd2edc16441fb15e1bbbc0a9f5aa739eeb07f37a7fa11d9d",
+    "prototype/recovered/stages/t4/README.md": "b4d148c3dd2f00b226473961f908710e8d1240a449afe51800205ebfeb217994",
+    "prototype/recovered/stages/t4/package.json": "94ee7724a9e01f12b0c46a1b5e82c2ca91019e2012b7608aa3ae6ef4e74cb109",
+    "prototype/recovered/stages/t4/src/app.cjs": "bc4da13f53cfa231e317835845b907664252c61eed5ae80b89ccf0dd39aa8243",
+    "prototype/recovered/stages/t4/test/health.test.cjs": "0f2a5226d65cdbd24d4193891a58b676489157fd1f2ea28e8c8e2e0083906725"
+  }
+}

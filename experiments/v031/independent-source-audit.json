@@ -1,0 +1,240 @@
+{
+  "kind": "v031_read_only_prepublication_audit",
+  "created_utc": "2026-11-06T12:57:37.705157+00:00",
+  "scope": "Candidate02 binary/source/privacy preparation only. No GUI, paid API, SQLite connection, source mutation, or native acceptance performed.",
+  "source_commit": "f304841625fd17e0e7a4e378073c7ec55607b4bf",
+  "blockers": [],
+  "source_binding": {
+    "exact_file_count": 26,
+    "entries": [
+      {
+        "path": "codeagent/__init__.py",
+        "frozen_matches": true,
+        "working_matches": true,
+        "git_semantic_bytes_match": true
+      },
+      {
+        "path": "codeagent/__main__.py",
+        "frozen_matches": true,
+        "working_matches": true,
+        "git_semantic_bytes_match": true
+      },
+      {
+        "path": "codeagent/acceptance/__init__.py",
+        "frozen_matches": true,
+        "working_matches": true,
+        "git_semantic_bytes_match": true
+      },
+      {
+        "path": "codeagent/acceptance/http_checks.py",
+        "frozen_matches": true,
+        "working_matches": true,
+        "git_semantic_bytes_match": true
+      },
+      {
+        "path": "codeagent/budget.py",
+        "frozen_matches": true,
+        "working_matches": true,
+        "git_semantic_bytes_match": true
+      },
+      {
+        "path": "codeagent/candidates.py",
+        "frozen_matches": true,
+        "working_matches": true,
+        "git_semantic_bytes_match": true
+      },
+      {
+        "path": "codeagent/cases.py",
+        "frozen_matches": true,
+        "working_matches": true,
+        "git_semantic_bytes_match": true
+      },
+      {
+        "path": "codeagent/checks.py",
+        "frozen_matches": true,
+        "working_matches": true,
+        "git_semantic_bytes_match": true,
+        "line_endings_differ_from_git": true
+      },
+      {
+        "path": "codeagent/cli.py",
+        "frozen_matches": true,
+        "working_matches": true,
+        "git_semantic_bytes_match": true
+      },
+      {
+        "path": "codeagent/config.py",
+        "frozen_matches": true,
+        "working_matches": true,
+        "git_semantic_bytes_match": true
+      },
+      {
+        "path": "codeagent/engine.py",
+        "frozen_matches": true,
+        "working_matches": true,
+        "git_semantic_bytes_match": true
+      },
+      {
+        "path": "codeagent/evidence.py",
+        "frozen_matches": true,
+        "working_matches": true,
+        "git_semantic_bytes_match": true
+      },
+      {
+        "path": "codeagent/gui.py",
+        "frozen_matches": true,
+        "working_matches": true,
+        "git_semantic_bytes_match": true
+      },
+      {
+        "path": "codeagent/inputs.py",
+        "frozen_matches": true,
+        "working_matches": true,
+        "git_semantic_bytes_match": true
+      },
+      {
+        "path": "codeagent/planning.py",
+        "frozen_matches": true,
+        "working_matches": true,
+        "git_semantic_bytes_match": true
+      },
+      {
+        "path": "codeagent/prompts.py",
+        "frozen_matches": true,
+        "working_matches": true,
+        "git_semantic_bytes_match": true
+      },
+      {
+        "path": "codeagent/provider.py",
+        "frozen_matches": true,
+        "working_matches": true,
+        "git_semantic_bytes_match": true
+      },
+      {
+        "path": "codeagent/runtime.py",
+        "frozen_matches": true,
+        "working_matches": true,
+        "git_semantic_bytes_match": true
+      },
+      {
+        "path": "codeagent/safety.py",
+        "frozen_matches": true,
+        "working_matches": true,
+        "git_semantic_bytes_match": true
+      },
+      {
+        "path": "codeagent/startup.py",
+        "frozen_matches": true,
+        "working_matches": true,
+        "git_semantic_bytes_match": true
+      },
+      {
+        "path": "codeagent/superagent/__init__.py",
+        "frozen_matches": true,
+        "working_matches": true,
+        "git_semantic_bytes_match": true
+      },
+      {
+        "path": "codeagent/superagent/gui.py",
+        "frozen_matches": true,
+        "working_matches": true,
+        "git_semantic_bytes_match": true
+      },
+      {
+        "path": "codeagent/superagent/runtime.py",
+        "frozen_matches": true,
+        "working_matches": true,
+        "git_semantic_bytes_match": true
+      },
+      {
+        "path": "codeagent/superagent/store.py",
+        "frozen_matches": true,
+        "working_matches": true,
+        "git_semantic_bytes_match": true
+      },
+      {
+        "path": "codeagent/tools.py",
+        "frozen_matches": true,
+        "working_matches": true,
+        "git_semantic_bytes_match": true
+      },
+      {
+        "path": "codeagent/ui.py",
+        "frozen_matches": true,
+        "working_matches": true,
+        "git_semantic_bytes_match": true
+      }
+    ]
+  },
+  "binaries": {
+    "main": {
+      "path": "dist/v031-build-02/main/DesignCodeAgent.exe",
+      "sha256": "355c6d33a926f09452ce2c8cb32aaf954f153bd229a6452b9e818f28b204fa43",
+      "bytes": 13601775,
+      "matches": true
+    },
+    "prototype": {
+      "path": "dist/v031-build-02/prototype/DesignCodeAgent-Superagent.exe",
+      "sha256": "dc0258e48607a48e9d082e8e4c55557b64d1f38661a94054f29bc62ba0797b44",
+      "bytes": 14284602,
+      "matches": true
+    }
+  },
+  "historical_git_bytes": {
+    "baseline": "a21da93",
+    "files_checked": 3543,
+    "changed_or_missing": [],
+    "ordinary_text_line_endings_only": [
+      "examples/README.md"
+    ],
+    "policy": "Raw archives/product bytes must match exactly. examples/README.md is ordinary Git-normalized navigation text, not immutable raw evidence; its CRLF-only working-tree difference is recorded separately."
+  },
+  "historical_archive_inventories": {
+    "inventories": 14,
+    "entries": 2816,
+    "mismatches": []
+  },
+  "static_gui_guards": {
+    "prototype_visible_key_only": true,
+    "main_blank_output_guard": true,
+    "prototype_blank_parent_guard": true,
+    "prototype_blank_restore_guard": true,
+    "prototype_new_factory": true,
+    "prototype_restore_factory": true,
+    "prototype_actual_directory_binding": true,
+    "main_run_started_result_binding": true,
+    "prototype_resources_readonly_surface": true,
+    "prototype_current_key_redaction": true,
+    "main_background_event_redaction": true,
+    "main_close_has_worker_alive_guard": true,
+    "main_poll_waits_worker_before_destroy": true,
+    "prototype_close_has_worker_alive_guard": true,
+    "prototype_poll_waits_worker_before_destroy": true
+  },
+  "credential_scan": {
+    "public_files_scanned": 3740,
+    "zip_archives": 5,
+    "zip_members": 514,
+    "exact_configured_values_checked": true,
+    "matching_filenames_only": [],
+    "note": "Byte scan plus configured UTF-8/UTF-16 values; no screenshot OCR and no keys emitted."
+  },
+  "private_material_separation": {
+    "private_root_outside_workspace": true,
+    "private_files_fingerprinted": 61,
+    "public_identical_private_files": [],
+    "public_private_path_references": [],
+    "private_tracked_paths": []
+  },
+  "acceptance_not_claimed": [
+    "Candidate02 native VM acceptance not yet observed",
+    "No final release ZIP exists or was reviewed",
+    "No source API/generation/Space rerun performed"
+  ],
+  "status": "passed_with_scope_limits",
+  "regression_record": {
+    "passed": 198,
+    "skipped": 1,
+    "source": "build-final manifest transcription of local build output; audit did not rerun it and does not count it as CI"
+  }
+}

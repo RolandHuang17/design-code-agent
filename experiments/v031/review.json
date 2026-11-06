@@ -1,0 +1,525 @@
+{
+  "scope": "v0.3.1 desktop acceptance only; formal tool and architecture prototype remain separate",
+  "policy": "All discovered reports are listed, including failures and interruptions. No general success-rate claim.",
+  "reports": [
+    {
+      "report": "build-final.json",
+      "sha256": "e92108ea1ba51c566e17a6481666465ce374fdc7152841c36c649d86ee904e9a",
+      "record_kind": "build-final",
+      "program": "main_or_independent_acceptance",
+      "status": "unclassified",
+      "recorded_status": "unclassified",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "source_commit": "fc3059f5707ff78d715774464ba72e2500fbd613"
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/independent-host-checks.json",
+      "sha256": "786ad894c605284e27729e9ef0a9df91b904c92c4a6d0728ed33fc29aeb07a6e",
+      "record_kind": "independent_host_validation_on_private_copies",
+      "program": "main_or_independent_acceptance",
+      "status": "failed",
+      "recorded_status": "failed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "policy": "Raw guest outputs remain unchanged. Node checks run only on new private copies; resulting host checks do not replace guest unverified checks. Host installation may derive package-lock.json on the copy."
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/independent-main-health.json",
+      "sha256": "f99d35ee2c491d7ac94473a72fe81ca3dad6fa173a673b85852d1304e150802b",
+      "record_kind": "independent_health_http_restart",
+      "program": "main_or_independent_acceptance",
+      "status": "passed",
+      "recorded_status": "passed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        }
+      ],
+      "details": {
+        "source_unchanged": true,
+        "cleanup": [
+          {
+            "restart_index": 0,
+            "process_stopped": true,
+            "port_closed": true,
+            "output_tail": "\n> minimal-http-health-service@1.0.0 start\n> node src/index.cjs\n\nhealth service listening on port 1090\n"
+          },
+          {
+            "restart_index": 1,
+            "process_stopped": true,
+            "port_closed": true,
+            "output_tail": "\n> minimal-http-health-service@1.0.0 start\n> node src/index.cjs\n\nhealth service listening on port 1101\n"
+          }
+        ]
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/independent-prototype-health.json",
+      "sha256": "fde02e942a7821016fdbe9ec21a308a0d1e5b601ae25f69bc31e64f3e2c82408",
+      "record_kind": "independent_health_http_restart",
+      "program": "main_or_independent_acceptance",
+      "status": "passed",
+      "recorded_status": "passed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        }
+      ],
+      "details": {
+        "source_unchanged": true,
+        "cleanup": [
+          {
+            "restart_index": 0,
+            "process_stopped": true,
+            "port_closed": true,
+            "output_tail": "\n> minimal-http-health-service@1.0.0 start\n> node src/index.cjs\n\nHealth service listening on port 1089\n"
+          },
+          {
+            "restart_index": 1,
+            "process_stopped": true,
+            "port_closed": true,
+            "output_tail": "\n> minimal-http-health-service@1.0.0 start\n> node src/index.cjs\n\nHealth service listening on port 1103\n"
+          }
+        ]
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/independent-runtime-summary.json",
+      "sha256": "31e5176d42467e1cc8c487f443f70044dfe77020f16443235cd91cb7df7516c6",
+      "record_kind": "independent_native_and_host_runtime_summary",
+      "program": "main_or_independent_acceptance",
+      "status": "completed_with_known_generated_test_failure",
+      "recorded_status": "completed_with_known_generated_test_failure",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "limitations": [
+          "Guest environment did not execute Node checks; host results are separate and do not rewrite guest unverified states.",
+          "Prototype generated service passed independent HTTP6/6 while its self-test failed during duplicate cleanup; this is retained as a generated-test defect, not counted as test success.",
+          "Prototype has no automatic repair loop equivalent to the formal tool. No manual generated-source fix or paid continuation was performed.",
+          "Unknown prototype cancellation attempt and its existing usage/error metadata remain in the raw report and database; cumulative guest budget ledger is not copied or cleared.",
+          "200passed/1skipped concerns the tool regression; generated project tests are distinct."
+        ],
+        "policy": "New derived summary only; original guest reports, SQLite files, cancellation states and host failures remain unchanged. No SQLite was opened during this summary and no model requests were sent."
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/raw/main/cancelled/artifacts/report.json",
+      "sha256": "a6033e7c51d0841025866cb77d4646280f2a3ed30958e5287584bcf89260a26c",
+      "record_kind": "report",
+      "program": "main_or_independent_acceptance",
+      "status": "cancelled",
+      "recorded_status": "cancelled",
+      "verification": "not_recorded",
+      "generation_origin": "fresh",
+      "turns": 2,
+      "estimated_cny": 0.049503,
+      "checks": [],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/raw/main/generated/artifacts/checks-0.json",
+      "sha256": "a1ad2778a8d39242eb92fdd0e72917caac248ecd143e6bee5845566cb7dcac1d",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "unverified"
+        },
+        {
+          "profile": "install",
+          "status": "unverified"
+        },
+        {
+          "profile": "test",
+          "status": "unverified"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "unverified"
+        },
+        {
+          "profile": "compose",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "failed"
+        },
+        {
+          "profile": "runtime",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "startup",
+          "status": "unverified"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/raw/main/generated/artifacts/checks-1.json",
+      "sha256": "e4e6d7adc98106503d0721823230d5bc0a3667f803c2d25dbe728d01d5f87cda",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "unverified"
+        },
+        {
+          "profile": "install",
+          "status": "unverified"
+        },
+        {
+          "profile": "test",
+          "status": "unverified"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "unverified"
+        },
+        {
+          "profile": "compose",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "startup",
+          "status": "unverified"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/raw/main/generated/artifacts/report.json",
+      "sha256": "574d511ca3af903f42d10f981de3c19adc4ce6cc4c1238416fef10752e089e75",
+      "record_kind": "report",
+      "program": "main_or_independent_acceptance",
+      "status": "completed_with_gaps",
+      "recorded_status": "completed_with_gaps",
+      "verification": "not_recorded",
+      "generation_origin": "fresh",
+      "turns": 19,
+      "estimated_cny": 2.049213,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "unverified"
+        },
+        {
+          "profile": "install",
+          "status": "unverified"
+        },
+        {
+          "profile": "test",
+          "status": "unverified"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "unverified"
+        },
+        {
+          "profile": "compose",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "startup",
+          "status": "unverified"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/raw/prototype/cancelled/report.json",
+      "sha256": "bc6852c788a06854bcec1d4449b9da908022dfbc459dd293b8c0430b779aaf53",
+      "record_kind": "report",
+      "program": "prototype",
+      "status": "cancelled",
+      "recorded_status": "cancelled",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/raw/prototype/recovered/report.json",
+      "sha256": "35b8f7009bed61efafb4f84595de06b5f25e329873f8deca3524182b1e9350dc",
+      "record_kind": "report",
+      "program": "prototype",
+      "status": "completed",
+      "recorded_status": "completed",
+      "verification": "unverified",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "unverified",
+          "job_state": "completed"
+        },
+        {
+          "profile": "install",
+          "status": "unverified",
+          "job_state": "completed"
+        },
+        {
+          "profile": "test",
+          "status": "unverified",
+          "job_state": "completed"
+        },
+        {
+          "profile": "build",
+          "status": "unverified",
+          "job_state": "completed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows.json",
+      "sha256": "e122ab9d688ca1eb40cc6a55c9a8a2b4ddb66e06736a19223541e032c1c9124d",
+      "record_kind": "final_standalone_desktop_acceptance",
+      "program": "main_or_independent_acceptance",
+      "status": "desktop_acceptance_completed_with_generated_test_failure",
+      "recorded_status": "desktop_acceptance_completed_with_generated_test_failure",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "cleanup": {
+          "guest": "Graceful shutdown; poweroff verified",
+          "local_validation_servers": "Stopped; no8766/8767 listeners",
+          "nat_localhost_reachable": false,
+          "nat_persistence": "Explicit false in active VM XML; new VBox service read reports0; clean snapshot unchanged",
+          "clipboard_and_dragdrop": "disabled"
+        },
+        "source_commit": "fc3059f5707ff78d715774464ba72e2500fbd613"
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "independent-ime-dummy-host.json",
+      "sha256": "43169791ff02257fa72a075c9ff0f7b486b250bd6a1356a0421e38f50142e8ba",
+      "record_kind": "native_dummy_ime_association_probe",
+      "program": "main_or_independent_acceptance",
+      "status": "passed",
+      "recorded_status": "passed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "independent-ime-guest.json",
+      "sha256": "41e3292eb753fe3559ce9bde76597c99710e51b9820413d32a0c74ba07bfd051",
+      "record_kind": "independent_native_ime_observation",
+      "program": "main_or_independent_acceptance",
+      "status": "passed_in_observed_configuration",
+      "recorded_status": "passed_in_observed_configuration",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        }
+      ],
+      "details": {
+        "limitations": "One OS/IME configuration only. This is observed IMM behavior, not a guarantee for all input methods or secret handling in other applications.",
+        "source_commit": "fc3059f5707ff78d715774464ba72e2500fbd613"
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "independent-layout.json",
+      "sha256": "d44fdcd4f037a9756bbf71dd8f087b7ccaed4211d324d648fbac6cec4a61232b",
+      "record_kind": "native_tk_layout_stress",
+      "program": "main_or_independent_acceptance",
+      "status": "passed",
+      "recorded_status": "passed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "independent-source-audit-final.json",
+      "sha256": "44722bf49dad67a7753aed5ee4748671a5ed30f6b4767a6abbea7cb5a3fbed67",
+      "record_kind": "v031_final_source_candidate_audit",
+      "program": "main_or_independent_acceptance",
+      "status": "source_checks_passed_publication_pending",
+      "recorded_status": "source_checks_passed_publication_pending",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "source_commit": "fc3059f5707ff78d715774464ba72e2500fbd613"
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "independent-source-audit.json",
+      "sha256": "105dc02230fbd0e4e190f62be151a1adb626b4570d52c38f87b254e633263342",
+      "record_kind": "v031_read_only_prepublication_audit",
+      "program": "main_or_independent_acceptance",
+      "status": "passed_with_scope_limits",
+      "recorded_status": "passed_with_scope_limits",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "source_commit": "f304841625fd17e0e7a4e378073c7ec55607b4bf"
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    }
+  ]
+}

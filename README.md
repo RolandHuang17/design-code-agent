@@ -2,7 +2,7 @@
 
 面向两份 Markdown 架构文档的代码生成工具：通过真实文件工具创建 Node.js 项目，执行检查，并根据实际失败反馈修复。Windows 桌面程序自带 Python 运行时。
 
-v0.3 提供两个独立程序，分别验收：
+v0.3.1 提供两个独立程序，统一为项目设置、执行状态和结果分区的桌面工作台，分别验收：
 
 | 程序 | 用途 |
 | --- | --- |
@@ -11,7 +11,9 @@ v0.3 提供两个独立程序，分别验收：
 
 主工具保留单控制器结构；原型借鉴 DeepSeek Super-agent 的公开系统设计，使用相同的百炼 `deepseek-v4-pro-0813`，不作为新的基础模型或性能优势声明。原型的运行结果不计入正式工具成绩。
 
-[当前验证与全部原始记录](docs/v03-validation.md) · [温度转换器完整生成示例](examples/temperature-converter/README.md) · [Space 反馈续跑示例](examples/space-fractions-v03/README.md) · [Super-agent 实跑与限制](docs/superagent-results.md)
+[当前界面与验证记录](docs/v031-validation.md) · [v0.3 生成实跑](docs/v03-validation.md) · [温度转换器完整生成示例](examples/temperature-converter/README.md) · [Space 反馈续跑示例](examples/space-fractions-v03/README.md) · [Super-agent 实跑与限制](docs/superagent-results.md)
+
+![v0.3.1 主工具的架构文档解析预览](experiments/v031/clean-windows/main04-preview.png)
 
 历史 v0.2 九次冻结实验、人工修正的 Space Fractions 交付副本及失败记录均保留，见 [v0.2 结果](docs/v02-results.md)。当前版本不引用旧成绩证明新程序能力。
 
@@ -20,7 +22,7 @@ v0.3 提供两个独立程序，分别验收：
 Windows 用户从 [Releases](https://github.com/RolandHuang17/design-code-agent/releases) 下载发布压缩包，解压后双击 `main/DesignCodeAgent.exe`；架构原型位于 `prototype/DesignCodeAgent-Superagent.exe`。桌面工具自带 Python 运行时，无需预装 Python；联网生成仍需模型服务密钥。生成项目的构建与运行另需 Node.js / Docker。
 
 1. 选择平台并填写匹配地域的 Base URL。官方模式为 `https://api.deepseek.com`；百炼选择控制台给出的 OpenAI 兼容地址，结尾为 `/compatible-mode/v1`。
-2. 在遮蔽输入框粘贴 API Key，或点击“读取环境变量”：官方使用 `DEEPSEEK_API_KEY`，百炼使用 `DASHSCOPE_API_KEY`。可另配 `DASHSCOPE_BASE_URL`。密钥默认仅在内存使用。Windows 微软拼音请先切换英文，建议使用粘贴或读取环境变量；输入法尚未提交的组合候选窗口不受文本框遮蔽保护。
+2. 在遮蔽输入框粘贴 API Key，或点击“读取环境变量”：官方使用 `DEEPSEEK_API_KEY`，百炼使用 `DASHSCOPE_API_KEY`。可另配 `DASHSCOPE_BASE_URL`。密钥默认仅在内存使用，建议粘贴或读取环境变量。密钥框的输入法保护与实际验证范围见[当前验证记录](docs/v031-validation.md)。
 3. 核对当前模型价格上界并勾选确认，点击“测试连接”。输入、输出单价均为**元 / 百万 tokens**。
 4. 选择 `Architecture_Documentation.md`、`Architecture_View.md` 和输出目录。先点“解析预览”可免费检查文档。
 5. 新文档选择 `generic-node`；原始游戏材料选择 `space-fractions`，借阅案例选择 `library`。案例模式会加载另存来源的接口补充。点击“开始生成”。若需自动安装依赖并执行生成项目测试，勾选对应执行选项。此功能以当前用户权限运行生成代码，**不是系统沙箱**；建议在专门开发环境使用。

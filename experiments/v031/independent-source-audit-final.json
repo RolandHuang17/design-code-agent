@@ -1,0 +1,260 @@
+{
+  "kind": "v031_final_source_candidate_audit",
+  "source_commit": "fc3059f5707ff78d715774464ba72e2500fbd613",
+  "candidate": "04",
+  "created_utc": "2026-11-06T13:36:57.188460+00:00",
+  "scope": "Read-only source, binary binding, historical byte preservation and privacy audit. No GUI, native VM acceptance, paid API, SQLite connection or suite rerun.",
+  "blockers": [],
+  "source_binding": {
+    "files": 26,
+    "entries": [
+      {
+        "path": "codeagent/__init__.py",
+        "frozen_sha256_matches": true,
+        "working_sha256_matches": true,
+        "git_equal_after_CRLF_normalization": true
+      },
+      {
+        "path": "codeagent/__main__.py",
+        "frozen_sha256_matches": true,
+        "working_sha256_matches": true,
+        "git_equal_after_CRLF_normalization": true
+      },
+      {
+        "path": "codeagent/acceptance/__init__.py",
+        "frozen_sha256_matches": true,
+        "working_sha256_matches": true,
+        "git_equal_after_CRLF_normalization": true
+      },
+      {
+        "path": "codeagent/acceptance/http_checks.py",
+        "frozen_sha256_matches": true,
+        "working_sha256_matches": true,
+        "git_equal_after_CRLF_normalization": true
+      },
+      {
+        "path": "codeagent/budget.py",
+        "frozen_sha256_matches": true,
+        "working_sha256_matches": true,
+        "git_equal_after_CRLF_normalization": true
+      },
+      {
+        "path": "codeagent/candidates.py",
+        "frozen_sha256_matches": true,
+        "working_sha256_matches": true,
+        "git_equal_after_CRLF_normalization": true
+      },
+      {
+        "path": "codeagent/cases.py",
+        "frozen_sha256_matches": true,
+        "working_sha256_matches": true,
+        "git_equal_after_CRLF_normalization": true
+      },
+      {
+        "path": "codeagent/checks.py",
+        "frozen_sha256_matches": true,
+        "working_sha256_matches": true,
+        "git_equal_after_CRLF_normalization": true,
+        "build_working_line_endings_recorded_exactly": true
+      },
+      {
+        "path": "codeagent/cli.py",
+        "frozen_sha256_matches": true,
+        "working_sha256_matches": true,
+        "git_equal_after_CRLF_normalization": true
+      },
+      {
+        "path": "codeagent/config.py",
+        "frozen_sha256_matches": true,
+        "working_sha256_matches": true,
+        "git_equal_after_CRLF_normalization": true
+      },
+      {
+        "path": "codeagent/engine.py",
+        "frozen_sha256_matches": true,
+        "working_sha256_matches": true,
+        "git_equal_after_CRLF_normalization": true
+      },
+      {
+        "path": "codeagent/evidence.py",
+        "frozen_sha256_matches": true,
+        "working_sha256_matches": true,
+        "git_equal_after_CRLF_normalization": true
+      },
+      {
+        "path": "codeagent/gui.py",
+        "frozen_sha256_matches": true,
+        "working_sha256_matches": true,
+        "git_equal_after_CRLF_normalization": true
+      },
+      {
+        "path": "codeagent/inputs.py",
+        "frozen_sha256_matches": true,
+        "working_sha256_matches": true,
+        "git_equal_after_CRLF_normalization": true
+      },
+      {
+        "path": "codeagent/planning.py",
+        "frozen_sha256_matches": true,
+        "working_sha256_matches": true,
+        "git_equal_after_CRLF_normalization": true
+      },
+      {
+        "path": "codeagent/prompts.py",
+        "frozen_sha256_matches": true,
+        "working_sha256_matches": true,
+        "git_equal_after_CRLF_normalization": true
+      },
+      {
+        "path": "codeagent/provider.py",
+        "frozen_sha256_matches": true,
+        "working_sha256_matches": true,
+        "git_equal_after_CRLF_normalization": true
+      },
+      {
+        "path": "codeagent/runtime.py",
+        "frozen_sha256_matches": true,
+        "working_sha256_matches": true,
+        "git_equal_after_CRLF_normalization": true
+      },
+      {
+        "path": "codeagent/safety.py",
+        "frozen_sha256_matches": true,
+        "working_sha256_matches": true,
+        "git_equal_after_CRLF_normalization": true
+      },
+      {
+        "path": "codeagent/startup.py",
+        "frozen_sha256_matches": true,
+        "working_sha256_matches": true,
+        "git_equal_after_CRLF_normalization": true
+      },
+      {
+        "path": "codeagent/superagent/__init__.py",
+        "frozen_sha256_matches": true,
+        "working_sha256_matches": true,
+        "git_equal_after_CRLF_normalization": true
+      },
+      {
+        "path": "codeagent/superagent/gui.py",
+        "frozen_sha256_matches": true,
+        "working_sha256_matches": true,
+        "git_equal_after_CRLF_normalization": true
+      },
+      {
+        "path": "codeagent/superagent/runtime.py",
+        "frozen_sha256_matches": true,
+        "working_sha256_matches": true,
+        "git_equal_after_CRLF_normalization": true
+      },
+      {
+        "path": "codeagent/superagent/store.py",
+        "frozen_sha256_matches": true,
+        "working_sha256_matches": true,
+        "git_equal_after_CRLF_normalization": true
+      },
+      {
+        "path": "codeagent/tools.py",
+        "frozen_sha256_matches": true,
+        "working_sha256_matches": true,
+        "git_equal_after_CRLF_normalization": true
+      },
+      {
+        "path": "codeagent/ui.py",
+        "frozen_sha256_matches": true,
+        "working_sha256_matches": true,
+        "git_equal_after_CRLF_normalization": true
+      }
+    ]
+  },
+  "binaries": {
+    "main": {
+      "path": "dist/v031-build-04/main/DesignCodeAgent.exe",
+      "sha256": "2011b9e73e80f1361bc277ad02873470734a55f770f7ece5eba9986bbf527c5b",
+      "bytes": 13606847,
+      "matches_manifest": true
+    },
+    "prototype": {
+      "path": "dist/v031-build-04/prototype/DesignCodeAgent-Superagent.exe",
+      "sha256": "cc2faaf6ff7d56f503d38eb6b5b7d4846d603dba7508eb21ca26e3a4a17e6ac8",
+      "bytes": 14291606,
+      "matches_manifest": true
+    }
+  },
+  "historical_git_preservation": {
+    "baseline": "a21da93",
+    "files_checked": 3543,
+    "changed_or_missing": [],
+    "ordinary_navigation_CRLF_only": [
+      "examples/README.md"
+    ]
+  },
+  "archive_inventories": {
+    "inventories": 14,
+    "file_entries": 2816,
+    "mismatches": []
+  },
+  "static_control_checks": {
+    "prototype_uses_visible_key_only": true,
+    "prototype_empty_key_stops_locally": true,
+    "main_empty_output_guard": true,
+    "prototype_empty_parent_guard": true,
+    "prototype_empty_restore_guard": true,
+    "new_unique_run_factory_connected": true,
+    "existing_run_factory_connected": true,
+    "restore_checks_before_persistent_store": true,
+    "restore_uses_temporary_SQLite_copy": true,
+    "environment_explicit_refresh": true,
+    "main_current_output_bound_on_start": true,
+    "prototype_current_output_bound_to_coordinator": true,
+    "resource_cursor_reset_present": true,
+    "resource_eof_guard": true,
+    "work_item_merged_not_test_pass": true,
+    "IME_focus_restore_and_destroy_hooks": true,
+    "IME_filters_owned_process_windows": true,
+    "IME_uses_native_focus_ancestor_with_bounded_loop": true,
+    "IME_preserves_first_handle_association": true,
+    "IME_does_not_change_keyboard_layout_or_global_open_status": true,
+    "secret_fields_masked": true,
+    "main_close_checks_worker_alive": true,
+    "main_poll_checks_worker_alive": true,
+    "prototype_close_checks_worker_alive": true,
+    "prototype_poll_checks_worker_alive": true
+  },
+  "IME_scope": "Typed Win32 IMM association guards, scoped to owned windows and restored on focus loss/destroy. Fake-handle tests and this static review do not establish actual Windows candidate-window behavior; native QA pending.",
+  "credential_scan": {
+    "public_files": 3802,
+    "zip_archives": 5,
+    "zip_members": 514,
+    "configured_values_checked": true,
+    "matching_filenames_only": [],
+    "scope": "Byte scan, not screenshot OCR; no secrets are included in this report."
+  },
+  "private_separation": {
+    "private_root_outside_workspace": true,
+    "private_files_fingerprinted": 72,
+    "matching_public_files": [],
+    "public_private_path_references": []
+  },
+  "packaging_static_controls": {
+    "new_output_only": true,
+    "evidence_roots_cannot_include_private_sibling": true,
+    "file_hash_before_and_after_write": true,
+    "readback_member_verification": true,
+    "bundle_version_explicit": true
+  },
+  "regression_manifest_record": {
+    "passed": 200,
+    "skipped": 1,
+    "seconds": 25.39,
+    "skip_reason": "Windows symlink privilege",
+    "record_type": "Observed local build command output, not CI",
+    "audit_reran_suite": false
+  },
+  "publication_followups": [
+    "Native VM real-API acceptance pending; not inferred by this source audit",
+    "Final release ZIP not built or scanned in this audit",
+    "Update provisional docs/v031-validation.md from198/26.17 to final manifest200/25.39 before publication"
+  ],
+  "status": "source_checks_passed_publication_pending"
+}

@@ -1,0 +1,14 @@
+{
+  "kind": "independent_native_ime_observation",
+  "status": "passed_in_observed_configuration",
+  "source_commit": "fc3059f5707ff78d715774464ba72e2500fbd613",
+  "binary_sha256": "2011b9e73e80f1361bc277ad02873470734a55f770f7ece5eba9986bbf527c5b",
+  "environment": "Clean Windows 11 guest, Microsoft Pinyin Chinese mode, 1024x768, 125% display scaling",
+  "checks": [
+    {"name": "public_dummy_in_secret_entry", "status": "passed", "observed": "17 public dummy characters displayed as masked bullets; no IME composition window appeared", "evidence": "clean-windows/main04-ime-dummy.png"},
+    {"name": "ordinary_entry_after_focus_out", "status": "passed", "observed": "Typing public nihao into the ordinary Base URL field produced Chinese candidates; composition cancelled before further use", "evidence": "clean-windows/main04-ime-restored.png"}
+  ],
+  "limitations": "One OS/IME configuration only. This is observed IMM behavior, not a guarantee for all input methods or secret handling in other applications.",
+  "paid_requests": 0,
+  "test_input": "Public dummy only; no credential text in these evidence images."
+}
