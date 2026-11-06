@@ -114,6 +114,8 @@ class Coordinator:
             return previous["response"]
         if previous and previous["state"] in ("pending", "unknown"):
             raise UnknownRequest("API请求结果未知；必须由操作者确认后才能重试，费用预留保持不变")
+        if previous and previous["state"] == "abandoned":
+            self.store.put("attempt", request + "-history-" + uuid.uuid4().hex, previous)
         if len(self.store.all("attempt")) >= 180:
             raise RuntimeError("原型达到180个模型请求上限")
         redactor = Redactor(getattr(provider, "api_key", ""))
@@ -155,7 +157,22 @@ class Coordinator:
             outcome = None
             for call in calls:
                 try:
+                    self._guard()
                     args = json.loads(call["function"]["arguments"])
+                    name = call["function"]["name"]
+                    spec = next((s["function"] for s in definitions if s["function"]["name"] == name), None)
+                    if spec is None:
+                        raise ValueError("Tool is not available to this role; no write capability for reviewer")
+                    parameters = spec["parameters"]
+                    if not isinstance(args, dict) or set(args) - set(parameters["properties"]) or not set(parameters["required"]) <= set(args):
+                        raise ValueError("Tool arguments differ from the registered schema")
+                    types = {"string": str, "array": list, "object": dict, "boolean": bool, "integer": int}
+                    for key, value in args.items():
+                        expected = parameters["properties"][key]
+                        if expected.get("type") in types and type(value) is not types[expected["type"]]:
+                            raise ValueError("Invalid argument type: " + key)
+                        if "enum" in expected and value not in expected["enum"]:
+                            raise ValueError("Invalid argument value: " + key)
                     if call["function"]["name"] == "read_resource":
                         result = self.store.read(args["resource"], args.get("offset", 0))
                     else:
@@ -192,11 +209,13 @@ class Coordinator:
                 ids.add(task["id"])
                 if not isinstance(task.get("files"), list) or not task["files"] or not isinstance(task.get("description"), str):
                     raise ValueError("Each task needs description and owned files")
+                task["files"] = [f.replace("\\", "/") if isinstance(f, str) else f for f in task["files"]]
                 for f in task["files"]:
                     safe_path(self.project, f)
-                    if f in owners or Path(f).name == "package-lock.json":
+                    normalized = f.casefold()
+                    if normalized in owners or any(normalized.startswith(owner + "/") or owner.startswith(normalized + "/") for owner in owners) or Path(f).name.casefold() == "package-lock.json":
                         raise ValueError("Files must have one owner; host generates lockfiles")
-                    owners.add(f)
+                    owners.add(normalized)
                 if not isinstance(task.get("depends_on", []), list):
                     raise ValueError("depends_on must be a list")
             completed = set()
@@ -205,7 +224,7 @@ class Coordinator:
                 if not ready:
                     raise ValueError("Unknown dependency or dependency cycle")
                 completed.update(t["id"] for t in ready)
-            if "package.json" not in owners or "README.md" not in owners:
+            if "package.json" not in owners or "readme.md" not in owners:
                 raise ValueError("Plan must include package.json and README.md")
             return args, True
 
@@ -234,10 +253,13 @@ class Coordinator:
         toolset.phase = "generation"
         toolset.required_files = ("package.json", "README.md")
         owned = set(task["files"])
+        owned_keys = {f.casefold() for f in owned}
 
         def handle(name, args):
-            if name in ("write_file", "edit_file") and args.get("path", "").replace("\\", "/") not in owned:
+            if name in ("write_file", "edit_file") and args.get("path", "").replace("\\", "/").casefold() not in owned_keys:
                 raise ValueError("This worker cannot modify another task's files")
+            if name == "apply_changes" and (not isinstance(args.get("changes"), list) or any(not isinstance(c, dict) or c.get("path", "").replace("\\", "/").casefold() not in owned_keys for c in args["changes"])):
+                raise ValueError("Every candidate change must belong to this worker")
             if name not in {s["function"]["name"] for s in TOOL_SCHEMAS}:
                 raise ValueError("Unknown worker tool")
             result = toolset.execute(name, json.dumps(args, ensure_ascii=False))
@@ -246,7 +268,8 @@ class Coordinator:
 
         plan_ref = self.store.resource("plan", json.dumps(self.store.get("run", "plan"), ensure_ascii=False))
         self._dialogue("coder-" + key, "Implement only owned files. Read related input resources and existing dependency files. "
-                       "You have an isolated workspace; changes are candidates until host accepts. Task: " + json.dumps(task, ensure_ascii=False) +
+                       "You have an isolated workspace; changes are candidates until host accepts. "
+                       "Use existing package.json module conventions; if absent prefer CommonJS and .cjs. Task: " + json.dumps(task, ensure_ascii=False) +
                        " Resources: " + json.dumps(self.store.get("run", "inputs") + [plan_ref], ensure_ascii=False),
                        [READ_RESOURCE] + TOOL_SCHEMAS, handle)
         # File presence is candidate completion, never verification success.
@@ -259,10 +282,12 @@ class Coordinator:
         base = self.store.get("stage", key)["hashes"]
         with self.merge_lock:
             _, current = snapshot(self.project)
+            candidates = {}
             for f in task["files"]:
                 staged = safe_path(stage, f)
                 target = safe_path(self.project, f)
-                candidate_hash = hashlib.sha256(staged.read_bytes()).hexdigest()
+                candidates[f] = staged.read_bytes()
+                candidate_hash = hashlib.sha256(candidates[f]).hexdigest()
                 if current.get(f) not in (base.get(f), candidate_hash):
                     raise ValueError(f"Merge conflict: {f}; original candidate retained")
             # Intent persists before filesystem effects; replay accepts identical hashes.
@@ -271,7 +296,7 @@ class Coordinator:
                 target = safe_path(self.project, f)
                 target.parent.mkdir(parents=True, exist_ok=True)
                 temp = target.with_name(target.name + ".candidate")
-                shutil.copyfile(safe_path(stage, f), temp)
+                temp.write_bytes(candidates[f])
                 temp.replace(target)
                 self.store.resource("file/" + f, target.read_text(encoding="utf-8"))
             self.store.put("effect", "merge-" + key, {"state": "completed", "task": key})
@@ -279,9 +304,11 @@ class Coordinator:
             self.event("integrated", task=key, files=task["files"])
 
     def _review(self):
+        version, _ = snapshot(self.project)
         existing = self.store.get("run", "review")
-        if existing:
+        if existing and self.store.get("run", "review_snapshot") == version:
             return existing
+        role = "reviewer" if not existing else "reviewer-" + version[:12]
         refs = [self.store.resource("file/" + p.relative_to(self.project).as_posix(), p.read_text(encoding="utf-8")) for p in project_files(self.project)]
 
         def handle(name, args):
@@ -291,10 +318,11 @@ class Coordinator:
                 raise ValueError("Approval cannot contain unresolved issues")
             return args, True
 
-        result = self._dialogue("reviewer", "Read-only review: compare source design to actual files, inspect cross-module contracts and tests. "
+        result = self._dialogue(role, "Read-only review: compare source design to actual files, inspect cross-module contracts and tests. "
                                 "Report concrete actionable issues. No code edits or execution. Resources: " +
                                 json.dumps(self.store.get("run", "inputs") + refs, ensure_ascii=False), [READ_RESOURCE, REVIEW], handle, 8)
         self.store.put("run", "review", result)
+        self.store.put("run", "review_snapshot", version)
         self.event("reviewed", **result)
         return result
 
