@@ -1,4 +1,5 @@
 import json
+import hashlib
 import shutil
 import socket
 import threading
@@ -12,6 +13,7 @@ from scripts.check_temperature import evaluate
 from scripts.evidence_v03 import render, summarize
 from scripts.package_v03 import package
 from scripts.check_temperature_project import check_project
+from scripts.export_v03_example import export
 
 
 def test_evidence_index_keeps_failures_and_unreadable_reports_and_escapes_html(tmp_path):
@@ -50,6 +52,45 @@ def test_prototype_index_keeps_nested_verification_gaps_and_stale_jobs(tmp_path)
     assert row['verification'] == 'unverified'
     assert row['checks'][0]['status'] == 'unverified'
     assert row['checks'][1]['status'] == 'passed'
+
+
+def test_index_lists_independent_and_browser_records_without_model_project_claims(tmp_path):
+    for name, data in [('manifest.json', {'source_commit': 'frozen'}), ('receipt.json', {'status': 'failed'}),
+                       ('independent-http.json', {'status': 'failed', 'checks': []}),
+                       ('browser.json', {'kind': 'independent_browser', 'status': 'passed'})]:
+        (tmp_path / name).write_text(json.dumps(data))
+    (tmp_path / 'raw/project').mkdir(parents=True)
+    (tmp_path / 'raw/project/report.json').write_text('{"status":"passed"}')
+    data = summarize(tmp_path)
+    assert len(data['reports']) == 4
+    assert {r['report'] for r in data['reports']} == {'manifest.json', 'receipt.json', 'independent-http.json', 'browser.json'}
+    assert 'Open original JSON' in render(data)
+
+
+def test_example_export_requires_both_acceptances_and_preserves_project_bytes(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr('scripts.export_v03_example.user_variable', lambda _: '')
+    trial = tmp_path / 'experiments/v03/main/generic'
+    source = trial / 'raw/run-fixture/project'
+    source.mkdir(parents=True)
+    content = b'original\r\nsource\r\n'
+    (source / 'app.js').write_bytes(content)
+    (trial / 'raw/run-fixture/inputs').mkdir()
+    (trial / 'raw/run-fixture/inputs/1-design.md').write_bytes(b'original\r\ndesign')
+    (trial / 'raw/run-fixture/artifacts').mkdir()
+    (trial / 'raw/run-fixture/artifacts/report.json').write_text(json.dumps({'files': [{'path': 'app.js', 'sha256': hashlib.sha256(content).hexdigest()}]}))
+    (trial / 'independent-http.json').write_text(json.dumps({'status': 'passed', 'source_unchanged': True, 'checks': [{}]}))
+    (trial / 'browser.json').write_text(json.dumps({'status': 'failed', 'source_matches_original_run': True}))
+    output = tmp_path / 'examples/exported'
+    with pytest.raises(ValueError, match='browser acceptance'):
+        export(trial, 'run-fixture', output)
+    assert not output.exists()
+    (trial / 'browser.json').write_text(json.dumps({'status': 'passed', 'source_matches_original_run': True, 'checks': [{}]}))
+    result = export(trial, 'run-fixture', output)
+    assert result['project_bytes_unchanged'] is True
+    assert (output / 'project/app.js').read_bytes() == content
+    assert (output / 'inputs/design.md').read_bytes() == b'original\r\ndesign'
+    assert (output / 'EXPORT-MANIFEST.json').is_file()
 
 
 def test_dual_package_hashes_and_preserves_two_separate_programs(tmp_path, monkeypatch):
