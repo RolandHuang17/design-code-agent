@@ -1,0 +1,21 @@
+{
+  "name": "library-borrowing-gateway",
+  "version": "1.0.0",
+  "description": "Local browser application for a small library: catalog and loan management behind a single Node.js 22 / Express gateway backed by PostgreSQL 16.",
+  "private": true,
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test",
+    "build": "node --check src/server.js && node --check src/http/app.js && node --check src/http/routes.js && node --check src/http/validation.js && node --check src/catalog/catalog.js && node --check src/catalog/catalog.repo.js && node --check src/loans/loans.js && node --check src/loans/loans.repo.js && node --check src/store/store.js && node --check src/store/postgres.store.js && node --check src/store/memory.store.js && node --check src/db/index.js && node --check public/app.js",
+    "healthcheck": "node -e \"require('http').get('http://127.0.0.1:'+(process.env.PORT||3000)+'/health',r=>{process.exit(r.statusCode===200?0:1)}).on('error',()=>process.exit(1))\""
+  },
+  "dependencies": {
+    "express": "4.21.2",
+    "pg": "8.13.1"
+  }
+}

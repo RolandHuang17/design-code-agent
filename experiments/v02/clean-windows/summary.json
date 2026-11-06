@@ -1,0 +1,192 @@
+{
+  "scope": "Clean Windows desktop tool acceptance; not part of the nine formal trials or proof that the generated project executed here.",
+  "vm": "DesignCodeAgent-Clean-Windows",
+  "vm_uuid": "2702b124-5150-4a13-b9ad-cfe3e8dcb6b7",
+  "snapshot_uuid": "a65998d0-a5ae-46eb-b764-77ade6ec4221",
+  "configuration": "2 vCPU,4096MB,80GB dynamic,EFI,TPM2.0,NAT; USB keyboard/tablet added for input reliability",
+  "os": "Windows11 Enterprise Evaluation26H2,build26300.9457 before updates /26300.9711 after updates. Legacy ProductName registry value says Windows10; retained verbatim.",
+  "no_preinstalled_runtimes": "No Python/Node/Docker uninstall entries; Python WindowsApps alias only. Combined with fresh OS snapshot, not an exhaustive portable-program inventory.",
+  "source_commit": "bf8e090c645ef40c51619b1a80c9ffad7a9f24e4",
+  "exe_sha256": "dddb0d73e02bedbec27974e00532c5b10c8cc3c546f5680f857cd465d52a9e04",
+  "guest_exe_hash_matches_host": true,
+  "checks": [
+    {
+      "check": "Double-click standalone exe in Chinese and space directory",
+      "status": "passed"
+    },
+    {
+      "check": "Original documents parsed:13diagrams and1conflict",
+      "status": "passed"
+    },
+    {
+      "check": "Bailian0813 real API response OK",
+      "status": "passed"
+    },
+    {
+      "check": "Real model-created files in space output directory",
+      "status": "passed"
+    },
+    {
+      "check": "Cancellation persisted cancelled report",
+      "status": "passed"
+    },
+    {
+      "check": "Open results folder reached exact cancelled run",
+      "status": "passed"
+    },
+    {
+      "check": "Missing Node/npm/Docker explicitly unverified",
+      "status": "passed"
+    },
+    {
+      "check": "Transferred source file hashes unchanged",
+      "status": "passed"
+    }
+  ],
+  "runs": [
+    {
+      "run": "runs/v02-clean-windows/run-20261106-122226-b970158e",
+      "status": "completed_with_gaps",
+      "turns": 22,
+      "elapsed_seconds": 112.7,
+      "run_estimated_cny": 1.173789,
+      "files": 14,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "unverified",
+          "results": [
+            {
+              "check": "required:package.json",
+              "status": "passed"
+            },
+            {
+              "check": "required:README.md",
+              "status": "passed"
+            },
+            {
+              "check": "required:openapi.yaml",
+              "status": "passed"
+            },
+            {
+              "check": "required:traceability.json",
+              "status": "passed"
+            },
+            {
+              "check": "compose.yaml",
+              "status": "passed"
+            },
+            {
+              "check": "openapi.yaml",
+              "status": "passed"
+            },
+            {
+              "check": "package.json",
+              "status": "passed"
+            },
+            {
+              "check": "plan.json",
+              "status": "passed"
+            },
+            {
+              "check": "traceability.json",
+              "status": "passed"
+            },
+            {
+              "check": "scripts/build-check.js",
+              "status": "unverified",
+              "reason": "缺少 Node.js"
+            },
+            {
+              "check": "src/index.js",
+              "status": "unverified",
+              "reason": "缺少 Node.js"
+            },
+            {
+              "check": "src/server.js",
+              "status": "unverified",
+              "reason": "缺少 Node.js"
+            },
+            {
+              "check": "test/health.test.js",
+              "status": "unverified",
+              "reason": "缺少 Node.js"
+            }
+          ]
+        },
+        {
+          "profile": "install",
+          "status": "unverified",
+          "reason": "未找到标准 Node/npm 安装；请按 README 手动安装依赖"
+        },
+        {
+          "profile": "test",
+          "status": "unverified",
+          "reason": "缺少 Node.js/npm 或 Docker"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable",
+          "optional": true,
+          "reason": "项目未声明独立 test:integration；不计为通过，领域 HTTP 由项目外 runtime 验收"
+        },
+        {
+          "profile": "build",
+          "status": "unverified",
+          "reason": "缺少 Node.js/npm 或 Docker"
+        },
+        {
+          "profile": "compose",
+          "status": "unverified",
+          "reason": "缺少 Node.js/npm 或 Docker"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed",
+          "problems": [],
+          "limitation": "只检查链接和来源范围；语义覆盖需要独立审查"
+        }
+      ],
+      "operator_source_edits": 0
+    },
+    {
+      "run": "runs/v02-clean-windows/run-20261106-122510-6d42e210",
+      "status": "cancelled",
+      "turns": 2,
+      "elapsed_seconds": 26.53,
+      "run_estimated_cny": 0.071742,
+      "files": 2,
+      "checks": [],
+      "operator_source_edits": 0
+    }
+  ],
+  "fees": "fees.json",
+  "raw_transfers": {
+    "2a1e346d-Agent Results.zip": {
+      "sha256": "3232a22c06e1486d1de53cdad11291a9bbd26cf528961c7ae24cc0d989e9fb6d",
+      "bytes": 71466
+    },
+    "705c706a-DCA-clean-environment.txt": {
+      "sha256": "e10b2d684a88afd03ea655897489868ed6ca4b37e70993937f92923c1b874660",
+      "bytes": 612
+    },
+    "c0a1077e-budget.json": {
+      "sha256": "9376c4cd83a3c63eaadfe1ba686404178a4334b8b58f8a86215cc9e7bf3d9b7b",
+      "bytes": 13058
+    },
+    "c0a1077e-budget.lock": {
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+      "bytes": 1
+    },
+    "dc5f2990-DCA-clean-environment-20261106-043315.txt": {
+      "sha256": "d9321a882430fddc039b1a3a11e321923593dbd7b22c19c91b6a9f1156f0a30c",
+      "bytes": 1215
+    }
+  },
+  "limitations": [
+    "Generated application was not executed in this guest because Node/Docker are absent.",
+    "Modern Windows IME composition may bypass Tk masking; English input/paste/environment variables required; fake-key check precedes real secret entry.",
+    "One earlier connection failed before fixed CA bundling; its uncertainty reservation remains.",
+    "VM shutdown/input/update delays are environment events, not evidence of model success."
+  ]
+}

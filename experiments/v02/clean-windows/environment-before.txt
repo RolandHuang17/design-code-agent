@@ -1,0 +1,16 @@
+DCA CLEAN WINDOWS ENVIRONMENT INVENTORY
+UTC: 2026-11-06T02:28:55.2972429Z
+64-bit OS: True
+ProductName: Windows 10 Enterprise Evaluation
+DisplayVersion: 26H2
+CurrentBuild: 26300
+UBR: 9457
+
+Relevant installed-program entries:
+NONE FOUND
+
+PATH executable candidates:
+C:\Users\tasktest\AppData\Local\Microsoft\WindowsApps\python.exe [Windows app-execution alias; not proof of an installed runtime]
+
+Bundled runtimes inside standalone executables are not system installations.
+This inventory alone does not prove absence of every portable runtime; pair it with the fresh-OS snapshot and GUI evidence.

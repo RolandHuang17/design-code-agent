@@ -3,6 +3,15 @@ import json
 from pathlib import Path
 
 from scripts.summarize_benchmark import summarize
+from scripts.summarize_benchmark import resolve_run
+
+
+def test_archived_windows_run_can_be_relocated_without_rewriting_raw_records(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    Path('runs/cohort/run-123').mkdir(parents=True)
+    resolved = resolve_run(r'Z:\original\workspace\runs\cohort\run-123')
+    assert resolved == Path('runs/cohort/run-123')
+    assert resolved.is_dir()
 
 
 def test_changed_or_extra_source_prevents_automatic_acceptance_claim(tmp_path, monkeypatch):

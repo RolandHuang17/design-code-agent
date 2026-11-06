@@ -1,0 +1,81 @@
+{
+  "scope": "Actual native0.2.0 exe GUI smoke on operator mini-inputs; separate from frozen nine-trial comparison.",
+  "native_actions": [
+    "selected generic-node",
+    "set Chinese/space output directory",
+    "started paid0813 generation",
+    "received finished project",
+    "started a second fresh task and clicked Cancel",
+    "opened exact cancelled result folder through GUI button"
+  ],
+  "response_model_observed": "deepseek-v4-pro-0813",
+  "runs": [
+    {
+      "run": ".local/验收 空格/gui-e3-runs/run-20261106-053237-3ac8ff08",
+      "status": "completed_with_gaps",
+      "turns": 24,
+      "valid_usage_estimate_cny": 1.231782,
+      "files": 16,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "unverified"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "run": ".local/验收 空格/gui-e3-runs/run-20261106-053542-48f855de",
+      "status": "cancelled",
+      "turns": 1,
+      "valid_usage_estimate_cny": 0,
+      "files": 0,
+      "checks": []
+    }
+  ],
+  "limitation": "Generic-node does not invoke domain runtime; native Docker CLI was absent so compose remains unverified in original report. Frozen executable SHA and complete source hashes are in build.json; PyInstaller runtime run-config lists extracted data assets only.",
+  "supplementary_docker_http": {
+    "status": "passed",
+    "checks": [
+      {
+        "check": "health returns200 and status ok",
+        "status": "passed",
+        "http_status": 200
+      },
+      {
+        "check": "unknown independent route returns404",
+        "status": "passed",
+        "http_status": 404
+      },
+      {
+        "check": "health available after application restart",
+        "status": "passed"
+      }
+    ],
+    "cleanup": "passed",
+    "source_bytes_unchanged": true
+  }
+}

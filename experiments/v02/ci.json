@@ -1,0 +1,36 @@
+{
+  "source_commit": "bf8e090c645ef40c51619b1a80c9ffad7a9f24e4",
+  "url": "https://github.com/RolandHuang17/design-code-agent/actions/runs/42164675365",
+  "status": "completed",
+  "conclusion": "failure",
+  "jobs": 1,
+  "checks": [
+    {
+      "name": "windows",
+      "status": "completed",
+      "conclusion": "failure",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 1,
+        "annotations_url": "https://api.github.com/repos/RolandHuang17/design-code-agent/check-runs/127718250227/annotations"
+      },
+      "annotations": [
+        {
+          "path": ".github",
+          "blob_href": "https://github.com/RolandHuang17/design-code-agent/blob/bf8e090c645ef40c51619b1a80c9ffad7a9f24e4/.github",
+          "start_line": 1,
+          "start_column": null,
+          "end_line": 1,
+          "end_column": null,
+          "annotation_level": "failure",
+          "title": "",
+          "message": "The job was not started because your account is locked due to a billing issue.",
+          "raw_details": ""
+        }
+      ]
+    }
+  ],
+  "local_validation": "78 passed,1 skipped; native executable built and verified separately"
+}

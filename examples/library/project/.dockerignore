@@ -1,0 +1,14 @@
+node_modules
+npm-debug.log
+# Bind-mount source for the postgres service; must not be baked into the image.
+postgres-data
+.env
+*.log
+.git
+.gitignore
+.nyc_output
+coverage
+test
+plan.json
+traceability.json
+architecture-decisions.md

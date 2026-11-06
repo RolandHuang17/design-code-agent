@@ -6,18 +6,20 @@
 
 ![Windows 桌面界面与免费解析结果](docs/images/desktop-v02.jpg)
 
-v0.2 源码新增案例输入分离、独立 Docker/HTTP 反馈、0/3轮修复设置、宿主派生锁文件和冻结实验记录。正式重复实验正在进行，结果以 [v0.2 实验协议](docs/v02-experiments.md) 和对应 cohort 的逐次状态为准；不把开发续跑计入全新生成成功数。[浏览器反馈修复示例](docs/browser-feedback-v02.md) 保留了接口检查通过后仍发现页面错误的真实过程。
+v0.2 源码新增案例输入分离、独立 Docker/HTTP 反馈、0/3轮修复设置、宿主派生锁文件和冻结实验记录。九次冻结实验已完成：借阅零轮修复0/3、三轮修复3/3，Space Fractions三轮修复0/3。小样本不推导普遍成功率；失败、成功和中断均保留。见 [最终结果](docs/v02-results.md)、[实验协议](docs/v02-experiments.md) 和 [可展开原始检查的离线审阅页](experiments/v02/20261106-v02-e3/review.html)。[全新借阅生成项目](examples/library/README.md) 未人工修改源码，并完成独立HTTP和浏览器复验。[浏览器反馈修复示例](docs/browser-feedback-v02.md) 保留了接口检查通过后仍发现页面错误的真实过程。
 
 真实案例与验证：[Space Fractions 交付副本](examples/space-fractions/README.md) 包含原始输出、操作者修改差异及独立验收。项目单元测试 83/83、集成测试 59/59，真实 HTTP 17/17 通过；并发重复计分和服务重启持久化已复验。**交付副本经过修正，这不是一次全自动成功的声明。**
 
 > 使用者已向老师确认：本作业允许使用阿里云百炼。本项目后续实验固定使用 `deepseek-v4-pro-0813`，报告如实记录实际平台、地址和模型；工具也保留 DeepSeek 官方模式。v0.1 的原始历史报告不回写。
+
+最终工具回归 **78通过、1跳过**；已完成 [无Python的干净Windows验收](docs/clean-windows.md)。全部失败、中断、开发续跑和正式实验可在 [离线证据总索引](experiments/v02/review.html) 展开查看。
 
 ## 快速开始
 
 Windows 用户从 [Releases](https://github.com/RolandHuang17/design-code-agent/releases) 下载发布压缩包，解压后双击 `DesignCodeAgent.exe`。桌面工具自带 Python 运行时，无需预装 Python；联网生成仍需模型服务密钥。生成项目的构建与运行另需 Node.js / Docker。
 
 1. 选择平台并填写匹配地域的 Base URL。官方模式为 `https://api.deepseek.com`；百炼选择控制台给出的 OpenAI 兼容地址，结尾为 `/compatible-mode/v1`。
-2. 在遮蔽输入框粘贴 API Key，或点击“读取环境变量”：官方使用 `DEEPSEEK_API_KEY`，百炼使用 `DASHSCOPE_API_KEY`。可另配 `DASHSCOPE_BASE_URL`。密钥默认仅在内存使用。
+2. 在遮蔽输入框粘贴 API Key，或点击“读取环境变量”：官方使用 `DEEPSEEK_API_KEY`，百炼使用 `DASHSCOPE_API_KEY`。可另配 `DASHSCOPE_BASE_URL`。密钥默认仅在内存使用。Windows 微软拼音请先切换英文，建议使用粘贴或读取环境变量；输入法尚未提交的组合候选窗口不受文本框遮蔽保护。
 3. 核对当前模型价格上界并勾选确认，点击“测试连接”。输入、输出单价均为**元 / 百万 tokens**。
 4. 选择 `Architecture_Documentation.md`、`Architecture_View.md` 和输出目录。先点“解析预览”可免费检查文档。
 5. 点击“开始生成”。若需自动安装依赖并执行生成项目测试，勾选对应执行选项。此功能以当前用户权限运行生成代码，**不是系统沙箱**；建议在专门开发环境使用。
@@ -117,7 +119,7 @@ run-时间-随机编号/
 powershell -ExecutionPolicy Bypass -File scripts/build.ps1
 ```
 
-输出为 `dist/DesignCodeAgent.exe`，同时附带示例输入和 SHA256 校验值。GitHub Actions 在 Windows 测试和打包，产出 exe 构建附件。发布包在本机生成；干净 Windows 验收状态见 [验证记录](docs/validation.md)。
+输出为 `dist/DesignCodeAgent.exe`，同时附带示例输入和 SHA256 校验值。已配置 GitHub Actions Windows 测试和打包；本次因 GitHub 账户账单锁定，作业未能启动，验证与发布包构建均在本机完成。干净 Windows 验收状态见 [验证记录](docs/validation.md)。
 
 更多材料：[机制调研](docs/research.md)、[架构与限制](docs/design.md)、[评价口径](docs/experiment-protocol.md)、[演示与讲解](docs/demo.md)、[代码导读](docs/code-tour.md)、[五分钟讲解与免费练习](docs/explain-in-five-minutes.md)、[干净 Windows 验收安排](docs/clean-windows.md)、[实验记录](examples/README.md)。
 

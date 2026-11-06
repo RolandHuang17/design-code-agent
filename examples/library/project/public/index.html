@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Library borrowing</title>
+  <style>
+    :root {
+      --border: #d8dde4;
+      --muted: #6b7280;
+      --ok: #15803d;
+      --err: #b91c1c;
+      --accent: #1d4ed8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      margin: 0;
+      color: #1f2937;
+      background: #f7f8fa;
+    }
+    header {
+      background: #111827;
+      color: #fff;
+      padding: 1rem 1.5rem;
+    }
+    header h1 { margin: 0; font-size: 1.25rem; font-weight: 600; }
+    main { max-width: 860px; margin: 1.5rem auto; padding: 0 1rem; }
+    section {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    h2 { font-size: 1rem; margin: 0 0 0.75rem; }
+    label { display: block; font-size: 0.85rem; margin-bottom: 0.25rem; }
+    input {
+      font: inherit;
+      padding: 0.4rem 0.5rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-right: 0.5rem;
+    }
+    button {
+      font: inherit;
+      padding: 0.4rem 0.75rem;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #fff;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:disabled { opacity: 0.6; cursor: not-allowed; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    th, td { text-align: left; padding: 0.5rem 0.5rem; border-bottom: 1px solid var(--border); }
+    th { font-weight: 600; color: var(--muted); }
+    .row-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .feedback { padding: 0.6rem 0.8rem; border-radius: 6px; margin: 0.75rem 0; display: none; }
+    .feedback.ok { background: #dcfce7; color: var(--ok); border: 1px solid #bbf7d0; display: block; }
+    .feedback.err { background: #fee2e2; color: var(--err); border: 1px solid #fecaca; display: block; }
+    .muted { color: var(--muted); font-size: 0.85rem; }
+    .badge {
+      display: inline-block;
+      padding: 0.1rem 0.45rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .badge.active { background: #dbeafe; color: #1e40af; }
+    .badge.returned { background: #e5e7eb; color: #374151; }
+    form { margin-bottom: 0.75rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Library borrowing</h1>
+  </header>
+  <main>
+    <section id="catalog">
+      <h2>Catalog</h2>
+      <form id="create-form">
+        <label for="title">Title</label>
+        <input id="title" name="title" type="text" required maxlength="200" />
+        <label for="copies">Copies (positive integer)</label>
+        <input id="copies" name="copies" type="number" min="1" step="1" required />
+        <button type="submit">Add title</button>
+      </form>
+      <div id="catalog-feedback" class="feedback"></div>
+      <table id="books-table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Available copies</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section id="loans-section">
+      <h2>Active loans</h2>
+      <div id="loans-feedback" class="feedback"></div>
+      <table id="loans-table">
+        <thead>
+          <tr>
+            <th>Loan id</th>
+            <th>Book</th>
+            <th>Reader</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script>
+    'use strict';
+
+    const $ = (sel) => document.querySelector(sel);
+
+    // Fetch JSON while surfacing a friendly, bounded error message.
+    async function api(path, options) {
+      const res = await fetch(path, options);
+      let body = null;
+      try {
+        body = await res.json();
+      } catch (_) {
+        body = null;
+      }
+      if (!res.ok) {
+        const msg =
+          (body && body.error) || ('Request failed with status ' + res.status);
+        throw new Error(msg);
+      }
+      return body;
+    }
+
+    function show(el, message, kind) {
+      el.textContent = message;
+      el.className = 'feedback ' + kind;
+    }
+
+    function clear(el) {
+      el.textContent = '';
+      el.className = 'feedback';
+    }
+
+    function renderBooks(books) {
+      const tbody = $('#books-table tbody');
+      tbody.innerHTML = '';
+      if (!books || books.length === 0) {
+        tbody.innerHTML =
+          '<tr><td colspan="3" class="muted">No titles yet. Add one above.</td></tr>';
+        return;
+      }
+      for (const book of books) {
+        const tr = document.createElement('tr');
+        tr.innerHTML =
+          '<td>' + escapeHtml(book.title) + '</td>' +
+          '<td>' + book.availableCopies + '</td>' +
+          '<td class="row-actions"></td>';
+        const actions = tr.querySelector('td.row-actions');
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.placeholder = 'Reader id';
+        input.setAttribute('aria-label', 'Reader id');
+        const btn = document.createElement('button');
+        btn.textContent = 'Borrow';
+        btn.disabled = book.availableCopies <= 0;
+        btn.addEventListener('click', () => borrow(book.id, input.value, tbody));
+        actions.appendChild(input);
+        actions.appendChild(btn);
+        tbody.appendChild(tr);
+      }
+    }
+
+    function renderLoans(loans, books) {
+      const tbody = $('#loans-table tbody');
+      tbody.innerHTML = '';
+      const byId = {};
+      for (const b of books || []) byId[b.id] = b;
+      for (const loan of loans || []) {
+        const title = byId[loan.bookId] ? byId[loan.bookId].title : loan.bookId;
+        const tr = document.createElement('tr');
+        tr.innerHTML =
+          '<td>' + escapeHtml(loan.id) + '</td>' +
+          '<td>' + escapeHtml(title) + '</td>' +
+          '<td>' + escapeHtml(loan.userId) + '</td>' +
+          '<td><span class="badge ' + escapedClass(loan.status) + '">' +
+            escapeHtml(loan.status) + '</span></td>' +
+          '<td class="row-actions">';
+        const actions = tr.querySelector('td.row-actions');
+        if (loan.status === 'active') {
+          const btn = document.createElement('button');
+          btn.textContent = 'Return';
+          btn.addEventListener('click', () => returnLoan(loan.id));
+          actions.appendChild(btn);
+        } else {
+          actions.innerHTML = '<span class="muted">&mdash;</span>';
+        }
+        tbody.appendChild(tr);
+      }
+    }
+
+    function escapeHtml(value) {
+      return String(value == null ? '' : value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function escapedClass(value) {
+      return String(value).replace(/[^a-z0-9_-]/gi, '');
+    }
+
+    function refresh() {
+      return Promise.all([
+        api('/api/books').catch((err) => ({ books: [], __err: err })),
+        api('/api/loans').catch((err) => ({ loans: [], __err: err })),
+      ]).then(([booksResult, loansResult]) => {
+        const books = booksResult.books || [];
+        const loans = loansResult.loans || [];
+        if (booksResult.__err) show($('#catalog-feedback'), booksResult.__err.message, 'err');
+        if (loansResult.__err) show($('#loans-feedback'), loansResult.__err.message, 'err');
+        renderBooks(books);
+        renderLoans(loans, books);
+      });
+    }
+
+    async function borrow(bookId, userId, _tbody) {
+      const feedback = $('#catalog-feedback');
+      clear(feedback);
+      if (!userId || !userId.trim()) {
+        show(feedback, 'Reader id is required to borrow.', 'err');
+        return;
+      }
+      try {
+        await api('/api/loans', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ bookId: bookId, userId: userId.trim() }),
+        });
+        show(feedback, 'Book borrowed successfully.', 'ok');
+      } catch (err) {
+        show(feedback, err.message, 'err');
+      }
+      refresh();
+    }
+
+    async function returnLoan(loanId) {
+      const feedback = $('#loans-feedback');
+      clear(feedback);
+      try {
+        await api('/api/loans/' + encodeURIComponent(loanId) + '/return', {
+          method: 'POST',
+        });
+        show(feedback, 'Loan returned.', 'ok');
+      } catch (err) {
+        show(feedback, err.message, 'err');
+      }
+      refresh();
+    }
+
+    $('#create-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const feedback = $('#catalog-feedback');
+      clear(feedback);
+      const title = $('#title').value.trim();
+      const copies = Number($('#copies').value);
+      try {
+        await api('/api/books', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ title: title, copies: copies }),
+        });
+        show(feedback, 'Title created.', 'ok');
+        e.target.reset();
+      } catch (err) {
+        show(feedback, err.message, 'err');
+      }
+      refresh();
+    });
+
+    refresh();
+  </script>
+</body>
+</html>

@@ -1,0 +1,704 @@
+{
+  "cohort": "20261106-v02-e3",
+  "model": "deepseek-v4-pro-0813",
+  "groups": [
+    {
+      "case": "library",
+      "repair_rounds": 0,
+      "planned": 3,
+      "recorded": 3,
+      "outcomes": {
+        "failed_validation": 3
+      },
+      "automatic_acceptance_successes": 0,
+      "valid_usage_estimate_cny": 13.345434
+    },
+    {
+      "case": "library",
+      "repair_rounds": 3,
+      "planned": 3,
+      "recorded": 3,
+      "outcomes": {
+        "checks_passed_requires_review": 3
+      },
+      "automatic_acceptance_successes": 3,
+      "valid_usage_estimate_cny": 39.374874
+    },
+    {
+      "case": "space-fractions",
+      "repair_rounds": 3,
+      "planned": 3,
+      "recorded": 3,
+      "outcomes": {
+        "failed_validation": 3
+      },
+      "automatic_acceptance_successes": 0,
+      "valid_usage_estimate_cny": 152.044074
+    }
+  ],
+  "trials": [
+    {
+      "trial": 1,
+      "case": "space-fractions",
+      "repair_rounds": 3,
+      "repeat": 1,
+      "status": "failed_validation",
+      "run": "D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e3\\run-20261106-052232-fd8624c1",
+      "turns": 216,
+      "elapsed_seconds": 2579.97,
+      "run_estimated_cny": 53.407539,
+      "tool_metrics": {
+        "reads": 207,
+        "repeated_reads": 1,
+        "tool_errors": 13,
+        "writes": 76,
+        "host_derived_writes": 1
+      },
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "failed"
+        },
+        {
+          "profile": "integration",
+          "status": "passed"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "failed"
+        }
+      ],
+      "source_unchanged": true,
+      "valid_usage_estimate_cny": 53.407539,
+      "final_manifest_available": true,
+      "integrity_errors": [],
+      "project_test_counts": {
+        "test": {
+          "tests": 67,
+          "pass": 66,
+          "fail": 1,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        },
+        "integration": {
+          "tests": 2,
+          "pass": 0,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 2,
+          "todo": 0
+        }
+      },
+      "runtime_check_counts": {
+        "passed": 2
+      },
+      "automatic_acceptance_success": false
+    },
+    {
+      "trial": 2,
+      "case": "space-fractions",
+      "repair_rounds": 3,
+      "repeat": 2,
+      "status": "failed_validation",
+      "run": "D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e3\\run-20261106-060532-c3a971d3",
+      "turns": 189,
+      "elapsed_seconds": 2187.5,
+      "run_estimated_cny": 47.154969,
+      "tool_metrics": {
+        "reads": 194,
+        "repeated_reads": 0,
+        "tool_errors": 22,
+        "writes": 70,
+        "host_derived_writes": 1
+      },
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "failed"
+        }
+      ],
+      "source_unchanged": true,
+      "valid_usage_estimate_cny": 47.154969,
+      "final_manifest_available": true,
+      "integrity_errors": [],
+      "project_test_counts": {
+        "test": {
+          "tests": 86,
+          "pass": 86,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        },
+        "integration": {
+          "counts": "not parsed; inspect raw output"
+        }
+      },
+      "runtime_check_counts": {
+        "passed": 2
+      },
+      "automatic_acceptance_success": false
+    },
+    {
+      "trial": 3,
+      "case": "space-fractions",
+      "repair_rounds": 3,
+      "repeat": 3,
+      "status": "failed_validation",
+      "run": "D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e3\\run-20261106-064159-320cf2dc",
+      "turns": 200,
+      "elapsed_seconds": 2438.86,
+      "run_estimated_cny": 51.481566,
+      "tool_metrics": {
+        "reads": 172,
+        "repeated_reads": 0,
+        "tool_errors": 17,
+        "writes": 72,
+        "host_derived_writes": 1
+      },
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "passed"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "failed"
+        }
+      ],
+      "source_unchanged": true,
+      "valid_usage_estimate_cny": 51.481566,
+      "final_manifest_available": true,
+      "integrity_errors": [],
+      "project_test_counts": {
+        "test": {
+          "tests": 82,
+          "pass": 82,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        },
+        "integration": {
+          "tests": 0,
+          "pass": 0,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        }
+      },
+      "runtime_check_counts": {
+        "passed": 9
+      },
+      "automatic_acceptance_success": false
+    },
+    {
+      "trial": 4,
+      "case": "library",
+      "repair_rounds": 0,
+      "repeat": 1,
+      "status": "failed_validation",
+      "run": "D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e3\\run-20261106-072238-b00c814b",
+      "turns": 56,
+      "elapsed_seconds": 494.23,
+      "run_estimated_cny": 4.66137,
+      "tool_metrics": {
+        "reads": 72,
+        "repeated_reads": 0,
+        "tool_errors": 4,
+        "writes": 26,
+        "host_derived_writes": 1
+      },
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "failed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "failed"
+        },
+        {
+          "profile": "runtime",
+          "status": "passed"
+        }
+      ],
+      "source_unchanged": true,
+      "valid_usage_estimate_cny": 4.66137,
+      "final_manifest_available": true,
+      "integrity_errors": [],
+      "project_test_counts": {
+        "test": {
+          "tests": 1,
+          "pass": 0,
+          "fail": 1,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        },
+        "integration": {
+          "counts": "not parsed; inspect raw output"
+        }
+      },
+      "runtime_check_counts": {
+        "passed": 12
+      },
+      "automatic_acceptance_success": false
+    },
+    {
+      "trial": 5,
+      "case": "library",
+      "repair_rounds": 3,
+      "repeat": 1,
+      "status": "checks_passed_requires_review",
+      "run": "D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e3\\run-20261106-073052-d1aeb7fc",
+      "turns": 109,
+      "elapsed_seconds": 1256.02,
+      "run_estimated_cny": 15.074181,
+      "tool_metrics": {
+        "reads": 108,
+        "repeated_reads": 0,
+        "tool_errors": 14,
+        "writes": 42,
+        "host_derived_writes": 1
+      },
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "passed"
+        }
+      ],
+      "source_unchanged": true,
+      "valid_usage_estimate_cny": 15.074181,
+      "final_manifest_available": true,
+      "integrity_errors": [],
+      "project_test_counts": {
+        "test": {
+          "tests": 59,
+          "pass": 59,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        },
+        "integration": {
+          "counts": "not parsed; inspect raw output"
+        }
+      },
+      "runtime_check_counts": {
+        "passed": 12
+      },
+      "automatic_acceptance_success": true
+    },
+    {
+      "trial": 6,
+      "case": "library",
+      "repair_rounds": 0,
+      "repeat": 2,
+      "status": "failed_validation",
+      "run": "D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e3\\run-20261106-075149-6fe99629",
+      "turns": 49,
+      "elapsed_seconds": 391.25,
+      "run_estimated_cny": 3.826665,
+      "tool_metrics": {
+        "reads": 58,
+        "repeated_reads": 0,
+        "tool_errors": 2,
+        "writes": 23,
+        "host_derived_writes": 1
+      },
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "failed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "failed"
+        },
+        {
+          "profile": "runtime",
+          "status": "failed"
+        }
+      ],
+      "source_unchanged": true,
+      "valid_usage_estimate_cny": 3.826665,
+      "final_manifest_available": true,
+      "integrity_errors": [],
+      "project_test_counts": {
+        "test": {
+          "tests": 1,
+          "pass": 0,
+          "fail": 1,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        },
+        "integration": {
+          "counts": "not parsed; inspect raw output"
+        }
+      },
+      "runtime_check_counts": {},
+      "automatic_acceptance_success": false
+    },
+    {
+      "trial": 7,
+      "case": "library",
+      "repair_rounds": 3,
+      "repeat": 2,
+      "status": "checks_passed_requires_review",
+      "run": "D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e3\\run-20261106-075820-ff34cbe8",
+      "turns": 113,
+      "elapsed_seconds": 1249.16,
+      "run_estimated_cny": 14.543676,
+      "tool_metrics": {
+        "reads": 110,
+        "repeated_reads": 0,
+        "tool_errors": 16,
+        "writes": 53,
+        "host_derived_writes": 1
+      },
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "passed"
+        }
+      ],
+      "source_unchanged": true,
+      "valid_usage_estimate_cny": 14.543676,
+      "final_manifest_available": true,
+      "integrity_errors": [],
+      "project_test_counts": {
+        "test": {
+          "tests": 35,
+          "pass": 35,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        },
+        "integration": {
+          "counts": "not parsed; inspect raw output"
+        }
+      },
+      "runtime_check_counts": {
+        "passed": 12
+      },
+      "automatic_acceptance_success": true
+    },
+    {
+      "trial": 8,
+      "case": "library",
+      "repair_rounds": 0,
+      "repeat": 3,
+      "status": "failed_validation",
+      "run": "D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e3\\run-20261106-081909-13b49948",
+      "turns": 59,
+      "elapsed_seconds": 414.88,
+      "run_estimated_cny": 4.857399,
+      "tool_metrics": {
+        "reads": 56,
+        "repeated_reads": 0,
+        "tool_errors": 11,
+        "writes": 24,
+        "host_derived_writes": 1
+      },
+      "checks": [
+        {
+          "profile": "static",
+          "status": "failed"
+        },
+        {
+          "profile": "install",
+          "status": "failed"
+        },
+        {
+          "profile": "test",
+          "status": "failed"
+        },
+        {
+          "profile": "integration",
+          "status": "failed"
+        },
+        {
+          "profile": "build",
+          "status": "failed"
+        },
+        {
+          "profile": "compose",
+          "status": "unverified"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "failed"
+        },
+        {
+          "profile": "runtime",
+          "status": "unverified"
+        }
+      ],
+      "source_unchanged": true,
+      "valid_usage_estimate_cny": 4.857399,
+      "final_manifest_available": true,
+      "integrity_errors": [],
+      "project_test_counts": {
+        "test": {
+          "counts": "not parsed; inspect raw output"
+        },
+        "integration": {
+          "counts": "not parsed; inspect raw output"
+        }
+      },
+      "runtime_check_counts": {},
+      "automatic_acceptance_success": false
+    },
+    {
+      "trial": 9,
+      "case": "library",
+      "repair_rounds": 3,
+      "repeat": 3,
+      "status": "checks_passed_requires_review",
+      "run": "D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e3\\run-20261106-082604-85be990a",
+      "turns": 79,
+      "elapsed_seconds": 846.34,
+      "run_estimated_cny": 9.757017,
+      "tool_metrics": {
+        "reads": 67,
+        "repeated_reads": 0,
+        "tool_errors": 2,
+        "writes": 37,
+        "host_derived_writes": 1
+      },
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "passed"
+        }
+      ],
+      "source_unchanged": true,
+      "valid_usage_estimate_cny": 9.757017,
+      "final_manifest_available": true,
+      "integrity_errors": [],
+      "project_test_counts": {
+        "test": {
+          "tests": 47,
+          "pass": 47,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        },
+        "integration": {
+          "counts": "not parsed; inspect raw output"
+        }
+      },
+      "runtime_check_counts": {
+        "passed": 12
+      },
+      "automatic_acceptance_success": true
+    }
+  ],
+  "limitations": [
+    "Small sample; no significance or general success-rate claim.",
+    "Cost is valid-response usage estimate only. Unknown request reservations remain in the separate global ledger.",
+    "Final hashes detect edits to recorded files; extra acceptance and semantic review remain necessary."
+  ]
+}

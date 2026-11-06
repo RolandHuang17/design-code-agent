@@ -1,0 +1,483 @@
+{
+  "schema_version": 1,
+  "reservations": {
+    "0871bf6389de42d7abc91830863356d9": {
+      "charged": 0.051816,
+      "reserved": 0.051816,
+      "state": "uncertain",
+      "time": 1793937101.1582236,
+      "prices": {
+        "input_per_million": 12.0,
+        "output_per_million": 27.0,
+        "reference_date": "2026-11-05"
+      }
+    },
+    "bbeeadd54fd1468c970e1196b0e272c2": {
+      "charged": 0.000138,
+      "reserved": 0.051816,
+      "state": "settled",
+      "time": 1793938453.1436899,
+      "prices": {
+        "input_per_million": 12.0,
+        "output_per_million": 27.0,
+        "reference_date": "2026-11-05"
+      },
+      "usage": {
+        "prompt_tokens": 7,
+        "total_tokens": 9,
+        "completion_tokens": 2,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      }
+    },
+    "3aa28f6b1ce34c2b8426f88996b4f696": {
+      "charged": 0.026274,
+      "reserved": 0.59676,
+      "state": "settled",
+      "time": 1793938946.6267962,
+      "prices": {
+        "input_per_million": 12.0,
+        "output_per_million": 27.0,
+        "reference_date": "2026-11-05"
+      },
+      "usage": {
+        "prompt_tokens": 2104,
+        "total_tokens": 2142,
+        "completion_tokens": 38,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      }
+    },
+    "917cd990608240f8bccb30343a288e1f": {
+      "charged": 0.076197,
+      "reserved": 0.600864,
+      "state": "settled",
+      "time": 1793938948.5684237,
+      "prices": {
+        "input_per_million": 12.0,
+        "output_per_million": 27.0,
+        "reference_date": "2026-11-05"
+      },
+      "usage": {
+        "prompt_tokens": 2158,
+        "total_tokens": 4021,
+        "completion_tokens": 1863,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        }
+      }
+    },
+    "932e07980e734ff9b9332d7cf0d1ae97": {
+      "charged": 0.063471,
+      "reserved": 0.705216,
+      "state": "settled",
+      "time": 1793938973.1384745,
+      "prices": {
+        "input_per_million": 12.0,
+        "output_per_million": 27.0,
+        "reference_date": "2026-11-05"
+      },
+      "usage": {
+        "prompt_tokens": 4081,
+        "total_tokens": 4618,
+        "completion_tokens": 537,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        }
+      }
+    },
+    "f831978b33ae4b45abc9e0428f16e02f": {
+      "charged": 0.047763,
+      "reserved": 0.664236,
+      "state": "settled",
+      "time": 1793938981.317354,
+      "prices": {
+        "input_per_million": 12.0,
+        "output_per_million": 27.0,
+        "reference_date": "2026-11-05"
+      },
+      "usage": {
+        "prompt_tokens": 3537,
+        "total_tokens": 3734,
+        "completion_tokens": 197,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        }
+      }
+    },
+    "8ea05051549b4a1a8f4f28d696a87dca": {
+      "charged": 0.055899,
+      "reserved": 0.665112,
+      "state": "settled",
+      "time": 1793938984.67631,
+      "prices": {
+        "input_per_million": 12.0,
+        "output_per_million": 27.0,
+        "reference_date": "2026-11-05"
+      },
+      "usage": {
+        "prompt_tokens": 3558,
+        "total_tokens": 4047,
+        "completion_tokens": 489,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        }
+      }
+    },
+    "1b8d5a46c6084f15992d5c77abfb9e51": {
+      "charged": 0.045492,
+      "reserved": 0.66636,
+      "state": "settled",
+      "time": 1793938990.8881207,
+      "prices": {
+        "input_per_million": 12.0,
+        "output_per_million": 27.0,
+        "reference_date": "2026-11-05"
+      },
+      "usage": {
+        "prompt_tokens": 3584,
+        "total_tokens": 3676,
+        "completion_tokens": 92,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        }
+      }
+    },
+    "6cc5f60353454f409217c388130f9811": {
+      "charged": 0.055809,
+      "reserved": 0.698196,
+      "state": "settled",
+      "time": 1793938993.2681289,
+      "prices": {
+        "input_per_million": 12.0,
+        "output_per_million": 27.0,
+        "reference_date": "2026-11-05"
+      },
+      "usage": {
+        "prompt_tokens": 4284,
+        "total_tokens": 4447,
+        "completion_tokens": 163,
+        "prompt_tokens_details": {
+          "cached_tokens": 3584
+        }
+      }
+    },
+    "f6b51314eb8b4cfe8f0b25fc1bbb7ccc": {
+      "charged": 0.046509,
+      "reserved": 0.667164,
+      "state": "settled",
+      "time": 1793938996.3229349,
+      "prices": {
+        "input_per_million": 12.0,
+        "output_per_million": 27.0,
+        "reference_date": "2026-11-05"
+      },
+      "usage": {
+        "prompt_tokens": 3599,
+        "total_tokens": 3722,
+        "completion_tokens": 123,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        }
+      }
+    },
+    "8d9ac0e31e4e4fa283382ba02a048c32": {
+      "charged": 0.063726,
+      "reserved": 0.707232,
+      "state": "settled",
+      "time": 1793938998.8652105,
+      "prices": {
+        "input_per_million": 12.0,
+        "output_per_million": 27.0,
+        "reference_date": "2026-11-05"
+      },
+      "usage": {
+        "prompt_tokens": 4469,
+        "total_tokens": 4843,
+        "completion_tokens": 374,
+        "prompt_tokens_details": {
+          "cached_tokens": 3584
+        }
+      }
+    },
+    "2a7be076f0e94255afcdc5f18ed51d7d": {
+      "charged": 0.045936,
+      "reserved": 0.668364,
+      "state": "settled",
+      "time": 1793939004.3994803,
+      "prices": {
+        "input_per_million": 12.0,
+        "output_per_million": 27.0,
+        "reference_date": "2026-11-05"
+      },
+      "usage": {
+        "prompt_tokens": 3621,
+        "total_tokens": 3713,
+        "completion_tokens": 92,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        }
+      }
+    },
+    "acdb656687f343a8b67b67167f219382": {
+      "charged": 0.063354,
+      "reserved": 0.70014,
+      "state": "settled",
+      "time": 1793939007.0968776,
+      "prices": {
+        "input_per_million": 12.0,
+        "output_per_million": 27.0,
+        "reference_date": "2026-11-05"
+      },
+      "usage": {
+        "prompt_tokens": 4321,
+        "total_tokens": 4747,
+        "completion_tokens": 426,
+        "prompt_tokens_details": {
+          "cached_tokens": 3584
+        }
+      }
+    },
+    "bb1df0f21da743b39af64be78cef801c": {
+      "charged": 0.05436,
+      "reserved": 0.668172,
+      "state": "settled",
+      "time": 1793939013.2792819,
+      "prices": {
+        "input_per_million": 12.0,
+        "output_per_million": 27.0,
+        "reference_date": "2026-11-05"
+      },
+      "usage": {
+        "prompt_tokens": 3621,
+        "total_tokens": 4025,
+        "completion_tokens": 404,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        }
+      }
+    },
+    "59ef40c05c82451f84f8254197f6f723": {
+      "charged": 0.045141,
+      "reserved": 0.66906,
+      "state": "settled",
+      "time": 1793939019.012515,
+      "prices": {
+        "input_per_million": 12.0,
+        "output_per_million": 27.0,
+        "reference_date": "2026-11-05"
+      },
+      "usage": {
+        "prompt_tokens": 3638,
+        "total_tokens": 3693,
+        "completion_tokens": 55,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        }
+      }
+    },
+    "ed093112fef449e5b3ed48944db037cc": {
+      "charged": 0.053523,
+      "reserved": 0.681324,
+      "state": "settled",
+      "time": 1793939021.568694,
+      "prices": {
+        "input_per_million": 12.0,
+        "output_per_million": 27.0,
+        "reference_date": "2026-11-05"
+      },
+      "usage": {
+        "prompt_tokens": 3891,
+        "total_tokens": 4144,
+        "completion_tokens": 253,
+        "prompt_tokens_details": {
+          "cached_tokens": 3584
+        }
+      }
+    },
+    "b32bebc8544c486ea49ff1623fbfa414": {
+      "charged": 0.053721,
+      "reserved": 0.667944,
+      "state": "settled",
+      "time": 1793939025.5425975,
+      "prices": {
+        "input_per_million": 12.0,
+        "output_per_million": 27.0,
+        "reference_date": "2026-11-05"
+      },
+      "usage": {
+        "prompt_tokens": 3615,
+        "total_tokens": 3998,
+        "completion_tokens": 383,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        }
+      }
+    },
+    "4d665eb8c3984db39bc59b19c98095f8": {
+      "charged": 0.046887,
+      "reserved": 0.668376,
+      "state": "settled",
+      "time": 1793939031.4526172,
+      "prices": {
+        "input_per_million": 12.0,
+        "output_per_million": 27.0,
+        "reference_date": "2026-11-05"
+      },
+      "usage": {
+        "prompt_tokens": 3626,
+        "total_tokens": 3751,
+        "completion_tokens": 125,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        }
+      }
+    },
+    "ba6ae917fc8949cb93e8df56abb460be": {
+      "charged": 0.080073,
+      "reserved": 0.731976,
+      "state": "settled",
+      "time": 1793939034.0162575,
+      "prices": {
+        "input_per_million": 12.0,
+        "output_per_million": 27.0,
+        "reference_date": "2026-11-05"
+      },
+      "usage": {
+        "prompt_tokens": 5001,
+        "total_tokens": 5744,
+        "completion_tokens": 743,
+        "prompt_tokens_details": {
+          "cached_tokens": 3584
+        }
+      }
+    },
+    "d6eb59a4129e4951aa0d92d3318d022d": {
+      "charged": 0.045714,
+      "reserved": 0.667812,
+      "state": "settled",
+      "time": 1793939043.0865095,
+      "prices": {
+        "input_per_million": 12.0,
+        "output_per_million": 27.0,
+        "reference_date": "2026-11-05"
+      },
+      "usage": {
+        "prompt_tokens": 3616,
+        "total_tokens": 3702,
+        "completion_tokens": 86,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        }
+      }
+    },
+    "db0a09f2d2aa47e481b17815fdf1964d": {
+      "charged": 0.049575,
+      "reserved": 0.685356,
+      "state": "settled",
+      "time": 1793939045.9906495,
+      "prices": {
+        "input_per_million": 12.0,
+        "output_per_million": 27.0,
+        "reference_date": "2026-11-05"
+      },
+      "usage": {
+        "prompt_tokens": 3958,
+        "total_tokens": 4035,
+        "completion_tokens": 77,
+        "prompt_tokens_details": {
+          "cached_tokens": 3584
+        }
+      }
+    },
+    "6fcc0cfe576945ec88a22750f8ac12ee": {
+      "charged": 0.060213,
+      "reserved": 0.706068,
+      "state": "settled",
+      "time": 1793939048.1464775,
+      "prices": {
+        "input_per_million": 12.0,
+        "output_per_million": 27.0,
+        "reference_date": "2026-11-05"
+      },
+      "usage": {
+        "prompt_tokens": 4426,
+        "total_tokens": 4689,
+        "completion_tokens": 263,
+        "prompt_tokens_details": {
+          "cached_tokens": 3840
+        }
+      }
+    },
+    "9767c348372047578ec9119d59406a6e": {
+      "charged": 0.047658,
+      "reserved": 0.668208,
+      "state": "settled",
+      "time": 1793939052.9783328,
+      "prices": {
+        "input_per_million": 12.0,
+        "output_per_million": 27.0,
+        "reference_date": "2026-11-05"
+      },
+      "usage": {
+        "prompt_tokens": 3625,
+        "total_tokens": 3779,
+        "completion_tokens": 154,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        }
+      }
+    },
+    "061431e6d1ad4505bfa9d78c0e78e52b": {
+      "charged": 0.046494,
+      "reserved": 0.667944,
+      "state": "settled",
+      "time": 1793939056.4887972,
+      "prices": {
+        "input_per_million": 12.0,
+        "output_per_million": 27.0,
+        "reference_date": "2026-11-05"
+      },
+      "usage": {
+        "prompt_tokens": 3618,
+        "total_tokens": 3732,
+        "completion_tokens": 114,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        }
+      }
+    },
+    "8bca93b9e80e477ca8cfc26ff5e89840": {
+      "charged": 0.071742,
+      "reserved": 0.59676,
+      "state": "settled",
+      "time": 1793939110.7045333,
+      "prices": {
+        "input_per_million": 12.0,
+        "output_per_million": 27.0,
+        "reference_date": "2026-11-05"
+      },
+      "usage": {
+        "prompt_tokens": 2104,
+        "total_tokens": 3826,
+        "completion_tokens": 1722,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        }
+      }
+    },
+    "6b197fbdfb134e8fb2fd5f1516f1ac89": {
+      "charged": 0.695844,
+      "reserved": 0.695844,
+      "state": "uncertain",
+      "time": 1793939134.5389738,
+      "prices": {
+        "input_per_million": 12.0,
+        "output_per_million": 27.0,
+        "reference_date": "2026-11-05"
+      }
+    }
+  }
+}

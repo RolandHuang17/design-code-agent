@@ -1,0 +1,249 @@
+openapi: 3.0.3
+info:
+  title: Library Borrowing API
+  version: 1.0.0
+  description: |
+    REST interface for a small library borrowing gateway. Serves a browser UI
+    at `/` and this JSON API under `/api`. Reader IDs (`userId`) are
+    caller-provided demonstration inputs, not authenticated identities.
+
+    Database: PostgreSQL 16. Changes to stock and loans are transactional with
+    row locks on a single client; returns are idempotent.
+servers:
+  - url: /
+paths:
+  /health:
+    get:
+      summary: Liveness probe
+      operationId: getHealth
+      responses:
+        '200':
+          description: Service is healthy.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [status]
+                properties:
+                  status:
+                    type: string
+                    example: ok
+
+  /api/books:
+    post:
+      summary: Create a title with a positive number of copies (FR1)
+      operationId: createBook
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewBook'
+      responses:
+        '201':
+          description: Book created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+        '400':
+          description: Invalid title (empty/non-string) or copies (not a positive integer).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    get:
+      summary: List books with remaining copies (FR2)
+      operationId: listBooks
+      responses:
+        '200':
+          description: All books.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BookList'
+
+  /api/books/{id}:
+    get:
+      summary: Get a single book by id
+      operationId: getBook
+      parameters:
+        - $ref: '#/components/parameters/BookId'
+      responses:
+        '200':
+          description: Book found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+        '404':
+          description: Book not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/loans:
+    post:
+      summary: Borrow an available copy (FR2/FR3)
+      operationId: borrow
+      description: |
+        Borrows one copy for the given reader. Fails with 409 when no copies
+        remain, when the same reader already has an active loan for this book,
+        or with 404 when the book does not exist.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewLoan'
+      responses:
+        '201':
+          description: Active loan created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Loan'
+        '400':
+          description: Missing/invalid bookId or userId.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Book not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: Insufficient copies or duplicate active loan.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    get:
+      summary: List all loans
+      operationId: listLoans
+      responses:
+        '200':
+          description: All loans (active and returned).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoanList'
+
+  /api/loans/{id}/return:
+    post:
+      summary: Return a loan (FR4)
+      operationId: returnLoan
+      description: |
+        Returns a loan and restores one copy exactly once. Repeating the return
+        on an already-returned loan is idempotent (200) and never increments
+        stock again.
+      parameters:
+        - $ref: '#/components/parameters/LoanId'
+      responses:
+        '200':
+          description: Loan returned (idempotent).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Loan'
+        '404':
+          description: Loan not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  parameters:
+    BookId:
+      name: id
+      in: path
+      required: true
+      description: Book id.
+      schema:
+        type: string
+    LoanId:
+      name: id
+      in: path
+      required: true
+      description: Loan id.
+      schema:
+        type: string
+
+  schemas:
+    NewBook:
+      type: object
+      required: [title, copies]
+      properties:
+        title:
+          type: string
+          description: Non-empty title.
+        copies:
+          type: integer
+          minimum: 1
+          description: Positive number of copies.
+
+    Book:
+      type: object
+      required: [id, title, availableCopies]
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        availableCopies:
+          type: integer
+          description: Remaining copies available for borrowing.
+
+    BookList:
+      type: object
+      required: [books]
+      properties:
+        books:
+          type: array
+          items:
+            $ref: '#/components/schemas/Book'
+
+    NewLoan:
+      type: object
+      required: [bookId, userId]
+      properties:
+        bookId:
+          type: string
+        userId:
+          type: string
+          description: Caller-provided reader id (not authenticated).
+
+    Loan:
+      type: object
+      required: [id, bookId, userId, status]
+      properties:
+        id:
+          type: string
+        bookId:
+          type: string
+        userId:
+          type: string
+        status:
+          type: string
+          enum: [active, returned]
+
+    LoanList:
+      type: object
+      required: [loans]
+      properties:
+        loans:
+          type: array
+          items:
+            $ref: '#/components/schemas/Loan'
+
+    Error:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: string

@@ -1,0 +1,467 @@
+{
+  "status": "failed_validation",
+  "generation_origin": "seed",
+  "turns": 43,
+  "repair_rounds": 3,
+  "elapsed_seconds": 1541.36,
+  "run_estimated_cny": 15.782346,
+  "tool_metrics": {
+    "reads": 30,
+    "repeated_reads": 0,
+    "tool_errors": 2,
+    "writes": 16,
+    "host_derived_writes": 0
+  },
+  "run": "runs/v02-extra-repair/run-20261106-094502-43169d99",
+  "parent_run": "runs/v02-formal/20261106-v02-e3/run-20261106-064159-320cf2dc",
+  "scope": "One post-experiment seeded continuation; excluded from nine fresh trials",
+  "operator_source_edits": 0,
+  "checks": [
+    {
+      "profile": "static",
+      "status": "failed",
+      "results": [
+        {
+          "check": "required:package.json",
+          "status": "passed"
+        },
+        {
+          "check": "required:README.md",
+          "status": "passed"
+        },
+        {
+          "check": "required:openapi.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "required:traceability.json",
+          "status": "passed"
+        },
+        {
+          "check": "compose.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "openapi.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "package-lock.json",
+          "status": "passed"
+        },
+        {
+          "check": "package.json",
+          "status": "passed"
+        },
+        {
+          "check": "plan.json",
+          "status": "passed"
+        },
+        {
+          "check": "traceability.json",
+          "status": "passed"
+        },
+        {
+          "check": "config/keycloak/realm-export.json",
+          "status": "passed"
+        },
+        {
+          "check": "config/prometheus/prometheus.yml",
+          "status": "passed"
+        },
+        {
+          "check": "infra/istio/istio-config.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "infra/k8s/spacefractions-deployment.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "scripts/build.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\scripts\\build.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/index.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\src\\index.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/gateway/app.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\src\\gateway\\app.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/gateway/auth.js",
+          "status": "failed",
+          "exit_code": 1,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\src\\gateway\\auth.js"
+          ],
+          "output": "D:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\src\\gateway\\auth.js:1\r\n''use strict';\r\n  ^^^\r\n\r\nSyntaxError: Unexpected identifier 'use'\r\n    at wrapSafe (node:internal/modules/cjs/loader:1861:18)\r\n    at checkSyntax (node:internal/main/check_syntax:88:3)\r\n\r\nNode.js v24.22.1\r\n"
+        },
+        {
+          "check": "src/gateway/routes.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\src\\gateway\\routes.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/infra/elasticsearch.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\src\\infra\\elasticsearch.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/infra/metrics.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\src\\infra\\metrics.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/infra/postgres.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\src\\infra\\postgres.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/infra/rabbitmq.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\src\\infra\\rabbitmq.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/infra/redis.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\src\\infra\\redis.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/lib/errors.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\src\\lib\\errors.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/lib/http.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\src\\lib\\http.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/lib/rational.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\src\\lib\\rational.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/services/admin-service.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\src\\services\\admin-service.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/services/game-service.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\src\\services\\game-service.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/services/question-service.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\src\\services\\question-service.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/services/user-service.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\src\\services\\user-service.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/admin-service.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\test\\admin-service.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/app.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\test\\app.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/auth.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\test\\auth.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/compose.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\test\\compose.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/data-durability.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\test\\data-durability.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/game-service.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\test\\game-service.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/http-errors.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\test\\http-errors.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/rational.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\test\\rational.test.js"
+          ],
+          "output": ""
+        }
+      ]
+    },
+    {
+      "profile": "install",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "output": "npm warn deprecated prom-client@15.1.3: prom-client has been replaced by @prometheus-io/client\n\nadded 126 packages in 2s\n"
+    },
+    {
+      "profile": "test",
+      "status": "failed",
+      "exit_code": 1,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "run",
+        "test",
+        "--ignore-scripts"
+      ],
+      "output": "\n> space-fractions@1.0.0 test\n> node --test test/*.test.js\n\n✔ admin service requires questionService (3.4611ms)\n✔ assertAdmin throws ForbiddenError for non-admin (1.8336ms)\n✔ non-admin gets 403 (not 404) on all admin CRUD (0.9388ms)\n✔ admin createQuestion returns created record with correctAnswer (1.1209ms)\n✔ admin createQuestion rejects malformed fraction -> 400 (1.1937ms)\n✔ admin listQuestions includes correctAnswer, stable order (0.5303ms)\n✔ admin updateQuestion updates and validates payload (0.7983ms)\n✔ admin deleteQuestion returns true and re-delete returns 404 (0.861ms)\n✔ metrics.observeAdmin is called on admin actions when present (1.7996ms)\n✖ GET /health returns 200 ok (3.3109ms)\n✖ GET / serves the browser UI (help/main-menu/play/introduction) (0.8258ms)\n✖ unknown API path returns 404 via the centralized handler (0.6745ms)\nD:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\src\\gateway\\auth.js:1\n''use strict';\n  ^^^\n\nSyntaxError: Unexpected identifier 'use'\n    at wrapSafe (node:internal/modules/cjs/loader:1861:18)\n    at Module._compile (node:internal/modules/cjs/loader:1903:20)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)\n    at Module._load (node:internal/modules/cjs/loader:1443:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n    at Module.require (node:internal/modules/cjs/loader:1674:12)\n    at require (node:internal/modules/helpers:157:16)\n    at Object.<anonymous> (D:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\test\\auth.test.js:29:5)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n\nNode.js v24.22.1\n✖ test\\auth.test.js (88.285ms)\n✔ compose yaml declares every required service ID (2.7482ms)\n✔ gateway exposes container port 3000 (0.4441ms)\n✔ gateway has a GET /health readiness probe on port 3000 (0.2203ms)\n✔ gateway derives browser redirects from PUBLIC_ORIGIN / OIDC_ISSUER (not a fixed host port) (1.9092ms)\n✔ postgres is a dependency of gateway (persistence is the durable store) (0.4534ms)\n✔ MIGRATIONS declares all four persisted tables idempotently (ASR-1 durability) (1.5365ms)\n✔ MIGRATIONS uses IF NOT EXISTS indexes (idempotent schema) (0.2447ms)\n✔ MIGRATIONS enforces answer dedup with a UNIQUE(game_id, question_id) constraint (0.1778ms)\n✔ every DEFAULT_SEED answer is a valid single fraction (same validator as the API) (0.7357ms)\n✔ buildSeedSql generates one idempotent upsert per seed question (0.8122ms)\n✔ buildSeedSql rejects a malformed seed answer (fails closed) (0.6692ms)\n✔ buildSeedSql is deterministic and stable across re-runs (0.3113ms)\n✔ createGame returns player-safe questions and never exposes correctAnswer (5.3973ms)\n✔ scoring: correct answer increments score by exactly 1; exact rational match (2.0084ms)\n✔ whole-number answers score against integer-correct questions (0.8462ms)\n✔ pause/resume lifecycle is reflected and idempotent (0.8032ms)\n✔ answering while paused returns a 409 conflict (1.9466ms)\n✔ per-game authorization: a non-owner gets 403 and never the score (0.9291ms)\n✔ missing game yields 404 for a caller (1.9707ms)\n✔ duplicate answer returns 409 and does not increase score (0.6884ms)\n✔ malformed fractions are rejected with 400 (1.0341ms)\n✔ question not in game is rejected with 400 (0.6374ms)\n✔ reproducible practice preserves requested question order (1.296ms)\n✔ unknown requested question ids fail game creation with 404 (0.559ms)\n✔ questionIds must be an array (400) (0.5469ms)\n✔ score events and metrics are emitted on answers (0.5799ms)\n✔ player response never includes correctAnswer (getGame) (0.3435ms)\n✔ HttpError carries a stable status/code contract (0.2014ms)\n✔ every HttpError subtype carries its canonical HTTP status (2.7444ms)\n✔ HttpError preserves name, code and cause when supplied (0.3591ms)\n✔ expose:false hides the message but keeps status via toHttpError (0.2112ms)\n✔ toHttpError maps exposed HttpError message through unchanged (1.185ms)\n✔ toHttpError normalizes a plain Error to 500 with hidden message (0.2183ms)\n✔ toHttpError maps an object carrying status/expose like a downstream HTTP error (0.1656ms)\n✔ toHttpError handles non-object throws (string/undefined/null) (0.1852ms)\n✔ TimeoutError is marked 504 and not exposed to clients (0.2484ms)\n✔ boundedFetch passes through a normal fetch response (0.6014ms)\n✔ boundedFetch aborts and throws TimeoutError when the fetch never settles (11.6096ms)\n✔ boundedFetch propagates non-abort fetch errors untouched (0.6525ms)\n✔ boundedFetch has a sane default timeout budget (0.1456ms)\n✔ gcd returns greatest common divisor (1.6043ms)\n✔ normalize reduces to lowest terms with positive denominator (2.5864ms)\n✔ normalize rejects non-integer parts and zero denominator (0.7228ms)\n✔ parseFraction accepts integers (0.5341ms)\n✔ parseFraction accepts proper fractions (0.5578ms)\n✔ parseFraction accepts mixed numbers and preserves sign (0.39ms)\n✔ parseFraction rejects malformed input (0.5991ms)\n✔ compare orders fractions exactly (0.3268ms)\n✔ equals reflects canonical value (0.5301ms)\n✔ arithmetic operations keep exact canonical results (1.7299ms)\n✔ divide by zero throws (0.345ms)\n✔ toString renders whole numbers and fractions canonically (0.1714ms)\n✔ isValidFraction mirrors parser success (0.2773ms)\nℹ tests 66\nℹ suites 0\nℹ pass 62\nℹ fail 4\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 331.7839\n\n✖ failing tests:\n\ntest at test\\app.test.js:64:1\n✖ GET /health returns 200 ok (3.3109ms)\n  D:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\src\\gateway\\auth.js:1\n  ''use strict';\n    ^^^\n  \n  SyntaxError: Unexpected identifier 'use'\n      at wrapSafe (node:internal/modules/cjs/loader:1861:18)\n      at Module._compile (node:internal/modules/cjs/loader:1903:20)\n      at Object..js (node:internal/modules/cjs/loader:2060:10)\n      at Module.load (node:internal/modules/cjs/loader:1651:32)\n      at Module._load (node:internal/modules/cjs/loader:1443:12)\n      at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n      at Module.require (node:internal/modules/cjs/loader:1674:12)\n      at require (node:internal/modules/helpers:157:16)\n      at Object.<anonymous> (D:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\src\\gateway\\routes.js:29:41)\n      at Module._compile (node:internal/modules/cjs/loader:1929:14)\n\ntest at test\\app.test.js:76:1\n✖ GET / serves the browser UI (help/main-menu/play/introduction) (0.8258ms)\n  D:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\src\\gateway\\auth.js:1\n  ''use strict';\n    ^^^\n  \n  SyntaxError: Unexpected identifier 'use'\n      at wrapSafe (node:internal/modules/cjs/loader:1861:18)\n      at Module._compile (node:internal/modules/cjs/loader:1903:20)\n      at Object..js (node:internal/modules/cjs/loader:2060:10)\n      at Module.load (node:internal/modules/cjs/loader:1651:32)\n      at Module._load (node:internal/modules/cjs/loader:1443:12)\n      at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n      at Module.require (node:internal/modules/cjs/loader:1674:12)\n      at require (node:internal/modules/helpers:157:16)\n      at Object.<anonymous> (D:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\src\\gateway\\routes.js:29:41)\n      at Module._compile (node:internal/modules/cjs/loader:1929:14)\n\ntest at test\\app.test.js:91:1\n✖ unknown API path returns 404 via the centralized handler (0.6745ms)\n  D:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\src\\gateway\\auth.js:1\n  ''use strict';\n    ^^^\n  \n  SyntaxError: Unexpected identifier 'use'\n      at wrapSafe (node:internal/modules/cjs/loader:1861:18)\n      at Module._compile (node:internal/modules/cjs/loader:1903:20)\n      at Object..js (node:internal/modules/cjs/loader:2060:10)\n      at Module.load (node:internal/modules/cjs/loader:1651:32)\n      at Module._load (node:internal/modules/cjs/loader:1443:12)\n      at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n      at Module.require (node:internal/modules/cjs/loader:1674:12)\n      at require (node:internal/modules/helpers:157:16)\n      at Object.<anonymous> (D:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\src\\gateway\\routes.js:29:41)\n      at Module._compile (node:internal/modules/cjs/loader:1929:14)\n\ntest at test\\auth.test.js:1:1\n✖ test\\auth.test.js (88.285ms)\n  'test failed'\n"
+    },
+    {
+      "profile": "integration",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "run",
+        "test:integration",
+        "--ignore-scripts"
+      ],
+      "output": "\n> space-fractions@1.0.0 test:integration\n> node --test test/integration/*.test.js\n\nℹ tests 0\nℹ suites 0\nℹ pass 0\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 12.4588\n"
+    },
+    {
+      "profile": "build",
+      "status": "failed",
+      "exit_code": 1,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "run",
+        "build",
+        "--ignore-scripts"
+      ],
+      "output": "\n> space-fractions@1.0.0 build\n> node scripts/build.js\n\nbuild: syntax error in src/gateway/auth.js:\nD:\\projects\\Task\\runs\\v02-extra-repair\\run-20261106-094502-43169d99\\project\\src\\gateway\\auth.js:1\r\n''use strict';\r\n  ^^^\r\n\r\nSyntaxError: Unexpected identifier 'use'\r\n    at wrapSafe (node:internal/modules/cjs/loader:1861:18)\r\n    at checkSyntax (node:internal/main/check_syntax:88:3)\r\n\r\nNode.js v24.22.1\r\n\n"
+    },
+    {
+      "profile": "compose",
+      "status": "unverified",
+      "reason": "缺少 Node.js/npm 或 Docker"
+    },
+    {
+      "profile": "traceability_links",
+      "status": "passed",
+      "problems": [],
+      "limitation": "只检查链接和来源范围；语义覆盖需要独立审查"
+    },
+    {
+      "profile": "runtime",
+      "status": "unverified",
+      "reason": "静态检查失败，修复后再启动服务"
+    },
+    {
+      "profile": "external_review_retest",
+      "status": "unverified",
+      "reason": "外部反馈已用于修复，但必须由独立验收重新验证；不能根据模型文字判为通过"
+    }
+  ],
+  "browser_review": {
+    "status": "unverified",
+    "reason": "Final source syntax invalid; browser not attempted"
+  },
+  "reproduction": "node --check src/gateway/auth.js from archived project; then npm ci --ignore-scripts and npm test --ignore-scripts",
+  "final_failure": "src/gateway/auth.js line1 contains duplicate opening quote; static, unit test and build fail. Runtime skipped because static check failed. Integration script exits0 with zero tests; not functional coverage."
+}

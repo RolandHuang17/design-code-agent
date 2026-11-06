@@ -1,0 +1,173 @@
+{
+  "source_run": "runs/v02-formal/20261106-v02-e3/run-20261106-073052-d1aeb7fc",
+  "cohort": "20261106-v02-e3",
+  "trial": 5,
+  "selection": "First fresh library trial that passed the complete fixed checks; selected by trial order, not lowest fee or nicest UI.",
+  "source_commit": "2d986eb8e26f79e438b9ee0962963071e08197ff",
+  "operator_source_edits": 0,
+  "derived_lockfile": "npm host check; recorded separately from model writes",
+  "files": [
+    {
+      "path": ".dockerignore",
+      "sha256": "5592476c8cc64eb5b501010fccb3fc935a01997b47b944bd488e226bb1cb4c74"
+    },
+    {
+      "path": ".env.example",
+      "sha256": "8934eca2ffba6641d6d3866d16689c1a4a387fe7db2c3a6942168c7dfe41b285"
+    },
+    {
+      "path": "Dockerfile",
+      "sha256": "dbd5ad4b0f8c8dda6c142768d85e9392f34f4bd7daabd46a5ac32e5bd3fb16f0"
+    },
+    {
+      "path": "README.md",
+      "sha256": "6d58a5a5d4aaba43b8bc10e34c2090013a394a1a1b0cd6722997a04c5c316de5"
+    },
+    {
+      "path": "architecture-decisions.md",
+      "sha256": "b41f581b58d031a1328a23575a696a6a48b8b9d1a236e28ed49cf3d78c5dad47"
+    },
+    {
+      "path": "compose.yaml",
+      "sha256": "d6c47f9a3639853670a2e8489c3caa72c91be0d4143b953ee0386334576923e5"
+    },
+    {
+      "path": "openapi.yaml",
+      "sha256": "5605eb136760db71eecfaba445325fc77313a31a4e2084419d5b3169702c1515"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "390d7654fd509c577e459f824269ad2f72eb88dc1ba31675b622a2d1d93b9c1d"
+    },
+    {
+      "path": "package.json",
+      "sha256": "62fd6a5148f8af46d84e511824e68c7a44208bce4b36b37fd87286ac35315c6b"
+    },
+    {
+      "path": "plan.json",
+      "sha256": "23998e05aedd381344026beec7f1128841e470dac07efc80dd5273e5afd6423e"
+    },
+    {
+      "path": "traceability.json",
+      "sha256": "dc73962dccfded9a918d685b5de848df7a30700d39c7a66ea4ed25b8593fd4e0"
+    },
+    {
+      "path": "postgres-data/.gitkeep",
+      "sha256": "4bdda2d25511e10d7e290bd1eda0ae41140139e9e84fca066dc0c66d58617808"
+    },
+    {
+      "path": "public/app.js",
+      "sha256": "a530c9de131f1d35989edccd1253f9782c77e1e815c148df3f7600632ea281be"
+    },
+    {
+      "path": "public/index.html",
+      "sha256": "f0c45e244e2d95c71dd14b09417569776e2ac1caee5e14afbaa42019bf18ae1a"
+    },
+    {
+      "path": "public/style.css",
+      "sha256": "9a3d1a0158444dc17f9d49783cb28a6e6127d2b492268eb02b1f19bf437c0ca4"
+    },
+    {
+      "path": "src/server.js",
+      "sha256": "4a5b323f0de592a14f7366b8a1ff0322442d6948b4325e9aeb3503da57b16181"
+    },
+    {
+      "path": "src/catalog/catalog.js",
+      "sha256": "a5a1c5685093c64c45a8ad7aceedf84c7b2052f303072715c2605207526c5f82"
+    },
+    {
+      "path": "src/catalog/catalog.repo.js",
+      "sha256": "e729a89b5f5dad9dd6e4c2e809caab9705b0d2d9d2cf1b8d8ca339da0117924b"
+    },
+    {
+      "path": "src/db/index.js",
+      "sha256": "828a318af03de597d03458292f928db1abae8e9e9b3c7fbbfdb38c9d9e17f598"
+    },
+    {
+      "path": "src/db/schema.sql",
+      "sha256": "48041f47e3d9259b92ff7a5125907a98f1250dce9d0989c9441f1381c0a51da8"
+    },
+    {
+      "path": "src/http/app.js",
+      "sha256": "c66736e296fc7dc9f32c0118a93949ce7f2d97ba42abfbf6b8df366fcf897a99"
+    },
+    {
+      "path": "src/http/routes.js",
+      "sha256": "4c210851896dc02e567ea4b56bdccc68b524386313614e0a23dce726a5ecc09d"
+    },
+    {
+      "path": "src/http/validation.js",
+      "sha256": "357d754618326fcdfc0ff04734bdf303cb0a07909788fd62ce18cf45325e9c6f"
+    },
+    {
+      "path": "src/loans/loans.js",
+      "sha256": "ceadbcd51ccd6592f29a1216b2b2a1da36e1548ad0fc74b1f3881727b27d57b1"
+    },
+    {
+      "path": "src/loans/loans.repo.js",
+      "sha256": "5176be5acaf0fa100d04925946de1c8bd93b1f5be74e5ba0efe5f87538a91174"
+    },
+    {
+      "path": "src/store/memory.store.js",
+      "sha256": "a7834d2ede7aa43f820cdeb8b68b39e94fff568e08607a8237fc8e5d817667f0"
+    },
+    {
+      "path": "src/store/postgres.store.js",
+      "sha256": "94fa38694b05650702330fd51fc0002f02b7d9c64f50a71e6650f6a4ef6c58f6"
+    },
+    {
+      "path": "src/store/store.js",
+      "sha256": "fbf73013b9788ead9fd22356df863bc72c83ed4fefea44a9695389cd934bf90f"
+    },
+    {
+      "path": "test/catalog.test.js",
+      "sha256": "2fea3fd7379a6275cfda8e41c04091715acf0bd6aee54492946f6ee0f91452cf"
+    },
+    {
+      "path": "test/db.test.js",
+      "sha256": "0f09f4d0b760fad34fb7b4f03c99429d366183a137d7bc129eb9965fc816993b"
+    },
+    {
+      "path": "test/http.test.js",
+      "sha256": "1d14f87fb70e3f6cdcdd816e01ea9db8740a7a2effdcd7ec050c057efc030c1b"
+    },
+    {
+      "path": "test/loans.test.js",
+      "sha256": "434765d3a542821797523a40fc1c848bf1d9fa41aebf1245f2c1a253e858fa27"
+    }
+  ],
+  "browser_retest": {
+    "status": "core_flow_passed_with_wording_issue",
+    "actions": [
+      "create one-copy title",
+      "borrow changes inventory1to0",
+      "borrow button disabled at0 copies",
+      "return restores1 and returned status",
+      "reload preserves1 and returned status"
+    ],
+    "issue": "Active loans heading includes returned history rows, but rows show returned and no Return action.",
+    "environment_note": "First browser attempt was interrupted by WSL idle exit after host reboot; explicit WSL keepalive restored environment, then full flow completed."
+  },
+  "agent_source_hashes": {
+    "__init__.py": "c2889ed380ace3b0a1fd0dd76c7236d4db29a8c1a033902cd67f2149448ea418",
+    "__main__.py": "3129adff95e0f38b87ab34cddfc27082c7892bcaec267ff5d40f160fdf55b44a",
+    "budget.py": "1e9c3222ddd7624114b62086b8f36c2f9a646571fa946c30da61bb0b13b23f52",
+    "cases.py": "17efbd819b5908e0ca7ffca5532c9486db47108018b984e49d5eb6a2e982148c",
+    "checks.py": "b8cc3722989bd4304390c9e7d45c0347be455bb5c77fb163cf0d6d6e924f77d2",
+    "cli.py": "29c92505fc121ad507807ebe87b32c4c327d0bfdb49aa7f81c19bed5f72f50e6",
+    "config.py": "548cec1513f4b3e5fc4ab58260a59d983344768ed882823ba3ebe1dca65270fe",
+    "engine.py": "9bbfc3269a7be58094a4147764aaf256ac69fcb1da8980fb278a6376c454e6e0",
+    "gui.py": "1ec9b0f4cfe4dcc8599b640b5c72ff9393b981847288a71d86a37f8fbc548b5d",
+    "inputs.py": "6a2ad7d399a4c981a4d6ec55e2ea974c1c8dec2753e90685771064896f501f12",
+    "prompts.py": "f36e64b1f69ea68342c27f1eef0c331aa64d95e50b79f53923bc754ee5462331",
+    "provider.py": "2aa17a14335040b9a594c16a09c851044c226e887af5ecb44234640e47dda6c8",
+    "runtime.py": "f82ad62e753c27cacf0d4cc3a97f678200d45122638604c525adca16d16a583b",
+    "safety.py": "e12c23689b4ef325013e2257905da6e0957397ff2ab64d260540d8b7fbbe5b4c",
+    "tools.py": "804e48f64d882bbd74896ae8004e8db1813a0b3dcb91755fb57b96c6e3e39601",
+    "acceptance/__init__.py": "a3a5f4b3c36c7a68f9e7f65a05eb6cb5fa61c7d39a9cecc0625e18a6bc256f7d",
+    "acceptance/auth.cjs": "2b74b5dda31ec22569b2c870fd062c4a6a84cd963aed0e41e240f7a74c61c26c",
+    "acceptance/http_checks.py": "137c4d444f513fcb83419527b3305afa9f28f1b5ea8bbabe11fa5673b105a4f0",
+    "cases/library.md": "07cc2a8520420f189ca37bdb07dbae000144aa1c3577e9d3e528051b9545cbb4",
+    "cases/space-fractions.md": "0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c"
+  }
+}

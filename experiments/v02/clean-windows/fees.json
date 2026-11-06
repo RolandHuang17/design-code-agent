@@ -1,0 +1,19 @@
+{
+  "recorded_utc": "2026-11-06T04:45:56.419129+00:00",
+  "scope": "Separate clean Windows guest ledger; do not merge into formal cohort costs; includes one failed network request reservation.",
+  "settled_estimate_cny": 1.245669,
+  "uncertain_reserved_cny": 0.74766,
+  "charged_upper_estimate_cny": 1.993329,
+  "requests": 26,
+  "by_recorded_price": [
+    {
+      "input_cny_per_million": 12.0,
+      "output_cny_per_million": 27.0,
+      "settled_requests": 24,
+      "uncertain_requests": 2,
+      "settled_estimate_cny": 1.245669,
+      "uncertain_reserved_cny": 0.74766
+    }
+  ],
+  "limitations": "Usage multiplied by confirmed price ceilings, not a provider invoice. Pending requests also appear uncertain; capture final accounting after owned paid calls have ended. No ledger reset."
+}

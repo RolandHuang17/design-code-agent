@@ -1,0 +1,52 @@
+{
+  "version": "0.2.0",
+  "source_commit": "bf8e090c645ef40c51619b1a80c9ffad7a9f24e4",
+  "exe_sha256": "dddb0d73e02bedbec27974e00532c5b10c8cc3c546f5680f857cd465d52a9e04",
+  "bytes": 13558963,
+  "build": "Python3.12.13 / PyInstaller6.16.0 onefile windowed",
+  "regression": {
+    "passed": 78,
+    "skipped": 1,
+    "reason": "Windows symlink privilege unavailable"
+  },
+  "agent_source_hashes": {
+    "codeagent/__init__.py": "c2889ed380ace3b0a1fd0dd76c7236d4db29a8c1a033902cd67f2149448ea418",
+    "codeagent/__main__.py": "3129adff95e0f38b87ab34cddfc27082c7892bcaec267ff5d40f160fdf55b44a",
+    "codeagent/budget.py": "1e9c3222ddd7624114b62086b8f36c2f9a646571fa946c30da61bb0b13b23f52",
+    "codeagent/cases.py": "17efbd819b5908e0ca7ffca5532c9486db47108018b984e49d5eb6a2e982148c",
+    "codeagent/checks.py": "b8cc3722989bd4304390c9e7d45c0347be455bb5c77fb163cf0d6d6e924f77d2",
+    "codeagent/cli.py": "29c92505fc121ad507807ebe87b32c4c327d0bfdb49aa7f81c19bed5f72f50e6",
+    "codeagent/config.py": "548cec1513f4b3e5fc4ab58260a59d983344768ed882823ba3ebe1dca65270fe",
+    "codeagent/engine.py": "9bbfc3269a7be58094a4147764aaf256ac69fcb1da8980fb278a6376c454e6e0",
+    "codeagent/gui.py": "84c84fa3c9465b5495295fe31bd57f45a26d5aae2985c5b9dc2f6f8af7e83c11",
+    "codeagent/inputs.py": "6a2ad7d399a4c981a4d6ec55e2ea974c1c8dec2753e90685771064896f501f12",
+    "codeagent/prompts.py": "f36e64b1f69ea68342c27f1eef0c331aa64d95e50b79f53923bc754ee5462331",
+    "codeagent/provider.py": "454317f3579994a56c3804ee368faa91fbfa872d6cf203c3d9d2f51ad7c1d21c",
+    "codeagent/runtime.py": "f82ad62e753c27cacf0d4cc3a97f678200d45122638604c525adca16d16a583b",
+    "codeagent/safety.py": "e12c23689b4ef325013e2257905da6e0957397ff2ab64d260540d8b7fbbe5b4c",
+    "codeagent/tools.py": "804e48f64d882bbd74896ae8004e8db1813a0b3dcb91755fb57b96c6e3e39601",
+    "codeagent/acceptance/__init__.py": "a3a5f4b3c36c7a68f9e7f65a05eb6cb5fa61c7d39a9cecc0625e18a6bc256f7d",
+    "codeagent/acceptance/auth.cjs": "2b74b5dda31ec22569b2c870fd062c4a6a84cd963aed0e41e240f7a74c61c26c",
+    "codeagent/acceptance/http_checks.py": "137c4d444f513fcb83419527b3305afa9f28f1b5ea8bbabe11fa5673b105a4f0",
+    "codeagent/cases/library.md": "07cc2a8520420f189ca37bdb07dbae000144aa1c3577e9d3e528051b9545cbb4",
+    "codeagent/cases/space-fractions.md": "0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c",
+    "benchmarks/library/Architecture_Documentation.md": "6c1dcea22c483670756fc9c91ad102864290399063b3e15a90fdd93ab7057cea",
+    "benchmarks/library/Architecture_View.md": "8fa9ea8c9a2bce9fc5a5a3627488d913865bbe77b5e18e1d3c1e7291e739254c",
+    "Architecture_Documentation.md": "111282df7817bca771e53c82ebb053707a3217cb8f11733a2c25b631ca81db55",
+    "Architecture_View.md": "77dac057e13f122ddc6fc19294490c6a961f00429b72f15df81a81adc91bdbc8",
+    "scripts/run_benchmark.py": "622a4ed2d17f7b486c58431099517734c27d60cd0f4229a6d0ee529f773d29fd"
+  },
+  "formal_cohort_source_commit": "2d986eb8e26f79e438b9ee0962963071e08197ff",
+  "changed_agent_files_since_formal_cohort": [
+    "codeagent/gui.py",
+    "codeagent/provider.py"
+  ],
+  "change_scope": "GUI DPI/scroll and best-effort legacy IME association; fixed CA trust bundle and redacted network diagnostics. Frozen experiments are not rerun or rewritten.",
+  "runtime_dependencies": {
+    "PyYAML": "6.0.3",
+    "certifi": "2026.10.23"
+  },
+  "bundled_ca_sha256": "2ef52ad56b4803e264045c915e55c236cbfa045b84b81efefc218a19eb44bd2b",
+  "clean_windows_verified": true,
+  "clean_windows_evidence": "experiments/v02/clean-windows/summary.json"
+}

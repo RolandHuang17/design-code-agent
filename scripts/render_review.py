@@ -6,7 +6,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from scripts.summarize_benchmark import summarize
+from scripts.summarize_benchmark import summarize, resolve_run
 
 
 def escape(value):
@@ -29,7 +29,7 @@ def render(folder):
         body = [f'<p class="path">{escape(trial.get("run", "尚未分配最终运行路径"))}</p>',
                 f'<p>文件核验：{escape(integrity)}；自动验收：{"通过，仍须设计审查" if success else "未达到完整自动验收条件"}。</p>']
         if trial.get('run'):
-            report_path = Path(trial['run']) / 'artifacts/report.json'
+            report_path = resolve_run(trial['run']) / 'artifacts/report.json'
             if report_path.exists():
                 report = json.loads(report_path.read_text(encoding='utf-8'))
                 body.append(f'<p>生成来源：{escape(report.get("generation_origin", "未知"))}；实际修复轮数：{escape(report.get("repair_rounds", "未知"))}。</p>')

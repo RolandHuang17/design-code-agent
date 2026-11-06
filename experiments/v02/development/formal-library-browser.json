@@ -1,0 +1,34 @@
+{
+  "scope": "Independent real browser review of first complete fresh library success; excluded from automatic HTTP test count",
+  "source_run": "runs/v02-formal/20261106-v02-e3/run-20261106-073052-d1aeb7fc",
+  "source_commit": "2d986eb8e26f79e438b9ee0962963071e08197ff",
+  "operator_source_edits": 0,
+  "checks": [
+    {
+      "check": "new book with one copy",
+      "status": "passed"
+    },
+    {
+      "check": "borrow reduces available copies to zero",
+      "status": "passed"
+    },
+    {
+      "check": "borrow disabled at zero copies",
+      "status": "passed"
+    },
+    {
+      "check": "return restores one copy and returned status",
+      "status": "passed"
+    },
+    {
+      "check": "refresh retains returned status and inventory",
+      "status": "passed"
+    }
+  ],
+  "minor_finding": "Active loans heading also contains returned history; row state and available actions are correct",
+  "environment_interruption": "Initial browser connection refused after WSL idle termination; keeping owned WSL session alive resolved environment; full flow then repeated",
+  "evidence": {
+    "docs\\images\\formal-library-borrow.png": "618cee146310b616b633b6201c79c69e178db5a2ca73a22069ac4b0ca1e2308c",
+    "docs\\images\\formal-library-return.png": "50a87ab779a11bbbb1795c05839ebcbf57ba76633c2c359ec38dbec97b13e34f"
+  }
+}

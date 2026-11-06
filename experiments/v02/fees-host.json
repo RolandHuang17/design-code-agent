@@ -1,0 +1,29 @@
+{
+  "recorded_utc": "2026-11-06T04:56:34.067864+00:00",
+  "scope": "Entire preserved local ledger, including historical runs, connection tests and development; not a formal-cohort-only cost.",
+  "settled_estimate_cny": 442.544415,
+  "uncertain_reserved_cny": 8.982771,
+  "charged_upper_estimate_cny": 451.527186,
+  "requests": 2003,
+  "by_recorded_price": [
+    {
+      "input_cny_per_million": 9.0,
+      "output_cny_per_million": 27.0,
+      "settled_requests": 1878,
+      "uncertain_requests": 4,
+      "settled_estimate_cny": 413.10963,
+      "uncertain_reserved_cny": 4.321575
+    },
+    {
+      "input_cny_per_million": 12.0,
+      "output_cny_per_million": 27.0,
+      "settled_requests": 114,
+      "uncertain_requests": 7,
+      "settled_estimate_cny": 29.434785,
+      "uncertain_reserved_cny": 4.661196
+    }
+  ],
+  "limitations": "Usage multiplied by confirmed price ceilings, not a provider invoice. Pending requests also appear uncertain; capture final accounting after owned paid calls have ended. No ledger reset.",
+  "raw_evidence": ".local/v02-host-budget.json",
+  "raw_sha256": "e9ddd4526e528a733202b0b35481421e1938387431aa86323824c8ba3fb67d8d"
+}

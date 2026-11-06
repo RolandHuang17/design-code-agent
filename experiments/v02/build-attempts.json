@@ -1,0 +1,25 @@
+{
+  "final": "build-final.json",
+  "attempts": [
+    {
+      "path": "dist\\v0.2.0\\DesignCodeAgent.exe",
+      "sha256": "bdd78fc44a31efa3b04575c12d68c8d1ed5fa29e447c9896049aab2bf6e04c47",
+      "selected_for_release": false
+    },
+    {
+      "path": "dist\\v0.2.0-final\\DesignCodeAgent.exe",
+      "sha256": "7f8a4e0377211b0e5eff3803d361e6c685cc37c9400af075cfbd301d88f68c2d",
+      "selected_for_release": false
+    },
+    {
+      "path": "dist\\v0.2.0-final2\\DesignCodeAgent.exe",
+      "sha256": "bc48b59bf0de9fe72015380b7dfbb506975773edba8fd414dc74aca48bf07fe2",
+      "selected_for_release": false
+    },
+    {
+      "path": "dist\\v0.2.0-tls\\DesignCodeAgent.exe",
+      "sha256": "dddb0d73e02bedbec27974e00532c5b10c8cc3c546f5680f857cd465d52a9e04",
+      "selected_for_release": true
+    }
+  ]
+}

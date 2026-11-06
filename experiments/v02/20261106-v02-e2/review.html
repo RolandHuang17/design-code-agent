@@ -1,0 +1,601 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>20261106-v02-e2 · 实验证据审阅</title><link rel="icon" href="data:,">
+<style>body{margin:0;background:#f3f5f8;color:#203047;font:16px/1.65 system-ui,"Microsoft YaHei",sans-serif}main{max-width:1220px;margin:auto;padding:36px 24px}h1{margin:0;font-size:32px}.eyebrow{color:#146e73;font-weight:700}.note{background:#fff7e5;border-left:4px solid #b07a13;padding:18px 22px;margin:24px 0}.card,.trial{background:white;border:1px solid #dce3ec;border-radius:10px;padding:20px;margin:18px 0}table{width:100%;min-width:1100px;border-collapse:collapse;font-size:14px}td,th{text-align:left;padding:12px 9px;border-bottom:1px solid #e5eaf0}th{background:#edf3f7;white-space:nowrap}td:nth-child(5){max-width:260px;overflow-wrap:anywhere;font-family:monospace}.scroll{overflow:auto}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f2f5f9;padding:16px;font:13px/1.6 monospace;max-height:600px;overflow:auto}summary{cursor:pointer;font-weight:650}details details{margin:12px 0}.path{font-family:monospace;overflow-wrap:anywhere}footer{color:#52677c;font-size:14px}</style>
+<main><div class="eyebrow">DESIGNCODEAGENT · 可复核实验</div><h1>从设计到仓库：生成与反馈修复</h1>
+<p>20261106-v02-e2 · deepseek-v4-pro-0813 · 固定设置、全部结果、原始证据</p>
+<div class="note">小样本可行性观察。未开始、失败、中断、跳过均保留；不推导普遍成功率、统计显著性、生产可用或多 Agent 优势。用量费用不含无法确认的请求预留，后者保留在全局账本。自动验收通过仍需审查设计语义和浏览器行为。</div>
+<section class="card"><h2>逐次结果</h2><div class="scroll"><table><thead><tr><th>试验</th><th>案例</th><th>重复</th><th>修复上限</th><th>原始结果</th><th>自带测试 过/失/跳</th><th>HTTP通过项</th><th>模型轮次</th><th>用量估算¥</th></tr></thead><tbody><tr><td>1</td><td>space-fractions</td><td>1</td><td>3</td><td>failed_validation</td><td>76/0/0</td><td>2</td><td>160</td><td>38.16477</td></tr><tr><td>2</td><td>space-fractions</td><td>2</td><td>3</td><td>cancelled</td><td>未统计</td><td>0</td><td>14</td><td>1.888722</td></tr></tbody></table></div>
+<p>HTTP列仅表示实际通过项数，不能据此忽略失败或未运行；展开原始 runtime 结果查看完整状态。</p></section>
+<section class="card"><h2>固定分组</h2><div class="scroll"><table><thead><tr><th>案例</th><th>修复上限</th><th>记录/计划</th><th>自动验收通过</th><th>全部原始结果</th><th>用量估算¥</th></tr></thead><tbody><tr><td>library</td><td>0</td><td>0/3</td><td>0</td><td>尚未开始</td><td>0</td></tr><tr><td>library</td><td>3</td><td>0/3</td><td>0</td><td>尚未开始</td><td>0</td></tr><tr><td>space-fractions</td><td>3</td><td>2/3</td><td>0</td><td>failed_validation × 1；cancelled × 1</td><td>40.053492</td></tr></tbody></table></div></section>
+<h2>展开原始检查</h2><details class="trial"><summary>试验 1 · space-fractions · failed_validation</summary><p class="path">D:\projects\Task\runs\v02-formal\20261106-v02-e2\run-20261106-044151-45700d9f</p><p>文件核验：已记录文件及额外文件核验通过；自动验收：未达到完整自动验收条件。</p><p>生成来源：fresh；实际修复轮数：3。</p><details><summary>static · passed</summary><pre>{
+  &quot;profile&quot;: &quot;static&quot;,
+  &quot;status&quot;: &quot;passed&quot;,
+  &quot;results&quot;: [
+    {
+      &quot;check&quot;: &quot;required:package.json&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;check&quot;: &quot;required:README.md&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;check&quot;: &quot;required:openapi.yaml&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;check&quot;: &quot;required:traceability.json&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;check&quot;: &quot;compose.yaml&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;check&quot;: &quot;openapi.yaml&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;check&quot;: &quot;package-lock.json&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;check&quot;: &quot;package.json&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;check&quot;: &quot;plan.json&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;check&quot;: &quot;traceability.json&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;check&quot;: &quot;deploy/istio-reference.yaml&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;check&quot;: &quot;deploy/prometheus.yml&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;check&quot;: &quot;k8s/spacefractions-deployment.yaml&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;check&quot;: &quot;keycloak/realm-export.json&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;check&quot;: &quot;packages/admin-service/src/index.js&quot;,
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;command&quot;: [
+        &quot;C:\\Program Files\\nodejs\\node.EXE&quot;,
+        &quot;--check&quot;,
+        &quot;D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e2\\run-20261106-044151-45700d9f\\project\\packages\\admin-service\\src\\index.js&quot;
+      ],
+      &quot;output&quot;: &quot;&quot;
+    },
+    {
+      &quot;check&quot;: &quot;packages/game-service/src/events.js&quot;,
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;command&quot;: [
+        &quot;C:\\Program Files\\nodejs\\node.EXE&quot;,
+        &quot;--check&quot;,
+        &quot;D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e2\\run-20261106-044151-45700d9f\\project\\packages\\game-service\\src\\events.js&quot;
+      ],
+      &quot;output&quot;: &quot;&quot;
+    },
+    {
+      &quot;check&quot;: &quot;packages/game-service/src/game.js&quot;,
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;command&quot;: [
+        &quot;C:\\Program Files\\nodejs\\node.EXE&quot;,
+        &quot;--check&quot;,
+        &quot;D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e2\\run-20261106-044151-45700d9f\\project\\packages\\game-service\\src\\game.js&quot;
+      ],
+      &quot;output&quot;: &quot;&quot;
+    },
+    {
+      &quot;check&quot;: &quot;packages/game-service/src/index.js&quot;,
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;command&quot;: [
+        &quot;C:\\Program Files\\nodejs\\node.EXE&quot;,
+        &quot;--check&quot;,
+        &quot;D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e2\\run-20261106-044151-45700d9f\\project\\packages\\game-service\\src\\index.js&quot;
+      ],
+      &quot;output&quot;: &quot;&quot;
+    },
+    {
+      &quot;check&quot;: &quot;packages/game-service/src/repo.js&quot;,
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;command&quot;: [
+        &quot;C:\\Program Files\\nodejs\\node.EXE&quot;,
+        &quot;--check&quot;,
+        &quot;D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e2\\run-20261106-044151-45700d9f\\project\\packages\\game-service\\src\\repo.js&quot;
+      ],
+      &quot;output&quot;: &quot;&quot;
+    },
+    {
+      &quot;check&quot;: &quot;packages/gateway/public/app.js&quot;,
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;command&quot;: [
+        &quot;C:\\Program Files\\nodejs\\node.EXE&quot;,
+        &quot;--check&quot;,
+        &quot;D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e2\\run-20261106-044151-45700d9f\\project\\packages\\gateway\\public\\app.js&quot;
+      ],
+      &quot;output&quot;: &quot;&quot;
+    },
+    {
+      &quot;check&quot;: &quot;packages/gateway/src/index.js&quot;,
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;command&quot;: [
+        &quot;C:\\Program Files\\nodejs\\node.EXE&quot;,
+        &quot;--check&quot;,
+        &quot;D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e2\\run-20261106-044151-45700d9f\\project\\packages\\gateway\\src\\index.js&quot;
+      ],
+      &quot;output&quot;: &quot;&quot;
+    },
+    {
+      &quot;check&quot;: &quot;packages/gateway/src/routes.js&quot;,
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;command&quot;: [
+        &quot;C:\\Program Files\\nodejs\\node.EXE&quot;,
+        &quot;--check&quot;,
+        &quot;D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e2\\run-20261106-044151-45700d9f\\project\\packages\\gateway\\src\\routes.js&quot;
+      ],
+      &quot;output&quot;: &quot;&quot;
+    },
+    {
+      &quot;check&quot;: &quot;packages/question-service/src/index.js&quot;,
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;command&quot;: [
+        &quot;C:\\Program Files\\nodejs\\node.EXE&quot;,
+        &quot;--check&quot;,
+        &quot;D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e2\\run-20261106-044151-45700d9f\\project\\packages\\question-service\\src\\index.js&quot;
+      ],
+      &quot;output&quot;: &quot;&quot;
+    },
+    {
+      &quot;check&quot;: &quot;packages/question-service/src/question.js&quot;,
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;command&quot;: [
+        &quot;C:\\Program Files\\nodejs\\node.EXE&quot;,
+        &quot;--check&quot;,
+        &quot;D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e2\\run-20261106-044151-45700d9f\\project\\packages\\question-service\\src\\question.js&quot;
+      ],
+      &quot;output&quot;: &quot;&quot;
+    },
+    {
+      &quot;check&quot;: &quot;packages/shared/src/auth.js&quot;,
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;command&quot;: [
+        &quot;C:\\Program Files\\nodejs\\node.EXE&quot;,
+        &quot;--check&quot;,
+        &quot;D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e2\\run-20261106-044151-45700d9f\\project\\packages\\shared\\src\\auth.js&quot;
+      ],
+      &quot;output&quot;: &quot;&quot;
+    },
+    {
+      &quot;check&quot;: &quot;packages/shared/src/config.js&quot;,
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;command&quot;: [
+        &quot;C:\\Program Files\\nodejs\\node.EXE&quot;,
+        &quot;--check&quot;,
+        &quot;D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e2\\run-20261106-044151-45700d9f\\project\\packages\\shared\\src\\config.js&quot;
+      ],
+      &quot;output&quot;: &quot;&quot;
+    },
+    {
+      &quot;check&quot;: &quot;packages/shared/src/errors.js&quot;,
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;command&quot;: [
+        &quot;C:\\Program Files\\nodejs\\node.EXE&quot;,
+        &quot;--check&quot;,
+        &quot;D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e2\\run-20261106-044151-45700d9f\\project\\packages\\shared\\src\\errors.js&quot;
+      ],
+      &quot;output&quot;: &quot;&quot;
+    },
+    {
+      &quot;check&quot;: &quot;packages/shared/src/metrics.js&quot;,
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;command&quot;: [
+        &quot;C:\\Program Files\\nodejs\\node.EXE&quot;,
+        &quot;--check&quot;,
+        &quot;D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e2\\run-20261106-044151-45700d9f\\project\\packages\\shared\\src\\metrics.js&quot;
+      ],
+      &quot;output&quot;: &quot;&quot;
+    },
+    {
+      &quot;check&quot;: &quot;packages/shared/src/rational.js&quot;,
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;command&quot;: [
+        &quot;C:\\Program Files\\nodejs\\node.EXE&quot;,
+        &quot;--check&quot;,
+        &quot;D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e2\\run-20261106-044151-45700d9f\\project\\packages\\shared\\src\\rational.js&quot;
+      ],
+      &quot;output&quot;: &quot;&quot;
+    },
+    {
+      &quot;check&quot;: &quot;packages/user-service/src/index.js&quot;,
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;command&quot;: [
+        &quot;C:\\Program Files\\nodejs\\node.EXE&quot;,
+        &quot;--check&quot;,
+        &quot;D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e2\\run-20261106-044151-45700d9f\\project\\packages\\user-service\\src\\index.js&quot;
+      ],
+      &quot;output&quot;: &quot;&quot;
+    },
+    {
+      &quot;check&quot;: &quot;scripts/check-build.js&quot;,
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;command&quot;: [
+        &quot;C:\\Program Files\\nodejs\\node.EXE&quot;,
+        &quot;--check&quot;,
+        &quot;D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e2\\run-20261106-044151-45700d9f\\project\\scripts\\check-build.js&quot;
+      ],
+      &quot;output&quot;: &quot;&quot;
+    },
+    {
+      &quot;check&quot;: &quot;test/auth.test.js&quot;,
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;command&quot;: [
+        &quot;C:\\Program Files\\nodejs\\node.EXE&quot;,
+        &quot;--check&quot;,
+        &quot;D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e2\\run-20261106-044151-45700d9f\\project\\test\\auth.test.js&quot;
+      ],
+      &quot;output&quot;: &quot;&quot;
+    },
+    {
+      &quot;check&quot;: &quot;test/game.test.js&quot;,
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;command&quot;: [
+        &quot;C:\\Program Files\\nodejs\\node.EXE&quot;,
+        &quot;--check&quot;,
+        &quot;D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e2\\run-20261106-044151-45700d9f\\project\\test\\game.test.js&quot;
+      ],
+      &quot;output&quot;: &quot;&quot;
+    },
+    {
+      &quot;check&quot;: &quot;test/integration.acceptance.js&quot;,
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;command&quot;: [
+        &quot;C:\\Program Files\\nodejs\\node.EXE&quot;,
+        &quot;--check&quot;,
+        &quot;D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e2\\run-20261106-044151-45700d9f\\project\\test\\integration.acceptance.js&quot;
+      ],
+      &quot;output&quot;: &quot;&quot;
+    },
+    {
+      &quot;check&quot;: &quot;test/question.test.js&quot;,
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;command&quot;: [
+        &quot;C:\\Program Files\\nodejs\\node.EXE&quot;,
+        &quot;--check&quot;,
+        &quot;D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e2\\run-20261106-044151-45700d9f\\project\\test\\question.test.js&quot;
+      ],
+      &quot;output&quot;: &quot;&quot;
+    },
+    {
+      &quot;check&quot;: &quot;test/rational.test.js&quot;,
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;command&quot;: [
+        &quot;C:\\Program Files\\nodejs\\node.EXE&quot;,
+        &quot;--check&quot;,
+        &quot;D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e2\\run-20261106-044151-45700d9f\\project\\test\\rational.test.js&quot;
+      ],
+      &quot;output&quot;: &quot;&quot;
+    }
+  ]
+}</pre></details><details><summary>install · passed</summary><pre>{
+  &quot;profile&quot;: &quot;install&quot;,
+  &quot;status&quot;: &quot;passed&quot;,
+  &quot;exit_code&quot;: 0,
+  &quot;timed_out&quot;: false,
+  &quot;command&quot;: [
+    &quot;C:\\Program Files\\nodejs\\node.EXE&quot;,
+    &quot;C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js&quot;,
+    &quot;ci&quot;,
+    &quot;--ignore-scripts&quot;,
+    &quot;--no-audit&quot;,
+    &quot;--no-fund&quot;
+  ],
+  &quot;output&quot;: &quot;npm warn deprecated supertest@7.0.0: Please upgrade to supertest v7.1.3+, see release notes at https://github.com/forwardemail/supertest/releases/tag/v7.1.3 - maintenance is supported by Forward Email @ https://forwardemail.net\nnpm warn deprecated superagent@9.0.2: Please upgrade to superagent v10.2.2+, see release notes at https://github.com/forwardemail/superagent/releases/tag/v10.2.2 - maintenance is supported by Forward Email @ https://forwardemail.net\nnpm warn deprecated prom-client@15.1.3: prom-client has been replaced by @prometheus-io/client\n\nadded 160 packages in 2s\n&quot;
+}</pre></details><details><summary>test · passed</summary><pre>{
+  &quot;profile&quot;: &quot;test&quot;,
+  &quot;status&quot;: &quot;passed&quot;,
+  &quot;exit_code&quot;: 0,
+  &quot;timed_out&quot;: false,
+  &quot;command&quot;: [
+    &quot;C:\\Program Files\\nodejs\\node.EXE&quot;,
+    &quot;C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js&quot;,
+    &quot;run&quot;,
+    &quot;test&quot;,
+    &quot;--ignore-scripts&quot;
+  ],
+  &quot;output&quot;: &quot;\n&gt; space-fractions@1.0.0 test\n&gt; node --test test/*.test.js\n\n✔ extractBearer returns the raw JWT for a valid Bearer header (0.9808ms)\n✔ extractBearer throws 401 for a missing or empty header (0.55ms)\n✔ extractBearer throws 401 for a malformed scheme (0.2015ms)\n✔ stableNumericId is deterministic and positive (0.2129ms)\n✔ stableNumericId returns NaN for a non-string or empty subject (0.1776ms)\n✔ rolesOf normalizes and de-duplicates realm + resource roles (0.8694ms)\n✔ rolesOf tolerates missing role claims (0.1292ms)\n✔ verifyToken builds a valid context for a signed token (8.3682ms)\n✔ admin context is flagged when an admin role is present (1.7661ms)\n✔ verifyToken rejects a token with a wrong issuer (1.2567ms)\n✔ verifyToken rejects a token with a wrong audience (1.1928ms)\n✔ verifyToken rejects a token missing the subject claim (1.2065ms)\n✔ verifyToken rejects a tampered (bad signature) token (56.8382ms)\n✔ authenticate reads the Authorization header and returns a context (1.1063ms)\n✔ authenticate throws 401 when the header is missing (0.2723ms)\n✔ authenticateToken accepts a raw token and rejects an empty one (1.0559ms)\n✔ requireAdmin allows an admin and rejects a non-admin (1.973ms)\n✔ requireAdmin rejects a null/undefined context with 403 (0.1904ms)\n✔ unauthorized and forbidden constructors match the shared error model (0.1976ms)\n✔ createGame starts in PLAYING with zero score and no answers (3.9328ms)\n✔ normalizeQuestions returns a defensive copy without correctAnswer (0.5483ms)\n✔ normalizeQuestions returns [] for non-array input (0.2034ms)\n✔ fromRow reconstitutes a persisted game with owner_id alias (0.2913ms)\n✔ isOwner and hasAnswered express ownership/dedup rules by string compare (0.2929ms)\n✔ a correct answer increments score exactly once and marks answered (0.8017ms)\n✔ equivalent fraction forms count as correct (exact rational compare) (0.3504ms)\n✔ an incorrect but valid answer consumes the attempt without scoring (0.2752ms)\n✔ answering the final question transitions the game to GAME_OVER (0.2944ms)\n✔ re-answering a question is a 409 conflict and does not change score (0.561ms)\n✔ answering while paused is a 409 conflict (0.2836ms)\n✔ answering a question not in the game is a 404 (0.2618ms)\n✔ a malformed fraction is rejected with 400 (0.5026ms)\n✔ a missing questionId is a 400 (0.2028ms)\n✔ pause idempotently sets PAUSED; resume back to PLAYING (0.2765ms)\n✔ resuming a non-paused game is a 409 conflict (1.9026ms)\n✔ pausing or resuming a finished game is a 409 conflict (0.3244ms)\n✔ toPlayerView never exposes correctAnswer and reports counts/score (0.3548ms)\n✔ validateQuestionInput accepts a valid descriptor and normalizes it (2.7672ms)\n✔ validateQuestionInput trims prompt/options and canonicalizes the answer (0.3173ms)\n✔ validateQuestionInput rejects a missing or blank prompt (0.5317ms)\n✔ validateQuestionInput rejects missing/empty/non-array options (0.2364ms)\n✔ validateQuestionInput rejects blank or non-string options (0.2921ms)\n✔ validateQuestionInput rejects a malformed correctAnswer (0.3172ms)\n✔ validateQuestionInput requires correctAnswer to be among options (0.223ms)\n✔ fromRow maps column aliases and stringifies the id defensively (0.2279ms)\n✔ fromRow tolerates missing options/correctAnswer (0.1665ms)\n✔ toAdminView includes correctAnswer (admin endpoints only) (0.3018ms)\n✔ toPlayerView strips correctAnswer so answers never leak to players (0.1974ms)\n✔ isQuestion compares string ids safely (0.1949ms)\n✔ isCorrect uses exact rational comparison, not string equality (0.2865ms)\n✔ isCorrect returns false for malformed answers instead of throwing (0.1651ms)\n✔ isCorrect returns false for a missing/non-string correctAnswer (0.1419ms)\n✔ normalizeQuestionList preserves stable order when no sortOrder present (0.3382ms)\n✔ normalizeQuestionList sorts by explicit sortOrder when present (0.2223ms)\n✔ normalizeQuestionList returns [] for non-array input and copies defensively (0.178ms)\n✔ parseFraction parses a basic proper fraction (3.6792ms)\n✔ parseFraction parses a negative fraction (0.4818ms)\n✔ parseFraction parses a whole number (0.2147ms)\n✔ parseFraction normalizes an improper unit fraction (0.1934ms)\n✔ parseFraction normalizes to reduced form (0.2495ms)\n✔ parseFraction normalizes a negative denominator (0.224ms)\n✔ parseFraction rejects empty and whitespace (0.2221ms)\n✔ parseFraction rejects mixed numbers (0.1587ms)\n✔ parseFraction rejects decimals (0.253ms)\n✔ parseFraction rejects zero and non-numeric denominators (0.4981ms)\n✔ parseFraction rejects non-string input (0.2163ms)\n✔ parseFraction rejects overlong input (0.1462ms)\n✔ normalize handles negative denominator (0.167ms)\n✔ normalize reduces to lowest terms (0.1927ms)\n✔ normalize throws on zero denominator (0.5814ms)\n✔ gcd computes greatest common divisor (0.1767ms)\n✔ gcd treats negative inputs as positive (0.1012ms)\n✔ isValidFraction accepts valid fractions only (0.16ms)\n✔ fractionsEqual compares equivalent forms exactly (0.1623ms)\n✔ fractionsEqual returns false for malformed inputs (1.9857ms)\n✔ canonical returns reduced string form (0.2483ms)\nℹ tests 76\nℹ suites 0\nℹ pass 76\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 389.9343\n&quot;
+}</pre></details><details><summary>integration · passed</summary><pre>{
+  &quot;profile&quot;: &quot;integration&quot;,
+  &quot;status&quot;: &quot;passed&quot;,
+  &quot;exit_code&quot;: 0,
+  &quot;timed_out&quot;: false,
+  &quot;command&quot;: [
+    &quot;C:\\Program Files\\nodejs\\node.EXE&quot;,
+    &quot;C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js&quot;,
+    &quot;run&quot;,
+    &quot;test:integration&quot;,
+    &quot;--ignore-scripts&quot;
+  ],
+  &quot;output&quot;: &quot;\n&gt; space-fractions@1.0.0 test:integration\n&gt; node test/integration.acceptance.js\n\nSKIP - gateway not reachable at http://localhost:3000 (status 0). Start the Compose stack and set GATEWAY_URL, or run under the host runtime acceptance profile.\n&quot;
+}</pre></details><details><summary>build · passed</summary><pre>{
+  &quot;profile&quot;: &quot;build&quot;,
+  &quot;status&quot;: &quot;passed&quot;,
+  &quot;exit_code&quot;: 0,
+  &quot;timed_out&quot;: false,
+  &quot;command&quot;: [
+    &quot;C:\\Program Files\\nodejs\\node.EXE&quot;,
+    &quot;C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js&quot;,
+    &quot;run&quot;,
+    &quot;build&quot;,
+    &quot;--ignore-scripts&quot;
+  ],
+  &quot;output&quot;: &quot;\n&gt; space-fractions@1.0.0 build\n&gt; node scripts/check-build.js\n\nBuild check passed: 22 source files parsed, 5 entrypoints verified, 13 artifacts present.\n&quot;
+}</pre></details><details><summary>compose · passed</summary><pre>{
+  &quot;profile&quot;: &quot;compose&quot;,
+  &quot;status&quot;: &quot;passed&quot;,
+  &quot;backend&quot;: &quot;wsl&quot;,
+  &quot;evidence&quot;: &quot;Actual compose config command in protected runtime stages&quot;
+}</pre></details><details><summary>traceability_links · passed</summary><pre>{
+  &quot;profile&quot;: &quot;traceability_links&quot;,
+  &quot;status&quot;: &quot;passed&quot;,
+  &quot;problems&quot;: [],
+  &quot;limitation&quot;: &quot;只检查链接和来源范围；语义覆盖需要独立审查&quot;
+}</pre></details><details><summary>runtime · failed</summary><pre>{
+  &quot;profile&quot;: &quot;runtime&quot;,
+  &quot;acceptance_profile&quot;: &quot;space-fractions&quot;,
+  &quot;status&quot;: &quot;failed&quot;,
+  &quot;checks&quot;: [
+    {
+      &quot;check&quot;: &quot;gateway ready&quot;,
+      &quot;status&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;check&quot;: &quot;browser entry served&quot;,
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;http_status&quot;: 200
+    },
+    {
+      &quot;check&quot;: &quot;local identity-provider fixture admin&quot;,
+      &quot;status&quot;: &quot;failed&quot;,
+      &quot;http_status&quot;: 401
+    }
+  ],
+  &quot;error&quot;: &quot;AssertionError: local identity-provider fixture admin: {\&quot;http_status\&quot;: 401}&quot;,
+  &quot;cleanup&quot;: &quot;passed&quot;,
+  &quot;backend&quot;: &quot;wsl&quot;,
+  &quot;project&quot;: &quot;dca-b1ddf3378898&quot;,
+  &quot;stages&quot;: [
+    {
+      &quot;stage&quot;: [
+        &quot;version&quot;,
+        &quot;--format&quot;,
+        &quot;{{.Server.Version}}&quot;
+      ],
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;command&quot;: [
+        &quot;C:\\Windows\\system32\\wsl.exe&quot;,
+        &quot;-d&quot;,
+        &quot;Ubuntu&quot;,
+        &quot;-u&quot;,
+        &quot;root&quot;,
+        &quot;--&quot;,
+        &quot;env&quot;,
+        &quot;GATEWAY_PORT=4393&quot;,
+        &quot;OIDC_PORT=4394&quot;,
+        &quot;PUBLIC_ORIGIN=http://localhost:4393&quot;,
+        &quot;OIDC_PUBLIC_ORIGIN=http://localhost:4394&quot;,
+        &quot;OIDC_ISSUER=http://localhost:4394/realms/space-fractions&quot;,
+        &quot;docker&quot;,
+        &quot;version&quot;,
+        &quot;--format&quot;,
+        &quot;{{.Server.Version}}&quot;
+      ],
+      &quot;output&quot;: &quot;29.1.3\n&quot;
+    },
+    {
+      &quot;stage&quot;: [
+        &quot;config&quot;,
+        &quot;--format&quot;,
+        &quot;json&quot;
+      ],
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;command&quot;: [
+        &quot;C:\\Windows\\system32\\wsl.exe&quot;,
+        &quot;-d&quot;,
+        &quot;Ubuntu&quot;,
+        &quot;-u&quot;,
+        &quot;root&quot;,
+        &quot;--&quot;,
+        &quot;env&quot;,
+        &quot;GATEWAY_PORT=4393&quot;,
+        &quot;OIDC_PORT=4394&quot;,
+        &quot;PUBLIC_ORIGIN=http://localhost:4393&quot;,
+        &quot;OIDC_PUBLIC_ORIGIN=http://localhost:4394&quot;,
+        &quot;OIDC_ISSUER=http://localhost:4394/realms/space-fractions&quot;,
+        &quot;docker&quot;,
+        &quot;compose&quot;,
+        &quot;--project-directory&quot;,
+        &quot;/mnt/d/projects/Task/runs/v02-formal/20261106-v02-e2/run-20261106-044151-45700d9f/project&quot;,
+        &quot;-p&quot;,
+        &quot;dca-b1ddf3378898&quot;,
+        &quot;-f&quot;,
+        &quot;/mnt/d/projects/Task/runs/v02-formal/20261106-v02-e2/run-20261106-044151-45700d9f/project/compose.yaml&quot;,
+        &quot;config&quot;,
+        &quot;--format&quot;,
+        &quot;json&quot;
+      ],
+      &quot;output&quot;: &quot;{\n  \&quot;name\&quot;: \&quot;dca-b1ddf3378898\&quot;,\n  \&quot;networks\&quot;: {\n    \&quot;default\&quot;: {\n      \&quot;name\&quot;: \&quot;dca-b1ddf3378898_default\&quot;,\n      \&quot;ipam\&quot;: {}\n    }\n  },\n  \&quot;services\&quot;: {\n    \&quot;admin-service\&quot;: {\n      \&quot;build\&quot;: {\n        \&quot;context\&quot;: \&quot;/mnt/d/projects/Task/runs/v02-formal/20261106-v02-e2/run-20261106-044151-45700d9f/project\&quot;,\n        \&quot;dockerfile\&quot;: \&quot;docker/service.Dockerfile\&quot;,\n        \&quot;args\&quot;: {\n          \&quot;SERVICE\&quot;: \&quot;admin-service\&quot;\n        }\n      },\n      \&quot;command\&quot;: null,\n      \&quot;container_name\&quot;: \&quot;space-fractions-admin\&quot;,\n      \&quot;depends_on\&quot;: {\n        \&quot;postgres\&quot;: {\n          \&quot;condition\&quot;: \&quot;service_healthy\&quot;,\n          \&quot;required\&quot;: true\n        }\n      },\n      \&quot;entrypoint\&quot;: null,\n      \&quot;environment\&quot;: {\n        \&quot;ADMIN_PORT\&quot;: \&quot;4002\&quot;,\n        \&quot;DB_TIMEOUT_MS\&quot;: \&quot;3000\&quot;,\n        \&quot;ELASTICSEARCH_URL\&quot;: \&quot;http://elasticsearch:9200\&quot;,\n        \&quot;NODE_ENV\&quot;: \&quot;production\&quot;,\n        \&quot;OIDC_AUDIENCE\&quot;: \&quot;account\&quot;,\n        \&quot;OIDC_CLIENT_ID\&quot;: \&quot;space-fractions-client\&quot;,\n        \&quot;OIDC_ISSUER\&quot;: \&quot;http://localhost:4394/realms/space-fractions\&quot;,\n        \&quot;OIDC_JWKS_URI\&quot;: \&quot;http://keycloak:8080/realms/space-fractions/protocol/openid-connect/certs\&quot;,\n        \&quot;OIDC_PUBLIC_ORIGIN\&quot;: \&quot;http://localhost:4394\&quot;,\n        \&quot;PGDATABASE\&quot;: \&quot;spacefractions\&quot;,\n        \&quot;PGHOST\&quot;: \&quot;postgres\&quot;,\n        \&quot;PGPASSWORD\&quot;: \&quot;CHANGE_ME\&quot;,\n        \&quot;PGPORT\&quot;: \&quot;5432\&quot;,\n        \&quot;PGUSER\&quot;: \&quot;spacefractions\&quot;,\n        \&quot;PROMETHEUS_URL\&quot;: \&quot;http://prometheus:9090\&quot;,\n        \&quot;PUBLIC_ORIGIN\&quot;: \&quot;http://localhost:4393\&quot;,\n        \&quot;RABBITMQ_URL\&quot;: \&quot;amqp://spacefractions:CHANGE_ME@rabbitmq:5672\&quot;,\n        \&quot;REDIS_URL\&quot;: \&quot;redis://redis:6379\&quot;,\n        \&quot;SERVICE_TIMEOUT_MS\&quot;: \&quot;3000\&quot;\n      },\n      \&quot;expose\&quot;: [\n        \&quot;4002\&quot;\n      ],\n      \&quot;networks\&quot;: {\n        \&quot;default\&quot;: null\n      },\n      \&quot;restart\&quot;: \&quot;unless-stopped\&quot;\n    },\n    \&quot;elasticsearch\&quot;: {\n      \&quot;command\&quot;: null,\n      \&quot;container_name\&quot;: \&quot;space-fractions-elasticsearch\&quot;,\n      \&quot;entrypoint\&quot;: null,\n      \&quot;environment\&quot;: {\n        \&quot;ES_JAVA_OPTS\&quot;: \&quot;-Xms256m -Xmx256m\&quot;,\n        \&quot;discovery.type\&quot;: \&quot;single-node\&quot;,\n        \&quot;xpack.security.enabled\&quot;: \&quot;false\&quot;\n      },\n      \&quot;image\&quot;: \&quot;docker.elastic.co/elasticsearch/elasticsearch:8.14.1\&quot;,\n      \&quot;networks\&quot;: {\n        \&quot;default\&quot;: null\n      },\n      \&quot;restart\&quot;: \&quot;unless-stopped\&quot;,\n      \&quot;ulimits\&quot;: {\n        \&quot;memlock\&quot;: {\n          \&quot;soft\&quot;: -1,\n          \&quot;hard\&quot;: -1\n        }\n      }\n    },\n    \&quot;game-service\&quot;: {\n      \&quot;build\&quot;: {\n        \&quot;context\&quot;: \&quot;/mnt/d/projects/Task/runs/v02-formal/20261106-v02-e2/run-20261106-044151-45700d9f/project\&quot;,\n        \&quot;dockerfile\&quot;: \&quot;docker/service.Dockerfile\&quot;,\n        \&quot;args\&quot;: {\n          \&quot;SERVICE\&quot;: \&quot;game-service\&quot;\n        }\n      },\n      \&quot;command\&quot;: null,\n      \&quot;container_name\&quot;: \&quot;space-fractions-game\&quot;,\n      \&quot;depends_on\&quot;: {\n        \&quot;postgres\&quot;: {\n          \&quot;condition\&quot;: \&quot;service_healthy\&quot;,\n          \&quot;required\&quot;: true\n        },\n        \&quot;rabbitmq\&quot;: {\n          \&quot;condition\&quot;: \&quot;service_started\&quot;,\n          \&quot;required\&quot;: true\n        },\n        \&quot;redis\&quot;: {\n          \&quot;condition\&quot;: \&quot;service_started\&quot;,\n          \&quot;required\&quot;: true\n        }\n      },\n      \&quot;entrypoint\&quot;: null,\n      \&quot;environment\&quot;: {\n        \&quot;DB_TIMEOUT_MS\&quot;: \&quot;3000\&quot;,\n        \&quot;ELASTICSEARCH_URL\&quot;: \&quot;http://elasticsearch:9200\&quot;,\n        \&quot;GAME_PORT\&quot;: \&quot;4000\&quot;,\n        \&quot;NODE_ENV\&quot;: \&quot;production\&quot;,\n        \&quot;OIDC_AUDIENCE\&quot;: \&quot;account\&quot;,\n        \&quot;OIDC_CLIENT_ID\&quot;: \&quot;space-fractions-client\&quot;,\n        \&quot;OIDC_ISSUER\&quot;: \&quot;http://localhost:4394/realms/space-fractions\&quot;,\n        \&quot;OIDC_JWKS_URI\&quot;: \&quot;http://keycloak:8080/realms/space-fractions/protocol/openid-connect/certs\&quot;,\n        \&quot;OIDC_PUBLIC_ORIGIN\&quot;: \&quot;http://localhost:4394\&quot;,\n        \&quot;PGDATABASE\&quot;: \&quot;spacefractions\&quot;,\n        \&quot;PGHOST\&quot;: \&quot;postgres\&quot;,\n        \&quot;PGPASSWORD\&quot;: \&quot;CHANGE_ME\&quot;,\n        \&quot;PGPORT\&quot;: \&quot;5432\&quot;,\n        \&quot;PGUSER\&quot;: \&quot;spacefractions\&quot;,\n        \&quot;PROMETHEUS_URL\&quot;: \&quot;http://prometheus:9090\&quot;,\n        \&quot;PUBLIC_ORIGIN\&quot;: \&quot;http://localhost:4393\&quot;,\n        \&quot;RABBITMQ_URL\&quot;: \&quot;amqp://spacefractions:CHANGE_ME@rabbitmq:5672\&quot;,\n        \&quot;REDIS_URL\&quot;: \&quot;redis://redis:6379\&quot;,\n        \&quot;SERVICE_TIMEOUT_MS\&quot;: \&quot;3000\&quot;\n      },\n      \&quot;expose\&quot;: [\n        \&quot;4000\&quot;\n      ],\n      \&quot;networks\&quot;: {\n        \&quot;default\&quot;: null\n      },\n      \&quot;restart\&quot;: \&quot;unless-stopped\&quot;\n    },\n    \&quot;gateway\&quot;: {\n      \&quot;build\&quot;: {\n        \&quot;context\&quot;: \&quot;/mnt/d/projects/Task/runs/v02-formal/20261106-v02-e2/run-20261106-044151-45700d9f/project\&quot;,\n        \&quot;dockerfile\&quot;: \&quot;docker/gateway.Dockerfile\&quot;\n      },\n      \&quot;command\&quot;: null,\n      \&quot;container_name\&quot;: \&quot;space-fractions-gateway\&quot;,\n      \&quot;depends_on\&quot;: {\n        \&quot;admin-service\&quot;: {\n          \&quot;condition\&quot;: \&quot;service_started\&quot;,\n          \&quot;required\&quot;: true\n        },\n        \&quot;game-service\&quot;: {\n          \&quot;condition\&quot;: \&quot;service_started\&quot;,\n          \&quot;required\&quot;: true\n        },\n        \&quot;question-service\&quot;: {\n          \&quot;condition\&quot;: \&quot;service_started\&quot;,\n          \&quot;required\&quot;: true\n        },\n        \&quot;user-service\&quot;: {\n          \&quot;condition\&quot;: \&quot;service_started\&quot;,\n          \&quot;required\&quot;: true\n        }\n      },\n      \&quot;entrypoint\&quot;: null,\n      \&quot;environment\&quot;: {\n        \&quot;ADMIN_SERVICE_URL\&quot;: \&quot;http://admin-service:4002\&quot;,\n        \&quot;DB_TIMEOUT_MS\&quot;: \&quot;3000\&quot;,\n        \&quot;ELASTICSEARCH_URL\&quot;: \&quot;http://elasticsearch:9200\&quot;,\n        \&quot;GAME_SERVICE_URL\&quot;: \&quot;http://game-service:4000\&quot;,\n        \&quot;GATEWAY_PORT\&quot;: \&quot;3000\&quot;,\n        \&quot;NODE_ENV\&quot;: \&quot;production\&quot;,\n        \&quot;OIDC_AUDIENCE\&quot;: \&quot;account\&quot;,\n        \&quot;OIDC_CLIENT_ID\&quot;: \&quot;space-fractions-client\&quot;,\n        \&quot;OIDC_ISSUER\&quot;: \&quot;http://localhost:4394/realms/space-fractions\&quot;,\n        \&quot;OIDC_JWKS_URI\&quot;: \&quot;http://keycloak:8080/realms/space-fractions/protocol/openid-connect/certs\&quot;,\n        \&quot;OIDC_PUBLIC_ORIGIN\&quot;: \&quot;http://localhost:4394\&quot;,\n        \&quot;PGDATABASE\&quot;: \&quot;spacefractions\&quot;,\n        \&quot;PGHOST\&quot;: \&quot;postgres\&quot;,\n        \&quot;PGPASSWORD\&quot;: \&quot;CHANGE_ME\&quot;,\n        \&quot;PGPORT\&quot;: \&quot;5432\&quot;,\n        \&quot;PGUSER\&quot;: \&quot;spacefractions\&quot;,\n        \&quot;PROMETHEUS_URL\&quot;: \&quot;http://prometheus:9090\&quot;,\n        \&quot;PUBLIC_ORIGIN\&quot;: \&quot;http://localhost:4393\&quot;,\n        \&quot;QUESTION_SERVICE_URL\&quot;: \&quot;http://question-service:4001\&quot;,\n        \&quot;RABBITMQ_URL\&quot;: \&quot;amqp://spacefractions:CHANGE_ME@rabbitmq:5672\&quot;,\n        \&quot;REDIS_URL\&quot;: \&quot;redis://redis:6379\&quot;,\n        \&quot;SERVICE_TIMEOUT_MS\&quot;: \&quot;3000\&quot;,\n        \&quot;USER_SERVICE_URL\&quot;: \&quot;http://user-service:4003\&quot;\n      },\n      \&quot;networks\&quot;: {\n        \&quot;default\&quot;: null\n      },\n      \&quot;ports\&quot;: [\n        {\n          \&quot;mode\&quot;: \&quot;ingress\&quot;,\n          \&quot;target\&quot;: 3000,\n          \&quot;published\&quot;: \&quot;3000\&quot;,\n          \&quot;protocol\&quot;: \&quot;tcp\&quot;\n        }\n      ],\n      \&quot;restart\&quot;: \&quot;unless-stopped\&quot;\n    },\n    \&quot;keycloak\&quot;: {\n      \&quot;command\&quot;: [\n        \&quot;start-dev\&quot;,\n        \&quot;--import-realm\&quot;\n      ],\n      \&quot;container_name\&quot;: \&quot;space-fractions-keycloak\&quot;,\n      \&quot;entrypoint\&quot;: null,\n      \&quot;environment\&quot;: {\n        \&quot;KC_HOSTNAME_URL\&quot;: \&quot;http://localhost:4394\&quot;,\n        \&quot;KC_HTTP_PORT\&quot;: \&quot;8080\&quot;,\n        \&quot;KC_PROXY\&quot;: \&quot;edge\&quot;,\n        \&quot;KEYCLOAK_ADMIN\&quot;: \&quot;admin\&quot;,\n        \&quot;KEYCLOAK_ADMIN_PASSWORD\&quot;: \&quot;CHANGE_ME\&quot;\n      },\n      \&quot;image\&quot;: \&quot;quay.io/keycloak/keycloak:24.0.5\&quot;,\n      \&quot;networks\&quot;: {\n        \&quot;default\&quot;: null\n      },\n      \&quot;ports\&quot;: [\n        {\n          \&quot;mode\&quot;: \&quot;ingress\&quot;,\n          \&quot;target\&quot;: 8080,\n          \&quot;published\&quot;: \&quot;8080\&quot;,\n          \&quot;protocol\&quot;: \&quot;tcp\&quot;\n        }\n      ],\n      \&quot;restart\&quot;: \&quot;unless-stopped\&quot;,\n      \&quot;volumes\&quot;: [\n        {\n          \&quot;type\&quot;: \&quot;bind\&quot;,\n          \&quot;source\&quot;: \&quot;/mnt/d/projects/Task/runs/v02-formal/20261106-v02-e2/run-20261106-044151-45700d9f/project/keycloak/realm-export.json\&quot;,\n          \&quot;target\&quot;: \&quot;/opt/keycloak/data/import/realm-export.json\&quot;,\n          \&quot;read_only\&quot;: true,\n          \&quot;bind\&quot;: {\n            \&quot;create_host_path\&quot;: true\n          }\n        }\n      ]\n    },\n    \&quot;postgres\&quot;: {\n      \&quot;command\&quot;: null,\n      \&quot;container_name\&quot;: \&quot;space-fractions-postgres\&quot;,\n      \&quot;entrypoint\&quot;: null,\n      \&quot;environment\&quot;: {\n        \&quot;POSTGRES_DB\&quot;: \&quot;spacefractions\&quot;,\n        \&quot;POSTGRES_PASSWORD\&quot;: \&quot;CHANGE_ME\&quot;,\n        \&quot;POSTGRES_USER\&quot;: \&quot;spacefractions\&quot;\n      },\n      \&quot;healthcheck\&quot;: {\n        \&quot;test\&quot;: [\n          \&quot;CMD-SHELL\&quot;,\n          \&quot;pg_isready -U spacefractions -d spacefractions\&quot;\n        ],\n        \&quot;timeout\&quot;: \&quot;3s\&quot;,\n        \&quot;interval\&quot;: \&quot;5s\&quot;,\n        \&quot;retries\&quot;: 12,\n        \&quot;start_period\&quot;: \&quot;5s\&quot;\n      },\n      \&quot;image\&quot;: \&quot;postgres:16-alpine\&quot;,\n      \&quot;networks\&quot;: {\n        \&quot;default\&quot;: null\n      },\n      \&quot;restart\&quot;: \&quot;unless-stopped\&quot;,\n      \&quot;volumes\&quot;: [\n        {\n          \&quot;type\&quot;: \&quot;bind\&quot;,\n          \&quot;source\&quot;: \&quot;/mnt/d/projects/Task/runs/v02-formal/20261106-v02-e2/run-20261106-044151-45700d9f/project/sql\&quot;,\n          \&quot;target\&quot;: \&quot;/docker-entrypoint-initdb.d\&quot;,\n          \&quot;read_only\&quot;: true,\n          \&quot;bind\&quot;: {\n            \&quot;create_host_path\&quot;: true\n          }\n        }\n      ]\n    },\n    \&quot;prometheus\&quot;: {\n      \&quot;command\&quot;: [\n        \&quot;--config.file=/etc/prometheus/prometheus.yml\&quot;\n      ],\n      \&quot;container_name\&quot;: \&quot;space-fractions-prometheus\&quot;,\n      \&quot;entrypoint\&quot;: null,\n      \&quot;image\&quot;: \&quot;prom/prometheus:v2.53.0\&quot;,\n      \&quot;networks\&quot;: {\n        \&quot;default\&quot;: null\n      },\n      \&quot;ports\&quot;: [\n        {\n          \&quot;mode\&quot;: \&quot;ingress\&quot;,\n          \&quot;target\&quot;: 9090,\n          \&quot;published\&quot;: \&quot;9090\&quot;,\n          \&quot;protocol\&quot;: \&quot;tcp\&quot;\n        }\n      ],\n      \&quot;restart\&quot;: \&quot;unless-stopped\&quot;,\n      \&quot;volumes\&quot;: [\n        {\n          \&quot;type\&quot;: \&quot;bind\&quot;,\n          \&quot;source\&quot;: \&quot;/mnt/d/projects/Task/runs/v02-formal/20261106-v02-e2/run-20261106-044151-45700d9f/project/deploy\&quot;,\n          \&quot;target\&quot;: \&quot;/etc/prometheus\&quot;,\n          \&quot;read_only\&quot;: true,\n          \&quot;bind\&quot;: {\n            \&quot;create_host_path\&quot;: true\n          }\n        }\n      ]\n    },\n    \&quot;question-service\&quot;: {\n      \&quot;build\&quot;: {\n        \&quot;context\&quot;: \&quot;/mnt/d/projects/Task/runs/v02-formal/20261106-v02-e2/run-20261106-044151-45700d9f/project\&quot;,\n        \&quot;dockerfile\&quot;: \&quot;docker/service.Dockerfile\&quot;,\n        \&quot;args\&quot;: {\n          \&quot;SERVICE\&quot;: \&quot;question-service\&quot;\n        }\n      },\n      \&quot;command\&quot;: null,\n      \&quot;container_name\&quot;: \&quot;space-fractions-question\&quot;,\n      \&quot;depends_on\&quot;: {\n        \&quot;elasticsearch\&quot;: {\n          \&quot;condition\&quot;: \&quot;service_started\&quot;,\n          \&quot;required\&quot;: true\n        },\n        \&quot;postgres\&quot;: {\n          \&quot;condition\&quot;: \&quot;service_healthy\&quot;,\n          \&quot;required\&quot;: true\n        }\n      },\n      \&quot;entrypoint\&quot;: null,\n      \&quot;environment\&quot;: {\n        \&quot;DB_TIMEOUT_MS\&quot;: \&quot;3000\&quot;,\n        \&quot;ELASTICSEARCH_URL\&quot;: \&quot;http://elasticsearch:9200\&quot;,\n        \&quot;NODE_ENV\&quot;: \&quot;production\&quot;,\n        \&quot;OIDC_AUDIENCE\&quot;: \&quot;account\&quot;,\n        \&quot;OIDC_CLIENT_ID\&quot;: \&quot;space-fractions-client\&quot;,\n        \&quot;OIDC_ISSUER\&quot;: \&quot;http://localhost:4394/realms/space-fractions\&quot;,\n        \&quot;OIDC_JWKS_URI\&quot;: \&quot;http://keycloak:8080/realms/space-fractions/protocol/openid-connect/certs\&quot;,\n        \&quot;OIDC_PUBLIC_ORIGIN\&quot;: \&quot;http://localhost:4394\&quot;,\n        \&quot;PGDATABASE\&quot;: \&quot;spacefractions\&quot;,\n        \&quot;PGHOST\&quot;: \&quot;postgres\&quot;,\n        \&quot;PGPASSWORD\&quot;: \&quot;CHANGE_ME\&quot;,\n        \&quot;PGPORT\&quot;: \&quot;5432\&quot;,\n        \&quot;PGUSER\&quot;: \&quot;spacefractions\&quot;,\n        \&quot;PROMETHEUS_URL\&quot;: \&quot;http://prometheus:9090\&quot;,\n        \&quot;PUBLIC_ORIGIN\&quot;: \&quot;http://localhost:4393\&quot;,\n        \&quot;QUESTION_PORT\&quot;: \&quot;4001\&quot;,\n        \&quot;RABBITMQ_URL\&quot;: \&quot;amqp://spacefractions:CHANGE_ME@rabbitmq:5672\&quot;,\n        \&quot;REDIS_URL\&quot;: \&quot;redis://redis:6379\&quot;,\n        \&quot;SERVICE_TIMEOUT_MS\&quot;: \&quot;3000\&quot;\n      },\n      \&quot;expose\&quot;: [\n        \&quot;4001\&quot;\n      ],\n      \&quot;networks\&quot;: {\n        \&quot;default\&quot;: null\n      },\n      \&quot;restart\&quot;: \&quot;unless-stopped\&quot;\n    },\n    \&quot;rabbitmq\&quot;: {\n      \&quot;command\&quot;: null,\n      \&quot;container_name\&quot;: \&quot;space-fractions-rabbitmq\&quot;,\n      \&quot;entrypoint\&quot;: null,\n      \&quot;environment\&quot;: {\n        \&quot;RABBITMQ_DEFAULT_PASS\&quot;: \&quot;CHANGE_ME\&quot;,\n        \&quot;RABBITMQ_DEFAULT_USER\&quot;: \&quot;spacefractions\&quot;\n      },\n      \&quot;image\&quot;: \&quot;rabbitmq:3-management-alpine\&quot;,\n      \&quot;networks\&quot;: {\n        \&quot;default\&quot;: null\n      },\n      \&quot;restart\&quot;: \&quot;unless-stopped\&quot;\n    },\n    \&quot;redis\&quot;: {\n      \&quot;command\&quot;: null,\n      \&quot;container_name\&quot;: \&quot;space-fractions-redis\&quot;,\n      \&quot;entrypoint\&quot;: null,\n      \&quot;image\&quot;: \&quot;redis:7-alpine\&quot;,\n      \&quot;networks\&quot;: {\n        \&quot;default\&quot;: null\n      },\n      \&quot;restart\&quot;: \&quot;unless-stopped\&quot;\n    },\n    \&quot;user-service\&quot;: {\n      \&quot;build\&quot;: {\n        \&quot;context\&quot;: \&quot;/mnt/d/projects/Task/runs/v02-formal/20261106-v02-e2/run-20261106-044151-45700d9f/project\&quot;,\n        \&quot;dockerfile\&quot;: \&quot;docker/service.Dockerfile\&quot;,\n        \&quot;args\&quot;: {\n          \&quot;SERVICE\&quot;: \&quot;user-service\&quot;\n        }\n      },\n      \&quot;command\&quot;: null,\n      \&quot;container_name\&quot;: \&quot;space-fractions-user\&quot;,\n      \&quot;depends_on\&quot;: {\n        \&quot;postgres\&quot;: {\n          \&quot;condition\&quot;: \&quot;service_healthy\&quot;,\n          \&quot;required\&quot;: true\n        }\n      },\n      \&quot;entrypoint\&quot;: null,\n      \&quot;environment\&quot;: {\n        \&quot;DB_TIMEOUT_MS\&quot;: \&quot;3000\&quot;,\n        \&quot;ELASTICSEARCH_URL\&quot;: \&quot;http://elasticsearch:9200\&quot;,\n        \&quot;NODE_ENV\&quot;: \&quot;production\&quot;,\n        \&quot;OIDC_AUDIENCE\&quot;: \&quot;account\&quot;,\n        \&quot;OIDC_CLIENT_ID\&quot;: \&quot;space-fractions-client\&quot;,\n        \&quot;OIDC_ISSUER\&quot;: \&quot;http://localhost:4394/realms/space-fractions\&quot;,\n        \&quot;OIDC_JWKS_URI\&quot;: \&quot;http://keycloak:8080/realms/space-fractions/protocol/openid-connect/certs\&quot;,\n        \&quot;OIDC_PUBLIC_ORIGIN\&quot;: \&quot;http://localhost:4394\&quot;,\n        \&quot;PGDATABASE\&quot;: \&quot;spacefractions\&quot;,\n        \&quot;PGHOST\&quot;: \&quot;postgres\&quot;,\n        \&quot;PGPASSWORD\&quot;: \&quot;CHANGE_ME\&quot;,\n        \&quot;PGPORT\&quot;: \&quot;5432\&quot;,\n        \&quot;PGUSER\&quot;: \&quot;spacefractions\&quot;,\n        \&quot;PROMETHEUS_URL\&quot;: \&quot;http://prometheus:9090\&quot;,\n        \&quot;PUBLIC_ORIGIN\&quot;: \&quot;http://localhost:4393\&quot;,\n        \&quot;RABBITMQ_URL\&quot;: \&quot;amqp://spacefractions:CHANGE_ME@rabbitmq:5672\&quot;,\n        \&quot;REDIS_URL\&quot;: \&quot;redis://redis:6379\&quot;,\n        \&quot;SERVICE_TIMEOUT_MS\&quot;: \&quot;3000\&quot;,\n        \&quot;USER_PORT\&quot;: \&quot;4003\&quot;\n      },\n      \&quot;expose\&quot;: [\n        \&quot;4003\&quot;\n      ],\n      \&quot;networks\&quot;: {\n        \&quot;default\&quot;: null\n      },\n      \&quot;restart\&quot;: \&quot;unless-stopped\&quot;\n    }\n  },\n  \&quot;x-common-env\&quot;: {\n    \&quot;DB_TIMEOUT_MS\&quot;: 3000,\n    \&quot;ELASTICSEARCH_URL\&quot;: \&quot;http://elasticsearch:9200\&quot;,\n    \&quot;NODE_ENV\&quot;: \&quot;production\&quot;,\n    \&quot;OIDC_AUDIENCE\&quot;: \&quot;account\&quot;,\n    \&quot;OIDC_CLIENT_ID\&quot;: \&quot;space-fractions-client\&quot;,\n    \&quot;OIDC_ISSUER\&quot;: \&quot;http://localhost:4394/realms/space-fractions\&quot;,\n    \&quot;OIDC_JWKS_URI\&quot;: \&quot;http://keycloak:8080/realms/space-fractions/protocol/openid-connect/certs\&quot;,\n    \&quot;OIDC_PUBLIC_ORIGIN\&quot;: \&quot;http://localhost:4394\&quot;,\n    \&quot;PGDATABASE\&quot;: \&quot;spacefractions\&quot;,\n    \&quot;PGHOST\&quot;: \&quot;postgres\&quot;,\n    \&quot;PGPASSWORD\&quot;: \&quot;CHANGE_ME\&quot;,\n    \&quot;PGPORT\&quot;: 5432,\n    \&quot;PGUSER\&quot;: \&quot;spacefractions\&quot;,\n    \&quot;PROMETHEUS_URL\&quot;: \&quot;http://prometheus:9090\&quot;,\n    \&quot;PUBLIC_ORIGIN\&quot;: \&quot;http://localhost:4393\&quot;,\n    \&quot;RABBITMQ_URL\&quot;: \&quot;amqp://spacefractions:CHANGE_ME@rabbitmq:5672\&quot;,\n    \&quot;REDIS_URL\&quot;: \&quot;redis://redis:6379\&quot;,\n    \&quot;SERVICE_TIMEOUT_MS\&quot;: 3000\n  }\n}&quot;
+    },
+    {
+      &quot;stage&quot;: [
+        &quot;up&quot;,
+        &quot;-d&quot;,
+        &quot;--build&quot;
+      ],
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;command&quot;: [
+        &quot;C:\\Windows\\system32\\wsl.exe&quot;,
+        &quot;-d&quot;,
+        &quot;Ubuntu&quot;,
+        &quot;-u&quot;,
+        &quot;root&quot;,
+        &quot;--&quot;,
+        &quot;env&quot;,
+        &quot;GATEWAY_PORT=4393&quot;,
+        &quot;OIDC_PORT=4394&quot;,
+        &quot;PUBLIC_ORIGIN=http://localhost:4393&quot;,
+        &quot;OIDC_PUBLIC_ORIGIN=http://localhost:4394&quot;,
+        &quot;OIDC_ISSUER=http://localhost:4394/realms/space-fractions&quot;,
+        &quot;docker&quot;,
+        &quot;compose&quot;,
+        &quot;--project-directory&quot;,
+        &quot;/mnt/d/projects/Task/runs/v02-formal/20261106-v02-e2/run-20261106-044151-45700d9f/project&quot;,
+        &quot;-p&quot;,
+        &quot;dca-b1ddf3378898&quot;,
+        &quot;-f&quot;,
+        &quot;/mnt/d/projects/Task/runs/v02-formal/20261106-v02-e2/run-20261106-044151-45700d9f/artifacts/runtime-05/compose.isolated.json&quot;,
+        &quot;up&quot;,
+        &quot;-d&quot;,
+        &quot;--build&quot;
+      ],
+      &quot;output&quot;: &quot;time=\&quot;2026-11-06T05:12:18+08:00\&quot; level=warning msg=\&quot;Docker Compose is configured to build using Bake, but buildx isn&#x27;t installed\&quot;\n#0 building with \&quot;default\&quot; instance using docker driver\n\n#1 [question-service internal] load build definition from service.Dockerfile\n#1 transferring dockerfile: 1.28kB done\n#1 DONE 0.0s\n\n#2 [game-service internal] load build definition from service.Dockerfile\n#2 transferring dockerfile: 1.28kB done\n#2 DONE 0.0s\n\n#3 [user-service internal] load build definition from service.Dockerfile\n#3 transferring dockerfile: 1.28kB done\n#3 DONE 0.1s\n\n#4 [admin-service internal] load build definition from service.Dockerfile\n#4 transferring dockerfile: 1.28kB done\n#4 DONE 0.1s\n\n#5 [question-service internal] load metadata for docker.io/library/node:22-alpine\n#5 DONE 0.0s\n\n#6 [user-service internal] load .dockerignore\n#6 transferring context:\n#6 transferring context: 2B 0.0s done\n#6 DONE 0.1s\n\n#7 [admin-service internal] load .dockerignore\n#7 transferring context: 2B 0.0s done\n#7 DONE 0.0s\n\n#8 [game-service internal] load .dockerignore\n#8 transferring context: 2B 0.0s done\n#8 DONE 0.1s\n\n#9 [question-service internal] load .dockerignore\n#9 transferring context: 2B 0.0s done\n#9 DONE 0.1s\n\n#10 [admin-service 1/6] FROM docker.io/library/node:22-alpine@sha256:fe4f6d74e20370acb04ad889077d14d0f64a9c8ea6a42bc60cddf1e844699914\n#10 resolve docker.io/library/node:22-alpine@sha256:fe4f6d74e20370acb04ad889077d14d0f64a9c8ea6a42bc60cddf1e844699914 0.0s done\n#10 DONE 0.0s\n\n#11 [question-service internal] load build context\n#11 ...\n\n#12 [admin-service internal] load build context\n#12 transferring context: 67.94kB 4.0s done\n#12 DONE 4.0s\n\n#13 [user-service internal] load build context\n#13 transferring context: 67.94kB 4.0s done\n#13 DONE 4.0s\n\n#14 [admin-service 4/6] COPY package-lock.json* ./\n#14 CACHED\n\n#15 [admin-service 2/6] WORKDIR /app\n#15 CACHED\n\n#16 [admin-service 3/6] COPY package.json ./\n#16 CACHED\n\n#17 [admin-service 5/6] RUN npm ci --omit=dev\n#17 CACHED\n\n#18 [admin-service 6/6] COPY packages/ packages/\n#18 CACHED\n\n#19 [user-service 5/6] RUN npm ci --omit=dev\n#19 CACHED\n\n#15 [user-service 2/6] WORKDIR /app\n#15 CACHED\n\n#20 [user-service 3/6] COPY package.json ./\n#20 CACHED\n\n#21 [user-service 4/6] COPY package-lock.json* ./\n#21 CACHED\n\n#22 [user-service 6/6] COPY packages/ packages/\n#22 CACHED\n\n#23 [user-service] exporting to image\n#23 exporting layers done\n#23 exporting manifest sha256:3b64eee8c2fb9549352bc6e73034c3b1decbdd2c8eaec255a432d11725b85657 0.0s done\n#23 exporting config sha256:aeb7706752fd1c0fa44ec6518cf1517b94c5ef684e5ff1b5562a9d0d78e6d895 0.0s done\n#23 exporting attestation manifest sha256:96f307824f589354594f5a4e8a437d79bdd4f6ebfa9bd638b3915c17100c49f5\n#23 exporting attestation manifest sha256:96f307824f589354594f5a4e8a437d79bdd4f6ebfa9bd638b3915c17100c49f5 0.1s done\n#23 exporting manifest list sha256:4be59601331952fd4916707a06eea617748174e0b0acd96e9364532110ce96a1 0.0s done\n#23 naming to docker.io/library/dca-b1ddf3378898-user-service:latest done\n#23 unpacking to docker.io/library/dca-b1ddf3378898-user-service:latest 0.0s done\n#23 DONE 0.3s\n\n#24 [admin-service] exporting to image\n#24 exporting layers done\n#24 exporting manifest sha256:db34364f27c5b1089bf02f4348af360f3381f9e3bee8fb6b5ea155b06e6a4de2 0.0s done\n#24 exporting config sha256:67ac3db6ab40dbe4df6b9f3fdd2174e7f3b5704c23295081f98f4a7afbc36923 0.0s done\n#24 exporting attestation manifest sha256:9d78972ca5b554ea948b02c094620f62e192ef47c9eaaae03bcda5ad6c8ae377 0.1s done\n#24 exporting manifest list sha256:dd9a8c39575614d266cebddef5151c319f65a9fb560d1bcc7da358ae66afe374 0.0s done\n#24 naming to docker.io/library/dca-b1ddf3378898-admin-service:latest 0.0s done\n#24 unpacking to docker.io/library/dca-b1ddf3378898-admin-service:latest 0.0s done\n#24 DONE 0.3s\n\n#25 [game-service internal] load build context\n#25 ...\n\n#26 [admin-service] resolving provenance for metadata file\n#26 DONE 0.0s\n\n#27 [user-service] resolving provenance for metadata file\n#27 DONE 0.0s\n\n#25 [game-service internal] load build context\n#25 transferring context: 67.94kB 4.9s done\n#25 DONE 5.0s\n\n#11 [question-service internal] load build context\n#11 transferring context: 67.94kB 4.9s done\n#11 DONE 5.0s\n\n#28 [game-service 4/6] COPY package-lock.json* ./\n#28 CACHED\n\n#29 [game-service 3/6] COPY package.json ./\n#29 CACHED\n\n#30 [game-service 5/6] RUN npm ci --omit=dev\n#30 CACHED\n\n#15 [game-service 2/6] WORKDIR /app\n#15 CACHED\n\n#31 [game-service 6/6] COPY packages/ packages/\n#31 CACHED\n\n#15 [question-service 2/6] WORKDIR /app\n#15 CACHED\n\n#32 [question-service 3/6] COPY package.json ./\n#32 CACHED\n\n#33 [question-service 4/6] COPY package-lock.json* ./\n#33 CACHED\n\n#34 [question-service 5/6] RUN npm ci --omit=dev\n#34 CACHED\n\n#35 [question-service 6/6] COPY packages/ packages/\n#35 CACHED\n\n#36 [question-service] exporting to image\n#36 exporting layers done\n#36 exporting manifest sha256:527d0cbdd62270acd6a89d468a948d80c8f71e02fb2760211d7fef4fa47093fe 0.0s done\n#36 exporting config sha256:fdd1807a6909c3b68e0a73940a7d05cf683caaf7a94311afa0f79f1cfeb6b6c5 0.0s done\n#36 exporting attestation manifest sha256:595baa26ccebae5107dbbe331ed5607b224fb0c51386414c44643f26b6c0293b\n#36 exporting attestation manifest sha256:595baa26ccebae5107dbbe331ed5607b224fb0c51386414c44643f26b6c0293b 0.1s done\n#36 exporting manifest list sha256:dd89a5d7fb4cde5baa3f992d84855b63d793958b8312847d25752045be8792be 0.0s done\n#36 naming to docker.io/library/dca-b1ddf3378898-question-service:latest done\n#36 unpacking to docker.io/library/dca-b1ddf3378898-question-service:latest 0.0s done\n#36 DONE 0.3s\n\n#37 [game-service] exporting to image\n#37 exporting layers done\n#37 exporting manifest sha256:bad91fce7140e1a60c9eca3231ec0a1bbf2490f8692ef1d3c96a3e9058c6059f 0.0s done\n#37 exporting config sha256:a1509f00db271bffb99b4e0a6b6af6afdd428984272cce1fc0ec9b4bb76b94b8 0.0s done\n#37 exporting attestation manifest sha256:bb286749d47208f764d9c9b5a19c7730ddf56e26819bc901e21b1abd3e6a4aea 0.1s done\n#37 exporting manifest list sha256:8a4306b4cd12531db5e03a231821d35da47f674f10f3f671a22679a15c807dfb 0.0s done\n#37 naming to docker.io/library/dca-b1ddf3378898-game-service:latest 0.0s done\n#37 unpacking to docker.io/library/dca-b1ddf3378898-game-service:latest 0.0s done\n#37 DONE 0.3s\n\n#38 [game-service] resolving provenance for metadata file\n#38 DONE 0.1s\n\n#39 [question-service] resolving provenance for metadata file\n#39 DONE 0.0s\n\n#40 [gateway internal] load build definition from gateway.Dockerfile\n#40 transferring dockerfile: 966B done\n#40 DONE 0.0s\n\n#5 [gateway internal] load metadata for docker.io/library/node:22-alpine\n#5 DONE 0.1s\n\n#41 [gateway internal] load .dockerignore\n#41 transferring context: 2B 0.0s done\n#41 DONE 0.0s\n\n#10 [gateway 1/6] FROM docker.io/library/node:22-alpine@sha256:fe4f6d74e20370acb04ad889077d14d0f64a9c8ea6a42bc60cddf1e844699914\n#10 resolve docker.io/library/node:22-alpine@sha256:fe4f6d74e20370acb04ad889077d14d0f64a9c8ea6a42bc60cddf1e844699914 0.0s done\n#10 DONE 0.1s\n\n#42 [gateway internal] load build context\n#42 transferring context: 38B 14.9s\n#42 transferring context: 1.59kB 15.0s done\n#42 DONE 15.0s\n\n#15 [gateway 2/6] WORKDIR /app\n#15 CACHED\n\n#43 [gateway 3/6] COPY package.json ./\n#43 CACHED\n\n#44 [gateway 4/6] COPY package-lock.json* ./\n#44 CACHED\n\n#45 [gateway 5/6] RUN npm ci --omit=dev\n#45 CACHED\n\n#46 [gateway 6/6] COPY packages/ packages/\n#46 CACHED\n\n#47 [gateway] exporting to image\n#47 exporting layers done\n#47 exporting manifest sha256:b8c7178b432566ea3a38ae5f74524bef07e19d54e21a4783bd6c620f4937b2e4 0.0s done\n#47 exporting config sha256:ee3cefcd9b3a46981da935fd72ee655919c4f7bc7179d0631cb33f321e129789 0.0s done\n#47 exporting attestation manifest sha256:c2f46f916f7d76e524f6ccf25777bef4c5340e93aea7d349f9bb539614134681\n#47 exporting attestation manifest sha256:c2f46f916f7d76e524f6ccf25777bef4c5340e93aea7d349f9bb539614134681 0.0s done\n#47 exporting manifest list sha256:e1bec480c8036c14fda06505cf919ab8076f0726ef62922a5868f351a933d496 0.0s done\n#47 naming to docker.io/library/dca-b1ddf3378898-gateway:latest done\n#47 unpacking to docker.io/library/dca-b1ddf3378898-gateway:latest 0.0s done\n#47 DONE 0.2s\n\n#48 [gateway] resolving provenance for metadata file\n admin-service  Built\n game-service  Built\n gateway  Built\n question-service  Built\n user-service  Built\n#48 DONE 0.0s\n Network dca-b1ddf3378898_default  Creating\n Network dca-b1ddf3378898_default  Created\n Container dca-b1ddf3378898-elasticsearch-1  Creating\n Container dca-b1ddf3378898-rabbitmq-1  Creating\n Container dca-b1ddf3378898-keycloak-1  Creating\n Container dca-b1ddf3378898-postgres-1  Creating\n Container dca-b1ddf3378898-redis-1  Creating\n Container dca-b1ddf3378898-prometheus-1  Creating\n Container dca-b1ddf3378898-keycloak-1  Created\n Container dca-b1ddf3378898-elasticsearch-1  Created\n Container dca-b1ddf3378898-prometheus-1  Created\n Container dca-b1ddf3378898-redis-1  Created\n Container dca-b1ddf3378898-postgres-1  Created\n Container dca-b1ddf3378898-admin-service-1  Creating\n Container dca-b1ddf3378898-question-service-1  Creating\n Container dca-b1ddf3378898-user-service-1  Creating\n Container dca-b1ddf3378898-rabbitmq-1  Created\n Container dca-b1ddf3378898-game-service-1  Creating\n Container dca-b1ddf3378898-admin-service-1  Created\n Container dca-b1ddf3378898-question-service-1  Created\n Container dca-b1ddf3378898-user-service-1  Created\n Container dca-b1ddf3378898-game-service-1  Created\n Container dca-b1ddf3378898-gateway-1  Creating\n Container dca-b1ddf3378898-gateway-1  Created\n Container dca-b1ddf3378898-postgres-1  Starting\n Container dca-b1ddf3378898-prometheus-1  Starting\n Container dca-b1ddf3378898-redis-1  Starting\n Container dca-b1ddf3378898-elasticsearch-1  Starting\n Container dca-b1ddf3378898-rabbitmq-1  Starting\n Container dca-b1ddf3378898-keycloak-1  Starting\n Container dca-b1ddf3378898-keycloak-1  Started\n Container dca-b1ddf3378898-postgres-1  Started\n Container dca-b1ddf3378898-postgres-1  Waiting\n Container dca-b1ddf3378898-postgres-1  Waiting\n Container dca-b1ddf3378898-rabbitmq-1  Started\n Container dca-b1ddf3378898-elasticsearch-1  Started\n Container dca-b1ddf3378898-postgres-1  Waiting\n Container dca-b1ddf3378898-redis-1  Started\n Container dca-b1ddf3378898-postgres-1  Waiting\n Container dca-b1ddf3378898-prometheus-1  Started\n Container dca-b1ddf3378898-postgres-1  Healthy\n Container dca-b1ddf3378898-postgres-1  Healthy\n Container dca-b1ddf3378898-user-service-1  Starting\n Container dca-b1ddf3378898-admin-service-1  Starting\n Container dca-b1ddf3378898-postgres-1  Healthy\n Container dca-b1ddf3378898-question-service-1  Starting\n Container dca-b1ddf3378898-postgres-1  Healthy\n Container dca-b1ddf3378898-game-service-1  Starting\n Container dca-b1ddf3378898-admin-service-1  Started\n Container dca-b1ddf3378898-user-service-1  Started\n Container dca-b1ddf3378898-question-service-1  Started\n Container dca-b1ddf3378898-game-service-1  Started\n Container dca-b1ddf3378898-gateway-1  Starting\n Container dca-b1ddf3378898-gateway-1  Started\n&quot;
+    },
+    {
+      &quot;stage&quot;: [
+        &quot;logs&quot;,
+        &quot;--no-color&quot;,
+        &quot;--tail&quot;,
+        &quot;40&quot;
+      ],
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;command&quot;: [
+        &quot;C:\\Windows\\system32\\wsl.exe&quot;,
+        &quot;-d&quot;,
+        &quot;Ubuntu&quot;,
+        &quot;-u&quot;,
+        &quot;root&quot;,
+        &quot;--&quot;,
+        &quot;env&quot;,
+        &quot;GATEWAY_PORT=4393&quot;,
+        &quot;OIDC_PORT=4394&quot;,
+        &quot;PUBLIC_ORIGIN=http://localhost:4393&quot;,
+        &quot;OIDC_PUBLIC_ORIGIN=http://localhost:4394&quot;,
+        &quot;OIDC_ISSUER=http://localhost:4394/realms/space-fractions&quot;,
+        &quot;docker&quot;,
+        &quot;compose&quot;,
+        &quot;--project-directory&quot;,
+        &quot;/mnt/d/projects/Task/runs/v02-formal/20261106-v02-e2/run-20261106-044151-45700d9f/project&quot;,
+        &quot;-p&quot;,
+        &quot;dca-b1ddf3378898&quot;,
+        &quot;-f&quot;,
+        &quot;/mnt/d/projects/Task/runs/v02-formal/20261106-v02-e2/run-20261106-044151-45700d9f/artifacts/runtime-05/compose.isolated.json&quot;,
+        &quot;logs&quot;,
+        &quot;--no-color&quot;,
+        &quot;--tail&quot;,
+        &quot;40&quot;
+      ],
+      &quot;output&quot;: &quot;test RabbitMQ as if the feature was removed, set this in your configuration:\u001b[0m\nrabbitmq-1          | \u001b[38;5;214m2026-11-05 21:12:52.419611+00:00 [warning] &lt;0.733.0&gt;     \&quot;deprecated_features.permit.management_metrics_collection = false\&quot;\u001b[0m\nrabbitmq-1          | 2026-11-05 21:12:58.253302+00:00 [info] &lt;0.770.0&gt; Management plugin: HTTP (non-TLS) listener started on port 15672\u001b[0m\nrabbitmq-1          | 2026-11-05 21:12:58.253463+00:00 [info] &lt;0.800.0&gt; Statistics database started.\u001b[0m\nrabbitmq-1          | 2026-11-05 21:12:58.253536+00:00 [info] &lt;0.799.0&gt; Starting worker pool &#x27;management_worker_pool&#x27; with 3 processes in it\u001b[0m\nrabbitmq-1          | 2026-11-05 21:12:58.269190+00:00 [info] &lt;0.818.0&gt; Prometheus metrics: HTTP (non-TLS) listener started on port 15692\u001b[0m\nrabbitmq-1          | 2026-11-05 21:12:58.269388+00:00 [info] &lt;0.704.0&gt; Ready to start client connection listeners\u001b[0m\nrabbitmq-1          | 2026-11-05 21:12:58.271577+00:00 [info] &lt;0.862.0&gt; started TCP listener on [::]:5672\u001b[0m\nrabbitmq-1          |  completed with 5 plugins.\nrabbitmq-1          | 2026-11-05 21:12:58.379447+00:00 [info] &lt;0.704.0&gt; Server startup complete; 5 plugins started.\u001b[0m\nrabbitmq-1          | 2026-11-05 21:12:58.379447+00:00 [info] &lt;0.704.0&gt;  * rabbitmq_prometheus\u001b[0m\nrabbitmq-1          | 2026-11-05 21:12:58.379447+00:00 [info] &lt;0.704.0&gt;  * rabbitmq_federation\u001b[0m\nrabbitmq-1          | 2026-11-05 21:12:58.379447+00:00 [info] &lt;0.704.0&gt;  * rabbitmq_management\u001b[0m\nrabbitmq-1          | 2026-11-05 21:12:58.379447+00:00 [info] &lt;0.704.0&gt;  * rabbitmq_management_agent\u001b[0m\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:00.931Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding ingest pipeline logs-default-pipeline\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.xpack.core.template.IndexTemplateRegistry\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\npostgres-1          | \t    &#x27;What is 5/6 - 1/2?&#x27;,\npostgres-1          | \t    &#x27;[\&quot;1/3\&quot;, \&quot;2/3\&quot;, \&quot;1/2\&quot;, \&quot;4/6\&quot;]&#x27;,\npostgres-1          | \t    &#x27;1/3&#x27;,\nkeycloak-1          | 2026-11-05 21:12:48,951 WARN  [io.qua.dep.ind.IndexWrapper] (build-52) Failed to index io.mashona.logwriting.ArrayStore: Class does not exist in ClassLoader QuarkusClassLoader:Deployment Class Loader: PROD for keycloak@130a0f66\nkeycloak-1          | 2026-11-05 21:12:48,974 WARN  [io.qua.dep.ind.IndexWrapper] (build-52) Failed to index jakarta.jms.XAConnection: Class does not exist in ClassLoader QuarkusClassLoader:Deployment Class Loader: PROD for keycloak@130a0f66\nkeycloak-1          | 2026-11-05 21:12:48,975 WARN  [io.qua.dep.ind.IndexWrapper] (build-52) Failed to index jakarta.jms.XASession: Class does not exist in ClassLoader QuarkusClassLoader:Deployment Class Loader: PROD for keycloak@130a0f66\nkeycloak-1          | 2026-11-05 21:12:48,976 WARN  [io.qua.dep.ind.IndexWrapper] (build-52) Failed to index jakarta.jms.XAConnectionFactory: Class does not exist in ClassLoader QuarkusClassLoader:Deployment Class Loader: PROD for keycloak@130a0f66\nkeycloak-1          | 2026-11-05 21:12:49,016 WARN  [io.qua.dep.ind.IndexWrapper] (build-52) Failed to index jakarta.jms.Connection: Class does not exist in ClassLoader QuarkusClassLoader:Deployment Class Loader: PROD for keycloak@130a0f66\nkeycloak-1          | 2026-11-05 21:12:55,182 INFO  [io.qua.dep.QuarkusAugmentor] (main) Quarkus augmentation completed in 11299ms\nkeycloak-1          | 2026-11-05 21:12:56,269 WARN  [org.keycloak.quarkus.runtime.cli.Picocli] (main) The following used options or option values are DEPRECATED and will be removed in a future release:\nkeycloak-1          | \t- proxy: Use proxy-headers.\nkeycloak-1          | Consult the Release Notes for details.\nkeycloak-1          | 2026-11-05 21:12:56,775 INFO  [org.keycloak.quarkus.runtime.hostname.DefaultHostnameProvider] (main) Hostname settings: Base URL: http://localhost:4394, Hostname: localhost, Strict HTTPS: false, Path: /, Strict BackChannel: false, Admin URL: &lt;unset&gt;, Admin: &lt;request&gt;, Port: 4394, Proxied: true\nkeycloak-1          | 2026-11-05 21:12:58,889 WARN  [io.quarkus.agroal.runtime.DataSources] (JPA Startup Thread) Datasource &lt;default&gt; enables XA but transaction recovery is not enabled. Please enable transaction recovery by setting quarkus.transaction-manager.enable-recovery=true, otherwise data may be lost if the application is terminated abruptly\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:00.931Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding ingest pipeline logs@default-pipeline\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.xpack.core.template.IndexTemplateRegistry\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\npostgres-1          | \t    5\npostgres-1          | \t  )\nkeycloak-1          | 2026-11-05 21:12:59,392 WARN  [org.infinispan.CONFIG] (keycloak-cache-init) ISPN000569: Unable to persist Infinispan internal caches as no global state enabled\nquestion-service-1  | Node.js v22.23.4\nkeycloak-1          | 2026-11-05 21:12:59,496 INFO  [org.infinispan.CONTAINER] (keycloak-cache-init) ISPN000556: Starting user marshaller &#x27;org.infinispan.jboss.marshalling.core.JBossUserMarshaller&#x27;\npostgres-1          | \tON CONFLICT (prompt) DO NOTHING;\npostgres-1          | \npostgres-1          | PostgreSQL Database directory appears to contain a database; Skipping initialization\nkeycloak-1          | 2026-11-05 21:13:00,186 WARN  [io.quarkus.vertx.http.runtime.VertxHttpRecorder] (main) The X-Forwarded-* and Forwarded headers will be considered when determining the proxy address. This configuration can cause a security issue as clients can forge requests and send a forwarded header that is not overwritten by the proxy. Please consider use one of these headers just to forward the proxy address in requests.\nkeycloak-1          | 2026-11-05 21:13:00,209 INFO  [org.keycloak.broker.provider.AbstractIdentityProviderMapper] (main) Registering class org.keycloak.broker.provider.mappersync.ConfigSyncEventListener\nkeycloak-1          | 2026-11-05 21:13:00,252 INFO  [org.keycloak.connections.infinispan.DefaultInfinispanConnectionProviderFactory] (main) Node name: node_685748, Site name: null\nkeycloak-1          | 2026-11-05 21:13:01,625 INFO  [org.keycloak.quarkus.runtime.storage.legacy.liquibase.QuarkusJpaUpdaterProvider] (main) Initializing database schema. Using changelog META-INF/jpa-changelog-master.xml\nkeycloak-1          | \nkeycloak-1          | UPDATE SUMMARY\nkeycloak-1          | Run:                        124\nkeycloak-1          | Previously run:               0\nrabbitmq-1          | 2026-11-05 21:12:58.379447+00:00 [info] &lt;0.704.0&gt;  * rabbitmq_web_dispatch\u001b[0m\npostgres-1          | \nrabbitmq-1          | 2026-11-05 21:12:58.475047+00:00 [info] &lt;0.9.0&gt; Time to start RabbitMQ: 16095 ms\u001b[0m\npostgres-1          | 2026-11-05 21:12:44.528 UTC [1] LOG:  starting PostgreSQL 16.15 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit\npostgres-1          | 2026-11-05 21:12:44.529 UTC [1] LOG:  listening on IPv4 address \&quot;0.0.0.0\&quot;, port 5432\nkeycloak-1          | Filtered out:                 0\nkeycloak-1          | -------------------------------\nkeycloak-1          | Total change sets:          124\nkeycloak-1          | \nkeycloak-1          | 2026-11-05 21:13:04,113 INFO  [org.keycloak.services] (main) KC-SERVICES0050: Initializing master realm\nkeycloak-1          | 2026-11-05 21:13:05,327 INFO  [org.keycloak.exportimport.singlefile.SingleFileImportProvider] (main) Full importing from file /opt/keycloak/bin/../data/import/realm-export.json\nkeycloak-1          | 2026-11-05 21:13:07,184 INFO  [org.keycloak.exportimport.util.ImportUtils] (main) Realm &#x27;space-fractions&#x27; imported\nkeycloak-1          | 2026-11-05 21:13:07,228 INFO  [org.keycloak.exportimport.dir.DirImportProvider] (main) Importing from directory /opt/keycloak/bin/../data/import\nkeycloak-1          | 2026-11-05 21:13:07,229 INFO  [org.keycloak.services] (main) KC-SERVICES0030: Full model import requested. Strategy: IGNORE_EXISTING\nkeycloak-1          | 2026-11-05 21:13:07,229 INFO  [org.keycloak.services] (main) KC-SERVICES0032: Import finished successfully\nkeycloak-1          | 2026-11-05 21:13:07,486 INFO  [org.keycloak.services] (main) KC-SERVICES0009: Added user &#x27;admin&#x27; to realm &#x27;master&#x27;\nkeycloak-1          | 2026-11-05 21:13:07,561 INFO  [io.quarkus] (main) Keycloak 24.0.5 on JVM (powered by Quarkus 3.8.4) started in 12.064s. Listening on: http://0.0.0.0:8080\nkeycloak-1          | 2026-11-05 21:13:07,562 INFO  [io.quarkus] (main) Profile dev activated. \nkeycloak-1          | 2026-11-05 21:13:07,562 INFO  [io.quarkus] (main) Installed features: [agroal, cdi, hibernate-orm, jdbc-h2, keycloak, logging-gelf, narayana-jta, reactive-routes, resteasy-reactive, resteasy-reactive-jackson, smallrye-context-propagation, vertx]\nkeycloak-1          | 2026-11-05 21:13:07,565 WARN  [org.keycloak.quarkus.runtime.KeycloakMain] (main) Running the server in development mode. DO NOT use this configuration in production.\nkeycloak-1          | 2026-11-05 21:13:11,905 WARN  [org.keycloak.events] (executor-thread-1) type=\&quot;LOGIN_ERROR\&quot;, realmId=\&quot;fdd4795e-566e-4217-be14-e65ebd11525b\&quot;, clientId=\&quot;admin-cli\&quot;, userId=\&quot;329425a9-d142-4218-a669-db70238ae146\&quot;, ipAddress=\&quot;172.18.0.1\&quot;, error=\&quot;invalid_user_credentials\&quot;, auth_method=\&quot;openid-connect\&quot;, grant_type=\&quot;password\&quot;, client_auth_method=\&quot;client-secret\&quot;, username=\&quot;admin\&quot;\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:00.931Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding ingest pipeline ent-search-generic-ingestion\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.xpack.core.template.IndexTemplateRegistry\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:00.931Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding ingest pipeline logs@json-message\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.xpack.core.template.IndexTemplateRegistry\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:00.931Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding ingest pipeline logs@json-pipeline\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.xpack.core.template.IndexTemplateRegistry\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:00.937Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding component template [behavioral_analytics-events-settings]\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.cluster.metadata.MetadataIndexTemplateService\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:00.941Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding component template [logs-settings]\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.cluster.metadata.MetadataIndexTemplateService\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\npostgres-1          | 2026-11-05 21:12:44.529 UTC [1] LOG:  listening on IPv6 address \&quot;::\&quot;, port 5432\npostgres-1          | 2026-11-05 21:12:44.537 UTC [1] LOG:  listening on Unix socket \&quot;/var/run/postgresql/.s.PGSQL.5432\&quot;\npostgres-1          | 2026-11-05 21:12:44.548 UTC [29] LOG:  database system was interrupted; last known up at 2026-11-05 21:12:43 UTC\npostgres-1          | 2026-11-05 21:12:45.213 UTC [29] LOG:  database system was not properly shut down; automatic recovery in progress\npostgres-1          | 2026-11-05 21:12:45.219 UTC [29] LOG:  redo starts at 0/14F7180\npostgres-1          | 2026-11-05 21:12:45.265 UTC [29] LOG:  invalid record length at 0/1945968: expected at least 24, got 0\npostgres-1          | 2026-11-05 21:12:45.265 UTC [29] LOG:  redo done at 0/1943258 system usage: CPU: user: 0.00 s, system: 0.02 s, elapsed: 0.04 s\npostgres-1          | 2026-11-05 21:12:45.279 UTC [27] LOG:  checkpoint starting: end-of-recovery immediate wait\npostgres-1          | 2026-11-05 21:12:45.589 UTC [27] LOG:  checkpoint complete: wrote 959 buffers (5.9%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.051 s, sync=0.239 s, total=0.315 s; sync files=326, longest=0.006 s, average=0.001 s; distance=4410 kB, estimate=4410 kB; lsn=0/1945968, redo lsn=0/1945968\npostgres-1          | 2026-11-05 21:12:45.606 UTC [1] LOG:  database system is ready to accept connections\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:00.947Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding component template [logs@settings]\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.cluster.metadata.MetadataIndexTemplateService\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:01.007Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding index template [behavioral_analytics-events-default] for index patterns [behavioral_analytics-events-*]\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.cluster.metadata.MetadataIndexTemplateService\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:01.015Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding index template [logs] for index patterns [logs-*-*]\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.cluster.metadata.MetadataIndexTemplateService\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:01.066Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding index lifecycle policy [logs]\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:01.109Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding index lifecycle policy [metrics]\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:01.159Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding index lifecycle policy [180-days-default]\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:01.225Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding index lifecycle policy [7-days-default]\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:01.272Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding index lifecycle policy [90-days-default]\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:01.330Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding index lifecycle policy [30-days-default]\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:01.370Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding index lifecycle policy [synthetics]\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:01.407Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding index lifecycle policy [30-days@lifecycle]\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:01.446Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding index lifecycle policy [365-days-default]\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:01.485Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding index lifecycle policy [90-days@lifecycle]\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:01.534Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding index lifecycle policy [365-days@lifecycle]\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:01.578Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding index lifecycle policy [slm-history-ilm-policy]\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:01.623Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding index lifecycle policy [metrics@lifecycle]\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:01.660Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding index lifecycle policy [logs@lifecycle]\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:01.705Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding index lifecycle policy [180-days@lifecycle]\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:01.742Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding index lifecycle policy [synthetics@lifecycle]\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:01.780Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding index lifecycle policy [7-days@lifecycle]\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:01.817Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding index lifecycle policy [watch-history-ilm-policy-16]\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:01.858Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding index lifecycle policy [ilm-history-ilm-policy]\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:01.896Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding index lifecycle policy [.fleet-actions-results-ilm-policy]\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:01.937Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding index lifecycle policy [.deprecation-indexing-ilm-policy]\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:01.975Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding index lifecycle policy [.fleet-file-tohost-data-ilm-policy]\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:02.013Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding index lifecycle policy [.fleet-file-fromhost-meta-ilm-policy]\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:02.060Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding index lifecycle policy [.fleet-file-fromhost-data-ilm-policy]\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:02.107Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;adding index lifecycle policy [.fleet-file-tohost-meta-ilm-policy]\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][masterService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:02.194Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;Node [{773a7f7e3115}{SbAiqS8dRHam4_h9L97IJA}] is selected as the current health node.\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][management][T#5]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.health.node.selection.HealthNodeTaskExecutor\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\nelasticsearch-1     | {\&quot;@timestamp\&quot;:\&quot;2026-11-05T21:13:02.386Z\&quot;, \&quot;log.level\&quot;: \&quot;INFO\&quot;, \&quot;message\&quot;:\&quot;license [be4f1b2c-5ee5-44f6-bd6f-3b049dab0632] mode [basic] - valid\&quot;, \&quot;ecs.version\&quot;: \&quot;1.2.0\&quot;,\&quot;service.name\&quot;:\&quot;ES_ECS\&quot;,\&quot;event.dataset\&quot;:\&quot;elasticsearch.server\&quot;,\&quot;process.thread.name\&quot;:\&quot;elasticsearch[773a7f7e3115][clusterApplierService#updateTask][T#1]\&quot;,\&quot;log.logger\&quot;:\&quot;org.elasticsearch.license.ClusterStateLicenseService\&quot;,\&quot;elasticsearch.cluster.uuid\&quot;:\&quot;xIKO2W2BRgy_6ksLnqK4OA\&quot;,\&quot;elasticsearch.node.id\&quot;:\&quot;SbAiqS8dRHam4_h9L97IJA\&quot;,\&quot;elasticsearch.node.name\&quot;:\&quot;773a7f7e3115\&quot;,\&quot;elasticsearch.cluster.name\&quot;:\&quot;docker-cluster\&quot;}\n&quot;
+    },
+    {
+      &quot;stage&quot;: [
+        &quot;down&quot;,
+        &quot;--volumes&quot;,
+        &quot;--remove-orphans&quot;
+      ],
+      &quot;status&quot;: &quot;passed&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;command&quot;: [
+        &quot;C:\\Windows\\system32\\wsl.exe&quot;,
+        &quot;-d&quot;,
+        &quot;Ubuntu&quot;,
+        &quot;-u&quot;,
+        &quot;root&quot;,
+        &quot;--&quot;,
+        &quot;env&quot;,
+        &quot;GATEWAY_PORT=4393&quot;,
+        &quot;OIDC_PORT=4394&quot;,
+        &quot;PUBLIC_ORIGIN=http://localhost:4393&quot;,
+        &quot;OIDC_PUBLIC_ORIGIN=http://localhost:4394&quot;,
+        &quot;OIDC_ISSUER=http://localhost:4394/realms/space-fractions&quot;,
+        &quot;docker&quot;,
+        &quot;compose&quot;,
+        &quot;--project-directory&quot;,
+        &quot;/mnt/d/projects/Task/runs/v02-formal/20261106-v02-e2/run-20261106-044151-45700d9f/project&quot;,
+        &quot;-p&quot;,
+        &quot;dca-b1ddf3378898&quot;,
+        &quot;-f&quot;,
+        &quot;/mnt/d/projects/Task/runs/v02-formal/20261106-v02-e2/run-20261106-044151-45700d9f/artifacts/runtime-05/compose.isolated.json&quot;,
+        &quot;down&quot;,
+        &quot;--volumes&quot;,
+        &quot;--remove-orphans&quot;
+      ],
+      &quot;output&quot;: &quot; Container dca-b1ddf3378898-keycloak-1  Stopping\n Container dca-b1ddf3378898-gateway-1  Stopping\n Container dca-b1ddf3378898-prometheus-1  Stopping\n Container dca-b1ddf3378898-prometheus-1  Stopped\n Container dca-b1ddf3378898-prometheus-1  Removing\n Container dca-b1ddf3378898-prometheus-1  Removed\n Container dca-b1ddf3378898-keycloak-1  Stopped\n Container dca-b1ddf3378898-keycloak-1  Removing\n Container dca-b1ddf3378898-keycloak-1  Removed\n Container dca-b1ddf3378898-gateway-1  Stopped\n Container dca-b1ddf3378898-gateway-1  Removing\n Container dca-b1ddf3378898-gateway-1  Removed\n Container dca-b1ddf3378898-question-service-1  Stopping\n Container dca-b1ddf3378898-game-service-1  Stopping\n Container dca-b1ddf3378898-user-service-1  Stopping\n Container dca-b1ddf3378898-admin-service-1  Stopping\n Container dca-b1ddf3378898-question-service-1  Stopped\n Container dca-b1ddf3378898-question-service-1  Removing\n Container dca-b1ddf3378898-question-service-1  Removed\n Container dca-b1ddf3378898-elasticsearch-1  Stopping\n Container dca-b1ddf3378898-game-service-1  Stopped\n Container dca-b1ddf3378898-game-service-1  Removing\n Container dca-b1ddf3378898-game-service-1  Removed\n Container dca-b1ddf3378898-redis-1  Stopping\n Container dca-b1ddf3378898-rabbitmq-1  Stopping\n Container dca-b1ddf3378898-redis-1  Stopped\n Container dca-b1ddf3378898-redis-1  Removing\n Container dca-b1ddf3378898-redis-1  Removed\n Container dca-b1ddf3378898-rabbitmq-1  Stopped\n Container dca-b1ddf3378898-rabbitmq-1  Removing\n Container dca-b1ddf3378898-rabbitmq-1  Removed\n Container dca-b1ddf3378898-elasticsearch-1  Stopped\n Container dca-b1ddf3378898-elasticsearch-1  Removing\n Container dca-b1ddf3378898-elasticsearch-1  Removed\n Container dca-b1ddf3378898-user-service-1  Stopped\n Container dca-b1ddf3378898-user-service-1  Removing\n Container dca-b1ddf3378898-admin-service-1  Stopped\n Container dca-b1ddf3378898-admin-service-1  Removing\n Container dca-b1ddf3378898-user-service-1  Removed\n Container dca-b1ddf3378898-admin-service-1  Removed\n Container dca-b1ddf3378898-postgres-1  Stopping\n Container dca-b1ddf3378898-postgres-1  Stopped\n Container dca-b1ddf3378898-postgres-1  Removing\n Container dca-b1ddf3378898-postgres-1  Removed\n Network dca-b1ddf3378898_default  Removing\n Network dca-b1ddf3378898_default  Removed\n&quot;
+    }
+  ],
+  &quot;source_modified_by_host&quot;: false,
+  &quot;isolation_note&quot;: &quot;Owned Compose project and loopback ports; Docker execution is not an OS security sandbox&quot;
+}</pre></details></details><details class="trial"><summary>试验 2 · space-fractions · cancelled</summary><p class="path">D:\projects\Task\runs\v02-formal\20261106-v02-e2\run-20261106-051334-2f958e83</p><p>文件核验：已记录文件及额外文件核验通过；自动验收：未达到完整自动验收条件。</p><p>生成来源：fresh；实际修复轮数：0。</p><pre>请求已取消；响应费用不确定，保留预留</pre></details><footer>离线静态审阅页，无脚本。原始输入、工具事件和源码快照位于同一证据包的 runs 目录；本页没有改写原始报告。</footer></main></html>

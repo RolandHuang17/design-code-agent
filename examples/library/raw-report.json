@@ -1,0 +1,2304 @@
+{
+  "status": "checks_passed_requires_review",
+  "provider": "bailian",
+  "model": "deepseek-v4-pro-0813",
+  "uses_official_endpoint": false,
+  "real_api_run": true,
+  "checks": [
+    {
+      "profile": "static",
+      "status": "passed",
+      "results": [
+        {
+          "check": "required:package.json",
+          "status": "passed"
+        },
+        {
+          "check": "required:README.md",
+          "status": "passed"
+        },
+        {
+          "check": "required:openapi.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "required:traceability.json",
+          "status": "passed"
+        },
+        {
+          "check": "compose.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "openapi.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "package-lock.json",
+          "status": "passed"
+        },
+        {
+          "check": "package.json",
+          "status": "passed"
+        },
+        {
+          "check": "plan.json",
+          "status": "passed"
+        },
+        {
+          "check": "traceability.json",
+          "status": "passed"
+        },
+        {
+          "check": "public/app.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e3\\run-20261106-073052-d1aeb7fc\\project\\public\\app.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/server.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e3\\run-20261106-073052-d1aeb7fc\\project\\src\\server.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/catalog/catalog.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e3\\run-20261106-073052-d1aeb7fc\\project\\src\\catalog\\catalog.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/catalog/catalog.repo.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e3\\run-20261106-073052-d1aeb7fc\\project\\src\\catalog\\catalog.repo.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/db/index.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e3\\run-20261106-073052-d1aeb7fc\\project\\src\\db\\index.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/http/app.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e3\\run-20261106-073052-d1aeb7fc\\project\\src\\http\\app.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/http/routes.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e3\\run-20261106-073052-d1aeb7fc\\project\\src\\http\\routes.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/http/validation.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e3\\run-20261106-073052-d1aeb7fc\\project\\src\\http\\validation.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/loans/loans.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e3\\run-20261106-073052-d1aeb7fc\\project\\src\\loans\\loans.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/loans/loans.repo.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e3\\run-20261106-073052-d1aeb7fc\\project\\src\\loans\\loans.repo.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/store/memory.store.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e3\\run-20261106-073052-d1aeb7fc\\project\\src\\store\\memory.store.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/store/postgres.store.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e3\\run-20261106-073052-d1aeb7fc\\project\\src\\store\\postgres.store.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/store/store.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e3\\run-20261106-073052-d1aeb7fc\\project\\src\\store\\store.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/catalog.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e3\\run-20261106-073052-d1aeb7fc\\project\\test\\catalog.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/db.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e3\\run-20261106-073052-d1aeb7fc\\project\\test\\db.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/http.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e3\\run-20261106-073052-d1aeb7fc\\project\\test\\http.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/loans.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\runs\\v02-formal\\20261106-v02-e3\\run-20261106-073052-d1aeb7fc\\project\\test\\loans.test.js"
+          ],
+          "output": ""
+        }
+      ]
+    },
+    {
+      "profile": "install",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "output": "\nadded 82 packages in 899ms\n"
+    },
+    {
+      "profile": "test",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "run",
+        "test",
+        "--ignore-scripts"
+      ],
+      "output": "\n> library-borrowing-gateway@1.0.0 test\n> node --test\n\n▶ validateBookInput\n  ✔ accepts a non-empty title and positive integer copies (1.1436ms)\n  ✔ rejects null / non-object bodies (0.3839ms)\n  ✔ rejects empty or non-string titles (0.1927ms)\n  ✔ rejects overly long titles (0.1416ms)\n  ✔ rejects non-positive, fractional, or non-numeric copies (0.1976ms)\n✔ validateBookInput (3.1026ms)\n▶ parsePositiveInt\n  ✔ parses positive integer numbers and strings (0.2088ms)\n  ✔ returns null for invalid values (0.1575ms)\n✔ parsePositiveInt (0.5557ms)\n▶ createBook (FR1)\n  ✔ creates a book with available copies equal to total copies (0.2864ms)\n  ✔ trims the title and rejects invalid input (0.2772ms)\n✔ createBook (FR1) (0.7465ms)\n▶ listBooks\n  ✔ returns a { books } envelope in reverse insertion order (0.4018ms)\n  ✔ returns an empty list for an empty store (0.1459ms)\n✔ listBooks (0.669ms)\n▶ getBook (FR5)\n  ✔ returns the book for a valid id (0.8569ms)\n  ✔ throws NOT_FOUND for an unknown id (0.1225ms)\n  ✔ throws NOT_FOUND for an invalid id (invalid ids are \"not found\") (0.2156ms)\n  ✔ accepts a numeric-string id (0.1161ms)\n✔ getBook (FR5) (1.451ms)\n▶ schemaSql (NFR2 / ARCH-DEP-2 / SUPP-IDEMPOTENT-SEED)\n  ✔ returns the full idempotent schema/seed SQL (0.7899ms)\n  ✔ creates tables and indexes idempotently (0.1828ms)\n  ✔ seeds only when tables are empty (never overwrites user-created books) (0.8335ms)\n✔ schemaSql (NFR2 / ARCH-DEP-2 / SUPP-IDEMPOTENT-SEED) (2.7619ms)\n▶ bootstrap (NFR2 / ARCH-DEP-2 / SUPP-IDEMPOTENT-SEED)\n  ✔ runs the schema SQL on a single query call (0.2136ms)\n  ✔ is idempotent: repeated bootstrap calls run the same idempotent SQL (0.1432ms)\n✔ bootstrap (NFR2 / ARCH-DEP-2 / SUPP-IDEMPOTENT-SEED) (0.531ms)\n▶ GET /health\n  ✔ returns 200 with an ok body (34.0369ms)\n✔ GET /health (34.6678ms)\n▶ POST /api/books (FR1)\n  ✔ creates a book with 201 and returns id/title/availableCopies (17.0886ms)\n  ✔ rejects invalid input with 400 (9.2945ms)\n  ✔ rejects a malformed JSON body with 400 (1.8812ms)\n✔ POST /api/books (FR1) (28.6303ms)\n▶ GET /api/books (FR2)\n  ✔ lists books with remaining copies in a { books } envelope (4.617ms)\n✔ GET /api/books (FR2) (4.8631ms)\n▶ GET /api/books/:id (FR5)\n  ✔ returns the book with 200 for a known id (2.7021ms)\n  ✔ returns 404 for an unknown id (1.8792ms)\n✔ GET /api/books/:id (FR5) (4.8781ms)\n▶ POST /api/loans (FR2, FR3)\n  ✔ borrows an available copy with 201 (4.2358ms)\n  ✔ returns 409 for a duplicate active loan (FR3) (3.1342ms)\n  ✔ returns 409 when no copies remain (FR5) (2.4578ms)\n  ✔ returns 404 for an unknown book (FR5) (1.1229ms)\n  ✔ returns 400 for invalid borrow input (5.1426ms)\n✔ POST /api/loans (FR2, FR3) (16.4676ms)\n▶ GET /api/loans\n  ✔ returns a { loans } envelope (1.5012ms)\n✔ GET /api/loans (1.6714ms)\n▶ POST /api/loans/:id/return (FR4)\n  ✔ returns a loan with 200 and restores stock (3.3306ms)\n  ✔ is idempotent: a repeated return keeps status returned and stock unchanged (3.2553ms)\n  ✔ returns 404 for an unknown loan id (0.7795ms)\n✔ POST /api/loans/:id/return (FR4) (7.5794ms)\n▶ unknown API route\n  ✔ returns 404 with a JSON error body (2.1758ms)\n✔ unknown API route (2.2914ms)\n▶ validateBorrowInput\n  ✔ accepts a positive integer bookId and non-empty userId (1.2261ms)\n  ✔ rejects null / non-object bodies (0.4032ms)\n  ✔ rejects invalid bookId values (0.2838ms)\n  ✔ accepts a numeric-string bookId (BIGSERIAL ids surface as strings) (0.1234ms)\n  ✔ rejects empty or non-string userId values (0.247ms)\n  ✔ rejects overly long userId values (0.1835ms)\n✔ validateBorrowInput (3.6288ms)\n▶ parsePositiveInt\n  ✔ parses positive integer numbers and strings (0.1632ms)\n  ✔ returns null for invalid values (0.1422ms)\n✔ parsePositiveInt (0.4806ms)\n▶ borrow (FR2, FR3)\n  ✔ creates an active loan and decrements available copies (0.6568ms)\n  ✔ allows a different reader to borrow another copy (0.9246ms)\n  ✔ rejects a duplicate active loan for the same (bookId, userId) as CONFLICT (FR3) (0.2402ms)\n  ✔ rejects borrowing when no copies remain as CONFLICT (FR5) (0.1698ms)\n  ✔ rejects borrowing an unknown book as NOT_FOUND (FR5) (0.1152ms)\n  ✔ rejects invalid borrow input as VALIDATION before touching the store (0.1364ms)\n✔ borrow (FR2, FR3) (2.4711ms)\n▶ NFR1: concurrent borrowers of the only copy\n  ✔ yields exactly one successful loan and never negative stock (0.3425ms)\n✔ NFR1: concurrent borrowers of the only copy (0.4039ms)\n▶ returnLoan (FR4)\n  ✔ returns an active loan and restores exactly one copy (0.2349ms)\n  ✔ is idempotent: a repeated return does not increment stock again (FR4) (0.1218ms)\n  ✔ restores stock so a different reader may borrow afterward (0.1253ms)\n  ✔ rejects an unknown loan id as NOT_FOUND (FR5) (0.1232ms)\n  ✔ rejects an invalid loan id as NOT_FOUND (0.23ms)\n✔ returnLoan (FR4) (1.0072ms)\n▶ listLoans\n  ✔ returns a { loans } envelope (0.2437ms)\n  ✔ returns an empty list for an empty store (0.0881ms)\n✔ listLoans (0.4109ms)\nℹ tests 59\nℹ suites 21\nℹ pass 59\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 319.997\n"
+    },
+    {
+      "profile": "integration",
+      "status": "not_applicable",
+      "optional": true,
+      "reason": "项目未声明独立 test:integration；不计为通过，领域 HTTP 由项目外 runtime 验收"
+    },
+    {
+      "profile": "build",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "run",
+        "build",
+        "--ignore-scripts"
+      ],
+      "output": "\n> library-borrowing-gateway@1.0.0 build\n> node --check src/server.js && node --check src/http/app.js && node --check src/http/routes.js && node --check src/http/validation.js && node --check src/catalog/catalog.js && node --check src/catalog/catalog.repo.js && node --check src/loans/loans.js && node --check src/loans/loans.repo.js && node --check src/store/store.js && node --check src/store/postgres.store.js && node --check src/store/memory.store.js && node --check src/db/index.js && node --check public/app.js\n\n"
+    },
+    {
+      "profile": "compose",
+      "status": "passed",
+      "backend": "wsl",
+      "evidence": "Actual compose config command in protected runtime stages"
+    },
+    {
+      "profile": "traceability_links",
+      "status": "passed",
+      "problems": [],
+      "limitation": "只检查链接和来源范围；语义覆盖需要独立审查"
+    },
+    {
+      "profile": "runtime",
+      "acceptance_profile": "library",
+      "status": "passed",
+      "checks": [
+        {
+          "check": "gateway ready",
+          "status": "passed"
+        },
+        {
+          "check": "browser entry served",
+          "status": "passed",
+          "http_status": 200
+        },
+        {
+          "check": "invalid book copies rejected",
+          "status": "passed",
+          "http_status": 400
+        },
+        {
+          "check": "create book with one available copy",
+          "status": "passed",
+          "http_status": 201
+        },
+        {
+          "check": "concurrent borrowers cannot oversell",
+          "status": "passed",
+          "statuses": [
+            201,
+            409,
+            409,
+            409,
+            409,
+            409,
+            409,
+            409
+          ]
+        },
+        {
+          "check": "stock after borrowing is zero",
+          "status": "passed"
+        },
+        {
+          "check": "concurrent duplicate returns restore exactly one copy",
+          "status": "passed",
+          "statuses": [
+            200,
+            200,
+            200,
+            200,
+            200,
+            200,
+            200,
+            200
+          ]
+        },
+        {
+          "check": "borrow returned copy",
+          "status": "passed",
+          "http_status": 201
+        },
+        {
+          "check": "active duplicate rejected",
+          "status": "passed",
+          "http_status": 409
+        },
+        {
+          "check": "book inventory persists after restart",
+          "status": "passed"
+        },
+        {
+          "check": "loan persists and can be returned after restart",
+          "status": "passed",
+          "http_status": 200
+        },
+        {
+          "check": "persisted loan returns one copy",
+          "status": "passed"
+        }
+      ],
+      "cleanup": "passed",
+      "backend": "wsl",
+      "project": "dca-31f4a8607160",
+      "stages": [
+        {
+          "stage": [
+            "version",
+            "--format",
+            "{{.Server.Version}}"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Windows\\system32\\wsl.exe",
+            "-d",
+            "Ubuntu",
+            "-u",
+            "root",
+            "--",
+            "env",
+            "GATEWAY_PORT=3978",
+            "OIDC_PORT=3979",
+            "PUBLIC_ORIGIN=http://localhost:3978",
+            "OIDC_PUBLIC_ORIGIN=http://localhost:3979",
+            "OIDC_ISSUER=http://localhost:3979/realms/space-fractions",
+            "docker",
+            "version",
+            "--format",
+            "{{.Server.Version}}"
+          ],
+          "output": "29.1.3\n"
+        },
+        {
+          "stage": [
+            "config",
+            "--format",
+            "json"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Windows\\system32\\wsl.exe",
+            "-d",
+            "Ubuntu",
+            "-u",
+            "root",
+            "--",
+            "env",
+            "GATEWAY_PORT=3978",
+            "OIDC_PORT=3979",
+            "PUBLIC_ORIGIN=http://localhost:3978",
+            "OIDC_PUBLIC_ORIGIN=http://localhost:3979",
+            "OIDC_ISSUER=http://localhost:3979/realms/space-fractions",
+            "docker",
+            "compose",
+            "--project-directory",
+            "/mnt/d/projects/Task/runs/v02-formal/20261106-v02-e3/run-20261106-073052-d1aeb7fc/project",
+            "-p",
+            "dca-31f4a8607160",
+            "-f",
+            "/mnt/d/projects/Task/runs/v02-formal/20261106-v02-e3/run-20261106-073052-d1aeb7fc/project/compose.yaml",
+            "config",
+            "--format",
+            "json"
+          ],
+          "output": "{\n  \"name\": \"dca-31f4a8607160\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"dca-31f4a8607160_default\",\n      \"ipam\": {}\n    }\n  },\n  \"services\": {\n    \"gateway\": {\n      \"build\": {\n        \"context\": \"/mnt/d/projects/Task/runs/v02-formal/20261106-v02-e3/run-20261106-073052-d1aeb7fc/project\",\n        \"dockerfile\": \"Dockerfile\"\n      },\n      \"command\": null,\n      \"container_name\": \"library-gateway\",\n      \"depends_on\": {\n        \"postgres\": {\n          \"condition\": \"service_healthy\",\n          \"required\": true\n        }\n      },\n      \"entrypoint\": null,\n      \"environment\": {\n        \"DATABASE_URL\": \"postgresql://library:library@postgres:5432/library\",\n        \"OIDC_ISSUER\": \"http://localhost:3979/realms/space-fractions\",\n        \"OIDC_PUBLIC_ORIGIN\": \"http://localhost:3979\",\n        \"PORT\": \"3000\",\n        \"PUBLIC_ORIGIN\": \"http://localhost:3978\"\n      },\n      \"networks\": {\n        \"default\": null\n      },\n      \"ports\": [\n        {\n          \"mode\": \"ingress\",\n          \"target\": 3000,\n          \"published\": \"3000\",\n          \"protocol\": \"tcp\"\n        }\n      ],\n      \"restart\": \"unless-stopped\"\n    },\n    \"postgres\": {\n      \"command\": null,\n      \"container_name\": \"library-postgres\",\n      \"entrypoint\": null,\n      \"environment\": {\n        \"POSTGRES_DB\": \"library\",\n        \"POSTGRES_PASSWORD\": \"library\",\n        \"POSTGRES_USER\": \"library\"\n      },\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD-SHELL\",\n          \"pg_isready -U library -d library\"\n        ],\n        \"timeout\": \"5s\",\n        \"interval\": \"5s\",\n        \"retries\": 10\n      },\n      \"image\": \"postgres:16-alpine\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"ports\": [\n        {\n          \"mode\": \"ingress\",\n          \"target\": 5432,\n          \"published\": \"5432\",\n          \"protocol\": \"tcp\"\n        }\n      ],\n      \"restart\": \"unless-stopped\",\n      \"volumes\": [\n        {\n          \"type\": \"volume\",\n          \"source\": \"postgres-data\",\n          \"target\": \"/var/lib/postgresql/data\",\n          \"volume\": {}\n        }\n      ]\n    }\n  },\n  \"volumes\": {\n    \"postgres-data\": {\n      \"name\": \"dca-31f4a8607160_postgres-data\"\n    }\n  }\n}"
+        },
+        {
+          "stage": [
+            "up",
+            "-d",
+            "--build"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Windows\\system32\\wsl.exe",
+            "-d",
+            "Ubuntu",
+            "-u",
+            "root",
+            "--",
+            "env",
+            "GATEWAY_PORT=3978",
+            "OIDC_PORT=3979",
+            "PUBLIC_ORIGIN=http://localhost:3978",
+            "OIDC_PUBLIC_ORIGIN=http://localhost:3979",
+            "OIDC_ISSUER=http://localhost:3979/realms/space-fractions",
+            "docker",
+            "compose",
+            "--project-directory",
+            "/mnt/d/projects/Task/runs/v02-formal/20261106-v02-e3/run-20261106-073052-d1aeb7fc/project",
+            "-p",
+            "dca-31f4a8607160",
+            "-f",
+            "/mnt/d/projects/Task/runs/v02-formal/20261106-v02-e3/run-20261106-073052-d1aeb7fc/artifacts/runtime-07/compose.isolated.json",
+            "up",
+            "-d",
+            "--build"
+          ],
+          "output": "time=\"2026-11-06T07:51:09+08:00\" level=warning msg=\"Docker Compose is configured to build using Bake, but buildx isn't installed\"\n#0 building with \"default\" instance using docker driver\n\n#1 [gateway internal] load build definition from Dockerfile\n#1 DONE 0.0s\n\n#1 [gateway internal] load build definition from Dockerfile\n#1 transferring dockerfile: 1.18kB 0.0s done\n#1 DONE 0.0s\n\n#2 [gateway] resolve image config for docker-image://docker.io/docker/dockerfile:1\n#2 DONE 1.6s\n\n#3 [gateway] docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e\n#3 resolve docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e 0.0s done\n#3 CACHED\n\n#4 [gateway internal] load metadata for docker.io/library/node:22-bookworm-slim\n#4 DONE 1.2s\n\n#5 [gateway internal] load .dockerignore\n#5 transferring context: 269B 0.0s done\n#5 DONE 0.0s\n\n#6 [gateway deps 1/4] FROM docker.io/library/node:22-bookworm-slim@sha256:5ec23b7c622b00547753bc6ffd78085dd868a68aeb41c8e0a1418f033e13d96d\n#6 resolve docker.io/library/node:22-bookworm-slim@sha256:5ec23b7c622b00547753bc6ffd78085dd868a68aeb41c8e0a1418f033e13d96d 0.0s done\n#6 DONE 0.0s\n\n#7 [gateway internal] load build context\n#7 transferring context: 35.78kB 0.1s done\n#7 DONE 0.1s\n\n#8 [gateway deps 3/4] COPY package.json package-lock.json* ./\n#8 CACHED\n\n#9 [gateway deps 4/4] RUN npm ci --omit=dev --ignore-scripts\n#9 CACHED\n\n#10 [gateway runtime 3/6] COPY --from=deps /app/node_modules ./node_modules\n#10 CACHED\n\n#11 [gateway runtime 4/6] COPY package.json ./\n#11 CACHED\n\n#12 [gateway runtime 5/6] COPY src ./src\n#12 CACHED\n\n#13 [gateway deps 2/4] WORKDIR /app\n#13 CACHED\n\n#14 [gateway runtime 6/6] COPY public ./public\n#14 CACHED\n\n#15 [gateway] exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:3a6ffec0da9c28da3c10e2bd39851dc0cc328ed256ee7c42a5800cf0bc68263a 0.0s done\n#15 exporting config sha256:6770a25adf6a7c91dc017d27ad9feddd3cf646a0b5f0437deb32d168033954d0 0.0s done\n#15 exporting attestation manifest sha256:0adb07e981f494c538fd454f6b84465fa0223db64ba2c2ea14ba81cfd2be1f3e 0.0s done\n#15 exporting manifest list sha256:ea1dd73df04ed60b2cbd13d3e0947226bfb534863213d1d2df02ffb865582360\n#15 exporting manifest list sha256:ea1dd73df04ed60b2cbd13d3e0947226bfb534863213d1d2df02ffb865582360 0.0s done\n#15 naming to docker.io/library/dca-31f4a8607160-gateway:latest done\n#15 unpacking to docker.io/library/dca-31f4a8607160-gateway:latest 0.0s done\n#15 DONE 0.2s\n\n#16 [gateway] resolving provenance for metadata file\n#16 DONE 0.0s\n gateway  Built\n Network dca-31f4a8607160_default  Creating\n Network dca-31f4a8607160_default  Created\n Volume dca-31f4a8607160_postgres-data  Creating\n Volume dca-31f4a8607160_postgres-data  Created\n Container dca-31f4a8607160-postgres-1  Creating\n Container dca-31f4a8607160-postgres-1  Created\n Container dca-31f4a8607160-gateway-1  Creating\n Container dca-31f4a8607160-gateway-1  Created\n Container dca-31f4a8607160-postgres-1  Starting\n Container dca-31f4a8607160-postgres-1  Started\n Container dca-31f4a8607160-postgres-1  Waiting\n Container dca-31f4a8607160-postgres-1  Healthy\n Container dca-31f4a8607160-gateway-1  Starting\n Container dca-31f4a8607160-gateway-1  Started\n"
+        },
+        {
+          "stage": [
+            "restart",
+            "gateway"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Windows\\system32\\wsl.exe",
+            "-d",
+            "Ubuntu",
+            "-u",
+            "root",
+            "--",
+            "env",
+            "GATEWAY_PORT=3978",
+            "OIDC_PORT=3979",
+            "PUBLIC_ORIGIN=http://localhost:3978",
+            "OIDC_PUBLIC_ORIGIN=http://localhost:3979",
+            "OIDC_ISSUER=http://localhost:3979/realms/space-fractions",
+            "docker",
+            "compose",
+            "--project-directory",
+            "/mnt/d/projects/Task/runs/v02-formal/20261106-v02-e3/run-20261106-073052-d1aeb7fc/project",
+            "-p",
+            "dca-31f4a8607160",
+            "-f",
+            "/mnt/d/projects/Task/runs/v02-formal/20261106-v02-e3/run-20261106-073052-d1aeb7fc/artifacts/runtime-07/compose.isolated.json",
+            "restart",
+            "gateway"
+          ],
+          "output": " Container dca-31f4a8607160-gateway-1  Restarting\n Container dca-31f4a8607160-gateway-1  Started\n"
+        },
+        {
+          "stage": [
+            "logs",
+            "--no-color",
+            "--tail",
+            "40"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Windows\\system32\\wsl.exe",
+            "-d",
+            "Ubuntu",
+            "-u",
+            "root",
+            "--",
+            "env",
+            "GATEWAY_PORT=3978",
+            "OIDC_PORT=3979",
+            "PUBLIC_ORIGIN=http://localhost:3978",
+            "OIDC_PUBLIC_ORIGIN=http://localhost:3979",
+            "OIDC_ISSUER=http://localhost:3979/realms/space-fractions",
+            "docker",
+            "compose",
+            "--project-directory",
+            "/mnt/d/projects/Task/runs/v02-formal/20261106-v02-e3/run-20261106-073052-d1aeb7fc/project",
+            "-p",
+            "dca-31f4a8607160",
+            "-f",
+            "/mnt/d/projects/Task/runs/v02-formal/20261106-v02-e3/run-20261106-073052-d1aeb7fc/artifacts/runtime-07/compose.isolated.json",
+            "logs",
+            "--no-color",
+            "--tail",
+            "40"
+          ],
+          "output": "gateway-1  | public origin: http://localhost:3978\ngateway-1  | OIDC endpoints configured (forwarded only; no auth flow is implemented)\ngateway-1  | library gateway listening on port 3000\ngateway-1  | received SIGTERM, shutting down\ngateway-1  | public origin: http://localhost:3978\ngateway-1  | OIDC endpoints configured (forwarded only; no auth flow is implemented)\ngateway-1  | library gateway listening on port 3000\npostgres-1  | 2026-11-05 23:51:14.177 UTC [35] WARNING:  no usable system locales were found\npostgres-1  | performing post-bootstrap initialization ... ok\npostgres-1  | syncing data to disk ... ok\npostgres-1  | \npostgres-1  | \npostgres-1  | Success. You can now start the database server using:\npostgres-1  | \npostgres-1  |     pg_ctl -D /var/lib/postgresql/data -l logfile start\npostgres-1  | \npostgres-1  | initdb: warning: enabling \"trust\" authentication for local connections\npostgres-1  | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.\npostgres-1  | waiting for server to start....2026-11-05 23:51:15.037 UTC [41] LOG:  starting PostgreSQL 16.15 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit\npostgres-1  | 2026-11-05 23:51:15.041 UTC [41] LOG:  listening on Unix socket \"/var/run/postgresql/.s.PGSQL.5432\"\npostgres-1  | 2026-11-05 23:51:15.054 UTC [44] LOG:  database system was shut down at 2026-11-05 23:51:14 UTC\npostgres-1  | 2026-11-05 23:51:15.062 UTC [41] LOG:  database system is ready to accept connections\npostgres-1  |  done\npostgres-1  | server started\npostgres-1  | CREATE DATABASE\npostgres-1  | \npostgres-1  | \npostgres-1  | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*\npostgres-1  | \npostgres-1  | waiting for server to shut down....2026-11-05 23:51:15.182 UTC [41] LOG:  received fast shutdown request\npostgres-1  | 2026-11-05 23:51:15.186 UTC [41] LOG:  aborting any active transactions\npostgres-1  | 2026-11-05 23:51:15.188 UTC [41] LOG:  background worker \"logical replication launcher\" (PID 47) exited with exit code 1\npostgres-1  | 2026-11-05 23:51:15.188 UTC [42] LOG:  shutting down\npostgres-1  | 2026-11-05 23:51:15.192 UTC [42] LOG:  checkpoint starting: shutdown immediate\npostgres-1  | 2026-11-05 23:51:15.363 UTC [42] LOG:  checkpoint complete: wrote 926 buffers (5.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.024 s, sync=0.136 s, total=0.175 s; sync files=301, longest=0.004 s, average=0.001 s; distance=4283 kB, estimate=4283 kB; lsn=0/1925D58, redo lsn=0/1925D58\npostgres-1  | 2026-11-05 23:51:15.372 UTC [41] LOG:  database system is shut down\npostgres-1  |  done\npostgres-1  | server stopped\npostgres-1  | \npostgres-1  | PostgreSQL init process complete; ready for start up.\npostgres-1  | \npostgres-1  | 2026-11-05 23:51:15.407 UTC [1] LOG:  starting PostgreSQL 16.15 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit\npostgres-1  | 2026-11-05 23:51:15.408 UTC [1] LOG:  listening on IPv4 address \"0.0.0.0\", port 5432\npostgres-1  | 2026-11-05 23:51:15.408 UTC [1] LOG:  listening on IPv6 address \"::\", port 5432\npostgres-1  | 2026-11-05 23:51:15.415 UTC [1] LOG:  listening on Unix socket \"/var/run/postgresql/.s.PGSQL.5432\"\npostgres-1  | 2026-11-05 23:51:15.424 UTC [57] LOG:  database system was shut down at 2026-11-05 23:51:15 UTC\npostgres-1  | 2026-11-05 23:51:15.431 UTC [1] LOG:  database system is ready to accept connections\n"
+        },
+        {
+          "stage": [
+            "down",
+            "--volumes",
+            "--remove-orphans"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Windows\\system32\\wsl.exe",
+            "-d",
+            "Ubuntu",
+            "-u",
+            "root",
+            "--",
+            "env",
+            "GATEWAY_PORT=3978",
+            "OIDC_PORT=3979",
+            "PUBLIC_ORIGIN=http://localhost:3978",
+            "OIDC_PUBLIC_ORIGIN=http://localhost:3979",
+            "OIDC_ISSUER=http://localhost:3979/realms/space-fractions",
+            "docker",
+            "compose",
+            "--project-directory",
+            "/mnt/d/projects/Task/runs/v02-formal/20261106-v02-e3/run-20261106-073052-d1aeb7fc/project",
+            "-p",
+            "dca-31f4a8607160",
+            "-f",
+            "/mnt/d/projects/Task/runs/v02-formal/20261106-v02-e3/run-20261106-073052-d1aeb7fc/artifacts/runtime-07/compose.isolated.json",
+            "down",
+            "--volumes",
+            "--remove-orphans"
+          ],
+          "output": " Container dca-31f4a8607160-gateway-1  Stopping\n Container dca-31f4a8607160-gateway-1  Stopped\n Container dca-31f4a8607160-gateway-1  Removing\n Container dca-31f4a8607160-gateway-1  Removed\n Container dca-31f4a8607160-postgres-1  Stopping\n Container dca-31f4a8607160-postgres-1  Stopped\n Container dca-31f4a8607160-postgres-1  Removing\n Container dca-31f4a8607160-postgres-1  Removed\n Volume dca-31f4a8607160_postgres-data  Removing\n Network dca-31f4a8607160_default  Removing\n Volume dca-31f4a8607160_postgres-data  Removed\n Network dca-31f4a8607160_default  Removed\n"
+        }
+      ],
+      "source_modified_by_host": false,
+      "isolation_note": "Owned Compose project and loopback ports; Docker execution is not an OS security sandbox"
+    }
+  ],
+  "repair_rounds": 2,
+  "acceptance_profile": "library",
+  "generation_origin": "fresh",
+  "schema_version": 2,
+  "limitation": "Checks do not establish semantic architecture fidelity, production readiness or performance. Review traceability and run independent acceptance tests.",
+  "turns": 109,
+  "elapsed_seconds": 1256.02,
+  "tool_metrics": {
+    "reads": 108,
+    "repeated_reads": 0,
+    "tool_errors": 14,
+    "writes": 42,
+    "host_derived_writes": 1
+  },
+  "budget": {
+    "limit_cny": null,
+    "charged_cny": 402.760083,
+    "uncertain_requests": 11,
+    "request_count": 1660,
+    "prices": {
+      "input_per_million": 9,
+      "output_per_million": 27,
+      "reference_date": "2026-11-05"
+    }
+  },
+  "global_ledger_delta_cny": 15.07418100000001,
+  "run_estimated_cny": 15.074181,
+  "cost_scope": "This run's responses with valid usage only; uncertain reservations stay charged in the global ledger. Global delta may include concurrent runs.",
+  "usage": [
+    {
+      "usage": {
+        "prompt_tokens": 3645,
+        "total_tokens": 3690,
+        "completion_tokens": 45,
+        "prompt_tokens_details": {
+          "cached_tokens": 3584
+        }
+      },
+      "estimated_cny": 0.03402,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-1ddc1370-4082-953e-8142-11718332c08f"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 3706,
+        "total_tokens": 6913,
+        "completion_tokens": 3207,
+        "prompt_tokens_details": {
+          "cached_tokens": 3584
+        }
+      },
+      "estimated_cny": 0.119943,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-392e199e-188f-948d-8613-376b2b3ddd76"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 6973,
+        "total_tokens": 7428,
+        "completion_tokens": 455,
+        "prompt_tokens_details": {
+          "cached_tokens": 3584
+        }
+      },
+      "estimated_cny": 0.075042,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-abd5f3c9-6e90-94dd-90fd-b6a392702308"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 5792,
+        "total_tokens": 5841,
+        "completion_tokens": 49,
+        "prompt_tokens_details": {
+          "cached_tokens": 3328
+        }
+      },
+      "estimated_cny": 0.053451,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-211bb908-5497-997d-a94f-3291104b38e0"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 5866,
+        "total_tokens": 5912,
+        "completion_tokens": 46,
+        "prompt_tokens_details": {
+          "cached_tokens": 5632
+        }
+      },
+      "estimated_cny": 0.054036,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-46da9948-b825-9dc6-832f-00c5705cb80e"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 7278,
+        "total_tokens": 7810,
+        "completion_tokens": 532,
+        "prompt_tokens_details": {
+          "cached_tokens": 5632
+        }
+      },
+      "estimated_cny": 0.079866,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-373d6940-06ba-9543-96ec-d797ccc4aeac"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 5790,
+        "total_tokens": 5859,
+        "completion_tokens": 69,
+        "prompt_tokens_details": {
+          "cached_tokens": 3328
+        }
+      },
+      "estimated_cny": 0.053973,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-b52efc02-69dc-9dc4-97e3-0700a1821e19"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 6408,
+        "total_tokens": 6453,
+        "completion_tokens": 45,
+        "prompt_tokens_details": {
+          "cached_tokens": 5632
+        }
+      },
+      "estimated_cny": 0.058887,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-34f4a49b-3e8f-98a9-9768-9480f6e98b47"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 6486,
+        "total_tokens": 6530,
+        "completion_tokens": 44,
+        "prompt_tokens_details": {
+          "cached_tokens": 6400
+        }
+      },
+      "estimated_cny": 0.059562,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-0347b390-05d6-936f-933c-60b6ce4a4167"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 8241,
+        "total_tokens": 8576,
+        "completion_tokens": 335,
+        "prompt_tokens_details": {
+          "cached_tokens": 6400
+        }
+      },
+      "estimated_cny": 0.083214,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-eac70723-1d31-9dbc-959f-14277ef7f73e"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 5796,
+        "total_tokens": 5899,
+        "completion_tokens": 103,
+        "prompt_tokens_details": {
+          "cached_tokens": 3328
+        }
+      },
+      "estimated_cny": 0.054945,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-a27df8f1-7b2f-9a46-a599-54f61f2d047b"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 6786,
+        "total_tokens": 7856,
+        "completion_tokens": 1070,
+        "prompt_tokens_details": {
+          "cached_tokens": 5632
+        }
+      },
+      "estimated_cny": 0.089964,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-76f6c801-8122-953e-a984-f3c3b0d0c84a"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 5883,
+        "total_tokens": 5980,
+        "completion_tokens": 97,
+        "prompt_tokens_details": {
+          "cached_tokens": 3328
+        }
+      },
+      "estimated_cny": 0.055566,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-6a4b43e1-c0d1-9753-bd95-3051753dabc4"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 7479,
+        "total_tokens": 7582,
+        "completion_tokens": 103,
+        "prompt_tokens_details": {
+          "cached_tokens": 5632
+        }
+      },
+      "estimated_cny": 0.070092,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-84031118-f734-9987-8050-0a11ea1066fc"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 8205,
+        "total_tokens": 9410,
+        "completion_tokens": 1205,
+        "prompt_tokens_details": {
+          "cached_tokens": 7424
+        }
+      },
+      "estimated_cny": 0.10638,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-70e6bff6-a908-9b3d-b11e-f96227ed59cf"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 5958,
+        "total_tokens": 6127,
+        "completion_tokens": 169,
+        "prompt_tokens_details": {
+          "cached_tokens": 3328
+        }
+      },
+      "estimated_cny": 0.058185,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-7370fcec-9eb0-9cf7-ae31-4248aee159aa"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 8881,
+        "total_tokens": 10453,
+        "completion_tokens": 1572,
+        "prompt_tokens_details": {
+          "cached_tokens": 5888
+        }
+      },
+      "estimated_cny": 0.122373,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-8518a5ca-5c50-9b55-b90e-c37a1821a961"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 6048,
+        "total_tokens": 6187,
+        "completion_tokens": 139,
+        "prompt_tokens_details": {
+          "cached_tokens": 3584
+        }
+      },
+      "estimated_cny": 0.058185,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-1b8a70d2-454c-9700-b138-d7250875a8a0"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 9120,
+        "total_tokens": 10184,
+        "completion_tokens": 1064,
+        "prompt_tokens_details": {
+          "cached_tokens": 5888
+        }
+      },
+      "estimated_cny": 0.110808,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-4fbec261-90c4-9067-9b60-0b8ed4b13f5a"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 6124,
+        "total_tokens": 6308,
+        "completion_tokens": 184,
+        "prompt_tokens_details": {
+          "cached_tokens": 3584
+        }
+      },
+      "estimated_cny": 0.060084,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-66b890c4-f5c3-9211-9ad2-45a8e3acc5df"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 10977,
+        "total_tokens": 11905,
+        "completion_tokens": 928,
+        "prompt_tokens_details": {
+          "cached_tokens": 5888
+        }
+      },
+      "estimated_cny": 0.123849,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-d9821bb1-e5f6-9df9-977d-1fef340691f1"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 6167,
+        "total_tokens": 6348,
+        "completion_tokens": 181,
+        "prompt_tokens_details": {
+          "cached_tokens": 3584
+        }
+      },
+      "estimated_cny": 0.06039,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-63d57e33-b93a-977f-87fd-9f32862e7421"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 9496,
+        "total_tokens": 9610,
+        "completion_tokens": 114,
+        "prompt_tokens_details": {
+          "cached_tokens": 6144
+        }
+      },
+      "estimated_cny": 0.088542,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-1cdb66b8-552b-989f-8e30-d0b5e55106b6"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 11833,
+        "total_tokens": 11916,
+        "completion_tokens": 83,
+        "prompt_tokens_details": {
+          "cached_tokens": 9472
+        }
+      },
+      "estimated_cny": 0.108738,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-fe8ed06e-ddb7-966c-838a-5347e483c2a1"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 13077,
+        "total_tokens": 14849,
+        "completion_tokens": 1772,
+        "prompt_tokens_details": {
+          "cached_tokens": 11776
+        }
+      },
+      "estimated_cny": 0.165537,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-f40fa457-25fe-9d38-8567-796f6ea9cb55"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 6192,
+        "total_tokens": 6361,
+        "completion_tokens": 169,
+        "prompt_tokens_details": {
+          "cached_tokens": 3584
+        }
+      },
+      "estimated_cny": 0.060291,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-3dc300f2-9f7c-9da9-94c4-c38aba3ebe81"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 11001,
+        "total_tokens": 12114,
+        "completion_tokens": 1113,
+        "prompt_tokens_details": {
+          "cached_tokens": 6144
+        }
+      },
+      "estimated_cny": 0.12906,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-52ab66d2-f39e-9af9-bbc8-582c906f58c2"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 6233,
+        "total_tokens": 6364,
+        "completion_tokens": 131,
+        "prompt_tokens_details": {
+          "cached_tokens": 3584
+        }
+      },
+      "estimated_cny": 0.059634,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-2bf25ac4-8f7c-946e-95fa-61d8ff66d898"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 10171,
+        "total_tokens": 10240,
+        "completion_tokens": 69,
+        "prompt_tokens_details": {
+          "cached_tokens": 6144
+        }
+      },
+      "estimated_cny": 0.093402,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-4a9789aa-b8da-91e4-b896-c59b55d271e9"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 10312,
+        "total_tokens": 11802,
+        "completion_tokens": 1490,
+        "prompt_tokens_details": {
+          "cached_tokens": 9984
+        }
+      },
+      "estimated_cny": 0.133038,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-8658718d-8385-99b9-9660-25939cda9991"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 6284,
+        "total_tokens": 6450,
+        "completion_tokens": 166,
+        "prompt_tokens_details": {
+          "cached_tokens": 3584
+        }
+      },
+      "estimated_cny": 0.061038,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-d01a37af-9733-930e-b51b-7d2abe39e6a8"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 10944,
+        "total_tokens": 12849,
+        "completion_tokens": 1905,
+        "prompt_tokens_details": {
+          "cached_tokens": 6144
+        }
+      },
+      "estimated_cny": 0.149931,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-acffe6b5-c0c0-929e-ba0c-dc71e5c62ac9"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 6317,
+        "total_tokens": 6484,
+        "completion_tokens": 167,
+        "prompt_tokens_details": {
+          "cached_tokens": 3584
+        }
+      },
+      "estimated_cny": 0.061362,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-cd19148e-6106-93fa-9f57-9c4352662d33"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 11810,
+        "total_tokens": 12653,
+        "completion_tokens": 843,
+        "prompt_tokens_details": {
+          "cached_tokens": 6144
+        }
+      },
+      "estimated_cny": 0.129051,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-764ed47d-917c-90cc-9e4a-191cb1960379"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 6358,
+        "total_tokens": 6486,
+        "completion_tokens": 128,
+        "prompt_tokens_details": {
+          "cached_tokens": 3584
+        }
+      },
+      "estimated_cny": 0.060678,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-7ca9de9c-5557-961c-b468-7a0c4ced2082"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 9387,
+        "total_tokens": 9498,
+        "completion_tokens": 111,
+        "prompt_tokens_details": {
+          "cached_tokens": 6144
+        }
+      },
+      "estimated_cny": 0.08748,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-cd3119d1-b002-9cd1-8a44-6783b53d2e43"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 11877,
+        "total_tokens": 11938,
+        "completion_tokens": 61,
+        "prompt_tokens_details": {
+          "cached_tokens": 9216
+        }
+      },
+      "estimated_cny": 0.10854,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-63bcd099-a6d9-9802-9993-b66c9d568cf3"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 12010,
+        "total_tokens": 13324,
+        "completion_tokens": 1314,
+        "prompt_tokens_details": {
+          "cached_tokens": 11776
+        }
+      },
+      "estimated_cny": 0.143568,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-e9b89cad-9cdb-9b2d-9fff-1b44987a8f2c"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 6412,
+        "total_tokens": 6478,
+        "completion_tokens": 66,
+        "prompt_tokens_details": {
+          "cached_tokens": 3328
+        }
+      },
+      "estimated_cny": 0.05949,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-2043718f-5129-9de1-a0b5-f5aaecd48538"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 6509,
+        "total_tokens": 6536,
+        "completion_tokens": 27,
+        "prompt_tokens_details": {
+          "cached_tokens": 6400
+        }
+      },
+      "estimated_cny": 0.05931,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-96244bf8-b2f4-9796-97c9-c84f5e685c5f"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 6663,
+        "total_tokens": 6729,
+        "completion_tokens": 66,
+        "prompt_tokens_details": {
+          "cached_tokens": 6400
+        }
+      },
+      "estimated_cny": 0.061749,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-b1599410-4ea4-9850-8326-c8b6d3405eaf"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 8320,
+        "total_tokens": 11166,
+        "completion_tokens": 2846,
+        "prompt_tokens_details": {
+          "cached_tokens": 6656
+        }
+      },
+      "estimated_cny": 0.151722,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-61e41b1e-d821-9eb0-b0ca-a1da208db0a4"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 6412,
+        "total_tokens": 6495,
+        "completion_tokens": 83,
+        "prompt_tokens_details": {
+          "cached_tokens": 3328
+        }
+      },
+      "estimated_cny": 0.059949,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-3c4ade6c-8bc6-99cc-aa5b-c76fd877694e"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 9544,
+        "total_tokens": 11099,
+        "completion_tokens": 1555,
+        "prompt_tokens_details": {
+          "cached_tokens": 6400
+        }
+      },
+      "estimated_cny": 0.127881,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-b4a13465-97f1-9051-9aa9-e53556e4fc97"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 6486,
+        "total_tokens": 6579,
+        "completion_tokens": 93,
+        "prompt_tokens_details": {
+          "cached_tokens": 3328
+        }
+      },
+      "estimated_cny": 0.060885,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-7ceb7bf1-864b-9ea0-b966-c906fce6b513"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 11347,
+        "total_tokens": 12539,
+        "completion_tokens": 1192,
+        "prompt_tokens_details": {
+          "cached_tokens": 6400
+        }
+      },
+      "estimated_cny": 0.134307,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-1729830b-8b1a-9541-a7e8-b4c870d9a6e9"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 6497,
+        "total_tokens": 6631,
+        "completion_tokens": 134,
+        "prompt_tokens_details": {
+          "cached_tokens": 3328
+        }
+      },
+      "estimated_cny": 0.062091,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-d8a9053b-202f-92b4-8374-94c923daa947"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 9080,
+        "total_tokens": 9129,
+        "completion_tokens": 49,
+        "prompt_tokens_details": {
+          "cached_tokens": 6400
+        }
+      },
+      "estimated_cny": 0.083043,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-39ca0a5a-14ab-9ae3-92a8-efce8c25e4e6"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 9271,
+        "total_tokens": 10667,
+        "completion_tokens": 1396,
+        "prompt_tokens_details": {
+          "cached_tokens": 8960
+        }
+      },
+      "estimated_cny": 0.121131,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-92deb1f5-5bf2-9cfe-b11e-452b8b510528"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 6499,
+        "total_tokens": 6671,
+        "completion_tokens": 172,
+        "prompt_tokens_details": {
+          "cached_tokens": 3584
+        }
+      },
+      "estimated_cny": 0.063135,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-80b1bfb2-a774-9bb1-8bd0-37c9dffd9cde"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 12310,
+        "total_tokens": 14616,
+        "completion_tokens": 2306,
+        "prompt_tokens_details": {
+          "cached_tokens": 6400
+        }
+      },
+      "estimated_cny": 0.173052,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-cf8eedcd-5feb-9edf-999c-118bbac0ff62"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 6495,
+        "total_tokens": 6725,
+        "completion_tokens": 230,
+        "prompt_tokens_details": {
+          "cached_tokens": 3584
+        }
+      },
+      "estimated_cny": 0.064665,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-3a36d512-bc3c-96ee-912d-63e2920d51e2"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 14781,
+        "total_tokens": 15051,
+        "completion_tokens": 270,
+        "prompt_tokens_details": {
+          "cached_tokens": 6400
+        }
+      },
+      "estimated_cny": 0.140319,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-55d5a559-bf2d-98b4-8497-7526da3cd0fb"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 16934,
+        "total_tokens": 19467,
+        "completion_tokens": 2533,
+        "prompt_tokens_details": {
+          "cached_tokens": 14592
+        }
+      },
+      "estimated_cny": 0.220797,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-0f6b2904-5b64-9b7e-8e3f-03502dc97620"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 6495,
+        "total_tokens": 6615,
+        "completion_tokens": 120,
+        "prompt_tokens_details": {
+          "cached_tokens": 3584
+        }
+      },
+      "estimated_cny": 0.061695,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-7ce91931-4bef-9f06-aff1-189c38e59480"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 8176,
+        "total_tokens": 8237,
+        "completion_tokens": 61,
+        "prompt_tokens_details": {
+          "cached_tokens": 6400
+        }
+      },
+      "estimated_cny": 0.075231,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-555309dc-f1d1-95d9-99c3-b9339a17c045"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 8400,
+        "total_tokens": 8884,
+        "completion_tokens": 484,
+        "prompt_tokens_details": {
+          "cached_tokens": 7936
+        }
+      },
+      "estimated_cny": 0.088668,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-e3b98665-c05f-9349-a4d1-d75eb001c39e"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 6495,
+        "total_tokens": 6613,
+        "completion_tokens": 118,
+        "prompt_tokens_details": {
+          "cached_tokens": 3328
+        }
+      },
+      "estimated_cny": 0.061641,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-d0c8e6a0-784b-9656-a284-7746c1303d8f"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 8484,
+        "total_tokens": 9073,
+        "completion_tokens": 589,
+        "prompt_tokens_details": {
+          "cached_tokens": 6400
+        }
+      },
+      "estimated_cny": 0.092259,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-1dc629e2-3e3d-97cc-a182-2bc2d609a428"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 6495,
+        "total_tokens": 6614,
+        "completion_tokens": 119,
+        "prompt_tokens_details": {
+          "cached_tokens": 3328
+        }
+      },
+      "estimated_cny": 0.061668,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-45a82657-8852-9eb6-b7bf-ce0566bb6fbe"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 6482,
+        "total_tokens": 6591,
+        "completion_tokens": 109,
+        "prompt_tokens_details": {
+          "cached_tokens": 3328
+        }
+      },
+      "estimated_cny": 0.061281,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-37633092-c2b0-9922-b155-4951bab82840"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 9086,
+        "total_tokens": 10581,
+        "completion_tokens": 1495,
+        "prompt_tokens_details": {
+          "cached_tokens": 6400
+        }
+      },
+      "estimated_cny": 0.122139,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-7363e228-a474-919e-8842-db4052e3976f"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 6480,
+        "total_tokens": 6583,
+        "completion_tokens": 103,
+        "prompt_tokens_details": {
+          "cached_tokens": 3328
+        }
+      },
+      "estimated_cny": 0.061101,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-c8671a1b-1cb6-99a4-a485-7def57bb7af2"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 8075,
+        "total_tokens": 8209,
+        "completion_tokens": 134,
+        "prompt_tokens_details": {
+          "cached_tokens": 6400
+        }
+      },
+      "estimated_cny": 0.076293,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-8a2b76d4-aff8-96b0-9293-6236f2854da9"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 12174,
+        "total_tokens": 13540,
+        "completion_tokens": 1366,
+        "prompt_tokens_details": {
+          "cached_tokens": 7936
+        }
+      },
+      "estimated_cny": 0.146448,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-9253881c-d867-9dea-bfc2-4f65029f3ec5"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 6482,
+        "total_tokens": 6617,
+        "completion_tokens": 135,
+        "prompt_tokens_details": {
+          "cached_tokens": 3328
+        }
+      },
+      "estimated_cny": 0.061983,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-0b0a279f-036e-926c-a563-13cfaf41f506"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 13806,
+        "total_tokens": 17197,
+        "completion_tokens": 3391,
+        "prompt_tokens_details": {
+          "cached_tokens": 6400
+        }
+      },
+      "estimated_cny": 0.215811,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-b5456d4e-ce34-9da1-bde4-f6dd59f0a9c1"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 6482,
+        "total_tokens": 6548,
+        "completion_tokens": 66,
+        "prompt_tokens_details": {
+          "cached_tokens": 3584
+        }
+      },
+      "estimated_cny": 0.06012,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-e29464e7-97ee-9221-b807-4f1328453bb3"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 7972,
+        "total_tokens": 8224,
+        "completion_tokens": 252,
+        "prompt_tokens_details": {
+          "cached_tokens": 6400
+        }
+      },
+      "estimated_cny": 0.078552,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-880831dc-748e-9e90-83f6-afe26a9120ff"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 6477,
+        "total_tokens": 6570,
+        "completion_tokens": 93,
+        "prompt_tokens_details": {
+          "cached_tokens": 3328
+        }
+      },
+      "estimated_cny": 0.060804,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-10174e34-01e0-92b5-b79a-07def0ed0fba"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 7490,
+        "total_tokens": 7612,
+        "completion_tokens": 122,
+        "prompt_tokens_details": {
+          "cached_tokens": 6400
+        }
+      },
+      "estimated_cny": 0.070704,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-2ae572c7-c14c-97fa-af19-3c85fe93bb0c"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 9261,
+        "total_tokens": 9359,
+        "completion_tokens": 98,
+        "prompt_tokens_details": {
+          "cached_tokens": 7424
+        }
+      },
+      "estimated_cny": 0.085995,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-7b4cfaf1-916b-927f-bb37-41431fcf4486"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 12275,
+        "total_tokens": 12726,
+        "completion_tokens": 451,
+        "prompt_tokens_details": {
+          "cached_tokens": 9216
+        }
+      },
+      "estimated_cny": 0.122652,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-c7c755be-64b0-9384-9ed9-43df1895e660"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 9135,
+        "total_tokens": 9333,
+        "completion_tokens": 198,
+        "prompt_tokens_details": {
+          "cached_tokens": 3584
+        }
+      },
+      "estimated_cny": 0.087561,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-2c4c648a-904c-975c-a922-4f1eb1bdd283"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 16110,
+        "total_tokens": 16953,
+        "completion_tokens": 843,
+        "prompt_tokens_details": {
+          "cached_tokens": 8960
+        }
+      },
+      "estimated_cny": 0.167751,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-b94ac8e3-8da7-9b05-9df2-de3a8428566c"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 17195,
+        "total_tokens": 17314,
+        "completion_tokens": 119,
+        "prompt_tokens_details": {
+          "cached_tokens": 15872
+        }
+      },
+      "estimated_cny": 0.157968,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-c4582fec-f134-97da-8cd3-2e8825d0fff9"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 17400,
+        "total_tokens": 17719,
+        "completion_tokens": 319,
+        "prompt_tokens_details": {
+          "cached_tokens": 17152
+        }
+      },
+      "estimated_cny": 0.165213,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-c311e585-8f0f-9c86-81aa-87b0bd7e6ea8"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 17750,
+        "total_tokens": 17803,
+        "completion_tokens": 53,
+        "prompt_tokens_details": {
+          "cached_tokens": 17152
+        }
+      },
+      "estimated_cny": 0.161181,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-0b303f5e-aa6e-9274-9517-377e37573113"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 22443,
+        "total_tokens": 28230,
+        "completion_tokens": 5787,
+        "prompt_tokens_details": {
+          "cached_tokens": 17664
+        }
+      },
+      "estimated_cny": 0.358236,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-c6e6041b-10c1-99da-a903-d987cedc3f50"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 28259,
+        "total_tokens": 28370,
+        "completion_tokens": 111,
+        "prompt_tokens_details": {
+          "cached_tokens": 22272
+        }
+      },
+      "estimated_cny": 0.257328,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-2c87a7c6-8b4e-9a20-b47d-e33b7d2cc9a9"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 31185,
+        "total_tokens": 31523,
+        "completion_tokens": 338,
+        "prompt_tokens_details": {
+          "cached_tokens": 28160
+        }
+      },
+      "estimated_cny": 0.289791,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-34609087-aebc-95ca-a045-6a2775b8f826"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 31556,
+        "total_tokens": 31599,
+        "completion_tokens": 43,
+        "prompt_tokens_details": {
+          "cached_tokens": 30976
+        }
+      },
+      "estimated_cny": 0.285165,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-46b913d2-a308-975c-95a4-991da66386d9"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 37270,
+        "total_tokens": 37378,
+        "completion_tokens": 108,
+        "prompt_tokens_details": {
+          "cached_tokens": 31488
+        }
+      },
+      "estimated_cny": 0.338346,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-fef5e5a9-0dee-996d-879a-a504dcc6131b"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 38802,
+        "total_tokens": 39094,
+        "completion_tokens": 292,
+        "prompt_tokens_details": {
+          "cached_tokens": 37120
+        }
+      },
+      "estimated_cny": 0.357102,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-172a4669-1161-9557-9d72-0361a40bb090"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 39125,
+        "total_tokens": 39207,
+        "completion_tokens": 82,
+        "prompt_tokens_details": {
+          "cached_tokens": 38656
+        }
+      },
+      "estimated_cny": 0.354339,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-c4255de5-4954-9327-94f6-07d69a58ff0d"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 13505,
+        "total_tokens": 13668,
+        "completion_tokens": 163,
+        "prompt_tokens_details": {
+          "cached_tokens": 3584
+        }
+      },
+      "estimated_cny": 0.125946,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-4f9151b9-2fe6-93a9-9400-76ca6ee127c9"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 19478,
+        "total_tokens": 21000,
+        "completion_tokens": 1522,
+        "prompt_tokens_details": {
+          "cached_tokens": 13312
+        }
+      },
+      "estimated_cny": 0.216396,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-92c0848b-2036-9d9f-83c1-9cd3e82e09c8"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 23809,
+        "total_tokens": 27795,
+        "completion_tokens": 3986,
+        "prompt_tokens_details": {
+          "cached_tokens": 19456
+        }
+      },
+      "estimated_cny": 0.321903,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-6d4f2f40-75b3-9f04-b642-eff3e5d090d7"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 27825,
+        "total_tokens": 28331,
+        "completion_tokens": 506,
+        "prompt_tokens_details": {
+          "cached_tokens": 23552
+        }
+      },
+      "estimated_cny": 0.264087,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-95a4c346-a42a-9c76-8ce2-e2817a039e70"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 28363,
+        "total_tokens": 28416,
+        "completion_tokens": 53,
+        "prompt_tokens_details": {
+          "cached_tokens": 27648
+        }
+      },
+      "estimated_cny": 0.256698,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-14edb288-f2fe-90cf-bf88-aa1011f69a8a"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 30046,
+        "total_tokens": 30329,
+        "completion_tokens": 283,
+        "prompt_tokens_details": {
+          "cached_tokens": 28160
+        }
+      },
+      "estimated_cny": 0.278055,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-64d8ce8c-6bfd-9938-98ba-842a0dcf29fb"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 14423,
+        "total_tokens": 14490,
+        "completion_tokens": 67,
+        "prompt_tokens_details": {
+          "cached_tokens": 3584
+        }
+      },
+      "estimated_cny": 0.131616,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-2f463216-016b-9bc9-ae16-056f32e646e0"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 18318,
+        "total_tokens": 18476,
+        "completion_tokens": 158,
+        "prompt_tokens_details": {
+          "cached_tokens": 14336
+        }
+      },
+      "estimated_cny": 0.169128,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-a5c02cd6-afce-92e0-bc11-8457b4798d2c"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 22753,
+        "total_tokens": 22994,
+        "completion_tokens": 241,
+        "prompt_tokens_details": {
+          "cached_tokens": 18176
+        }
+      },
+      "estimated_cny": 0.211284,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-a6e459c3-505a-91f0-b764-3342dc6aca12"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 23881,
+        "total_tokens": 24691,
+        "completion_tokens": 810,
+        "prompt_tokens_details": {
+          "cached_tokens": 22528
+        }
+      },
+      "estimated_cny": 0.236799,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-bab44d92-a699-961b-963c-96092ed51314"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 24724,
+        "total_tokens": 25415,
+        "completion_tokens": 691,
+        "prompt_tokens_details": {
+          "cached_tokens": 23808
+        }
+      },
+      "estimated_cny": 0.241173,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-acec05c4-b624-9583-b0b8-fd7c1fdbce1f"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 25500,
+        "total_tokens": 25559,
+        "completion_tokens": 59,
+        "prompt_tokens_details": {
+          "cached_tokens": 24576
+        }
+      },
+      "estimated_cny": 0.231093,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-e3412e4f-8a54-92d1-8179-30622b5956b7"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 27409,
+        "total_tokens": 27477,
+        "completion_tokens": 68,
+        "prompt_tokens_details": {
+          "cached_tokens": 25344
+        }
+      },
+      "estimated_cny": 0.248517,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-f5886705-7c2d-9808-860b-68e3605657dc"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 29384,
+        "total_tokens": 29916,
+        "completion_tokens": 532,
+        "prompt_tokens_details": {
+          "cached_tokens": 27392
+        }
+      },
+      "estimated_cny": 0.27882,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-eedc86c8-664b-9773-8e24-313faad8a64c"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 11817,
+        "total_tokens": 11997,
+        "completion_tokens": 180,
+        "prompt_tokens_details": {
+          "cached_tokens": 3584
+        }
+      },
+      "estimated_cny": 0.111213,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-2d8e668b-9087-96e3-a86b-e17f4529ea1c"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 17242,
+        "total_tokens": 17435,
+        "completion_tokens": 193,
+        "prompt_tokens_details": {
+          "cached_tokens": 11776
+        }
+      },
+      "estimated_cny": 0.160389,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-53f17c96-675e-9e67-88b7-6a3df95166da"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 18596,
+        "total_tokens": 19135,
+        "completion_tokens": 539,
+        "prompt_tokens_details": {
+          "cached_tokens": 17152
+        }
+      },
+      "estimated_cny": 0.181917,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-a97e2430-e17b-9446-9b0d-0c520dd92eca"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 20739,
+        "total_tokens": 21088,
+        "completion_tokens": 349,
+        "prompt_tokens_details": {
+          "cached_tokens": 18432
+        }
+      },
+      "estimated_cny": 0.196074,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-d5815ddd-b6bd-994a-a211-52b40f03d1e9"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 23781,
+        "total_tokens": 24298,
+        "completion_tokens": 517,
+        "prompt_tokens_details": {
+          "cached_tokens": 20736
+        }
+      },
+      "estimated_cny": 0.227988,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-dce8451d-086c-9828-83ef-e947fda7ccb2"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 25758,
+        "total_tokens": 27793,
+        "completion_tokens": 2035,
+        "prompt_tokens_details": {
+          "cached_tokens": 23552
+        }
+      },
+      "estimated_cny": 0.286767,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-5d011351-eba9-940c-a970-8fbb2577c4e6"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 27829,
+        "total_tokens": 28200,
+        "completion_tokens": 371,
+        "prompt_tokens_details": {
+          "cached_tokens": 25600
+        }
+      },
+      "estimated_cny": 0.260478,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-f1fc75be-a485-9e71-a3cd-f700d8ed87a5"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 28235,
+        "total_tokens": 28340,
+        "completion_tokens": 105,
+        "prompt_tokens_details": {
+          "cached_tokens": 27648
+        }
+      },
+      "estimated_cny": 0.25695,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-c170b20d-bdf4-9113-8a69-40910d77159d"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 30217,
+        "total_tokens": 30283,
+        "completion_tokens": 66,
+        "prompt_tokens_details": {
+          "cached_tokens": 28160
+        }
+      },
+      "estimated_cny": 0.273735,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-9621adaa-1874-9d15-a145-c5da44b561c7"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 35912,
+        "total_tokens": 36382,
+        "completion_tokens": 470,
+        "prompt_tokens_details": {
+          "cached_tokens": 30208
+        }
+      },
+      "estimated_cny": 0.335898,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-ec6f3542-a4a3-9da4-ab31-a93ebd06094a"
+    }
+  ],
+  "valid_api_responses": 109,
+  "files": [
+    {
+      "path": ".dockerignore",
+      "sha256": "5592476c8cc64eb5b501010fccb3fc935a01997b47b944bd488e226bb1cb4c74"
+    },
+    {
+      "path": ".env.example",
+      "sha256": "8934eca2ffba6641d6d3866d16689c1a4a387fe7db2c3a6942168c7dfe41b285"
+    },
+    {
+      "path": "Dockerfile",
+      "sha256": "dbd5ad4b0f8c8dda6c142768d85e9392f34f4bd7daabd46a5ac32e5bd3fb16f0"
+    },
+    {
+      "path": "README.md",
+      "sha256": "6d58a5a5d4aaba43b8bc10e34c2090013a394a1a1b0cd6722997a04c5c316de5"
+    },
+    {
+      "path": "architecture-decisions.md",
+      "sha256": "b41f581b58d031a1328a23575a696a6a48b8b9d1a236e28ed49cf3d78c5dad47"
+    },
+    {
+      "path": "compose.yaml",
+      "sha256": "d6c47f9a3639853670a2e8489c3caa72c91be0d4143b953ee0386334576923e5"
+    },
+    {
+      "path": "openapi.yaml",
+      "sha256": "5605eb136760db71eecfaba445325fc77313a31a4e2084419d5b3169702c1515"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "390d7654fd509c577e459f824269ad2f72eb88dc1ba31675b622a2d1d93b9c1d"
+    },
+    {
+      "path": "package.json",
+      "sha256": "62fd6a5148f8af46d84e511824e68c7a44208bce4b36b37fd87286ac35315c6b"
+    },
+    {
+      "path": "plan.json",
+      "sha256": "23998e05aedd381344026beec7f1128841e470dac07efc80dd5273e5afd6423e"
+    },
+    {
+      "path": "traceability.json",
+      "sha256": "dc73962dccfded9a918d685b5de848df7a30700d39c7a66ea4ed25b8593fd4e0"
+    },
+    {
+      "path": "postgres-data/.gitkeep",
+      "sha256": "4bdda2d25511e10d7e290bd1eda0ae41140139e9e84fca066dc0c66d58617808"
+    },
+    {
+      "path": "public/app.js",
+      "sha256": "a530c9de131f1d35989edccd1253f9782c77e1e815c148df3f7600632ea281be"
+    },
+    {
+      "path": "public/index.html",
+      "sha256": "f0c45e244e2d95c71dd14b09417569776e2ac1caee5e14afbaa42019bf18ae1a"
+    },
+    {
+      "path": "public/style.css",
+      "sha256": "9a3d1a0158444dc17f9d49783cb28a6e6127d2b492268eb02b1f19bf437c0ca4"
+    },
+    {
+      "path": "src/server.js",
+      "sha256": "4a5b323f0de592a14f7366b8a1ff0322442d6948b4325e9aeb3503da57b16181"
+    },
+    {
+      "path": "src/catalog/catalog.js",
+      "sha256": "a5a1c5685093c64c45a8ad7aceedf84c7b2052f303072715c2605207526c5f82"
+    },
+    {
+      "path": "src/catalog/catalog.repo.js",
+      "sha256": "e729a89b5f5dad9dd6e4c2e809caab9705b0d2d9d2cf1b8d8ca339da0117924b"
+    },
+    {
+      "path": "src/db/index.js",
+      "sha256": "828a318af03de597d03458292f928db1abae8e9e9b3c7fbbfdb38c9d9e17f598"
+    },
+    {
+      "path": "src/db/schema.sql",
+      "sha256": "48041f47e3d9259b92ff7a5125907a98f1250dce9d0989c9441f1381c0a51da8"
+    },
+    {
+      "path": "src/http/app.js",
+      "sha256": "c66736e296fc7dc9f32c0118a93949ce7f2d97ba42abfbf6b8df366fcf897a99"
+    },
+    {
+      "path": "src/http/routes.js",
+      "sha256": "4c210851896dc02e567ea4b56bdccc68b524386313614e0a23dce726a5ecc09d"
+    },
+    {
+      "path": "src/http/validation.js",
+      "sha256": "357d754618326fcdfc0ff04734bdf303cb0a07909788fd62ce18cf45325e9c6f"
+    },
+    {
+      "path": "src/loans/loans.js",
+      "sha256": "ceadbcd51ccd6592f29a1216b2b2a1da36e1548ad0fc74b1f3881727b27d57b1"
+    },
+    {
+      "path": "src/loans/loans.repo.js",
+      "sha256": "5176be5acaf0fa100d04925946de1c8bd93b1f5be74e5ba0efe5f87538a91174"
+    },
+    {
+      "path": "src/store/memory.store.js",
+      "sha256": "a7834d2ede7aa43f820cdeb8b68b39e94fff568e08607a8237fc8e5d817667f0"
+    },
+    {
+      "path": "src/store/postgres.store.js",
+      "sha256": "94fa38694b05650702330fd51fc0002f02b7d9c64f50a71e6650f6a4ef6c58f6"
+    },
+    {
+      "path": "src/store/store.js",
+      "sha256": "fbf73013b9788ead9fd22356df863bc72c83ed4fefea44a9695389cd934bf90f"
+    },
+    {
+      "path": "test/catalog.test.js",
+      "sha256": "2fea3fd7379a6275cfda8e41c04091715acf0bd6aee54492946f6ee0f91452cf"
+    },
+    {
+      "path": "test/db.test.js",
+      "sha256": "0f09f4d0b760fad34fb7b4f03c99429d366183a137d7bc129eb9965fc816993b"
+    },
+    {
+      "path": "test/http.test.js",
+      "sha256": "1d14f87fb70e3f6cdcdd816e01ea9db8740a7a2effdcd7ec050c057efc030c1b"
+    },
+    {
+      "path": "test/loans.test.js",
+      "sha256": "434765d3a542821797523a40fc1c848bf1d9fa41aebf1245f2c1a253e858fa27"
+    }
+  ]
+}

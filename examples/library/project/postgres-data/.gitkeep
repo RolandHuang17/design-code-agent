@@ -1,0 +1,4 @@
+# Unused placeholder. PostgreSQL persistence uses a Docker managed (named)
+# volume `postgres-data` declared in compose.yaml; there is no host bind-mount
+# source for the data directory. This directory is retained for clarity only
+# and is not mounted by compose.yaml.

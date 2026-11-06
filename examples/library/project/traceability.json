@@ -1,0 +1,204 @@
+{
+  "items": [
+    {
+      "id": "FR1",
+      "source": { "document": "Architecture_Documentation.md", "start_line": 6 },
+      "description": "A librarian can create a title with a positive number of copies.",
+      "files": ["src/catalog/catalog.js", "src/catalog/catalog.repo.js", "src/store/store.js", "src/store/postgres.store.js", "src/store/memory.store.js", "src/http/routes.js", "src/http/validation.js"],
+      "tests": ["test/catalog.test.js", "test/http.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR2",
+      "source": { "document": "Architecture_Documentation.md", "start_line": 7 },
+      "description": "Readers can see the remaining copies and borrow an available book.",
+      "files": ["src/loans/loans.js", "src/loans/loans.repo.js", "src/store/postgres.store.js", "src/store/memory.store.js", "src/http/routes.js", "public/index.html", "public/app.js"],
+      "tests": ["test/loans.test.js", "test/http.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR3",
+      "source": { "document": "Architecture_Documentation.md", "start_line": 8 },
+      "description": "A reader has at most one active loan for the same book; a different reader may borrow another copy.",
+      "files": ["src/loans/loans.js", "src/loans/loans.repo.js", "src/store/postgres.store.js", "src/store/memory.store.js", "src/db/schema.sql"],
+      "tests": ["test/loans.test.js", "test/http.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR4",
+      "source": { "document": "Architecture_Documentation.md", "start_line": 9 },
+      "description": "Returning a loan restores one copy; repeated/concurrent returns never increase inventory more than once.",
+      "files": ["src/loans/loans.js", "src/loans/loans.repo.js", "src/store/postgres.store.js", "src/store/memory.store.js"],
+      "tests": ["test/loans.test.js", "test/http.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR5",
+      "source": { "document": "Architecture_Documentation.md", "start_line": 10 },
+      "description": "Invalid input is rejected (400). Insufficient copies and duplicate active loans are conflicts (409). Missing records are not found (404).",
+      "files": ["src/catalog/catalog.js", "src/loans/loans.js", "src/http/validation.js", "src/http/app.js", "src/http/routes.js"],
+      "tests": ["test/catalog.test.js", "test/loans.test.js", "test/http.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "NFR1",
+      "source": { "document": "Architecture_Documentation.md", "start_line": 11 },
+      "description": "Eight simultaneous borrowers of the only copy yield exactly one successful loan; inventory never becomes negative.",
+      "files": ["src/loans/loans.js", "src/loans/loans.repo.js", "src/store/postgres.store.js", "src/store/memory.store.js"],
+      "tests": ["test/loans.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "NFR2",
+      "source": { "document": "Architecture_Documentation.md", "start_line": 12 },
+      "description": "Books, stock and loans survive application restart, using PostgreSQL16.",
+      "files": ["src/db/schema.sql", "src/db/index.js", "src/store/postgres.store.js", "src/server.js", "compose.yaml"],
+      "tests": ["test/db.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "ARCH-DEP-1",
+      "source": { "document": "Architecture_Documentation.md", "start_line": 14 },
+      "description": "Node.js22, Express, plain HTML/CSS/JavaScript, PostgreSQL16. Catalog and loan management are separate business modules in one deployable gateway service.",
+      "files": ["package.json", "src/catalog/catalog.js", "src/loans/loans.js", "src/http/app.js", "src/server.js", "public/index.html", "public/app.js", "public/style.css", "Dockerfile"],
+      "tests": ["test/catalog.test.js", "test/loans.test.js", "test/http.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "ARCH-DEP-2",
+      "source": { "document": "Architecture_Documentation.md", "start_line": 16 },
+      "description": "Compose services gateway (container3000) and postgres (container5432); / at gateway and /health; idempotent schema bootstrap; borrow/return use transactions and row locks on a single client; startup never overwrites user-created books.",
+      "files": ["compose.yaml", "src/server.js", "src/db/schema.sql", "src/db/index.js", "src/store/postgres.store.js", "src/store/store.js"],
+      "tests": ["test/db.test.js", "test/loans.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "REST-1",
+      "source": { "document": "Architecture_Documentation.md", "start_line": 20 },
+      "description": "POST /api/books {title,copies} -> 201 {id,title,availableCopies}.",
+      "files": ["src/http/routes.js", "src/catalog/catalog.js"],
+      "tests": ["test/http.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "REST-2",
+      "source": { "document": "Architecture_Documentation.md", "start_line": 21 },
+      "description": "GET /api/books -> 200 {books:[...]}; GET /api/books/:id -> 200 book or 404.",
+      "files": ["src/http/routes.js", "src/catalog/catalog.js"],
+      "tests": ["test/http.test.js", "test/catalog.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "REST-3",
+      "source": { "document": "Architecture_Documentation.md", "start_line": 22 },
+      "description": "POST /api/loans {bookId,userId} -> 201 {id,bookId,userId,status:\"active\"} or 409.",
+      "files": ["src/http/routes.js", "src/loans/loans.js", "src/loans/loans.repo.js"],
+      "tests": ["test/http.test.js", "test/loans.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "REST-4",
+      "source": { "document": "Architecture_Documentation.md", "start_line": 23 },
+      "description": "GET /api/loans -> 200 {loans:[...]}.",
+      "files": ["src/http/routes.js", "src/loans/loans.js"],
+      "tests": ["test/http.test.js", "test/loans.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "REST-5",
+      "source": { "document": "Architecture_Documentation.md", "start_line": 24 },
+      "description": "POST /api/loans/:id/return -> 200 returned loan, idempotent on repetition.",
+      "files": ["src/http/routes.js", "src/loans/loans.js", "src/loans/loans.repo.js"],
+      "tests": ["test/http.test.js", "test/loans.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "REST-6",
+      "source": { "document": "Architecture_Documentation.md", "start_line": 25 },
+      "description": "Invalid title/copies/identifiers -> 400. Document endpoints in OpenAPI.",
+      "files": ["src/http/validation.js", "src/http/app.js", "src/catalog/catalog.js", "src/loans/loans.js", "openapi.yaml"],
+      "tests": ["test/http.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "DELIVERY-1",
+      "source": { "document": "Architecture_Documentation.md", "start_line": 27 },
+      "description": "Source modules, tests, pinned npm dependencies, Dockerfile/Compose, schema, a working page, README, plan and source-to-code/test traceability. Build must check sources.",
+      "files": ["package.json", "Dockerfile", "compose.yaml", "src/db/schema.sql", "public/index.html", "README.md", "plan.json", "traceability.json"],
+      "tests": ["test/catalog.test.js", "test/loans.test.js", "test/http.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "VIEW-COMPONENT",
+      "source": { "document": "Architecture_View.md", "start_line": 4 },
+      "description": "Component view: Reader/Librarian actors, Browser, Gateway (Catalog and Loans components), PostgreSQL database.",
+      "files": ["src/catalog/catalog.js", "src/loans/loans.js", "src/store/postgres.store.js", "public/index.html", "public/app.js", "src/server.js"],
+      "tests": ["test/catalog.test.js", "test/loans.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "VIEW-BORROW-SEQ",
+      "source": { "document": "Architecture_View.md", "start_line": 23 },
+      "description": "Borrow sequence: transaction, lock book row, validate stock and active loan, insert loan/decrement available/commit or rollback with 409.",
+      "files": ["src/loans/loans.js", "src/loans/loans.repo.js", "src/store/postgres.store.js", "src/store/memory.store.js"],
+      "tests": ["test/loans.test.js", "test/http.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "VIEW-LOAN-STATE",
+      "source": { "document": "Architecture_View.md", "start_line": 45 },
+      "description": "Loan state machine: Active -> Returned (stock +1 atomically); Returned -> Returned (repeated return, stock unchanged).",
+      "files": ["src/loans/loans.js", "src/loans/loans.repo.js", "src/db/schema.sql"],
+      "tests": ["test/loans.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "SUPP-HEALTH-UI",
+      "source": { "document": "library.md", "start_line": 5 },
+      "description": "GET /health -> 200; usable page at / for listing books, borrowing and returning.",
+      "files": ["src/http/app.js", "src/http/routes.js", "src/server.js", "public/index.html", "public/app.js", "public/style.css"],
+      "tests": ["test/http.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "SUPP-CONTRACT",
+      "source": { "document": "library.md", "start_line": 7 },
+      "description": "Fixed interface contract: POST /api/books 201; GET /api/books/:id 200/404; POST /api/loans 201 active; POST /api/loans/:id/return 200 returned idempotent without re-incrementing stock.",
+      "files": ["src/http/routes.js", "src/catalog/catalog.js", "src/loans/loans.js"],
+      "tests": ["test/http.test.js", "test/loans.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "SUPP-STOCK",
+      "source": { "document": "library.md", "start_line": 8 },
+      "description": "Copies cannot become negative; no remaining stock -> 409; one active loan per (bookId,userId) -> 409 duplicate; invalid title/copies/missing IDs -> 400.",
+      "files": ["src/loans/loans.js", "src/catalog/catalog.js", "src/http/validation.js"],
+      "tests": ["test/loans.test.js", "test/catalog.test.js", "test/http.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "SUPP-PERSIST",
+      "source": { "document": "library.md", "start_line": 9 },
+      "description": "PostgreSQL persists books/loans; borrower concurrency and returns update stock in a transaction on one client; GET /api/books and GET /api/loans support the UI.",
+      "files": ["src/store/postgres.store.js", "src/store/store.js", "src/loans/loans.repo.js", "src/catalog/catalog.repo.js", "src/db/schema.sql", "src/http/routes.js"],
+      "tests": ["test/loans.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "SUPP-NO-AUTH",
+      "source": { "document": "library.md", "start_line": 10 },
+      "description": "Caller-provided user IDs, local demonstration; no OAuth or authenticated identity claim.",
+      "files": ["src/http/routes.js", "src/loans/loans.js", "public/app.js", "public/index.html"],
+      "tests": ["test/http.test.js", "test/loans.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "SUPP-IDEMPOTENT-SEED",
+      "source": { "document": "library.md", "start_line": 11 },
+      "description": "Idempotent schema creation/seed; no in-memory persistence when PostgreSQL is unavailable; lockfile and real build/check command.",
+      "files": ["src/db/schema.sql", "src/db/index.js", "src/server.js", "src/store/postgres.store.js", "src/store/store.js", "package.json"],
+      "tests": ["test/db.test.js", "test/loans.test.js"],
+      "status": "implemented"
+    }
+  ]
+}

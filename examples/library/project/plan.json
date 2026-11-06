@@ -1,0 +1,74 @@
+{
+  "summary": "Node22/Express library borrowing gateway: a single deployable service exposing Catalog and Loans business modules over a REST API backed by PostgreSQL16, plus a plain HTML/CSS/JS browser UI. Borrowing and returning use transactions with row locks on a single client; returns are idempotent. Unit tests run against an injected in-memory adapter (no live Postgres); real PostgreSQL behavior is exercised by the runtime HTTP acceptance. Delivery includes OpenAPI, Compose (gateway:3000, postgres:5432), Dockerfile, schema, plan, and source-to-test traceability.",
+  "tasks": [
+    {
+      "id": "T1-schema",
+      "description": "Idempotent PostgreSQL schema bootstrap and seeding. books (id, title, copies, availableCopies) and loans (id, bookId, userId, status). Seed idempotently; never overwrite user-created books.",
+      "files": ["src/db/schema.sql", "src/db/index.js"]
+    },
+    {
+      "id": "T2-catalog",
+      "description": "Catalog business module: create book (positive integer copies), list books, get book by id. Validation and 404 handling.",
+      "files": ["src/catalog/catalog.js", "src/catalog/catalog.repo.js"]
+    },
+    {
+      "id": "T3-loans",
+      "description": "Loans business module: borrow (transaction, lock book row, validate stock + active loan, decrement available, insert loan) and idempotent return (increment stock exactly once).",
+      "files": ["src/loans/loans.js", "src/loans/loans.repo.js"]
+    },
+    {
+      "id": "T4-store",
+      "description": "Repository/store interface with two implementations: PostgresStore (production, transactional row-lock semantics) and InMemoryStore (test-only adapter, no fallback in production).",
+      "files": ["src/store/store.js", "src/store/postgres.store.js", "src/store/memory.store.js"]
+    },
+    {
+      "id": "T5-http",
+      "description": "Express app wiring: routes for /api/books, /api/books/:id, /api/loans, /api/loans/:id/return, /health, and static / UI. Correct status codes 201/200/400/404/409.",
+      "files": ["src/http/app.js", "src/http/routes.js", "src/http/validation.js"]
+    },
+    {
+      "id": "T6-server",
+      "description": "Server entrypoint selecting PostgresStore, honoring PUBLIC_ORIGIN for redirects and OIDC_ISSUER/OIDC_PUBLIC_ORIGIN env passthrough for gateway.",
+      "files": ["src/server.js"]
+    },
+    {
+      "id": "T7-ui",
+      "description": "Plain HTML/CSS/JS page at / listing books/available copies, entering reader ID, borrowing, returning loans, success/error feedback.",
+      "files": ["public/index.html", "public/app.js", "public/style.css"]
+    },
+    {
+      "id": "T8-tests",
+      "description": "Unit tests (no live Postgres) for catalog, loans semantics, idempotent return, concurrency-on-memory, and HTTP routes via injected memory adapter.",
+      "files": ["test/catalog.test.js", "test/loans.test.js", "test/http.test.js"]
+    },
+    {
+      "id": "T9-docker",
+      "description": "Compose (gateway:3000 with /health, postgres:5432), Dockerfile (node:22, healthcheck script path aligns with package.json).",
+      "files": ["Dockerfile", "compose.yaml", ".dockerignore"]
+    },
+    {
+      "id": "T10-docs",
+      "description": "OpenAPI spec, README, architecture-decisions.md, traceability.json, .env.example.",
+      "files": ["openapi.yaml", "README.md", "architecture-decisions.md", "traceability.json", ".env.example"]
+    },
+    {
+      "id": "T11-package",
+      "description": "package.json with pinned deps, test/build/start/healthcheck scripts.",
+      "files": ["package.json"]
+    }
+  ],
+  "assumptions": [
+    "ASM1: Reader IDs (userId) are demonstration caller-provided inputs, not authenticated identities, per the operator supplement; no OAuth/identity code is implemented.",
+    "ASM2: Unit tests use an injected in-memory adapter (dependency injection) so `npm test` requires no live PostgreSQL. Production code (npm start / Docker) always uses PostgreSQL and never falls back to in-memory, satisfying the 'no in-memory persistence when PostgreSQL is unavailable' constraint.",
+    "ASM3: availableCopies is stored and read directly to keep catalog reads cheap; total copies is stored separately. Borrow decrements availableCopies, return increments it exactly once (idempotency enforced by loan status, not by counting calls).",
+    "ASM4: Loan status values are active/returned matching the state machine; returning an already-returned loan returns the same 200 with no stock change.",
+    "ASM5: The 'roughly 12-18 files' supplement target is treated as a source-conciseness hint; mandatory delivery artifacts (openapi.yaml, plan.json, traceability.json, architecture-decisions.md, compose.yaml, Dockerfile) are required by the host and increase total file count.",
+    "ASM6: PUBLIC_ORIGIN controls browser-facing redirect construction; OIDC_ISSUER and OIDC_PUBLIC_ORIGIN are read/forwarded as gateway public-URL environment variables even though no OAuth flows are implemented.",
+    "ASM7: SQL identifiers and JSON keys are camelCase to match the fixed REST contract (availableCopies, bookId, userId)."
+  ],
+  "conflicts": [
+    "CONFLICT1: Operator supplement states 'no in-memory persistence when PostgreSQL is unavailable' while the host requires `npm test` to run without a live PostgreSQL. Resolved via ASSUMPTION ASM2: DI-backed test adapter vs production-only PostgresStore; no silent in-memory fallback at runtime.",
+    "CONFLICT2: Operator supplement requests 'roughly 12-18 files' but the host mandates at least plan.json, traceability.json, architecture-decisions.md, openapi.yaml, compose.yaml, Dockerfile, package.json, README.md plus source/tests. Resolved in favor of host requirements; noted in ASM5.",
+    "CONFLICT3: Original design does not mention seeding; supplement asks for 'idempotent schema creation/seed'. Resolved: seed only inserts when tables are empty, never overwriting or duplicating user-created books."
+  ]
+}
