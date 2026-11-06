@@ -2,6 +2,7 @@
 import hashlib
 import json
 import os
+import re
 import shutil
 import socket
 import sys
@@ -116,6 +117,8 @@ def isolate_compose(data, root, gateway_port, oidc_port):
 
 
 class ComposeSession:
+    MAX_DIAGNOSTIC_CONTAINERS = 16
+
     def __init__(self, root, artifacts, cancel, redactor, backend="auto", emit=None):
         self.root, self.artifacts = Path(root).resolve(), Path(artifacts).resolve()
         self.cancel, self.redactor = cancel, redactor
@@ -184,7 +187,42 @@ class ComposeSession:
         self.started = True  # partial up failures must also be cleaned up
         up = self.command(["up", "-d", "--build"], timeout=600)
         if up["status"] != "passed":
+            self.diagnose_start_failure()
             raise RuntimeError("容器构建或启动失败，见 runtime 命令输出")
+
+    def diagnose_start_failure(self):
+        """Best-effort, bounded state reads for IDs from this owned Compose project only."""
+        try:
+            if self.cancel.is_set():
+                raise Cancelled("检查已取消")
+            listed = self.command(["ps", "--all", "--format", "json"], timeout=10)
+            if listed["status"] != "passed":
+                return
+            output = listed.get("output", "").strip()
+            if not output:
+                return
+            # Compose versions emit either one JSON array or one object per line.
+            rows = json.loads(output) if output.startswith("[") else [json.loads(line) for line in output.splitlines() if line.strip()]
+            if not isinstance(rows, list) or len(rows) > self.MAX_DIAGNOSTIC_CONTAINERS:
+                raise ValueError("Compose diagnostic container count exceeds limit")
+            ids = []
+            for row in rows:
+                container_id = row.get("ID") if isinstance(row, dict) else None
+                # Never fall back to a service/name supplied by generated source.
+                if not isinstance(container_id, str) or not re.fullmatch(r"[0-9a-fA-F]{12,64}", container_id):
+                    raise ValueError("Invalid Compose diagnostic container ID")
+                if row.get("Project", self.project) != self.project:
+                    raise ValueError("Compose diagnostic project mismatch")
+                if container_id not in ids:
+                    ids.append(container_id)
+            if ids:
+                self.command(["inspect", "--format", "{{json .State}}", *ids], compose=False, timeout=10)
+        except Cancelled:
+            raise
+        except Exception as exc:
+            # Diagnostics must not replace the original startup failure or prevent cleanup.
+            self.stages.append({"stage": ["startup_diagnostics"], "status": "failed",
+                                "output": self.redactor.text(str(exc))})
 
     def restart(self):
         if not self.services:

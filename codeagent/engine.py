@@ -98,8 +98,13 @@ class Agent:
         for c in checks:
             if c.get("profile") == "runtime":
                 detail = {k: c[k] for k in ("error", "reason", "checks", "cleanup") if k in c}
+                stages = [s for s in c.get("stages", []) if s.get("status") == "failed"
+                          or s.get("stage", [""])[0] in ("logs", "inspect")]
+                # Successful inspect commands contain failed healthcheck state. Keep
+                # that root cause ahead of the generic up failure in bounded feedback.
+                stages.sort(key=lambda s: 0 if s.get("stage", [""])[0] == "inspect" else 1)
                 detail["diagnostics"] = [{"stage": s.get("stage"), "output": s.get("output", "")[-10000:]}
-                                         for s in c.get("stages", []) if s.get("status") == "failed" or s.get("stage", [""])[0] == "logs"]
+                                         for s in stages]
             else:
                 detail = c
             result.append({"profile": c.get("profile"), "status": c.get("status"),
