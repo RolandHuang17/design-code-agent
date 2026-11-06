@@ -28,7 +28,7 @@ def main():
     sources = {'Main/DesignCodeAgent.exe': args.main_exe, 'Prototype/DesignCodeAgent-Superagent.exe': args.prototype_exe,
                'EnvironmentProbe.exe': args.probe}
     for track in ('Main', 'Prototype'):
-        for case in ('smoke', 'temperature-converter'):
+        for case in ('smoke', 'temperature-converter', 'superagent-health'):
             for path in (Path('benchmarks') / case).glob('*.md'):
                 sources[f'{track}/examples/{case}/{path.name}'] = path
         for name in ('Architecture_Documentation.md', 'Architecture_View.md'):

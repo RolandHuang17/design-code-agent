@@ -25,6 +25,9 @@ foreach ($program in @(
     if ($LASTEXITCODE -ne 0) { throw "Packaging failed: $($program.Name)" }
     New-Item -ItemType Directory -Force (Join-Path $target 'examples/inputs') | Out-Null
     Copy-Item -LiteralPath 'Architecture_Documentation.md','Architecture_View.md' -Destination (Join-Path $target 'examples/inputs')
+    foreach ($case in @('temperature-converter', 'superagent-health', 'library')) {
+        Copy-Item -LiteralPath (Join-Path 'benchmarks' $case) -Destination (Join-Path $target 'examples') -Recurse
+    }
     $hash = (Get-FileHash -LiteralPath (Join-Path $target "$($program.Name).exe") -Algorithm SHA256).Hash.ToLowerInvariant()
     "$hash  $($program.Name).exe" | Set-Content -Encoding ascii (Join-Path $target 'SHA256SUMS.txt')
 }

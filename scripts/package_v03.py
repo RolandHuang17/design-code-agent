@@ -39,6 +39,12 @@ def package(main_exe, prototype_exe, output, evidence_roots=()):
     for name in ('Architecture_Documentation.md', 'Architecture_View.md'):
         for track in ('main', 'prototype'):
             entries[f'{track}/examples/inputs/{name}'] = workspace / name
+    for case in ('temperature-converter', 'superagent-health', 'library'):
+        source = workspace / 'benchmarks' / case
+        if source.is_dir():
+            for path in source.glob('*.md'):
+                for track in ('main', 'prototype'):
+                    entries[f'{track}/examples/{case}/{path.name}'] = path
     secrets = [user_variable(name).encode() for name in ('DASHSCOPE_API_KEY', 'DEEPSEEK_API_KEY') if user_variable(name)]
     manifest = {'bundle': '0.3.0', 'source_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(),
                 'policy': 'Two independent programs. Read acceptance evidence for each; presence in archive does not establish verification.', 'files': {}}
