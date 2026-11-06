@@ -16,7 +16,7 @@ from .inputs import load_inputs
 from .provider import API_ROOT, DeepSeek
 from .safety import Redactor
 
-PHASE_LABELS = {"initializing": "准备", "planning": "理解与规划", "generation": "项目生成", "verification": "质量验证", "repair": "反馈修复", "finished": "任务结束"}
+PHASE_LABELS = {"initializing": "准备", "planning": "理解与规划", "generation": "项目生成", "verification": "质量验证", "repair": "反馈修复", "replan": "调整修复策略", "finished": "任务结束"}
 
 
 class Application:
@@ -144,7 +144,7 @@ class Application:
         ttk.Label(options, text="独立验收方案").pack(side="left", padx=(0, 8))
         ttk.Combobox(options, textvariable=self.acceptance_profile, values=("space-fractions", "generic-node", "library"), state="readonly", width=21).pack(side="left")
         ttk.Label(options, text="最多修复轮数（0 = 不反馈修复）").pack(side="left", padx=12)
-        ttk.Combobox(options, textvariable=self.repair_rounds, values=("0", "1", "2", "3"), state="readonly", width=3).pack(side="left")
+        ttk.Combobox(options, textvariable=self.repair_rounds, values=tuple(str(n) for n in range(11)), state="readonly", width=3).pack(side="left")
         ttk.Checkbutton(inputs, text="允许执行生成项目及 Docker 真实验收（当前用户权限，非沙箱；需 Node.js / Docker）", variable=self.allow_execution).grid(row=4, column=0, columnspan=3, sticky="w", pady=(6, 0))
         actions = ttk.Frame(body)
         actions.grid(row=2, column=0, sticky="ew", pady=(0, 10))
