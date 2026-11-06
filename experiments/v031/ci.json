@@ -1,0 +1,33 @@
+{
+  "source_commit": "7afcaff54a7368e90c4af8631c812751209fd72a",
+  "run_id": 42231042785,
+  "status": "completed",
+  "conclusion": "failure",
+  "html_url": "https://github.com/RolandHuang17/design-code-agent/actions/runs/42231042785",
+  "observed_utc": "2026-11-06T14:08:42.346589+00:00",
+  "jobs": [
+    {
+      "id": 127936688372,
+      "name": "windows",
+      "status": "completed",
+      "conclusion": "failure",
+      "steps": [],
+      "check_run_url": "https://api.github.com/repos/RolandHuang17/design-code-agent/check-runs/127936688372"
+    }
+  ],
+  "annotations": [
+    {
+      "path": ".github",
+      "blob_href": "https://github.com/RolandHuang17/design-code-agent/blob/7afcaff54a7368e90c4af8631c812751209fd72a/.github",
+      "start_line": 1,
+      "start_column": null,
+      "end_line": 1,
+      "end_column": null,
+      "annotation_level": "failure",
+      "title": "",
+      "message": "The job was not started because your account is locked due to a billing issue.",
+      "raw_details": ""
+    }
+  ],
+  "interpretation": "Job did not start because GitHub account is locked due to billing; no CI validation or packaging pass claimed. Local200/1 is separate."
+}

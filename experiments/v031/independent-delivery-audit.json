@@ -1,0 +1,207 @@
+{
+  "kind": "v031_final_delivery_audit",
+  "created_utc": "2026-11-06T14:06:49.887274+00:00",
+  "scope": "Staged/tracked public files and final candidate04. Local/private materials only fingerprinted to check separation. No GUI, API, tests or SQLite connections. Final release ZIP and downloaded assets are checked separately by publisher.",
+  "blockers": [],
+  "build_source_commit": "fc3059f5707ff78d715774464ba72e2500fbd613",
+  "source_binding": {
+    "files": 26,
+    "entries": [
+      {
+        "path": "codeagent/__init__.py",
+        "matches": true
+      },
+      {
+        "path": "codeagent/__main__.py",
+        "matches": true
+      },
+      {
+        "path": "codeagent/acceptance/__init__.py",
+        "matches": true
+      },
+      {
+        "path": "codeagent/acceptance/http_checks.py",
+        "matches": true
+      },
+      {
+        "path": "codeagent/budget.py",
+        "matches": true
+      },
+      {
+        "path": "codeagent/candidates.py",
+        "matches": true
+      },
+      {
+        "path": "codeagent/cases.py",
+        "matches": true
+      },
+      {
+        "path": "codeagent/checks.py",
+        "matches": true
+      },
+      {
+        "path": "codeagent/cli.py",
+        "matches": true
+      },
+      {
+        "path": "codeagent/config.py",
+        "matches": true
+      },
+      {
+        "path": "codeagent/engine.py",
+        "matches": true
+      },
+      {
+        "path": "codeagent/evidence.py",
+        "matches": true
+      },
+      {
+        "path": "codeagent/gui.py",
+        "matches": true
+      },
+      {
+        "path": "codeagent/inputs.py",
+        "matches": true
+      },
+      {
+        "path": "codeagent/planning.py",
+        "matches": true
+      },
+      {
+        "path": "codeagent/prompts.py",
+        "matches": true
+      },
+      {
+        "path": "codeagent/provider.py",
+        "matches": true
+      },
+      {
+        "path": "codeagent/runtime.py",
+        "matches": true
+      },
+      {
+        "path": "codeagent/safety.py",
+        "matches": true
+      },
+      {
+        "path": "codeagent/startup.py",
+        "matches": true
+      },
+      {
+        "path": "codeagent/superagent/__init__.py",
+        "matches": true
+      },
+      {
+        "path": "codeagent/superagent/gui.py",
+        "matches": true
+      },
+      {
+        "path": "codeagent/superagent/runtime.py",
+        "matches": true
+      },
+      {
+        "path": "codeagent/superagent/store.py",
+        "matches": true
+      },
+      {
+        "path": "codeagent/tools.py",
+        "matches": true
+      },
+      {
+        "path": "codeagent/ui.py",
+        "matches": true
+      }
+    ]
+  },
+  "binaries": {
+    "main": {
+      "path": "dist/v031-build-04/main/DesignCodeAgent.exe",
+      "sha256": "2011b9e73e80f1361bc277ad02873470734a55f770f7ece5eba9986bbf527c5b",
+      "bytes": 13606847,
+      "matches": true
+    },
+    "prototype": {
+      "path": "dist/v031-build-04/prototype/DesignCodeAgent-Superagent.exe",
+      "sha256": "cc2faaf6ff7d56f503d38eb6b5b7d4846d603dba7508eb21ca26e3a4a17e6ac8",
+      "bytes": 14291606,
+      "matches": true
+    }
+  },
+  "guest_import": {
+    "files_checked": 115,
+    "mismatches": [],
+    "all_four_run_identities": {
+      "main/generated": {
+        "original_directory_name": "run-20261106-213717-d4ce73df",
+        "recorded_status": "completed_with_gaps",
+        "file_count": 71
+      },
+      "main/cancelled": {
+        "original_directory_name": "run-20261106-214246-76f014f7",
+        "recorded_status": "cancelled",
+        "file_count": 8
+      },
+      "prototype/recovered": {
+        "original_directory_name": "run-20261106-214023-4dd224412757",
+        "recorded_status": "completed",
+        "file_count": 31
+      },
+      "prototype/cancelled": {
+        "original_directory_name": "run-20261106-215337-85ac5c791aa7",
+        "recorded_status": "cancelled",
+        "file_count": 4
+      }
+    }
+  },
+  "offline_index": {
+    "scope": "v0.3.1 desktop acceptance only; formal tool and architecture prototype remain separate",
+    "reports": 17,
+    "file_hash_mismatches": [],
+    "preserves_failed_host_report": true
+  },
+  "local_links": {
+    "checked": 51,
+    "broken": []
+  },
+  "explicit_quality_outcomes": {
+    "tool_regression_manifest": {
+      "passed": 200,
+      "skipped": 1,
+      "seconds": 25.39,
+      "skip_reason": "Windows symlink privilege",
+      "record_type": "Observed local build command output, not CI"
+    },
+    "main_generated_unit_passed": 4,
+    "prototype_generated_test_failed": true,
+    "prototype_failure_disclosed_in_current_doc": true,
+    "prototype_review_advisory_kept": true,
+    "main_and_prototype_independent_http": {
+      "main": 6,
+      "prototype": 6
+    },
+    "valid_api_responses_selected_tasks": 43,
+    "known_estimated_cny_selected_tasks": 3.318882,
+    "guest_unverified_not_rewritten": true
+  },
+  "staged_working_binding": {
+    "staged_files": 0,
+    "mismatches": [],
+    "head_at_audit_completion": "7afcaff54a7368e90c4af8631c812751209fd72a",
+    "unstaged_tracked_changes": [],
+    "note": "Root committed the prepared staging set before the final staging read; staged count is0. All3942 tracked public files and candidate binaries were still scanned, with raw/import/source binding checked separately."
+  },
+  "public_scan": {
+    "files": 3942,
+    "zip_archives": 5,
+    "zip_members": 514,
+    "configured_values_checked": true,
+    "credential_matches_filenames_only": [],
+    "capability_URL_matches_filenames_only": [],
+    "private_identical_or_named_file_matches": [],
+    "private_path_reference_matches": [],
+    "private_root_outside_workspace": true,
+    "private_files_fingerprinted": 78,
+    "scope": "All tracked/staged public files plus final binaries. No local/private files were included in the public scan or copied; private files only supplied comparison fingerprints. Byte scan does not OCR screenshots."
+  },
+  "status": "passed_with_recorded_generated_test_failure"
+}

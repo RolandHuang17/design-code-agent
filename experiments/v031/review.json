@@ -20,6 +20,23 @@
       "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
     },
     {
+      "report": "ci.json",
+      "sha256": "e493f0c639722bd9f507609fb2cea5f0720005982e3c1a914f7bf44a9f46d3ca",
+      "record_kind": "ci",
+      "program": "main_or_independent_acceptance",
+      "status": "completed",
+      "recorded_status": "completed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "source_commit": "7afcaff54a7368e90c4af8631c812751209fd72a"
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
       "report": "clean-windows/independent-host-checks.json",
       "sha256": "786ad894c605284e27729e9ef0a9df91b904c92c4a6d0728ed33fc29aeb07a6e",
       "record_kind": "independent_host_validation_on_private_copies",
@@ -428,6 +445,21 @@
         },
         "source_commit": "fc3059f5707ff78d715774464ba72e2500fbd613"
       },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "independent-delivery-audit.json",
+      "sha256": "cdf52889ff5e969e1481ecd9f1b37cca2a19bbb12ffbdacfe58e312d46f30729",
+      "record_kind": "v031_final_delivery_audit",
+      "program": "main_or_independent_acceptance",
+      "status": "passed_with_recorded_generated_test_failure",
+      "recorded_status": "passed_with_recorded_generated_test_failure",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {},
       "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
     },
     {
