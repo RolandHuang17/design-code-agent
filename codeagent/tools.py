@@ -6,6 +6,8 @@ from pathlib import Path
 from .checks import validate
 from .provider import Cancelled
 from .safety import Redactor, project_files, safe_path
+from .candidates import Candidates
+from .evidence import project_snapshot, bind_check
 
 
 def schema(name, description, properties, required):
@@ -19,13 +21,14 @@ TOOL_SCHEMAS = [
     schema("read_file", "Read max 16000 characters. offset is a CHARACTER position, NOT a line number. For continuation use returned next_offset exactly.", {"path": STRING, "offset": {"type": "integer", "minimum": 0}}, ["path"]),
     schema("write_file", "Create a UTF-8 source file, or replace a file previously read in this context. Max 80000 bytes.", {"path": STRING, "content": STRING}, ["path", "content"]),
     schema("edit_file", "Replace exactly one occurrence in a file previously read; fails if ambiguous or stale.", {"path": STRING, "old": STRING, "new": STRING}, ["path", "old", "new"]),
+    schema("apply_changes", "Stage related complete files together; validate syntax, check read hashes and commit with rollback journal. Existing files must have been read.", {"changes": {"type": "array", "minItems": 1, "maxItems": 12, "items": {"type": "object", "properties": {"path": STRING, "content": STRING}, "required": ["path", "content"], "additionalProperties": False}}}, ["changes"]),
     schema("run_check", "Run fixed validation. runtime starts the protected host-selected Docker/HTTP acceptance and returns actual failures. No arbitrary shell commands.", {"profile": {"type": "string", "enum": ["static", "install", "test", "integration", "build", "compose", "auth", "runtime"]}}, ["profile"]),
 ]
 
 
 class Toolset:
     def __init__(self, root: Path, cancel: threading.Event, redactor: Redactor, allow_execution=False, on_write=None, runtime_check=None):
-        self.root, self.cancel, self.redactor = root, cancel, redactor
+        self.root, self.cancel, self.redactor = root.resolve(), cancel, redactor
         self.allow_execution, self.on_write = allow_execution, on_write
         self.read_hashes = {}
         self.check_history = []
@@ -37,6 +40,47 @@ class Toolset:
         self.focus_path = None
         self.read_counts = {}
         self.metrics = {"reads": 0, "repeated_reads": 0, "tool_errors": 0, "writes": 0, "host_derived_writes": 0}
+        self.candidates = Candidates(self.root, cancel)
+        self.candidates.recover()
+
+    def snapshot_id(self):
+        return project_snapshot(self.root)
+
+    def _commit(self, changes):
+        if not isinstance(changes, list) or not 1 <= len(changes) <= 12:
+            raise ValueError("changes must contain 1–12 {path, content} objects")
+        normalized = {}
+        for change in changes:
+            if not isinstance(change, dict) or set(change) != {"path", "content"} or not isinstance(change["content"], str):
+                raise ValueError("Each change requires exactly string path and content")
+            path = safe_path(self.root, change["path"])
+            name, content = path.relative_to(self.root).as_posix(), change["content"]
+            if name in normalized:
+                raise ValueError("Duplicate change path")
+            if path.name == "package-lock.json":
+                raise ValueError("package-lock.json is derived by host npm install; never invent lockfiles")
+            if self.focus_path and name != self.focus_path.replace("\\", "/"):
+                raise ValueError(f"当前生成目标必须精确为 {self.focus_path}")
+            if len(content.encode("utf-8")) > 80_000:
+                raise ValueError("单文件超过 80000 字节；请拆分模块")
+            if self.redactor.text(content) != content:
+                raise ValueError("文件疑似包含 API 密钥；禁止写入")
+            normalized[name] = content
+        files = list(project_files(self.root))
+        sizes = {p.relative_to(self.root).as_posix(): p.stat().st_size for p in files}
+        sizes.update({name: len(content.encode("utf-8")) for name, content in normalized.items()})
+        if len(sizes) > 300 or sum(sizes.values()) > 8_000_000:
+            raise ValueError("项目文件数或大小超过上限")
+        result = self.candidates.apply(normalized, self.read_hashes)
+        for name, content in normalized.items():
+            self.read_hashes[safe_path(self.root, name)] = hashlib.sha256(content.encode("utf-8")).hexdigest()
+            self.revision += 1
+            self.metrics["writes"] += 1
+            if self.on_write:
+                self.on_write(name, content, self.revision)
+        self.phase_reads = 0
+        return {"written": next(iter(normalized)) if len(normalized) == 1 else list(normalized),
+                "revision": self.revision, "snapshot_id": self.snapshot_id(), **result}
 
     def execute(self, name: str, arguments: str):
         if self.cancel.is_set():
@@ -57,7 +101,10 @@ class Toolset:
                     raise ValueError("offset 必须为非负整数")
             if name == "list_files":
                 return {"files": [p.relative_to(self.root).as_posix() for p in project_files(self.root)]}
+            if name == "apply_changes":
+                return self._commit(args["changes"])
             if name == "run_check":
+                before = self.snapshot_id()
                 if self.phase in ("planning", "generation") and args["profile"] != "static":
                     return {"profile": args["profile"], "status": "unverified", "reason": "生成阶段仅开放静态检查；生成结束后宿主统一执行测试与独立运行验收"}
                 if args["profile"] == "runtime":
@@ -73,6 +120,8 @@ class Toolset:
                             self.on_write("package-lock.json", lock.read_text(encoding="utf-8"), self.revision)
                         result["derived_artifact"] = {"path": "package-lock.json", "origin": "npm dependency resolution (host fixed command)",
                                                       "sha256": hashlib.sha256(lock.read_bytes()).hexdigest(), "revision": self.revision}
+                if "snapshot_id" not in result:
+                    result = bind_check(result, before, self.snapshot_id())
                 self.check_history.append({"revision": self.revision, **result})
                 return self.redactor.value(result)
             path = safe_path(self.root, args["path"])
@@ -110,24 +159,7 @@ class Toolset:
                 content = content.replace(args["old"], args["new"], 1)
             else:
                 content = args["content"]
-            if len(content.encode("utf-8")) > 80_000:
-                raise ValueError("单文件超过 80000 字节；请拆分模块")
-            if self.redactor.text(content) != content:
-                raise ValueError("文件疑似包含 API 密钥；禁止写入")
-            files = list(project_files(self.root))
-            if not path.exists() and len(files) >= 300:
-                raise ValueError("项目文件数达到 300 上限")
-            if sum(p.stat().st_size for p in files) + len(content.encode("utf-8")) > 8_000_000:
-                raise ValueError("项目大小达到 8MB 上限")
-            path.parent.mkdir(parents=True, exist_ok=True)
-            path.write_text(content, encoding="utf-8", newline="\n")
-            self.read_hashes[path] = hashlib.sha256(path.read_bytes()).hexdigest()
-            self.revision += 1
-            self.metrics["writes"] += 1
-            self.phase_reads = 0
-            if self.on_write:
-                self.on_write(args["path"], content, self.revision)
-            return {"written": args["path"], "bytes": path.stat().st_size, "revision": self.revision}
+            return self._commit([{"path": args["path"], "content": content}])
         except Cancelled:
             raise
         except (ValueError, OSError, KeyError, TypeError) as exc:

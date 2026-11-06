@@ -135,7 +135,7 @@ class ReplayProvider:
 
 
 @pytest.mark.skipif(not shutil.which("node"), reason="Node syntax check is required for this regression")
-def test_actual_static_failure_drives_read_edit_recheck(tmp_path):
+def test_candidate_syntax_failure_drives_rewrite_before_commit(tmp_path):
     arch, view = tmp_path / "arch.md", tmp_path / "view.md"
     arch.write_text("# Architecture\nA small fixture.\n", encoding="utf-8")
     view.write_text("```plantuml\n@startuml\nclass Test\n@enduml\n```", encoding="utf-8")
@@ -149,18 +149,19 @@ def test_actual_static_failure_drives_read_edit_recheck(tmp_path):
              "traceability.json": json.dumps({"items": [{"id": "T1", "source": {"document": "arch.md", "start_line": 1}, "files": ["math.js"], "tests": ["math.test.js"], "status": "implemented"}]})}
     for path, content in files.items():
         provider.add("write_file", {"path": path, "content": content})
-    provider.add("read_file", {"path": "math.js"})
-    provider.add("edit_file", {"path": "math.js", "old": "function broken( {", "new": "function fixed() { return 1; }"})
+        if path == "math.js":
+            provider.add("write_file", {"path": "math.js", "content": "function fixed() { return 1; }"})
     provider.done()
     agent = Agent(provider, threading.Event())
     run, report = agent.run(arch, view, tmp_path / "runs")
-    assert report["repair_rounds"] == 1
+    assert report["repair_rounds"] == 0
     assert report["status"] == "completed_with_gaps"
     first = json.loads((run / "artifacts/checks-0.json").read_text(encoding="utf-8"))
-    second = json.loads((run / "artifacts/checks-1.json").read_text(encoding="utf-8"))
-    assert first[0]["status"] == "failed"
-    assert second[0]["status"] == "passed"
-    assert (run / "artifacts/revisions/0006/math.js").read_text() == "function broken( {"
+    assert first[0]["status"] == "passed"
+    journals = [json.loads(p.read_text(encoding="utf-8")) for p in (run / "artifacts/candidates").glob("*/journal.json")]
+    rejected = [c for c in journals if c["status"] == "rejected"]
+    assert len(rejected) == 1
+    assert rejected[0]["changes"][0]["path"] == "math.js"
     assert (run / "project/math.js").read_text() == "function fixed() { return 1; }"
     assert not report["uses_official_endpoint"]
     # Every tool result is paired with a preceding assistant tool call.

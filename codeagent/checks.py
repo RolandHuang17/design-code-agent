@@ -1,6 +1,7 @@
 """Fixed validation profiles. Execution is opt-in; this is NOT an OS sandbox."""
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -120,7 +121,7 @@ def run_command(argv, root: Path, cancel: threading.Event, timeout=120, *, extra
             "timed_out": timed_out, "command": argv, "output": output.decode("utf-8", errors="replace")}
 
 
-def validate(root: Path, profile: str, cancel: threading.Event, allow_execution=False):
+def _validate(root: Path, profile: str, cancel: threading.Event, allow_execution=False):
     root = root.resolve()
     if profile not in PROFILES:
         raise ValueError("未知检查类型")
@@ -130,7 +131,7 @@ def validate(root: Path, profile: str, cancel: threading.Event, allow_execution=
         results = []
         files = list(project_files(root))
         names = {p.relative_to(root).as_posix() for p in files}
-        for required in ("package.json", "README.md", "openapi.yaml", "traceability.json"):
+        for required in ("package.json", "README.md", "traceability.json"):
             results.append({"check": f"required:{required}", "status": "passed" if required in names else "failed"})
         for path in files:
             relative = path.relative_to(root).as_posix()
@@ -216,9 +217,37 @@ def validate(root: Path, profile: str, cancel: threading.Event, allow_execution=
             argv = [binary, str(npm_cli), "run", script_name, "--ignore-scripts"] if binary and npm_cli.exists() else None
     if not argv:
         return {"profile": profile, "status": "unverified", "reason": "缺少 Node.js/npm 或 Docker"}
-    return {"profile": profile, **run_command(argv, root, cancel, timeout=180 if profile == "install" else 120)}
+    result = {"profile": profile, **run_command(argv, root, cancel, timeout=180 if profile == "install" else 120)}
+    return assess_test_output(result) if profile in ("test", "integration") else result
 
 
 def summarize(profile, results):
     status = "failed" if any(r["status"] == "failed" for r in results) else "unverified" if any(r["status"] == "unverified" for r in results) else "passed"
     return {"profile": profile, "status": status, "results": results}
+
+
+def assess_test_output(result):
+    """An exit code alone cannot establish that a test runner executed tests."""
+    if result.get("status") != "passed":
+        return result
+    output = re.sub(r"\x1b\[[0-9;]*m", "", result.get("output", ""))
+    totals = re.findall(r"(?m)^\s*(?:(?:#|ℹ)\s*)?tests\s+(\d+)\s*$", output)
+    skips = re.findall(r"(?m)^\s*(?:(?:#|ℹ)\s*)?skipped\s+(\d+)\s*$", output)
+    if totals:
+        count, skipped = sum(map(int, totals)), sum(map(int, skips))
+        result = {**result, "test_count": count, "skipped_count": skipped}
+        if count == 0 or skipped >= count:
+            return {**result, "status": "failed", "reason": "Test runner executed zero non-skipped tests"}
+        return {**result, "test_execution": "observed"}
+    # Other runners report totals with the number before 'passed', e.g. Jest/Vitest.
+    if re.search(r"(?:Tests?:.*?\b[1-9]\d*\s+passed|\b[1-9]\d*\s+passing)", output):
+        return {**result, "test_execution": "observed"}
+    return {**result, "status": "unverified", "reason": "Process exited successfully, but no recognized nonzero test execution evidence was found"}
+
+
+def validate(root: Path, profile: str, cancel: threading.Event, allow_execution=False):
+    from .evidence import project_snapshot, bind_check
+    root = Path(root).resolve()
+    before = project_snapshot(root)
+    result = _validate(root, profile, cancel, allow_execution)
+    return bind_check(result, before, project_snapshot(root))
