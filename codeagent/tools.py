@@ -36,6 +36,7 @@ class Toolset:
         self.read_limit = None
         self.phase_reads = 0
         self.runtime_check = runtime_check
+        self._repair_runtime_checks = {}
         self.phase = None
         self.focus_path = None
         self.required_files = None
@@ -111,7 +112,26 @@ class Toolset:
                 if self.phase in ("planning", "generation") and args["profile"] != "static":
                     return {"profile": args["profile"], "status": "unverified", "reason": "生成阶段仅开放静态检查；生成结束后宿主统一执行测试与独立运行验收"}
                 if args["profile"] == "runtime":
-                    result = self.runtime_check() if self.runtime_check else {"profile": "runtime", "status": "unverified", "reason": "未选择宿主运行验收方案"}
+                    previous_runtime = self._repair_runtime_checks.get(before)
+                    if self.phase == "repair" and previous_runtime and previous_runtime["attempts"] >= 2:
+                        result = self.redactor.value(previous_runtime["result"])
+                        result.update(runtime_reused=True, runtime_suppression_note=
+                                      "Two runtime attempts already completed for this unchanged snapshot during repair; reused latest bound evidence. Change source/config before retrying. Final host verification always reruns.")
+                        self.check_history.append({"revision": self.revision, **result})
+                        return result
+                    try:
+                        result = self.runtime_check() if self.runtime_check else {"profile": "runtime", "status": "unverified", "reason": "未选择宿主运行验收方案"}
+                    except Cancelled:
+                        raise
+                    except Exception as exc:
+                        if self.phase != "repair":
+                            raise
+                        # A failed callback still consumes an expensive repair attempt.
+                        # Preserve its error as bound evidence rather than retry forever.
+                        self.metrics["tool_errors"] += 1
+                        result = {"profile": "runtime", "status": "failed", "error": self.redactor.text(str(exc))}
+                    if self.cancel.is_set():
+                        raise Cancelled("用户取消")
                 else:
                     lock = self.root / "package-lock.json"
                     previous = lock.read_bytes() if lock.is_file() else None
@@ -127,6 +147,11 @@ class Toolset:
                 if "snapshot_id" not in result:
                     lock_only = sources_before == project_snapshot(self.root, excluded=("package-lock.json",))
                     result = bind_check(result, before, self.snapshot_id(), allow_derived_install=lock_only)
+                if args["profile"] == "runtime" and self.phase == "repair" and self.runtime_check and result.get("status") != "cancelled":
+                    self._repair_runtime_checks[before] = {
+                        "attempts": (previous_runtime["attempts"] if previous_runtime else 0) + 1,
+                        "result": self.redactor.value(result),
+                    }
                 self.check_history.append({"revision": self.revision, **result})
                 return self.redactor.value(result)
             path = safe_path(self.root, args["path"])
