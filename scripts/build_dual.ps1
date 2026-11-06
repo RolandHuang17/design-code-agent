@@ -19,7 +19,9 @@ foreach ($program in @(
 )) {
     if (-not (Test-Path -LiteralPath $program.Entry)) { throw "Missing entrypoint: $($program.Entry)" }
     $target = Join-Path $output $program.Track
-    & $Python -m PyInstaller --noconfirm --clean --onefile --windowed --distpath $target --workpath "build/v03-$($program.Track)" --specpath "build/v03-$($program.Track)" --name $program.Name --collect-data yaml --collect-data certifi --add-data 'codeagent/acceptance/auth.cjs;codeagent/acceptance' --add-data 'codeagent/cases;codeagent/cases' $program.Entry
+    $authData = (Join-Path $workspace 'codeagent/acceptance/auth.cjs') + ';codeagent/acceptance'
+    $caseData = (Join-Path $workspace 'codeagent/cases') + ';codeagent/cases'
+    & $Python -m PyInstaller --noconfirm --clean --onefile --windowed --distpath $target --workpath "build/v03-$($program.Track)" --specpath "build/v03-$($program.Track)" --name $program.Name --collect-data yaml --collect-data certifi --add-data $authData --add-data $caseData $program.Entry
     if ($LASTEXITCODE -ne 0) { throw "Packaging failed: $($program.Name)" }
     New-Item -ItemType Directory -Force (Join-Path $target 'examples/inputs') | Out-Null
     Copy-Item -LiteralPath 'Architecture_Documentation.md','Architecture_View.md' -Destination (Join-Path $target 'examples/inputs')
