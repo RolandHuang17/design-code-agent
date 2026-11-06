@@ -27,12 +27,25 @@ def main():
     parser.add_argument('--case', choices=('space-fractions', 'library', 'temperature-converter'), required=True)
     parser.add_argument('--seed', required=True, type=Path)
     parser.add_argument('--repair-rounds', type=int, default=3, choices=range(11))
+    parser.add_argument('--feedback', type=Path, help='Independent review JSON array; immutable input copied into trial')
     parser.add_argument('--confirm-pricing', action='store_true')
     args = parser.parse_args()
     if not args.confirm_pricing or not args.trial.replace('-', '').replace('_', '').isalnum():
         parser.error('Explicit price confirmation and a new alphanumeric trial ID required')
     seed = args.seed.resolve()
     before = hashes(seed)
+    feedback_bytes = args.feedback.read_bytes() if args.feedback else None
+    feedback = None
+    if feedback_bytes is not None:
+        if len(feedback_bytes) > 64000:
+            parser.error('Feedback exceeds 64000 bytes')
+        feedback = json.loads(feedback_bytes.decode('utf-8'))
+        if not isinstance(feedback, list) or any(not isinstance(row, dict) for row in feedback):
+            parser.error('Feedback must be an array of check objects')
+        for variable in ('DASHSCOPE_API_KEY', 'DEEPSEEK_API_KEY'):
+            key = user_variable(variable)
+            if key and key.encode() in feedback_bytes:
+                parser.error('Configured credential detected in feedback; contents withheld')
     source = Path('.') if args.case == 'space-fractions' else Path('benchmarks') / args.case
     frozen = hashes(Path('codeagent'))
     folder = Path('experiments/v03/main') / args.trial
@@ -43,6 +56,11 @@ def main():
                 'source_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(),
                 'model': 'deepseek-v4-pro-0813', 'provider': 'bailian',
                 'prices': {'input': 12, 'output': 27}, 'max_repair_rounds': args.repair_rounds}
+    manifest['runner_sha256'] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
+    if feedback_bytes is not None:
+        manifest['external_feedback'] = {'path': str(args.feedback.resolve()),
+                                         'sha256': hashlib.sha256(feedback_bytes).hexdigest()}
+        (folder / 'external-feedback-input.json').write_bytes(feedback_bytes)
     (folder / 'manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding='utf-8')
     receipt = folder / 'receipt.json'
     receipt.write_text('{"status":"running","generation_origin":"seed"}', encoding='utf-8')
@@ -63,7 +81,8 @@ def main():
     profile = 'generic-node' if args.case == 'temperature-converter' else args.case
     run, report = Agent(provider, cancel, emit, allow_execution=True, acceptance_profile=profile,
                         max_repair_rounds=args.repair_rounds).run(source / 'Architecture_Documentation.md',
-                        source / 'Architecture_View.md', Path('runs/v03/main') / args.trial, seed_project=seed)
+                        source / 'Architecture_View.md', Path('runs/v03/main') / args.trial, seed_project=seed,
+                        review_feedback=feedback)
     result = {'status': report['status'], 'generation_origin': 'seed', 'run': str(run),
               'turns': report['turns'], 'source_unchanged': frozen == hashes(Path('codeagent')),
               'parent_unchanged': before == hashes(seed), 'project_manually_edited': False,
