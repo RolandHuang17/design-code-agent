@@ -156,7 +156,7 @@ def test_reviewer_cannot_write_files(tmp_path):
     class Reviewer(Scripted):
         def complete(self, messages, tools, max_tokens):
             assert {t["function"]["name"] for t in tools} == {"read_resource", "submit_review"}
-            if len(messages) == 2:
+            if not any(m["role"] == "assistant" for m in messages):
                 return call("write_file", {"path": "sum.js", "content": "bad"})
             assert "no write capability" in messages[-1]["content"]
             return call("submit_review", {"approved": False, "issues": ["Needs operator review"]})
@@ -209,4 +209,57 @@ def test_retry_keeps_abandoned_request_evidence(tmp_path):
     assert len(c.store.all("attempt")) == 2
     assert any(a["state"] == "abandoned" for a in c.store.all("attempt").values())
     assert any(a["state"] == "completed" for a in c.store.all("attempt").values())
+    c.close()
+
+
+def test_input_credentials_rejected_before_persisting_resources(tmp_path):
+    c = Coordinator(tmp_path, lambda *args: None, secrets=("actual-private-token",))
+    documents = {"documents": [{"filename": "a.md", "text": "actual-private-token"}]}
+    with pytest.raises(ValueError, match="credentials"):
+        c.create(documents)
+    assert c.store.db.execute("SELECT count(*) FROM resources").fetchone()[0] == 0
+    assert c.store.get("run", "state") is None
+    assert not (tmp_path / "inputs").exists()
+    c.close()
+
+
+def test_known_truncation_uses_bounded_followup_and_keeps_usage(tmp_path):
+    from codeagent.superagent.runtime import REVIEW
+    from codeagent.provider import TruncatedOutput
+
+    class Truncating:
+        api_key = ""
+        usage = []
+
+        def complete(self, messages, tools, max_tokens):
+            assert max_tokens == 4096
+            if len(self.usage) < 2:
+                self.usage.append({"usage": {"prompt_tokens": 10, "completion_tokens": 4096}, "estimated_cny": .1})
+                raise TruncatedOutput("known response cut off")
+            return call("submit_review", {"approved": True, "issues": []})
+
+    provider = Truncating()
+    c = Coordinator(tmp_path, lambda *args: provider)
+    def handle(name, args):return args, True
+    result = c._dialogue("reviewer", "review", [REVIEW], handle)
+    assert result["approved"]
+    attempts = c.store.all("attempt")
+    assert len(attempts) == 3
+    assert sum(a["state"] == "truncated" for a in attempts.values()) == 2
+    assert sum(a["state"] == "unknown" for a in attempts.values()) == 0
+    assert len({e["details"]["request"] for e in c.store.events() if e["kind"] == "model_started"}) == 3
+    c.close()
+
+
+def test_install_only_ignores_host_derived_root_lockfile(tmp_path, monkeypatch):
+    def check(root, *args, **kwargs):
+        (root / "package-lock.json").write_text('{}')
+        (root / "source.js").write_text('changed during install')
+        return {"status": "passed"}
+
+    monkeypatch.setattr("codeagent.superagent.runtime.validate", check)
+    c = Coordinator(tmp_path, lambda *args: None)
+    (c.project / "source.js").write_text('original')
+    _, future = c.submit_check("install")
+    assert future.result(timeout=3)["state"] == "stale"
     c.close()

@@ -34,8 +34,26 @@ class Application:
         self.confirm = tk.BooleanVar(value=False)
         self.execute = tk.BooleanVar(value=False)
         self.status = tk.StringVar(value="原型：真实独立模型会话，目录隔离不是系统沙箱；与正式工具分别验收")
-        frame = ttk.Frame(root, padding=12)
-        frame.pack(fill="both", expand=True)
+        viewport = ttk.Frame(root)
+        viewport.pack(fill="both", expand=True)
+        viewport.columnconfigure(0, weight=1)
+        viewport.rowconfigure(0, weight=1)
+        canvas = tk.Canvas(viewport, highlightthickness=0)
+        canvas.grid(row=0, column=0, sticky="nsew")
+        vertical = ttk.Scrollbar(viewport, orient="vertical", command=canvas.yview)
+        vertical.grid(row=0, column=1, sticky="ns")
+        horizontal = ttk.Scrollbar(viewport, orient="horizontal", command=canvas.xview)
+        horizontal.grid(row=1, column=0, sticky="ew")
+        canvas.configure(yscrollcommand=vertical.set, xscrollcommand=horizontal.set)
+        frame = ttk.Frame(canvas, padding=12)
+        window = canvas.create_window(0, 0, window=frame, anchor="nw")
+
+        def resize(_=None):
+            canvas.itemconfigure(window, width=max(canvas.winfo_width(), frame.winfo_reqwidth()))
+            canvas.configure(scrollregion=canvas.bbox("all"))
+
+        canvas.bind("<Configure>", resize)
+        frame.bind("<Configure>", resize)
         frame.columnconfigure(1, weight=1)
         row = 0
 
@@ -66,7 +84,7 @@ class Application:
         controls = ttk.Frame(frame)
         controls.grid(row=row, column=0, columnspan=3, sticky="ew", pady=8)
         for label, action in [("新建并运行", self.start), ("恢复所选目录", self.resume), ("暂停", self.pause),
-                              ("取消", self.cancel.set), ("打开结果", self.open_result), ("查看报告", self.report)]:
+                              ("取消", lambda: self.cancel.set()), ("打开结果", self.open_result), ("查看报告", self.report)]:
             ttk.Button(controls, text=label, command=action).pack(side="left", padx=3)
         row += 1
         ttk.Label(frame, textvariable=self.status, wraplength=1000).grid(row=row, column=0, columnspan=3, sticky="w")
@@ -119,7 +137,7 @@ class Application:
                 self.coordinator.close()
             self.coordinator = Coordinator(Path(self.path.get()), lambda role, cancel: DeepSeek(key, budget, cancel,
                 pricing_confirmed=True, provider="bailian", base_url=base, model="deepseek-v4-pro-0813"), self.cancel,
-                self.execute.get(), lambda kind, details: self.events.put((kind, details)))
+                self.execute.get(), lambda kind, details: self.events.put((kind, details)), secrets=(key,))
             if fresh:
                 self.coordinator.create(documents)
             else:
