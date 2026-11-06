@@ -1,4 +1,5 @@
 import json
+import os
 import shutil
 import threading
 
@@ -41,6 +42,14 @@ def test_related_changes_validate_all_before_accepting_any(tmp_path):
     accepted = call(tools, "apply_changes", changes=[{"path":"a.json","content":"{}"}, {"path":"b.json","content":"[]"}])
     assert accepted["written"] == ["a.json", "b.json"]
     assert project_snapshot(tools.root) == accepted["snapshot_id"]
+
+
+@pytest.mark.skipif(os.name != "nt", reason="Windows case insensitive file identities")
+def test_windows_case_aliases_are_not_two_changes(tmp_path):
+    tools = tools_at(tmp_path / "project")
+    result = call(tools, "apply_changes", changes=[{"path":"a.json","content":"{}"}, {"path":"A.json","content":"[]"}])
+    assert "error" in result
+    assert not list(tools.root.iterdir())
 
 
 def test_commit_failure_rolls_back_related_files(tmp_path, monkeypatch):

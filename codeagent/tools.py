@@ -50,14 +50,15 @@ class Toolset:
     def _commit(self, changes):
         if not isinstance(changes, list) or not 1 <= len(changes) <= 12:
             raise ValueError("changes must contain 1–12 {path, content} objects")
-        normalized = {}
+        normalized, targets = {}, set()
         for change in changes:
             if not isinstance(change, dict) or set(change) != {"path", "content"} or not isinstance(change["content"], str):
                 raise ValueError("Each change requires exactly string path and content")
             path = safe_path(self.root, change["path"])
             name, content = path.relative_to(self.root).as_posix(), change["content"]
-            if name in normalized:
+            if path in targets:
                 raise ValueError("Duplicate change path")
+            targets.add(path)
             if path.name == "package-lock.json":
                 raise ValueError("package-lock.json is derived by host npm install; never invent lockfiles")
             if self.focus_path and name != self.focus_path.replace("\\", "/"):
@@ -113,7 +114,8 @@ class Toolset:
                 else:
                     lock = self.root / "package-lock.json"
                     previous = lock.read_bytes() if lock.is_file() else None
-                    result = validate(self.root, args["profile"], self.cancel, self.allow_execution, required_files=self.required_files)
+                    options = {"required_files": self.required_files} if self.required_files is not None else {}
+                    result = validate(self.root, args["profile"], self.cancel, self.allow_execution, **options)
                     if args["profile"] == "install" and lock.is_file() and lock.read_bytes() != previous:
                         self.revision += 1
                         self.metrics["host_derived_writes"] += 1
