@@ -15,6 +15,7 @@ Copy-Item -LiteralPath 'benchmarks/library' -Destination (Join-Path $releaseDir 
 Copy-Item -LiteralPath 'benchmarks/smoke' -Destination (Join-Path $releaseDir 'examples') -Recurse -Force
 Copy-Item -LiteralPath 'README.md' -Destination $releaseDir
 Copy-Item -LiteralPath 'LICENSE' -Destination $releaseDir
+Copy-Item -LiteralPath 'NOTICE.md' -Destination $releaseDir
 Copy-Item -LiteralPath 'docs' -Destination $releaseDir -Recurse -Force
 $hash = (Get-FileHash (Join-Path $releaseDir 'DesignCodeAgent.exe') -Algorithm SHA256).Hash.ToLower()
 "$hash  DesignCodeAgent.exe" | Set-Content -Encoding ascii (Join-Path $releaseDir 'SHA256SUMS.txt')
