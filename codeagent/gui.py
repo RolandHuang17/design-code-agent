@@ -135,7 +135,9 @@ class Application:
             self.task.set(f"{len(data['documents'])} 份文档 · {data['diagram_count']} 个图 · {len(data['issues'])} 条确定性提示")
             self.append(self.task.get())
             for issue in data["issues"]:
-                self.append(json.dumps(issue, ensure_ascii=False))
+                self.append(f"设计提示 · {issue.get('source', '输入文档')}:{issue.get('line', '?')}\n{issue.get('detail', '请检查原始设计')}")
+                self.details.append(self.safe(json.dumps(issue, ensure_ascii=False)))
+            self.status.set("输入解析完成 · 请核对设计提示后开始生成" if data["issues"] else "输入解析完成 · 可开始生成")
             self.tabs.select(self.activity)
         except Exception as exc:
             messagebox.showerror("输入检查", self.safe(exc))
