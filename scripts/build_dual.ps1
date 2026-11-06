@@ -1,6 +1,7 @@
 param(
     [string]$Python = '.venv/Scripts/python.exe',
-    [string]$OutputDirectory = 'dist/v03-build'
+    [string]$OutputDirectory = 'dist/v03-build',
+    [ValidateSet('both','main','prototype')][string]$Track = 'both'
 )
 $ErrorActionPreference = 'Stop'
 Set-Location (Join-Path $PSScriptRoot '..')
@@ -17,6 +18,7 @@ foreach ($program in @(
     @{Name='DesignCodeAgent'; Entry='desktop.py'; Track='main'},
     @{Name='DesignCodeAgent-Superagent'; Entry='desktop_superagent.py'; Track='prototype'}
 )) {
+    if ($Track -ne 'both' -and $program.Track -ne $Track) { continue }
     if (-not (Test-Path -LiteralPath $program.Entry)) { throw "Missing entrypoint: $($program.Entry)" }
     $target = Join-Path $output $program.Track
     $authData = (Join-Path $workspace 'codeagent/acceptance/auth.cjs') + ';codeagent/acceptance'

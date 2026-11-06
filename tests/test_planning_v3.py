@@ -127,6 +127,25 @@ def test_repair_rounds_rejects_out_of_range(tmp_path):
             Agent(ReplayProvider(tmp_path), threading.Event(), max_repair_rounds=value)
 
 
+def test_cross_module_repair_can_read_more_than_eight_dependencies(tmp_path):
+    project = tmp_path / 'project'
+    project.mkdir()
+    provider = ReplayProvider(tmp_path)
+    for index in range(12):
+        name = f'module{index}.js'
+        (project / name).write_text(f'module.exports = {index};')
+        provider.add('read_file', {'path': name})
+    provider.add('edit_file', {'path':'module0.js','old':'0;','new':'24;'})
+    provider.done()
+    agent = Agent(provider, threading.Event())
+    agent.run_dir = tmp_path / 'run'
+    (agent.run_dir / 'artifacts').mkdir(parents=True)
+    tools = Toolset(project, agent.cancel, Redactor())
+    agent.phase_loop('repair', tools, 20, [])
+    assert (project / 'module0.js').read_text() == 'module.exports = 24;'
+    assert tools.metrics['reads'] == 12 and tools.metrics['tool_errors'] == 0
+
+
 def test_repeated_failure_runs_only_one_bounded_replan(tmp_path, monkeypatch):
     architecture, views = tmp_path / "arch.md", tmp_path / "view.md"
     architecture.write_text("# Design\nA library")
