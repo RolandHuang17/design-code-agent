@@ -136,7 +136,13 @@ def local_context(documents, task, plan):
         return result
     related = {task["id"], *task.get("depends_on", [])}
     result["related_tasks"] = [t for t in plan.get("tasks", []) if t["id"] in related]
-    refs = [s for t in result["related_tasks"] for s in t.get("sources", [])]
+    result["operator_supplements"] = [
+        {"document": doc["filename"], "resource_id": "design:" + doc["sha256"],
+         "origin": doc.get("origin", "Operator supplement, not original design"),
+         "content": doc["text"][:12000], "truncated": len(doc["text"]) > 12000}
+        for doc in documents.get("documents", []) if doc.get("kind") == "operator_supplement"]
+    supplement_names = {doc["document"] for doc in result["operator_supplements"]}
+    refs = [s for t in result["related_tasks"] for s in t.get("sources", []) if s["document"] not in supplement_names]
     excerpts, available = [], 18000
     for source in refs:
         doc = next((d for d in documents.get("documents", []) if d["filename"] == source["document"]), None)
@@ -150,8 +156,9 @@ def local_context(documents, task, plan):
         if not available:
             break
     # Legacy plans have no links: preserve their full source instead of guessing relevance.
-    if not refs:
-        result["original_input"] = documents
+    if not refs and not any(t.get("sources") for t in result["related_tasks"]):
+        result["original_input"] = {**documents, "documents": [
+            d for d in documents.get("documents", []) if d.get("kind") != "operator_supplement"]}
     result["source_excerpts"] = excerpts
     return result
 
