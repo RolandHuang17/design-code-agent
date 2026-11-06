@@ -38,6 +38,7 @@ class Toolset:
         self.runtime_check = runtime_check
         self.phase = None
         self.focus_path = None
+        self.required_files = None
         self.read_counts = {}
         self.metrics = {"reads": 0, "repeated_reads": 0, "tool_errors": 0, "writes": 0, "host_derived_writes": 0}
         self.candidates = Candidates(self.root, cancel)
@@ -112,7 +113,7 @@ class Toolset:
                 else:
                     lock = self.root / "package-lock.json"
                     previous = lock.read_bytes() if lock.is_file() else None
-                    result = validate(self.root, args["profile"], self.cancel, self.allow_execution)
+                    result = validate(self.root, args["profile"], self.cancel, self.allow_execution, required_files=self.required_files)
                     if args["profile"] == "install" and lock.is_file() and lock.read_bytes() != previous:
                         self.revision += 1
                         self.metrics["host_derived_writes"] += 1
