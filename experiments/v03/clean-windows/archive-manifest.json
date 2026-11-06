@@ -1,6 +1,10 @@
 {
-  "policy": "Original ZIPs plus byte-identical exported files; derived host checks are separate. Runtime missing in guest remains unverified.",
+  "policy": "Original ZIPs and byte-identical exported files retained; derived host checks stored separately. SQLite inspection used readonly connections; generated empty WAL/SHM sidecars removed because they were absent from the transferred ZIP. No database bytes changed.",
   "files": {
+    "clean-windows.json": {
+      "sha256": "40fee06a31dd8db96cb44194004c30feb0a9e8fccada249952536505c0bca4f7",
+      "bytes": 2241
+    },
     "environment-final-hashes.png": {
       "sha256": "d81a38470547cdf091fc8c7ce20a778eab0bbb218658841b86b8c709cf51fd26",
       "bytes": 333974
@@ -140,14 +144,6 @@
     "prototype/state.sqlite": {
       "sha256": "b9f85988031f66b167aff4b8e9d703c1a406221df7804301cfc281a9ef2d04fc",
       "bytes": 266240
-    },
-    "prototype/state.sqlite-shm": {
-      "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb",
-      "bytes": 32768
-    },
-    "prototype/state.sqlite-wal": {
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "bytes": 0
     },
     "main/run-20261106-163917-eb9b4ffc/artifacts/checks-0.json": {
       "sha256": "014fa137e4643f06d304d338c65943a1e9b485024778f5ebc552593047b14174",
@@ -824,14 +820,6 @@
     "prototype/pause-demo/state.sqlite": {
       "sha256": "d5a9fae94ddcee97f2345bb83a9538543f43c86e622d374619361ffe1f413924",
       "bytes": 270336
-    },
-    "prototype/pause-demo/state.sqlite-shm": {
-      "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb",
-      "bytes": 32768
-    },
-    "prototype/pause-demo/state.sqlite-wal": {
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "bytes": 0
     },
     "prototype/project/app.cjs": {
       "sha256": "201dddfb87950f1a7c63624e2f780892ab4e2e9426d20876b69cf5fc4b9971e8",

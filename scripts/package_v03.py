@@ -26,7 +26,8 @@ def package(main_exe, prototype_exe, output, evidence_roots=()):
         entries[name] = path
     for name in ('README.md', 'LICENSE', 'NOTICE.md'):
         entries[name] = workspace / name
-    for folder in (Path('docs'), Path('benchmarks/temperature-converter'), *evidence_roots):
+    for folder in (Path('docs'), Path('benchmarks/temperature-converter'),
+                   Path('examples/temperature-converter'), Path('examples/superagent-health'), *evidence_roots):
         folder = folder.resolve()
         if not folder.exists() or not folder.is_relative_to(workspace) or folder.is_symlink():
             raise ValueError('Documentation/evidence root missing or outside workspace')

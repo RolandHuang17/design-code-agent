@@ -1,0 +1,22 @@
+{
+  "source_commit": "e8a2e2524ade83f43dd88353fd9b5e99f69da86f",
+  "run_id": 42197782741,
+  "status": "completed",
+  "conclusion": "failure",
+  "html_url": "https://github.com/RolandHuang17/design-code-agent/actions/runs/42197782741",
+  "annotations": [
+    {
+      "path": ".github",
+      "blob_href": "https://github.com/RolandHuang17/design-code-agent/blob/e8a2e2524ade83f43dd88353fd9b5e99f69da86f/.github",
+      "start_line": 1,
+      "start_column": null,
+      "end_line": 1,
+      "end_column": null,
+      "annotation_level": "failure",
+      "title": "",
+      "message": "The job was not started because your account is locked due to a billing issue.",
+      "raw_details": ""
+    }
+  ],
+  "interpretation": "Job did not start because account billing is locked. No CI test or packaging success is claimed."
+}

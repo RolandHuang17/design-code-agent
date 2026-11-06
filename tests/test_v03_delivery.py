@@ -46,12 +46,15 @@ def setup_package(tmp_path, monkeypatch):
     monkeypatch.chdir(tmp_path)
     monkeypatch.setattr('scripts.package_v03.user_variable', lambda _: '')
     monkeypatch.setattr('scripts.package_v03.subprocess.check_output', lambda *a, **k: 'fixture-commit\n')
-    for folder in ('dist/main', 'dist/prototype', 'docs', 'benchmarks/temperature-converter'):
+    for folder in ('dist/main', 'dist/prototype', 'docs', 'benchmarks/temperature-converter',
+                   'examples/temperature-converter', 'examples/superagent-health'):
         Path(folder).mkdir(parents=True)
     for name in ('README.md', 'LICENSE', 'NOTICE.md', 'Architecture_Documentation.md', 'Architecture_View.md'):
         Path(name).write_bytes(b'original\r\nbytes')
     Path('dist/main/app.exe').write_bytes(b'main executable fixture')
     Path('dist/prototype/app.exe').write_bytes(b'prototype executable fixture')
+    Path('examples/temperature-converter/README.md').write_bytes(b'example provenance\r\n')
+    Path('examples/superagent-health/README.md').write_bytes(b'prototype provenance\r\n')
 
 
 def test_prototype_index_keeps_nested_verification_gaps_and_stale_jobs(tmp_path):
@@ -115,6 +118,8 @@ def test_dual_package_hashes_and_preserves_two_separate_programs(tmp_path, monke
         assert 'main/DesignCodeAgent.exe' in manifest['files']
         assert 'prototype/DesignCodeAgent-Superagent.exe' in manifest['files']
         assert 'prototype/examples/inputs/Architecture_View.md' in manifest['files']
+        assert archive.read('examples/temperature-converter/README.md') == b'example provenance\r\n'
+        assert archive.read('examples/superagent-health/README.md') == b'prototype provenance\r\n'
     with pytest.raises(ValueError, match='NEW archive'):
         package(Path('dist/main/app.exe'), Path('dist/prototype/app.exe'), Path('dist/bundle.zip'))
 

@@ -44,5 +44,10 @@
     "JSON report opening may require choosing a local text editor",
     "Prototype report.run.reason retains historical cancellation text after completion; use current state, verification and event history",
     "An input-method focus error was cleared before any recovery API request; private configuration screenshots were not archived"
-  ]
+  ],
+  "cleanup": {
+    "guest_power_state": "poweroff",
+    "nat_localhost_reachable": false,
+    "loopback_receiver_stopped": true
+  }
 }

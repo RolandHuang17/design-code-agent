@@ -4,6 +4,20 @@
 
 参考 [DeepSeek Super-agent 固定提交](https://github.com/deepseek-ai/dsh-superagent-prototype/tree/8c32a9dc5d72c033816c6a8110b37f40cf94fba4)。借鉴工作项与执行尝试分离、资源摘要和按需展开、持久化待办、独立执行上下文以及结构化状态。Python 实现针对两份设计文档到代码的作业场景进行了简化，没有 GitHub／飞书事件接入和自动合并。
 
+## 源码依据与改造边界
+
+补充核验使用 GitHub 内容 API 读取同一固定提交，文件哈希及具体阅读范围见 [来源清单](../experiments/v03/upstream-reading.json)。以下是机制借鉴与本项目实现的对应，不是代码逐行移植。
+
+| 上游实际机制与依据 | 本项目落地 | 简化或扩展 |
+| --- | --- | --- |
+| [Domain](https://github.com/deepseek-ai/dsh-superagent-prototype/blob/8c32a9dc5d72c033816c6a8110b37f40cf94fba4/docs/001-domain.md) 与 [model.ts](https://github.com/deepseek-ai/dsh-superagent-prototype/blob/8c32a9dc5d72c033816c6a8110b37f40cf94fba4/src/core/model.ts)：Ticket 与 Assignment 各有状态，不跟随 Session 生存期 | SQLite 分开保存工作项、请求尝试与模型会话；关闭 exe 后仍可恢复工作 | 不实现上游的事件准入、Mandate、跨来源订阅与授权模型 |
+| [resources.ts](https://github.com/deepseek-ai/dsh-superagent-prototype/blob/8c32a9dc5d72c033816c6a8110b37f40cf94fba4/src/app/resources.ts)：资源描述、分页、后续读取位置及会话读取范围 | 原始设计、计划与源码按摘要、ID及页码读取 | 本地内容哈希和不可变资源版本是本项目的扩展；不复用上游的进程内分页缓存。偏移单位是 Python Unicode 字符，上游文本页采用 UTF-16 码元 |
+| [effects.ts](https://github.com/deepseek-ai/dsh-superagent-prototype/blob/8c32a9dc5d72c033816c6a8110b37f40cf94fba4/src/app/effects.ts) 与 [store.ts](https://github.com/deepseek-ai/dsh-superagent-prototype/blob/8c32a9dc5d72c033816c6a8110b37f40cf94fba4/src/app/store.ts)：持久化副作用队列与事务提交后的执行分开 | 文件集成先记录意图，再按基础哈希接受；模型请求先记尝试，未知结果需确认 | 没有实现上游完整的渠道 Outbox、分类退避与外部消息交付；不保证远端请求恰好执行一次 |
+| [sessions.ts](https://github.com/deepseek-ai/dsh-superagent-prototype/blob/8c32a9dc5d72c033816c6a8110b37f40cf94fba4/src/app/sessions.ts)：主会话与执行会话使用不同工具范围 | 真实规划、代码、只读审查会话分开，审查者不能修改文件 | 本项目协调器为确定性 Python 调度器；没有照搬上游模型主会话和终端工具集合 |
+| [background.ts](https://github.com/deepseek-ai/dsh-superagent-prototype/blob/8c32a9dc5d72c033816c6a8110b37f40cf94fba4/src/executor/background.ts)：后台作业归属、事件与有界结束处理 | 固定检查提交返回 job_id，后台完成事件携带快照；过期结果拒绝通过 | 检查快照绑定是本项目扩展。重启时未完成检查标为中断并重新核验，不恢复旧操作系统进程 |
+
+本项目重点验证设计到代码场景下的调度、上下文与证据机制。目录隔离、候选文件归属和单宿主集成不能替代操作系统安全沙箱；只读审查也不能替代运行测试。
+
 ## 实际执行链
 
 ```mermaid
