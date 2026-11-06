@@ -163,3 +163,47 @@ def test_reviewer_cannot_write_files(tmp_path):
     assert not c._review()["approved"]
     assert not (c.project / "sum.js").exists()
     c.close()
+
+
+def test_planner_rejects_windows_case_aliases(tmp_path):
+    class Aliased(Scripted):
+        def complete(self, *args, **kwargs):
+            tasks = [dict(t, files=list(t["files"])) for t in TASKS]
+            tasks[1]["files"] = ["README.MD"]
+            return call("submit_plan", {"tasks": tasks, "assumptions": []})
+
+    c = Coordinator(tmp_path, lambda role, cancel: Aliased(role, []))
+    c.create(DOCUMENTS)
+    result = c.run()
+    assert result["state"] == "failed"
+    assert c.store.get("run", "plan") is None
+    assert not list(c.project.iterdir())
+    c.close()
+
+
+def test_batch_write_does_not_bypass_worker_ownership(tmp_path):
+    class Intruder(Scripted):
+        def complete(self, messages, tools, max_tokens):
+            return call("apply_changes", {"changes": [{"path": "other.js", "content": "module.exports=1"}]})
+
+    c = Coordinator(tmp_path, lambda role, cancel: Intruder(role, []))
+    c.create(DOCUMENTS)
+    with pytest.raises(RuntimeError, match="单会话轮次上限"):
+        c._worker(TASKS[1])
+    assert not (tmp_path / "stages" / "code" / "other.js").exists()
+    c.close()
+
+
+def test_retry_keeps_abandoned_request_evidence(tmp_path):
+    seen = []
+    c = Coordinator(tmp_path, lambda role, cancel: Scripted(role, seen))
+    provider = Scripted("reviewer", seen)
+    messages = [{"role": "user", "content": "review"}]
+    c._call("reviewer", provider, messages, [])
+    key, attempt = next(iter(c.store.all("attempt").items()))
+    c.store.put("attempt", key, {**attempt, "state": "abandoned", "reason": "operator acknowledged uncertain request"})
+    c._call("reviewer", provider, messages, [])
+    assert len(c.store.all("attempt")) == 2
+    assert any(a["state"] == "abandoned" for a in c.store.all("attempt").values())
+    assert any(a["state"] == "completed" for a in c.store.all("attempt").values())
+    c.close()

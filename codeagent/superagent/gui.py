@@ -18,7 +18,7 @@ class Application:
     def __init__(self, root):
         self.root = root
         root.title("DesignCodeAgent-Superagent · 架构原型")
-        root.geometry("1100x820")
+        root.geometry(f"{min(1100, root.winfo_screenwidth()-60)}x{min(820, root.winfo_screenheight()-70)}")
         self.events = queue.Queue()
         self.coordinator = None
         self.worker = None
