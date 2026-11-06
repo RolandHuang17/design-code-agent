@@ -1,0 +1,560 @@
+{
+  "status": "checks_passed_requires_review",
+  "provider": "bailian",
+  "model": "deepseek-v4-pro-0813",
+  "uses_official_endpoint": false,
+  "real_api_run": true,
+  "checks": [
+    {
+      "profile": "static",
+      "status": "passed",
+      "results": [
+        {
+          "check": "required:package.json",
+          "status": "passed"
+        },
+        {
+          "check": "required:README.md",
+          "status": "passed"
+        },
+        {
+          "check": "required:traceability.json",
+          "status": "passed"
+        },
+        {
+          "check": "package-lock.json",
+          "status": "passed"
+        },
+        {
+          "check": "package.json",
+          "status": "passed"
+        },
+        {
+          "check": "plan.json",
+          "status": "passed"
+        },
+        {
+          "check": "server.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\generic-01\\run-20261106-151949-c59162b3\\project\\server.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "traceability.json",
+          "status": "passed"
+        },
+        {
+          "check": "lib/app.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\generic-01\\run-20261106-151949-c59162b3\\project\\lib\\app.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "lib/convert.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\generic-01\\run-20261106-151949-c59162b3\\project\\lib\\convert.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/app.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\generic-01\\run-20261106-151949-c59162b3\\project\\test\\app.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/convert.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\generic-01\\run-20261106-151949-c59162b3\\project\\test\\convert.test.js"
+          ],
+          "output": ""
+        }
+      ],
+      "snapshot_id": "66252816ef6167b7ba6545b1b237c7142d8fea02068f9bb09abcb94077397602",
+      "snapshot_after": "66252816ef6167b7ba6545b1b237c7142d8fea02068f9bb09abcb94077397602",
+      "stale": false
+    },
+    {
+      "profile": "install",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "output": "\nup to date in 618ms\n",
+      "snapshot_id": "66252816ef6167b7ba6545b1b237c7142d8fea02068f9bb09abcb94077397602",
+      "snapshot_after": "66252816ef6167b7ba6545b1b237c7142d8fea02068f9bb09abcb94077397602",
+      "stale": false,
+      "derived_artifact": {
+        "path": "package-lock.json",
+        "origin": "npm dependency resolution (host fixed command)",
+        "sha256": "26e72bb4066dbab737c5ed7bbbea7a823b033637376e09d822227428ccc5ba0d",
+        "revision": 11
+      }
+    },
+    {
+      "profile": "test",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "run",
+        "test",
+        "--ignore-scripts"
+      ],
+      "output": "\n> temperature-converter@1.0.0 test\n> node --test\n\n✔ GET / returns HTML page with expected elements (83.2304ms)\n✔ POST /api/convert converts C to F with fractional result preserved (11.2028ms)\n✔ POST /api/convert preserves fractional (non-integer) values (5.0846ms)\n✔ POST /api/convert same-unit preserves the value (5.8573ms)\n✔ POST /api/convert rejects below absolute zero with 400 (5.0837ms)\n✔ POST /api/convert rejects malformed JSON with 400 (5.1333ms)\n✔ POST /api/convert rejects missing fields with 400 (4.1089ms)\n✔ POST /api/convert rejects boolean value with 400 (3.9046ms)\n✔ POST /api/convert rejects unsupported unit with 400 (4.5732ms)\n✔ GET /health returns 200 {status:ok} (6.8678ms)\n✔ C to F uses C = (F - 32) * 5 / 9 inverse (1.8241ms)\n✔ F to C uses C = (F - 32) * 5 / 9 (0.16ms)\n✔ C to K uses K = C + 273.15 (0.1224ms)\n✔ K to C uses C = K - 273.15 (0.1122ms)\n✔ F to K converts through Celsius (0.1628ms)\n✔ K to F converts through Celsius (0.1422ms)\n✔ negative Celsius above absolute zero is valid (0.1526ms)\n✔ negative Fahrenheit above absolute zero is valid (0.1413ms)\n✔ same-unit conversion preserves the value (0.2382ms)\n✔ does not round the API value to an integer (0.2744ms)\n✔ absolute zero boundaries are accepted (with epsilon tolerance) (0.1634ms)\n✔ insignificant floating-point error at boundaries is tolerated (0.1397ms)\n✔ missing value is rejected (0.9076ms)\n✔ nonnumeric values are rejected (0.2231ms)\n✔ booleans are rejected (0.2076ms)\n✔ unsupported units are rejected (0.2304ms)\n✔ temperatures below absolute zero are rejected (0.1646ms)\n✔ below-zero value is rejected even for same-unit conversion (0.1883ms)\n✔ ConversionError carries a non-empty message (0.1273ms)\nℹ tests 29\nℹ suites 0\nℹ pass 29\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 231.4428\n",
+      "test_count": 29,
+      "skipped_count": 0,
+      "test_execution": "observed",
+      "snapshot_id": "66252816ef6167b7ba6545b1b237c7142d8fea02068f9bb09abcb94077397602",
+      "snapshot_after": "66252816ef6167b7ba6545b1b237c7142d8fea02068f9bb09abcb94077397602",
+      "stale": false
+    },
+    {
+      "profile": "integration",
+      "status": "not_applicable",
+      "optional": true,
+      "reason": "项目未声明独立 test:integration；不计为通过，领域 HTTP 由项目外 runtime 验收",
+      "snapshot_id": "66252816ef6167b7ba6545b1b237c7142d8fea02068f9bb09abcb94077397602"
+    },
+    {
+      "profile": "build",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "run",
+        "build",
+        "--ignore-scripts"
+      ],
+      "output": "\n> temperature-converter@1.0.0 build\n> node --check server.js && node --check lib/convert.js && node --check lib/app.js\n\n",
+      "snapshot_id": "66252816ef6167b7ba6545b1b237c7142d8fea02068f9bb09abcb94077397602",
+      "snapshot_after": "66252816ef6167b7ba6545b1b237c7142d8fea02068f9bb09abcb94077397602",
+      "stale": false
+    },
+    {
+      "profile": "compose",
+      "status": "not_applicable",
+      "optional": true,
+      "reason": "通用项目未声明 Compose；未将特定案例部署结构强加给输入",
+      "snapshot_id": "66252816ef6167b7ba6545b1b237c7142d8fea02068f9bb09abcb94077397602"
+    },
+    {
+      "profile": "plan_references",
+      "status": "passed",
+      "problems": [],
+      "snapshot_id": "66252816ef6167b7ba6545b1b237c7142d8fea02068f9bb09abcb94077397602",
+      "limitation": "Checks planned files and literal relative imports, not dynamic imports or semantic compatibility"
+    },
+    {
+      "profile": "traceability_links",
+      "status": "passed",
+      "problems": [],
+      "limitation": "只检查链接和来源范围；语义覆盖需要独立审查",
+      "snapshot_id": "66252816ef6167b7ba6545b1b237c7142d8fea02068f9bb09abcb94077397602"
+    },
+    {
+      "profile": "runtime",
+      "status": "not_applicable",
+      "optional": true,
+      "reason": "通用项目无内置领域HTTP验收；业务正确性需另行独立检查",
+      "snapshot_id": "66252816ef6167b7ba6545b1b237c7142d8fea02068f9bb09abcb94077397602"
+    }
+  ],
+  "repair_rounds": 0,
+  "acceptance_profile": "generic-node",
+  "generation_origin": "fresh",
+  "schema_version": 2,
+  "limitation": "Checks do not establish semantic architecture fidelity, production readiness or performance. Review traceability and run independent acceptance tests.",
+  "turns": 20,
+  "bounded_replan_used": false,
+  "elapsed_seconds": 178.12,
+  "tool_metrics": {
+    "reads": 5,
+    "repeated_reads": 0,
+    "tool_errors": 0,
+    "writes": 10,
+    "host_derived_writes": 1
+  },
+  "budget": {
+    "limit_cny": null,
+    "charged_cny": 462.222624,
+    "uncertain_requests": 14,
+    "request_count": 2062,
+    "prices": {
+      "input_per_million": 12.0,
+      "output_per_million": 27.0,
+      "reference_date": "2026-11-05"
+    }
+  },
+  "global_ledger_delta_cny": 9.053151000000014,
+  "run_estimated_cny": 2.23713,
+  "cost_scope": "This run's responses with valid usage only; uncertain reservations stay charged in the global ledger. Global delta may include concurrent runs.",
+  "usage": [
+    {
+      "usage": {
+        "prompt_tokens": 4165,
+        "total_tokens": 4336,
+        "completion_tokens": 171,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        }
+      },
+      "estimated_cny": 0.054597,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-fc3d5add-b8f7-947a-a195-7833d117dd5a"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 5189,
+        "total_tokens": 5848,
+        "completion_tokens": 659,
+        "prompt_tokens_details": {
+          "cached_tokens": 4096
+        }
+      },
+      "estimated_cny": 0.080061,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-23c3ac78-af31-9bc6-97ea-275cf3946115"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 5972,
+        "total_tokens": 7855,
+        "completion_tokens": 1883,
+        "prompt_tokens_details": {
+          "cached_tokens": 5120
+        }
+      },
+      "estimated_cny": 0.122505,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-a13eee9d-091b-9a73-9a32-015af7ffdcb9"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 7979,
+        "total_tokens": 8952,
+        "completion_tokens": 973,
+        "prompt_tokens_details": {
+          "cached_tokens": 5888
+        }
+      },
+      "estimated_cny": 0.122019,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-45a2e3c1-aed3-902a-bb72-dd5d48bcb463"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 9082,
+        "total_tokens": 9125,
+        "completion_tokens": 43,
+        "prompt_tokens_details": {
+          "cached_tokens": 7936
+        }
+      },
+      "estimated_cny": 0.110145,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-5c691a87-b434-9b36-91bd-ac352f1c924f"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 9350,
+        "total_tokens": 9707,
+        "completion_tokens": 357,
+        "prompt_tokens_details": {
+          "cached_tokens": 8960
+        }
+      },
+      "estimated_cny": 0.121839,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-fe1366b3-2500-9e38-b7b3-4c1734a95bae"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 9754,
+        "total_tokens": 10103,
+        "completion_tokens": 349,
+        "prompt_tokens_details": {
+          "cached_tokens": 9216
+        }
+      },
+      "estimated_cny": 0.126471,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-550c908d-a067-973e-8eb6-3768597ea080"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 7304,
+        "total_tokens": 7511,
+        "completion_tokens": 207,
+        "prompt_tokens_details": {
+          "cached_tokens": 2304
+        }
+      },
+      "estimated_cny": 0.093237,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-afe4d898-6156-98e6-8641-3c4d7e444a1d"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 7292,
+        "total_tokens": 7337,
+        "completion_tokens": 45,
+        "prompt_tokens_details": {
+          "cached_tokens": 2304
+        }
+      },
+      "estimated_cny": 0.088719,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-da0df2a8-6506-9d92-b234-43fdadf8a521"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 7371,
+        "total_tokens": 7415,
+        "completion_tokens": 44,
+        "prompt_tokens_details": {
+          "cached_tokens": 7168
+        }
+      },
+      "estimated_cny": 0.08964,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-35762839-da49-9460-a948-f54b7aa6e159"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 7624,
+        "total_tokens": 8513,
+        "completion_tokens": 889,
+        "prompt_tokens_details": {
+          "cached_tokens": 7168
+        }
+      },
+      "estimated_cny": 0.115491,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-aa4816db-857a-97ed-9f48-e512460ecc49"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 8707,
+        "total_tokens": 8768,
+        "completion_tokens": 61,
+        "prompt_tokens_details": {
+          "cached_tokens": 2560
+        }
+      },
+      "estimated_cny": 0.106131,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-19640cb7-f795-9a1c-8caf-795190b49847"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 9750,
+        "total_tokens": 11226,
+        "completion_tokens": 1476,
+        "prompt_tokens_details": {
+          "cached_tokens": 8704
+        }
+      },
+      "estimated_cny": 0.156852,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-79829b06-70e5-9116-8ab9-e18208202a8a"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 7813,
+        "total_tokens": 7879,
+        "completion_tokens": 66,
+        "prompt_tokens_details": {
+          "cached_tokens": 2560
+        }
+      },
+      "estimated_cny": 0.095538,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-5ce2fbc1-cc8d-9c84-b93a-85244450ffc3"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 8861,
+        "total_tokens": 10248,
+        "completion_tokens": 1387,
+        "prompt_tokens_details": {
+          "cached_tokens": 7680
+        }
+      },
+      "estimated_cny": 0.143781,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-923c4f8d-fcc8-94fc-92b8-c438e2c9aaca"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 8024,
+        "total_tokens": 8093,
+        "completion_tokens": 69,
+        "prompt_tokens_details": {
+          "cached_tokens": 2304
+        }
+      },
+      "estimated_cny": 0.098151,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-0c4eb2ee-f272-9314-b580-cb9e7a212ee4"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 9815,
+        "total_tokens": 9955,
+        "completion_tokens": 140,
+        "prompt_tokens_details": {
+          "cached_tokens": 7936
+        }
+      },
+      "estimated_cny": 0.12156,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-b6c6e670-a8e1-9986-967e-2d63a0afc7ef"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 8363,
+        "total_tokens": 8425,
+        "completion_tokens": 62,
+        "prompt_tokens_details": {
+          "cached_tokens": 2816
+        }
+      },
+      "estimated_cny": 0.10203,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-9026cbe3-2359-9d9d-9fa1-a237076d5d4d"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 10147,
+        "total_tokens": 11796,
+        "completion_tokens": 1649,
+        "prompt_tokens_details": {
+          "cached_tokens": 8192
+        }
+      },
+      "estimated_cny": 0.166287,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-3e1743fe-ac6e-9268-8ca0-654e2e20e367"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 8436,
+        "total_tokens": 9208,
+        "completion_tokens": 772,
+        "prompt_tokens_details": {
+          "cached_tokens": 2560
+        }
+      },
+      "estimated_cny": 0.122076,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-f81583de-5bf4-9c6f-92d6-0ff4e4b1fa88"
+    }
+  ],
+  "valid_api_responses": 20,
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "1d47807184ace1e84e6c737348928d44f23f7b4d7a71febc4a40996f7b47bae6"
+    },
+    {
+      "path": "architecture-decisions.md",
+      "sha256": "99494eafeb38dcbe879439a7f9c9a34a6767531c04a0200875c865250ef214bb"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "26e72bb4066dbab737c5ed7bbbea7a823b033637376e09d822227428ccc5ba0d"
+    },
+    {
+      "path": "package.json",
+      "sha256": "9ecd2f4d9520f5084157925bffae3617725f658c959f378a5f994c3aa570594b"
+    },
+    {
+      "path": "plan.json",
+      "sha256": "64ad6c02a706243dc350241999575725dc67f73c6f98dc254f4896e90ca8d0d2"
+    },
+    {
+      "path": "server.js",
+      "sha256": "3afc6cb4828754af90059f5cd13e35e04d41057139dbc6ba8fa49203690bc7fc"
+    },
+    {
+      "path": "traceability.json",
+      "sha256": "002b9cc27384dd25d548692b053136beb87dd64bc0b8752c8f6665bf94d8884f"
+    },
+    {
+      "path": "lib/app.js",
+      "sha256": "80b2497e5cd9361255546daafeb3ab200c4508835684a583fcd37c6aeca974c1"
+    },
+    {
+      "path": "lib/convert.js",
+      "sha256": "d652ac52c63d86fde68f1e2c37100910e49669371cc49827a6e7566572a2930a"
+    },
+    {
+      "path": "test/app.test.js",
+      "sha256": "ce3f98c520d5a9e58241584282360f57526fae37d2ff30389cd4b8f9fb685f5f"
+    },
+    {
+      "path": "test/convert.test.js",
+      "sha256": "0a21ae7813a9be26b579710efdc3e879ed028be168aefcf40d423884a1f0f9cf"
+    }
+  ]
+}

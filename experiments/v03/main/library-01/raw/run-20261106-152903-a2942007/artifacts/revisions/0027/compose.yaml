@@ -1,0 +1,43 @@
+# Library borrowing deployment: gateway (Node22/Express) and postgres.
+#
+# gateway  -> container port 3000 (serves browser UI at / and /health)
+# postgres -> container port 5432
+#
+# The gateway's schema bootstrap is idempotent and seeds only when the books
+# table is empty, so repeated startup never overwrites user-created books.
+# Bind mounts are relative and inside the project; no external volumes.
+
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: library
+      POSTGRES_USER: library
+      POSTGRES_PASSWORD: library
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U library -d library"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  gateway:
+    build: .
+    environment:
+      PGHOST: postgres
+      PGPORT: "5432"
+      PGUSER: library
+      PGPASSWORD: library
+      PGDATABASE: library
+      PORT: "3000"
+    ports:
+      - "3000:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "node -e \"fetch('http://localhost:3000/health').then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))\""]
+      interval: 5s
+      timeout: 5s
+      retries: 10

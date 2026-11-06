@@ -1,0 +1,79 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "check": "gateway ready",
+      "status": "passed"
+    },
+    {
+      "check": "browser entry served",
+      "status": "passed",
+      "http_status": 200
+    },
+    {
+      "check": "invalid book copies rejected",
+      "status": "passed",
+      "http_status": 400
+    },
+    {
+      "check": "create book with one available copy",
+      "status": "passed",
+      "http_status": 201
+    },
+    {
+      "check": "concurrent borrowers cannot oversell",
+      "status": "passed",
+      "statuses": [
+        409,
+        409,
+        409,
+        409,
+        409,
+        409,
+        201,
+        409
+      ]
+    },
+    {
+      "check": "stock after borrowing is zero",
+      "status": "passed"
+    },
+    {
+      "check": "concurrent duplicate returns restore exactly one copy",
+      "status": "passed",
+      "statuses": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ]
+    },
+    {
+      "check": "borrow returned copy",
+      "status": "passed",
+      "http_status": 201
+    },
+    {
+      "check": "active duplicate rejected",
+      "status": "passed",
+      "http_status": 409
+    },
+    {
+      "check": "book inventory persists after restart",
+      "status": "passed"
+    },
+    {
+      "check": "loan persists and can be returned after restart",
+      "status": "passed",
+      "http_status": 200
+    },
+    {
+      "check": "persisted loan returns one copy",
+      "status": "passed"
+    }
+  ]
+}

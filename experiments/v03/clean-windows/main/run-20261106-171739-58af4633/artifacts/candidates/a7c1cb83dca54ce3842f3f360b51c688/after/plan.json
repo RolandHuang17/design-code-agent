@@ -1,0 +1,77 @@
+{
+  "summary": "Implement a small stateless Node.js 22 HTTP health service using only built-in http and node:test. It exports a server factory (Application) separate from an executable startup entry (Startup). GET /health returns 200 JSON {\"status\":\"ok\"}, unknown routes return 404 JSON error, and the service keeps answering /health afterward. npm start listens on process.env.PORT (default 3000); npm test runs real HTTP tests on an ephemeral loopback port; npm run build syntax-checks all source. CommonJS .cjs conventions throughout.",
+  "tasks": [
+    {
+      "id": "T1",
+      "description": "Implement the exported HTTP server factory in src/app.cjs. It builds a Node http.Server from an injected request handler. GET /health returns 200 with JSON {\"status\":\"ok\"}; all other routes return 404 with a JSON error body. Handler is stateless so /health stays correct after any unknown request.",
+      "files": ["src/app.cjs"],
+      "depends_on": [],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 1, "end_line": 11},
+        {"document": "Architecture_View.md", "start_line": 5, "end_line": 15}
+      ],
+      "contracts": [
+        {"description": "createServer() returns an http.Server using the health/404 handler; no listening occurs in the factory.", "source": {"document": "Architecture_Documentation.md", "start_line": 9}},
+        {"description": "GET /health -> 200 application/json body {\"status\":\"ok\"}; any other route -> 404 JSON error.", "source": {"document": "Architecture_Documentation.md", "start_line": 7}}
+      ]
+    },
+    {
+      "id": "T2",
+      "description": "Implement the executable startup entry in src/server.cjs. It imports the factory, parses process.env.PORT with default 3000, listens on that port and logs readiness. It must not be executed when tests import the factory.",
+      "files": ["src/server.cjs"],
+      "depends_on": ["T1"],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 9, "end_line": 9},
+        {"document": "Architecture_View.md", "start_line": 10, "end_line": 10}
+      ],
+      "contracts": [
+        {"description": "Startup entry listens on process.env.PORT, defaulting to 3000.", "source": {"document": "Architecture_Documentation.md", "start_line": 9}}
+      ]
+    },
+    {
+      "id": "T3",
+      "description": "Write package.json with start (node src/server.cjs), test (node --test), and build (syntax-check script). No third-party dependencies; CommonJS .cjs modules.",
+      "files": ["package.json", "scripts/check-syntax.cjs"],
+      "depends_on": ["T1", "T2"],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 11, "end_line": 11}
+      ],
+      "contracts": [
+        {"description": "npm test runs node:test; npm run build syntax-checks all source JavaScript.", "source": {"document": "Architecture_Documentation.md", "start_line": 11}},
+        {"description": "scripts/check-syntax.cjs uses node --check on each source .cjs file; derived from NFR2 with no external linter dependency.", "source": {"document": "Architecture_Documentation.md", "start_line": 11}, "origin": "assumption"}
+      ]
+    },
+    {
+      "id": "T4",
+      "description": "Write real HTTP tests in test/health.test.cjs using node:test and the factory. Listen on an ephemeral loopback port (port 0), assert health 200 body, unknown-route 404 body, then health again, and close the server via after().",
+      "files": ["test/health.test.cjs"],
+      "depends_on": ["T1"],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 7, "end_line": 10},
+        {"document": "Architecture_View.md", "start_line": 12, "end_line": 12}
+      ],
+      "contracts": [
+        {"description": "Tests use a real listening server on loopback port 0, check health/unknown/health ordering, and close the server.", "source": {"document": "Architecture_Documentation.md", "start_line": 10}}
+      ]
+    },
+    {
+      "id": "T5",
+      "description": "Write README.md with install/start/test instructions and a source-to-requirement mapping (FR1-3, NFR1-2).",
+      "files": ["README.md"],
+      "depends_on": ["T1", "T2", "T3", "T4"],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 11, "end_line": 11}
+      ],
+      "contracts": [
+        {"description": "README documents install, start, test and a small source-to-requirement mapping.", "source": {"document": "Architecture_Documentation.md", "start_line": 11}}
+      ]
+    }
+  ],
+  "assumptions": [
+    "The syntax-check build step uses node --check rather than a third-party linter, since the design forbids third-party packages.",
+    "The exported factory is named createServer and lives in src/app.cjs; the exact symbol name is not specified in the source and is a derived interface.",
+    "The 404 JSON error body shape (e.g. {\"error\":\"Not Found\"}) is not dictated verbatim; any JSON error body is acceptable per FR2.",
+    "Only the two listed documents are requirements; no Compose, gateway, database, Dockerfile, or OpenAPI is required."
+  ],
+  "conflicts": []
+}

@@ -1,0 +1,12 @@
+{
+  "profile": "runtime",
+  "acceptance_profile": "library",
+  "status": "failed",
+  "error": "[Errno 2] No such file or directory: 'D:\\\\projects\\\\Task-main-resource-fix\\\\runs\\\\v03\\\\main\\\\library-01\\\\run-20261106-152903-a2942007\\\\project\\\\compose.yaml'",
+  "cleanup": "not_started",
+  "backend": "auto",
+  "project": "dca-f7d5eae6cb1b",
+  "stages": [],
+  "source_modified_by_host": false,
+  "isolation_note": "Owned Compose project and loopback ports; Docker execution is not an OS security sandbox"
+}

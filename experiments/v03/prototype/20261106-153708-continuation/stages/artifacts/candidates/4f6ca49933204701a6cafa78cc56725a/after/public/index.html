@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Temperature converter</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      max-width: 32rem;
+      margin: 4rem auto;
+      padding: 0 1rem;
+      color: #1a1a1a;
+    }
+    form {
+      display: grid;
+      gap: 1rem;
+    }
+    fieldset {
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 1rem;
+    }
+    label {
+      font-weight: 600;
+    }
+    input[type="number"] {
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+    .units {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    button {
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    #result {
+      font-weight: 700;
+    }
+    #error {
+      color: #b00020;
+      min-height: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Temperature converter</h1>
+  <form id="converter">
+    <label for="value">Temperature value</label>
+    <input id="value" name="value" type="number" step="any" required>
+
+    <div class="units">
+      <div>
+        <label for="from">From</label>
+        <select id="from" name="from">
+          <option value="C" selected>Celsius (°C)</option>
+          <option value="F">Fahrenheit (°F)</option>
+          <option value="K">Kelvin (K)</option>
+        </select>
+      </div>
+      <div>
+        <label for="to">To</label>
+        <select id="to" name="to">
+          <option value="F" selected>Fahrenheit (°F)</option>
+          <option value="C">Celsius (°C)</option>
+          <option value="K">Kelvin (K)</option>
+        </select>
+      </div>
+    </div>
+
+    <button type="submit" id="submit">Convert</button>
+  </form>
+
+  <p id="result" aria-live="polite"></p>
+  <p id="error" role="alert"></p>
+
+  <script>
+    const form = document.getElementById('converter');
+    const valueInput = document.getElementById('value');
+    const fromSelect = document.getElementById('from');
+    const toSelect = document.getElementById('to');
+    const resultEl = document.getElementById('result');
+    const errorEl = document.getElementById('error');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      resultEl.textContent = '';
+      errorEl.textContent = '';
+
+      const value = valueInput.value;
+      if (value === '') {
+        errorEl.textContent = 'Please enter a temperature value.';
+        return;
+      }
+
+      const payload = {
+        value: Number(value),
+        from: fromSelect.value,
+        to: toSelect.value,
+      };
+
+      try {
+        const response = await fetch('/api/convert', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        const data = await response.json();
+        if (!response.ok) {
+          errorEl.textContent = data.error || 'Conversion failed.';
+          return;
+        }
+
+        resultEl.textContent = `${data.value} ${data.unit}`;
+      } catch (err) {
+        errorEl.textContent = 'Request failed: ' + err.message;
+      }
+    });
+  </script>
+</body>
+</html>

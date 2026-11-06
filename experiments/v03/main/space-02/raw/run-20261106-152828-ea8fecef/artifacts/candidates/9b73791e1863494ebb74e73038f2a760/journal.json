@@ -1,0 +1,18 @@
+{
+  "root": "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project",
+  "changes": [
+    {
+      "path": "reference/vault.hcl",
+      "before": null,
+      "after": "7e053ace21e8de2a522f91d1bf377e3a9cbe6d05e9b9b35c46a3e134295d1238"
+    }
+  ],
+  "checks": [
+    {
+      "path": "reference/vault.hcl",
+      "status": "not_applicable",
+      "kind": "syntax_format"
+    }
+  ],
+  "status": "committed"
+}

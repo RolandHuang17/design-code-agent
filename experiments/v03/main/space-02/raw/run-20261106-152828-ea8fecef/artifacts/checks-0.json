@@ -1,0 +1,496 @@
+[
+  {
+    "profile": "static",
+    "status": "passed",
+    "results": [
+      {
+        "check": "required:package.json",
+        "status": "passed"
+      },
+      {
+        "check": "required:README.md",
+        "status": "passed"
+      },
+      {
+        "check": "required:traceability.json",
+        "status": "passed"
+      },
+      {
+        "check": "compose.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "openapi.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "package-lock.json",
+        "status": "passed"
+      },
+      {
+        "check": "package.json",
+        "status": "passed"
+      },
+      {
+        "check": "plan.json",
+        "status": "passed"
+      },
+      {
+        "check": "traceability.json",
+        "status": "passed"
+      },
+      {
+        "check": "gateway/app.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\gateway\\app.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "gateway/index.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\gateway\\index.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "k8s/spacefractions-deployment.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "keycloak/realm.json",
+        "status": "passed"
+      },
+      {
+        "check": "lib/auth.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\lib\\auth.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "lib/cache.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\lib\\cache.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "lib/db.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\lib\\db.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "lib/events.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\lib\\events.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "lib/fraction.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\lib\\fraction.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "lib/game-state.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\lib\\game-state.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "lib/search.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\lib\\search.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "lib/types.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\lib\\types.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "lib/user-map.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\lib\\user-map.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "public/app.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\public\\app.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "reference/istio.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "scripts/check.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\scripts\\check.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "services/admin-service.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\services\\admin-service.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "services/game-service.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\services\\game-service.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "services/question-service.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\services\\question-service.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "services/user-service.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\services\\user-service.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "test/auth.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\test\\auth.test.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "test/fraction.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\test\\fraction.test.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "test/game-service.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\test\\game-service.test.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "test/integration.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\test\\integration.test.js"
+        ],
+        "output": ""
+      }
+    ],
+    "snapshot_id": "8e7b12cf034e11d9a043141850f5fe7afef417568ca8fcac0027a86d0d733189",
+    "snapshot_after": "8e7b12cf034e11d9a043141850f5fe7afef417568ca8fcac0027a86d0d733189",
+    "stale": false
+  },
+  {
+    "profile": "install",
+    "status": "passed",
+    "exit_code": 0,
+    "timed_out": false,
+    "command": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+      "ci",
+      "--ignore-scripts",
+      "--no-audit",
+      "--no-fund"
+    ],
+    "output": "npm warn deprecated prom-client@15.1.2: prom-client has been replaced by @prometheus-io/client\n\nadded 124 packages in 2s\n",
+    "snapshot_id": "8e7b12cf034e11d9a043141850f5fe7afef417568ca8fcac0027a86d0d733189",
+    "snapshot_after": "8e7b12cf034e11d9a043141850f5fe7afef417568ca8fcac0027a86d0d733189",
+    "stale": false,
+    "derived_artifact": {
+      "path": "package-lock.json",
+      "origin": "npm dependency resolution (host fixed command)",
+      "sha256": "f4ea32f673e299d05d9516d07872edfaaf9cda1442259b911d159776793a4030",
+      "revision": 45
+    }
+  },
+  {
+    "profile": "test",
+    "status": "failed",
+    "exit_code": 1,
+    "timed_out": false,
+    "command": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+      "run",
+      "test",
+      "--ignore-scripts"
+    ],
+    "output": "\n> space-fractions@1.0.0 test\n> node --test test/fraction.test.js test/game-service.test.js test/auth.test.js\n\n✔ subjectOf returns the sub claim (1.0019ms)\n✔ subjectOf throws 401 when sub is missing (0.4501ms)\n✔ subjectOf throws 401 when sub is empty (0.143ms)\n✔ isAdmin is true when realm_access.roles contains admin (0.124ms)\n✔ isAdmin is false when role absent (0.1227ms)\n✔ isAdmin is false for malformed/missing payload (0.1248ms)\n✔ requireRole allows admin (0.1455ms)\n✔ requireRole throws 403 for non-admin (0.1393ms)\n✔ verifyToken rejects a missing token with 401 (0.326ms)\n✔ verifyToken rejects an empty/whitespace token with 401 (0.252ms)\n✔ verifyToken surfaces verification failure as 401 AuthError (0.3435ms)\n✔ resolveUserId upserts via client-shaped db and returns numeric id (0.7584ms)\n✔ resolveUserId upserts via pool-shaped db and returns numeric id (0.1857ms)\n✔ resolveUserId rejects payload missing sub with 401 (0.1664ms)\n✔ resolveUserId throws 500 when no backend is available (0.1215ms)\n✔ displayNameOf prefers preferred_username and falls back to sub (0.126ms)\n✔ mapSubjectToUser delegates to upsertUser on client-shaped backend (0.1737ms)\n✔ mapSubjectToUser throws when no backend is available (0.1375ms)\n✖ authenticate returns payload/userId/admin for a valid admin token (0.3012ms)\n✖ authenticate marks non-admin token as admin=false (0.2464ms)\n✖ authenticate throws 401 when authorization header lacks a token (0.6302ms)\n✔ gcd returns the greatest common divisor of two integers (1.7528ms)\n✔ reduce normalizes sign so the denominator is always positive (0.73ms)\n✔ reduce produces a canonical reduced form (0.1241ms)\n✔ reduce throws a typed error for a zero denominator (0.3627ms)\n✔ reduce throws a typed error for non-safe-integer parts (0.171ms)\n✔ fromParts delegates to reduce (0.1155ms)\n✔ parseFraction accepts a plain fraction (0.3081ms)\n✔ parseFraction normalizes fractional equality (2/4 === 1/2) (0.1656ms)\n✔ parseFraction accepts whole numbers as integer/1 (0.1367ms)\n✔ parseFraction accepts mixed numbers (0.2301ms)\n✔ parseFraction accepts negative fractions (0.156ms)\n✔ parseFraction accepts zero (0.1258ms)\n✔ parseFraction rejects malformed input (empty, non-string, bad numeric) (0.2567ms)\n✔ parseFraction rejects a zero denominator in string form (0.1924ms)\n✔ parseFraction rejects an improper mixed number fraction part (0.1557ms)\n✔ equals compares canonical forms (0.1161ms)\n✔ format renders canonical fractions readably (0.1315ms)\n✔ parseFraction accepts a single reduced fraction from seed-style input (0.2139ms)\n✔ newGame returns 201-shaped {id, questions} without correctAnswer (1.816ms)\n✔ answer submits a correct answer and increments score by 1 (1.1102ms)\n✔ answer marks an incorrect answer without increasing score (0.492ms)\n✔ repeating a question does not increase the score (idempotent) (0.6312ms)\n✔ pause then resume transitions state; answering while paused is a 409 (1.2783ms)\n✔ pause/resume/answer enforce owner authorization (403 for other users) (0.7021ms)\n✔ accessing a non-existent game returns 404 (0.2732ms)\n✔ malformed fraction answer is rejected as 400 (1.2654ms)\n✔ validateAnswerText accepts valid fractions and rejects malformed ones (0.246ms)\n✔ score view returns the accumulated score for the owner (0.7605ms)\n✖ viewGame exposes player-safe state and never leaks correctAnswer (0.6027ms)\n✔ fraction equality is exercised end-to-end via the real fraction module (0.704ms)\nℹ tests 51\nℹ suites 0\nℹ pass 47\nℹ fail 4\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 211.7145\n\n✖ failing tests:\n\ntest at test\\auth.test.js:235:1\n✖ authenticate returns payload/userId/admin for a valid admin token (0.3012ms)\n  Error [AuthError]: Invalid bearer token: Invalid Compact JWS\n      at verifyToken (D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\lib\\auth.js:97:11)\n      at async authenticate (D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\lib\\auth.js:179:19)\n      at async TestContext.<anonymous> (D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\test\\auth.test.js:244:18)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    status: 401\n  }\n\ntest at test\\auth.test.js:253:1\n✖ authenticate marks non-admin token as admin=false (0.2464ms)\n  Error [AuthError]: Invalid bearer token: Invalid Compact JWS\n      at verifyToken (D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\lib\\auth.js:97:11)\n      at async authenticate (D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\lib\\auth.js:179:19)\n      at async TestContext.<anonymous> (D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\test\\auth.test.js:260:18)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    status: 401\n  }\n\ntest at test\\auth.test.js:268:1\n✖ authenticate throws 401 when authorization header lacks a token (0.6302ms)\n  AssertionError [ERR_ASSERTION]: The validation function is expected to return \"true\". Received false\n  \n  Caught error:\n  \n  TypeError: Invalid URL\n      at async TestContext.<anonymous> (D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\test\\auth.test.js:270:3)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: TypeError: Invalid URL\n        at new URL (node:internal/url:895:25)\n        at createDefaultVerifier (D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\lib\\auth.js:53:29)\n        at verifyToken (D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\lib\\auth.js:85:9)\n        at authenticate (D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\lib\\auth.js:179:25)\n        at D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\test\\auth.test.js:271:11\n        at waitForActual (node:assert:632:21)\n        at ok.rejects (node:assert:769:31)\n        at TestContext.<anonymous> (D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\test\\auth.test.js:270:16)\n        at Test.runInAsyncScope (node:async_hooks:227:14)\n        at Test.run (node:internal/test_runner/test:1402:25),\n    operator: 'rejects',\n    diff: 'simple'\n  }\n\ntest at test\\game-service.test.js:379:1\n✖ viewGame exposes player-safe state and never leaks correctAnswer (0.6027ms)\n  Error [GameError]: pool is not defined\n      at toGameError (D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\services\\game-service.js:69:10)\n      at Object.viewGame (D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\services\\game-service.js:168:13)\n      at async TestContext.<anonymous> (D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project\\test\\game-service.test.js:383:17)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    code: 'GAME_ERROR',\n    status: 500\n  }\n",
+    "snapshot_id": "8e7b12cf034e11d9a043141850f5fe7afef417568ca8fcac0027a86d0d733189",
+    "snapshot_after": "8e7b12cf034e11d9a043141850f5fe7afef417568ca8fcac0027a86d0d733189",
+    "stale": false
+  },
+  {
+    "profile": "integration",
+    "status": "failed",
+    "exit_code": 0,
+    "timed_out": false,
+    "command": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+      "run",
+      "test:integration",
+      "--ignore-scripts"
+    ],
+    "output": "\n> space-fractions@1.0.0 test:integration\n> node --test test/integration.test.js\n\n﹣ GET /health returns 200 (30.2328ms) # live PostgreSQL / Keycloak not available; run the Compose stack\n﹣ admin can create, list, and delete a question (admin CRUD) (8.6445ms) # live PostgreSQL / Keycloak not available; run the Compose stack\n﹣ normal user gets 403 on admin endpoints (3.7594ms) # live PostgreSQL / Keycloak not available; run the Compose stack\n﹣ missing/invalid credentials yield 401 (3.0662ms) # live PostgreSQL / Keycloak not available; run the Compose stack\n﹣ full game lifecycle: create, answer, score, and owner isolation (3.2271ms) # live PostgreSQL / Keycloak not available; run the Compose stack\n﹣ pause/resume and answering while paused -> 409 (2.8404ms) # live PostgreSQL / Keycloak not available; run the Compose stack\nℹ tests 6\nℹ suites 0\nℹ pass 0\nℹ fail 0\nℹ cancelled 0\nℹ skipped 6\nℹ todo 0\nℹ duration_ms 329.9594\n\n✖ failing tests:\n\ntest at test\\integration.test.js:155:1\n﹣ GET /health returns 200 (30.2328ms) # live PostgreSQL / Keycloak not available; run the Compose stack\n  [TypeError [Error]: fetch failed] {\n    [cause]: AggregateError [ECONNREFUSED]: \n        at internalConnectMultiple (node:net:1492:18)\n        at afterConnectMultiple (node:net:2161:7) {\n      code: 'ECONNREFUSED',\n      [errors]: [\n        Error: connect ECONNREFUSED ::1:3000\n            at createConnectionError (node:net:2124:14)\n            at afterConnectMultiple (node:net:2154:16),\n        Error: connect ECONNREFUSED 127.0.0.1:3000\n            at createConnectionError (node:net:2124:14)\n            at afterConnectMultiple (node:net:2154:16)\n      ]\n    }\n  }\n\ntest at test\\integration.test.js:162:1\n﹣ admin can create, list, and delete a question (admin CRUD) (8.6445ms) # live PostgreSQL / Keycloak not available; run the Compose stack\n  [TypeError [Error]: fetch failed] {\n    [cause]: AggregateError [ECONNREFUSED]: \n        at internalConnectMultiple (node:net:1492:18)\n        at afterConnectMultiple (node:net:2161:7) {\n      code: 'ECONNREFUSED',\n      [errors]: [\n        Error: connect ECONNREFUSED ::1:3000\n            at createConnectionError (node:net:2124:14)\n            at afterConnectMultiple (node:net:2154:16),\n        Error: connect ECONNREFUSED 127.0.0.1:3000\n            at createConnectionError (node:net:2124:14)\n            at afterConnectMultiple (node:net:2154:16)\n      ]\n    }\n  }\n\ntest at test\\integration.test.js:190:1\n﹣ normal user gets 403 on admin endpoints (3.7594ms) # live PostgreSQL / Keycloak not available; run the Compose stack\n  [TypeError [Error]: fetch failed] {\n    [cause]: AggregateError [ECONNREFUSED]: \n        at internalConnectMultiple (node:net:1492:18)\n        at afterConnectMultiple (node:net:2161:7) {\n      code: 'ECONNREFUSED',\n      [errors]: [\n        Error: connect ECONNREFUSED ::1:3000\n            at createConnectionError (node:net:2124:14)\n            at afterConnectMultiple (node:net:2154:16),\n        Error: connect ECONNREFUSED 127.0.0.1:3000\n            at createConnectionError (node:net:2124:14)\n            at afterConnectMultiple (node:net:2154:16)\n      ]\n    }\n  }\n\ntest at test\\integration.test.js:198:1\n﹣ missing/invalid credentials yield 401 (3.0662ms) # live PostgreSQL / Keycloak not available; run the Compose stack\n  [TypeError [Error]: fetch failed] {\n    [cause]: AggregateError [ECONNREFUSED]: \n        at internalConnectMultiple (node:net:1492:18)\n        at afterConnectMultiple (node:net:2161:7) {\n      code: 'ECONNREFUSED',\n      [errors]: [\n        Error: connect ECONNREFUSED ::1:3000\n            at createConnectionError (node:net:2124:14)\n            at afterConnectMultiple (node:net:2154:16),\n        Error: connect ECONNREFUSED 127.0.0.1:3000\n            at createConnectionError (node:net:2124:14)\n            at afterConnectMultiple (node:net:2154:16)\n      ]\n    }\n  }\n\ntest at test\\integration.test.js:210:1\n﹣ full game lifecycle: create, answer, score, and owner isolation (3.2271ms) # live PostgreSQL / Keycloak not available; run the Compose stack\n  [TypeError [Error]: fetch failed] {\n    [cause]: AggregateError [ECONNREFUSED]: \n        at internalConnectMultiple (node:net:1492:18)\n        at afterConnectMultiple (node:net:2161:7) {\n      code: 'ECONNREFUSED',\n      [errors]: [\n        Error: connect ECONNREFUSED ::1:3000\n            at createConnectionError (node:net:2124:14)\n            at afterConnectMultiple (node:net:2154:16),\n        Error: connect ECONNREFUSED 127.0.0.1:3000\n            at createConnectionError (node:net:2124:14)\n            at afterConnectMultiple (node:net:2154:16)\n      ]\n    }\n  }\n\ntest at test\\integration.test.js:251:1\n﹣ pause/resume and answering while paused -> 409 (2.8404ms) # live PostgreSQL / Keycloak not available; run the Compose stack\n  [TypeError [Error]: fetch failed] {\n    [cause]: AggregateError [ECONNREFUSED]: \n        at internalConnectMultiple (node:net:1492:18)\n        at afterConnectMultiple (node:net:2161:7) {\n      code: 'ECONNREFUSED',\n      [errors]: [\n        Error: connect ECONNREFUSED ::1:3000\n            at createConnectionError (node:net:2124:14)\n            at afterConnectMultiple (node:net:2154:16),\n        Error: connect ECONNREFUSED 127.0.0.1:3000\n            at createConnectionError (node:net:2124:14)\n            at afterConnectMultiple (node:net:2154:16)\n      ]\n    }\n  }\n",
+    "test_count": 6,
+    "skipped_count": 6,
+    "reason": "Test runner executed zero non-skipped tests",
+    "snapshot_id": "8e7b12cf034e11d9a043141850f5fe7afef417568ca8fcac0027a86d0d733189",
+    "snapshot_after": "8e7b12cf034e11d9a043141850f5fe7afef417568ca8fcac0027a86d0d733189",
+    "stale": false
+  },
+  {
+    "profile": "build",
+    "status": "passed",
+    "exit_code": 0,
+    "timed_out": false,
+    "command": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+      "run",
+      "build",
+      "--ignore-scripts"
+    ],
+    "output": "\n> space-fractions@1.0.0 build\n> node scripts/check.js\n\nbuild check passed: sources, configs and contracts verified\n",
+    "snapshot_id": "8e7b12cf034e11d9a043141850f5fe7afef417568ca8fcac0027a86d0d733189",
+    "snapshot_after": "8e7b12cf034e11d9a043141850f5fe7afef417568ca8fcac0027a86d0d733189",
+    "stale": false
+  },
+  {
+    "profile": "compose",
+    "status": "passed",
+    "backend": "wsl",
+    "evidence": "Actual compose config command in protected runtime stages",
+    "snapshot_id": "8e7b12cf034e11d9a043141850f5fe7afef417568ca8fcac0027a86d0d733189"
+  },
+  {
+    "profile": "plan_references",
+    "status": "passed",
+    "problems": [],
+    "snapshot_id": "8e7b12cf034e11d9a043141850f5fe7afef417568ca8fcac0027a86d0d733189",
+    "limitation": "Checks planned files and literal relative imports, not dynamic imports or semantic compatibility"
+  },
+  {
+    "profile": "traceability_links",
+    "status": "failed",
+    "problems": [
+      "已实现条目缺少代码或测试：FR-4",
+      "已实现条目缺少代码或测试：NFR-1",
+      "已实现条目缺少代码或测试：DERIVED-6",
+      "已实现条目缺少代码或测试：DERIVED-8"
+    ],
+    "limitation": "只检查链接和来源范围；语义覆盖需要独立审查",
+    "snapshot_id": "8e7b12cf034e11d9a043141850f5fe7afef417568ca8fcac0027a86d0d733189"
+  },
+  {
+    "profile": "runtime",
+    "acceptance_profile": "space-fractions",
+    "status": "failed",
+    "error": "Missing bind source reference/prometheus.yml: generate this config/file/directory before runtime. Docker must not create it automatically.",
+    "cleanup": "not_started",
+    "backend": "wsl",
+    "project": "dca-3ec89f4039f7",
+    "stages": [
+      {
+        "stage": [
+          "version",
+          "--format",
+          "{{.Server.Version}}"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Windows\\system32\\wsl.exe",
+          "-d",
+          "Ubuntu",
+          "-u",
+          "root",
+          "--",
+          "env",
+          "GATEWAY_PORT=14962",
+          "OIDC_PORT=14963",
+          "PUBLIC_ORIGIN=http://localhost:14962",
+          "OIDC_PUBLIC_ORIGIN=http://localhost:14963",
+          "OIDC_ISSUER=http://localhost:14963/realms/space-fractions",
+          "docker",
+          "version",
+          "--format",
+          "{{.Server.Version}}"
+        ],
+        "output": "29.1.3\n"
+      },
+      {
+        "stage": [
+          "config",
+          "--format",
+          "json"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Windows\\system32\\wsl.exe",
+          "-d",
+          "Ubuntu",
+          "-u",
+          "root",
+          "--",
+          "env",
+          "GATEWAY_PORT=14962",
+          "OIDC_PORT=14963",
+          "PUBLIC_ORIGIN=http://localhost:14962",
+          "OIDC_PUBLIC_ORIGIN=http://localhost:14963",
+          "OIDC_ISSUER=http://localhost:14963/realms/space-fractions",
+          "docker",
+          "compose",
+          "--project-directory",
+          "/mnt/d/projects/Task-main-resource-fix/runs/v03/main/space-02/run-20261106-152828-ea8fecef/project",
+          "-p",
+          "dca-3ec89f4039f7",
+          "-f",
+          "/mnt/d/projects/Task-main-resource-fix/runs/v03/main/space-02/run-20261106-152828-ea8fecef/project/compose.yaml",
+          "config",
+          "--format",
+          "json"
+        ],
+        "output": "{\n  \"name\": \"dca-3ec89f4039f7\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"dca-3ec89f4039f7_default\",\n      \"ipam\": {}\n    }\n  },\n  \"services\": {\n    \"admin-service\": {\n      \"command\": [\n        \"sh\",\n        \"-c\",\n        \"echo 'admin-service entrypoint: served by gateway'; sleep infinity\"\n      ],\n      \"depends_on\": {\n        \"gateway\": {\n          \"condition\": \"service_started\",\n          \"required\": true\n        }\n      },\n      \"entrypoint\": null,\n      \"image\": \"busybox:1.36.1\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"restart\": \"no\"\n    },\n    \"elasticsearch\": {\n      \"command\": null,\n      \"entrypoint\": null,\n      \"environment\": {\n        \"ES_JAVA_OPTS\": \"-Xms512m -Xmx512m\",\n        \"discovery.type\": \"single-node\",\n        \"xpack.security.enabled\": \"false\"\n      },\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD-SHELL\",\n          \"curl -sf http://localhost:9200/_cluster/health || exit 1\"\n        ],\n        \"timeout\": \"5s\",\n        \"interval\": \"10s\",\n        \"retries\": 10,\n        \"start_period\": \"30s\"\n      },\n      \"image\": \"docker.elastic.co/elasticsearch/elasticsearch:8.13.4\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"restart\": \"unless-stopped\"\n    },\n    \"game-service\": {\n      \"command\": [\n        \"sh\",\n        \"-c\",\n        \"echo 'game-service entrypoint: served by gateway'; sleep infinity\"\n      ],\n      \"depends_on\": {\n        \"gateway\": {\n          \"condition\": \"service_started\",\n          \"required\": true\n        }\n      },\n      \"entrypoint\": null,\n      \"image\": \"busybox:1.36.1\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"restart\": \"no\"\n    },\n    \"gateway\": {\n      \"build\": {\n        \"context\": \"/mnt/d/projects/Task-main-resource-fix/runs/v03/main/space-02/run-20261106-152828-ea8fecef/project\",\n        \"dockerfile\": \"Dockerfile\"\n      },\n      \"command\": null,\n      \"depends_on\": {\n        \"postgres\": {\n          \"condition\": \"service_healthy\",\n          \"required\": true\n        }\n      },\n      \"entrypoint\": null,\n      \"environment\": {\n        \"ADMIN_ROLE\": \"admin\",\n        \"DATABASE_URL\": \"postgres://space_fractions:space_fractions@postgres:5432/space_fractions\",\n        \"DISABLED_FEATURES\": \"\",\n        \"ELASTICSEARCH_URL\": \"http://elasticsearch:9200\",\n        \"OIDC_AUDIENCE\": \"account\",\n        \"OIDC_CLIENT_ID\": \"space-fractions-client\",\n        \"OIDC_ISSUER\": \"http://localhost:14963/realms/space-fractions\",\n        \"OIDC_JWKS_URI\": \"http://keycloak:8080/realms/space-fractions/protocol/openid-connect/certs\",\n        \"OIDC_PUBLIC_ORIGIN\": \"http://localhost:14963\",\n        \"PORT\": \"3000\",\n        \"PUBLIC_ORIGIN\": \"http://localhost:14962\",\n        \"RABBITMQ_URL\": \"amqp://rabbitmq:5672\",\n        \"REDIS_URL\": \"redis://redis:6379\"\n      },\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD\",\n          \"node\",\n          \"-e\",\n          \"require('http').get('http://localhost:3000/health',r=\\u003e{process.exit(r.statusCode===200?0:1)}).on('error',()=\\u003eprocess.exit(1))\"\n        ],\n        \"timeout\": \"5s\",\n        \"interval\": \"10s\",\n        \"retries\": 5,\n        \"start_period\": \"15s\"\n      },\n      \"networks\": {\n        \"default\": null\n      },\n      \"ports\": [\n        {\n          \"mode\": \"ingress\",\n          \"target\": 3000,\n          \"published\": \"3000\",\n          \"protocol\": \"tcp\"\n        }\n      ],\n      \"restart\": \"unless-stopped\"\n    },\n    \"keycloak\": {\n      \"command\": [\n        \"start-dev\",\n        \"--import-realm\"\n      ],\n      \"entrypoint\": null,\n      \"environment\": {\n        \"KC_HOSTNAME_STRICT\": \"false\",\n        \"KC_HOSTNAME_STRICT_HTTPS\": \"false\",\n        \"KC_HOSTNAME_URL\": \"http://localhost:14963\",\n        \"KEYCLOAK_ADMIN\": \"admin\",\n        \"KEYCLOAK_ADMIN_PASSWORD\": \"admin\"\n      },\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD-SHELL\",\n          \"bash -c 'exec 3\\u003c\\u003e/dev/tcp/localhost/8080' || exit 1\"\n        ],\n        \"timeout\": \"5s\",\n        \"interval\": \"10s\",\n        \"retries\": 10,\n        \"start_period\": \"40s\"\n      },\n      \"image\": \"quay.io/keycloak/keycloak:24.0.5\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"ports\": [\n        {\n          \"mode\": \"ingress\",\n          \"target\": 8080,\n          \"published\": \"8080\",\n          \"protocol\": \"tcp\"\n        }\n      ],\n      \"restart\": \"unless-stopped\",\n      \"volumes\": [\n        {\n          \"type\": \"bind\",\n          \"source\": \"/mnt/d/projects/Task-main-resource-fix/runs/v03/main/space-02/run-20261106-152828-ea8fecef/project/keycloak/realm.json\",\n          \"target\": \"/opt/keycloak/data/import/realm.json\",\n          \"read_only\": true,\n          \"bind\": {\n            \"create_host_path\": true\n          }\n        }\n      ]\n    },\n    \"postgres\": {\n      \"command\": null,\n      \"entrypoint\": null,\n      \"environment\": {\n        \"POSTGRES_DB\": \"space_fractions\",\n        \"POSTGRES_PASSWORD\": \"space_fractions\",\n        \"POSTGRES_USER\": \"space_fractions\"\n      },\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD-SHELL\",\n          \"pg_isready -U space_fractions -d space_fractions\"\n        ],\n        \"timeout\": \"5s\",\n        \"interval\": \"5s\",\n        \"retries\": 10\n      },\n      \"image\": \"postgres:16.3-alpine\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"restart\": \"unless-stopped\",\n      \"volumes\": [\n        {\n          \"type\": \"volume\",\n          \"source\": \"postgres-data\",\n          \"target\": \"/var/lib/postgresql/data\",\n          \"volume\": {}\n        }\n      ]\n    },\n    \"prometheus\": {\n      \"command\": [\n        \"--config.file=/etc/prometheus/prometheus.yml\"\n      ],\n      \"entrypoint\": null,\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD-SHELL\",\n          \"wget -q -O /dev/null http://localhost:9090/-/ready || exit 1\"\n        ],\n        \"timeout\": \"5s\",\n        \"interval\": \"10s\",\n        \"retries\": 5\n      },\n      \"image\": \"prom/prometheus:v2.53.0\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"ports\": [\n        {\n          \"mode\": \"ingress\",\n          \"target\": 9090,\n          \"published\": \"9090\",\n          \"protocol\": \"tcp\"\n        }\n      ],\n      \"restart\": \"unless-stopped\",\n      \"volumes\": [\n        {\n          \"type\": \"bind\",\n          \"source\": \"/mnt/d/projects/Task-main-resource-fix/runs/v03/main/space-02/run-20261106-152828-ea8fecef/project/reference/prometheus.yml\",\n          \"target\": \"/etc/prometheus/prometheus.yml\",\n          \"read_only\": true,\n          \"bind\": {\n            \"create_host_path\": true\n          }\n        }\n      ]\n    },\n    \"question-service\": {\n      \"command\": [\n        \"sh\",\n        \"-c\",\n        \"echo 'question-service entrypoint: served by gateway'; sleep infinity\"\n      ],\n      \"depends_on\": {\n        \"gateway\": {\n          \"condition\": \"service_started\",\n          \"required\": true\n        }\n      },\n      \"entrypoint\": null,\n      \"image\": \"busybox:1.36.1\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"restart\": \"no\"\n    },\n    \"rabbitmq\": {\n      \"command\": null,\n      \"entrypoint\": null,\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD\",\n          \"rabbitmq-diagnostics\",\n          \"-q\",\n          \"ping\"\n        ],\n        \"timeout\": \"5s\",\n        \"interval\": \"10s\",\n        \"retries\": 5,\n        \"start_period\": \"15s\"\n      },\n      \"image\": \"rabbitmq:3.13-alpine\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"restart\": \"unless-stopped\"\n    },\n    \"redis\": {\n      \"command\": null,\n      \"entrypoint\": null,\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD\",\n          \"redis-cli\",\n          \"ping\"\n        ],\n        \"timeout\": \"3s\",\n        \"interval\": \"5s\",\n        \"retries\": 5\n      },\n      \"image\": \"redis:7.2-alpine\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"restart\": \"unless-stopped\"\n    },\n    \"user-service\": {\n      \"command\": [\n        \"sh\",\n        \"-c\",\n        \"echo 'user-service entrypoint: served by gateway'; sleep infinity\"\n      ],\n      \"depends_on\": {\n        \"gateway\": {\n          \"condition\": \"service_started\",\n          \"required\": true\n        }\n      },\n      \"entrypoint\": null,\n      \"image\": \"busybox:1.36.1\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"restart\": \"no\"\n    }\n  },\n  \"volumes\": {\n    \"postgres-data\": {\n      \"name\": \"dca-3ec89f4039f7_postgres-data\"\n    }\n  },\n  \"x-gateway-defaults\": {\n    \"depends_on\": {\n      \"postgres\": {\n        \"condition\": \"service_healthy\"\n      }\n    },\n    \"environment\": {\n      \"ADMIN_ROLE\": \"admin\",\n      \"DATABASE_URL\": \"postgres://space_fractions:space_fractions@postgres:5432/space_fractions\",\n      \"DISABLED_FEATURES\": \"\",\n      \"ELASTICSEARCH_URL\": \"http://elasticsearch:9200\",\n      \"OIDC_AUDIENCE\": \"account\",\n      \"OIDC_CLIENT_ID\": \"space-fractions-client\",\n      \"OIDC_ISSUER\": \"http://localhost:14963/realms/space-fractions\",\n      \"OIDC_JWKS_URI\": \"http://keycloak:8080/realms/space-fractions/protocol/openid-connect/certs\",\n      \"OIDC_PUBLIC_ORIGIN\": \"http://localhost:14963\",\n      \"PORT\": \"3000\",\n      \"PUBLIC_ORIGIN\": \"http://localhost:14962\",\n      \"RABBITMQ_URL\": \"amqp://rabbitmq:5672\",\n      \"REDIS_URL\": \"redis://redis:6379\"\n    }\n  }\n}"
+      }
+    ],
+    "source_modified_by_host": false,
+    "isolation_note": "Owned Compose project and loopback ports; Docker execution is not an OS security sandbox",
+    "snapshot_id": "8e7b12cf034e11d9a043141850f5fe7afef417568ca8fcac0027a86d0d733189",
+    "snapshot_after": "8e7b12cf034e11d9a043141850f5fe7afef417568ca8fcac0027a86d0d733189",
+    "stale": false
+  }
+]

@@ -1,0 +1,26 @@
+{
+  "root": "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project",
+  "changes": [
+    {
+      "path": "lib/types.js",
+      "before": null,
+      "after": "4b53b236fa1bb77d13bebad90ab2dd562a2749fc6a848d956801281084f519f5"
+    }
+  ],
+  "checks": [
+    {
+      "path": "lib/types.js",
+      "status": "passed",
+      "kind": "syntax_format",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\artifacts\\candidates\\245b2c10789a4011bcee7c7f88703158\\after\\lib\\types.js"
+      ],
+      "output": ""
+    }
+  ],
+  "status": "committed"
+}

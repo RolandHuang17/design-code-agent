@@ -1,0 +1,162 @@
+{
+  "2ff5a7a7747b4cca8f98b05411961e56": {
+    "state": "completed",
+    "profile": "build",
+    "snapshot": "0198a8ef07d0c2d22b130e68a001b5cb137cdec89c31872949179b34e49b0724",
+    "result": {
+      "profile": "build",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "run",
+        "build",
+        "--ignore-scripts"
+      ],
+      "output": "\n> temperature-converter@1.0.0 build\n> node --check src/convert.js && node --check src/app.js && node --check src/server.js\n\n",
+      "snapshot_id": "6889d39bba568b9d47965ad692c852202bd7b7d6ad31ac07678e53c07a286684",
+      "snapshot_after": "6889d39bba568b9d47965ad692c852202bd7b7d6ad31ac07678e53c07a286684",
+      "stale": false
+    },
+    "result_snapshot": "0198a8ef07d0c2d22b130e68a001b5cb137cdec89c31872949179b34e49b0724"
+  },
+  "410710356997472ebb9f259f065a0999": {
+    "state": "completed",
+    "profile": "install",
+    "snapshot": "198f38ed1c52dfd6f94c2b1280b6668b25496575164d010997b4deeb002e5247",
+    "result": {
+      "profile": "install",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "output": "\nup to date in 673ms\n",
+      "snapshot_id": "6889d39bba568b9d47965ad692c852202bd7b7d6ad31ac07678e53c07a286684",
+      "snapshot_after": "6889d39bba568b9d47965ad692c852202bd7b7d6ad31ac07678e53c07a286684",
+      "stale": false
+    },
+    "result_snapshot": "0198a8ef07d0c2d22b130e68a001b5cb137cdec89c31872949179b34e49b0724"
+  },
+  "6ad3ddd34dbb4433a032f991fc73da8b": {
+    "state": "completed",
+    "profile": "static",
+    "snapshot": "198f38ed1c52dfd6f94c2b1280b6668b25496575164d010997b4deeb002e5247",
+    "result": {
+      "profile": "static",
+      "status": "passed",
+      "results": [
+        {
+          "check": "required:package.json",
+          "status": "passed"
+        },
+        {
+          "check": "required:README.md",
+          "status": "passed"
+        },
+        {
+          "check": "package.json",
+          "status": "passed"
+        },
+        {
+          "check": "src/app.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-superagent\\runs\\superagent-v03\\20261106-152649-recovery\\project\\src\\app.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/convert.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-superagent\\runs\\superagent-v03\\20261106-152649-recovery\\project\\src\\convert.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/server.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-superagent\\runs\\superagent-v03\\20261106-152649-recovery\\project\\src\\server.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/app.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-superagent\\runs\\superagent-v03\\20261106-152649-recovery\\project\\test\\app.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/convert.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-superagent\\runs\\superagent-v03\\20261106-152649-recovery\\project\\test\\convert.test.js"
+          ],
+          "output": ""
+        }
+      ],
+      "snapshot_id": "f54f43040edb5e6b493c957ce1f96eb38ff01d4e1a70a914cae0d8018de80af1",
+      "snapshot_after": "f54f43040edb5e6b493c957ce1f96eb38ff01d4e1a70a914cae0d8018de80af1",
+      "stale": false
+    },
+    "result_snapshot": "198f38ed1c52dfd6f94c2b1280b6668b25496575164d010997b4deeb002e5247"
+  },
+  "f7ff6249e66a43539e73d1d4cebf5472": {
+    "state": "completed",
+    "profile": "test",
+    "snapshot": "0198a8ef07d0c2d22b130e68a001b5cb137cdec89c31872949179b34e49b0724",
+    "result": {
+      "profile": "test",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "run",
+        "test",
+        "--ignore-scripts"
+      ],
+      "output": "\n> temperature-converter@1.0.0 test\n> node --test\n\n✔ GET /health returns 200 with status ok (1.9229ms)\n✔ GET / returns 200 with text/html (4.5289ms)\n✔ POST /api/convert returns 200 with converted value (0.594ms)\n✔ POST /api/convert with same unit returns 200 preserving value (0.2231ms)\n✔ POST /api/convert with missing field returns 400 with error (0.221ms)\n✔ POST /api/convert with nonnumeric value returns 400 (0.266ms)\n✔ POST /api/convert with boolean value returns 400 (0.2095ms)\n✔ POST /api/convert with unsupported unit returns 400 (0.1748ms)\n✔ POST /api/convert below absolute zero returns 400 (0.1959ms)\n✔ POST /api/convert with malformed JSON returns 400 (0.2854ms)\n✔ Celsius to Fahrenheit conversion uses the correct formula (1.1583ms)\n✔ Fahrenheit to Celsius conversion uses the correct formula (0.1507ms)\n✔ Kelvin conversions use C + 273.15 relationship (0.1479ms)\n✔ conversion does not round the result to an integer (0.1396ms)\n✔ same-unit conversion preserves the value (0.1377ms)\n✔ negative Celsius and Fahrenheit above absolute zero are valid (0.1276ms)\n✔ validate returns normalized value/from/to for valid payload (0.7064ms)\n✔ validate rejects missing value field (0.3678ms)\n✔ validate rejects missing from field (0.1459ms)\n✔ validate rejects missing to field (0.2165ms)\n✔ validate rejects nonnumeric values (0.2685ms)\n✔ validate rejects boolean values (0.1371ms)\n✔ validate rejects unsupported units (0.1851ms)\n✔ validate rejects below absolute zero in Celsius (0.1639ms)\n✔ validate rejects below absolute zero in Fahrenheit (0.1238ms)\n✔ validate rejects below absolute zero in Kelvin (0.1766ms)\n✔ validate allows exact absolute zero boundaries (0.107ms)\n✔ validate rejects below-zero values even for same-unit conversion (0.155ms)\n✔ validate allows insignificant floating-point error at boundaries (0.2223ms)\n✔ validate rejects values clearly beyond the tolerance (0.1023ms)\n✔ convert also enforces validation through validate (0.1044ms)\nℹ tests 31\nℹ suites 0\nℹ pass 31\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 98.518\n",
+      "test_count": 31,
+      "skipped_count": 0,
+      "test_execution": "observed",
+      "snapshot_id": "6889d39bba568b9d47965ad692c852202bd7b7d6ad31ac07678e53c07a286684",
+      "snapshot_after": "6889d39bba568b9d47965ad692c852202bd7b7d6ad31ac07678e53c07a286684",
+      "stale": false
+    },
+    "result_snapshot": "0198a8ef07d0c2d22b130e68a001b5cb137cdec89c31872949179b34e49b0724"
+  }
+}

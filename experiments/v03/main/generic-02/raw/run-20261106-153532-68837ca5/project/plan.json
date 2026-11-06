@@ -1,0 +1,120 @@
+{
+  "summary": "Small browser-based temperature converter as a single stateless Node.js 22 application. Pure conversion logic (src/convert.js) is separated from HTTP handling (src/app.js) and server bootstrap (src/server.js). A static HTML page (public/index.html) drives POST /api/convert. No database, Docker, identity service, message queue, OpenAPI or cloud deployment. Uses ESM convention and zero runtime dependencies; node:test provides meaningful unit tests, node --check provides the build syntax check.",
+  "tasks": [
+    {
+      "id": "init",
+      "description": "Create package.json with ESM type module, zero runtime dependencies, scripts: start, test, build. build runs node --check on every source file.",
+      "files": ["package.json"],
+      "depends_on": [],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 3, "end_line": 5},
+        {"document": "Architecture_Documentation.md", "start_line": 11, "end_line": 12},
+        {"document": "Architecture_Documentation.md", "start_line": 15, "end_line": 16}
+      ],
+      "contracts": [
+        {"description": "package.json uses \"type\":\"module\" (ESM convention chosen for consistency with Node 22 defaults).", "source": {"document": "Architecture_Documentation.md", "start_line": 15}, "origin": "assumption"},
+        {"description": "scripts.start = node src/server.js; scripts.test = node --test; scripts.build = node --check on src/convert.js, src/app.js, src/server.js.", "source": {"document": "Architecture_Documentation.md", "start_line": 11}, "origin": "assumption"}
+      ]
+    },
+    {
+      "id": "convert",
+      "description": "Implement pure temperature conversion and validation in src/convert.js: SUPPORTED_UNITS, absolute-zero bounds, toCelsius/fromCelsius, convert(), validateInput(). No HTTP or I/O dependencies.",
+      "files": ["src/convert.js"],
+      "depends_on": [],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 7, "end_line": 9},
+        {"document": "Architecture_View.md", "start_line": 3, "end_line": 15}
+      ],
+      "contracts": [
+        {"description": "convert(value, from, to) applies C=(F-32)*5/9 and K=C+273.15; same-unit conversion returns the input value unchanged.", "source": {"document": "Architecture_Documentation.md", "start_line": 8}},
+        {"description": "Absolute zero boundaries are -273.15 C, -459.67 F, 0 K; values below are rejected.", "source": {"document": "Architecture_Documentation.md", "start_line": 9}},
+        {"description": "Boundary comparisons allow floating-point tolerance EPSILON=1e-9 relative to the source-unit absolute-zero.", "source": {"document": "Architecture_Documentation.md", "start_line": 9}, "origin": "assumption"}
+      ]
+    },
+    {
+      "id": "convert-tests",
+      "description": "Real unit tests for pure conversion logic using node:test/assert, no server. Cover same-unit, C/F/K conversions, negatives above absolute zero, absolute-zero boundary with float tolerance, and rejection of below-zero values including same-unit.",
+      "files": ["test/convert.test.js"],
+      "depends_on": ["convert"],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 8, "end_line": 9},
+        {"document": "Architecture_Documentation.md", "start_line": 11, "end_line": 11}
+      ],
+      "contracts": [
+        {"description": "Test conversion logic without a running server by importing src/convert.js directly.", "source": {"document": "Architecture_Documentation.md", "start_line": 11}}
+      ]
+    },
+    {
+      "id": "http-app",
+      "description": "Implement HTTP request handler in src/app.js (exported function + routing to /, /api/convert, /health). Parses JSON body, maps validation errors to HTTP 400 {\"error\": string}, serves index.html on GET /, returns {\"status\":\"ok\"} on GET /health.",
+      "files": ["src/app.js"],
+      "depends_on": ["convert"],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 6, "end_line": 10},
+        {"document": "Architecture_View.md", "start_line": 9, "end_line": 15}
+      ],
+      "contracts": [
+        {"description": "POST /api/convert accepts JSON {\"value\":number,\"from\":\"C\"|\"F\"|\"K\",\"to\":\"C\"|\"F\"|\"K\"} and returns 200 {\"value\":number,\"unit\":to} without integer rounding.", "source": {"document": "Architecture_Documentation.md", "start_line": 7}},
+        {"description": "HTTP 400 {\"error\": nonempty string} for missing fields, nonnumeric/boolean value, unsupported units, malformed JSON, or below absolute zero (including same-unit).", "source": {"document": "Architecture_Documentation.md", "start_line": 9}},
+        {"description": "GET /health returns 200 {\"status\":\"ok\"}.", "source": {"document": "Architecture_Documentation.md", "start_line": 10}}
+      ]
+    },
+    {
+      "id": "app-tests",
+      "description": "HTTP handler tests using an ephemeral local server on port 0 (node:http + app handler injection). Cover /health, malformed JSON, missing/nonnumeric/boolean/unsupported-unit/below-zero rejection, and a valid conversion 200 response.",
+      "files": ["test/app.test.js"],
+      "depends_on": ["http-app"],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 6, "end_line": 10}
+      ],
+      "contracts": [
+        {"description": "Handler is injected into an in-process server on an ephemeral port so tests need no external runtime service.", "source": {"document": "Architecture_Documentation.md", "start_line": 12}, "origin": "assumption"}
+      ]
+    },
+    {
+      "id": "server",
+      "description": "src/server.js Bootstrap: import app handler, start http server on process.env.PORT (default 3000), log start.",
+      "files": ["src/server.js"],
+      "depends_on": ["http-app"],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 12, "end_line": 12}
+      ],
+      "contracts": [
+        {"description": "PORT env var with default 3000 drives the listen port.", "source": {"document": "Architecture_Documentation.md", "start_line": 12}}
+      ]
+    },
+    {
+      "id": "web-page",
+      "description": "public/index.html: numeric input, from/to unit selectors, submit button, result area, visible error feedback; client JS POSTs to /api/convert and renders result or error.",
+      "files": ["public/index.html"],
+      "depends_on": [],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 6, "end_line": 6},
+        {"document": "Architecture_View.md", "start_line": 5, "end_line": 9}
+      ],
+      "contracts": [
+        {"description": "Page provides the FR1 controls and posts to /api/convert as described by the view (UI -> HTTP POST /api/convert).", "source": {"document": "Architecture_Documentation.md", "start_line": 6}}
+      ]
+    },
+    {
+      "id": "docs",
+      "description": "README.md with install, start, test, build instructions and limitations; .gitignore for node_modules.",
+      "files": ["README.md", ".gitignore"],
+      "depends_on": [],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 5, "end_line": 5},
+        {"document": "Architecture_Documentation.md", "start_line": 12, "end_line": 12}
+      ],
+      "contracts": [
+        {"description": "README documents install/start/test instructions and the stateless/no-external-services limitation.", "source": {"document": "Architecture_Documentation.md", "start_line": 12}}
+      ]
+    }
+  ],
+  "assumptions": [
+    "ESM module convention is selected (Node 22 default); the design allows either CommonJS or ESM.",
+    "A concrete floating-point tolerance EPSILON=1e-9 is chosen to satisfy 'insignificant floating-point error' at absolute-zero boundaries; the design does not specify a numeric epsilon.",
+    "Zero runtime npm dependencies are used; validation/tests use node:test and node --check built into Node 22.",
+    "HTTP handler tests inject the handler into an in-process server on an ephemeral port, satisfying the 'no external runtime service' constraint."
+  ],
+  "conflicts": []
+}

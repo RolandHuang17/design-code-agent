@@ -1,0 +1,202 @@
+{
+  "source_commit": "1f425d3bcd3b8d096cca3f14d06ff474d5a7358e",
+  "kind": "checkpoint_re_review_not_fresh_generation",
+  "parent_directory": "D:\\projects\\Task-superagent\\runs\\superagent-v03\\20261106-153522-health",
+  "parent_source_commit": "4c41d363ca0bed95dbabf5fde112e336311c7bc4",
+  "manual_project_edits": false,
+  "project_before": "b05a6d5659b77b693824b94b1e405cc9fdbfabb5eeca178eefef0e16e404986c",
+  "source_sha256": {
+    "codeagent\\budget.py": "1e9c3222ddd7624114b62086b8f36c2f9a646571fa946c30da61bb0b13b23f52",
+    "codeagent\\candidates.py": "5bf74661cbe0b46b48ad7bb4e8c3378b9095e02096e18bd0ccfe434dd07580b5",
+    "codeagent\\cases.py": "17efbd819b5908e0ca7ffca5532c9486db47108018b984e49d5eb6a2e982148c",
+    "codeagent\\checks.py": "f105cb17a64c5039d00906364e72f0233715ea8f4139bb85f3a70c0bd817e598",
+    "codeagent\\cli.py": "29c92505fc121ad507807ebe87b32c4c327d0bfdb49aa7f81c19bed5f72f50e6",
+    "codeagent\\config.py": "548cec1513f4b3e5fc4ab58260a59d983344768ed882823ba3ebe1dca65270fe",
+    "codeagent\\engine.py": "9bbfc3269a7be58094a4147764aaf256ac69fcb1da8980fb278a6376c454e6e0",
+    "codeagent\\evidence.py": "e4b730e10dd5a7339dc993176ce99a202351e3d3d5049537ce6740cfecf7bac2",
+    "codeagent\\gui.py": "84c84fa3c9465b5495295fe31bd57f45a26d5aae2985c5b9dc2f6f8af7e83c11",
+    "codeagent\\inputs.py": "6a2ad7d399a4c981a4d6ec55e2ea974c1c8dec2753e90685771064896f501f12",
+    "codeagent\\prompts.py": "f36e64b1f69ea68342c27f1eef0c331aa64d95e50b79f53923bc754ee5462331",
+    "codeagent\\provider.py": "454317f3579994a56c3804ee368faa91fbfa872d6cf203c3d9d2f51ad7c1d21c",
+    "codeagent\\runtime.py": "f82ad62e753c27cacf0d4cc3a97f678200d45122638604c525adca16d16a583b",
+    "codeagent\\safety.py": "e12c23689b4ef325013e2257905da6e0957397ff2ab64d260540d8b7fbbe5b4c",
+    "codeagent\\tools.py": "85a2726984450ae25d5db1812967dcd6cf3cc6243d600ecde8f7879c32d4de19",
+    "codeagent\\__init__.py": "25dc2dae04ced1865728dd4dff1524ed43ada7fa32720b516a50b974b138e52a",
+    "codeagent\\__main__.py": "3129adff95e0f38b87ab34cddfc27082c7892bcaec267ff5d40f160fdf55b44a",
+    "codeagent\\acceptance\\http_checks.py": "137c4d444f513fcb83419527b3305afa9f28f1b5ea8bbabe11fa5673b105a4f0",
+    "codeagent\\acceptance\\__init__.py": "a3a5f4b3c36c7a68f9e7f65a05eb6cb5fa61c7d39a9cecc0625e18a6bc256f7d",
+    "codeagent\\superagent\\gui.py": "9405ef52491afa72dde98d984bd892ff635944a8ac74c3fd253a8bd491bc0824",
+    "codeagent\\superagent\\runtime.py": "474ac535917549b5704b4f103eb730cc402d214d99e1191fa7b1129e39321c0b",
+    "codeagent\\superagent\\store.py": "7fbce58135cfb3b74f5760f323a52eeaddf286a998ee96079e6c7a724055cf63",
+    "codeagent\\superagent\\__init__.py": "2280624d0198a434340c06e15b7dc7ddfb888aa9016a3be03dec4fe4c6d0efd1"
+  },
+  "start_time": 1793950888.040374,
+  "provider": "bailian",
+  "model": "deepseek-v4-pro-0813",
+  "result": {
+    "state": "completed",
+    "created": 1793950522.7333953,
+    "reference": "https://github.com/deepseek-ai/dsh-superagent-prototype/tree/8c32a9dc5d72c033816c6a8110b37f40cf94fba4",
+    "updated": 1793950913.7806454,
+    "verification": "checks_passed_requires_review",
+    "review": {
+      "approved": true,
+      "issues": [],
+      "advisories": [
+        "Advisory: app.cjs does not handle non-GET requests to /health differently (e.g. POST /health returns 404), which is not required but could be clarified; FR1 only specifies GET so this is acceptable.",
+        "Advisory: index.cjs does not guard against listen errors (e.g. EADDRINUSE on the fixed port), purely optional hardening not required by FR3.",
+        "Advisory: README's mapping lists package-lock.json nowhere, though the repo includes one; minor documentation gap, not a requirement violation."
+      ]
+    },
+    "checks": [
+      {
+        "state": "completed",
+        "profile": "static",
+        "snapshot": "b05a6d5659b77b693824b94b1e405cc9fdbfabb5eeca178eefef0e16e404986c",
+        "result": {
+          "profile": "static",
+          "status": "passed",
+          "results": [
+            {
+              "check": "required:package.json",
+              "status": "passed"
+            },
+            {
+              "check": "required:README.md",
+              "status": "passed"
+            },
+            {
+              "check": "app.cjs",
+              "status": "passed",
+              "exit_code": 0,
+              "timed_out": false,
+              "command": [
+                "C:\\Program Files\\nodejs\\node.EXE",
+                "--check",
+                "D:\\projects\\Task-superagent\\runs\\superagent-v03\\20261106-154127-health-policy-continuation\\project\\app.cjs"
+              ],
+              "output": ""
+            },
+            {
+              "check": "index.cjs",
+              "status": "passed",
+              "exit_code": 0,
+              "timed_out": false,
+              "command": [
+                "C:\\Program Files\\nodejs\\node.EXE",
+                "--check",
+                "D:\\projects\\Task-superagent\\runs\\superagent-v03\\20261106-154127-health-policy-continuation\\project\\index.cjs"
+              ],
+              "output": ""
+            },
+            {
+              "check": "package-lock.json",
+              "status": "passed"
+            },
+            {
+              "check": "package.json",
+              "status": "passed"
+            },
+            {
+              "check": "test/health.test.cjs",
+              "status": "passed",
+              "exit_code": 0,
+              "timed_out": false,
+              "command": [
+                "C:\\Program Files\\nodejs\\node.EXE",
+                "--check",
+                "D:\\projects\\Task-superagent\\runs\\superagent-v03\\20261106-154127-health-policy-continuation\\project\\test\\health.test.cjs"
+              ],
+              "output": ""
+            }
+          ],
+          "snapshot_id": "befb78a8786f91fec7d934f1581cfc7cc48e5c55d9577c9b5b5d568a70498254",
+          "snapshot_after": "befb78a8786f91fec7d934f1581cfc7cc48e5c55d9577c9b5b5d568a70498254",
+          "stale": false
+        },
+        "result_snapshot": "b05a6d5659b77b693824b94b1e405cc9fdbfabb5eeca178eefef0e16e404986c"
+      },
+      {
+        "state": "completed",
+        "profile": "install",
+        "snapshot": "b05a6d5659b77b693824b94b1e405cc9fdbfabb5eeca178eefef0e16e404986c",
+        "result": {
+          "profile": "install",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+            "ci",
+            "--ignore-scripts",
+            "--no-audit",
+            "--no-fund"
+          ],
+          "output": "\nup to date in 703ms\n",
+          "snapshot_id": "befb78a8786f91fec7d934f1581cfc7cc48e5c55d9577c9b5b5d568a70498254",
+          "snapshot_after": "befb78a8786f91fec7d934f1581cfc7cc48e5c55d9577c9b5b5d568a70498254",
+          "stale": false
+        },
+        "result_snapshot": "b05a6d5659b77b693824b94b1e405cc9fdbfabb5eeca178eefef0e16e404986c"
+      },
+      {
+        "state": "completed",
+        "profile": "test",
+        "snapshot": "b05a6d5659b77b693824b94b1e405cc9fdbfabb5eeca178eefef0e16e404986c",
+        "result": {
+          "profile": "test",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+            "run",
+            "test",
+            "--ignore-scripts"
+          ],
+          "output": "\n> minimal-http-health-service@1.0.0 test\n> node --test\n\n✔ GET /health returns 200 and JSON { status: ok } (FR1) (12.4678ms)\n✔ unknown route returns 404 and a JSON error (FR2) (2.7528ms)\n✔ GET /health still returns 200 after an unknown request (FR2) (1.9515ms)\nℹ tests 3\nℹ suites 0\nℹ pass 3\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 139.9682\n",
+          "test_count": 3,
+          "skipped_count": 0,
+          "test_execution": "observed",
+          "snapshot_id": "befb78a8786f91fec7d934f1581cfc7cc48e5c55d9577c9b5b5d568a70498254",
+          "snapshot_after": "befb78a8786f91fec7d934f1581cfc7cc48e5c55d9577c9b5b5d568a70498254",
+          "stale": false
+        },
+        "result_snapshot": "b05a6d5659b77b693824b94b1e405cc9fdbfabb5eeca178eefef0e16e404986c"
+      },
+      {
+        "state": "completed",
+        "profile": "build",
+        "snapshot": "b05a6d5659b77b693824b94b1e405cc9fdbfabb5eeca178eefef0e16e404986c",
+        "result": {
+          "profile": "build",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+            "run",
+            "build",
+            "--ignore-scripts"
+          ],
+          "output": "\n> minimal-http-health-service@1.0.0 build\n> node --check app.cjs && node --check index.cjs && node --check test/health.test.cjs\n\n",
+          "snapshot_id": "befb78a8786f91fec7d934f1581cfc7cc48e5c55d9577c9b5b5d568a70498254",
+          "snapshot_after": "befb78a8786f91fec7d934f1581cfc7cc48e5c55d9577c9b5b5d568a70498254",
+          "stale": false
+        },
+        "result_snapshot": "b05a6d5659b77b693824b94b1e405cc9fdbfabb5eeca178eefef0e16e404986c"
+      }
+    ]
+  },
+  "end_time": 1793950913.7836943,
+  "inherited_attempts": 20,
+  "new_attempts": 5,
+  "new_sessions": [
+    "reviewer-b05a6d5659b7-requirement-linked-v1"
+  ],
+  "project_after": "b05a6d5659b77b693824b94b1e405cc9fdbfabb5eeca178eefef0e16e404986c",
+  "new_usage_estimated_cny": 0.297222
+}

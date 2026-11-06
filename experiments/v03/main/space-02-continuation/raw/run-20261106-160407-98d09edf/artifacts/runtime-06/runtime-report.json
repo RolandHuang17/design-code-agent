@@ -1,0 +1,151 @@
+{
+  "profile": "runtime",
+  "acceptance_profile": "space-fractions",
+  "status": "cancelled",
+  "cleanup": "passed",
+  "backend": "wsl",
+  "project": "dca-07455b8d621f",
+  "stages": [
+    {
+      "stage": [
+        "version",
+        "--format",
+        "{{.Server.Version}}"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Windows\\system32\\wsl.exe",
+        "-d",
+        "Ubuntu",
+        "-u",
+        "root",
+        "--",
+        "env",
+        "GATEWAY_PORT=4296",
+        "OIDC_PORT=4297",
+        "PUBLIC_ORIGIN=http://localhost:4296",
+        "OIDC_PUBLIC_ORIGIN=http://localhost:4297",
+        "OIDC_ISSUER=http://localhost:4297/realms/space-fractions",
+        "docker",
+        "version",
+        "--format",
+        "{{.Server.Version}}"
+      ],
+      "output": "29.1.3\n"
+    },
+    {
+      "stage": [
+        "config",
+        "--format",
+        "json"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Windows\\system32\\wsl.exe",
+        "-d",
+        "Ubuntu",
+        "-u",
+        "root",
+        "--",
+        "env",
+        "GATEWAY_PORT=4296",
+        "OIDC_PORT=4297",
+        "PUBLIC_ORIGIN=http://localhost:4296",
+        "OIDC_PUBLIC_ORIGIN=http://localhost:4297",
+        "OIDC_ISSUER=http://localhost:4297/realms/space-fractions",
+        "docker",
+        "compose",
+        "--project-directory",
+        "/mnt/d/projects/Task-v03-runs/runs/v03/main/space-02-continuation/run-20261106-160407-98d09edf/project",
+        "-p",
+        "dca-07455b8d621f",
+        "-f",
+        "/mnt/d/projects/Task-v03-runs/runs/v03/main/space-02-continuation/run-20261106-160407-98d09edf/project/compose.yaml",
+        "config",
+        "--format",
+        "json"
+      ],
+      "output": "{\n  \"name\": \"dca-07455b8d621f\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"dca-07455b8d621f_default\",\n      \"ipam\": {}\n    }\n  },\n  \"services\": {\n    \"admin-service\": {\n      \"command\": [\n        \"sh\",\n        \"-c\",\n        \"echo 'admin-service entrypoint: served by gateway'; sleep infinity\"\n      ],\n      \"depends_on\": {\n        \"gateway\": {\n          \"condition\": \"service_started\",\n          \"required\": true\n        }\n      },\n      \"entrypoint\": null,\n      \"image\": \"busybox:1.36.1\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"restart\": \"no\"\n    },\n    \"elasticsearch\": {\n      \"command\": null,\n      \"entrypoint\": null,\n      \"environment\": {\n        \"ES_JAVA_OPTS\": \"-Xms512m -Xmx512m\",\n        \"discovery.type\": \"single-node\",\n        \"xpack.security.enabled\": \"false\"\n      },\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD-SHELL\",\n          \"curl -sf http://localhost:9200/_cluster/health || exit 1\"\n        ],\n        \"timeout\": \"5s\",\n        \"interval\": \"10s\",\n        \"retries\": 10,\n        \"start_period\": \"30s\"\n      },\n      \"image\": \"docker.elastic.co/elasticsearch/elasticsearch:8.13.4\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"restart\": \"unless-stopped\"\n    },\n    \"game-service\": {\n      \"command\": [\n        \"sh\",\n        \"-c\",\n        \"echo 'game-service entrypoint: served by gateway'; sleep infinity\"\n      ],\n      \"depends_on\": {\n        \"gateway\": {\n          \"condition\": \"service_started\",\n          \"required\": true\n        }\n      },\n      \"entrypoint\": null,\n      \"image\": \"busybox:1.36.1\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"restart\": \"no\"\n    },\n    \"gateway\": {\n      \"build\": {\n        \"context\": \"/mnt/d/projects/Task-v03-runs/runs/v03/main/space-02-continuation/run-20261106-160407-98d09edf/project\",\n        \"dockerfile\": \"Dockerfile\"\n      },\n      \"command\": null,\n      \"depends_on\": {\n        \"postgres\": {\n          \"condition\": \"service_healthy\",\n          \"required\": true\n        }\n      },\n      \"entrypoint\": null,\n      \"environment\": {\n        \"ADMIN_ROLE\": \"admin\",\n        \"DATABASE_URL\": \"postgres://space_fractions:space_fractions@postgres:5432/space_fractions\",\n        \"DISABLED_FEATURES\": \"\",\n        \"ELASTICSEARCH_URL\": \"http://elasticsearch:9200\",\n        \"OIDC_AUDIENCE\": \"account\",\n        \"OIDC_CLIENT_ID\": \"space-fractions-client\",\n        \"OIDC_ISSUER\": \"http://localhost:4297/realms/space-fractions\",\n        \"OIDC_JWKS_URI\": \"http://keycloak:8080/realms/space-fractions/protocol/openid-connect/certs\",\n        \"OIDC_PUBLIC_ORIGIN\": \"http://localhost:4297\",\n        \"PORT\": \"3000\",\n        \"PUBLIC_ORIGIN\": \"http://localhost:4296\",\n        \"RABBITMQ_URL\": \"amqp://rabbitmq:5672\",\n        \"REDIS_URL\": \"redis://redis:6379\"\n      },\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD\",\n          \"node\",\n          \"-e\",\n          \"require('http').get('http://localhost:3000/health',r=\\u003e{process.exit(r.statusCode===200?0:1)}).on('error',()=\\u003eprocess.exit(1))\"\n        ],\n        \"timeout\": \"5s\",\n        \"interval\": \"10s\",\n        \"retries\": 5,\n        \"start_period\": \"15s\"\n      },\n      \"networks\": {\n        \"default\": null\n      },\n      \"ports\": [\n        {\n          \"mode\": \"ingress\",\n          \"target\": 3000,\n          \"published\": \"3000\",\n          \"protocol\": \"tcp\"\n        }\n      ],\n      \"restart\": \"unless-stopped\"\n    },\n    \"keycloak\": {\n      \"command\": [\n        \"start-dev\",\n        \"--import-realm\"\n      ],\n      \"entrypoint\": null,\n      \"environment\": {\n        \"KC_HOSTNAME_STRICT\": \"false\",\n        \"KC_HOSTNAME_STRICT_HTTPS\": \"false\",\n        \"KC_HOSTNAME_URL\": \"http://localhost:4297\",\n        \"KEYCLOAK_ADMIN\": \"admin\",\n        \"KEYCLOAK_ADMIN_PASSWORD\": \"admin\"\n      },\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD-SHELL\",\n          \"bash -c 'exec 3\\u003c\\u003e/dev/tcp/localhost/8080' || exit 1\"\n        ],\n        \"timeout\": \"5s\",\n        \"interval\": \"10s\",\n        \"retries\": 10,\n        \"start_period\": \"40s\"\n      },\n      \"image\": \"quay.io/keycloak/keycloak:24.0.5\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"ports\": [\n        {\n          \"mode\": \"ingress\",\n          \"target\": 8080,\n          \"published\": \"8080\",\n          \"protocol\": \"tcp\"\n        }\n      ],\n      \"restart\": \"unless-stopped\",\n      \"volumes\": [\n        {\n          \"type\": \"bind\",\n          \"source\": \"/mnt/d/projects/Task-v03-runs/runs/v03/main/space-02-continuation/run-20261106-160407-98d09edf/project/keycloak/realm.json\",\n          \"target\": \"/opt/keycloak/data/import/realm.json\",\n          \"read_only\": true,\n          \"bind\": {\n            \"create_host_path\": true\n          }\n        }\n      ]\n    },\n    \"postgres\": {\n      \"command\": null,\n      \"entrypoint\": null,\n      \"environment\": {\n        \"POSTGRES_DB\": \"space_fractions\",\n        \"POSTGRES_PASSWORD\": \"space_fractions\",\n        \"POSTGRES_USER\": \"space_fractions\"\n      },\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD-SHELL\",\n          \"pg_isready -U space_fractions -d space_fractions\"\n        ],\n        \"timeout\": \"5s\",\n        \"interval\": \"5s\",\n        \"retries\": 10\n      },\n      \"image\": \"postgres:16.3-alpine\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"restart\": \"unless-stopped\",\n      \"volumes\": [\n        {\n          \"type\": \"volume\",\n          \"source\": \"postgres-data\",\n          \"target\": \"/var/lib/postgresql/data\",\n          \"volume\": {}\n        }\n      ]\n    },\n    \"prometheus\": {\n      \"command\": [\n        \"--config.file=/etc/prometheus/prometheus.yml\"\n      ],\n      \"entrypoint\": null,\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD-SHELL\",\n          \"wget -q -O /dev/null http://localhost:9090/-/ready || exit 1\"\n        ],\n        \"timeout\": \"5s\",\n        \"interval\": \"10s\",\n        \"retries\": 5\n      },\n      \"image\": \"prom/prometheus:v2.53.0\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"ports\": [\n        {\n          \"mode\": \"ingress\",\n          \"target\": 9090,\n          \"published\": \"9090\",\n          \"protocol\": \"tcp\"\n        }\n      ],\n      \"restart\": \"unless-stopped\",\n      \"volumes\": [\n        {\n          \"type\": \"bind\",\n          \"source\": \"/mnt/d/projects/Task-v03-runs/runs/v03/main/space-02-continuation/run-20261106-160407-98d09edf/project/reference/prometheus.yml\",\n          \"target\": \"/etc/prometheus/prometheus.yml\",\n          \"read_only\": true,\n          \"bind\": {\n            \"create_host_path\": true\n          }\n        }\n      ]\n    },\n    \"question-service\": {\n      \"command\": [\n        \"sh\",\n        \"-c\",\n        \"echo 'question-service entrypoint: served by gateway'; sleep infinity\"\n      ],\n      \"depends_on\": {\n        \"gateway\": {\n          \"condition\": \"service_started\",\n          \"required\": true\n        }\n      },\n      \"entrypoint\": null,\n      \"image\": \"busybox:1.36.1\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"restart\": \"no\"\n    },\n    \"rabbitmq\": {\n      \"command\": null,\n      \"entrypoint\": null,\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD\",\n          \"rabbitmq-diagnostics\",\n          \"-q\",\n          \"ping\"\n        ],\n        \"timeout\": \"5s\",\n        \"interval\": \"10s\",\n        \"retries\": 5,\n        \"start_period\": \"15s\"\n      },\n      \"image\": \"rabbitmq:3.13-alpine\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"restart\": \"unless-stopped\"\n    },\n    \"redis\": {\n      \"command\": null,\n      \"entrypoint\": null,\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD\",\n          \"redis-cli\",\n          \"ping\"\n        ],\n        \"timeout\": \"3s\",\n        \"interval\": \"5s\",\n        \"retries\": 5\n      },\n      \"image\": \"redis:7.2-alpine\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"restart\": \"unless-stopped\"\n    },\n    \"user-service\": {\n      \"command\": [\n        \"sh\",\n        \"-c\",\n        \"echo 'user-service entrypoint: served by gateway'; sleep infinity\"\n      ],\n      \"depends_on\": {\n        \"gateway\": {\n          \"condition\": \"service_started\",\n          \"required\": true\n        }\n      },\n      \"entrypoint\": null,\n      \"image\": \"busybox:1.36.1\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"restart\": \"no\"\n    }\n  },\n  \"volumes\": {\n    \"postgres-data\": {\n      \"name\": \"dca-07455b8d621f_postgres-data\"\n    }\n  },\n  \"x-gateway-defaults\": {\n    \"depends_on\": {\n      \"postgres\": {\n        \"condition\": \"service_healthy\"\n      }\n    },\n    \"environment\": {\n      \"ADMIN_ROLE\": \"admin\",\n      \"DATABASE_URL\": \"postgres://space_fractions:space_fractions@postgres:5432/space_fractions\",\n      \"DISABLED_FEATURES\": \"\",\n      \"ELASTICSEARCH_URL\": \"http://elasticsearch:9200\",\n      \"OIDC_AUDIENCE\": \"account\",\n      \"OIDC_CLIENT_ID\": \"space-fractions-client\",\n      \"OIDC_ISSUER\": \"http://localhost:4297/realms/space-fractions\",\n      \"OIDC_JWKS_URI\": \"http://keycloak:8080/realms/space-fractions/protocol/openid-connect/certs\",\n      \"OIDC_PUBLIC_ORIGIN\": \"http://localhost:4297\",\n      \"PORT\": \"3000\",\n      \"PUBLIC_ORIGIN\": \"http://localhost:4296\",\n      \"RABBITMQ_URL\": \"amqp://rabbitmq:5672\",\n      \"REDIS_URL\": \"redis://redis:6379\"\n    }\n  }\n}"
+    },
+    {
+      "stage": [
+        "logs",
+        "--no-color",
+        "--tail",
+        "40"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Windows\\system32\\wsl.exe",
+        "-d",
+        "Ubuntu",
+        "-u",
+        "root",
+        "--",
+        "env",
+        "GATEWAY_PORT=4296",
+        "OIDC_PORT=4297",
+        "PUBLIC_ORIGIN=http://localhost:4296",
+        "OIDC_PUBLIC_ORIGIN=http://localhost:4297",
+        "OIDC_ISSUER=http://localhost:4297/realms/space-fractions",
+        "docker",
+        "compose",
+        "--project-directory",
+        "/mnt/d/projects/Task-v03-runs/runs/v03/main/space-02-continuation/run-20261106-160407-98d09edf/project",
+        "-p",
+        "dca-07455b8d621f",
+        "-f",
+        "/mnt/d/projects/Task-v03-runs/runs/v03/main/space-02-continuation/run-20261106-160407-98d09edf/artifacts/runtime-06/compose.isolated.json",
+        "logs",
+        "--no-color",
+        "--tail",
+        "40"
+      ],
+      "output": "elasticsearch-1  | Nov 06, 2026 8:52:26 AM sun.util.locale.provider.LocaleProviderAdapter <clinit>\nelasticsearch-1  | WARNING: COMPAT locale provider will be removed in a future release\nelasticsearch-1  | {\"@timestamp\":\"2026-11-06T08:52:27.188Z\", \"log.level\": \"INFO\", \"message\":\"Using [jdk] native provider and native methods for [Linux]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"main\",\"log.logger\":\"org.elasticsearch.nativeaccess.NativeAccess\",\"elasticsearch.node.name\":\"f0b064bc43c6\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1  | {\"@timestamp\":\"2026-11-06T08:52:27.691Z\", \"log.level\": \"INFO\", \"message\":\"Java vector incubator API enabled; uses preferredBitSize=256; FMA enabled\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"main\",\"log.logger\":\"org.apache.lucene.internal.vectorization.PanamaVectorizationProvider\",\"elasticsearch.node.name\":\"f0b064bc43c6\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1  | {\"@timestamp\":\"2026-11-06T08:52:28.361Z\", \"log.level\": \"INFO\", \"message\":\"version[8.13.4], pid[77], build[docker/da95df118650b55a500dcc181889ac35c6d8da7c/2024-05-06T22:04:45.107454559Z], OS[Linux/6.18.54.1-microsoft-standard-WSL2/amd64], JVM[Oracle Corporation/OpenJDK 64-Bit Server VM/21.0.2/21.0.2+13-58]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"main\",\"log.logger\":\"org.elasticsearch.node.Node\",\"elasticsearch.node.name\":\"f0b064bc43c6\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1  | {\"@timestamp\":\"2026-11-06T08:52:28.362Z\", \"log.level\": \"INFO\", \"message\":\"JVM home [/usr/share/elasticsearch/jdk], using bundled JDK [true]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"main\",\"log.logger\":\"org.elasticsearch.node.Node\",\"elasticsearch.node.name\":\"f0b064bc43c6\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1  | {\"@timestamp\":\"2026-11-06T08:52:28.363Z\", \"log.level\": \"INFO\", \"message\":\"JVM arguments [-Des.networkaddress.cache.ttl=60, -Des.networkaddress.cache.negative.ttl=10, -Djava.security.manager=allow, -XX:+AlwaysPreTouch, -Xss1m, -Djava.awt.headless=true, -Dfile.encoding=UTF-8, -Djna.nosys=true, -XX:-OmitStackTraceInFastThrow, -Dio.netty.noUnsafe=true, -Dio.netty.noKeySetOptimization=true, -Dio.netty.recycler.maxCapacityPerThread=0, -Dlog4j.shutdownHookEnabled=false, -Dlog4j2.disable.jmx=true, -Dlog4j2.formatMsgNoLookups=true, -Djava.locale.providers=SPI,COMPAT, --add-opens=java.base/java.io=org.elasticsearch.preallocate, --enable-native-access=org.elasticsearch.nativeaccess, -Des.cgroups.hierarchy.override=/, -XX:ReplayDataFile=logs/replay_pid%p.log, -Des.distribution.type=docker, -XX:+UseG1GC, -Djava.io.tmpdir=/tmp/elasticsearch-9372186941063296339, --add-modules=jdk.incubator.vector, -XX:+HeapDumpOnOutOfMemoryError, -XX:+ExitOnOutOfMemoryError, -XX:HeapDumpPath=data, -XX:ErrorFile=logs/hs_err_pid%p.log, -Xlog:gc*,gc+age=trace,safepoint:file=logs/gc.log:utctime,level,pid,tags:filecount=32,filesize=64m, -Xms512m, -Xmx512m, -XX:MaxDirectMemorySize=268435456, -XX:G1HeapRegionSize=4m, -XX:InitiatingHeapOccupancyPercent=30, -XX:G1ReservePercent=15, --module-path=/usr/share/elasticsearch/lib, --add-modules=jdk.net, --add-modules=ALL-MODULE-PATH, -Djdk.module.main=org.elasticsearch.server]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"main\",\"log.logger\":\"org.elasticsearch.node.Node\",\"elasticsearch.node.name\":\"f0b064bc43c6\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1  | {\"@timestamp\":\"2026-11-06T08:52:28.363Z\", \"log.level\": \"INFO\", \"message\":\"Default Locale [en_US]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"main\",\"log.logger\":\"org.elasticsearch.node.Node\",\"elasticsearch.node.name\":\"f0b064bc43c6\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nredis-1          | 1:C 06 Nov 2026 08:52:23.618 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.\nredis-1          | 1:C 06 Nov 2026 08:52:23.618 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo\nredis-1          | 1:C 06 Nov 2026 08:52:23.618 * Redis version=7.2.17, bits=64, commit=00000000, modified=0, pid=1, just started\nredis-1          | 1:C 06 Nov 2026 08:52:23.618 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf\nredis-1          | 1:M 06 Nov 2026 08:52:23.619 * Increased maximum number of open files to 10032 (it was originally set to 1024).\nredis-1          | 1:M 06 Nov 2026 08:52:23.619 * monotonic clock: POSIX clock_gettime\nredis-1          | 1:M 06 Nov 2026 08:52:23.619 * Running mode=standalone, port=6379.\nredis-1          | 1:M 06 Nov 2026 08:52:23.620 * Server initialized\nredis-1          | 1:M 06 Nov 2026 08:52:23.620 * Ready to accept connections tcp\npostgres-1       | 2026-11-06 08:52:24.255 UTC [35] WARNING:  no usable system locales were found\npostgres-1       | performing post-bootstrap initialization ... ok\npostgres-1       | initdb: warning: enabling \"trust\" authentication for local connections\nprometheus-1     | ts=2026-11-06T08:52:23.669Z caller=main.go:589 level=info msg=\"No time or size retention was set so using the default time retention\" duration=15d\nprometheus-1     | ts=2026-11-06T08:52:23.669Z caller=main.go:633 level=info msg=\"Starting Prometheus Server\" mode=server version=\"(version=2.53.0, branch=HEAD, revision=4c35b9250afefede41c5f5acd76191f90f625898)\"\nprometheus-1     | ts=2026-11-06T08:52:23.669Z caller=main.go:638 level=info build_context=\"(go=go1.22.4, platform=linux/amd64, user=root@7f8d89cbbd64, date=20240619-07:39:12, tags=netgo,builtinassets,stringlabels)\"\nprometheus-1     | ts=2026-11-06T08:52:23.669Z caller=main.go:639 level=info host_details=\"(Linux 6.18.54.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Tue Oct  6 19:13:07 UTC 2026 x86_64 0b45933ea179 localdomain)\"\nprometheus-1     | ts=2026-11-06T08:52:23.669Z caller=main.go:640 level=info fd_limits=\"(soft=1048576, hard=1048576)\"\nprometheus-1     | ts=2026-11-06T08:52:23.669Z caller=main.go:641 level=info vm_limits=\"(soft=unlimited, hard=unlimited)\"\nprometheus-1     | ts=2026-11-06T08:52:23.672Z caller=web.go:568 level=info component=web msg=\"Start listening for connections\" address=0.0.0.0:9090\npostgres-1       | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.\npostgres-1       | syncing data to disk ... ok\npostgres-1       | \npostgres-1       | \npostgres-1       | Success. You can now start the database server using:\npostgres-1       | \npostgres-1       |     pg_ctl -D /var/lib/postgresql/data -l logfile start\npostgres-1       | \npostgres-1       | waiting for server to start....2026-11-06 08:52:25.700 UTC [41] LOG:  starting PostgreSQL 16.3 on x86_64-pc-linux-musl, compiled by gcc (Alpine 13.2.1_git20240309) 13.2.1 20240309, 64-bit\nkeycloak-1       | Updating the configuration and installing your custom providers, if any. Please wait.\npostgres-1       | 2026-11-06 08:52:25.707 UTC [41] LOG:  listening on Unix socket \"/var/run/postgresql/.s.PGSQL.5432\"\npostgres-1       | 2026-11-06 08:52:25.737 UTC [44] LOG:  database system was shut down at 2026-11-06 08:52:24 UTC\npostgres-1       | 2026-11-06 08:52:25.752 UTC [41] LOG:  database system is ready to accept connections\npostgres-1       |  done\nprometheus-1     | ts=2026-11-06T08:52:23.673Z caller=main.go:1148 level=info msg=\"Starting TSDB ...\"\nprometheus-1     | ts=2026-11-06T08:52:23.675Z caller=tls_config.go:313 level=info component=web msg=\"Listening on\" address=[::]:9090\nprometheus-1     | ts=2026-11-06T08:52:23.675Z caller=tls_config.go:316 level=info component=web msg=\"TLS is disabled.\" http2=false address=[::]:9090\nprometheus-1     | ts=2026-11-06T08:52:23.679Z caller=head.go:626 level=info component=tsdb msg=\"Replaying on-disk memory mappable chunks if any\"\nprometheus-1     | ts=2026-11-06T08:52:23.679Z caller=head.go:713 level=info component=tsdb msg=\"On-disk memory mappable chunks replay completed\" duration=1.628µs\nprometheus-1     | ts=2026-11-06T08:52:23.679Z caller=head.go:721 level=info component=tsdb msg=\"Replaying WAL, this may take a while\"\nprometheus-1     | ts=2026-11-06T08:52:23.680Z caller=head.go:793 level=info component=tsdb msg=\"WAL segment loaded\" segment=0 maxSegment=0\npostgres-1       | server started\nprometheus-1     | ts=2026-11-06T08:52:23.680Z caller=head.go:830 level=info component=tsdb msg=\"WAL replay completed\" checkpoint_replay_duration=95.059µs wal_replay_duration=936.141µs wbl_replay_duration=121ns chunk_snapshot_load_duration=0s mmap_chunk_replay_duration=1.628µs total_replay_duration=1.052328ms\nprometheus-1     | ts=2026-11-06T08:52:23.682Z caller=main.go:1169 level=info fs_type=EXT4_SUPER_MAGIC\nprometheus-1     | ts=2026-11-06T08:52:23.682Z caller=main.go:1172 level=info msg=\"TSDB started\"\nprometheus-1     | ts=2026-11-06T08:52:23.682Z caller=main.go:1354 level=info msg=\"Loading configuration file\" filename=/etc/prometheus/prometheus.yml\nprometheus-1     | ts=2026-11-06T08:52:23.685Z caller=main.go:1391 level=info msg=\"updated GOGC\" old=100 new=75\nprometheus-1     | ts=2026-11-06T08:52:23.685Z caller=main.go:1402 level=info msg=\"Completed loading of configuration file\" filename=/etc/prometheus/prometheus.yml totalDuration=2.373647ms db_storage=1.618µs remote_storage=1.728µs web_handler=703ns query_engine=2.713µs scrape=683.493µs scrape_sd=36.529µs notify=1.769µs notify_sd=1.125µs rules=1.788µs tracing=7.585µs\nprometheus-1     | ts=2026-11-06T08:52:23.685Z caller=main.go:1133 level=info msg=\"Server is ready to receive web requests.\"\nprometheus-1     | ts=2026-11-06T08:52:23.685Z caller=manager.go:164 level=info component=\"rule manager\" msg=\"Starting rule manager...\"\npostgres-1       | CREATE DATABASE\npostgres-1       | \npostgres-1       | \npostgres-1       | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*\npostgres-1       | \npostgres-1       | waiting for server to shut down....2026-11-06 08:52:26.008 UTC [41] LOG:  received fast shutdown request\npostgres-1       | 2026-11-06 08:52:26.017 UTC [41] LOG:  aborting any active transactions\npostgres-1       | 2026-11-06 08:52:26.023 UTC [41] LOG:  background worker \"logical replication launcher\" (PID 47) exited with exit code 1\npostgres-1       | 2026-11-06 08:52:26.030 UTC [42] LOG:  shutting down\npostgres-1       | 2026-11-06 08:52:26.036 UTC [42] LOG:  checkpoint starting: shutdown immediate\npostgres-1       | 2026-11-06 08:52:26.369 UTC [42] LOG:  checkpoint complete: wrote 924 buffers (5.6%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.057 s, sync=0.252 s, total=0.340 s; sync files=301, longest=0.007 s, average=0.001 s; distance=4267 kB, estimate=4267 kB; lsn=0/191AAA8, redo lsn=0/191AAA8\npostgres-1       | 2026-11-06 08:52:26.382 UTC [41] LOG:  database system is shut down\npostgres-1       |  done\npostgres-1       | server stopped\npostgres-1       | \npostgres-1       | PostgreSQL init process complete; ready for start up.\npostgres-1       | \npostgres-1       | 2026-11-06 08:52:26.461 UTC [1] LOG:  starting PostgreSQL 16.3 on x86_64-pc-linux-musl, compiled by gcc (Alpine 13.2.1_git20240309) 13.2.1 20240309, 64-bit\npostgres-1       | 2026-11-06 08:52:26.462 UTC [1] LOG:  listening on IPv4 address \"0.0.0.0\", port 5432\npostgres-1       | 2026-11-06 08:52:26.463 UTC [1] LOG:  listening on IPv6 address \"::\", port 5432\npostgres-1       | 2026-11-06 08:52:26.478 UTC [1] LOG:  listening on Unix socket \"/var/run/postgresql/.s.PGSQL.5432\"\npostgres-1       | 2026-11-06 08:52:26.495 UTC [57] LOG:  database system was shut down at 2026-11-06 08:52:26 UTC\npostgres-1       | 2026-11-06 08:52:26.507 UTC [1] LOG:  database system is ready to accept connections\n"
+    },
+    {
+      "stage": [
+        "down",
+        "--volumes",
+        "--remove-orphans"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Windows\\system32\\wsl.exe",
+        "-d",
+        "Ubuntu",
+        "-u",
+        "root",
+        "--",
+        "env",
+        "GATEWAY_PORT=4296",
+        "OIDC_PORT=4297",
+        "PUBLIC_ORIGIN=http://localhost:4296",
+        "OIDC_PUBLIC_ORIGIN=http://localhost:4297",
+        "OIDC_ISSUER=http://localhost:4297/realms/space-fractions",
+        "docker",
+        "compose",
+        "--project-directory",
+        "/mnt/d/projects/Task-v03-runs/runs/v03/main/space-02-continuation/run-20261106-160407-98d09edf/project",
+        "-p",
+        "dca-07455b8d621f",
+        "-f",
+        "/mnt/d/projects/Task-v03-runs/runs/v03/main/space-02-continuation/run-20261106-160407-98d09edf/artifacts/runtime-06/compose.isolated.json",
+        "down",
+        "--volumes",
+        "--remove-orphans"
+      ],
+      "output": " Container dca-07455b8d621f-admin-service-1  Stopping\n Container dca-07455b8d621f-question-service-1  Stopping\n Container dca-07455b8d621f-prometheus-1  Stopping\n Container dca-07455b8d621f-game-service-1  Stopping\n Container dca-07455b8d621f-rabbitmq-1  Stopping\n Container dca-07455b8d621f-redis-1  Stopping\n Container dca-07455b8d621f-user-service-1  Stopping\n Container dca-07455b8d621f-keycloak-1  Stopping\n Container dca-07455b8d621f-elasticsearch-1  Stopping\n Container dca-07455b8d621f-question-service-1  Stopped\n Container dca-07455b8d621f-question-service-1  Removing\n Container dca-07455b8d621f-game-service-1  Stopped\n Container dca-07455b8d621f-game-service-1  Removing\n Container dca-07455b8d621f-admin-service-1  Stopped\n Container dca-07455b8d621f-admin-service-1  Removing\n Container dca-07455b8d621f-user-service-1  Stopped\n Container dca-07455b8d621f-user-service-1  Removing\n Container dca-07455b8d621f-admin-service-1  Removed\n Container dca-07455b8d621f-question-service-1  Removed\n Container dca-07455b8d621f-user-service-1  Removed\n Container dca-07455b8d621f-game-service-1  Removed\n Container dca-07455b8d621f-gateway-1  Stopping\n Container dca-07455b8d621f-gateway-1  Stopped\n Container dca-07455b8d621f-gateway-1  Removing\n Container dca-07455b8d621f-prometheus-1  Stopped\n Container dca-07455b8d621f-prometheus-1  Removing\n Container dca-07455b8d621f-redis-1  Stopped\n Container dca-07455b8d621f-redis-1  Removing\n Container dca-07455b8d621f-gateway-1  Removed\n Container dca-07455b8d621f-postgres-1  Stopping\n Container dca-07455b8d621f-prometheus-1  Removed\n Container dca-07455b8d621f-elasticsearch-1  Stopped\n Container dca-07455b8d621f-elasticsearch-1  Removing\n Container dca-07455b8d621f-redis-1  Removed\n Container dca-07455b8d621f-elasticsearch-1  Removed\n Container dca-07455b8d621f-postgres-1  Stopped\n Container dca-07455b8d621f-postgres-1  Removing\n Container dca-07455b8d621f-postgres-1  Removed\n Container dca-07455b8d621f-rabbitmq-1  Stopped\n Container dca-07455b8d621f-rabbitmq-1  Removing\n Container dca-07455b8d621f-rabbitmq-1  Removed\n Container dca-07455b8d621f-keycloak-1  Stopped\n Container dca-07455b8d621f-keycloak-1  Removing\n Container dca-07455b8d621f-keycloak-1  Removed\n Volume dca-07455b8d621f_postgres-data  Removing\n Network dca-07455b8d621f_default  Removing\n Volume dca-07455b8d621f_postgres-data  Removed\n Network dca-07455b8d621f_default  Removed\n"
+    }
+  ],
+  "source_modified_by_host": false,
+  "isolation_note": "Owned Compose project and loopback ports; Docker execution is not an OS security sandbox"
+}

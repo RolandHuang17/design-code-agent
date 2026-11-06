@@ -1,0 +1,34 @@
+{
+  "root": "D:\\projects\\Task-superagent\\runs\\superagent-v03\\20261106-152649-recovery\\stages\\t1",
+  "changes": [
+    {
+      "path": "package.json",
+      "before": null,
+      "after": "eac0b7e0495599c95930660f4260e4e126b3ece0a497fb2ac6548a6231847849"
+    },
+    {
+      "path": "src/convert.js",
+      "before": null,
+      "after": "de711e7a03ebbebcfa04dd85b2658830a0fc5d61af5f0defc4587892fed97282"
+    }
+  ],
+  "checks": [
+    {
+      "path": "package.json",
+      "status": "passed"
+    },
+    {
+      "path": "src/convert.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task-superagent\\runs\\superagent-v03\\20261106-152649-recovery\\stages\\artifacts\\candidates\\87d67448927b424fa8a7c660d8677553\\after\\src\\convert.js"
+      ],
+      "output": ""
+    }
+  ],
+  "status": "committed"
+}

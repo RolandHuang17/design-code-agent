@@ -1,0 +1,47 @@
+{
+  "tasks": [
+    {
+      "id": "T1",
+      "state": "generated_unverified",
+      "missing": [],
+      "snapshot_id": "6226264cfef649e00431b60f7c5fffdd9ad0092ed36ae2849e8d307d5e7733a2",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T2",
+      "state": "generated_unverified",
+      "missing": [],
+      "snapshot_id": "6226264cfef649e00431b60f7c5fffdd9ad0092ed36ae2849e8d307d5e7733a2",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T3",
+      "state": "generated_unverified",
+      "missing": [],
+      "snapshot_id": "6226264cfef649e00431b60f7c5fffdd9ad0092ed36ae2849e8d307d5e7733a2",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T4",
+      "state": "generated_unverified",
+      "missing": [],
+      "snapshot_id": "6226264cfef649e00431b60f7c5fffdd9ad0092ed36ae2849e8d307d5e7733a2",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T6",
+      "state": "generated_unverified",
+      "missing": [],
+      "snapshot_id": "6226264cfef649e00431b60f7c5fffdd9ad0092ed36ae2849e8d307d5e7733a2",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T5",
+      "state": "generated_unverified",
+      "missing": [],
+      "snapshot_id": "6226264cfef649e00431b60f7c5fffdd9ad0092ed36ae2849e8d307d5e7733a2",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    }
+  ],
+  "snapshot_id": "6226264cfef649e00431b60f7c5fffdd9ad0092ed36ae2849e8d307d5e7733a2"
+}

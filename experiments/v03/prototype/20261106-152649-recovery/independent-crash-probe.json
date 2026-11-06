@@ -1,0 +1,16 @@
+{
+  "origin": "independent_operator_runtime_probe",
+  "manual_project_edits": false,
+  "port": 6201,
+  "requests": [
+    {
+      "status": 200,
+      "body": "{\"status\":\"ok\"}"
+    },
+    {
+      "error": "<urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>"
+    }
+  ],
+  "exit_code_after_health": 1,
+  "process_output": "Temperature converter listening on http://0.0.0.0:6201\nfile:///D:/projects/Task-superagent/runs/superagent-v03/20261106-152649-recovery/project/src/app.js:84\n    route(req, res).catch(() => {\n                   ^\n\nTypeError: Cannot read properties of undefined (reading 'catch')\n    at Server.<anonymous> (file:///D:/projects/Task-superagent/runs/superagent-v03/20261106-152649-recovery/project/src/app.js:84:20)\n    at Server.emit (node:events:514:28)\n    at parserOnIncoming (node:_http_server:1293:12)\n    at HTTPParser.parserOnHeadersComplete (node:_http_common:125:17)\n\nNode.js v24.22.1\n"
+}

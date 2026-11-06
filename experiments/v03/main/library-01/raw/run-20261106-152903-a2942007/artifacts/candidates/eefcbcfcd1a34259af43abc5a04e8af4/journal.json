@@ -1,0 +1,18 @@
+{
+  "root": "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\library-01\\run-20261106-152903-a2942007\\project",
+  "changes": [
+    {
+      "path": ".dockerignore",
+      "before": null,
+      "after": "f3b3cfa6cc65d95c82d62fc5f66ceea5484e27391c2acf400bad6a3efd80aad1"
+    }
+  ],
+  "checks": [
+    {
+      "path": ".dockerignore",
+      "status": "not_applicable",
+      "kind": "syntax_format"
+    }
+  ],
+  "status": "committed"
+}

@@ -1,0 +1,13 @@
+{
+  "status": "interrupted",
+  "observed_utc": "2026-11-06T08:08:43.234341+00:00",
+  "last_event_utc": "2026-11-06T07:58:40.161901+00:00",
+  "raw_report_status": "running",
+  "controller_process_found": false,
+  "reason": "Controller process no longer present and no final report recorded. Exact termination cause not independently established.",
+  "assistant_events": 153,
+  "valid_usage_estimated_cny": 48.780273,
+  "unknown_reservations": "Retained in global ledger; not inferred from missing response",
+  "continuation": "space-02-continuation",
+  "policy": "Original report, receipt and project preserved; continuation is not fresh generation."
+}

@@ -1,0 +1,117 @@
+{
+  "kind": "operator_temperature_process_acceptance",
+  "status": "passed",
+  "project": "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\generic-01\\run-20261106-151949-c59162b3\\project",
+  "source_hashes_before": {
+    "README.md": "1d47807184ace1e84e6c737348928d44f23f7b4d7a71febc4a40996f7b47bae6",
+    "architecture-decisions.md": "99494eafeb38dcbe879439a7f9c9a34a6767531c04a0200875c865250ef214bb",
+    "package-lock.json": "26e72bb4066dbab737c5ed7bbbea7a823b033637376e09d822227428ccc5ba0d",
+    "package.json": "9ecd2f4d9520f5084157925bffae3617725f658c959f378a5f994c3aa570594b",
+    "plan.json": "64ad6c02a706243dc350241999575725dc67f73c6f98dc254f4896e90ca8d0d2",
+    "server.js": "3afc6cb4828754af90059f5cd13e35e04d41057139dbc6ba8fa49203690bc7fc",
+    "traceability.json": "002b9cc27384dd25d548692b053136beb87dd64bc0b8752c8f6665bf94d8884f",
+    "lib/app.js": "80b2497e5cd9361255546daafeb3ab200c4508835684a583fcd37c6aeca974c1",
+    "lib/convert.js": "d652ac52c63d86fde68f1e2c37100910e49669371cc49827a6e7566572a2930a",
+    "test/app.test.js": "ce3f98c520d5a9e58241584282360f57526fae37d2ff30389cd4b8f9fb685f5f",
+    "test/convert.test.js": "0a21ae7813a9be26b579710efdc3e879ed028be168aefcf40d423884a1f0f9cf"
+  },
+  "checks": [
+    {
+      "check": "health",
+      "status": "passed"
+    },
+    {
+      "check": "browser HTML",
+      "status": "passed"
+    },
+    {
+      "check": "convert 0C to F",
+      "status": "passed"
+    },
+    {
+      "check": "convert 212F to C",
+      "status": "passed"
+    },
+    {
+      "check": "convert 273.15K to C",
+      "status": "passed"
+    },
+    {
+      "check": "convert -40C to F",
+      "status": "passed"
+    },
+    {
+      "check": "convert 0K to F",
+      "status": "passed"
+    },
+    {
+      "check": "convert -459.67F to K",
+      "status": "passed"
+    },
+    {
+      "check": "convert 12.75C to C",
+      "status": "passed"
+    },
+    {
+      "check": "convert 1C to F",
+      "status": "passed"
+    },
+    {
+      "check": "missing fields",
+      "status": "passed"
+    },
+    {
+      "check": "numeric string",
+      "status": "passed"
+    },
+    {
+      "check": "boolean value",
+      "status": "passed"
+    },
+    {
+      "check": "unknown unit",
+      "status": "passed"
+    },
+    {
+      "check": "below absolute zero",
+      "status": "passed"
+    },
+    {
+      "check": "invalid same-unit",
+      "status": "passed"
+    },
+    {
+      "check": "malformed JSON",
+      "status": "passed"
+    }
+  ],
+  "command": [
+    "C:\\Program Files\\nodejs\\node.EXE",
+    "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+    "run",
+    "start",
+    "--ignore-scripts"
+  ],
+  "base_url": "http://127.0.0.1:8658",
+  "limitations": [
+    "HTTP checks do not establish browser interaction or arbitrary-project correctness"
+  ],
+  "cleanup": {
+    "process_stopped": true
+  },
+  "source_hashes_after": {
+    "README.md": "1d47807184ace1e84e6c737348928d44f23f7b4d7a71febc4a40996f7b47bae6",
+    "architecture-decisions.md": "99494eafeb38dcbe879439a7f9c9a34a6767531c04a0200875c865250ef214bb",
+    "package-lock.json": "26e72bb4066dbab737c5ed7bbbea7a823b033637376e09d822227428ccc5ba0d",
+    "package.json": "9ecd2f4d9520f5084157925bffae3617725f658c959f378a5f994c3aa570594b",
+    "plan.json": "64ad6c02a706243dc350241999575725dc67f73c6f98dc254f4896e90ca8d0d2",
+    "server.js": "3afc6cb4828754af90059f5cd13e35e04d41057139dbc6ba8fa49203690bc7fc",
+    "traceability.json": "002b9cc27384dd25d548692b053136beb87dd64bc0b8752c8f6665bf94d8884f",
+    "lib/app.js": "80b2497e5cd9361255546daafeb3ab200c4508835684a583fcd37c6aeca974c1",
+    "lib/convert.js": "d652ac52c63d86fde68f1e2c37100910e49669371cc49827a6e7566572a2930a",
+    "test/app.test.js": "ce3f98c520d5a9e58241584282360f57526fae37d2ff30389cd4b8f9fb685f5f",
+    "test/convert.test.js": "0a21ae7813a9be26b579710efdc3e879ed028be168aefcf40d423884a1f0f9cf"
+  },
+  "source_unchanged": true,
+  "server_output_tail": "\n> temperature-converter@1.0.0 start\n> node server.js\n\nTemperature converter listening on port 8658\n"
+}

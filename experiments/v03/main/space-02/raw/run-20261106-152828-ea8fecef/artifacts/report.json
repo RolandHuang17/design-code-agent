@@ -1,0 +1,13 @@
+{
+  "status": "running",
+  "provider": "bailian",
+  "model": "deepseek-v4-pro-0813",
+  "uses_official_endpoint": false,
+  "real_api_run": true,
+  "checks": [],
+  "repair_rounds": 0,
+  "acceptance_profile": "space-fractions",
+  "generation_origin": "fresh",
+  "schema_version": 2,
+  "note": "If this status remains after the process exits, the process was externally interrupted."
+}

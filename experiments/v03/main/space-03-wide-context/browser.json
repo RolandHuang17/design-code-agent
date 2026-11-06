@@ -1,0 +1,25 @@
+{
+  "kind": "independent_browser",
+  "status": "failed",
+  "checks": [
+    {
+      "check": "Open generated game page",
+      "status": "passed"
+    },
+    {
+      "check": "Sign In opens identity provider",
+      "status": "failed",
+      "actual_http_status": 404,
+      "actual_path": "/realms/space-fractions/protocol/openid-connect/auth",
+      "actual_origin": "http://localhost:8024",
+      "expected_origin": "http://localhost:8025"
+    }
+  ],
+  "skipped": [
+    "student answer and score",
+    "pause/resume",
+    "administrator web operations"
+  ],
+  "manual_project_edits": false,
+  "note": "HTTP bearer-token acceptance passed, but browser login redirect failed. These outcomes are separate."
+}

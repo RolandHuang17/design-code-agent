@@ -1,0 +1,18 @@
+{
+  "root": "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-03-wide-context\\run-20261106-165508-200b9016\\project",
+  "changes": [
+    {
+      "path": "keycloak/realm.json",
+      "before": "787cce5bc5a15134d63c5fb740376125e29ea672a9a9addae4ea829ec639c1ea",
+      "after": "af7b6467f05d3fbf3e6c01980109ba0afa387c8af146a6305847223c4718aa4f"
+    }
+  ],
+  "checks": [
+    {
+      "path": "keycloak/realm.json",
+      "status": "passed",
+      "kind": "syntax_format"
+    }
+  ],
+  "status": "committed"
+}

@@ -1,0 +1,80 @@
+{
+  "runs": [
+    {
+      "id": "20261106-152132-normal",
+      "state": "blocked",
+      "verification": null,
+      "source_commit": "dace5f2aa989a82a2fa6717ec141ff68412cac29",
+      "new_attempts": 18,
+      "inherited_attempts": 0,
+      "new_usage_estimated_cny": 1.687221,
+      "parent": null,
+      "kind": "fresh_generation",
+      "original_files": 59,
+      "pause_attempts": null,
+      "manual_project_edits": false
+    },
+    {
+      "id": "20261106-152649-recovery",
+      "state": "blocked",
+      "verification": "checks_passed_requires_review",
+      "source_commit": "dace5f2aa989a82a2fa6717ec141ff68412cac29",
+      "new_attempts": 22,
+      "inherited_attempts": 0,
+      "new_usage_estimated_cny": 2.026062,
+      "parent": null,
+      "kind": "fresh_generation_with_checkpoint_resume",
+      "original_files": 62,
+      "pause_attempts": 4,
+      "manual_project_edits": false
+    },
+    {
+      "id": "20261106-153522-health",
+      "state": "blocked",
+      "verification": "checks_passed_requires_review",
+      "source_commit": "4c41d363ca0bed95dbabf5fde112e336311c7bc4",
+      "new_attempts": 20,
+      "inherited_attempts": 0,
+      "new_usage_estimated_cny": 1.005489,
+      "parent": null,
+      "kind": "fresh_generation",
+      "original_files": 39,
+      "pause_attempts": null,
+      "manual_project_edits": false
+    },
+    {
+      "id": "20261106-153708-continuation",
+      "state": "failed",
+      "verification": "failed",
+      "source_commit": "4c41d363ca0bed95dbabf5fde112e336311c7bc4",
+      "new_attempts": 2,
+      "inherited_attempts": 18,
+      "new_usage_estimated_cny": 0.489552,
+      "parent": "20261106-152132-normal",
+      "kind": "checkpoint_continuation_not_fresh_generation",
+      "original_files": 59,
+      "pause_attempts": null,
+      "manual_project_edits": false
+    },
+    {
+      "id": "20261106-154127-health-policy-continuation",
+      "state": "completed",
+      "verification": "checks_passed_requires_review",
+      "source_commit": "1f425d3bcd3b8d096cca3f14d06ff474d5a7358e",
+      "new_attempts": 5,
+      "inherited_attempts": 20,
+      "new_usage_estimated_cny": 0.297222,
+      "parent": "20261106-153522-health",
+      "kind": "checkpoint_re_review_not_fresh_generation",
+      "original_files": 40,
+      "pause_attempts": null,
+      "manual_project_edits": false
+    }
+  ],
+  "total_new_attempts": 67,
+  "total_new_usage_estimated_cny": 5.505546,
+  "known_key_scan_files": 259,
+  "originals_copied_byte_identically": true,
+  "exports": "inspection files are derived SQLite projections; original state.sqlite retained",
+  "limitations": "No OS-process-kill recovery experiment. Coordinator reconstructed in same Python process. Checkpoint continuations are not fresh generations. All model costs estimates, not provider bills."
+}

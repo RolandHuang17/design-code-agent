@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package spacefractions;
+
+// Internal service-to-service contract for the Space Fractions system.
+// This file mirrors the original Architecture_Documentation.md "Internal contracts"
+// section (lines 104-117) and is referenced by NFR-1 (performance).
+//
+// Runtime gaming flows (pause/resume, answers, scoring) are exposed over REST at
+// the gateway and are documented in openapi.yaml. This RPC surface keeps the
+// GameComponent's authoritative game-start contract as specified by the design.
+
+service GameService {
+  rpc Play(PlayRequest) returns (PlayResponse) {}
+}
+
+message PlayRequest {
+  int32 gameId = 1;
+}
+
+message PlayResponse {
+  int32 gameId = 1;
+}

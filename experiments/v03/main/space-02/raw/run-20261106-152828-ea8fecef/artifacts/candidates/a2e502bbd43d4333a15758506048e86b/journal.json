@@ -1,0 +1,26 @@
+{
+  "root": "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project",
+  "changes": [
+    {
+      "path": "test/fraction.test.js",
+      "before": null,
+      "after": "7ea8e5a0a48852d8728eaa92bc1d02e1d2c60e63fe95eedeb0509090189bfa3e"
+    }
+  ],
+  "checks": [
+    {
+      "path": "test/fraction.test.js",
+      "status": "passed",
+      "kind": "syntax_format",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\artifacts\\candidates\\a2e502bbd43d4333a15758506048e86b\\after\\test\\fraction.test.js"
+      ],
+      "output": ""
+    }
+  ],
+  "status": "committed"
+}

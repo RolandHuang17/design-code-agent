@@ -1,0 +1,18 @@
+# Prometheus scrape configuration for the Space Fractions local Compose
+# environment. This is a working, real scrape config (not a placeholder).
+#
+# The gateway exposes Prometheus metrics at GET /metrics on container port 3000
+# (see gateway/app.js). We scrape it by service name over the Compose network;
+# the browser-facing public origin never appears here because Prometheus reaches
+# the container directly.
+
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: "space-fractions-gateway"
+    metrics_path: /metrics
+    static_configs:
+      - targets:
+          - "gateway:3000"

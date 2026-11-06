@@ -1,0 +1,56 @@
+- generic [ref=e1]:
+  - banner [ref=e2]:
+    - heading "Library borrowing" [level=1] [ref=e3]
+    - paragraph [ref=e4]: List books, borrow with a reader ID, and return loans.
+  - main [ref=e5]:
+    - generic [ref=e6]:
+      - heading "Add a book" [level=2] [ref=e7]
+      - generic [ref=e8]:
+        - textbox "Title" [ref=e9]
+        - spinbutton "Copies" [ref=e10]
+        - button "Add book" [ref=e11] [cursor=pointer]
+    - generic [ref=e12]:
+      - heading "Books" [level=2] [ref=e13]
+      - generic [ref=e14]:
+        - article [ref=e70]:
+          - heading "The Great Gatsby" [level=3] [ref=e71]
+          - paragraph [ref=e72]: "ID: 1"
+          - paragraph [ref=e73]: "Available copies: 3"
+        - article [ref=e74]:
+          - heading "1984" [level=3] [ref=e75]
+          - paragraph [ref=e76]: "ID: 2"
+          - paragraph [ref=e77]: "Available copies: 2"
+        - article [ref=e78]:
+          - heading "To Kill a Mockingbird" [level=3] [ref=e79]
+          - paragraph [ref=e80]: "ID: 3"
+          - paragraph [ref=e81]: "Available copies: 1"
+        - article [ref=e82]:
+          - heading "Independent acceptance book" [level=3] [ref=e83]
+          - paragraph [ref=e84]: "ID: 4"
+          - paragraph [ref=e85]: "Available copies: 1"
+        - article [ref=e86]:
+          - heading "Browser v03 review" [level=3] [ref=e87]
+          - paragraph [ref=e88]: "ID: 5"
+          - paragraph [ref=e89]: "Available copies: 0"
+    - generic [ref=e31]:
+      - heading "Borrow / return" [level=2] [ref=e32]
+      - generic [ref=e33]:
+        - textbox "Reader ID" [ref=e34]: browser-v03-second
+        - textbox "Book ID" [ref=e35]: "5"
+        - button "Borrow" [active] [ref=e36] [cursor=pointer]
+      - generic [ref=e37]:
+        - textbox "Loan ID" [ref=e38]
+        - button "Return loan" [ref=e39] [cursor=pointer]
+    - generic [ref=e40]:
+      - heading "Loans" [level=2] [ref=e41]
+      - generic [ref=e42]:
+        - generic [ref=e90]:
+          - generic [ref=e91]: Loan 1 — book 4 — reader reader-6
+          - generic [ref=e92]: returned
+        - generic [ref=e93]:
+          - generic [ref=e94]: Loan 2 — book 4 — reader persistent-reader
+          - generic [ref=e95]: returned
+        - generic [ref=e96]:
+          - generic [ref=e97]: Loan 3 — book 5 — reader browser-v03-reader
+          - generic [ref=e98]: active
+  - status [ref=e69]: "Could not borrow: No available copies"

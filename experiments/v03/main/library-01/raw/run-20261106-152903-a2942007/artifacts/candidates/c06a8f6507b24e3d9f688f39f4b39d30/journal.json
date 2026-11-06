@@ -1,0 +1,26 @@
+{
+  "root": "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\library-01\\run-20261106-152903-a2942007\\project",
+  "changes": [
+    {
+      "path": "src/server.js",
+      "before": null,
+      "after": "0ab19e165f532cffe10586b0d7c97c0077fd1f8404697b4f92936963780c9063"
+    }
+  ],
+  "checks": [
+    {
+      "path": "src/server.js",
+      "status": "passed",
+      "kind": "syntax_format",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\library-01\\run-20261106-152903-a2942007\\artifacts\\candidates\\c06a8f6507b24e3d9f688f39f4b39d30\\after\\src\\server.js"
+      ],
+      "output": ""
+    }
+  ],
+  "status": "committed"
+}

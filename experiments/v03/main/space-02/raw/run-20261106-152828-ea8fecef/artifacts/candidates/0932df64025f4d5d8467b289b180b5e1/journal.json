@@ -1,0 +1,18 @@
+{
+  "root": "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project",
+  "changes": [
+    {
+      "path": "sql/migrations/001_init.sql",
+      "before": null,
+      "after": "d96e119a883e530e9b227815c4bc89c177eff7053fa36844693045bcd2dce848"
+    }
+  ],
+  "checks": [
+    {
+      "path": "sql/migrations/001_init.sql",
+      "status": "not_applicable",
+      "kind": "syntax_format"
+    }
+  ],
+  "status": "committed"
+}

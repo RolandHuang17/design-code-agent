@@ -1,0 +1,18 @@
+{
+  "root": "C:\\Users\\tasktest\\Documents\\DesignCodeAgent-Superagent\\stages\\readme",
+  "changes": [
+    {
+      "path": "README.md",
+      "before": null,
+      "after": "fe81bb47c5f5b5e00f7941979909551f99a6ff359e9f4cc2e754f83baf37d855"
+    }
+  ],
+  "checks": [
+    {
+      "path": "README.md",
+      "status": "not_applicable",
+      "kind": "syntax_format"
+    }
+  ],
+  "status": "committed"
+}

@@ -1,0 +1,99 @@
+{
+  "kind": "independent_health_http_restart",
+  "status": "passed",
+  "source_hashes_before": {
+    "README.md": "efe0b747e3c701d130f0b08664d5fb4e48bc7b1a26f8170c6fd1f25652fb1f90",
+    "architecture-decisions.md": "2841836760db5c86b3b64c7cd939b3eeb6030294e3b049ea7d18702c7ad90267",
+    "package.json": "8ed86fd5cf08f50af310d7d9168f1e5df85a7b19d8cf946d2ed72721144c0705",
+    "plan.json": "ff577dfbc2fcf76fb921e55ef03839e540070be29e22d6962315284ecc6c2675",
+    "traceability.json": "ecb3f3d48e342412883dfa1cfe6fa0bfe663b28cd4bcdea9754c2a94c94d4b2b",
+    "scripts/check-syntax.cjs": "43c124864f46b4cde4c279fc165021bb9254cadf55993d32880e92515d26b973",
+    "src/app.cjs": "8fe0623ca77964aaaf771fec9cab0dcb0548ecb891a6d25f48488f52e2dfffe7",
+    "src/server.cjs": "db3a1e46f5aecfe9e8eab71df6007cf1d25519b2905895777b61b3babf2753f3",
+    "test/health.test.cjs": "d9b3950c281440aed7a2df5ed6c635faf62f6c9bcea0bc660042dc059638b096",
+    "test/startup.test.cjs": "ba2c9299424f6afc2680bf38cd6e90f1eb0cd14f49e53fa37545e4b27e9575fb"
+  },
+  "checks": [
+    {
+      "restart_index": 0,
+      "path": "/health",
+      "http_status": 200,
+      "body": {
+        "status": "ok"
+      },
+      "passed": true
+    },
+    {
+      "restart_index": 0,
+      "path": "/unknown-route",
+      "http_status": 404,
+      "body": {
+        "error": "Not Found"
+      },
+      "passed": true
+    },
+    {
+      "restart_index": 0,
+      "path": "/health",
+      "http_status": 200,
+      "body": {
+        "status": "ok"
+      },
+      "passed": true
+    },
+    {
+      "restart_index": 1,
+      "path": "/health",
+      "http_status": 200,
+      "body": {
+        "status": "ok"
+      },
+      "passed": true
+    },
+    {
+      "restart_index": 1,
+      "path": "/unknown-route",
+      "http_status": 404,
+      "body": {
+        "error": "Not Found"
+      },
+      "passed": true
+    },
+    {
+      "restart_index": 1,
+      "path": "/health",
+      "http_status": 200,
+      "body": {
+        "status": "ok"
+      },
+      "passed": true
+    }
+  ],
+  "cleanup": [
+    {
+      "restart_index": 0,
+      "process_stopped": true,
+      "port_closed": true,
+      "output_tail": "\n> minimal-http-health-service@1.0.0 start\n> node src/server.cjs\n\nhealth service listening on port 1696\n"
+    },
+    {
+      "restart_index": 1,
+      "process_stopped": true,
+      "port_closed": true,
+      "output_tail": "\n> minimal-http-health-service@1.0.0 start\n> node src/server.cjs\n\nhealth service listening on port 1702\n"
+    }
+  ],
+  "source_hashes_after": {
+    "README.md": "efe0b747e3c701d130f0b08664d5fb4e48bc7b1a26f8170c6fd1f25652fb1f90",
+    "architecture-decisions.md": "2841836760db5c86b3b64c7cd939b3eeb6030294e3b049ea7d18702c7ad90267",
+    "package.json": "8ed86fd5cf08f50af310d7d9168f1e5df85a7b19d8cf946d2ed72721144c0705",
+    "plan.json": "ff577dfbc2fcf76fb921e55ef03839e540070be29e22d6962315284ecc6c2675",
+    "traceability.json": "ecb3f3d48e342412883dfa1cfe6fa0bfe663b28cd4bcdea9754c2a94c94d4b2b",
+    "scripts/check-syntax.cjs": "43c124864f46b4cde4c279fc165021bb9254cadf55993d32880e92515d26b973",
+    "src/app.cjs": "8fe0623ca77964aaaf771fec9cab0dcb0548ecb891a6d25f48488f52e2dfffe7",
+    "src/server.cjs": "db3a1e46f5aecfe9e8eab71df6007cf1d25519b2905895777b61b3babf2753f3",
+    "test/health.test.cjs": "d9b3950c281440aed7a2df5ed6c635faf62f6c9bcea0bc660042dc059638b096",
+    "test/startup.test.cjs": "ba2c9299424f6afc2680bf38cd6e90f1eb0cd14f49e53fa37545e4b27e9575fb"
+  },
+  "source_unchanged": true
+}

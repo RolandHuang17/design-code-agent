@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Space Fractions</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <h1>Space Fractions</h1>
+        <div class="topbar__actions">
+          <button id="help-btn" class="btn btn--ghost">Help</button>
+          <span id="whoami" class="whoami"></span>
+        </div>
+      </header>
+
+      <!-- Introduction / main menu -->
+      <section id="screen-intro" class="screen is-active">
+        <p class="lede">
+          Blast through the galaxy by adding and subtracting fractions. Answer with a
+          single reduced fraction like <code>3/4</code> or <code>-1/2</code>. Solve the
+          whole mission, then check your final score.
+        </p>
+        <div class="menu">
+          <button id="start-game-btn" class="btn">Start Game</button>
+        </div>
+        <p id="intro-error" class="error" hidden></p>
+        <div class="help-panel" hidden>
+          <h2>How to play</h2>
+          <ul>
+            <li>Write answers as a single reduced fraction (e.g. <code>3/4</code>).</li>
+            <li>A whole number is written as <code>5/1</code>.</li>
+            <li>Pause and resume anytime; you cannot answer while paused.</li>
+            <li>Each correct answer earns 1 point. Repeats do not add points.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Play screen -->
+      <section id="screen-play" class="screen">
+        <div class="play__head">
+          <span id="play-status" class="chip">Playing</span>
+          <span id="play-score" class="chip chip--accent">Score: 0</span>
+        </div>
+        <p id="prompt" class="prompt"></p>
+        <form id="answer-form" class="answer-form">
+          <input id="answer-input" type="text" autocomplete="off"
+                 placeholder="Your fraction answer" aria-label="Fraction answer" />
+          <div class="answer-form__actions">
+            <button type="submit" class="btn">Submit</button>
+            <button type="button" id="pause-btn" class="btn btn--ghost">Pause</button>
+          </div>
+        </form>
+        <p id="answer-feedback" class="feedback" aria-live="polite"></p>
+        <button id="resume-btn" class="btn" hidden>Resume</button>
+        <div class="play__foot">
+          <button id="view-score-btn" class="btn btn--ghost">View Score</button>
+          <button id="end-game-btn" class="btn btn--ghost">End Game</button>
+        </div>
+        <p id="play-error" class="error" hidden></p>
+      </section>
+
+      <!-- Final score screen -->
+      <section id="screen-score" class="screen">
+        <h2>Mission complete</h2>
+        <p class="lede">Your final score:</p>
+        <p id="final-score" class="big-score"></p>
+        <p id="ending-feedback" class="feedback"></p>
+        <div class="menu">
+          <button id="play-again-btn" class="btn">Play Again</button>
+        </div>
+      </section>
+
+      <!-- Admin (question CRUD) screen -->
+      <section id="screen-admin" class="screen">
+        <h2>Question Management</h2>
+        <p class="lede">Authenticated administrators can create and remove questions.</p>
+        <form id="admin-form" class="admin-form">
+          <label for="admin-prompt">Prompt</label>
+          <input id="admin-prompt" type="text" required />
+
+          <label for="admin-options">Options (one per line)</label>
+          <textarea id="admin-options" rows="4" required></textarea>
+
+          <label for="admin-correct">Correct answer (single reduced fraction)</label>
+          <input id="admin-correct" type="text" required />
+
+          <button type="submit" class="btn">Create Question</button>
+        </form>
+        <p id="admin-feedback" class="feedback" aria-live="polite"></p>
+        <h3>Existing questions</h3>
+        <ul id="admin-list" class="question-list"></ul>
+        <p id="admin-error" class="error" hidden></p>
+      </section>
+    </main>
+    <script src="/app.js" defer></script>
+  </body>
+</html>

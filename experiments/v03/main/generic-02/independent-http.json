@@ -1,0 +1,53 @@
+{
+  "kind": "operator_temperature_process_acceptance",
+  "status": "failed",
+  "project": "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\generic-02\\run-20261106-153532-68837ca5\\project",
+  "source_hashes_before": {
+    ".gitignore": "7ee57884df156d4ad1d668a86ee3d9d4c5b4d665faaf6cc68c59c5600f9fa8ea",
+    "README.md": "8b30b85f69961f414b44d895db0b39ece64ae509681e4121cbb2b7ba0191aecd",
+    "architecture-decisions.md": "deb41a111a8b5fd211d2850287db783201e0392ec1ba03802f9d924131b2366c",
+    "package-lock.json": "26e72bb4066dbab737c5ed7bbbea7a823b033637376e09d822227428ccc5ba0d",
+    "package.json": "3cb834ec47a69d45b022d0911b4daa61e973f48cc672dc3695f1a495f56223fc",
+    "plan.json": "4b9859609e1d9a2ac9c3e0291010df944bb1b3e4f4f41c679e33fc1a35869a6f",
+    "traceability.json": "2721b0a8e65e0288ac41589f6c0967297767ef1c97707b7dd597f8d5816b3e65",
+    "public/index.html": "62df4ef20fc78d80dfc3c8b61b4984fb96761e53b1b4efb8335cb9093188e389",
+    "src/app.js": "d5a2c40e0d2b18eb1a19c830541e494262b26f65b0ef9bc8c0cbff0c4f8a3edf",
+    "src/convert.js": "d14bcc7dd522cd34ef343305c8e435e41e381838343efc60c46b38fc784f0dc3",
+    "src/server.js": "0d2301635a3003878044e0e3ca115c0cdf631e2af313c006be669bc2707e35ad",
+    "test/app.test.js": "6511fba71ebbd94ba6935d78d116e63eee12b44ab1e3e961cabe782a6e96a5d4",
+    "test/convert.test.js": "e2adcc77ccf6bfc05cbc888558d7050b43b0b05442da3058f398ef951a61236b",
+    "test/server.test.js": "2872427c9a52e9bd18bc5c92df61d2bd289643c2f5c9ac3e6f8c6571d885f5fe"
+  },
+  "checks": [],
+  "command": [
+    "C:\\Program Files\\nodejs\\node.EXE",
+    "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+    "run",
+    "start",
+    "--ignore-scripts"
+  ],
+  "base_url": "http://127.0.0.1:10365",
+  "reason": "Generated server did not become healthy before timeout",
+  "exit_code": 0,
+  "cleanup": {
+    "process_stopped": true
+  },
+  "source_hashes_after": {
+    ".gitignore": "7ee57884df156d4ad1d668a86ee3d9d4c5b4d665faaf6cc68c59c5600f9fa8ea",
+    "README.md": "8b30b85f69961f414b44d895db0b39ece64ae509681e4121cbb2b7ba0191aecd",
+    "architecture-decisions.md": "deb41a111a8b5fd211d2850287db783201e0392ec1ba03802f9d924131b2366c",
+    "package-lock.json": "26e72bb4066dbab737c5ed7bbbea7a823b033637376e09d822227428ccc5ba0d",
+    "package.json": "3cb834ec47a69d45b022d0911b4daa61e973f48cc672dc3695f1a495f56223fc",
+    "plan.json": "4b9859609e1d9a2ac9c3e0291010df944bb1b3e4f4f41c679e33fc1a35869a6f",
+    "traceability.json": "2721b0a8e65e0288ac41589f6c0967297767ef1c97707b7dd597f8d5816b3e65",
+    "public/index.html": "62df4ef20fc78d80dfc3c8b61b4984fb96761e53b1b4efb8335cb9093188e389",
+    "src/app.js": "d5a2c40e0d2b18eb1a19c830541e494262b26f65b0ef9bc8c0cbff0c4f8a3edf",
+    "src/convert.js": "d14bcc7dd522cd34ef343305c8e435e41e381838343efc60c46b38fc784f0dc3",
+    "src/server.js": "0d2301635a3003878044e0e3ca115c0cdf631e2af313c006be669bc2707e35ad",
+    "test/app.test.js": "6511fba71ebbd94ba6935d78d116e63eee12b44ab1e3e961cabe782a6e96a5d4",
+    "test/convert.test.js": "e2adcc77ccf6bfc05cbc888558d7050b43b0b05442da3058f398ef951a61236b",
+    "test/server.test.js": "2872427c9a52e9bd18bc5c92df61d2bd289643c2f5c9ac3e6f8c6571d885f5fe"
+  },
+  "source_unchanged": true,
+  "server_output_tail": "\n> temperature-converter@1.0.0 start\n> node src/server.js\n\n"
+}

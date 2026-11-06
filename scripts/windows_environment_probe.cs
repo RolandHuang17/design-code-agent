@@ -59,11 +59,12 @@ class EnvironmentProbe {
         report.AppendLine("\r\nDesktop acceptance executable SHA256 (read-only):");
         string desktop = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
         foreach(string folder in Directory.GetDirectories(desktop)) {
-            if(!Path.GetFileName(folder).StartsWith("\u4e2d\u6587 \u7a7a\u683c", StringComparison.Ordinal)) continue;
-            string executable=Path.Combine(folder,"Agent", "DesignCodeAgent.exe");
-            if(!File.Exists(executable)) continue;
-            using(var stream=File.OpenRead(executable)) using(var hash=SHA256.Create())
-                report.AppendLine(executable+"\r\n"+BitConverter.ToString(hash.ComputeHash(stream)).Replace("-", "").ToLowerInvariant());
+            if(!Path.GetFileName(folder).StartsWith("\u4e2d\u6587 \u7a7a\u683c", StringComparison.Ordinal)
+               && !Path.GetFileName(folder).StartsWith("DCA-v03-", StringComparison.Ordinal)) continue;
+            foreach(string executable in Directory.GetFiles(folder,"DesignCodeAgent*.exe",SearchOption.AllDirectories)) {
+                using(var stream=File.OpenRead(executable)) using(var hash=SHA256.Create())
+                    report.AppendLine(executable+"\r\n"+BitConverter.ToString(hash.ComputeHash(stream)).Replace("-", "").ToLowerInvariant());
+            }
         }
         report.AppendLine("\r\nBundled runtimes inside standalone executables are not system installations.");
         report.AppendLine("This inventory alone does not prove absence of every portable runtime; pair it with the fresh-OS snapshot and GUI evidence.");

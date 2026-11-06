@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.IO.Compression;
 using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -8,14 +9,28 @@ using System.Windows.Forms;
 public static class EvidenceTransfer {
     [STAThread] public static void Main() {
         Application.EnableVisualStyles();
-        var form = new Form { Text="Guest evidence transfer (local host only)", Width=850, Height=380 };
+        var form = new Form { Text="Guest evidence transfer (local host only)", Width=850, Height=430 };
         var url = new TextBox { Left=20, Top=20, Width=790 };
         var config = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"transfer-url.txt");
         if(File.Exists(config)) url.Text=File.ReadAllText(config).Trim();
         var choose = new Button { Left=20, Top=65, Width=190, Text="Select evidence file" };
         var send = new Button { Left=230, Top=65, Width=190, Text="Upload selected file" };
-        var result = new TextBox { Left=20, Top=110, Width=790, Height=205, Multiline=true, ReadOnly=true, ScrollBars=ScrollBars.Both };
+        var packMain = new Button { Left=20, Top=105, Width=190, Text="Package main task evidence" };
+        var packPrototype = new Button { Left=230, Top=105, Width=240, Text="Package prototype task evidence" };
+        var result = new TextBox { Left=20, Top=150, Width=790, Height=205, Multiline=true, ReadOnly=true, ScrollBars=ScrollBars.Both };
         string selected=null;
+        Action<string,string> package = (folder,label) => {
+            try {
+                var source=Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),folder);
+                if(!Directory.Exists(source)) { result.Text="Task directory absent: "+source; return; }
+                var target=Path.Combine(Path.GetTempPath(),"DCA-"+label+"-"+DateTime.UtcNow.ToString("yyyyMMdd-HHmmss")+".zip");
+                ZipFile.CreateFromDirectory(source,target,CompressionLevel.Optimal,false);
+                selected=target;
+                result.Text="Packaged task evidence only: "+source+"\r\nSelected: "+selected+"\r\nClick Upload selected file to transfer to the local host.";
+            } catch(Exception error) { result.Text=error.GetType().Name+": "+error.Message; }
+        };
+        packMain.Click += (sender,args) => package("DesignCodeAgent","main");
+        packPrototype.Click += (sender,args) => package("DesignCodeAgent-Superagent","prototype");
         choose.Click += (sender,args) => {
             using(var dialog=new OpenFileDialog { Filter="Evidence (*.zip;*.txt;*.json)|*.zip;*.txt;*.json" }) {
                 if(dialog.ShowDialog()==DialogResult.OK) { selected=dialog.FileName; result.Text="Selected: "+selected; }
@@ -44,7 +59,7 @@ public static class EvidenceTransfer {
             } catch(Exception error) { result.Text=error.GetType().Name+": "+error.Message; }
             finally { send.Enabled=true; choose.Enabled=true; }
         };
-        form.Controls.AddRange(new Control[]{url,choose,send,result});
+        form.Controls.AddRange(new Control[]{url,choose,send,packMain,packPrototype,result});
         Application.Run(form);
     }
 }

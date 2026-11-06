@@ -1,0 +1,25 @@
+{
+  "root": "D:\\projects\\Task-main-upgrade\\runs\\v03\\main\\space-01\\run-20261106-151826-362f5e12\\project",
+  "changes": [
+    {
+      "path": "src/lib/errors.js",
+      "before": null,
+      "after": "85fc0c541147d6dd992e487a76a4f6c0964708f5d7bf4c69c442da913c032be0"
+    }
+  ],
+  "checks": [
+    {
+      "path": "src/lib/errors.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task-main-upgrade\\runs\\v03\\main\\space-01\\run-20261106-151826-362f5e12\\artifacts\\candidates\\cb2f947afb214c04b2c3e9c9d6afce2e\\after\\src\\lib\\errors.js"
+      ],
+      "output": ""
+    }
+  ],
+  "status": "committed"
+}

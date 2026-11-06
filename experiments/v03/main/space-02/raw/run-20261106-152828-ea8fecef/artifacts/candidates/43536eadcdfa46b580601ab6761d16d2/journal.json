@@ -1,0 +1,18 @@
+{
+  "root": "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project",
+  "changes": [
+    {
+      "path": "internal.proto",
+      "before": null,
+      "after": "36495a668de6a10320326349590cb1309c35038f405d97ab327d03d263b702c8"
+    }
+  ],
+  "checks": [
+    {
+      "path": "internal.proto",
+      "status": "not_applicable",
+      "kind": "syntax_format"
+    }
+  ],
+  "status": "committed"
+}

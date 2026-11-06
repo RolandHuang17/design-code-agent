@@ -1,0 +1,614 @@
+{
+  "summary": "Implement the Space Fractions sixth-grade fraction-learning system per the original microservices architecture and the operator acceptance contract: a browser gateway (port 3000) multiplexing game/question/user/admin services, PostgreSQL-owned game state, exact rational-arithmetic scoring, OIDC via Keycloak, and real Redis/RabbitMQ/Elasticsearch/Prometheus clients. Include reference-only cloud configs. Unit tests run without live infrastructure; real HTTP acceptance is separate.",
+  "tasks": [
+    {
+      "id": "T1",
+      "description": "Repository scaffolding: package.json with scripts (test, build, start, test:integration, lint), pinned dependencies, .env.example, .gitignore, and root documentation config.",
+      "files": [
+        "package.json",
+        ".env.example",
+        ".gitignore",
+        "README.md"
+      ],
+      "depends_on": [],
+      "sources": [
+        {
+          "document": "space-fractions.md",
+          "start_line": 30,
+          "end_line": 54,
+          "resource_id": "design:0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c",
+          "version": "0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c"
+        }
+      ],
+      "contracts": [
+        {
+          "description": "package.json exposes test/build/start scripts and pinned deps; build performs real checks, never echoes success",
+          "source": {
+            "document": "space-fractions.md",
+            "start_line": 33
+          },
+          "origin": "source"
+        }
+      ]
+    },
+    {
+      "id": "T2",
+      "description": "Shared fraction library: exact rational arithmetic, normalization, parsing, and equality used by answer validation and seed data.",
+      "files": [
+        "src/lib/fraction.js"
+      ],
+      "depends_on": [],
+      "sources": [
+        {
+          "document": "space-fractions.md",
+          "start_line": 10,
+          "end_line": 11,
+          "resource_id": "design:0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c",
+          "version": "0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c"
+        }
+      ],
+      "contracts": [
+        {
+          "description": "Fraction normalized to reduced numerator/denominator; malformed fraction yields validation error",
+          "source": {
+            "document": "space-fractions.md",
+            "start_line": 20
+          },
+          "origin": "source"
+        }
+      ]
+    },
+    {
+      "id": "T3",
+      "description": "Config/observability/tracing utilities: bounded downstream timeouts, error handling, Prometheus registry, and shared logger.",
+      "files": [
+        "src/lib/config.js",
+        "src/lib/metrics.js",
+        "src/lib/errors.js",
+        "src/lib/http.js"
+      ],
+      "depends_on": [],
+      "sources": [
+        {
+          "document": "space-fractions.md",
+          "start_line": 12,
+          "end_line": 13,
+          "resource_id": "design:0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c",
+          "version": "0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c"
+        },
+        {
+          "document": "Architecture_Documentation.md",
+          "start_line": 175,
+          "end_line": 178,
+          "resource_id": "design:111282df7817bca771e53c82ebb053707a3217cb8f11733a2c25b631ca81db55",
+          "version": "111282df7817bca771e53c82ebb053707a3217cb8f11733a2c25b631ca81db55"
+        }
+      ],
+      "contracts": [
+        {
+          "description": "All downstream HTTP calls carry bounded timeouts; errors surface as typed HTTP errors",
+          "source": {
+            "document": "space-fractions.md",
+            "start_line": 12
+          },
+          "origin": "source"
+        }
+      ]
+    },
+    {
+      "id": "T14",
+      "description": "Reference-only cloud/ops configs (Kubernetes, Jenkinsfile, Terraform, Vault, Istio), clearly labeled as unvalidated references.",
+      "files": [
+        "k8s/spacefractions-deployment.yaml",
+        "Jenkinsfile",
+        "terraform/main.tf",
+        "ops/vault-config.hcl",
+        "ops/istio-config.yaml"
+      ],
+      "depends_on": [],
+      "sources": [
+        {
+          "document": "Architecture_Documentation.md",
+          "start_line": 130,
+          "end_line": 156,
+          "resource_id": "design:111282df7817bca771e53c82ebb053707a3217cb8f11733a2c25b631ca81db55",
+          "version": "111282df7817bca771e53c82ebb053707a3217cb8f11733a2c25b631ca81db55"
+        },
+        {
+          "document": "space-fractions.md",
+          "start_line": 25,
+          "end_line": 29,
+          "resource_id": "design:0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c",
+          "version": "0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c"
+        }
+      ],
+      "contracts": [
+        {
+          "description": "Reference configs labeled as such; not claimed production-validated",
+          "source": {
+            "document": "space-fractions.md",
+            "start_line": 27
+          },
+          "origin": "source"
+        }
+      ]
+    },
+    {
+      "id": "T4",
+      "description": "OIDC authentication module: JWKS fetch (OIDC_JWKS_URI), issuer/audience validation, admin role claim, and mapped numeric user ids.",
+      "files": [
+        "src/lib/oidc.js"
+      ],
+      "depends_on": [
+        "T3"
+      ],
+      "sources": [
+        {
+          "document": "space-fractions.md",
+          "start_line": 10,
+          "end_line": 12,
+          "resource_id": "design:0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c",
+          "version": "0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c"
+        },
+        {
+          "document": "Architecture_Documentation.md",
+          "start_line": 158,
+          "end_line": 161,
+          "resource_id": "design:111282df7817bca771e53c82ebb053707a3217cb8f11733a2c25b631ca81db55",
+          "version": "111282df7817bca771e53c82ebb053707a3217cb8f11733a2c25b631ca81db55"
+        }
+      ],
+      "contracts": [
+        {
+          "description": "Validates issuer/audience/JWKS and admin roles; missing/invalid credentials return 401",
+          "source": {
+            "document": "space-fractions.md",
+            "start_line": 11
+          },
+          "origin": "source"
+        }
+      ]
+    },
+    {
+      "id": "T5",
+      "description": "PostgreSQL schema, idempotent migrations, and seed data (all seed answers valid single fractions).",
+      "files": [
+        "sql/migrations/001_init.sql",
+        "sql/seed/questions.sql",
+        "src/db/migrate.js",
+        "src/db/pool.js"
+      ],
+      "depends_on": [
+        "T2"
+      ],
+      "sources": [
+        {
+          "document": "Architecture_Documentation.md",
+          "start_line": 118,
+          "end_line": 124,
+          "resource_id": "design:111282df7817bca771e53c82ebb053707a3217cb8f11733a2c25b631ca81db55",
+          "version": "111282df7817bca771e53c82ebb053707a3217cb8f11733a2c25b631ca81db55"
+        },
+        {
+          "document": "space-fractions.md",
+          "start_line": 45,
+          "end_line": 48,
+          "resource_id": "design:0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c",
+          "version": "0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c"
+        }
+      ],
+      "contracts": [
+        {
+          "description": "games table owns game state; numeric internal user ids; idempotent migrations/seeds; score dedup in-transaction",
+          "source": {
+            "document": "space-fractions.md",
+            "start_line": 45
+          },
+          "origin": "source"
+        }
+      ]
+    },
+    {
+      "id": "T6",
+      "description": "Game service: game creation, question selection (stable order), answers (no correctAnswer leak), scoring with per-game serialized dedup, pause/resume, score view, owner authorization.",
+      "files": [
+        "src/services/game-service.js"
+      ],
+      "depends_on": [
+        "T2",
+        "T4",
+        "T5"
+      ],
+      "sources": [
+        {
+          "document": "space-fractions.md",
+          "start_line": 16,
+          "end_line": 22,
+          "resource_id": "design:0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c",
+          "version": "0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c"
+        },
+        {
+          "document": "Architecture_View.md",
+          "start_line": 67,
+          "end_line": 77,
+          "resource_id": "design:77dac057e13f122ddc6fc19294490c6a961f00429b72f15df81a81adc91bdbc8",
+          "version": "77dac057e13f122ddc6fc19294490c6a961f00429b72f15df81a81adc91bdbc8"
+        }
+      ],
+      "contracts": [
+        {
+          "description": "POST /api/games; GET /api/games/:id; POST pause/resume; POST answers; GET score; owner authorization gives 403/404 for other users",
+          "source": {
+            "document": "space-fractions.md",
+            "start_line": 16
+          },
+          "origin": "source"
+        }
+      ]
+    },
+    {
+      "id": "T7",
+      "description": "Question service: authenticated retrieval and Elasticsearch-backed question search (real client).",
+      "files": [
+        "src/services/question-service.js",
+        "src/lib/search.js"
+      ],
+      "depends_on": [
+        "T4",
+        "T5"
+      ],
+      "sources": [
+        {
+          "document": "space-fractions.md",
+          "start_line": 27,
+          "end_line": 28,
+          "resource_id": "design:0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c",
+          "version": "0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c"
+        },
+        {
+          "document": "Architecture_Documentation.md",
+          "start_line": 175,
+          "end_line": 178,
+          "resource_id": "design:111282df7817bca771e53c82ebb053707a3217cb8f11733a2c25b631ca81db55",
+          "version": "111282df7817bca771e53c82ebb053707a3217cb8f11733a2c25b631ca81db55"
+        }
+      ],
+      "contracts": [
+        {
+          "description": "Question search uses a real Elasticsearch client; metrics and search are not placeholders",
+          "source": {
+            "document": "space-fractions.md",
+            "start_line": 50
+          },
+          "origin": "source"
+        }
+      ]
+    },
+    {
+      "id": "T8",
+      "description": "Admin service: authenticated admin question CRUD (create, delete, list) with role enforcement.",
+      "files": [
+        "src/services/admin-service.js"
+      ],
+      "depends_on": [
+        "T2",
+        "T4",
+        "T5"
+      ],
+      "sources": [
+        {
+          "document": "space-fractions.md",
+          "start_line": 14,
+          "end_line": 15,
+          "resource_id": "design:0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c",
+          "version": "0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c"
+        },
+        {
+          "document": "Architecture_View.md",
+          "start_line": 111,
+          "end_line": 118,
+          "resource_id": "design:77dac057e13f122ddc6fc19294490c6a961f00429b72f15df81a81adc91bdbc8",
+          "version": "77dac057e13f122ddc6fc19294490c6a961f00429b72f15df81a81adc91bdbc8"
+        }
+      ],
+      "contracts": [
+        {
+          "description": "POST /api/admin/questions -> 201; DELETE -> 200/204; GET returns questions with correctAnswer; non-admin gets 403",
+          "source": {
+            "document": "space-fractions.md",
+            "start_line": 14
+          },
+          "origin": "source"
+        }
+      ]
+    },
+    {
+      "id": "T9",
+      "description": "User service: user profile resolution and account audience, serving authenticated user info.",
+      "files": [
+        "src/services/user-service.js"
+      ],
+      "depends_on": [
+        "T4"
+      ],
+      "sources": [
+        {
+          "document": "Architecture_Documentation.md",
+          "start_line": 37,
+          "end_line": 45,
+          "resource_id": "design:111282df7817bca771e53c82ebb053707a3217cb8f11733a2c25b631ca81db55",
+          "version": "111282df7817bca771e53c82ebb053707a3217cb8f11733a2c25b631ca81db55"
+        },
+        {
+          "document": "space-fractions.md",
+          "start_line": 42,
+          "end_line": 44,
+          "resource_id": "design:0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c",
+          "version": "0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c"
+        }
+      ],
+      "contracts": [
+        {
+          "description": "Maps verified sub strings to numeric internal user ids; profile names nonempty",
+          "source": {
+            "document": "space-fractions.md",
+            "start_line": 45
+          },
+          "origin": "source"
+        }
+      ]
+    },
+    {
+      "id": "T10",
+      "description": "Browser gateway: GET /health, browser UI at /, OIDC login (PKCE S256), route multiplexing to services, and GET /play compatibility.",
+      "files": [
+        "src/gateway.js",
+        "src/public/index.html",
+        "src/public/app.js",
+        "src/public/style.css"
+      ],
+      "depends_on": [
+        "T4",
+        "T6",
+        "T7",
+        "T8",
+        "T9"
+      ],
+      "sources": [
+        {
+          "document": "space-fractions.md",
+          "start_line": 13,
+          "end_line": 14,
+          "resource_id": "design:0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c",
+          "version": "0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c"
+        },
+        {
+          "document": "Architecture_Documentation.md",
+          "start_line": 80,
+          "end_line": 103,
+          "resource_id": "design:111282df7817bca771e53c82ebb053707a3217cb8f11733a2c25b631ca81db55",
+          "version": "111282df7817bca771e53c82ebb053707a3217cb8f11733a2c25b631ca81db55"
+        }
+      ],
+      "contracts": [
+        {
+          "description": "GET /health 200; UI at /; Bearer OIDC; GET /play compatibility",
+          "source": {
+            "document": "space-fractions.md",
+            "start_line": 13
+          },
+          "origin": "source"
+        }
+      ]
+    },
+    {
+      "id": "T11",
+      "description": "Queue and cache integrations: RabbitMQ score-event publisher/consumer and Redis game-state cache (cache-only).",
+      "files": [
+        "src/lib/cache.js",
+        "src/lib/queue.js"
+      ],
+      "depends_on": [
+        "T3",
+        "T6"
+      ],
+      "sources": [
+        {
+          "document": "Architecture_Documentation.md",
+          "start_line": 125,
+          "end_line": 129,
+          "resource_id": "design:111282df7817bca771e53c82ebb053707a3217cb8f11733a2c25b631ca81db55",
+          "version": "111282df7817bca771e53c82ebb053707a3217cb8f11733a2c25b631ca81db55"
+        }
+      ],
+      "contracts": [
+        {
+          "description": "Redis caches game state; RabbitMQ emits score events; PostgreSQL remains durable source of truth",
+          "source": {
+            "document": "Architecture_Documentation.md",
+            "start_line": 125
+          },
+          "origin": "source"
+        }
+      ]
+    },
+    {
+      "id": "T15",
+      "description": "Unit tests (node:test) with in-memory adapters covering scoring, pause/resume, authorization, invalid input, and error behavior.",
+      "files": [
+        "test/fraction.test.js",
+        "test/game-service.test.js",
+        "test/admin-service.test.js",
+        "test/oidc.test.js"
+      ],
+      "depends_on": [
+        "T2",
+        "T4",
+        "T6",
+        "T8"
+      ],
+      "sources": [
+        {
+          "document": "space-fractions.md",
+          "start_line": 33,
+          "end_line": 34,
+          "resource_id": "design:0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c",
+          "version": "0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c"
+        },
+        {
+          "document": "Architecture_Documentation.md",
+          "start_line": 189,
+          "end_line": 202,
+          "resource_id": "design:111282df7817bca771e53c82ebb053707a3217cb8f11733a2c25b631ca81db55",
+          "version": "111282df7817bca771e53c82ebb053707a3217cb8f11733a2c25b631ca81db55"
+        }
+      ],
+      "contracts": [
+        {
+          "description": "Tests assert scoring, pause/resume, authorization, invalid input, error behavior; no live infra required",
+          "source": {
+            "document": "space-fractions.md",
+            "start_line": 34
+          },
+          "origin": "source"
+        }
+      ]
+    },
+    {
+      "id": "T16",
+      "description": "Integration tests against PostgreSQL semantics (separate, documented run) exercising real SQL transactions for score dedup.",
+      "files": [
+        "test/integration/db.test.js"
+      ],
+      "depends_on": [
+        "T5",
+        "T6"
+      ],
+      "sources": [
+        {
+          "document": "space-fractions.md",
+          "start_line": 34,
+          "end_line": 34,
+          "resource_id": "design:0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c",
+          "version": "0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c"
+        },
+        {
+          "document": "Architecture_Documentation.md",
+          "start_line": 199,
+          "end_line": 202,
+          "resource_id": "design:111282df7817bca771e53c82ebb053707a3217cb8f11733a2c25b631ca81db55",
+          "version": "111282df7817bca771e53c82ebb053707a3217cb8f11733a2c25b631ca81db55"
+        }
+      ],
+      "contracts": [
+        {
+          "description": "Integration tests require PostgreSQL; separated from default npm test and documented in README",
+          "source": {
+            "document": "space-fractions.md",
+            "start_line": 34
+          },
+          "origin": "source"
+        }
+      ]
+    },
+    {
+      "id": "T12",
+      "description": "OpenAPI contract (REST) and internal.proto internal contract.",
+      "files": [
+        "openapi.yaml",
+        "internal.proto"
+      ],
+      "depends_on": [
+        "T6",
+        "T7",
+        "T8",
+        "T9",
+        "T10"
+      ],
+      "sources": [
+        {
+          "document": "Architecture_Documentation.md",
+          "start_line": 80,
+          "end_line": 117,
+          "resource_id": "design:111282df7817bca771e53c82ebb053707a3217cb8f11733a2c25b631ca81db55",
+          "version": "111282df7817bca771e53c82ebb053707a3217cb8f11733a2c25b631ca81db55"
+        },
+        {
+          "document": "space-fractions.md",
+          "start_line": 13,
+          "end_line": 22,
+          "resource_id": "design:0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c",
+          "version": "0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c"
+        }
+      ],
+      "contracts": [
+        {
+          "description": "OpenAPI documents all acceptance endpoints incl. GET /play; internal.proto defines GameService",
+          "source": {
+            "document": "Architecture_Documentation.md",
+            "start_line": 104
+          },
+          "origin": "source"
+        }
+      ]
+    },
+    {
+      "id": "T13",
+      "description": "Compose configuration with the 11 required service IDs, relative bind mounts, Keycloak realm import, and environment plumbing (PUBLIC_ORIGIN, OIDC_ISSUER, OIDC_PUBLIC_ORIGIN).",
+      "files": [
+        "compose.yaml",
+        "keycloak/space-fractions-realm.json",
+        "docker/Dockerfile.gateway",
+        "docker/Dockerfile.service"
+      ],
+      "depends_on": [
+        "T5",
+        "T10",
+        "T11"
+      ],
+      "sources": [
+        {
+          "document": "space-fractions.md",
+          "start_line": 35,
+          "end_line": 44,
+          "resource_id": "design:0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c",
+          "version": "0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c"
+        },
+        {
+          "document": "Architecture_Documentation.md",
+          "start_line": 130,
+          "end_line": 156,
+          "resource_id": "design:111282df7817bca771e53c82ebb053707a3217cb8f11733a2c25b631ca81db55",
+          "version": "111282df7817bca771e53c82ebb053707a3217cb8f11733a2c25b631ca81db55"
+        }
+      ],
+      "contracts": [
+        {
+          "description": "Compose service IDs exact; gateway port 3000; keycloak port 8080; no host networking/external volumes",
+          "source": {
+            "document": "space-fractions.md",
+            "start_line": 35
+          },
+          "origin": "source"
+        }
+      ]
+    }
+  ],
+  "assumptions": [
+    "A-1 data ownership: each service exposes an HTTP entrypoint; PostgreSQL exclusively owns persistent game state; derived from component diagram + supplement separation.",
+    "A-2 question ordering: stable by id ascending unless questionIds supplied.",
+    "A-3 admin realm role name is 'admin'.",
+    "A-4 numeric internal user ids assigned via idempotent upsert keyed on verified sub."
+  ],
+  "conflicts": [
+    "Error budget: Architecture_Documentation.md line 181 lists 99.99% uptime with 1% error budget (arithmetic mismatch); recorded in architecture-decisions.md, no fabricated validation.",
+    "Component count: original lists 3 components; supplement requires 4 service entrypoints (adds admin) — resolved per AD-1.",
+    "Runtime versions: original Node 18-20 vs supplement Node 22+ — resolved per AD-2."
+  ],
+  "host_validation": {
+    "dependency_order_checked": true,
+    "unique_file_owners": true,
+    "tasks_without_source_links": [],
+    "limitation": "Checks structural references, not semantic coverage or interface compatibility"
+  }
+}

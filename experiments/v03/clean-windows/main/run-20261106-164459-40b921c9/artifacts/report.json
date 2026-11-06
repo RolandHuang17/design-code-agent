@@ -1,0 +1,55 @@
+{
+  "status": "cancelled",
+  "provider": "bailian",
+  "model": "deepseek-v4-pro-0813",
+  "uses_official_endpoint": false,
+  "real_api_run": true,
+  "checks": [],
+  "repair_rounds": 0,
+  "acceptance_profile": "generic-node",
+  "generation_origin": "fresh",
+  "schema_version": 2,
+  "error": "请求已取消；响应费用不确定，保留预留",
+  "turns": 2,
+  "bounded_replan_used": false,
+  "elapsed_seconds": 14.23,
+  "tool_metrics": {
+    "reads": 0,
+    "repeated_reads": 0,
+    "tool_errors": 0,
+    "writes": 0,
+    "host_derived_writes": 0
+  },
+  "budget": {
+    "limit_cny": 50.0,
+    "charged_cny": 5.272932,
+    "uncertain_requests": 3,
+    "request_count": 51,
+    "prices": {
+      "input_per_million": 12.0,
+      "output_per_million": 27.0,
+      "reference_date": "2026-11-05"
+    }
+  },
+  "global_ledger_delta_cny": 0.7676220000000002,
+  "run_estimated_cny": 0.049782,
+  "cost_scope": "This run's responses with valid usage only; uncertain reservations stay charged in the global ledger. Global delta may include concurrent runs.",
+  "usage": [
+    {
+      "usage": {
+        "prompt_tokens": 3766,
+        "total_tokens": 3936,
+        "completion_tokens": 170,
+        "prompt_tokens_details": {
+          "cached_tokens": 3584
+        }
+      },
+      "estimated_cny": 0.049782,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-6354e4d0-d93a-92db-9f0f-5d7b5bab4a1e"
+    }
+  ],
+  "valid_api_responses": 1,
+  "files": []
+}

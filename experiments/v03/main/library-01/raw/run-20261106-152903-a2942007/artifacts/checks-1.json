@@ -1,0 +1,516 @@
+[
+  {
+    "profile": "static",
+    "status": "passed",
+    "results": [
+      {
+        "check": "required:package.json",
+        "status": "passed"
+      },
+      {
+        "check": "required:README.md",
+        "status": "passed"
+      },
+      {
+        "check": "required:traceability.json",
+        "status": "passed"
+      },
+      {
+        "check": "compose.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "docker-compose.yml",
+        "status": "passed"
+      },
+      {
+        "check": "openapi.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "package-lock.json",
+        "status": "passed"
+      },
+      {
+        "check": "package.json",
+        "status": "passed"
+      },
+      {
+        "check": "plan.json",
+        "status": "passed"
+      },
+      {
+        "check": "traceability.json",
+        "status": "passed"
+      },
+      {
+        "check": "public/app.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\library-01\\run-20261106-152903-a2942007\\project\\public\\app.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "src/app.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\library-01\\run-20261106-152903-a2942007\\project\\src\\app.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "src/catalog.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\library-01\\run-20261106-152903-a2942007\\project\\src\\catalog.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "src/loans.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\library-01\\run-20261106-152903-a2942007\\project\\src\\loans.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "src/memoryRepository.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\library-01\\run-20261106-152903-a2942007\\project\\src\\memoryRepository.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "src/pgRepository.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\library-01\\run-20261106-152903-a2942007\\project\\src\\pgRepository.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "src/repository.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\library-01\\run-20261106-152903-a2942007\\project\\src\\repository.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "src/schema.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\library-01\\run-20261106-152903-a2942007\\project\\src\\schema.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "src/server.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\library-01\\run-20261106-152903-a2942007\\project\\src\\server.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "test/api.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\library-01\\run-20261106-152903-a2942007\\project\\test\\api.test.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "test/catalog.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\library-01\\run-20261106-152903-a2942007\\project\\test\\catalog.test.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "test/loans.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\library-01\\run-20261106-152903-a2942007\\project\\test\\loans.test.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "test/schema.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\library-01\\run-20261106-152903-a2942007\\project\\test\\schema.test.js"
+        ],
+        "output": ""
+      }
+    ],
+    "snapshot_id": "1bba3117b8454ff9d2c0a5341a4c0663ba54f333a53879ed55a6708e9dc16d76",
+    "snapshot_after": "1bba3117b8454ff9d2c0a5341a4c0663ba54f333a53879ed55a6708e9dc16d76",
+    "stale": false
+  },
+  {
+    "profile": "install",
+    "status": "passed",
+    "exit_code": 0,
+    "timed_out": false,
+    "command": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+      "ci",
+      "--ignore-scripts",
+      "--no-audit",
+      "--no-fund"
+    ],
+    "output": "\nadded 81 packages in 1s\n",
+    "snapshot_id": "1bba3117b8454ff9d2c0a5341a4c0663ba54f333a53879ed55a6708e9dc16d76",
+    "snapshot_after": "1bba3117b8454ff9d2c0a5341a4c0663ba54f333a53879ed55a6708e9dc16d76",
+    "stale": false
+  },
+  {
+    "profile": "test",
+    "status": "passed",
+    "exit_code": 0,
+    "timed_out": false,
+    "command": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+      "run",
+      "test",
+      "--ignore-scripts"
+    ],
+    "output": "\n> library-borrowing@1.0.0 test\n> node --test\n\n✔ GET /health returns 200 (18.878ms)\n✔ FR1: POST /api/books ->201 with public book shape (16.031ms)\n✔ FR5: POST /api/books with invalid copies ->400 (4.4644ms)\n✔ FR5: POST /api/books with empty title ->400 (7.2612ms)\n✔ GET /api/books ->200 {books:[...]} (5.2965ms)\n✔ GET /api/books/:id ->200 book, missing ->404 (5.9775ms)\n✔ FR2: POST /api/loans ->201 active loan, stock decremented via GET book (6.2668ms)\n✔ FR3/FR5: duplicate active loan ->409 (4.8569ms)\n✔ FR5: no remaining stock ->409 (4.879ms)\n✔ FR5: missing bookId for loan ->400 (3.8775ms)\n✔ FR5: borrowing a missing book ->404 (3.7497ms)\n✔ FR4: POST /api/loans/:id/return ->200 returned; repeat idempotent with unchanged stock (6.0386ms)\n✔ FR5: returning an unknown loan ->404 (3.0635ms)\n✔ GET /api/loans ->200 {loans:[...]} (6.2096ms)\n✔ NFR1: eight simultaneous borrowers of the only copy yield exactly one 201 (14.9104ms)\n✔ FR1: create a title with a positive number of copies (1.796ms)\n✔ createBook returns the public book shape with no internal copies field (0.7496ms)\n✔ listBooks returns created books with availableCopies, ordered by id (0.2272ms)\n✔ getBook returns a single book (0.2056ms)\n✔ getBook returns null for a missing book (404 at the route layer) (0.1363ms)\n✔ FR5: empty title is rejected as invalid input (0.4516ms)\n✔ FR5: non-string title is rejected (0.2026ms)\n✔ FR5: zero copies is rejected (0.1652ms)\n✔ FR5: negative copies is rejected (0.1942ms)\n✔ FR5: non-integer copies is rejected (0.2842ms)\n✔ FR5: missing copies is rejected (0.3123ms)\n✔ FR5: missing title is rejected (0.1536ms)\n✔ createBook with null input is rejected (0.1491ms)\n✔ FR2: reader can borrow an available book (2.7825ms)\n✔ FR3: a reader has at most one active loan for the same book (0.6575ms)\n✔ FR3: a different reader may borrow another copy of the same book (0.2374ms)\n✔ FR5/conflict: borrowing with no remaining stock is a 409 conflict (0.2247ms)\n✔ FR5/missing: borrowing a missing book throws NOT_FOUND (0.2124ms)\n✔ FR5: empty or non-string userId is rejected as invalid input (0.4016ms)\n✔ FR4: returning a loan restores one copy exactly once (idempotent) (0.2303ms)\n✔ FR5/missing: returning an unknown loan throws NOT_FOUND (0.1766ms)\n✔ NFR1: eight simultaneous borrowers of the only copy yield exactly one success (0.7778ms)\n✔ NFR1/FR4: concurrent returns restore stock exactly once (0.434ms)\n✔ loans module lists and retrieves loans (0.3557ms)\n▶ schema bootstrap\n  ✔ runs idempotent CREATE TABLE IF NOT EXISTS statements (0.9933ms)\n  ✔ seeds books only when the books table is empty (0.2488ms)\n  ✔ does not overwrite existing books on repeated startup (NFR2) (0.1572ms)\n✔ schema bootstrap (3.2048ms)\nℹ tests 42\nℹ suites 1\nℹ pass 42\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 343.4457\n",
+    "test_count": 42,
+    "skipped_count": 0,
+    "test_execution": "observed",
+    "snapshot_id": "1bba3117b8454ff9d2c0a5341a4c0663ba54f333a53879ed55a6708e9dc16d76",
+    "snapshot_after": "1bba3117b8454ff9d2c0a5341a4c0663ba54f333a53879ed55a6708e9dc16d76",
+    "stale": false
+  },
+  {
+    "profile": "integration",
+    "status": "not_applicable",
+    "optional": true,
+    "reason": "项目未声明独立 test:integration；不计为通过，领域 HTTP 由项目外 runtime 验收",
+    "snapshot_id": "1bba3117b8454ff9d2c0a5341a4c0663ba54f333a53879ed55a6708e9dc16d76"
+  },
+  {
+    "profile": "build",
+    "status": "passed",
+    "exit_code": 0,
+    "timed_out": false,
+    "command": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+      "run",
+      "build",
+      "--ignore-scripts"
+    ],
+    "output": "\n> library-borrowing@1.0.0 build\n> node --check src/server.js && node --check src/app.js && node --check src/catalog.js && node --check src/loans.js && node --check src/repository.js && node --check src/pgRepository.js && node --check src/memoryRepository.js && node --check src/schema.js\n\n",
+    "snapshot_id": "1bba3117b8454ff9d2c0a5341a4c0663ba54f333a53879ed55a6708e9dc16d76",
+    "snapshot_after": "1bba3117b8454ff9d2c0a5341a4c0663ba54f333a53879ed55a6708e9dc16d76",
+    "stale": false
+  },
+  {
+    "profile": "compose",
+    "status": "passed",
+    "backend": "wsl",
+    "evidence": "Actual compose config command in protected runtime stages",
+    "snapshot_id": "1bba3117b8454ff9d2c0a5341a4c0663ba54f333a53879ed55a6708e9dc16d76"
+  },
+  {
+    "profile": "plan_references",
+    "status": "passed",
+    "problems": [],
+    "snapshot_id": "1bba3117b8454ff9d2c0a5341a4c0663ba54f333a53879ed55a6708e9dc16d76",
+    "limitation": "Checks planned files and literal relative imports, not dynamic imports or semantic compatibility"
+  },
+  {
+    "profile": "traceability_links",
+    "status": "passed",
+    "problems": [],
+    "limitation": "只检查链接和来源范围；语义覆盖需要独立审查",
+    "snapshot_id": "1bba3117b8454ff9d2c0a5341a4c0663ba54f333a53879ed55a6708e9dc16d76"
+  },
+  {
+    "profile": "runtime",
+    "acceptance_profile": "library",
+    "status": "failed",
+    "checks": [
+      {
+        "check": "gateway ready",
+        "status": "passed"
+      },
+      {
+        "check": "browser entry served",
+        "status": "passed",
+        "http_status": 200
+      },
+      {
+        "check": "invalid book copies rejected",
+        "status": "passed",
+        "http_status": 400
+      },
+      {
+        "check": "create book with one available copy",
+        "status": "passed",
+        "http_status": 201
+      },
+      {
+        "check": "concurrent borrowers cannot oversell",
+        "status": "failed",
+        "statuses": [
+          400,
+          400,
+          400,
+          400,
+          400,
+          400,
+          400,
+          400
+        ]
+      }
+    ],
+    "error": "AssertionError: concurrent borrowers cannot oversell: {\"statuses\": [400, 400, 400, 400, 400, 400, 400, 400]}",
+    "cleanup": "passed",
+    "backend": "wsl",
+    "project": "dca-aefaeae13ab9",
+    "stages": [
+      {
+        "stage": [
+          "version",
+          "--format",
+          "{{.Server.Version}}"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Windows\\system32\\wsl.exe",
+          "-d",
+          "Ubuntu",
+          "-u",
+          "root",
+          "--",
+          "env",
+          "GATEWAY_PORT=5631",
+          "OIDC_PORT=5632",
+          "PUBLIC_ORIGIN=http://localhost:5631",
+          "OIDC_PUBLIC_ORIGIN=http://localhost:5632",
+          "OIDC_ISSUER=http://localhost:5632/realms/space-fractions",
+          "docker",
+          "version",
+          "--format",
+          "{{.Server.Version}}"
+        ],
+        "output": "29.1.3\n"
+      },
+      {
+        "stage": [
+          "config",
+          "--format",
+          "json"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Windows\\system32\\wsl.exe",
+          "-d",
+          "Ubuntu",
+          "-u",
+          "root",
+          "--",
+          "env",
+          "GATEWAY_PORT=5631",
+          "OIDC_PORT=5632",
+          "PUBLIC_ORIGIN=http://localhost:5631",
+          "OIDC_PUBLIC_ORIGIN=http://localhost:5632",
+          "OIDC_ISSUER=http://localhost:5632/realms/space-fractions",
+          "docker",
+          "compose",
+          "--project-directory",
+          "/mnt/d/projects/Task-main-resource-fix/runs/v03/main/library-01/run-20261106-152903-a2942007/project",
+          "-p",
+          "dca-aefaeae13ab9",
+          "-f",
+          "/mnt/d/projects/Task-main-resource-fix/runs/v03/main/library-01/run-20261106-152903-a2942007/project/compose.yaml",
+          "config",
+          "--format",
+          "json"
+        ],
+        "output": "{\n  \"name\": \"dca-aefaeae13ab9\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"dca-aefaeae13ab9_default\",\n      \"ipam\": {}\n    }\n  },\n  \"services\": {\n    \"gateway\": {\n      \"build\": {\n        \"context\": \"/mnt/d/projects/Task-main-resource-fix/runs/v03/main/library-01/run-20261106-152903-a2942007/project\",\n        \"dockerfile\": \"Dockerfile\"\n      },\n      \"command\": null,\n      \"depends_on\": {\n        \"postgres\": {\n          \"condition\": \"service_healthy\",\n          \"required\": true\n        }\n      },\n      \"entrypoint\": null,\n      \"environment\": {\n        \"PGDATABASE\": \"library\",\n        \"PGHOST\": \"postgres\",\n        \"PGPASSWORD\": \"library\",\n        \"PGPORT\": \"5432\",\n        \"PGUSER\": \"library\",\n        \"PORT\": \"3000\"\n      },\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD-SHELL\",\n          \"node -e \\\"fetch('http://localhost:3000/health').then(r =\\u003e process.exit(r.ok ? 0 : 1)).catch(() =\\u003e process.exit(1))\\\"\"\n        ],\n        \"timeout\": \"5s\",\n        \"interval\": \"5s\",\n        \"retries\": 10\n      },\n      \"networks\": {\n        \"default\": null\n      },\n      \"ports\": [\n        {\n          \"mode\": \"ingress\",\n          \"target\": 3000,\n          \"published\": \"3000\",\n          \"protocol\": \"tcp\"\n        }\n      ]\n    },\n    \"postgres\": {\n      \"command\": null,\n      \"entrypoint\": null,\n      \"environment\": {\n        \"POSTGRES_DB\": \"library\",\n        \"POSTGRES_PASSWORD\": \"library\",\n        \"POSTGRES_USER\": \"library\"\n      },\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD-SHELL\",\n          \"pg_isready -U library -d library\"\n        ],\n        \"timeout\": \"5s\",\n        \"interval\": \"5s\",\n        \"retries\": 10\n      },\n      \"image\": \"postgres:16\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"ports\": [\n        {\n          \"mode\": \"ingress\",\n          \"target\": 5432,\n          \"published\": \"5432\",\n          \"protocol\": \"tcp\"\n        }\n      ]\n    }\n  }\n}"
+      },
+      {
+        "stage": [
+          "up",
+          "-d",
+          "--build"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Windows\\system32\\wsl.exe",
+          "-d",
+          "Ubuntu",
+          "-u",
+          "root",
+          "--",
+          "env",
+          "GATEWAY_PORT=5631",
+          "OIDC_PORT=5632",
+          "PUBLIC_ORIGIN=http://localhost:5631",
+          "OIDC_PUBLIC_ORIGIN=http://localhost:5632",
+          "OIDC_ISSUER=http://localhost:5632/realms/space-fractions",
+          "docker",
+          "compose",
+          "--project-directory",
+          "/mnt/d/projects/Task-main-resource-fix/runs/v03/main/library-01/run-20261106-152903-a2942007/project",
+          "-p",
+          "dca-aefaeae13ab9",
+          "-f",
+          "/mnt/d/projects/Task-main-resource-fix/runs/v03/main/library-01/run-20261106-152903-a2942007/artifacts/runtime-04/compose.isolated.json",
+          "up",
+          "-d",
+          "--build"
+        ],
+        "output": "time=\"2026-11-06T15:41:04+08:00\" level=warning msg=\"Docker Compose is configured to build using Bake, but buildx isn't installed\"\n#0 building with \"default\" instance using docker driver\n\n#1 [gateway internal] load build definition from Dockerfile\n#1 transferring dockerfile: 561B 0.0s done\n#1 DONE 0.0s\n\n#2 [gateway internal] load metadata for docker.io/library/node:22-alpine\n#2 DONE 0.1s\n\n#3 [gateway internal] load .dockerignore\n#3 transferring context: 701B 0.0s done\n#3 DONE 0.0s\n\n#4 [gateway build 1/4] FROM docker.io/library/node:22-alpine@sha256:fe4f6d74e20370acb04ad889077d14d0f64a9c8ea6a42bc60cddf1e844699914\n#4 resolve docker.io/library/node:22-alpine@sha256:fe4f6d74e20370acb04ad889077d14d0f64a9c8ea6a42bc60cddf1e844699914 0.0s done\n#4 DONE 0.0s\n\n#5 [gateway internal] load build context\n#5 transferring context: 37.06kB 0.0s done\n#5 DONE 0.1s\n\n#6 [gateway build 2/4] WORKDIR /app\n#6 CACHED\n\n#7 [gateway build 3/4] COPY package.json package-lock.json ./\n#7 CACHED\n\n#8 [gateway build 4/4] RUN npm ci --omit=dev\n#8 CACHED\n\n#9 [gateway runtime 3/6] COPY --from=build /app/node_modules ./node_modules\n#9 CACHED\n\n#10 [gateway runtime 4/6] COPY package.json ./\n#10 CACHED\n\n#11 [gateway runtime 5/6] COPY src ./src\n#11 DONE 0.1s\n\n#12 [gateway runtime 6/6] COPY public ./public\n#12 DONE 0.1s\n\n#13 [gateway] exporting to image\n#13 exporting layers\n#13 exporting layers 0.2s done\n#13 exporting manifest sha256:a47f980b266c0534f1db6d3dee7ff5d3989436a1fbd264330acc1a6b8209cbf8 0.0s done\n#13 exporting config sha256:596791e59d05eb180da72677f469bcadeb37ba0fbbe05ae0fce63c79e8448501 0.0s done\n#13 exporting attestation manifest sha256:6ab5efad3a97f077998fe272e04122334e2867264c19f33ea09fe482c637c66e 0.1s done\n#13 exporting manifest list sha256:d650a3e60ac3d9c697c6480579133872b9ca04dc3b29c50af577776291fc12a8\n#13 exporting manifest list sha256:d650a3e60ac3d9c697c6480579133872b9ca04dc3b29c50af577776291fc12a8 0.0s done\n#13 naming to docker.io/library/dca-aefaeae13ab9-gateway:latest done\n#13 unpacking to docker.io/library/dca-aefaeae13ab9-gateway:latest 0.1s done\n#13 DONE 0.4s\n\n#14 [gateway] resolving provenance for metadata file\n gateway  Built\n#14 DONE 0.0s\n Network dca-aefaeae13ab9_default  Creating\n Network dca-aefaeae13ab9_default  Created\n Container dca-aefaeae13ab9-postgres-1  Creating\n Container dca-aefaeae13ab9-postgres-1  Created\n Container dca-aefaeae13ab9-gateway-1  Creating\n Container dca-aefaeae13ab9-gateway-1  Created\n Container dca-aefaeae13ab9-postgres-1  Starting\n Container dca-aefaeae13ab9-postgres-1  Started\n Container dca-aefaeae13ab9-postgres-1  Waiting\n Container dca-aefaeae13ab9-postgres-1  Healthy\n Container dca-aefaeae13ab9-gateway-1  Starting\n Container dca-aefaeae13ab9-gateway-1  Started\n"
+      },
+      {
+        "stage": [
+          "logs",
+          "--no-color",
+          "--tail",
+          "40"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Windows\\system32\\wsl.exe",
+          "-d",
+          "Ubuntu",
+          "-u",
+          "root",
+          "--",
+          "env",
+          "GATEWAY_PORT=5631",
+          "OIDC_PORT=5632",
+          "PUBLIC_ORIGIN=http://localhost:5631",
+          "OIDC_PUBLIC_ORIGIN=http://localhost:5632",
+          "OIDC_ISSUER=http://localhost:5632/realms/space-fractions",
+          "docker",
+          "compose",
+          "--project-directory",
+          "/mnt/d/projects/Task-main-resource-fix/runs/v03/main/library-01/run-20261106-152903-a2942007/project",
+          "-p",
+          "dca-aefaeae13ab9",
+          "-f",
+          "/mnt/d/projects/Task-main-resource-fix/runs/v03/main/library-01/run-20261106-152903-a2942007/artifacts/runtime-04/compose.isolated.json",
+          "logs",
+          "--no-color",
+          "--tail",
+          "40"
+        ],
+        "output": "gateway-1  | Library gateway listening on port 3000\npostgres-1  | running bootstrap script ... ok\npostgres-1  | performing post-bootstrap initialization ... ok\npostgres-1  | syncing data to disk ... ok\npostgres-1  | \npostgres-1  | \npostgres-1  | Success. You can now start the database server using:\npostgres-1  | \npostgres-1  |     pg_ctl -D /var/lib/postgresql/data -l logfile start\npostgres-1  | \npostgres-1  | initdb: warning: enabling \"trust\" authentication for local connections\npostgres-1  | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.\npostgres-1  | waiting for server to start....2026-11-06 07:41:07.906 UTC [48] LOG:  starting PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit\npostgres-1  | 2026-11-06 07:41:07.910 UTC [48] LOG:  listening on Unix socket \"/var/run/postgresql/.s.PGSQL.5432\"\npostgres-1  | 2026-11-06 07:41:07.924 UTC [51] LOG:  database system was shut down at 2026-11-06 07:41:07 UTC\npostgres-1  | 2026-11-06 07:41:07.930 UTC [48] LOG:  database system is ready to accept connections\npostgres-1  |  done\npostgres-1  | server started\npostgres-1  | CREATE DATABASE\npostgres-1  | \npostgres-1  | \npostgres-1  | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*\npostgres-1  | \npostgres-1  | waiting for server to shut down...2026-11-06 07:41:08.108 UTC [48] LOG:  received fast shutdown request\npostgres-1  | .2026-11-06 07:41:08.112 UTC [48] LOG:  aborting any active transactions\npostgres-1  | 2026-11-06 07:41:08.114 UTC [48] LOG:  background worker \"logical replication launcher\" (PID 54) exited with exit code 1\npostgres-1  | 2026-11-06 07:41:08.114 UTC [49] LOG:  shutting down\npostgres-1  | 2026-11-06 07:41:08.118 UTC [49] LOG:  checkpoint starting: shutdown immediate\npostgres-1  | 2026-11-06 07:41:08.364 UTC [49] LOG:  checkpoint complete: wrote 926 buffers (5.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.027 s, sync=0.207 s, total=0.250 s; sync files=301, longest=0.007 s, average=0.001 s; distance=4273 kB, estimate=4273 kB; lsn=0/191F0E0, redo lsn=0/191F0E0\npostgres-1  | 2026-11-06 07:41:08.371 UTC [48] LOG:  database system is shut down\npostgres-1  |  done\npostgres-1  | server stopped\npostgres-1  | \npostgres-1  | PostgreSQL init process complete; ready for start up.\npostgres-1  | \npostgres-1  | 2026-11-06 07:41:08.435 UTC [1] LOG:  starting PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit\npostgres-1  | 2026-11-06 07:41:08.435 UTC [1] LOG:  listening on IPv4 address \"0.0.0.0\", port 5432\npostgres-1  | 2026-11-06 07:41:08.435 UTC [1] LOG:  listening on IPv6 address \"::\", port 5432\npostgres-1  | 2026-11-06 07:41:08.443 UTC [1] LOG:  listening on Unix socket \"/var/run/postgresql/.s.PGSQL.5432\"\npostgres-1  | 2026-11-06 07:41:08.453 UTC [64] LOG:  database system was shut down at 2026-11-06 07:41:08 UTC\npostgres-1  | 2026-11-06 07:41:08.460 UTC [1] LOG:  database system is ready to accept connections\n"
+      },
+      {
+        "stage": [
+          "down",
+          "--volumes",
+          "--remove-orphans"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Windows\\system32\\wsl.exe",
+          "-d",
+          "Ubuntu",
+          "-u",
+          "root",
+          "--",
+          "env",
+          "GATEWAY_PORT=5631",
+          "OIDC_PORT=5632",
+          "PUBLIC_ORIGIN=http://localhost:5631",
+          "OIDC_PUBLIC_ORIGIN=http://localhost:5632",
+          "OIDC_ISSUER=http://localhost:5632/realms/space-fractions",
+          "docker",
+          "compose",
+          "--project-directory",
+          "/mnt/d/projects/Task-main-resource-fix/runs/v03/main/library-01/run-20261106-152903-a2942007/project",
+          "-p",
+          "dca-aefaeae13ab9",
+          "-f",
+          "/mnt/d/projects/Task-main-resource-fix/runs/v03/main/library-01/run-20261106-152903-a2942007/artifacts/runtime-04/compose.isolated.json",
+          "down",
+          "--volumes",
+          "--remove-orphans"
+        ],
+        "output": " Container dca-aefaeae13ab9-gateway-1  Stopping\n Container dca-aefaeae13ab9-gateway-1  Stopped\n Container dca-aefaeae13ab9-gateway-1  Removing\n Container dca-aefaeae13ab9-gateway-1  Removed\n Container dca-aefaeae13ab9-postgres-1  Stopping\n Container dca-aefaeae13ab9-postgres-1  Stopped\n Container dca-aefaeae13ab9-postgres-1  Removing\n Container dca-aefaeae13ab9-postgres-1  Removed\n Network dca-aefaeae13ab9_default  Removing\n Network dca-aefaeae13ab9_default  Removed\n"
+      }
+    ],
+    "source_modified_by_host": false,
+    "isolation_note": "Owned Compose project and loopback ports; Docker execution is not an OS security sandbox",
+    "snapshot_id": "1bba3117b8454ff9d2c0a5341a4c0663ba54f333a53879ed55a6708e9dc16d76",
+    "snapshot_after": "1bba3117b8454ff9d2c0a5341a4c0663ba54f333a53879ed55a6708e9dc16d76",
+    "stale": false
+  }
+]

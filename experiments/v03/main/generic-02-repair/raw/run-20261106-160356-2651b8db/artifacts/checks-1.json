@@ -1,0 +1,235 @@
+[
+  {
+    "profile": "static",
+    "status": "passed",
+    "results": [
+      {
+        "check": "required:package.json",
+        "status": "passed"
+      },
+      {
+        "check": "required:README.md",
+        "status": "passed"
+      },
+      {
+        "check": "required:traceability.json",
+        "status": "passed"
+      },
+      {
+        "check": "package-lock.json",
+        "status": "passed"
+      },
+      {
+        "check": "package.json",
+        "status": "passed"
+      },
+      {
+        "check": "plan.json",
+        "status": "passed"
+      },
+      {
+        "check": "traceability.json",
+        "status": "passed"
+      },
+      {
+        "check": "src/app.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\generic-02-repair\\run-20261106-160356-2651b8db\\project\\src\\app.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "src/convert.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\generic-02-repair\\run-20261106-160356-2651b8db\\project\\src\\convert.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "src/server.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\generic-02-repair\\run-20261106-160356-2651b8db\\project\\src\\server.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "test/app.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\generic-02-repair\\run-20261106-160356-2651b8db\\project\\test\\app.test.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "test/convert.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\generic-02-repair\\run-20261106-160356-2651b8db\\project\\test\\convert.test.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "test/server.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\generic-02-repair\\run-20261106-160356-2651b8db\\project\\test\\server.test.js"
+        ],
+        "output": ""
+      }
+    ],
+    "snapshot_id": "053ea4921425028de8691ee7328598262d86a5bb8c6e1cccf1d9d1a5bfed7a2f",
+    "snapshot_after": "053ea4921425028de8691ee7328598262d86a5bb8c6e1cccf1d9d1a5bfed7a2f",
+    "stale": false
+  },
+  {
+    "profile": "install",
+    "status": "passed",
+    "exit_code": 0,
+    "timed_out": false,
+    "command": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+      "ci",
+      "--ignore-scripts",
+      "--no-audit",
+      "--no-fund"
+    ],
+    "output": "\nup to date in 1s\n",
+    "snapshot_id": "053ea4921425028de8691ee7328598262d86a5bb8c6e1cccf1d9d1a5bfed7a2f",
+    "snapshot_after": "053ea4921425028de8691ee7328598262d86a5bb8c6e1cccf1d9d1a5bfed7a2f",
+    "stale": false
+  },
+  {
+    "profile": "test",
+    "status": "passed",
+    "exit_code": 0,
+    "timed_out": false,
+    "command": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+      "run",
+      "test",
+      "--ignore-scripts"
+    ],
+    "output": "\n> temperature-converter@1.0.0 test\n> node --test\n\n✔ GET /health returns 200 with status ok (59.2044ms)\n✔ POST /api/convert returns a valid conversion (7.4398ms)\n✔ same-unit conversion preserves value without rounding (5.5828ms)\n✔ rejects malformed JSON with 400 (5.1781ms)\n✔ rejects a missing field with 400 (5.2853ms)\n✔ rejects a nonnumeric value with 400 (5.5896ms)\n✔ rejects a boolean value with 400 (4.9006ms)\n✔ rejects an unsupported unit with 400 (6.3237ms)\n✔ rejects a value below absolute zero (same-unit) with 400 (5.4523ms)\n✔ allows absolute-zero boundary values (5.4759ms)\n✔ returns 404 for unknown paths (5.0693ms)\n✔ SUPPORTED_UNITS contains exactly C, F, K (2.9339ms)\n✔ same-unit conversion preserves the value unchanged (0.7009ms)\n✔ Celsius to Fahrenheit and back (0.3754ms)\n✔ Celsius to Kelvin and Kelvin to Celsius (0.2454ms)\n✔ Fahrenheit to Kelvin and Kelvin to Fahrenheit (0.1915ms)\n✔ negative values above absolute zero convert correctly (0.1897ms)\n✔ absolute-zero boundary is accepted with float tolerance (0.166ms)\n✔ rejects values below absolute zero (including same-unit) (0.7385ms)\n✔ validateInput reports below zero for same-unit negative Kelvin (0.3026ms)\n✔ validateInput rejects unsupported units and non-finite numbers (0.3143ms)\n✔ isSupportedUnit recognizes valid and rejects invalid units (0.2722ms)\n✔ toCelsius and fromCelsius helpers convert between units (0.3746ms)\n✔ resolvePort defaults to 3000 when PORT is unset (1.7343ms)\n✔ resolvePort defaults to 3000 when PORT is empty (0.3649ms)\n✔ resolvePort uses a valid PORT value (0.2186ms)\n✔ resolvePort falls back to 3000 for an invalid PORT value (0.2073ms)\nℹ tests 27\nℹ suites 0\nℹ pass 27\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 303.6703\n",
+    "test_count": 27,
+    "skipped_count": 0,
+    "test_execution": "observed",
+    "snapshot_id": "053ea4921425028de8691ee7328598262d86a5bb8c6e1cccf1d9d1a5bfed7a2f",
+    "snapshot_after": "053ea4921425028de8691ee7328598262d86a5bb8c6e1cccf1d9d1a5bfed7a2f",
+    "stale": false
+  },
+  {
+    "profile": "integration",
+    "status": "not_applicable",
+    "optional": true,
+    "reason": "项目未声明独立 test:integration；不计为通过，领域 HTTP 由项目外 runtime 验收",
+    "snapshot_id": "053ea4921425028de8691ee7328598262d86a5bb8c6e1cccf1d9d1a5bfed7a2f"
+  },
+  {
+    "profile": "build",
+    "status": "passed",
+    "exit_code": 0,
+    "timed_out": false,
+    "command": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+      "run",
+      "build",
+      "--ignore-scripts"
+    ],
+    "output": "\n> temperature-converter@1.0.0 build\n> node --check src/convert.js && node --check src/app.js && node --check src/server.js\n\n",
+    "snapshot_id": "053ea4921425028de8691ee7328598262d86a5bb8c6e1cccf1d9d1a5bfed7a2f",
+    "snapshot_after": "053ea4921425028de8691ee7328598262d86a5bb8c6e1cccf1d9d1a5bfed7a2f",
+    "stale": false
+  },
+  {
+    "profile": "compose",
+    "status": "not_applicable",
+    "optional": true,
+    "reason": "通用项目未声明 Compose；未将特定案例部署结构强加给输入",
+    "snapshot_id": "053ea4921425028de8691ee7328598262d86a5bb8c6e1cccf1d9d1a5bfed7a2f"
+  },
+  {
+    "profile": "plan_references",
+    "status": "passed",
+    "problems": [],
+    "snapshot_id": "053ea4921425028de8691ee7328598262d86a5bb8c6e1cccf1d9d1a5bfed7a2f",
+    "limitation": "Checks planned files and literal relative imports, not dynamic imports or semantic compatibility"
+  },
+  {
+    "profile": "traceability_links",
+    "status": "passed",
+    "problems": [],
+    "limitation": "只检查链接和来源范围；语义覆盖需要独立审查",
+    "snapshot_id": "053ea4921425028de8691ee7328598262d86a5bb8c6e1cccf1d9d1a5bfed7a2f"
+  },
+  {
+    "profile": "runtime",
+    "status": "not_applicable",
+    "optional": true,
+    "reason": "通用项目无内置领域HTTP验收；业务正确性需另行独立检查",
+    "snapshot_id": "053ea4921425028de8691ee7328598262d86a5bb8c6e1cccf1d9d1a5bfed7a2f"
+  },
+  {
+    "profile": "startup",
+    "status": "passed",
+    "endpoint": "/",
+    "meaning": "Local HTTP listener readiness only; not domain correctness",
+    "command": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+      "run",
+      "start",
+      "--ignore-scripts"
+    ],
+    "base_url": "http://127.0.0.1:12150",
+    "http_observations": [
+      {
+        "status": 200,
+        "consecutive": 1
+      },
+      {
+        "status": 200,
+        "consecutive": 2
+      }
+    ],
+    "reason": "Two consecutive local HTTP responses observed",
+    "cleanup": {
+      "process_stopped": true,
+      "port_closed": true
+    },
+    "output": "\n> temperature-converter@1.0.0 start\n> node src/server.js\n\nTemperature converter listening on http://localhost:12150\n",
+    "snapshot_id": "053ea4921425028de8691ee7328598262d86a5bb8c6e1cccf1d9d1a5bfed7a2f",
+    "snapshot_after": "053ea4921425028de8691ee7328598262d86a5bb8c6e1cccf1d9d1a5bfed7a2f",
+    "stale": false,
+    "selection": "Host heuristic: HTTP/Express/web-server/REST terms in design; readiness only"
+  }
+]

@@ -1,0 +1,89 @@
+{
+  "kind": "independent_health_http_restart",
+  "status": "passed",
+  "source_hashes_before": {
+    "README.md": "fe81bb47c5f5b5e00f7941979909551f99a6ff359e9f4cc2e754f83baf37d855",
+    "app.cjs": "201dddfb87950f1a7c63624e2f780892ab4e2e9426d20876b69cf5fc4b9971e8",
+    "package.json": "39b40710ddf2b16e626dfd57adcf176567ebab2a7cc5458f291a7b9088fd09f6",
+    "server.cjs": "ca693368dd852f66527bb7b971796d6ad4db31b68573677a0ef39b568378f81b",
+    "test/health.test.cjs": "c8ab72cac287f0ab2736df378594f45d816e34f39e296569e8185324a65d00e9"
+  },
+  "checks": [
+    {
+      "restart_index": 0,
+      "path": "/health",
+      "http_status": 200,
+      "body": {
+        "status": "ok"
+      },
+      "passed": true
+    },
+    {
+      "restart_index": 0,
+      "path": "/unknown-route",
+      "http_status": 404,
+      "body": {
+        "error": "Not Found"
+      },
+      "passed": true
+    },
+    {
+      "restart_index": 0,
+      "path": "/health",
+      "http_status": 200,
+      "body": {
+        "status": "ok"
+      },
+      "passed": true
+    },
+    {
+      "restart_index": 1,
+      "path": "/health",
+      "http_status": 200,
+      "body": {
+        "status": "ok"
+      },
+      "passed": true
+    },
+    {
+      "restart_index": 1,
+      "path": "/unknown-route",
+      "http_status": 404,
+      "body": {
+        "error": "Not Found"
+      },
+      "passed": true
+    },
+    {
+      "restart_index": 1,
+      "path": "/health",
+      "http_status": 200,
+      "body": {
+        "status": "ok"
+      },
+      "passed": true
+    }
+  ],
+  "cleanup": [
+    {
+      "restart_index": 0,
+      "process_stopped": true,
+      "port_closed": true,
+      "output_tail": "\n> minimal-http-health-service@1.0.0 start\n> node server.cjs\n\nHealth service listening on port 2305\n"
+    },
+    {
+      "restart_index": 1,
+      "process_stopped": true,
+      "port_closed": true,
+      "output_tail": "\n> minimal-http-health-service@1.0.0 start\n> node server.cjs\n\nHealth service listening on port 2311\n"
+    }
+  ],
+  "source_hashes_after": {
+    "README.md": "fe81bb47c5f5b5e00f7941979909551f99a6ff359e9f4cc2e754f83baf37d855",
+    "app.cjs": "201dddfb87950f1a7c63624e2f780892ab4e2e9426d20876b69cf5fc4b9971e8",
+    "package.json": "39b40710ddf2b16e626dfd57adcf176567ebab2a7cc5458f291a7b9088fd09f6",
+    "server.cjs": "ca693368dd852f66527bb7b971796d6ad4db31b68573677a0ef39b568378f81b",
+    "test/health.test.cjs": "c8ab72cac287f0ab2736df378594f45d816e34f39e296569e8185324a65d00e9"
+  },
+  "source_unchanged": true
+}

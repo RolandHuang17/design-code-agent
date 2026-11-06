@@ -1,0 +1,1800 @@
+{
+  "status": "checks_passed_requires_review",
+  "provider": "bailian",
+  "model": "deepseek-v4-pro-0813",
+  "uses_official_endpoint": false,
+  "real_api_run": true,
+  "checks": [
+    {
+      "profile": "static",
+      "status": "passed",
+      "results": [
+        {
+          "check": "required:package.json",
+          "status": "passed"
+        },
+        {
+          "check": "required:README.md",
+          "status": "passed"
+        },
+        {
+          "check": "required:traceability.json",
+          "status": "passed"
+        },
+        {
+          "check": "compose.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "openapi.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "package-lock.json",
+          "status": "passed"
+        },
+        {
+          "check": "package.json",
+          "status": "passed"
+        },
+        {
+          "check": "plan.json",
+          "status": "passed"
+        },
+        {
+          "check": "traceability.json",
+          "status": "passed"
+        },
+        {
+          "check": "gateway/app.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-03-wide-context\\run-20261106-165508-200b9016\\project\\gateway\\app.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "gateway/index.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-03-wide-context\\run-20261106-165508-200b9016\\project\\gateway\\index.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "k8s/spacefractions-deployment.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "keycloak/realm.json",
+          "status": "passed"
+        },
+        {
+          "check": "lib/auth.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-03-wide-context\\run-20261106-165508-200b9016\\project\\lib\\auth.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "lib/cache.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-03-wide-context\\run-20261106-165508-200b9016\\project\\lib\\cache.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "lib/db.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-03-wide-context\\run-20261106-165508-200b9016\\project\\lib\\db.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "lib/events.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-03-wide-context\\run-20261106-165508-200b9016\\project\\lib\\events.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "lib/fraction.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-03-wide-context\\run-20261106-165508-200b9016\\project\\lib\\fraction.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "lib/game-state.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-03-wide-context\\run-20261106-165508-200b9016\\project\\lib\\game-state.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "lib/search.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-03-wide-context\\run-20261106-165508-200b9016\\project\\lib\\search.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "lib/types.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-03-wide-context\\run-20261106-165508-200b9016\\project\\lib\\types.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "lib/user-map.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-03-wide-context\\run-20261106-165508-200b9016\\project\\lib\\user-map.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "public/app.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-03-wide-context\\run-20261106-165508-200b9016\\project\\public\\app.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "reference/istio.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "reference/prometheus.yml",
+          "status": "passed"
+        },
+        {
+          "check": "scripts/check.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-03-wide-context\\run-20261106-165508-200b9016\\project\\scripts\\check.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "services/admin-service.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-03-wide-context\\run-20261106-165508-200b9016\\project\\services\\admin-service.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "services/game-service.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-03-wide-context\\run-20261106-165508-200b9016\\project\\services\\game-service.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "services/question-service.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-03-wide-context\\run-20261106-165508-200b9016\\project\\services\\question-service.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "services/user-service.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-03-wide-context\\run-20261106-165508-200b9016\\project\\services\\user-service.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/auth.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-03-wide-context\\run-20261106-165508-200b9016\\project\\test\\auth.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/fake-pg.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-03-wide-context\\run-20261106-165508-200b9016\\project\\test\\fake-pg.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/fraction.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-03-wide-context\\run-20261106-165508-200b9016\\project\\test\\fraction.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/game-service.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-03-wide-context\\run-20261106-165508-200b9016\\project\\test\\game-service.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/integration.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-03-wide-context\\run-20261106-165508-200b9016\\project\\test\\integration.test.js"
+          ],
+          "output": ""
+        }
+      ],
+      "snapshot_id": "922603e45e456e36a4b5c685f2911bd155cfc6c30bce7f87503e68fde328a535",
+      "snapshot_after": "922603e45e456e36a4b5c685f2911bd155cfc6c30bce7f87503e68fde328a535",
+      "stale": false
+    },
+    {
+      "profile": "install",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "output": "npm warn deprecated prom-client@15.1.2: prom-client has been replaced by @prometheus-io/client\n\nadded 124 packages in 3s\n",
+      "snapshot_id": "922603e45e456e36a4b5c685f2911bd155cfc6c30bce7f87503e68fde328a535",
+      "snapshot_after": "922603e45e456e36a4b5c685f2911bd155cfc6c30bce7f87503e68fde328a535",
+      "stale": false
+    },
+    {
+      "profile": "test",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "run",
+        "test",
+        "--ignore-scripts"
+      ],
+      "output": "\n> space-fractions@1.0.0 test\n> node --test test/fraction.test.js test/game-service.test.js test/auth.test.js\n\n✔ subjectOf returns the sub claim (0.9379ms)\n✔ subjectOf throws 401 when sub is missing (0.4359ms)\n✔ subjectOf throws 401 when sub is empty (0.1383ms)\n✔ isAdmin is true when realm_access.roles contains admin (0.1193ms)\n✔ isAdmin is false when role absent (0.1213ms)\n✔ isAdmin is false for malformed/missing payload (0.1216ms)\n✔ requireRole allows admin (0.1493ms)\n✔ requireRole throws 403 for non-admin (0.1324ms)\n✔ verifyToken rejects a missing token with 401 (0.341ms)\n✔ verifyToken rejects an empty/whitespace token with 401 (0.366ms)\n✔ verifyToken surfaces verification failure as 401 AuthError (0.3672ms)\n✔ resolveUserId upserts via client-shaped db and returns numeric id (0.8526ms)\n✔ resolveUserId upserts via pool-shaped db and returns numeric id (0.2397ms)\n✔ resolveUserId rejects payload missing sub with 401 (0.2129ms)\n✔ resolveUserId throws 500 when no backend is available (0.1308ms)\n✔ displayNameOf prefers preferred_username and falls back to sub (0.1613ms)\n✔ mapSubjectToUser delegates to upsertUser on client-shaped backend (0.2027ms)\n✔ mapSubjectToUser throws when no backend is available (0.1322ms)\n✔ authenticate returns payload/userId/admin for a valid admin token (0.2006ms)\n✔ authenticate marks non-admin token as admin=false (0.128ms)\n✔ authenticate throws 401 when authorization header lacks a token (0.2137ms)\n✔ gcd returns the greatest common divisor of two integers (1.7975ms)\n✔ reduce normalizes sign so the denominator is always positive (1.7879ms)\n✔ reduce produces a canonical reduced form (0.1708ms)\n✔ reduce throws a typed error for a zero denominator (0.6062ms)\n✔ reduce throws a typed error for non-safe-integer parts (0.1893ms)\n✔ fromParts delegates to reduce (0.1492ms)\n✔ parseFraction accepts a plain fraction (0.4005ms)\n✔ parseFraction normalizes fractional equality (2/4 === 1/2) (0.1777ms)\n✔ parseFraction accepts whole numbers as integer/1 (0.1557ms)\n✔ parseFraction accepts mixed numbers (0.1926ms)\n✔ parseFraction accepts negative fractions (0.1615ms)\n✔ parseFraction accepts zero (0.1361ms)\n✔ parseFraction rejects malformed input (empty, non-string, bad numeric) (0.2569ms)\n✔ parseFraction rejects a zero denominator in string form (0.1286ms)\n✔ parseFraction rejects an improper mixed number fraction part (0.1778ms)\n✔ equals compares canonical forms (0.1813ms)\n✔ format renders canonical fractions readably (0.1561ms)\n✔ parseFraction accepts a single reduced fraction from seed-style input (0.2911ms)\n✔ newGame returns 201-shaped {id, questions} without correctAnswer (2.2539ms)\n✔ answer submits a correct answer and increments score by 1 (1.3215ms)\n✔ answer marks an incorrect answer without increasing score (0.4811ms)\n✔ repeating a question does not increase the score (idempotent) (0.6282ms)\n✔ pause then resume transitions state; answering while paused is a 409 (1.5111ms)\n✔ pause/resume/answer enforce owner authorization (403 for other users) (0.7485ms)\n✔ accessing a non-existent game returns 404 (0.3663ms)\n✔ malformed fraction answer is rejected as 400 (1.1548ms)\n✔ validateAnswerText accepts valid fractions and rejects malformed ones (0.2416ms)\n✔ score view returns the accumulated score for the owner (0.4829ms)\n✔ viewGame exposes player-safe state and never leaks correctAnswer (0.3341ms)\n✔ fraction equality is exercised end-to-end via the real fraction module (0.7058ms)\nℹ tests 51\nℹ suites 0\nℹ pass 51\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 239.2921\n",
+      "test_count": 51,
+      "skipped_count": 0,
+      "test_execution": "observed",
+      "snapshot_id": "922603e45e456e36a4b5c685f2911bd155cfc6c30bce7f87503e68fde328a535",
+      "snapshot_after": "922603e45e456e36a4b5c685f2911bd155cfc6c30bce7f87503e68fde328a535",
+      "stale": false
+    },
+    {
+      "profile": "integration",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "run",
+        "test:integration",
+        "--ignore-scripts"
+      ],
+      "output": "\n> space-fractions@1.0.0 test:integration\n> node --test test/integration.test.js\n\n✔ GET /health returns 200 (114.9605ms)\n✔ admin can create, list, and delete a question (admin CRUD) (29.8539ms)\n✔ normal user gets 403 on admin endpoints (4.3825ms)\n✔ missing/invalid credentials yield 401 (5.8804ms)\n✔ full game lifecycle: create, answer, score, and owner isolation (13.1756ms)\n✔ pause/resume and answering while paused -> 409 (12.7781ms)\nℹ tests 6\nℹ suites 0\nℹ pass 6\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 500.3697\n",
+      "test_count": 6,
+      "skipped_count": 0,
+      "test_execution": "observed",
+      "snapshot_id": "922603e45e456e36a4b5c685f2911bd155cfc6c30bce7f87503e68fde328a535",
+      "snapshot_after": "922603e45e456e36a4b5c685f2911bd155cfc6c30bce7f87503e68fde328a535",
+      "stale": false
+    },
+    {
+      "profile": "build",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "run",
+        "build",
+        "--ignore-scripts"
+      ],
+      "output": "\n> space-fractions@1.0.0 build\n> node scripts/check.js\n\nbuild check passed: sources, configs and contracts verified\n",
+      "snapshot_id": "922603e45e456e36a4b5c685f2911bd155cfc6c30bce7f87503e68fde328a535",
+      "snapshot_after": "922603e45e456e36a4b5c685f2911bd155cfc6c30bce7f87503e68fde328a535",
+      "stale": false
+    },
+    {
+      "profile": "compose",
+      "status": "passed",
+      "backend": "wsl",
+      "evidence": "Actual compose config command in protected runtime stages",
+      "snapshot_id": "922603e45e456e36a4b5c685f2911bd155cfc6c30bce7f87503e68fde328a535"
+    },
+    {
+      "profile": "plan_references",
+      "status": "passed",
+      "problems": [],
+      "snapshot_id": "922603e45e456e36a4b5c685f2911bd155cfc6c30bce7f87503e68fde328a535",
+      "limitation": "Checks planned files and literal relative imports, not dynamic imports or semantic compatibility"
+    },
+    {
+      "profile": "traceability_links",
+      "status": "passed",
+      "problems": [],
+      "limitation": "只检查链接和来源范围；语义覆盖需要独立审查",
+      "snapshot_id": "922603e45e456e36a4b5c685f2911bd155cfc6c30bce7f87503e68fde328a535"
+    },
+    {
+      "profile": "runtime",
+      "acceptance_profile": "space-fractions",
+      "status": "passed",
+      "checks": [
+        {
+          "check": "gateway ready",
+          "status": "passed"
+        },
+        {
+          "check": "browser entry served",
+          "status": "passed",
+          "http_status": 200
+        },
+        {
+          "check": "local identity-provider fixture admin",
+          "status": "passed",
+          "http_status": 200
+        },
+        {
+          "check": "browser client is public and requires S256",
+          "status": "passed"
+        },
+        {
+          "check": "temporary public callback origin configured",
+          "status": "passed",
+          "http_status": 204
+        },
+        {
+          "check": "OIDC fixture login: student",
+          "status": "passed",
+          "http_status": 200
+        },
+        {
+          "check": "OIDC fixture login: admin",
+          "status": "passed",
+          "http_status": 200
+        },
+        {
+          "check": "OIDC fixture login: other",
+          "status": "passed",
+          "http_status": 200
+        },
+        {
+          "check": "missing authentication rejected",
+          "status": "passed",
+          "http_status": 401
+        },
+        {
+          "check": "wrong signature rejected",
+          "status": "passed",
+          "http_status": 401
+        },
+        {
+          "check": "ordinary user denied administration",
+          "status": "passed",
+          "http_status": 403
+        },
+        {
+          "check": "admin creates practice question 0",
+          "status": "passed",
+          "http_status": 201
+        },
+        {
+          "check": "admin creates practice question 1",
+          "status": "passed",
+          "http_status": 201
+        },
+        {
+          "check": "authenticated game creation",
+          "status": "passed",
+          "http_status": 201
+        },
+        {
+          "check": "player questions hide correct answers",
+          "status": "passed"
+        },
+        {
+          "check": "cross-user ownership enforced",
+          "status": "passed",
+          "http_status": 403
+        },
+        {
+          "check": "pause",
+          "status": "passed",
+          "http_status": 200
+        },
+        {
+          "check": "paused answer rejected",
+          "status": "passed",
+          "http_status": 409
+        },
+        {
+          "check": "resume",
+          "status": "passed",
+          "http_status": 200
+        },
+        {
+          "check": "invalid fraction rejected",
+          "status": "passed",
+          "http_status": 400
+        },
+        {
+          "check": "eight concurrent equivalent answers score once",
+          "status": "passed",
+          "score": 1,
+          "statuses": [
+            200,
+            200,
+            200,
+            200,
+            200,
+            200,
+            200,
+            200
+          ]
+        },
+        {
+          "check": "score persists across application restart",
+          "status": "passed",
+          "score": 1
+        },
+        {
+          "check": "second question increments score",
+          "status": "passed",
+          "http_status": 200,
+          "score": 2
+        },
+        {
+          "check": "completed duplicate safely handled",
+          "status": "passed",
+          "http_status": 200
+        },
+        {
+          "check": "completed score remains two",
+          "status": "passed"
+        },
+        {
+          "check": "practice question cleanup",
+          "status": "passed",
+          "http_status": 200
+        },
+        {
+          "check": "practice question cleanup",
+          "status": "passed",
+          "http_status": 200
+        }
+      ],
+      "cleanup": "passed",
+      "backend": "wsl",
+      "project": "dca-4ab7f15a6b96",
+      "stages": [
+        {
+          "stage": [
+            "version",
+            "--format",
+            "{{.Server.Version}}"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Windows\\system32\\wsl.exe",
+            "-d",
+            "Ubuntu",
+            "-u",
+            "root",
+            "--",
+            "env",
+            "GATEWAY_PORT=7739",
+            "OIDC_PORT=7740",
+            "PUBLIC_ORIGIN=http://localhost:7739",
+            "OIDC_PUBLIC_ORIGIN=http://localhost:7740",
+            "OIDC_ISSUER=http://localhost:7740/realms/space-fractions",
+            "docker",
+            "version",
+            "--format",
+            "{{.Server.Version}}"
+          ],
+          "output": "29.1.3\n"
+        },
+        {
+          "stage": [
+            "config",
+            "--format",
+            "json"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Windows\\system32\\wsl.exe",
+            "-d",
+            "Ubuntu",
+            "-u",
+            "root",
+            "--",
+            "env",
+            "GATEWAY_PORT=7739",
+            "OIDC_PORT=7740",
+            "PUBLIC_ORIGIN=http://localhost:7739",
+            "OIDC_PUBLIC_ORIGIN=http://localhost:7740",
+            "OIDC_ISSUER=http://localhost:7740/realms/space-fractions",
+            "docker",
+            "compose",
+            "--project-directory",
+            "/mnt/d/projects/Task-v03-runs/runs/v03/main/space-03-wide-context/run-20261106-165508-200b9016/project",
+            "-p",
+            "dca-4ab7f15a6b96",
+            "-f",
+            "/mnt/d/projects/Task-v03-runs/runs/v03/main/space-03-wide-context/run-20261106-165508-200b9016/project/compose.yaml",
+            "config",
+            "--format",
+            "json"
+          ],
+          "output": "{\n  \"name\": \"dca-4ab7f15a6b96\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"dca-4ab7f15a6b96_default\",\n      \"ipam\": {}\n    }\n  },\n  \"services\": {\n    \"admin-service\": {\n      \"command\": [\n        \"sh\",\n        \"-c\",\n        \"echo 'admin-service entrypoint: served by gateway'; sleep infinity\"\n      ],\n      \"depends_on\": {\n        \"gateway\": {\n          \"condition\": \"service_started\",\n          \"required\": true\n        }\n      },\n      \"entrypoint\": null,\n      \"image\": \"busybox:1.36.1\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"restart\": \"no\"\n    },\n    \"elasticsearch\": {\n      \"command\": null,\n      \"entrypoint\": null,\n      \"environment\": {\n        \"ES_JAVA_OPTS\": \"-Xms512m -Xmx512m\",\n        \"discovery.type\": \"single-node\",\n        \"xpack.security.enabled\": \"false\"\n      },\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD-SHELL\",\n          \"curl -sf http://localhost:9200/_cluster/health || exit 1\"\n        ],\n        \"timeout\": \"5s\",\n        \"interval\": \"10s\",\n        \"retries\": 10,\n        \"start_period\": \"30s\"\n      },\n      \"image\": \"docker.elastic.co/elasticsearch/elasticsearch:8.13.4\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"restart\": \"unless-stopped\"\n    },\n    \"game-service\": {\n      \"command\": [\n        \"sh\",\n        \"-c\",\n        \"echo 'game-service entrypoint: served by gateway'; sleep infinity\"\n      ],\n      \"depends_on\": {\n        \"gateway\": {\n          \"condition\": \"service_started\",\n          \"required\": true\n        }\n      },\n      \"entrypoint\": null,\n      \"image\": \"busybox:1.36.1\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"restart\": \"no\"\n    },\n    \"gateway\": {\n      \"build\": {\n        \"context\": \"/mnt/d/projects/Task-v03-runs/runs/v03/main/space-03-wide-context/run-20261106-165508-200b9016/project\",\n        \"dockerfile\": \"Dockerfile\"\n      },\n      \"command\": null,\n      \"depends_on\": {\n        \"postgres\": {\n          \"condition\": \"service_healthy\",\n          \"required\": true\n        }\n      },\n      \"entrypoint\": null,\n      \"environment\": {\n        \"ADMIN_ROLE\": \"admin\",\n        \"DATABASE_URL\": \"postgres://space_fractions:space_fractions@postgres:5432/space_fractions\",\n        \"DISABLED_FEATURES\": \"\",\n        \"ELASTICSEARCH_URL\": \"http://elasticsearch:9200\",\n        \"OIDC_AUDIENCE\": \"account\",\n        \"OIDC_CLIENT_ID\": \"space-fractions-client\",\n        \"OIDC_ISSUER\": \"http://localhost:7740/realms/space-fractions\",\n        \"OIDC_JWKS_URI\": \"http://keycloak:8080/realms/space-fractions/protocol/openid-connect/certs\",\n        \"OIDC_PUBLIC_ORIGIN\": \"http://localhost:7740\",\n        \"PORT\": \"3000\",\n        \"PUBLIC_ORIGIN\": \"http://localhost:7739\",\n        \"RABBITMQ_URL\": \"amqp://rabbitmq:5672\",\n        \"REDIS_URL\": \"redis://redis:6379\"\n      },\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD\",\n          \"node\",\n          \"-e\",\n          \"require('http').get('http://localhost:3000/health',r=\\u003e{process.exit(r.statusCode===200?0:1)}).on('error',()=\\u003eprocess.exit(1))\"\n        ],\n        \"timeout\": \"5s\",\n        \"interval\": \"10s\",\n        \"retries\": 5,\n        \"start_period\": \"15s\"\n      },\n      \"networks\": {\n        \"default\": null\n      },\n      \"ports\": [\n        {\n          \"mode\": \"ingress\",\n          \"target\": 3000,\n          \"published\": \"3000\",\n          \"protocol\": \"tcp\"\n        }\n      ],\n      \"restart\": \"unless-stopped\"\n    },\n    \"keycloak\": {\n      \"command\": [\n        \"start-dev\",\n        \"--import-realm\"\n      ],\n      \"entrypoint\": null,\n      \"environment\": {\n        \"KC_HOSTNAME_STRICT\": \"false\",\n        \"KC_HOSTNAME_STRICT_HTTPS\": \"false\",\n        \"KC_HOSTNAME_URL\": \"http://localhost:7740\",\n        \"KEYCLOAK_ADMIN\": \"admin\",\n        \"KEYCLOAK_ADMIN_PASSWORD\": \"admin\"\n      },\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD-SHELL\",\n          \"bash -c 'exec 3\\u003c\\u003e/dev/tcp/localhost/8080' || exit 1\"\n        ],\n        \"timeout\": \"5s\",\n        \"interval\": \"10s\",\n        \"retries\": 10,\n        \"start_period\": \"40s\"\n      },\n      \"image\": \"quay.io/keycloak/keycloak:24.0.5\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"ports\": [\n        {\n          \"mode\": \"ingress\",\n          \"target\": 8080,\n          \"published\": \"8080\",\n          \"protocol\": \"tcp\"\n        }\n      ],\n      \"restart\": \"unless-stopped\",\n      \"volumes\": [\n        {\n          \"type\": \"bind\",\n          \"source\": \"/mnt/d/projects/Task-v03-runs/runs/v03/main/space-03-wide-context/run-20261106-165508-200b9016/project/keycloak/realm.json\",\n          \"target\": \"/opt/keycloak/data/import/realm.json\",\n          \"read_only\": true,\n          \"bind\": {\n            \"create_host_path\": true\n          }\n        }\n      ]\n    },\n    \"postgres\": {\n      \"command\": null,\n      \"entrypoint\": null,\n      \"environment\": {\n        \"POSTGRES_DB\": \"space_fractions\",\n        \"POSTGRES_PASSWORD\": \"space_fractions\",\n        \"POSTGRES_USER\": \"space_fractions\"\n      },\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD-SHELL\",\n          \"pg_isready -U space_fractions -d space_fractions\"\n        ],\n        \"timeout\": \"5s\",\n        \"interval\": \"5s\",\n        \"retries\": 10\n      },\n      \"image\": \"postgres:16.3-alpine\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"restart\": \"unless-stopped\",\n      \"volumes\": [\n        {\n          \"type\": \"volume\",\n          \"source\": \"postgres-data\",\n          \"target\": \"/var/lib/postgresql/data\",\n          \"volume\": {}\n        }\n      ]\n    },\n    \"prometheus\": {\n      \"command\": [\n        \"--config.file=/etc/prometheus/prometheus.yml\"\n      ],\n      \"entrypoint\": null,\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD-SHELL\",\n          \"wget -q -O /dev/null http://localhost:9090/-/ready || exit 1\"\n        ],\n        \"timeout\": \"5s\",\n        \"interval\": \"10s\",\n        \"retries\": 5\n      },\n      \"image\": \"prom/prometheus:v2.53.0\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"ports\": [\n        {\n          \"mode\": \"ingress\",\n          \"target\": 9090,\n          \"published\": \"9090\",\n          \"protocol\": \"tcp\"\n        }\n      ],\n      \"restart\": \"unless-stopped\",\n      \"volumes\": [\n        {\n          \"type\": \"bind\",\n          \"source\": \"/mnt/d/projects/Task-v03-runs/runs/v03/main/space-03-wide-context/run-20261106-165508-200b9016/project/reference/prometheus.yml\",\n          \"target\": \"/etc/prometheus/prometheus.yml\",\n          \"read_only\": true,\n          \"bind\": {\n            \"create_host_path\": true\n          }\n        }\n      ]\n    },\n    \"question-service\": {\n      \"command\": [\n        \"sh\",\n        \"-c\",\n        \"echo 'question-service entrypoint: served by gateway'; sleep infinity\"\n      ],\n      \"depends_on\": {\n        \"gateway\": {\n          \"condition\": \"service_started\",\n          \"required\": true\n        }\n      },\n      \"entrypoint\": null,\n      \"image\": \"busybox:1.36.1\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"restart\": \"no\"\n    },\n    \"rabbitmq\": {\n      \"command\": null,\n      \"entrypoint\": null,\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD\",\n          \"rabbitmq-diagnostics\",\n          \"-q\",\n          \"ping\"\n        ],\n        \"timeout\": \"5s\",\n        \"interval\": \"10s\",\n        \"retries\": 5,\n        \"start_period\": \"15s\"\n      },\n      \"image\": \"rabbitmq:3.13-alpine\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"restart\": \"unless-stopped\"\n    },\n    \"redis\": {\n      \"command\": null,\n      \"entrypoint\": null,\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD\",\n          \"redis-cli\",\n          \"ping\"\n        ],\n        \"timeout\": \"3s\",\n        \"interval\": \"5s\",\n        \"retries\": 5\n      },\n      \"image\": \"redis:7.2-alpine\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"restart\": \"unless-stopped\"\n    },\n    \"user-service\": {\n      \"command\": [\n        \"sh\",\n        \"-c\",\n        \"echo 'user-service entrypoint: served by gateway'; sleep infinity\"\n      ],\n      \"depends_on\": {\n        \"gateway\": {\n          \"condition\": \"service_started\",\n          \"required\": true\n        }\n      },\n      \"entrypoint\": null,\n      \"image\": \"busybox:1.36.1\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"restart\": \"no\"\n    }\n  },\n  \"volumes\": {\n    \"postgres-data\": {\n      \"name\": \"dca-4ab7f15a6b96_postgres-data\"\n    }\n  },\n  \"x-gateway-defaults\": {\n    \"depends_on\": {\n      \"postgres\": {\n        \"condition\": \"service_healthy\"\n      }\n    },\n    \"environment\": {\n      \"ADMIN_ROLE\": \"admin\",\n      \"DATABASE_URL\": \"postgres://space_fractions:space_fractions@postgres:5432/space_fractions\",\n      \"DISABLED_FEATURES\": \"\",\n      \"ELASTICSEARCH_URL\": \"http://elasticsearch:9200\",\n      \"OIDC_AUDIENCE\": \"account\",\n      \"OIDC_CLIENT_ID\": \"space-fractions-client\",\n      \"OIDC_ISSUER\": \"http://localhost:7740/realms/space-fractions\",\n      \"OIDC_JWKS_URI\": \"http://keycloak:8080/realms/space-fractions/protocol/openid-connect/certs\",\n      \"OIDC_PUBLIC_ORIGIN\": \"http://localhost:7740\",\n      \"PORT\": \"3000\",\n      \"PUBLIC_ORIGIN\": \"http://localhost:7739\",\n      \"RABBITMQ_URL\": \"amqp://rabbitmq:5672\",\n      \"REDIS_URL\": \"redis://redis:6379\"\n    }\n  }\n}"
+        },
+        {
+          "stage": [
+            "up",
+            "-d",
+            "--build"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Windows\\system32\\wsl.exe",
+            "-d",
+            "Ubuntu",
+            "-u",
+            "root",
+            "--",
+            "env",
+            "GATEWAY_PORT=7739",
+            "OIDC_PORT=7740",
+            "PUBLIC_ORIGIN=http://localhost:7739",
+            "OIDC_PUBLIC_ORIGIN=http://localhost:7740",
+            "OIDC_ISSUER=http://localhost:7740/realms/space-fractions",
+            "docker",
+            "compose",
+            "--project-directory",
+            "/mnt/d/projects/Task-v03-runs/runs/v03/main/space-03-wide-context/run-20261106-165508-200b9016/project",
+            "-p",
+            "dca-4ab7f15a6b96",
+            "-f",
+            "/mnt/d/projects/Task-v03-runs/runs/v03/main/space-03-wide-context/run-20261106-165508-200b9016/artifacts/runtime-08/compose.isolated.json",
+            "up",
+            "-d",
+            "--build"
+          ],
+          "output": "time=\"2026-11-06T17:22:47+08:00\" level=warning msg=\"Docker Compose is configured to build using Bake, but buildx isn't installed\"\n#0 building with \"default\" instance using docker driver\n\n#1 [gateway internal] load build definition from Dockerfile\n#1 transferring dockerfile: 1.63kB 0.0s done\n#1 DONE 0.0s\n\n#2 [gateway internal] load metadata for docker.io/library/node:22-alpine\n#2 DONE 0.0s\n\n#3 [gateway internal] load .dockerignore\n#3 transferring context: 0.0s\n#3 transferring context: 2B 0.0s done\n#3 DONE 0.0s\n\n#4 [gateway build 1/8] FROM docker.io/library/node:22-alpine@sha256:fe4f6d74e20370acb04ad889077d14d0f64a9c8ea6a42bc60cddf1e844699914\n#4 resolve docker.io/library/node:22-alpine@sha256:fe4f6d74e20370acb04ad889077d14d0f64a9c8ea6a42bc60cddf1e844699914 0.0s done\n#4 DONE 0.0s\n\n#5 [gateway internal] load build context\n#5 transferring context: 7.98MB 4.9s\n#5 transferring context: 13.48MB 8.4s done\n#5 DONE 8.4s\n\n#6 [gateway build 8/8] RUN npm prune --omit=dev\n#6 CACHED\n\n#7 [gateway build 5/8] RUN npm ci\n#7 CACHED\n\n#8 [gateway build 6/8] COPY . .\n#8 CACHED\n\n#9 [gateway build 3/8] COPY package.json ./\n#9 CACHED\n\n#10 [gateway stage-1 3/4] RUN addgroup -S spacefractions && adduser -S spacefractions -G spacefractions\n#10 CACHED\n\n#11 [gateway build 4/8] COPY package-lock.json ./\n#11 CACHED\n\n#12 [gateway build 7/8] RUN npm run build\n#12 CACHED\n\n#13 [gateway build 2/8] WORKDIR /app\n#13 CACHED\n\n#14 [gateway stage-1 4/4] COPY --from=build --chown=spacefractions:spacefractions /app ./\n#14 CACHED\n\n#15 [gateway] exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:8ff0e03bbe91d7619cfeff378bb810eb20402bb8828c9a670b53bfe12133e1a2 0.0s done\n#15 exporting config sha256:e102a6119ebd644b8268b3a0933732265850b32e1fdecb43df90ec02494997c4 0.0s done\n#15 exporting attestation manifest sha256:33ae3b8a714c35f3ed259fd35e11fa6b2686c3d51dab62b6c93abcb63846a788 0.1s done\n#15 exporting manifest list sha256:3ff2a7e4074059153a8e7f0a91e6a271eb20a75f07b46b9b2ef58ee288222fba 0.0s done\n#15 naming to docker.io/library/dca-4ab7f15a6b96-gateway:latest\n#15 naming to docker.io/library/dca-4ab7f15a6b96-gateway:latest done\n#15 unpacking to docker.io/library/dca-4ab7f15a6b96-gateway:latest 0.0s done\n#15 DONE 0.2s\n\n#16 [gateway] resolving provenance for metadata file\n gateway  Built\n#16 DONE 0.0s\n Network dca-4ab7f15a6b96_default  Creating\n Network dca-4ab7f15a6b96_default  Created\n Volume dca-4ab7f15a6b96_postgres-data  Creating\n Volume dca-4ab7f15a6b96_postgres-data  Created\n Container dca-4ab7f15a6b96-postgres-1  Creating\n Container dca-4ab7f15a6b96-rabbitmq-1  Creating\n Container dca-4ab7f15a6b96-elasticsearch-1  Creating\n Container dca-4ab7f15a6b96-redis-1  Creating\n Container dca-4ab7f15a6b96-keycloak-1  Creating\n Container dca-4ab7f15a6b96-prometheus-1  Creating\n Container dca-4ab7f15a6b96-postgres-1  Created\n Container dca-4ab7f15a6b96-gateway-1  Creating\n Container dca-4ab7f15a6b96-keycloak-1  Created\n Container dca-4ab7f15a6b96-elasticsearch-1  Created\n Container dca-4ab7f15a6b96-redis-1  Created\n Container dca-4ab7f15a6b96-rabbitmq-1  Created\n Container dca-4ab7f15a6b96-prometheus-1  Created\n Container dca-4ab7f15a6b96-gateway-1  Created\n Container dca-4ab7f15a6b96-question-service-1  Creating\n Container dca-4ab7f15a6b96-user-service-1  Creating\n Container dca-4ab7f15a6b96-admin-service-1  Creating\n Container dca-4ab7f15a6b96-game-service-1  Creating\n Container dca-4ab7f15a6b96-question-service-1  Created\n Container dca-4ab7f15a6b96-user-service-1  Created\n Container dca-4ab7f15a6b96-admin-service-1  Created\n Container dca-4ab7f15a6b96-game-service-1  Created\n Container dca-4ab7f15a6b96-redis-1  Starting\n Container dca-4ab7f15a6b96-postgres-1  Starting\n Container dca-4ab7f15a6b96-keycloak-1  Starting\n Container dca-4ab7f15a6b96-elasticsearch-1  Starting\n Container dca-4ab7f15a6b96-rabbitmq-1  Starting\n Container dca-4ab7f15a6b96-prometheus-1  Starting\n Container dca-4ab7f15a6b96-elasticsearch-1  Started\n Container dca-4ab7f15a6b96-rabbitmq-1  Started\n Container dca-4ab7f15a6b96-redis-1  Started\n Container dca-4ab7f15a6b96-postgres-1  Started\n Container dca-4ab7f15a6b96-postgres-1  Waiting\n Container dca-4ab7f15a6b96-prometheus-1  Started\n Container dca-4ab7f15a6b96-keycloak-1  Started\n Container dca-4ab7f15a6b96-postgres-1  Healthy\n Container dca-4ab7f15a6b96-gateway-1  Starting\n Container dca-4ab7f15a6b96-gateway-1  Started\n Container dca-4ab7f15a6b96-game-service-1  Starting\n Container dca-4ab7f15a6b96-admin-service-1  Starting\n Container dca-4ab7f15a6b96-question-service-1  Starting\n Container dca-4ab7f15a6b96-user-service-1  Starting\n Container dca-4ab7f15a6b96-game-service-1  Started\n Container dca-4ab7f15a6b96-question-service-1  Started\n Container dca-4ab7f15a6b96-user-service-1  Started\n Container dca-4ab7f15a6b96-admin-service-1  Started\n"
+        },
+        {
+          "stage": [
+            "restart",
+            "gateway"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Windows\\system32\\wsl.exe",
+            "-d",
+            "Ubuntu",
+            "-u",
+            "root",
+            "--",
+            "env",
+            "GATEWAY_PORT=7739",
+            "OIDC_PORT=7740",
+            "PUBLIC_ORIGIN=http://localhost:7739",
+            "OIDC_PUBLIC_ORIGIN=http://localhost:7740",
+            "OIDC_ISSUER=http://localhost:7740/realms/space-fractions",
+            "docker",
+            "compose",
+            "--project-directory",
+            "/mnt/d/projects/Task-v03-runs/runs/v03/main/space-03-wide-context/run-20261106-165508-200b9016/project",
+            "-p",
+            "dca-4ab7f15a6b96",
+            "-f",
+            "/mnt/d/projects/Task-v03-runs/runs/v03/main/space-03-wide-context/run-20261106-165508-200b9016/artifacts/runtime-08/compose.isolated.json",
+            "restart",
+            "gateway"
+          ],
+          "output": " Container dca-4ab7f15a6b96-gateway-1  Restarting\n Container dca-4ab7f15a6b96-gateway-1  Started\n"
+        },
+        {
+          "stage": [
+            "logs",
+            "--no-color",
+            "--tail",
+            "40"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Windows\\system32\\wsl.exe",
+            "-d",
+            "Ubuntu",
+            "-u",
+            "root",
+            "--",
+            "env",
+            "GATEWAY_PORT=7739",
+            "OIDC_PORT=7740",
+            "PUBLIC_ORIGIN=http://localhost:7739",
+            "OIDC_PUBLIC_ORIGIN=http://localhost:7740",
+            "OIDC_ISSUER=http://localhost:7740/realms/space-fractions",
+            "docker",
+            "compose",
+            "--project-directory",
+            "/mnt/d/projects/Task-v03-runs/runs/v03/main/space-03-wide-context/run-20261106-165508-200b9016/project",
+            "-p",
+            "dca-4ab7f15a6b96",
+            "-f",
+            "/mnt/d/projects/Task-v03-runs/runs/v03/main/space-03-wide-context/run-20261106-165508-200b9016/artifacts/runtime-08/compose.isolated.json",
+            "logs",
+            "--no-color",
+            "--tail",
+            "40"
+          ],
+          "output": "] (main) Quarkus augmentation completed in 13410ms\nkeycloak-1          | 2026-11-06 09:23:16,914 INFO  [org.keycloak.quarkus.runtime.hostname.DefaultHostnameProvider] (main) Hostname settings: Base URL: http://localhost:7740, Hostname: localhost, Strict HTTPS: false, Path: /, Strict BackChannel: false, Admin URL: <unset>, Admin: <request>, Port: 7740, Proxied: false\nkeycloak-1          | 2026-11-06 09:23:19,238 WARN  [io.quarkus.agroal.runtime.DataSources] (JPA Startup Thread) Datasource <default> enables XA but transaction recovery is not enabled. Please enable transaction recovery by setting quarkus.transaction-manager.enable-recovery=true, otherwise data may be lost if the application is terminated abruptly\nkeycloak-1          | 2026-11-06 09:23:19,812 WARN  [org.infinispan.CONFIG] (keycloak-cache-init) ISPN000569: Unable to persist Infinispan internal caches as no global state enabled\nkeycloak-1          | 2026-11-06 09:23:19,929 INFO  [org.infinispan.CONTAINER] (keycloak-cache-init) ISPN000556: Starting user marshaller 'org.infinispan.jboss.marshalling.core.JBossUserMarshaller'\nkeycloak-1          | 2026-11-06 09:23:21,031 INFO  [org.keycloak.connections.infinispan.DefaultInfinispanConnectionProviderFactory] (main) Node name: node_547439, Site name: null\nkeycloak-1          | 2026-11-06 09:23:21,039 INFO  [org.keycloak.broker.provider.AbstractIdentityProviderMapper] (main) Registering class org.keycloak.broker.provider.mappersync.ConfigSyncEventListener\nkeycloak-1          | 2026-11-06 09:23:22,867 INFO  [org.keycloak.quarkus.runtime.storage.legacy.liquibase.QuarkusJpaUpdaterProvider] (main) Initializing database schema. Using changelog META-INF/jpa-changelog-master.xml\nkeycloak-1          | \nkeycloak-1          | UPDATE SUMMARY\nkeycloak-1          | Run:                        124\nkeycloak-1          | Previously run:               0\nkeycloak-1          | Filtered out:                 0\nkeycloak-1          | -------------------------------\nkeycloak-1          | Total change sets:          124\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:21.133Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [.monitoring-8-ilm-policy]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:21.202Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [ml-size-based-ilm-policy]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\npostgres-1          | server stopped\npostgres-1          | \npostgres-1          | PostgreSQL init process complete; ready for start up.\npostgres-1          | \npostgres-1          | 2026-11-06 09:23:01.814 UTC [1] LOG:  starting PostgreSQL 16.3 on x86_64-pc-linux-musl, compiled by gcc (Alpine 13.2.1_git20240309) 13.2.1 20240309, 64-bit\npostgres-1          | 2026-11-06 09:23:01.814 UTC [1] LOG:  listening on IPv4 address \"0.0.0.0\", port 5432\npostgres-1          | 2026-11-06 09:23:01.814 UTC [1] LOG:  listening on IPv6 address \"::\", port 5432\npostgres-1          | 2026-11-06 09:23:01.825 UTC [1] LOG:  listening on Unix socket \"/var/run/postgresql/.s.PGSQL.5432\"\npostgres-1          | 2026-11-06 09:23:01.837 UTC [58] LOG:  database system was shut down at 2026-11-06 09:23:01 UTC\npostgres-1          | 2026-11-06 09:23:01.851 UTC [1] LOG:  database system is ready to accept connections\nkeycloak-1          | \nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:21.320Z\", \"log.level\": \"INFO\", \"message\":\"adding ingest pipeline behavioral_analytics-events-final_pipeline\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.core.template.IndexTemplateRegistry\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nkeycloak-1          | 2026-11-06 09:23:25,876 INFO  [org.keycloak.services] (main) KC-SERVICES0050: Initializing master realm\nkeycloak-1          | 2026-11-06 09:23:27,554 INFO  [org.keycloak.exportimport.singlefile.SingleFileImportProvider] (main) Full importing from file /opt/keycloak/bin/../data/import/realm.json\nkeycloak-1          | 2026-11-06 09:23:29,519 INFO  [org.keycloak.exportimport.util.ImportUtils] (main) Realm 'space-fractions' imported\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:21.320Z\", \"log.level\": \"INFO\", \"message\":\"adding ingest pipeline logs@default-pipeline\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.core.template.IndexTemplateRegistry\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nprometheus-1        | ts=2026-11-06T09:22:58.515Z caller=main.go:589 level=info msg=\"No time or size retention was set so using the default time retention\" duration=15d\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:21.321Z\", \"log.level\": \"INFO\", \"message\":\"adding ingest pipeline logs-default-pipeline\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.core.template.IndexTemplateRegistry\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:21.321Z\", \"log.level\": \"INFO\", \"message\":\"adding ingest pipeline ent-search-generic-ingestion\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.core.template.IndexTemplateRegistry\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nprometheus-1        | ts=2026-11-06T09:22:58.515Z caller=main.go:633 level=info msg=\"Starting Prometheus Server\" mode=server version=\"(version=2.53.0, branch=HEAD, revision=4c35b9250afefede41c5f5acd76191f90f625898)\"\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:21.321Z\", \"log.level\": \"INFO\", \"message\":\"adding ingest pipeline logs@json-pipeline\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.core.template.IndexTemplateRegistry\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nprometheus-1        | ts=2026-11-06T09:22:58.515Z caller=main.go:638 level=info build_context=\"(go=go1.22.4, platform=linux/amd64, user=root@7f8d89cbbd64, date=20240619-07:39:12, tags=netgo,builtinassets,stringlabels)\"\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:21.321Z\", \"log.level\": \"INFO\", \"message\":\"adding ingest pipeline logs@json-message\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.core.template.IndexTemplateRegistry\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nprometheus-1        | ts=2026-11-06T09:22:58.515Z caller=main.go:639 level=info host_details=\"(Linux 6.18.54.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Tue Oct  6 19:13:07 UTC 2026 x86_64 8a7fd712c815 localdomain)\"\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:21.326Z\", \"log.level\": \"INFO\", \"message\":\"adding component template [behavioral_analytics-events-settings]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.cluster.metadata.MetadataIndexTemplateService\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:21.330Z\", \"log.level\": \"INFO\", \"message\":\"adding component template [logs@settings]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.cluster.metadata.MetadataIndexTemplateService\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:21.333Z\", \"log.level\": \"INFO\", \"message\":\"adding component template [logs-settings]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.cluster.metadata.MetadataIndexTemplateService\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:21.396Z\", \"log.level\": \"INFO\", \"message\":\"adding index template [behavioral_analytics-events-default] for index patterns [behavioral_analytics-events-*]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.cluster.metadata.MetadataIndexTemplateService\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:21.406Z\", \"log.level\": \"INFO\", \"message\":\"adding index template [logs] for index patterns [logs-*-*]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.cluster.metadata.MetadataIndexTemplateService\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:21.461Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [logs]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nkeycloak-1          | 2026-11-06 09:23:29,557 INFO  [org.keycloak.exportimport.dir.DirImportProvider] (main) Importing from directory /opt/keycloak/bin/../data/import\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:21.522Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [synthetics]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:21.586Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [metrics]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:21.649Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [7-days-default]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:21.709Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [90-days-default]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:21.760Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [365-days-default]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nkeycloak-1          | 2026-11-06 09:23:29,558 INFO  [org.keycloak.services] (main) KC-SERVICES0030: Full model import requested. Strategy: IGNORE_EXISTING\nkeycloak-1          | 2026-11-06 09:23:29,558 INFO  [org.keycloak.services] (main) KC-SERVICES0032: Import finished successfully\nkeycloak-1          | 2026-11-06 09:23:29,838 INFO  [org.keycloak.services] (main) KC-SERVICES0009: Added user 'admin' to realm 'master'\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:21.833Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [180-days-default]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nkeycloak-1          | 2026-11-06 09:23:29,934 INFO  [io.quarkus] (main) Keycloak 24.0.5 on JVM (powered by Quarkus 3.8.4) started in 14.438s. Listening on: http://0.0.0.0:8080\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:21.893Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [30-days-default]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nkeycloak-1          | 2026-11-06 09:23:29,935 INFO  [io.quarkus] (main) Profile dev activated. \nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:21.949Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [synthetics@lifecycle]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:22.040Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [metrics@lifecycle]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:22.090Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [logs@lifecycle]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nkeycloak-1          | 2026-11-06 09:23:29,935 INFO  [io.quarkus] (main) Installed features: [agroal, cdi, hibernate-orm, jdbc-h2, keycloak, logging-gelf, narayana-jta, reactive-routes, resteasy-reactive, resteasy-reactive-jackson, smallrye-context-propagation, vertx]\nkeycloak-1          | 2026-11-06 09:23:29,939 WARN  [org.keycloak.quarkus.runtime.KeycloakMain] (main) Running the server in development mode. DO NOT use this configuration in production.\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:22.147Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [slm-history-ilm-policy]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:22.202Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [watch-history-ilm-policy-16]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:22.338Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [30-days@lifecycle]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:22.394Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [7-days@lifecycle]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:22.448Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [365-days@lifecycle]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:22.488Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [90-days@lifecycle]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:22.533Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [180-days@lifecycle]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nprometheus-1        | ts=2026-11-06T09:22:58.515Z caller=main.go:640 level=info fd_limits=\"(soft=1048576, hard=1048576)\"\nprometheus-1        | ts=2026-11-06T09:22:58.515Z caller=main.go:641 level=info vm_limits=\"(soft=unlimited, hard=unlimited)\"\nprometheus-1        | ts=2026-11-06T09:22:58.518Z caller=web.go:568 level=info component=web msg=\"Start listening for connections\" address=0.0.0.0:9090\nprometheus-1        | ts=2026-11-06T09:22:58.519Z caller=main.go:1148 level=info msg=\"Starting TSDB ...\"\nprometheus-1        | ts=2026-11-06T09:22:58.520Z caller=tls_config.go:313 level=info component=web msg=\"Listening on\" address=[::]:9090\nprometheus-1        | ts=2026-11-06T09:22:58.520Z caller=tls_config.go:316 level=info component=web msg=\"TLS is disabled.\" http2=false address=[::]:9090\nprometheus-1        | ts=2026-11-06T09:22:58.526Z caller=head.go:626 level=info component=tsdb msg=\"Replaying on-disk memory mappable chunks if any\"\nprometheus-1        | ts=2026-11-06T09:22:58.526Z caller=head.go:713 level=info component=tsdb msg=\"On-disk memory mappable chunks replay completed\" duration=1.886µs\nprometheus-1        | ts=2026-11-06T09:22:58.526Z caller=head.go:721 level=info component=tsdb msg=\"Replaying WAL, this may take a while\"\nprometheus-1        | ts=2026-11-06T09:22:58.528Z caller=head.go:793 level=info component=tsdb msg=\"WAL segment loaded\" segment=0 maxSegment=0\nprometheus-1        | ts=2026-11-06T09:22:58.528Z caller=head.go:830 level=info component=tsdb msg=\"WAL replay completed\" checkpoint_replay_duration=53.166µs wal_replay_duration=2.250921ms wbl_replay_duration=130ns chunk_snapshot_load_duration=0s mmap_chunk_replay_duration=1.886µs total_replay_duration=2.340872ms\nprometheus-1        | ts=2026-11-06T09:22:58.532Z caller=main.go:1169 level=info fs_type=EXT4_SUPER_MAGIC\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:22.578Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [ilm-history-ilm-policy]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:22.631Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [.fleet-file-fromhost-data-ilm-policy]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nprometheus-1        | ts=2026-11-06T09:22:58.532Z caller=main.go:1172 level=info msg=\"TSDB started\"\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:22.685Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [.fleet-file-tohost-meta-ilm-policy]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nprometheus-1        | ts=2026-11-06T09:22:58.532Z caller=main.go:1354 level=info msg=\"Loading configuration file\" filename=/etc/prometheus/prometheus.yml\nprometheus-1        | ts=2026-11-06T09:22:58.536Z caller=main.go:1391 level=info msg=\"updated GOGC\" old=100 new=75\nprometheus-1        | ts=2026-11-06T09:22:58.536Z caller=main.go:1402 level=info msg=\"Completed loading of configuration file\" filename=/etc/prometheus/prometheus.yml totalDuration=3.961721ms db_storage=2.879µs remote_storage=1.756µs web_handler=521ns query_engine=1.705µs scrape=722.881µs scrape_sd=77.974µs notify=2.116µs notify_sd=1.906µs rules=1.956µs tracing=10.523µs\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:22.787Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [.fleet-actions-results-ilm-policy]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:22.836Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [.fleet-file-tohost-data-ilm-policy]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:22.881Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [.deprecation-indexing-ilm-policy]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:22.926Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [.fleet-file-fromhost-meta-ilm-policy]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:23.016Z\", \"log.level\": \"INFO\", \"message\":\"Node [{e38fafc32ecc}{McT5zX-7QS6Rqxbp6OFrkQ}] is selected as the current health node.\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][management][T#5]\",\"log.logger\":\"org.elasticsearch.health.node.selection.HealthNodeTaskExecutor\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T09:23:23.226Z\", \"log.level\": \"INFO\", \"message\":\"license [864751ac-2ed4-4b90-b7ea-39ad0b6a1758] mode [basic] - valid\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[e38fafc32ecc][clusterApplierService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.license.ClusterStateLicenseService\",\"elasticsearch.cluster.uuid\":\"WeHn--ukRHuEykXRlMeatQ\",\"elasticsearch.node.id\":\"McT5zX-7QS6Rqxbp6OFrkQ\",\"elasticsearch.node.name\":\"e38fafc32ecc\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nprometheus-1        | ts=2026-11-06T09:22:58.536Z caller=main.go:1133 level=info msg=\"Server is ready to receive web requests.\"\nprometheus-1        | ts=2026-11-06T09:22:58.536Z caller=manager.go:164 level=info component=\"rule manager\" msg=\"Starting rule manager...\"\n"
+        },
+        {
+          "stage": [
+            "down",
+            "--volumes",
+            "--remove-orphans"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Windows\\system32\\wsl.exe",
+            "-d",
+            "Ubuntu",
+            "-u",
+            "root",
+            "--",
+            "env",
+            "GATEWAY_PORT=7739",
+            "OIDC_PORT=7740",
+            "PUBLIC_ORIGIN=http://localhost:7739",
+            "OIDC_PUBLIC_ORIGIN=http://localhost:7740",
+            "OIDC_ISSUER=http://localhost:7740/realms/space-fractions",
+            "docker",
+            "compose",
+            "--project-directory",
+            "/mnt/d/projects/Task-v03-runs/runs/v03/main/space-03-wide-context/run-20261106-165508-200b9016/project",
+            "-p",
+            "dca-4ab7f15a6b96",
+            "-f",
+            "/mnt/d/projects/Task-v03-runs/runs/v03/main/space-03-wide-context/run-20261106-165508-200b9016/artifacts/runtime-08/compose.isolated.json",
+            "down",
+            "--volumes",
+            "--remove-orphans"
+          ],
+          "output": " Container dca-4ab7f15a6b96-question-service-1  Stopping\n Container dca-4ab7f15a6b96-user-service-1  Stopping\n Container dca-4ab7f15a6b96-elasticsearch-1  Stopping\n Container dca-4ab7f15a6b96-game-service-1  Stopping\n Container dca-4ab7f15a6b96-redis-1  Stopping\n Container dca-4ab7f15a6b96-keycloak-1  Stopping\n Container dca-4ab7f15a6b96-rabbitmq-1  Stopping\n Container dca-4ab7f15a6b96-prometheus-1  Stopping\n Container dca-4ab7f15a6b96-admin-service-1  Stopping\n Container dca-4ab7f15a6b96-prometheus-1  Stopped\n Container dca-4ab7f15a6b96-prometheus-1  Removing\n Container dca-4ab7f15a6b96-redis-1  Stopped\n Container dca-4ab7f15a6b96-redis-1  Removing\n Container dca-4ab7f15a6b96-prometheus-1  Removed\n Container dca-4ab7f15a6b96-redis-1  Removed\n Container dca-4ab7f15a6b96-keycloak-1  Stopped\n Container dca-4ab7f15a6b96-keycloak-1  Removing\n Container dca-4ab7f15a6b96-keycloak-1  Removed\n Container dca-4ab7f15a6b96-rabbitmq-1  Stopped\n Container dca-4ab7f15a6b96-rabbitmq-1  Removing\n Container dca-4ab7f15a6b96-rabbitmq-1  Removed\n Container dca-4ab7f15a6b96-elasticsearch-1  Stopped\n Container dca-4ab7f15a6b96-elasticsearch-1  Removing\n Container dca-4ab7f15a6b96-elasticsearch-1  Removed\n Container dca-4ab7f15a6b96-user-service-1  Stopped\n Container dca-4ab7f15a6b96-user-service-1  Removing\n Container dca-4ab7f15a6b96-question-service-1  Stopped\n Container dca-4ab7f15a6b96-question-service-1  Removing\n Container dca-4ab7f15a6b96-user-service-1  Removed\n Container dca-4ab7f15a6b96-question-service-1  Removed\n Container dca-4ab7f15a6b96-game-service-1  Stopped\n Container dca-4ab7f15a6b96-game-service-1  Removing\n Container dca-4ab7f15a6b96-admin-service-1  Stopped\n Container dca-4ab7f15a6b96-admin-service-1  Removing\n Container dca-4ab7f15a6b96-game-service-1  Removed\n Container dca-4ab7f15a6b96-admin-service-1  Removed\n Container dca-4ab7f15a6b96-gateway-1  Stopping\n Container dca-4ab7f15a6b96-gateway-1  Stopped\n Container dca-4ab7f15a6b96-gateway-1  Removing\n Container dca-4ab7f15a6b96-gateway-1  Removed\n Container dca-4ab7f15a6b96-postgres-1  Stopping\n Container dca-4ab7f15a6b96-postgres-1  Stopped\n Container dca-4ab7f15a6b96-postgres-1  Removing\n Container dca-4ab7f15a6b96-postgres-1  Removed\n Volume dca-4ab7f15a6b96_postgres-data  Removing\n Network dca-4ab7f15a6b96_default  Removing\n Volume dca-4ab7f15a6b96_postgres-data  Removed\n Network dca-4ab7f15a6b96_default  Removed\n"
+        }
+      ],
+      "source_modified_by_host": false,
+      "isolation_note": "Owned Compose project and loopback ports; Docker execution is not an OS security sandbox",
+      "snapshot_id": "922603e45e456e36a4b5c685f2911bd155cfc6c30bce7f87503e68fde328a535",
+      "snapshot_after": "922603e45e456e36a4b5c685f2911bd155cfc6c30bce7f87503e68fde328a535",
+      "stale": false
+    }
+  ],
+  "repair_rounds": 4,
+  "acceptance_profile": "space-fractions",
+  "generation_origin": "seed",
+  "schema_version": 2,
+  "limitation": "Checks do not establish semantic architecture fidelity, production readiness or performance. Review traceability and run independent acceptance tests.",
+  "turns": 56,
+  "bounded_replan_used": false,
+  "elapsed_seconds": 1769.53,
+  "tool_metrics": {
+    "reads": 62,
+    "repeated_reads": 0,
+    "tool_errors": 1,
+    "writes": 8,
+    "host_derived_writes": 0
+  },
+  "budget": {
+    "limit_cny": null,
+    "charged_cny": 628.992342,
+    "uncertain_requests": 12,
+    "request_count": 2565,
+    "prices": {
+      "input_per_million": 12,
+      "output_per_million": 27,
+      "reference_date": "2026-11-05"
+    }
+  },
+  "global_ledger_delta_cny": 31.922454000000016,
+  "run_estimated_cny": 31.922454000000002,
+  "cost_scope": "This run's responses with valid usage only; uncertain reservations stay charged in the global ledger. Global delta may include concurrent runs.",
+  "usage": [
+    {
+      "usage": {
+        "prompt_tokens": 33908,
+        "total_tokens": 34008,
+        "completion_tokens": 100,
+        "prompt_tokens_details": {
+          "cached_tokens": 13824
+        }
+      },
+      "estimated_cny": 0.409596,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-c1a94798-3cdc-940e-9adc-c6a605ca73da"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 38419,
+        "total_tokens": 38537,
+        "completion_tokens": 118,
+        "prompt_tokens_details": {
+          "cached_tokens": 33792
+        }
+      },
+      "estimated_cny": 0.464214,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-94e32c49-7ec8-97a8-b5e0-ad61645fa4e3"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 42066,
+        "total_tokens": 42541,
+        "completion_tokens": 475,
+        "prompt_tokens_details": {
+          "cached_tokens": 38400
+        }
+      },
+      "estimated_cny": 0.517617,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-ba79f81f-6b68-9673-bbbb-0b24f09dc705"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 49657,
+        "total_tokens": 50297,
+        "completion_tokens": 640,
+        "prompt_tokens_details": {
+          "cached_tokens": 41984
+        }
+      },
+      "estimated_cny": 0.613164,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-6a4aa351-837e-9bb0-a37b-3cdb997e06d0"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 48622,
+        "total_tokens": 48986,
+        "completion_tokens": 364,
+        "prompt_tokens_details": {
+          "cached_tokens": 33792
+        }
+      },
+      "estimated_cny": 0.593292,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-45f81a8e-29fa-9ee9-b4a1-e99fd13f098a"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 48323,
+        "total_tokens": 48430,
+        "completion_tokens": 107,
+        "prompt_tokens_details": {
+          "cached_tokens": 33792
+        }
+      },
+      "estimated_cny": 0.582765,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-cb03a342-17f2-9f63-bc63-c2f9ed29f135"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 44475,
+        "total_tokens": 46138,
+        "completion_tokens": 1663,
+        "prompt_tokens_details": {
+          "cached_tokens": 33792
+        }
+      },
+      "estimated_cny": 0.578601,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-c281bcf5-7c7f-967d-b22e-7306629f69db"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 49149,
+        "total_tokens": 51235,
+        "completion_tokens": 2086,
+        "prompt_tokens_details": {
+          "cached_tokens": 44288
+        }
+      },
+      "estimated_cny": 0.64611,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-6e7aef65-4b80-9a02-a9ee-3f7cc1af3987"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 45746,
+        "total_tokens": 45831,
+        "completion_tokens": 85,
+        "prompt_tokens_details": {
+          "cached_tokens": 33792
+        }
+      },
+      "estimated_cny": 0.551247,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-1e536275-4b18-9d4c-8c54-1c072503195c"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 48815,
+        "total_tokens": 49119,
+        "completion_tokens": 304,
+        "prompt_tokens_details": {
+          "cached_tokens": 45568
+        }
+      },
+      "estimated_cny": 0.593988,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-313b3a46-5418-9c2e-828d-830541e13ccb"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 43523,
+        "total_tokens": 43682,
+        "completion_tokens": 159,
+        "prompt_tokens_details": {
+          "cached_tokens": 33792
+        }
+      },
+      "estimated_cny": 0.526569,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-9bf12f1f-5e71-9c46-84bb-bdc0af5f8c61"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 46693,
+        "total_tokens": 47207,
+        "completion_tokens": 514,
+        "prompt_tokens_details": {
+          "cached_tokens": 43520
+        }
+      },
+      "estimated_cny": 0.574194,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-60b968ef-e183-9685-b06b-12d115c31f42"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 49416,
+        "total_tokens": 53717,
+        "completion_tokens": 4301,
+        "prompt_tokens_details": {
+          "cached_tokens": 46592
+        }
+      },
+      "estimated_cny": 0.709119,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-bf37e4d8-9daf-92f2-9a0a-1b9ba60cff16"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 44307,
+        "total_tokens": 44796,
+        "completion_tokens": 489,
+        "prompt_tokens_details": {
+          "cached_tokens": 20480
+        }
+      },
+      "estimated_cny": 0.544887,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-9b8db457-d515-9dd4-9e29-709e8953c2c7"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 47153,
+        "total_tokens": 47837,
+        "completion_tokens": 684,
+        "prompt_tokens_details": {
+          "cached_tokens": 44288
+        }
+      },
+      "estimated_cny": 0.584304,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-1d9f7516-b070-9ca3-aca4-3f9d7723236a"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 49276,
+        "total_tokens": 50847,
+        "completion_tokens": 1571,
+        "prompt_tokens_details": {
+          "cached_tokens": 47104
+        }
+      },
+      "estimated_cny": 0.633729,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-423079ae-da51-9b97-9fed-50b407e604dc"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 34407,
+        "total_tokens": 34528,
+        "completion_tokens": 121,
+        "prompt_tokens_details": {
+          "cached_tokens": 13824
+        }
+      },
+      "estimated_cny": 0.416151,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-1539be80-61d3-9a8b-978a-2e6c51ceea59"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 39717,
+        "total_tokens": 39787,
+        "completion_tokens": 70,
+        "prompt_tokens_details": {
+          "cached_tokens": 34304
+        }
+      },
+      "estimated_cny": 0.478494,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-5907ffc8-9817-9c40-8e58-2d21d4081bf5"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 41218,
+        "total_tokens": 41351,
+        "completion_tokens": 133,
+        "prompt_tokens_details": {
+          "cached_tokens": 39680
+        }
+      },
+      "estimated_cny": 0.498207,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-23c2deee-dc19-99a9-a34c-8f9316a3b5af"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 44504,
+        "total_tokens": 44914,
+        "completion_tokens": 410,
+        "prompt_tokens_details": {
+          "cached_tokens": 40960
+        }
+      },
+      "estimated_cny": 0.545118,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-0b9e7762-ef0d-92e7-992e-3e72efb7ee26"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 48593,
+        "total_tokens": 50341,
+        "completion_tokens": 1748,
+        "prompt_tokens_details": {
+          "cached_tokens": 44288
+        }
+      },
+      "estimated_cny": 0.630312,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-269f3f05-d7c1-91ca-984e-a7a29244839d"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 50464,
+        "total_tokens": 50852,
+        "completion_tokens": 388,
+        "prompt_tokens_details": {
+          "cached_tokens": 48384
+        }
+      },
+      "estimated_cny": 0.616044,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-a0b2a5b6-c6cc-9ff2-870e-aa0161bd7e66"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 42041,
+        "total_tokens": 42578,
+        "completion_tokens": 537,
+        "prompt_tokens_details": {
+          "cached_tokens": 20736
+        }
+      },
+      "estimated_cny": 0.518991,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-c386573d-0ef7-97cf-8ab9-0cce3c19cba6"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 45763,
+        "total_tokens": 46127,
+        "completion_tokens": 364,
+        "prompt_tokens_details": {
+          "cached_tokens": 41984
+        }
+      },
+      "estimated_cny": 0.558984,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-1114cae6-d37e-96ba-a9e1-b95577c915f0"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 33630,
+        "total_tokens": 33749,
+        "completion_tokens": 119,
+        "prompt_tokens_details": {
+          "cached_tokens": 13824
+        }
+      },
+      "estimated_cny": 0.406773,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-c4d86ba3-4595-98b1-9582-62eeef318951"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 39142,
+        "total_tokens": 39380,
+        "completion_tokens": 238,
+        "prompt_tokens_details": {
+          "cached_tokens": 33536
+        }
+      },
+      "estimated_cny": 0.47613,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-149b7c71-4169-9631-862d-05a1787d681a"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 43791,
+        "total_tokens": 45489,
+        "completion_tokens": 1698,
+        "prompt_tokens_details": {
+          "cached_tokens": 38912
+        }
+      },
+      "estimated_cny": 0.571338,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-8862443d-8a87-9c8c-b16d-20b8c5e01fab"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 45612,
+        "total_tokens": 45773,
+        "completion_tokens": 161,
+        "prompt_tokens_details": {
+          "cached_tokens": 43776
+        }
+      },
+      "estimated_cny": 0.551691,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-e21e99ea-b843-9b3b-ad46-d64c267d7f18"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 36911,
+        "total_tokens": 37044,
+        "completion_tokens": 133,
+        "prompt_tokens_details": {
+          "cached_tokens": 13824
+        }
+      },
+      "estimated_cny": 0.446523,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-967f0244-cad5-9c77-9717-2f02a1f86c85"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 43660,
+        "total_tokens": 43810,
+        "completion_tokens": 150,
+        "prompt_tokens_details": {
+          "cached_tokens": 36864
+        }
+      },
+      "estimated_cny": 0.52797,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-3a3431a0-7197-9fb3-9c00-b9cb4582c89f"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 49949,
+        "total_tokens": 52175,
+        "completion_tokens": 2226,
+        "prompt_tokens_details": {
+          "cached_tokens": 43520
+        }
+      },
+      "estimated_cny": 0.65949,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-85d74aef-980a-907c-94cb-251a07a505d2"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 51470,
+        "total_tokens": 51661,
+        "completion_tokens": 191,
+        "prompt_tokens_details": {
+          "cached_tokens": 36864
+        }
+      },
+      "estimated_cny": 0.622797,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-546e85f0-9622-954c-95da-ea1df8e14178"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 50561,
+        "total_tokens": 50833,
+        "completion_tokens": 272,
+        "prompt_tokens_details": {
+          "cached_tokens": 36864
+        }
+      },
+      "estimated_cny": 0.614076,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-07e34c77-0162-9999-a77c-ba723bb016a9"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 47382,
+        "total_tokens": 50555,
+        "completion_tokens": 3173,
+        "prompt_tokens_details": {
+          "cached_tokens": 36864
+        }
+      },
+      "estimated_cny": 0.654255,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-60f030c9-0ac5-918d-9e08-32116befd2b5"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 50679,
+        "total_tokens": 50893,
+        "completion_tokens": 214,
+        "prompt_tokens_details": {
+          "cached_tokens": 47360
+        }
+      },
+      "estimated_cny": 0.613926,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-d0d2469c-9a5d-90ef-87af-6de8828cdeb3"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 51019,
+        "total_tokens": 52726,
+        "completion_tokens": 1707,
+        "prompt_tokens_details": {
+          "cached_tokens": 50432
+        }
+      },
+      "estimated_cny": 0.658317,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-3452a45b-8ba5-903d-9779-7f76177969ab"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 40662,
+        "total_tokens": 40810,
+        "completion_tokens": 148,
+        "prompt_tokens_details": {
+          "cached_tokens": 13824
+        }
+      },
+      "estimated_cny": 0.49194,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-e0cdfacb-5780-9d68-b9d9-2ce4165fee69"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 47426,
+        "total_tokens": 47602,
+        "completion_tokens": 176,
+        "prompt_tokens_details": {
+          "cached_tokens": 40448
+        }
+      },
+      "estimated_cny": 0.573864,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-a80c3cce-c27e-92b9-a775-caa6a58d77c9"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 55526,
+        "total_tokens": 56438,
+        "completion_tokens": 912,
+        "prompt_tokens_details": {
+          "cached_tokens": 47360
+        }
+      },
+      "estimated_cny": 0.690936,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-0bc758c7-282a-922f-82bf-cff4a42b5bd2"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 49829,
+        "total_tokens": 50455,
+        "completion_tokens": 626,
+        "prompt_tokens_details": {
+          "cached_tokens": 27392
+        }
+      },
+      "estimated_cny": 0.61485,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-07e5648b-9eeb-91fa-9122-9b6461285f40"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 52662,
+        "total_tokens": 54768,
+        "completion_tokens": 2106,
+        "prompt_tokens_details": {
+          "cached_tokens": 49664
+        }
+      },
+      "estimated_cny": 0.688806,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-f60e7e32-ea88-9a5b-95b5-ceec5fb9bcc1"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 46895,
+        "total_tokens": 46985,
+        "completion_tokens": 90,
+        "prompt_tokens_details": {
+          "cached_tokens": 13824
+        }
+      },
+      "estimated_cny": 0.56517,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-9863913e-d4eb-99c0-87e2-bdfbe13d9559"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 52279,
+        "total_tokens": 53010,
+        "completion_tokens": 731,
+        "prompt_tokens_details": {
+          "cached_tokens": 46848
+        }
+      },
+      "estimated_cny": 0.647085,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-7f092cd7-9845-9a85-805c-f4fe41f8ccb5"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 34565,
+        "total_tokens": 34841,
+        "completion_tokens": 276,
+        "prompt_tokens_details": {
+          "cached_tokens": 13824
+        }
+      },
+      "estimated_cny": 0.422232,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-23e1dead-124b-9285-a605-1c9b44db3364"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 43470,
+        "total_tokens": 43609,
+        "completion_tokens": 139,
+        "prompt_tokens_details": {
+          "cached_tokens": 34560
+        }
+      },
+      "estimated_cny": 0.525393,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-5f06440f-e409-9ce3-a188-4f296369c73a"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 44642,
+        "total_tokens": 45171,
+        "completion_tokens": 529,
+        "prompt_tokens_details": {
+          "cached_tokens": 43264
+        }
+      },
+      "estimated_cny": 0.549987,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-0504f1ae-83db-995a-802a-b6beffbdb16d"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 45196,
+        "total_tokens": 45666,
+        "completion_tokens": 470,
+        "prompt_tokens_details": {
+          "cached_tokens": 44544
+        }
+      },
+      "estimated_cny": 0.555042,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-0c0e2bf8-8106-96dc-892b-544327519b54"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 45799,
+        "total_tokens": 46003,
+        "completion_tokens": 204,
+        "prompt_tokens_details": {
+          "cached_tokens": 45056
+        }
+      },
+      "estimated_cny": 0.555096,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-a8e3df4f-0b27-992f-b068-781c9cc085df"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 46141,
+        "total_tokens": 46791,
+        "completion_tokens": 650,
+        "prompt_tokens_details": {
+          "cached_tokens": 45568
+        }
+      },
+      "estimated_cny": 0.571242,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-9489af98-a734-9019-aa6b-66fd04ae36df"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 47009,
+        "total_tokens": 47082,
+        "completion_tokens": 73,
+        "prompt_tokens_details": {
+          "cached_tokens": 46080
+        }
+      },
+      "estimated_cny": 0.566079,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-6329bd23-dc8e-983e-a2b8-cfbdf1f66e05"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 48314,
+        "total_tokens": 48568,
+        "completion_tokens": 254,
+        "prompt_tokens_details": {
+          "cached_tokens": 46848
+        }
+      },
+      "estimated_cny": 0.586626,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-b1633605-8150-9774-a7fc-b095c63a9c16"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 38907,
+        "total_tokens": 39096,
+        "completion_tokens": 189,
+        "prompt_tokens_details": {
+          "cached_tokens": 13824
+        }
+      },
+      "estimated_cny": 0.471987,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-5a3fa66e-c5a8-9d55-b7b7-e8a92e15b85d"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 43804,
+        "total_tokens": 44074,
+        "completion_tokens": 270,
+        "prompt_tokens_details": {
+          "cached_tokens": 38656
+        }
+      },
+      "estimated_cny": 0.532938,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-c62c902b-17a1-909a-9de3-cb67a9507090"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 49216,
+        "total_tokens": 53278,
+        "completion_tokens": 4062,
+        "prompt_tokens_details": {
+          "cached_tokens": 43776
+        }
+      },
+      "estimated_cny": 0.700266,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-a5f17f52-aeca-94b5-a9f8-0f27edcf2c0c"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 52058,
+        "total_tokens": 52188,
+        "completion_tokens": 130,
+        "prompt_tokens_details": {
+          "cached_tokens": 38656
+        }
+      },
+      "estimated_cny": 0.628206,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-cdd3663e-4377-9ff7-b2e2-ace5f0878821"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 54399,
+        "total_tokens": 59693,
+        "completion_tokens": 5294,
+        "prompt_tokens_details": {
+          "cached_tokens": 51968
+        }
+      },
+      "estimated_cny": 0.795726,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-9525d691-2aaf-9451-9370-af5106d1d1c9"
+    }
+  ],
+  "valid_api_responses": 56,
+  "files": [
+    {
+      "path": ".env.example",
+      "sha256": "428bfc94bc926cf7c4694ff037beb36c77da5fe1fae4269f36629058e764e846"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "e7c8739235a4a93aba82221094892bcef39e5a41f84eb09be22428153de012eb"
+    },
+    {
+      "path": "Dockerfile",
+      "sha256": "b857dd82fe703c84fb0c0eefd90900150db3cb9ec0c414041ca986d7251eeabe"
+    },
+    {
+      "path": "Jenkinsfile",
+      "sha256": "91bb2308639a6213120a74e13848f5fee8fb1746af1e007663bcacb14b24f236"
+    },
+    {
+      "path": "README.md",
+      "sha256": "54df359e34ba6608aaab66a25601cb4cffa32d99053c60d8ed1465ca39794e7e"
+    },
+    {
+      "path": "architecture-decisions.md",
+      "sha256": "7ed38f50d38e7a54485bbc33b5b7020bca8cffc1192b01bd8a221cea55ca2535"
+    },
+    {
+      "path": "compose.yaml",
+      "sha256": "36b509cbe163bf29ada18b444bf602d8242388e114999ddf017333103917e39d"
+    },
+    {
+      "path": "internal.proto",
+      "sha256": "36495a668de6a10320326349590cb1309c35038f405d97ab327d03d263b702c8"
+    },
+    {
+      "path": "openapi.yaml",
+      "sha256": "6c8c96b2a44ec4f4ccfe4fa55618880b2f815e113b6215bc2735683e37e6b739"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "f4ea32f673e299d05d9516d07872edfaaf9cda1442259b911d159776793a4030"
+    },
+    {
+      "path": "package.json",
+      "sha256": "1e6d665e25006a22a88569592c736ec5c8a51a360a883ac5e91bfd86b437964f"
+    },
+    {
+      "path": "plan.json",
+      "sha256": "1cd075e95bd9df9f26bdff8427f91663737736147d7dc27e58d8aa488878799b"
+    },
+    {
+      "path": "traceability.json",
+      "sha256": "31d986f4603f3b2fcf2456ae0fda60285daefe8ea754409de26d93ce3da662ed"
+    },
+    {
+      "path": "gateway/app.js",
+      "sha256": "c5654ee07cb2397a801e870adf5f00e8c3f6d8bccfcaea199b1aadf47c6677d4"
+    },
+    {
+      "path": "gateway/index.js",
+      "sha256": "b38c1210ee17e6da1d66154b1a21c18a090b8c40181f148f8b424b85df57cc28"
+    },
+    {
+      "path": "k8s/spacefractions-deployment.yaml",
+      "sha256": "f84120d2fe15ed7ebbb7107a3490764a3a8a5e8f480f95b31dd7a2b8f940c9b8"
+    },
+    {
+      "path": "keycloak/realm.json",
+      "sha256": "e03db55aa3f42a2bfc4f115463385ea29347b738010533c84917b2a88e5d09a5"
+    },
+    {
+      "path": "lib/auth.js",
+      "sha256": "2d62d0783e3a6316ba46d69074f42a4ea58fd39c8a7524b4969559d3a03f79d9"
+    },
+    {
+      "path": "lib/cache.js",
+      "sha256": "8d14384250ea93936e492a5683775a57c705db5670a41c491e419e8c6b18893d"
+    },
+    {
+      "path": "lib/db.js",
+      "sha256": "758c621c8e5e36e71a7c5347c232328efe74f47db3905eb02145b018bfbec895"
+    },
+    {
+      "path": "lib/events.js",
+      "sha256": "aeadfa60d35ab710474b5fb452fb6860be976caf85876e8fb22101f1ca515ec1"
+    },
+    {
+      "path": "lib/fraction.js",
+      "sha256": "1aba0bf1c927529ece8c769761da1d8c46af05da1368554040f65d1da11f0711"
+    },
+    {
+      "path": "lib/game-state.js",
+      "sha256": "5cd757891297f06ebd221f81f518ea8b2605a61d6ad804053130dbc304ea1401"
+    },
+    {
+      "path": "lib/search.js",
+      "sha256": "caea346d562bd1e8bae8e4246c3196febb44d9ad5bfa34c9f2b1184e341de0e3"
+    },
+    {
+      "path": "lib/types.js",
+      "sha256": "4b53b236fa1bb77d13bebad90ab2dd562a2749fc6a848d956801281084f519f5"
+    },
+    {
+      "path": "lib/user-map.js",
+      "sha256": "2879d9c0b1f3ab388a40928355040fb9c90ef9a126f27b87848d455a657754b9"
+    },
+    {
+      "path": "public/app.js",
+      "sha256": "4d89b22a36afd0728a45ac0194a355d99bab18b916147e83f4b6237f471f0281"
+    },
+    {
+      "path": "public/index.html",
+      "sha256": "0a0484ae6d7eee3f68654b8bb41dda0895d8ac630108920a55ba168633beeb71"
+    },
+    {
+      "path": "public/style.css",
+      "sha256": "a621afa1b9f21236276dc1177e6ba9ae373d4b483c57a3c20795dd6df552faed"
+    },
+    {
+      "path": "reference/istio.yaml",
+      "sha256": "6495b7e2ec7b0df993b5c7050b24e60002f565086e44e2b3b08d4f94952f8311"
+    },
+    {
+      "path": "reference/prometheus.yml",
+      "sha256": "59b712a8c6e5b493d4d500ddc469aaecc9c59636e07a8a12abdcf531434d236b"
+    },
+    {
+      "path": "reference/vault.hcl",
+      "sha256": "7e053ace21e8de2a522f91d1bf377e3a9cbe6d05e9b9b35c46a3e134295d1238"
+    },
+    {
+      "path": "scripts/check.js",
+      "sha256": "160c1966b424453f4b3029f79d2db7f131b01478767bc825612d68e676518cf0"
+    },
+    {
+      "path": "services/admin-service.js",
+      "sha256": "ca1d9ff61001ef53ea8e1dbd02da439792c4b8648cb0b9924ada3cbc08c03af8"
+    },
+    {
+      "path": "services/game-service.js",
+      "sha256": "066acb7c4ceab30b596b8bcf1b151a5555aee487b07854eb478a0e405b8d4ec6"
+    },
+    {
+      "path": "services/question-service.js",
+      "sha256": "cf47166090b12a06e42da540d99b3049366359256210e049b0c8c713969fe766"
+    },
+    {
+      "path": "services/user-service.js",
+      "sha256": "380cc46cb83c32aaccbdf9659ec36ea03172f72329754554efe14c8a263f7e8c"
+    },
+    {
+      "path": "sql/game_ddl.sql",
+      "sha256": "f37fcba6ddb0dc30d78cc857eb31d148462c08d838a40f0727daef0a116d8052"
+    },
+    {
+      "path": "sql/migrations/001_init.sql",
+      "sha256": "64604f77f0236896e5fbf68ed56c970cf20eb66b3cbe13cca8a51cc5c558bd92"
+    },
+    {
+      "path": "sql/seed/001_questions.sql",
+      "sha256": "bd44b67a1c479bd3b7e9180afdaf9620c0450559f30db6fb9abb318c7ecc21d7"
+    },
+    {
+      "path": "terraform/main.tf",
+      "sha256": "e578b0bc2b2df24f9fa74bbda0461a2f8520d43f4241a6f8c48b55a9a223b43c"
+    },
+    {
+      "path": "test/auth.test.js",
+      "sha256": "d098cd9ca3b126b2776dc48cb99e55c8b25d5eb9980c1ab83561db1da843e45f"
+    },
+    {
+      "path": "test/fake-pg.js",
+      "sha256": "642b4df3e302f4a1d7aac5f89d0133a4a470dd20a70834d51cec8dc2947e45df"
+    },
+    {
+      "path": "test/fraction.test.js",
+      "sha256": "7ea8e5a0a48852d8728eaa92bc1d02e1d2c60e63fe95eedeb0509090189bfa3e"
+    },
+    {
+      "path": "test/game-service.test.js",
+      "sha256": "8d7981987e2316129f4ffd2c3fc26c46dd7541648ab680d48a02b92f01e7e655"
+    },
+    {
+      "path": "test/integration.test.js",
+      "sha256": "add039c9bc15fa7a9ab36fc6f77f1272980ab7f65945555a3ce130203f976870"
+    }
+  ]
+}

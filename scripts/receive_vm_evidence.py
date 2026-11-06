@@ -12,6 +12,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--port', type=int, default=8766)
+    parser.add_argument('--descriptor', type=Path, help='Private receiver descriptor under .local/vm')
     args = parser.parse_args()
     output = args.output.resolve()
     if not output.is_relative_to(Path('.local/vm').resolve()):
@@ -70,7 +71,16 @@ def main():
             print(result.decode(), flush=True)
 
     server = HTTPServer(('127.0.0.1', args.port), Handler)
-    print(json.dumps({'guest_url': f'http://10.0.2.2:{args.port}/{token}', 'bind': '127.0.0.1', 'output': str(output)}), flush=True)
+    descriptor = {'guest_url': f'http://10.0.2.2:{args.port}/{token}', 'bind': '127.0.0.1', 'output': str(output)}
+    if args.descriptor:
+        target = args.descriptor.resolve()
+        if not target.is_relative_to(Path('.local/vm').resolve()) or target.exists():
+            server.server_close()
+            raise ValueError('Descriptor must be a new private path under .local/vm')
+        target.write_text(json.dumps(descriptor), encoding='utf-8')
+        print(json.dumps({'bind': descriptor['bind'], 'descriptor': str(target)}), flush=True)
+    else:
+        print(json.dumps(descriptor), flush=True)
     try:
         server.serve_forever()
     except KeyboardInterrupt:

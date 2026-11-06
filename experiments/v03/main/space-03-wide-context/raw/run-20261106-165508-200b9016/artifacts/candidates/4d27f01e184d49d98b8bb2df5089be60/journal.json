@@ -1,0 +1,18 @@
+{
+  "root": "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-03-wide-context\\run-20261106-165508-200b9016\\project",
+  "changes": [
+    {
+      "path": "sql/migrations/001_init.sql",
+      "before": "d96e119a883e530e9b227815c4bc89c177eff7053fa36844693045bcd2dce848",
+      "after": "64604f77f0236896e5fbf68ed56c970cf20eb66b3cbe13cca8a51cc5c558bd92"
+    }
+  ],
+  "checks": [
+    {
+      "path": "sql/migrations/001_init.sql",
+      "status": "not_applicable",
+      "kind": "syntax_format"
+    }
+  ],
+  "status": "committed"
+}

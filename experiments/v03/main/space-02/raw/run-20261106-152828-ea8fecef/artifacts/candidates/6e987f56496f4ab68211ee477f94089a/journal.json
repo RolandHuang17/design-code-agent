@@ -1,0 +1,18 @@
+{
+  "root": "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project",
+  "changes": [
+    {
+      "path": "sql/game_ddl.sql",
+      "before": null,
+      "after": "f37fcba6ddb0dc30d78cc857eb31d148462c08d838a40f0727daef0a116d8052"
+    }
+  ],
+  "checks": [
+    {
+      "path": "sql/game_ddl.sql",
+      "status": "not_applicable",
+      "kind": "syntax_format"
+    }
+  ],
+  "status": "committed"
+}

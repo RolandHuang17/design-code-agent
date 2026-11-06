@@ -1,0 +1,55 @@
+- generic [active] [ref=f1e1]:
+  - banner [ref=f1e2]:
+    - heading "Library borrowing" [level=1] [ref=f1e3]
+    - paragraph [ref=f1e4]: List books, borrow with a reader ID, and return loans.
+  - main [ref=f1e5]:
+    - generic [ref=f1e6]:
+      - heading "Add a book" [level=2] [ref=f1e7]
+      - generic [ref=f1e8]:
+        - textbox "Title" [ref=f1e9]
+        - spinbutton "Copies" [ref=f1e10]
+        - button "Add book" [ref=f1e11] [cursor=pointer]
+    - generic [ref=f1e12]:
+      - heading "Books" [level=2] [ref=f1e13]
+      - generic [ref=f1e14]:
+        - article [ref=f1e15]:
+          - heading "The Great Gatsby" [level=3] [ref=f1e16]
+          - paragraph [ref=f1e17]: "ID: 1"
+          - paragraph [ref=f1e18]: "Available copies: 3"
+        - article [ref=f1e19]:
+          - heading "1984" [level=3] [ref=f1e20]
+          - paragraph [ref=f1e21]: "ID: 2"
+          - paragraph [ref=f1e22]: "Available copies: 2"
+        - article [ref=f1e23]:
+          - heading "To Kill a Mockingbird" [level=3] [ref=f1e24]
+          - paragraph [ref=f1e25]: "ID: 3"
+          - paragraph [ref=f1e26]: "Available copies: 1"
+        - article [ref=f1e27]:
+          - heading "Independent acceptance book" [level=3] [ref=f1e28]
+          - paragraph [ref=f1e29]: "ID: 4"
+          - paragraph [ref=f1e30]: "Available copies: 1"
+        - article [ref=f1e31]:
+          - heading "Browser v03 review" [level=3] [ref=f1e32]
+          - paragraph [ref=f1e33]: "ID: 5"
+          - paragraph [ref=f1e34]: "Available copies: 1"
+    - generic [ref=f1e35]:
+      - heading "Borrow / return" [level=2] [ref=f1e36]
+      - generic [ref=f1e37]:
+        - textbox "Reader ID" [ref=f1e38]
+        - textbox "Book ID" [ref=f1e39]
+        - button "Borrow" [ref=f1e40] [cursor=pointer]
+      - generic [ref=f1e41]:
+        - textbox "Loan ID" [ref=f1e42]
+        - button "Return loan" [ref=f1e43] [cursor=pointer]
+    - generic [ref=f1e44]:
+      - heading "Loans" [level=2] [ref=f1e45]
+      - generic [ref=f1e46]:
+        - generic [ref=f1e47]:
+          - generic [ref=f1e48]: Loan 1 — book 4 — reader reader-6
+          - generic [ref=f1e49]: returned
+        - generic [ref=f1e50]:
+          - generic [ref=f1e51]: Loan 2 — book 4 — reader persistent-reader
+          - generic [ref=f1e52]: returned
+        - generic [ref=f1e53]:
+          - generic [ref=f1e54]: Loan 3 — book 5 — reader browser-v03-reader
+          - generic [ref=f1e55]: returned

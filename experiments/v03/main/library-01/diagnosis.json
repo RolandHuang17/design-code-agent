@@ -1,0 +1,52 @@
+{
+  "status": "checks_passed_requires_review",
+  "source_unchanged_rechecked": true,
+  "project_report_hashes_match": true,
+  "manual_project_edits": false,
+  "repair_rounds": 2,
+  "turns": 85,
+  "elapsed_seconds": 867.14,
+  "estimated_cny": 17.638434,
+  "source_files": 28,
+  "checks": [
+    {
+      "profile": "static",
+      "status": "passed"
+    },
+    {
+      "profile": "install",
+      "status": "passed"
+    },
+    {
+      "profile": "test",
+      "status": "passed"
+    },
+    {
+      "profile": "integration",
+      "status": "not_applicable"
+    },
+    {
+      "profile": "build",
+      "status": "passed"
+    },
+    {
+      "profile": "compose",
+      "status": "passed"
+    },
+    {
+      "profile": "plan_references",
+      "status": "passed"
+    },
+    {
+      "profile": "traceability_links",
+      "status": "passed"
+    },
+    {
+      "profile": "runtime",
+      "status": "passed"
+    }
+  ],
+  "independent_runtime_checks": 12,
+  "browser_check": "pending",
+  "concurrency_note": "Ran concurrently with Space-02; durations are not comparable performance measurements."
+}

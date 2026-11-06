@@ -2,8 +2,10 @@
 import argparse
 import re
 import subprocess
+import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from codeagent.config import user_variable
 
 
@@ -11,7 +13,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--staged", action="store_true")
     args = parser.parse_args()
-    command = ["git", "diff", "--cached", "--name-only", "--diff-filter=ACMR"] if args.staged else ["git", "ls-files"]
+    command = ["git", "-c", "core.quotepath=false", "diff", "--cached", "--name-only", "--diff-filter=ACMR"] if args.staged else ["git", "-c", "core.quotepath=false", "ls-files"]
     names = subprocess.check_output(command, text=True, encoding="utf-8").splitlines()
     secrets = [user_variable(name).encode() for name in ("DASHSCOPE_API_KEY", "DEEPSEEK_API_KEY") if user_variable(name)]
     findings = []

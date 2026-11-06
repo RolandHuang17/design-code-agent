@@ -1,0 +1,189 @@
+{
+  "source_project": "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project",
+  "files": [
+    {
+      "path": ".env.example",
+      "sha256": "428bfc94bc926cf7c4694ff037beb36c77da5fe1fae4269f36629058e764e846"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "e7c8739235a4a93aba82221094892bcef39e5a41f84eb09be22428153de012eb"
+    },
+    {
+      "path": "Dockerfile",
+      "sha256": "b857dd82fe703c84fb0c0eefd90900150db3cb9ec0c414041ca986d7251eeabe"
+    },
+    {
+      "path": "Jenkinsfile",
+      "sha256": "91bb2308639a6213120a74e13848f5fee8fb1746af1e007663bcacb14b24f236"
+    },
+    {
+      "path": "README.md",
+      "sha256": "54df359e34ba6608aaab66a25601cb4cffa32d99053c60d8ed1465ca39794e7e"
+    },
+    {
+      "path": "architecture-decisions.md",
+      "sha256": "7ed38f50d38e7a54485bbc33b5b7020bca8cffc1192b01bd8a221cea55ca2535"
+    },
+    {
+      "path": "compose.yaml",
+      "sha256": "0d0572e0ccd19c79ac083ff211c49c1fa752a98aa057ba24a3351cd88e2e0192"
+    },
+    {
+      "path": "internal.proto",
+      "sha256": "36495a668de6a10320326349590cb1309c35038f405d97ab327d03d263b702c8"
+    },
+    {
+      "path": "openapi.yaml",
+      "sha256": "6c8c96b2a44ec4f4ccfe4fa55618880b2f815e113b6215bc2735683e37e6b739"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "f4ea32f673e299d05d9516d07872edfaaf9cda1442259b911d159776793a4030"
+    },
+    {
+      "path": "package.json",
+      "sha256": "1e6d665e25006a22a88569592c736ec5c8a51a360a883ac5e91bfd86b437964f"
+    },
+    {
+      "path": "plan.json",
+      "sha256": "1cd075e95bd9df9f26bdff8427f91663737736147d7dc27e58d8aa488878799b"
+    },
+    {
+      "path": "traceability.json",
+      "sha256": "bca734a1328e0437bca24c83902dfacfc18ff51811c9781f47ce4603d43fd88c"
+    },
+    {
+      "path": "gateway/app.js",
+      "sha256": "c5654ee07cb2397a801e870adf5f00e8c3f6d8bccfcaea199b1aadf47c6677d4"
+    },
+    {
+      "path": "gateway/index.js",
+      "sha256": "b38c1210ee17e6da1d66154b1a21c18a090b8c40181f148f8b424b85df57cc28"
+    },
+    {
+      "path": "k8s/spacefractions-deployment.yaml",
+      "sha256": "f84120d2fe15ed7ebbb7107a3490764a3a8a5e8f480f95b31dd7a2b8f940c9b8"
+    },
+    {
+      "path": "keycloak/realm.json",
+      "sha256": "7353e21421a7b5499b212231a51e01e57583dcafefbdb7635384a45f686f4ab0"
+    },
+    {
+      "path": "lib/auth.js",
+      "sha256": "425bd5b08a4c3edcffc3f8fe2b91d2a2aa6ff596e16bb816e4afbea8868d5378"
+    },
+    {
+      "path": "lib/cache.js",
+      "sha256": "8d14384250ea93936e492a5683775a57c705db5670a41c491e419e8c6b18893d"
+    },
+    {
+      "path": "lib/db.js",
+      "sha256": "758c621c8e5e36e71a7c5347c232328efe74f47db3905eb02145b018bfbec895"
+    },
+    {
+      "path": "lib/events.js",
+      "sha256": "aeadfa60d35ab710474b5fb452fb6860be976caf85876e8fb22101f1ca515ec1"
+    },
+    {
+      "path": "lib/fraction.js",
+      "sha256": "1aba0bf1c927529ece8c769761da1d8c46af05da1368554040f65d1da11f0711"
+    },
+    {
+      "path": "lib/game-state.js",
+      "sha256": "5cd757891297f06ebd221f81f518ea8b2605a61d6ad804053130dbc304ea1401"
+    },
+    {
+      "path": "lib/search.js",
+      "sha256": "caea346d562bd1e8bae8e4246c3196febb44d9ad5bfa34c9f2b1184e341de0e3"
+    },
+    {
+      "path": "lib/types.js",
+      "sha256": "4b53b236fa1bb77d13bebad90ab2dd562a2749fc6a848d956801281084f519f5"
+    },
+    {
+      "path": "lib/user-map.js",
+      "sha256": "d84611baf53b7f0e5bc865f895334079e7bf608d00b31e01af1f599b6e6bd639"
+    },
+    {
+      "path": "public/app.js",
+      "sha256": "4d89b22a36afd0728a45ac0194a355d99bab18b916147e83f4b6237f471f0281"
+    },
+    {
+      "path": "public/index.html",
+      "sha256": "0a0484ae6d7eee3f68654b8bb41dda0895d8ac630108920a55ba168633beeb71"
+    },
+    {
+      "path": "public/style.css",
+      "sha256": "a621afa1b9f21236276dc1177e6ba9ae373d4b483c57a3c20795dd6df552faed"
+    },
+    {
+      "path": "reference/istio.yaml",
+      "sha256": "6495b7e2ec7b0df993b5c7050b24e60002f565086e44e2b3b08d4f94952f8311"
+    },
+    {
+      "path": "reference/prometheus.yml",
+      "sha256": "59b712a8c6e5b493d4d500ddc469aaecc9c59636e07a8a12abdcf531434d236b"
+    },
+    {
+      "path": "reference/vault.hcl",
+      "sha256": "7e053ace21e8de2a522f91d1bf377e3a9cbe6d05e9b9b35c46a3e134295d1238"
+    },
+    {
+      "path": "scripts/check.js",
+      "sha256": "160c1966b424453f4b3029f79d2db7f131b01478767bc825612d68e676518cf0"
+    },
+    {
+      "path": "services/admin-service.js",
+      "sha256": "ca1d9ff61001ef53ea8e1dbd02da439792c4b8648cb0b9924ada3cbc08c03af8"
+    },
+    {
+      "path": "services/game-service.js",
+      "sha256": "066acb7c4ceab30b596b8bcf1b151a5555aee487b07854eb478a0e405b8d4ec6"
+    },
+    {
+      "path": "services/question-service.js",
+      "sha256": "cf47166090b12a06e42da540d99b3049366359256210e049b0c8c713969fe766"
+    },
+    {
+      "path": "services/user-service.js",
+      "sha256": "380cc46cb83c32aaccbdf9659ec36ea03172f72329754554efe14c8a263f7e8c"
+    },
+    {
+      "path": "sql/game_ddl.sql",
+      "sha256": "f37fcba6ddb0dc30d78cc857eb31d148462c08d838a40f0727daef0a116d8052"
+    },
+    {
+      "path": "sql/migrations/001_init.sql",
+      "sha256": "d96e119a883e530e9b227815c4bc89c177eff7053fa36844693045bcd2dce848"
+    },
+    {
+      "path": "sql/seed/001_questions.sql",
+      "sha256": "563da4fa6f5d3e517e1a9e85fec9a5f52e255f52695a81db7a38b592be8a5b74"
+    },
+    {
+      "path": "terraform/main.tf",
+      "sha256": "e578b0bc2b2df24f9fa74bbda0461a2f8520d43f4241a6f8c48b55a9a223b43c"
+    },
+    {
+      "path": "test/auth.test.js",
+      "sha256": "d098cd9ca3b126b2776dc48cb99e55c8b25d5eb9980c1ab83561db1da843e45f"
+    },
+    {
+      "path": "test/fake-pg.js",
+      "sha256": "eb88597071415c8ed05b779d1e6b6d925c360a1483c062cb2329347bbb622908"
+    },
+    {
+      "path": "test/fraction.test.js",
+      "sha256": "7ea8e5a0a48852d8728eaa92bc1d02e1d2c60e63fe95eedeb0509090189bfa3e"
+    },
+    {
+      "path": "test/game-service.test.js",
+      "sha256": "8d7981987e2316129f4ffd2c3fc26c46dd7541648ab680d48a02b92f01e7e655"
+    },
+    {
+      "path": "test/integration.test.js",
+      "sha256": "97d57b15885f88ad5a66cee472e8190db1ff9014baf2ea839b9de966b161bfe0"
+    }
+  ]
+}

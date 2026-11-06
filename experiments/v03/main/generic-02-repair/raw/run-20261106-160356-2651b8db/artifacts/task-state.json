@@ -1,0 +1,61 @@
+{
+  "tasks": [
+    {
+      "id": "init",
+      "state": "checks_passed_requires_review",
+      "missing": [],
+      "snapshot_id": "053ea4921425028de8691ee7328598262d86a5bb8c6e1cccf1d9d1a5bfed7a2f",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "convert",
+      "state": "checks_passed_requires_review",
+      "missing": [],
+      "snapshot_id": "053ea4921425028de8691ee7328598262d86a5bb8c6e1cccf1d9d1a5bfed7a2f",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "web-page",
+      "state": "checks_passed_requires_review",
+      "missing": [],
+      "snapshot_id": "053ea4921425028de8691ee7328598262d86a5bb8c6e1cccf1d9d1a5bfed7a2f",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "docs",
+      "state": "checks_passed_requires_review",
+      "missing": [],
+      "snapshot_id": "053ea4921425028de8691ee7328598262d86a5bb8c6e1cccf1d9d1a5bfed7a2f",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "convert-tests",
+      "state": "checks_passed_requires_review",
+      "missing": [],
+      "snapshot_id": "053ea4921425028de8691ee7328598262d86a5bb8c6e1cccf1d9d1a5bfed7a2f",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "http-app",
+      "state": "checks_passed_requires_review",
+      "missing": [],
+      "snapshot_id": "053ea4921425028de8691ee7328598262d86a5bb8c6e1cccf1d9d1a5bfed7a2f",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "app-tests",
+      "state": "checks_passed_requires_review",
+      "missing": [],
+      "snapshot_id": "053ea4921425028de8691ee7328598262d86a5bb8c6e1cccf1d9d1a5bfed7a2f",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "server",
+      "state": "checks_passed_requires_review",
+      "missing": [],
+      "snapshot_id": "053ea4921425028de8691ee7328598262d86a5bb8c6e1cccf1d9d1a5bfed7a2f",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    }
+  ],
+  "snapshot_id": "053ea4921425028de8691ee7328598262d86a5bb8c6e1cccf1d9d1a5bfed7a2f"
+}

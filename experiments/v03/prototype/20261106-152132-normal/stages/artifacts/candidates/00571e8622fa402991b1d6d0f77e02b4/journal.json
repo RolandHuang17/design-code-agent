@@ -1,0 +1,25 @@
+{
+  "root": "D:\\projects\\Task-superagent\\runs\\superagent-v03\\20261106-152132-normal\\stages\\T5",
+  "changes": [
+    {
+      "path": "test/api.test.js",
+      "before": null,
+      "after": "18ff89ddad1d61a372b95d944cbf7b5f2f0f91eb92a46c29ca0ed33f5689f7a2"
+    }
+  ],
+  "checks": [
+    {
+      "path": "test/api.test.js",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task-superagent\\runs\\superagent-v03\\20261106-152132-normal\\stages\\artifacts\\candidates\\00571e8622fa402991b1d6d0f77e02b4\\after\\test\\api.test.js"
+      ],
+      "output": ""
+    }
+  ],
+  "status": "committed"
+}

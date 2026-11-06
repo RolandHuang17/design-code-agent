@@ -1,0 +1,32 @@
+DCA CLEAN WINDOWS ENVIRONMENT INVENTORY
+UTC: 2026-11-06T09:22:40.5175385Z
+64-bit OS: True
+ProductName: Windows 10 Enterprise Evaluation
+DisplayVersion: 26H2
+CurrentBuild: 26300
+UBR: 9711
+
+Relevant installed-program entries:
+NONE FOUND
+
+PATH executable candidates:
+C:\Users\tasktest\AppData\Local\Microsoft\WindowsApps\python.exe [Windows app-execution alias; not proof of an installed runtime]
+
+Desktop acceptance executable SHA256 (read-only):
+C:\Users\tasktest\Desktop\DCA-v03-20261106\中文 空格\Main\DesignCodeAgent.exe
+86b0fd433a2a2c7a84ccccedb91a7c31e9719e04572745497155dc8386501a5b
+C:\Users\tasktest\Desktop\DCA-v03-20261106\中文 空格\Prototype\DesignCodeAgent-Superagent.exe
+837cf47c9be73aa1ced0b2a987f9dc6eff5e0dff45ff4abcb29b2f1a02ffe7a7
+C:\Users\tasktest\Desktop\中文 空格\Agent\DesignCodeAgent.exe
+bdd78fc44a31efa3b04575c12d68c8d1ed5fa29e447c9896049aab2bf6e04c47
+C:\Users\tasktest\Desktop\中文 空格 TLS\Agent\DesignCodeAgent.exe
+dddb0d73e02bedbec27974e00532c5b10c8cc3c546f5680f857cd465d52a9e04
+C:\Users\tasktest\Desktop\中文 空格 交付\Agent\DesignCodeAgent.exe
+bc48b59bf0de9fe72015380b7dfbb506975773edba8fd414dc74aca48bf07fe2
+C:\Users\tasktest\Desktop\中文 空格 最终\Agent\DesignCodeAgent.exe
+7f8a4e0377211b0e5eff3803d361e6c685cc37c9400af075cfbd301d88f68c2d
+C:\Users\tasktest\Desktop\中文 空格 最终\Main\DesignCodeAgent.exe
+a635c121d35b98b42df108551b9ec7120cb49c3984c198ec891f40e10ef66d76
+
+Bundled runtimes inside standalone executables are not system installations.
+This inventory alone does not prove absence of every portable runtime; pair it with the fresh-OS snapshot and GUI evidence.

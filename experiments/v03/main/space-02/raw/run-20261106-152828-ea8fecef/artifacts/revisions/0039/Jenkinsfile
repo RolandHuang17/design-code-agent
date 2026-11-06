@@ -1,0 +1,72 @@
+// Space Fractions — reference-only Jenkins pipeline.
+// NOT production-validated: provided as an illustrative CI/CD example per the
+// architecture's Kubernetes-ready deployment plan and the operator supplement.
+// This mirrors the intended build-test-package flow; it is not claimed to have
+// been validated against a real Jenkins instance.
+
+pipeline {
+  agent any
+
+  environment {
+    // Build-time test database. Unit tests require no live infra; integration
+    // tests are gated behind RUN_INTEGRATION=true and the Compose stack.
+    RUN_INTEGRATION = 'false'
+  }
+
+  stages {
+    stage('Checkout') {
+      steps {
+        checkout scm
+      }
+    }
+
+    stage('Install') {
+      steps {
+        sh 'npm ci'
+      }
+    }
+
+    stage('Build (syntax + contract check)') {
+      steps {
+        sh 'npm run build'
+      }
+    }
+
+    stage('Unit Tests') {
+      steps {
+        sh 'npm test'
+      }
+    }
+
+    stage('Integration Tests (optional)') {
+      when {
+        expression { env.RUN_INTEGRATION == 'true' }
+      }
+      steps {
+        sh 'docker compose up -d postgres redis rabbitmq elasticsearch keycloak'
+        sh 'npm run test:integration'
+      }
+      post {
+        always {
+          sh 'docker compose down'
+        }
+      }
+    }
+
+    stage('Package & Publish (placeholder)') {
+      steps {
+        sh 'docker build -t spacefractions:latest .'
+      }
+    }
+  }
+
+  post {
+    always {
+      cleanWs()
+    }
+    failure {
+      // No fabricated deployment/security validation. Only signal failure.
+      echo 'Pipeline failed; inspect logs.'
+    }
+  }
+}

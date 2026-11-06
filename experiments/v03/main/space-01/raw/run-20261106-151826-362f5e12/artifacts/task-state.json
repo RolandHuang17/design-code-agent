@@ -1,0 +1,167 @@
+{
+  "tasks": [
+    {
+      "id": "T1",
+      "state": "generated_unverified",
+      "missing": [],
+      "snapshot_id": "5871ae5191082bea9e7b7fb7fd0aacaa6085dea87b55742ce6924884263155b2",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T2",
+      "state": "generated_unverified",
+      "missing": [],
+      "snapshot_id": "5871ae5191082bea9e7b7fb7fd0aacaa6085dea87b55742ce6924884263155b2",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T3",
+      "state": "pending",
+      "missing": [
+        "src/lib/config.js",
+        "src/lib/metrics.js",
+        "src/lib/errors.js",
+        "src/lib/http.js"
+      ],
+      "snapshot_id": "5871ae5191082bea9e7b7fb7fd0aacaa6085dea87b55742ce6924884263155b2",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T14",
+      "state": "pending",
+      "missing": [
+        "k8s/spacefractions-deployment.yaml",
+        "Jenkinsfile",
+        "terraform/main.tf",
+        "ops/vault-config.hcl",
+        "ops/istio-config.yaml"
+      ],
+      "snapshot_id": "5871ae5191082bea9e7b7fb7fd0aacaa6085dea87b55742ce6924884263155b2",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T4",
+      "state": "pending",
+      "missing": [
+        "src/lib/oidc.js"
+      ],
+      "snapshot_id": "5871ae5191082bea9e7b7fb7fd0aacaa6085dea87b55742ce6924884263155b2",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T5",
+      "state": "pending",
+      "missing": [
+        "sql/migrations/001_init.sql",
+        "sql/seed/questions.sql",
+        "src/db/migrate.js",
+        "src/db/pool.js"
+      ],
+      "snapshot_id": "5871ae5191082bea9e7b7fb7fd0aacaa6085dea87b55742ce6924884263155b2",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T6",
+      "state": "pending",
+      "missing": [
+        "src/services/game-service.js"
+      ],
+      "snapshot_id": "5871ae5191082bea9e7b7fb7fd0aacaa6085dea87b55742ce6924884263155b2",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T7",
+      "state": "pending",
+      "missing": [
+        "src/services/question-service.js",
+        "src/lib/search.js"
+      ],
+      "snapshot_id": "5871ae5191082bea9e7b7fb7fd0aacaa6085dea87b55742ce6924884263155b2",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T8",
+      "state": "pending",
+      "missing": [
+        "src/services/admin-service.js"
+      ],
+      "snapshot_id": "5871ae5191082bea9e7b7fb7fd0aacaa6085dea87b55742ce6924884263155b2",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T9",
+      "state": "pending",
+      "missing": [
+        "src/services/user-service.js"
+      ],
+      "snapshot_id": "5871ae5191082bea9e7b7fb7fd0aacaa6085dea87b55742ce6924884263155b2",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T10",
+      "state": "pending",
+      "missing": [
+        "src/gateway.js",
+        "src/public/index.html",
+        "src/public/app.js",
+        "src/public/style.css"
+      ],
+      "snapshot_id": "5871ae5191082bea9e7b7fb7fd0aacaa6085dea87b55742ce6924884263155b2",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T11",
+      "state": "pending",
+      "missing": [
+        "src/lib/cache.js",
+        "src/lib/queue.js"
+      ],
+      "snapshot_id": "5871ae5191082bea9e7b7fb7fd0aacaa6085dea87b55742ce6924884263155b2",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T15",
+      "state": "pending",
+      "missing": [
+        "test/fraction.test.js",
+        "test/game-service.test.js",
+        "test/admin-service.test.js",
+        "test/oidc.test.js"
+      ],
+      "snapshot_id": "5871ae5191082bea9e7b7fb7fd0aacaa6085dea87b55742ce6924884263155b2",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T16",
+      "state": "pending",
+      "missing": [
+        "test/integration/db.test.js"
+      ],
+      "snapshot_id": "5871ae5191082bea9e7b7fb7fd0aacaa6085dea87b55742ce6924884263155b2",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T12",
+      "state": "pending",
+      "missing": [
+        "openapi.yaml",
+        "internal.proto"
+      ],
+      "snapshot_id": "5871ae5191082bea9e7b7fb7fd0aacaa6085dea87b55742ce6924884263155b2",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T13",
+      "state": "pending",
+      "missing": [
+        "compose.yaml",
+        "keycloak/space-fractions-realm.json",
+        "docker/Dockerfile.gateway",
+        "docker/Dockerfile.service"
+      ],
+      "snapshot_id": "5871ae5191082bea9e7b7fb7fd0aacaa6085dea87b55742ce6924884263155b2",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    }
+  ],
+  "snapshot_id": "5871ae5191082bea9e7b7fb7fd0aacaa6085dea87b55742ce6924884263155b2"
+}

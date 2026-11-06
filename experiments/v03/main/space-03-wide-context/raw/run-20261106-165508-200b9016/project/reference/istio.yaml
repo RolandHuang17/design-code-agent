@@ -1,0 +1,64 @@
+# ---------------------------------------------------------------------------
+# Space Fractions — Istio service-mesh reference configuration
+#
+# REFERENCE ONLY — NOT production-validated. Do not treat this file as a
+# deployment guarantee. It documents the TLS/service-mesh posture described in
+# Architecture_Documentation.md §F ("TLS & service-mesh considerations") and
+# satisfies the operator supplement's "reference" cloud-configs requirement.
+#
+# This is an untested example: adjust service accounts, namespaces, mesh
+# labels, ingress hosts and TLS credentials for any real environment. No real
+# certificate or credential values are defined.
+# ---------------------------------------------------------------------------
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: spacefractions-gateway
+  namespace: spacefractions
+spec:
+  selector:
+    istio: ingressgateway # use Istio's default ingress gateway
+  servers:
+  - port:
+      number: 443
+      name: https
+      protocol: HTTPS
+    tls:
+      mode: SIMPLE
+      # Reference only: credential must be supplied by the environment.
+      credentialName: spacefractions-tls
+    hosts:
+    - "<gateway-host>"
+---
+# Route inbound traffic to the gateway service. Ports shown are illustrative:
+# the gateway container listens on 3000 and exposes /health on 3000 (see
+# Dockerfile / compose.yaml), not the original plan's containerPort 80.
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: spacefractions
+  namespace: spacefractions
+spec:
+  hosts:
+  - "<gateway-host>"
+  gateways:
+  - spacefractions-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /
+    route:
+    - destination:
+        host: gateway
+        port:
+          number: 3000
+---
+# Enforce mutual TLS between mesh workloads.
+apiVersion: security.istio.io/v1beta1
+kind: PeerAuthentication
+metadata:
+  name: spacefractions-strict
+  namespace: spacefractions
+spec:
+  mtls:
+    mode: STRICT

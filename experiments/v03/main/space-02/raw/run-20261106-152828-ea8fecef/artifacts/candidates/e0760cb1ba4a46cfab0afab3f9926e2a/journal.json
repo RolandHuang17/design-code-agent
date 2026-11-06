@@ -1,0 +1,18 @@
+{
+  "root": "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project",
+  "changes": [
+    {
+      "path": "sql/seed/001_questions.sql",
+      "before": null,
+      "after": "563da4fa6f5d3e517e1a9e85fec9a5f52e255f52695a81db7a38b592be8a5b74"
+    }
+  ],
+  "checks": [
+    {
+      "path": "sql/seed/001_questions.sql",
+      "status": "not_applicable",
+      "kind": "syntax_format"
+    }
+  ],
+  "status": "committed"
+}

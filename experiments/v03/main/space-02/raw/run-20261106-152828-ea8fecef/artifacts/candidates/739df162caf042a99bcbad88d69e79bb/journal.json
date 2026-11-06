@@ -1,0 +1,18 @@
+{
+  "root": "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project",
+  "changes": [
+    {
+      "path": "compose.yaml",
+      "before": null,
+      "after": "0d0572e0ccd19c79ac083ff211c49c1fa752a98aa057ba24a3351cd88e2e0192"
+    }
+  ],
+  "checks": [
+    {
+      "path": "compose.yaml",
+      "status": "passed",
+      "kind": "syntax_format"
+    }
+  ],
+  "status": "committed"
+}

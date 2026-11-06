@@ -1,0 +1,21 @@
+{
+  "provider": "bailian",
+  "base_url": "https://ws-hzkcuvkt74i3d6ol.cn-beijing.maas.aliyuncs.com/compatible-mode/v1",
+  "model": "deepseek-v4-pro-0813",
+  "uses_official_endpoint": false,
+  "allow_project_execution": true,
+  "max_repair_rounds": 3,
+  "acceptance_profile": "generic-node",
+  "runtime_backend": "auto",
+  "max_turns": 300,
+  "input_hashes": [
+    "f91f2225801db7527855186d88e9b93b92848b2847b975ed9af7ca05fbcd2ae6",
+    "446c5fbd88e637f94c98eabe698bf7d20bc08646b70c6d0053011eb1a923947b"
+  ],
+  "seed_project": null,
+  "agent_source_hashes": {
+    "acceptance/auth.cjs": "2b74b5dda31ec22569b2c870fd062c4a6a84cd963aed0e41e240f7a74c61c26c",
+    "cases/library.md": "07cc2a8520420f189ca37bdb07dbae000144aa1c3577e9d3e528051b9545cbb4",
+    "cases/space-fractions.md": "0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "root": "C:\\Users\\tasktest\\Documents\\DesignCodeAgent\\run-20261106-163917-eb9b4ffc\\project",
+  "changes": [
+    {
+      "path": "architecture-decisions.md",
+      "before": null,
+      "after": "75f20440ebebd7bd3467cb137056c8672506a74f053e972622398b212373af29"
+    }
+  ],
+  "checks": [
+    {
+      "path": "architecture-decisions.md",
+      "status": "not_applicable",
+      "kind": "syntax_format"
+    }
+  ],
+  "status": "committed"
+}

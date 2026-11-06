@@ -1,0 +1,17 @@
+{
+  "root": "D:\\projects\\Task-main-upgrade\\runs\\v03\\main\\space-01\\run-20261106-151826-362f5e12\\project",
+  "changes": [
+    {
+      "path": "plan.json",
+      "before": null,
+      "after": "5840edee47c51b764aedbe9ff26de885078714de303f132eda805299fd0eef8a"
+    }
+  ],
+  "checks": [
+    {
+      "path": "plan.json",
+      "status": "passed"
+    }
+  ],
+  "status": "committed"
+}

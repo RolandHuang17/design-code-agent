@@ -1,0 +1,78 @@
+{
+  "T1": {
+    "id": "T1",
+    "description": "Project scaffolding: package.json (ESM, Node 22 engine, scripts start/test/build via node --check and node --test) and README.md documenting install/start/test and limitations.",
+    "files": [
+      "package.json",
+      "README.md"
+    ],
+    "depends_on": [],
+    "source": [
+      "input/0@ebb437192ddd627b2fa92b9d1309c8d712f0931720f2f779e496ae1acc2466b4"
+    ],
+    "state": "completed",
+    "meaning": "candidate integrated; run validation still required"
+  },
+  "T2": {
+    "id": "T2",
+    "description": "Pure conversion & validation module convert.js: export convert(value, from, to) and validate units/types/absolute-zero (FR3, FR4). No HTTP dependency (NFR1).",
+    "files": [
+      "source/convert.js"
+    ],
+    "depends_on": [],
+    "source": [
+      "input/0@ebb437192ddd627b2fa92b9d1309c8d712f0931720f2f779e496ae1acc2466b4"
+    ],
+    "state": "completed",
+    "meaning": "candidate integrated; run validation still required"
+  },
+  "T3": {
+    "id": "T3",
+    "description": "HTTP layer: app.js exports createServer/request handler for GET / (HTML), POST /api/convert (FR2, FR4), GET /health (FR5); index.js starts on process.env.PORT; public/index.html provides the browser form (FR1).",
+    "files": [
+      "source/app.js",
+      "source/index.js",
+      "public/index.html"
+    ],
+    "depends_on": [
+      "T2"
+    ],
+    "source": [
+      "input/0@ebb437192ddd627b2fa92b9d1309c8d712f0931720f2f779e496ae1acc2466b4",
+      "input/1@a6a4735305a4f271e2e303d0322630b5b6ebc37ccecd01d49c2047d7f752c34c"
+    ],
+    "state": "completed",
+    "meaning": "candidate integrated; run validation still required"
+  },
+  "T4": {
+    "id": "T4",
+    "description": "Unit tests for pure logic: convert.test.js covering C/F/K conversions, same-unit, negative values, booleans, unsupported units, absolute-zero boundaries (FR3, FR4 boundary).",
+    "files": [
+      "test/convert.test.js"
+    ],
+    "depends_on": [
+      "T2"
+    ],
+    "source": [
+      "input/0@ebb437192ddd627b2fa92b9d1309c8d712f0931720f2f779e496ae1acc2466b4"
+    ],
+    "state": "completed",
+    "meaning": "candidate integrated; run validation still required"
+  },
+  "T5": {
+    "id": "T5",
+    "description": "Integration tests for HTTP endpoints: api.test.js starting server on ephemeral port; asserts GET / HTML, POST /api/convert 200 & 400 cases (missing/nonnumeric/below-zero/malformed JSON), GET /health (FR1, FR2, FR4, FR5).",
+    "files": [
+      "test/api.test.js"
+    ],
+    "depends_on": [
+      "T3"
+    ],
+    "source": [
+      "input/0@ebb437192ddd627b2fa92b9d1309c8d712f0931720f2f779e496ae1acc2466b4",
+      "input/1@a6a4735305a4f271e2e303d0322630b5b6ebc37ccecd01d49c2047d7f752c34c"
+    ],
+    "state": "completed",
+    "meaning": "candidate integrated; run validation still required"
+  }
+}

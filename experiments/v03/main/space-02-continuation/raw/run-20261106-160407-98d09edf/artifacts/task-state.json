@@ -1,0 +1,96 @@
+{
+  "tasks": [
+    {
+      "id": "T1",
+      "state": "validation_failed",
+      "missing": [],
+      "snapshot_id": "e45c1e6d0b64c78b74f048f0f6b942df7ae8a4081535a3e17ed84df243000290",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T2",
+      "state": "validation_failed",
+      "missing": [],
+      "snapshot_id": "e45c1e6d0b64c78b74f048f0f6b942df7ae8a4081535a3e17ed84df243000290",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T3",
+      "state": "validation_failed",
+      "missing": [],
+      "snapshot_id": "e45c1e6d0b64c78b74f048f0f6b942df7ae8a4081535a3e17ed84df243000290",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T4",
+      "state": "validation_failed",
+      "missing": [],
+      "snapshot_id": "e45c1e6d0b64c78b74f048f0f6b942df7ae8a4081535a3e17ed84df243000290",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T5",
+      "state": "validation_failed",
+      "missing": [],
+      "snapshot_id": "e45c1e6d0b64c78b74f048f0f6b942df7ae8a4081535a3e17ed84df243000290",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T6",
+      "state": "validation_failed",
+      "missing": [],
+      "snapshot_id": "e45c1e6d0b64c78b74f048f0f6b942df7ae8a4081535a3e17ed84df243000290",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T7",
+      "state": "validation_failed",
+      "missing": [],
+      "snapshot_id": "e45c1e6d0b64c78b74f048f0f6b942df7ae8a4081535a3e17ed84df243000290",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T9",
+      "state": "validation_failed",
+      "missing": [],
+      "snapshot_id": "e45c1e6d0b64c78b74f048f0f6b942df7ae8a4081535a3e17ed84df243000290",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T8",
+      "state": "validation_failed",
+      "missing": [],
+      "snapshot_id": "e45c1e6d0b64c78b74f048f0f6b942df7ae8a4081535a3e17ed84df243000290",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T11",
+      "state": "validation_failed",
+      "missing": [],
+      "snapshot_id": "e45c1e6d0b64c78b74f048f0f6b942df7ae8a4081535a3e17ed84df243000290",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T10",
+      "state": "validation_failed",
+      "missing": [],
+      "snapshot_id": "e45c1e6d0b64c78b74f048f0f6b942df7ae8a4081535a3e17ed84df243000290",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T12",
+      "state": "validation_failed",
+      "missing": [],
+      "snapshot_id": "e45c1e6d0b64c78b74f048f0f6b942df7ae8a4081535a3e17ed84df243000290",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T13",
+      "state": "validation_failed",
+      "missing": [],
+      "snapshot_id": "e45c1e6d0b64c78b74f048f0f6b942df7ae8a4081535a3e17ed84df243000290",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    }
+  ],
+  "snapshot_id": "e45c1e6d0b64c78b74f048f0f6b942df7ae8a4081535a3e17ed84df243000290"
+}

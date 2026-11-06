@@ -1,0 +1,26 @@
+{
+  "root": "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\library-01\\run-20261106-152903-a2942007\\project",
+  "changes": [
+    {
+      "path": "test/loans.test.js",
+      "before": null,
+      "after": "11abce2a97c647818be960c5f8cc9a136a4094cbbf59e96405edb7d1331b7a28"
+    }
+  ],
+  "checks": [
+    {
+      "path": "test/loans.test.js",
+      "status": "passed",
+      "kind": "syntax_format",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\library-01\\run-20261106-152903-a2942007\\artifacts\\candidates\\a10a0db22f40492f91709433028db02d\\after\\test\\loans.test.js"
+      ],
+      "output": ""
+    }
+  ],
+  "status": "committed"
+}

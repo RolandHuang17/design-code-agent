@@ -1,0 +1,194 @@
+[
+  {
+    "profile": "static",
+    "status": "passed",
+    "results": [
+      {
+        "check": "required:package.json",
+        "status": "passed"
+      },
+      {
+        "check": "required:README.md",
+        "status": "passed"
+      },
+      {
+        "check": "required:traceability.json",
+        "status": "passed"
+      },
+      {
+        "check": "package-lock.json",
+        "status": "passed"
+      },
+      {
+        "check": "package.json",
+        "status": "passed"
+      },
+      {
+        "check": "plan.json",
+        "status": "passed"
+      },
+      {
+        "check": "traceability.json",
+        "status": "passed"
+      },
+      {
+        "check": "src/app.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\generic-02\\run-20261106-153532-68837ca5\\project\\src\\app.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "src/convert.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\generic-02\\run-20261106-153532-68837ca5\\project\\src\\convert.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "src/server.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\generic-02\\run-20261106-153532-68837ca5\\project\\src\\server.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "test/app.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\generic-02\\run-20261106-153532-68837ca5\\project\\test\\app.test.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "test/convert.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\generic-02\\run-20261106-153532-68837ca5\\project\\test\\convert.test.js"
+        ],
+        "output": ""
+      }
+    ],
+    "snapshot_id": "1c232ff7a518e93a1fa79c2ea84f10c2923b4cce3033622c5a30bf3ef6eab0de",
+    "snapshot_after": "1c232ff7a518e93a1fa79c2ea84f10c2923b4cce3033622c5a30bf3ef6eab0de",
+    "stale": false
+  },
+  {
+    "profile": "install",
+    "status": "passed",
+    "exit_code": 0,
+    "timed_out": false,
+    "command": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+      "ci",
+      "--ignore-scripts",
+      "--no-audit",
+      "--no-fund"
+    ],
+    "output": "\nup to date in 646ms\n",
+    "snapshot_id": "1c232ff7a518e93a1fa79c2ea84f10c2923b4cce3033622c5a30bf3ef6eab0de",
+    "snapshot_after": "1c232ff7a518e93a1fa79c2ea84f10c2923b4cce3033622c5a30bf3ef6eab0de",
+    "stale": false,
+    "derived_artifact": {
+      "path": "package-lock.json",
+      "origin": "npm dependency resolution (host fixed command)",
+      "sha256": "26e72bb4066dbab737c5ed7bbbea7a823b033637376e09d822227428ccc5ba0d",
+      "revision": 13
+    }
+  },
+  {
+    "profile": "test",
+    "status": "failed",
+    "exit_code": 1,
+    "timed_out": false,
+    "command": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+      "run",
+      "test",
+      "--ignore-scripts"
+    ],
+    "output": "\n> temperature-converter@1.0.0 test\n> node --test\n\n✖ GET /health returns 200 with status ok (25.3502ms)\n✖ POST /api/convert returns a valid conversion (2.5501ms)\n✖ same-unit conversion preserves value without rounding (1.4516ms)\n✖ rejects malformed JSON with 400 (1.2204ms)\n✖ rejects a missing field with 400 (1.2679ms)\n✖ rejects a nonnumeric value with 400 (2.2274ms)\n✖ rejects a boolean value with 400 (1.9439ms)\n✖ rejects an unsupported unit with 400 (1.426ms)\n✖ rejects a value below absolute zero (same-unit) with 400 (1.5061ms)\n✖ allows absolute-zero boundary values (1.5939ms)\n✖ returns 404 for unknown paths (1.2986ms)\n✔ SUPPORTED_UNITS contains exactly C, F, K (1.364ms)\n✔ same-unit conversion preserves the value unchanged (0.2308ms)\n✔ Celsius to Fahrenheit and back (0.1924ms)\n✔ Celsius to Kelvin and Kelvin to Celsius (0.1295ms)\n✔ Fahrenheit to Kelvin and Kelvin to Fahrenheit (0.1127ms)\n✔ negative values above absolute zero convert correctly (0.108ms)\n✔ absolute-zero boundary is accepted with float tolerance (0.1121ms)\n✔ rejects values below absolute zero (including same-unit) (0.4449ms)\n✔ validateInput reports below zero for same-unit negative Kelvin (0.1851ms)\n✔ validateInput rejects unsupported units and non-finite numbers (0.201ms)\n✔ isSupportedUnit recognizes valid and rejects invalid units (0.1224ms)\n✔ toCelsius and fromCelsius helpers convert between units (0.1342ms)\nℹ tests 23\nℹ suites 0\nℹ pass 12\nℹ fail 11\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 150.3883\n\n✖ failing tests:\n\ntest at test\\app.test.js:49:1\n✖ GET /health returns 200 with status ok (25.3502ms)\n  TypeError [Error]: server.http.request is not a function\n      at file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:10:29\n      at new Promise (<anonymous>)\n      at request (file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:8:10)\n      at file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:51:28\n      at Server.<anonymous> (file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:35:23)\n      at Server.wrapper (node:events:639:12)\n      at Server.emit (node:events:526:24)\n      at emitListeningNT (node:net:2485:10)\n      at process.processTicksAndRejections (node:internal/process/task_queues:89:21)\n\ntest at test\\app.test.js:57:1\n✖ POST /api/convert returns a valid conversion (2.5501ms)\n  TypeError [Error]: server.http.request is not a function\n      at file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:10:29\n      at new Promise (<anonymous>)\n      at request (file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:8:10)\n      at post (file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:45:26)\n      at file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:59:28\n      at Server.<anonymous> (file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:35:23)\n      at Server.wrapper (node:events:639:12)\n      at Server.emit (node:events:526:24)\n      at emitListeningNT (node:net:2485:10)\n      at process.processTicksAndRejections (node:internal/process/task_queues:89:21)\n\ntest at test\\app.test.js:65:1\n✖ same-unit conversion preserves value without rounding (1.4516ms)\n  TypeError [Error]: server.http.request is not a function\n      at file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:10:29\n      at new Promise (<anonymous>)\n      at request (file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:8:10)\n      at post (file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:45:26)\n      at file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:67:28\n      at Server.<anonymous> (file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:35:23)\n      at Server.wrapper (node:events:639:12)\n      at Server.emit (node:events:526:24)\n      at emitListeningNT (node:net:2485:10)\n      at process.processTicksAndRejections (node:internal/process/task_queues:89:21)\n\ntest at test\\app.test.js:73:1\n✖ rejects malformed JSON with 400 (1.2204ms)\n  TypeError [Error]: server.http.request is not a function\n      at file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:10:29\n      at new Promise (<anonymous>)\n      at request (file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:8:10)\n      at file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:75:28\n      at Server.<anonymous> (file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:35:23)\n      at Server.wrapper (node:events:639:12)\n      at Server.emit (node:events:526:24)\n      at emitListeningNT (node:net:2485:10)\n      at process.processTicksAndRejections (node:internal/process/task_queues:89:21)\n\ntest at test\\app.test.js:82:1\n✖ rejects a missing field with 400 (1.2679ms)\n  TypeError [Error]: server.http.request is not a function\n      at file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:10:29\n      at new Promise (<anonymous>)\n      at request (file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:8:10)\n      at post (file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:45:26)\n      at file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:84:28\n      at Server.<anonymous> (file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:35:23)\n      at Server.wrapper (node:events:639:12)\n      at Server.emit (node:events:526:24)\n      at emitListeningNT (node:net:2485:10)\n      at process.processTicksAndRejections (node:internal/process/task_queues:89:21)\n\ntest at test\\app.test.js:91:1\n✖ rejects a nonnumeric value with 400 (2.2274ms)\n  TypeError [Error]: server.http.request is not a function\n      at file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:10:29\n      at new Promise (<anonymous>)\n      at request (file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:8:10)\n      at post (file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:45:26)\n      at file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:93:28\n      at Server.<anonymous> (file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:35:23)\n      at Server.wrapper (node:events:639:12)\n      at Server.emit (node:events:526:24)\n      at emitListeningNT (node:net:2485:10)\n      at process.processTicksAndRejections (node:internal/process/task_queues:89:21)\n\ntest at test\\app.test.js:100:1\n✖ rejects a boolean value with 400 (1.9439ms)\n  TypeError [Error]: server.http.request is not a function\n      at file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:10:29\n      at new Promise (<anonymous>)\n      at request (file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:8:10)\n      at post (file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:45:26)\n      at file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:102:28\n      at Server.<anonymous> (file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:35:23)\n      at Server.wrapper (node:events:639:12)\n      at Server.emit (node:events:526:24)\n      at emitListeningNT (node:net:2485:10)\n      at process.processTicksAndRejections (node:internal/process/task_queues:89:21)\n\ntest at test\\app.test.js:109:1\n✖ rejects an unsupported unit with 400 (1.426ms)\n  TypeError [Error]: server.http.request is not a function\n      at file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:10:29\n      at new Promise (<anonymous>)\n      at request (file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:8:10)\n      at post (file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:45:26)\n      at file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:111:28\n      at Server.<anonymous> (file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:35:23)\n      at Server.wrapper (node:events:639:12)\n      at Server.emit (node:events:526:24)\n      at emitListeningNT (node:net:2485:10)\n      at process.processTicksAndRejections (node:internal/process/task_queues:89:21)\n\ntest at test\\app.test.js:118:1\n✖ rejects a value below absolute zero (same-unit) with 400 (1.5061ms)\n  TypeError [Error]: server.http.request is not a function\n      at file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:10:29\n      at new Promise (<anonymous>)\n      at request (file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:8:10)\n      at post (file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:45:26)\n      at file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:120:28\n      at Server.<anonymous> (file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:35:23)\n      at Server.wrapper (node:events:639:12)\n      at Server.emit (node:events:526:24)\n      at emitListeningNT (node:net:2485:10)\n      at process.processTicksAndRejections (node:internal/process/task_queues:89:21)\n\ntest at test\\app.test.js:127:1\n✖ allows absolute-zero boundary values (1.5939ms)\n  TypeError [Error]: server.http.request is not a function\n      at file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:10:29\n      at new Promise (<anonymous>)\n      at request (file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:8:10)\n      at post (file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:45:26)\n      at file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:129:28\n      at Server.<anonymous> (file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:35:23)\n      at Server.wrapper (node:events:639:12)\n      at Server.emit (node:events:526:24)\n      at emitListeningNT (node:net:2485:10)\n      at process.processTicksAndRejections (node:internal/process/task_queues:89:21)\n\ntest at test\\app.test.js:135:1\n✖ returns 404 for unknown paths (1.2986ms)\n  TypeError [Error]: server.http.request is not a function\n      at file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:10:29\n      at new Promise (<anonymous>)\n      at request (file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:8:10)\n      at file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:137:28\n      at Server.<anonymous> (file:///D:/projects/Task-v03-runs/runs/v03/main/generic-02/run-20261106-153532-68837ca5/project/test/app.test.js:35:23)\n      at Server.wrapper (node:events:639:12)\n      at Server.emit (node:events:526:24)\n      at emitListeningNT (node:net:2485:10)\n      at process.processTicksAndRejections (node:internal/process/task_queues:89:21)\n",
+    "snapshot_id": "1c232ff7a518e93a1fa79c2ea84f10c2923b4cce3033622c5a30bf3ef6eab0de",
+    "snapshot_after": "1c232ff7a518e93a1fa79c2ea84f10c2923b4cce3033622c5a30bf3ef6eab0de",
+    "stale": false
+  },
+  {
+    "profile": "integration",
+    "status": "not_applicable",
+    "optional": true,
+    "reason": "项目未声明独立 test:integration；不计为通过，领域 HTTP 由项目外 runtime 验收",
+    "snapshot_id": "1c232ff7a518e93a1fa79c2ea84f10c2923b4cce3033622c5a30bf3ef6eab0de"
+  },
+  {
+    "profile": "build",
+    "status": "passed",
+    "exit_code": 0,
+    "timed_out": false,
+    "command": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+      "run",
+      "build",
+      "--ignore-scripts"
+    ],
+    "output": "\n> temperature-converter@1.0.0 build\n> node --check src/convert.js && node --check src/app.js && node --check src/server.js\n\n",
+    "snapshot_id": "1c232ff7a518e93a1fa79c2ea84f10c2923b4cce3033622c5a30bf3ef6eab0de",
+    "snapshot_after": "1c232ff7a518e93a1fa79c2ea84f10c2923b4cce3033622c5a30bf3ef6eab0de",
+    "stale": false
+  },
+  {
+    "profile": "compose",
+    "status": "not_applicable",
+    "optional": true,
+    "reason": "通用项目未声明 Compose；未将特定案例部署结构强加给输入",
+    "snapshot_id": "1c232ff7a518e93a1fa79c2ea84f10c2923b4cce3033622c5a30bf3ef6eab0de"
+  },
+  {
+    "profile": "plan_references",
+    "status": "passed",
+    "problems": [],
+    "snapshot_id": "1c232ff7a518e93a1fa79c2ea84f10c2923b4cce3033622c5a30bf3ef6eab0de",
+    "limitation": "Checks planned files and literal relative imports, not dynamic imports or semantic compatibility"
+  },
+  {
+    "profile": "traceability_links",
+    "status": "failed",
+    "problems": [
+      "已实现条目缺少代码或测试：NFR2"
+    ],
+    "limitation": "只检查链接和来源范围；语义覆盖需要独立审查",
+    "snapshot_id": "1c232ff7a518e93a1fa79c2ea84f10c2923b4cce3033622c5a30bf3ef6eab0de"
+  },
+  {
+    "profile": "runtime",
+    "status": "not_applicable",
+    "optional": true,
+    "reason": "通用项目无内置领域HTTP验收；业务正确性需另行独立检查",
+    "snapshot_id": "1c232ff7a518e93a1fa79c2ea84f10c2923b4cce3033622c5a30bf3ef6eab0de"
+  }
+]

@@ -1,0 +1,133 @@
+{
+  "kind": "independent_host_after_guest_export",
+  "status": "passed",
+  "checks": [
+    {
+      "profile": "static",
+      "status": "passed",
+      "results": [
+        {
+          "check": "required:package.json",
+          "status": "passed"
+        },
+        {
+          "check": "required:README.md",
+          "status": "passed"
+        },
+        {
+          "check": "package.json",
+          "status": "passed"
+        },
+        {
+          "check": "plan.json",
+          "status": "passed"
+        },
+        {
+          "check": "traceability.json",
+          "status": "passed"
+        },
+        {
+          "check": "scripts/check-syntax.cjs",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\experiments\\v03\\clean-windows\\main\\run-20261106-171739-58af4633\\project\\scripts\\check-syntax.cjs"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/app.cjs",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\experiments\\v03\\clean-windows\\main\\run-20261106-171739-58af4633\\project\\src\\app.cjs"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/server.cjs",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\experiments\\v03\\clean-windows\\main\\run-20261106-171739-58af4633\\project\\src\\server.cjs"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/health.test.cjs",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\experiments\\v03\\clean-windows\\main\\run-20261106-171739-58af4633\\project\\test\\health.test.cjs"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/startup.test.cjs",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\experiments\\v03\\clean-windows\\main\\run-20261106-171739-58af4633\\project\\test\\startup.test.cjs"
+          ],
+          "output": ""
+        }
+      ],
+      "snapshot_id": "d0b7f1d1121d4c265588afb6b7e9fc678c8fc5fdafab05fcc6adee052f4d345a",
+      "snapshot_after": "d0b7f1d1121d4c265588afb6b7e9fc678c8fc5fdafab05fcc6adee052f4d345a",
+      "stale": false
+    },
+    {
+      "profile": "test",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "run",
+        "test",
+        "--ignore-scripts"
+      ],
+      "output": "\n> minimal-http-health-service@1.0.0 test\n> node --test\n\n✔ GET /health returns 200 with JSON {\"status\":\"ok\"} (11.7673ms)\n✔ unknown route returns 404 with a JSON error body (2.8061ms)\n✔ service still answers /health after an unknown request (2.0549ms)\n✔ FR3: server factory returns a non-listening server (separation from startup) (1.4528ms)\n✔ FR3: npm start entry listens on process.env.PORT and answers /health (160.6279ms)\n✔ NFR2: npm run build syntax-checks all source JavaScript (exit 0) (307.8614ms)\nℹ tests 6\nℹ suites 0\nℹ pass 6\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 553.6195\n",
+      "test_count": 6,
+      "skipped_count": 0,
+      "test_execution": "observed",
+      "snapshot_id": "d0b7f1d1121d4c265588afb6b7e9fc678c8fc5fdafab05fcc6adee052f4d345a",
+      "snapshot_after": "d0b7f1d1121d4c265588afb6b7e9fc678c8fc5fdafab05fcc6adee052f4d345a",
+      "stale": false
+    },
+    {
+      "profile": "build",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "run",
+        "build",
+        "--ignore-scripts"
+      ],
+      "output": "\n> minimal-http-health-service@1.0.0 build\n> node scripts/check-syntax.cjs\n\nok D:\\projects\\Task\\experiments\\v03\\clean-windows\\main\\run-20261106-171739-58af4633\\project\\src\\app.cjs\nok D:\\projects\\Task\\experiments\\v03\\clean-windows\\main\\run-20261106-171739-58af4633\\project\\src\\server.cjs\nok D:\\projects\\Task\\experiments\\v03\\clean-windows\\main\\run-20261106-171739-58af4633\\project\\test\\health.test.cjs\nok D:\\projects\\Task\\experiments\\v03\\clean-windows\\main\\run-20261106-171739-58af4633\\project\\test\\startup.test.cjs\nok D:\\projects\\Task\\experiments\\v03\\clean-windows\\main\\run-20261106-171739-58af4633\\project\\scripts\\check-syntax.cjs\n",
+      "snapshot_id": "d0b7f1d1121d4c265588afb6b7e9fc678c8fc5fdafab05fcc6adee052f4d345a",
+      "snapshot_after": "d0b7f1d1121d4c265588afb6b7e9fc678c8fc5fdafab05fcc6adee052f4d345a",
+      "stale": false
+    }
+  ],
+  "note": "Runs on the host with Node. Does not replace the guest unverified results."
+}

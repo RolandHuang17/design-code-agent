@@ -1,0 +1,124 @@
+{
+  "items": [
+    {
+      "id": "FR-1",
+      "source": { "document": "Architecture_Documentation.md", "start_line": 33 },
+      "description": "Play game — user can start and play fraction questions",
+      "files": ["gateway/app.js", "services/game-service.js", "public/index.html", "public/app.js", "openapi.yaml"],
+      "tests": ["test/game-service.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR-2",
+      "source": { "document": "Architecture_View.md", "start_line": 10 },
+      "description": "View score — user can view score",
+      "files": ["services/game-service.js", "public/app.js", "openapi.yaml"],
+      "tests": ["test/game-service.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR-3",
+      "source": { "document": "Architecture_View.md", "start_line": 13 },
+      "description": "Update questions — administrator question CRUD",
+      "files": ["services/question-service.js", "services/admin-service.js", "openapi.yaml"],
+      "tests": ["test/game-service.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR-4",
+      "source": { "document": "Architecture_View.md", "start_line": 12 },
+      "description": "View help — help content",
+      "files": ["public/index.html", "public/app.js"],
+      "tests": [],
+      "status": "partial"
+    },
+    {
+      "id": "NFR-1",
+      "source": { "document": "Architecture_Documentation.md", "start_line": 34 },
+      "description": "Performance — bounded downstream timeouts, Redis cache, Prometheus metrics",
+      "files": ["lib/cache.js", "lib/search.js", "lib/events.js", "compose.yaml"],
+      "tests": [],
+      "status": "partial"
+    },
+    {
+      "id": "ASR-1",
+      "source": { "document": "Architecture_Documentation.md", "start_line": 35 },
+      "description": "Data durability — PostgreSQL owns game state, idempotent migrations/seeds",
+      "files": ["sql/game_ddl.sql", "sql/migrations/001_init.sql", "sql/seed/001_questions.sql", "lib/db.js"],
+      "tests": ["test/integration.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "ASR-2",
+      "source": { "document": "Architecture_Documentation.md", "start_line": 26 },
+      "description": "Security — OAuth2/OIDC authn/authz, PKCE S256, admin role enforcement",
+      "files": ["lib/auth.js", "lib/user-map.js", "keycloak/realm.json"],
+      "tests": ["test/auth.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "DERIVED-1",
+      "source": { "document": "space-fractions.md", "start_line": 15 },
+      "description": "Gateway contract — GET /health 200, UI at /, Bearer OIDC tokens, GET /play backward compat",
+      "files": ["gateway/app.js", "gateway/index.js", "openapi.yaml"],
+      "tests": ["test/integration.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "DERIVED-2",
+      "source": { "document": "space-fractions.md", "start_line": 11 },
+      "description": "Exact rational arithmetic with server-side validation, 400 on malformed fraction",
+      "files": ["lib/fraction.js"],
+      "tests": ["test/fraction.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "DERIVED-3",
+      "source": { "document": "space-fractions.md", "start_line": 20 },
+      "description": "Game lifecycle pause/resume, score dedup, owner authorization (403/404)",
+      "files": ["lib/game-state.js", "services/game-service.js"],
+      "tests": ["test/game-service.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "DERIVED-4",
+      "source": { "document": "space-fractions.md", "start_line": 19 },
+      "description": "Admin CRUD endpoints; normal users 403 on admin endpoints; no correctAnswer in player responses",
+      "files": ["services/question-service.js", "services/admin-service.js"],
+      "tests": ["test/game-service.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "DERIVED-5",
+      "source": { "document": "Architecture_View.md", "start_line": 48 },
+      "description": "Game state machine — Playing/Paused/GameOver transitions only",
+      "files": ["lib/game-state.js"],
+      "tests": ["test/game-service.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "DERIVED-6",
+      "source": { "document": "Architecture_Documentation.md", "start_line": 80 },
+      "description": "internal.proto GameService.Play(PlayRequest)->PlayResponse contract",
+      "files": ["internal.proto"],
+      "tests": [],
+      "status": "partial"
+    },
+    {
+      "id": "DERIVED-7",
+      "source": { "document": "space-fractions.md", "start_line": 44 },
+      "description": "Compose service IDs and Keycloak PKCE/OIDC public issuer wiring",
+      "files": ["compose.yaml", "Dockerfile", "keycloak/realm.json"],
+      "tests": ["test/integration.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "DERIVED-8",
+      "source": { "document": "space-fractions.md", "start_line": 31 },
+      "description": "Reference-only infra configs (K8s, Vault, Istio, Terraform, Jenkins) labeled unverified",
+      "files": ["k8s/spacefractions-deployment.yaml", "reference/vault.hcl", "reference/istio.yaml", "terraform/main.tf", "Jenkinsfile"],
+      "tests": [],
+      "status": "implemented"
+    }
+  ]
+}

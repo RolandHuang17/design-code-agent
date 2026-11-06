@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Temperature Converter</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      max-width: 480px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+      color: #1f2933;
+    }
+    h1 { font-size: 1.5rem; }
+    fieldset {
+      border: 1px solid #cbd2d9;
+      border-radius: 6px;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    label { display: block; margin-bottom: 0.25rem; font-weight: 600; }
+    input, select {
+      font-size: 1rem;
+      padding: 0.4rem;
+      border: 1px solid #9aa5b1;
+      border-radius: 4px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button {
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 4px;
+      background: #2563eb;
+      color: #fff;
+      cursor: pointer;
+    }
+    button:disabled { background: #9aa5b1; cursor: not-allowed; }
+    .result {
+      margin-top: 1rem;
+      padding: 0.75rem 1rem;
+      border-radius: 4px;
+      background: #eef2ff;
+      font-size: 1.1rem;
+      min-height: 1.4rem;
+    }
+    .error {
+      margin-top: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-radius: 4px;
+      background: #fee2e2;
+      color: #b91c1c;
+      display: none;
+    }
+    .error.visible { display: block; }
+  </style>
+</head>
+<body>
+  <h1>Temperature Converter</h1>
+  <form id="converter-form">
+    <fieldset>
+      <legend>Convert temperature</legend>
+      <div>
+        <label for="value">Value</label>
+        <input type="number" id="value" name="value" step="any" required>
+      </div>
+      <div>
+        <label for="from">From</label>
+        <select id="from" name="from">
+          <option value="C">Celsius (&deg;C)</option>
+          <option value="F">Fahrenheit (&deg;F)</option>
+          <option value="K">Kelvin (K)</option>
+        </select>
+      </div>
+      <div>
+        <label for="to">To</label>
+        <select id="to" name="to">
+          <option value="C">Celsius (&deg;C)</option>
+          <option value="F">Fahrenheit (&deg;F)</option>
+          <option value="K">Kelvin (K)</option>
+        </select>
+      </div>
+      <button type="submit" id="submit-button">Convert</button>
+    </fieldset>
+  </form>
+
+  <div id="result" class="result" aria-live="polite"></div>
+  <div id="error" class="error" role="alert" aria-live="assertive"></div>
+
+  <script>
+    const form = document.getElementById('converter-form');
+    const valueInput = document.getElementById('value');
+    const fromSelect = document.getElementById('from');
+    const toSelect = document.getElementById('to');
+    const resultEl = document.getElementById('result');
+    const errorEl = document.getElementById('error');
+    const submitButton = document.getElementById('submit-button');
+
+    function showError(message) {
+      errorEl.textContent = message;
+      errorEl.classList.add('visible');
+    }
+
+    function clearError() {
+      errorEl.textContent = '';
+      errorEl.classList.remove('visible');
+    }
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      clearError();
+      resultEl.textContent = '';
+
+      const rawValue = valueInput.value.trim();
+      if (rawValue === '') {
+        showError('Value must be a number');
+        return;
+      }
+
+      const value = Number(rawValue);
+      const payload = {
+        value,
+        from: fromSelect.value,
+        to: toSelect.value
+      };
+
+      submitButton.disabled = true;
+
+      try {
+        const response = await fetch('/api/convert', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        let data;
+        try {
+          data = await response.json();
+        } catch {
+          data = null;
+        }
+
+        if (response.ok) {
+          resultEl.textContent = data.value + ' ' + data.unit;
+        } else {
+          const message = data && data.error ? data.error : 'Conversion failed';
+          showError(message);
+        }
+      } catch (err) {
+        showError('Network error: ' + err.message);
+      } finally {
+        submitButton.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

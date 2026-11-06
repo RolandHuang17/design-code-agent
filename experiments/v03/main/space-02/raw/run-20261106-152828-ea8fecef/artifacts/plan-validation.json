@@ -1,0 +1,5 @@
+{
+  "status": "failed",
+  "error": "file target has multiple owners: traceability.json",
+  "attempt": 0
+}

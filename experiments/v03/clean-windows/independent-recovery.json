@@ -1,0 +1,136 @@
+{
+  "kind": "native_windows_process_recovery",
+  "status": "passed",
+  "pause_attempt_count": 2,
+  "final_attempt_count": 23,
+  "completed_attempts_preserved_without_resend": {
+    "359a92c896a6b130cd834225bf05db86d7d9023648b5ea36c268a02dec9a9199": true,
+    "787835365531179c006cf29a346817b48ef50360bcba2862c4a955a227af3c5f": true
+  },
+  "new_attempts": 21,
+  "states_in_event_history": [
+    {
+      "state": "running"
+    },
+    {
+      "state": "pending",
+      "reason": "已暂停；可安全恢复已完成步骤"
+    },
+    {
+      "state": "running"
+    },
+    {
+      "state": "cancelled",
+      "reason": "请求已取消；响应费用不确定，保留预留"
+    },
+    {
+      "state": "running"
+    },
+    {
+      "state": "waiting_check"
+    },
+    {
+      "state": "completed",
+      "verification": "unverified",
+      "review": {
+        "approved": true,
+        "issues": [],
+        "advisories": [
+          "test/health.test.cjs: t.after(() => server.close()) does not await the close callback; consider `await new Promise(r => server.close(r))` for a fully deterministic teardown.",
+          "src/index.cjs: server.listen(...) has no 'error' listener, so an EADDRINUSE port conflict would emit an unhandled error event rather than a clean exit message."
+        ]
+      },
+      "checks": [
+        {
+          "state": "completed",
+          "profile": "static",
+          "snapshot": "cc1acf8899504f419b6deb9e4796b969e9491216fc4e87a5930207086a3ccfcd",
+          "result": {
+            "profile": "static",
+            "status": "unverified",
+            "results": [
+              {
+                "check": "required:package.json",
+                "status": "passed"
+              },
+              {
+                "check": "required:README.md",
+                "status": "passed"
+              },
+              {
+                "check": "package.json",
+                "status": "passed"
+              },
+              {
+                "check": "src/app.cjs",
+                "status": "unverified",
+                "reason": "缺少 Node.js"
+              },
+              {
+                "check": "src/index.cjs",
+                "status": "unverified",
+                "reason": "缺少 Node.js"
+              },
+              {
+                "check": "test/health.test.cjs",
+                "status": "unverified",
+                "reason": "缺少 Node.js"
+              }
+            ],
+            "snapshot_id": "af6e99c0ce9e5315a95761afa7e9b463974ab94ae058b9414dfda7a77ed813f3",
+            "snapshot_after": "af6e99c0ce9e5315a95761afa7e9b463974ab94ae058b9414dfda7a77ed813f3",
+            "stale": false
+          },
+          "result_snapshot": "cc1acf8899504f419b6deb9e4796b969e9491216fc4e87a5930207086a3ccfcd"
+        },
+        {
+          "state": "completed",
+          "profile": "install",
+          "snapshot": "cc1acf8899504f419b6deb9e4796b969e9491216fc4e87a5930207086a3ccfcd",
+          "result": {
+            "profile": "install",
+            "status": "unverified",
+            "reason": "未找到标准 Node/npm 安装；请按 README 手动安装依赖",
+            "snapshot_id": "af6e99c0ce9e5315a95761afa7e9b463974ab94ae058b9414dfda7a77ed813f3",
+            "snapshot_after": "af6e99c0ce9e5315a95761afa7e9b463974ab94ae058b9414dfda7a77ed813f3",
+            "stale": false
+          },
+          "result_snapshot": "cc1acf8899504f419b6deb9e4796b969e9491216fc4e87a5930207086a3ccfcd"
+        },
+        {
+          "state": "completed",
+          "profile": "test",
+          "snapshot": "cc1acf8899504f419b6deb9e4796b969e9491216fc4e87a5930207086a3ccfcd",
+          "result": {
+            "profile": "test",
+            "status": "unverified",
+            "reason": "缺少 Node.js/npm 或 Docker",
+            "snapshot_id": "af6e99c0ce9e5315a95761afa7e9b463974ab94ae058b9414dfda7a77ed813f3",
+            "snapshot_after": "af6e99c0ce9e5315a95761afa7e9b463974ab94ae058b9414dfda7a77ed813f3",
+            "stale": false
+          },
+          "result_snapshot": "cc1acf8899504f419b6deb9e4796b969e9491216fc4e87a5930207086a3ccfcd"
+        },
+        {
+          "state": "completed",
+          "profile": "build",
+          "snapshot": "cc1acf8899504f419b6deb9e4796b969e9491216fc4e87a5930207086a3ccfcd",
+          "result": {
+            "profile": "build",
+            "status": "unverified",
+            "reason": "缺少 Node.js/npm 或 Docker",
+            "snapshot_id": "af6e99c0ce9e5315a95761afa7e9b463974ab94ae058b9414dfda7a77ed813f3",
+            "snapshot_after": "af6e99c0ce9e5315a95761afa7e9b463974ab94ae058b9414dfda7a77ed813f3",
+            "stale": false
+          },
+          "result_snapshot": "cc1acf8899504f419b6deb9e4796b969e9491216fc4e87a5930207086a3ccfcd"
+        }
+      ]
+    }
+  ],
+  "unknown_request_policy": "Two cancelled attempts remain abandoned; GUI required explicit acknowledgement before retry. Unknown cost reservations retained.",
+  "process_test": "GUI closed after pending safe point, then a distinct launched exe process resumed same directory. No forced process-kill experiment.",
+  "post_resume_guest_verification": "unverified: Node/npm not installed",
+  "host_after_export": "Separate HTTP, test and build reports; not rewritten into guest results",
+  "known_display_limitation": "report.run.reason retains prior cancellation text even after state becomes completed; event history and current state establish the outcome."
+}

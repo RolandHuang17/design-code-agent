@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+coverage/
+
+# Environment files (only the example is committed)
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+pnpm-debug.log*
+
+# Test artifacts
+.nyc_output/
+test-results/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+*.iml
+
+# Terraform state (reference-only configs may generate local state)
+*.tfstate
+*.tfstate.*
+.terraform/
+*.tfvars
+crash.log
+
+# Generated lockfiles are produced by the host, not committed by this author.
+# package-lock.json is intentionally generated during the host install check.

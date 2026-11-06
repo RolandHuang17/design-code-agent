@@ -1,0 +1,8 @@
+{
+  "kind": "operator_stop_diagnosis",
+  "status": "cancelled",
+  "reason": "Stopped cooperatively during verification round 5 after repeated cross-module read_limit errors. Controller investigation limit increased from 8 reads/12 turns to 24 reads/20 turns before a new seed continuation.",
+  "product_manually_modified": false,
+  "next_trial": "space-03-wide-context",
+  "original_report_preserved": true
+}

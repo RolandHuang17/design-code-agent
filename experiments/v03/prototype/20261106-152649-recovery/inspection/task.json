@@ -1,0 +1,84 @@
+{
+  "t1": {
+    "id": "t1",
+    "description": "Create package.json (ESM module, Node >=22, scripts: start, build, test; no runtime dependencies) and src/convert.js containing the pure temperature conversion and validation logic. convert.js exports convert(value, from, to) returning {value, unit} and validate(payload) returning {value,from,to} or throwing an error with a nonempty message. Implements FR3 formulas, same-unit preservation, and FR4 validation (missing fields, nonnumeric, booleans, unsupported units, below absolute zero at C=-273.15, F=-459.67, K=0 with floating-point tolerance).",
+    "files": [
+      "package.json",
+      "src/convert.js"
+    ],
+    "depends_on": [],
+    "source": [
+      "input/0@ebb437192ddd627b2fa92b9d1309c8d712f0931720f2f779e496ae1acc2466b4"
+    ],
+    "state": "completed",
+    "meaning": "candidate integrated; run validation still required"
+  },
+  "t2": {
+    "id": "t2",
+    "description": "Create src/app.js exposing an HTTP handler/router (createApp) with GET / serving public/index.html, POST /api/convert parsing JSON, calling validate+convert and returning 200 {value,unit} or 400 {error} (malformed JSON included), and GET /health returning 200 {status:'ok'}. Also create src/server.js that starts the server on process.env.PORT (default 3000).",
+    "files": [
+      "src/app.js",
+      "src/server.js"
+    ],
+    "depends_on": [
+      "t1"
+    ],
+    "source": [
+      "input/0@ebb437192ddd627b2fa92b9d1309c8d712f0931720f2f779e496ae1acc2466b4",
+      "input/1@a6a4735305a4f271e2e303d0322630b5b6ebc37ccecd01d49c2047d7f752c34c"
+    ],
+    "state": "completed",
+    "meaning": "candidate integrated; run validation still required"
+  },
+  "t3": {
+    "id": "t3",
+    "description": "Create public/index.html with a numeric input, source and destination unit selectors (C/F/K), submit button, result display, and a visible error feedback element. Client-side JS POSTs to /api/convert, renders the returned {value, unit}, and shows the {error} string on 400.",
+    "files": [
+      "public/index.html"
+    ],
+    "depends_on": [
+      "t2"
+    ],
+    "source": [
+      "input/0@ebb437192ddd627b2fa92b9d1309c8d712f0931720f2f779e496ae1acc2466b4",
+      "input/1@a6a4735305a4f271e2e303d0322630b5b6ebc37ccecd01d49c2047d7f752c34c"
+    ],
+    "state": "completed",
+    "meaning": "candidate integrated; run validation still required"
+  },
+  "t4": {
+    "id": "t4",
+    "description": "Create real unit tests using node:test (no external test runner). test/convert.test.js tests conversion formulas, same-unit preservation, and all validation rejections (missing/nonnumeric/boolean/unsupported units/absolute zero boundaries/tolerance). test/app.test.js tests HTTP routes via the exported router/handler without a listening server: /health 200, /api/convert 200 and 400 cases, malformed JSON 400, and GET / 200.",
+    "files": [
+      "test/convert.test.js",
+      "test/app.test.js"
+    ],
+    "depends_on": [
+      "t1",
+      "t2"
+    ],
+    "source": [
+      "input/0@ebb437192ddd627b2fa92b9d1309c8d712f0931720f2f779e496ae1acc2466b4"
+    ],
+    "state": "completed",
+    "meaning": "candidate integrated; run validation still required"
+  },
+  "t5": {
+    "id": "t5",
+    "description": "Create README.md documenting install (npm install), start (npm start, PORT default 3000), test (npm test), build (npm run build = node --check syntax validation), API contract, limitations (no external services, single process), and a source-to-code/test traceability table mapping FR1-FR5 and NFR1-NFR2 to the implementing files.",
+    "files": [
+      "README.md"
+    ],
+    "depends_on": [
+      "t1",
+      "t2",
+      "t3",
+      "t4"
+    ],
+    "source": [
+      "input/0@ebb437192ddd627b2fa92b9d1309c8d712f0931720f2f779e496ae1acc2466b4"
+    ],
+    "state": "completed",
+    "meaning": "candidate integrated; run validation still required"
+  }
+}

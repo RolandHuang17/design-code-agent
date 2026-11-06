@@ -16,6 +16,8 @@ def main():
     parser.add_argument('--main-exe', required=True, type=Path)
     parser.add_argument('--prototype-exe', required=True, type=Path)
     parser.add_argument('--probe', required=True, type=Path)
+    parser.add_argument('--transfer-helper', type=Path)
+    parser.add_argument('--transfer-url-file', type=Path)
     parser.add_argument('--pycdlib-dir', type=Path, default=Path('.local/iso-builder'))
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--staging', type=Path, required=True)
@@ -27,6 +29,10 @@ def main():
         parser.error('Output and staging must be new paths under workspace .local/vm')
     sources = {'Main/DesignCodeAgent.exe': args.main_exe, 'Prototype/DesignCodeAgent-Superagent.exe': args.prototype_exe,
                'EnvironmentProbe.exe': args.probe}
+    if args.transfer_helper:
+        sources['EvidenceTransfer.exe'] = args.transfer_helper
+    if args.transfer_url_file:
+        sources['transfer-url.txt'] = args.transfer_url_file
     for track in ('Main', 'Prototype'):
         for case in ('smoke', 'temperature-converter', 'superagent-health'):
             for path in (Path('benchmarks') / case).glob('*.md'):

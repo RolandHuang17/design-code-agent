@@ -1,0 +1,18 @@
+{
+  "root": "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project",
+  "changes": [
+    {
+      "path": "Dockerfile",
+      "before": null,
+      "after": "b857dd82fe703c84fb0c0eefd90900150db3cb9ec0c414041ca986d7251eeabe"
+    }
+  ],
+  "checks": [
+    {
+      "path": "Dockerfile",
+      "status": "not_applicable",
+      "kind": "syntax_format"
+    }
+  ],
+  "status": "committed"
+}

@@ -1,0 +1,15 @@
+{
+  "name": "temperature-converter",
+  "version": "1.0.0",
+  "description": "A small browser-based temperature converter (Node.js 22 application).",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node source/index.js",
+    "test": "node --test",
+    "build": "node --check source/convert.js && node --check source/app.js && node --check source/index.js"
+  }
+}

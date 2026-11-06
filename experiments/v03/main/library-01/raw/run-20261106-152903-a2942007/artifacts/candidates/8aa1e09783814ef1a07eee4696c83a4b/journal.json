@@ -1,0 +1,18 @@
+{
+  "root": "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\library-01\\run-20261106-152903-a2942007\\project",
+  "changes": [
+    {
+      "path": "README.md",
+      "before": null,
+      "after": "bf2c7deb37359b222595a4e5efbee4f74bd041e0e343f0dc34e35874c7bdc28f"
+    }
+  ],
+  "checks": [
+    {
+      "path": "README.md",
+      "status": "not_applicable",
+      "kind": "syntax_format"
+    }
+  ],
+  "status": "committed"
+}

@@ -1,0 +1,26 @@
+{
+  "root": "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\library-01\\run-20261106-152903-a2942007\\project",
+  "changes": [
+    {
+      "path": "test/catalog.test.js",
+      "before": null,
+      "after": "8e23021a1db86fc01cfdebf778497e462edcddcc6888bb1e605817137e8f67ce"
+    }
+  ],
+  "checks": [
+    {
+      "path": "test/catalog.test.js",
+      "status": "passed",
+      "kind": "syntax_format",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\library-01\\run-20261106-152903-a2942007\\artifacts\\candidates\\053fddacc4d648c3aa9c7a03951a26ff\\after\\test\\catalog.test.js"
+      ],
+      "output": ""
+    }
+  ],
+  "status": "committed"
+}

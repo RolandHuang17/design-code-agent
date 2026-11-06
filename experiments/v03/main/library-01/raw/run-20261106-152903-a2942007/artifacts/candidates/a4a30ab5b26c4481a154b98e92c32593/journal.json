@@ -1,0 +1,18 @@
+{
+  "root": "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\library-01\\run-20261106-152903-a2942007\\project",
+  "changes": [
+    {
+      "path": "architecture-decisions.md",
+      "before": null,
+      "after": "2ef21035eb53fe3a392bca3565725e8e693c601972bccce23a0cbe14700717fa"
+    }
+  ],
+  "checks": [
+    {
+      "path": "architecture-decisions.md",
+      "status": "not_applicable",
+      "kind": "syntax_format"
+    }
+  ],
+  "status": "committed"
+}

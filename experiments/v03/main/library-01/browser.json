@@ -1,0 +1,31 @@
+{
+  "kind": "independent_browser",
+  "status": "passed",
+  "source_matches_original_run": true,
+  "checks": [
+    {
+      "check": "add title with one copy",
+      "status": "passed"
+    },
+    {
+      "check": "borrow produces active loan and zero available copies",
+      "status": "passed"
+    },
+    {
+      "check": "second reader cannot borrow zero stock and sees error",
+      "status": "passed"
+    },
+    {
+      "check": "return loan restores one available copy",
+      "status": "passed"
+    },
+    {
+      "check": "reload preserves returned loan and stock",
+      "status": "passed"
+    }
+  ],
+  "method": "Real Chromium via Playwright CLI, observed controls",
+  "notes": [
+    "One favicon404; expected409 on second borrow. No product source edits."
+  ]
+}

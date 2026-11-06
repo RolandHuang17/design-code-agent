@@ -1,0 +1,29 @@
+{
+  "name": "space-fractions",
+  "version": "1.0.0",
+  "description": "Space Fractions - sixth-grade fraction learning game (microservices architecture)",
+  "private": true,
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "start": "node gateway/index.js",
+    "build": "node scripts/check.js",
+    "test": "node --test test/fraction.test.js test/game-service.test.js test/auth.test.js",
+    "test:integration": "node --test test/integration.test.js"
+  },
+  "dependencies": {
+    "@elastic/elasticsearch": "8.13.1",
+    "amqplib": "0.10.4",
+    "express": "4.19.2",
+    "jose": "5.2.4",
+    "pg": "8.11.5",
+    "prom-client": "15.1.2",
+    "redis": "4.6.13"
+  },
+  "devDependencies": {
+    "js-yaml": "4.1.0"
+  },
+  "license": "UNLICENSED"
+}

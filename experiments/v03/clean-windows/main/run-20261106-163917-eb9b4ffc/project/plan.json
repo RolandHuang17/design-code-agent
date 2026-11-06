@@ -1,0 +1,99 @@
+{
+  "summary": "Implement a minimal stateless Node.js 22 HTTP health service using only the built-in http and node:test modules. The service exposes GET /health (200, {\"status\":\"ok\"}), returns 404 JSON for unknown routes while remaining healthy, and separates an exported server factory from a startup entry point that listens on process.env.PORT (default 3000). Tests exercise real HTTP behavior on an ephemeral loopback port. No database, Docker, identity provider, third-party packages, or cloud infrastructure is required.",
+  "tasks": [
+    {
+      "id": "T1",
+      "description": "Create the exported HTTP server factory module (app.cjs) that constructs a Node http.Server handling GET /health (200 JSON {\"status\":\"ok\"}) and all other routes (404 JSON error), without calling listen().",
+      "files": ["src/app.cjs"],
+      "depends_on": [],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 6, "end_line": 8},
+        {"document": "Architecture_View.md", "start_line": 5, "end_line": 15}
+      ],
+      "contracts": [
+        {"description": "Exported factory createServer() returns an un-started node:http.Server; the caller owns listen/close.", "source": {"document": "Architecture_Documentation.md", "start_line": 8}},
+        {"description": "GET /health responds 200 with JSON body exactly {\"status\":\"ok\"}.", "source": {"document": "Architecture_Documentation.md", "start_line": 6}},
+        {"description": "Any path other than /health responds 404 with a JSON error body; service remains able to serve /health afterward.", "source": {"document": "Architecture_Documentation.md", "start_line": 7}}
+      ]
+    },
+    {
+      "id": "T2",
+      "description": "Create the executable startup entry (server.cjs) that imports the factory, parses process.env.PORT (default 3000), and listens, keeping the process alive.",
+      "files": ["src/server.cjs"],
+      "depends_on": ["T1"],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 8, "end_line": 8},
+        {"document": "Architecture_View.md", "start_line": 10, "end_line": 11}
+      ],
+      "contracts": [
+        {"description": "npm start listens on process.env.PORT with a default of 3000 and does not close the listener.", "source": {"document": "Architecture_Documentation.md", "start_line": 8}},
+        {"description": "Startup entry and application factory are separate files so tests never spawn a fixed-port server.", "source": {"document": "Architecture_Documentation.md", "start_line": 8}}
+      ]
+    },
+    {
+      "id": "T3",
+      "description": "Write real HTTP tests using node:test that start the factory on loopback port 0, assert /health, an unknown route, and /health again, then close the server.",
+      "files": ["test/app.test.cjs"],
+      "depends_on": ["T1"],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 9, "end_line": 9},
+        {"document": "Architecture_View.md", "start_line": 12, "end_line": 13}
+      ],
+      "contracts": [
+        {"description": "npm test performs actual HTTP requests (no mocks) against an ephemeral loopback port and closes the server in teardown.", "source": {"document": "Architecture_Documentation.md", "start_line": 9}}
+      ]
+    },
+    {
+      "id": "T4",
+      "description": "Create package.json with pinned (empty) dependency set, start/test/build scripts, and CommonJS (.cjs) conformance.",
+      "files": ["package.json"],
+      "depends_on": ["T1", "T2", "T3"],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 8, "end_line": 10}
+      ],
+      "contracts": [
+        {"description": "npm test runs node --test test/app.test.cjs; npm run build runs node --check over all source files; npm start runs node src/server.cjs.", "source": {"document": "Architecture_Documentation.md", "start_line": 9}},
+        {"description": "No runtime or development dependencies are declared; only Node built-ins are used.", "source": {"document": "Architecture_Documentation.md", "start_line": 4}}
+      ]
+    },
+    {
+      "id": "T5",
+      "description": "Write README.md with install/start/test/build instructions and a source-to-requirement mapping.",
+      "files": ["README.md"],
+      "depends_on": ["T1", "T2", "T3", "T4"],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 10, "end_line": 10}
+      ],
+      "contracts": [
+        {"description": "README documents install/start/test instructions and maps each source file to FR/NFR requirements.", "source": {"document": "Architecture_Documentation.md", "start_line": 10}}
+      ]
+    },
+    {
+      "id": "T6",
+      "description": "Add a portability-safe build script helper that runs node --check across all .cjs source files (plain npm script invoking node --check per file).",
+      "files": ["scripts/check-syntax.cjs"],
+      "depends_on": ["T1", "T2", "T3"],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 10, "end_line": 10}
+      ],
+      "contracts": [
+        {"description": "npm run build verifies JavaScript syntax of all source files; implementation defined as an assumption: uses node --check invoked from a helper script.", "source": {"document": "Architecture_Documentation.md", "start_line": 10}}
+      ]
+    }
+  ],
+  "assumptions": [
+    "npm run build is implemented as a helper script (scripts/check-syntax.cjs) that invokes node --check on src/app.cjs and src/server.cjs; the original document only states that build 'checks all source JavaScript syntax' without specifying a mechanism.",
+    "The JSON error body for unknown routes is {\"error\":\"Not Found\"} with a 404 status; the document specifies 'a JSON error' without a fixed shape.",
+    "Only named start/test/build scripts are required; no lockfile is authored by the model (host generates npm lockfiles during install).",
+    "The /health response Content-Type is application/json; the document specifies only the status code and JSON body.",
+    "The startup entry does not add explicit signal handlers; the default process termination behavior is acceptable given the document does not require graceful shutdown of the startup process."
+  ],
+  "conflicts": [
+    "None. The two input documents are consistent: the architecture view mirrors FR3's factory/startup separation and NFR1's ephemeral-port testing."
+  ],
+  "verification": {
+    "unit": "npm test runs node --test against test/app.test.cjs with no live database, Redis, or identity provider.",
+    "build": "npm run build runs node --check over all source files.",
+    "startup": "npm start keeps an HTTP listener alive on process.env.PORT and answers GET /health."
+  }
+}

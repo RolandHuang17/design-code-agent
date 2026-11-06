@@ -1,0 +1,101 @@
+{
+  "kind": "host_after_guest_export",
+  "status": "passed",
+  "checks": [
+    {
+      "profile": "static",
+      "status": "passed",
+      "results": [
+        {
+          "check": "required:package.json",
+          "status": "passed"
+        },
+        {
+          "check": "required:README.md",
+          "status": "passed"
+        },
+        {
+          "check": "package.json",
+          "status": "passed"
+        },
+        {
+          "check": "src/app.cjs",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\experiments\\v03\\clean-windows\\prototype\\pause-demo\\project\\src\\app.cjs"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/index.cjs",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\experiments\\v03\\clean-windows\\prototype\\pause-demo\\project\\src\\index.cjs"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/health.test.cjs",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\experiments\\v03\\clean-windows\\prototype\\pause-demo\\project\\test\\health.test.cjs"
+          ],
+          "output": ""
+        }
+      ],
+      "snapshot_id": "af6e99c0ce9e5315a95761afa7e9b463974ab94ae058b9414dfda7a77ed813f3",
+      "snapshot_after": "af6e99c0ce9e5315a95761afa7e9b463974ab94ae058b9414dfda7a77ed813f3",
+      "stale": false
+    },
+    {
+      "profile": "test",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "run",
+        "test",
+        "--ignore-scripts"
+      ],
+      "output": "\n> minimal-http-health-service@1.0.0 test\n> node --test\n\n✔ /health returns 200, unknown route returns 404, then /health again returns 200 (36.8253ms)\nℹ tests 1\nℹ suites 0\nℹ pass 1\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 113.8762\n",
+      "test_count": 1,
+      "skipped_count": 0,
+      "test_execution": "observed",
+      "snapshot_id": "af6e99c0ce9e5315a95761afa7e9b463974ab94ae058b9414dfda7a77ed813f3",
+      "snapshot_after": "af6e99c0ce9e5315a95761afa7e9b463974ab94ae058b9414dfda7a77ed813f3",
+      "stale": false
+    },
+    {
+      "profile": "build",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "run",
+        "build",
+        "--ignore-scripts"
+      ],
+      "output": "\n> minimal-http-health-service@1.0.0 build\n> node --check src/app.cjs && node --check src/index.cjs && node --check test/health.test.cjs\n\n",
+      "snapshot_id": "af6e99c0ce9e5315a95761afa7e9b463974ab94ae058b9414dfda7a77ed813f3",
+      "snapshot_after": "af6e99c0ce9e5315a95761afa7e9b463974ab94ae058b9414dfda7a77ed813f3",
+      "stale": false
+    }
+  ],
+  "note": "Host with Node; guest results remain unverified."
+}

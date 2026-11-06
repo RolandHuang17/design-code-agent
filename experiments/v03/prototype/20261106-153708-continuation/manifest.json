@@ -1,0 +1,224 @@
+{
+  "source_commit": "4c41d363ca0bed95dbabf5fde112e336311c7bc4",
+  "experiment": "real_api_prototype_continuation",
+  "manual_project_edits": false,
+  "input_sha256": {
+    "Architecture_Documentation.md": "428e346c9cd7fc9ed63f793591d47869e0d110bf6f002efb54d33159cde39c11",
+    "Architecture_View.md": "850c8560156d669579d0a7e7f9a28389e83a4d90d9be3b14d5845ef2d37352be"
+  },
+  "source_sha256": {
+    "codeagent\\budget.py": "1e9c3222ddd7624114b62086b8f36c2f9a646571fa946c30da61bb0b13b23f52",
+    "codeagent\\candidates.py": "5bf74661cbe0b46b48ad7bb4e8c3378b9095e02096e18bd0ccfe434dd07580b5",
+    "codeagent\\cases.py": "17efbd819b5908e0ca7ffca5532c9486db47108018b984e49d5eb6a2e982148c",
+    "codeagent\\checks.py": "f105cb17a64c5039d00906364e72f0233715ea8f4139bb85f3a70c0bd817e598",
+    "codeagent\\cli.py": "29c92505fc121ad507807ebe87b32c4c327d0bfdb49aa7f81c19bed5f72f50e6",
+    "codeagent\\config.py": "548cec1513f4b3e5fc4ab58260a59d983344768ed882823ba3ebe1dca65270fe",
+    "codeagent\\engine.py": "9bbfc3269a7be58094a4147764aaf256ac69fcb1da8980fb278a6376c454e6e0",
+    "codeagent\\evidence.py": "e4b730e10dd5a7339dc993176ce99a202351e3d3d5049537ce6740cfecf7bac2",
+    "codeagent\\gui.py": "84c84fa3c9465b5495295fe31bd57f45a26d5aae2985c5b9dc2f6f8af7e83c11",
+    "codeagent\\inputs.py": "6a2ad7d399a4c981a4d6ec55e2ea974c1c8dec2753e90685771064896f501f12",
+    "codeagent\\prompts.py": "f36e64b1f69ea68342c27f1eef0c331aa64d95e50b79f53923bc754ee5462331",
+    "codeagent\\provider.py": "454317f3579994a56c3804ee368faa91fbfa872d6cf203c3d9d2f51ad7c1d21c",
+    "codeagent\\runtime.py": "f82ad62e753c27cacf0d4cc3a97f678200d45122638604c525adca16d16a583b",
+    "codeagent\\safety.py": "e12c23689b4ef325013e2257905da6e0957397ff2ab64d260540d8b7fbbe5b4c",
+    "codeagent\\tools.py": "85a2726984450ae25d5db1812967dcd6cf3cc6243d600ecde8f7879c32d4de19",
+    "codeagent\\__init__.py": "25dc2dae04ced1865728dd4dff1524ed43ada7fa32720b516a50b974b138e52a",
+    "codeagent\\__main__.py": "3129adff95e0f38b87ab34cddfc27082c7892bcaec267ff5d40f160fdf55b44a",
+    "codeagent\\acceptance\\http_checks.py": "137c4d444f513fcb83419527b3305afa9f28f1b5ea8bbabe11fa5673b105a4f0",
+    "codeagent\\acceptance\\__init__.py": "a3a5f4b3c36c7a68f9e7f65a05eb6cb5fa61c7d39a9cecc0625e18a6bc256f7d",
+    "codeagent\\superagent\\gui.py": "9405ef52491afa72dde98d984bd892ff635944a8ac74c3fd253a8bd491bc0824",
+    "codeagent\\superagent\\runtime.py": "c1ef7f3eeda2bc954dc322dc36374a4dae223d8190f89c1a2f9afa2aa54d6c67",
+    "codeagent\\superagent\\store.py": "7fbce58135cfb3b74f5760f323a52eeaddf286a998ee96079e6c7a724055cf63",
+    "codeagent\\superagent\\__init__.py": "2280624d0198a434340c06e15b7dc7ddfb888aa9016a3be03dec4fe4c6d0efd1"
+  },
+  "start_time": 1793950629.0417688,
+  "provider": "bailian",
+  "model": "deepseek-v4-pro-0813",
+  "base_url": "https://ws-hzkcuvkt74i3d6ol.cn-beijing.maas.aliyuncs.com/compatible-mode/v1",
+  "budget_before": {
+    "limit_cny": null,
+    "charged_cny": 490.11501,
+    "uncertain_requests": 13,
+    "request_count": 2229,
+    "prices": {
+      "input_per_million": 12,
+      "output_per_million": 27,
+      "reference_date": "2026-11-05"
+    }
+  },
+  "parent_directory": "D:\\projects\\Task-superagent\\runs\\superagent-v03\\20261106-152132-normal",
+  "parent_source_commit": "dace5f2aa989a82a2fa6717ec141ff68412cac29",
+  "kind": "checkpoint_continuation_not_fresh_generation",
+  "end_time": 1793950695.9530637,
+  "result": {
+    "state": "failed",
+    "created": 1793949693.0333467,
+    "reference": "https://github.com/deepseek-ai/dsh-superagent-prototype/tree/8c32a9dc5d72c033816c6a8110b37f40cf94fba4",
+    "updated": 1793950695.9471526,
+    "reason": "模型输出被截断；未执行本次工具调用",
+    "verification": "failed",
+    "review": {
+      "approved": true,
+      "issues": []
+    },
+    "checks": [
+      {
+        "state": "completed",
+        "profile": "static",
+        "snapshot": "86e49c8eeeb85b7409bbf97601f807f51fd3fcc91c37551932d414a74fa57632",
+        "result": {
+          "profile": "static",
+          "status": "passed",
+          "results": [
+            {
+              "check": "required:package.json",
+              "status": "passed"
+            },
+            {
+              "check": "required:README.md",
+              "status": "passed"
+            },
+            {
+              "check": "package.json",
+              "status": "passed"
+            },
+            {
+              "check": "source/app.js",
+              "status": "passed",
+              "exit_code": 0,
+              "timed_out": false,
+              "command": [
+                "C:\\Program Files\\nodejs\\node.EXE",
+                "--check",
+                "D:\\projects\\Task-superagent\\runs\\superagent-v03\\20261106-153708-continuation\\project\\source\\app.js"
+              ],
+              "output": ""
+            },
+            {
+              "check": "source/convert.js",
+              "status": "passed",
+              "exit_code": 0,
+              "timed_out": false,
+              "command": [
+                "C:\\Program Files\\nodejs\\node.EXE",
+                "--check",
+                "D:\\projects\\Task-superagent\\runs\\superagent-v03\\20261106-153708-continuation\\project\\source\\convert.js"
+              ],
+              "output": ""
+            },
+            {
+              "check": "source/index.js",
+              "status": "passed",
+              "exit_code": 0,
+              "timed_out": false,
+              "command": [
+                "C:\\Program Files\\nodejs\\node.EXE",
+                "--check",
+                "D:\\projects\\Task-superagent\\runs\\superagent-v03\\20261106-153708-continuation\\project\\source\\index.js"
+              ],
+              "output": ""
+            },
+            {
+              "check": "test/api.test.js",
+              "status": "passed",
+              "exit_code": 0,
+              "timed_out": false,
+              "command": [
+                "C:\\Program Files\\nodejs\\node.EXE",
+                "--check",
+                "D:\\projects\\Task-superagent\\runs\\superagent-v03\\20261106-153708-continuation\\project\\test\\api.test.js"
+              ],
+              "output": ""
+            },
+            {
+              "check": "test/convert.test.js",
+              "status": "passed",
+              "exit_code": 0,
+              "timed_out": false,
+              "command": [
+                "C:\\Program Files\\nodejs\\node.EXE",
+                "--check",
+                "D:\\projects\\Task-superagent\\runs\\superagent-v03\\20261106-153708-continuation\\project\\test\\convert.test.js"
+              ],
+              "output": ""
+            }
+          ],
+          "snapshot_id": "8958b90ef878d224f4346960f003c60b702117aec0530cba3d46c4f9c9503020",
+          "snapshot_after": "8958b90ef878d224f4346960f003c60b702117aec0530cba3d46c4f9c9503020",
+          "stale": false
+        },
+        "result_snapshot": "86e49c8eeeb85b7409bbf97601f807f51fd3fcc91c37551932d414a74fa57632"
+      },
+      {
+        "state": "completed",
+        "profile": "install",
+        "snapshot": "86e49c8eeeb85b7409bbf97601f807f51fd3fcc91c37551932d414a74fa57632",
+        "result": {
+          "profile": "install",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+            "ci",
+            "--ignore-scripts",
+            "--no-audit",
+            "--no-fund"
+          ],
+          "output": "\nup to date in 635ms\n",
+          "snapshot_id": "8dd86deb88c0f70d2755df137d2c3ad2a851d160c9f7ba81fdd45dd18d2fbc3c",
+          "snapshot_after": "8dd86deb88c0f70d2755df137d2c3ad2a851d160c9f7ba81fdd45dd18d2fbc3c",
+          "stale": false
+        },
+        "result_snapshot": "8f2872e86b8865a9d0aead1d6fad1da69eff4c91f7d1b2372db146c8ab7e5247"
+      },
+      {
+        "state": "completed",
+        "profile": "test",
+        "snapshot": "8f2872e86b8865a9d0aead1d6fad1da69eff4c91f7d1b2372db146c8ab7e5247",
+        "result": {
+          "profile": "test",
+          "status": "failed",
+          "exit_code": 1,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+            "run",
+            "test",
+            "--ignore-scripts"
+          ],
+          "output": "\n> temperature-converter@1.0.0 test\n> node --test\n\n✔ GET / serves an HTML page (FR1) (26.993ms)\n✔ GET /health returns { status: \"ok\" } (FR5) (3.9347ms)\n✔ POST /api/convert converts C to F with 200 (FR2) (4.3739ms)\n✔ POST /api/convert converts K to C with 200 and does not round (FR2) (2.5156ms)\n✔ POST /api/convert preserves a decimal value (FR2) (2.1556ms)\n✔ POST /api/convert returns 400 for missing fields (FR4) (3.5854ms)\n✔ POST /api/convert returns 400 for a nonnumeric value (FR4) (2.3958ms)\n✔ POST /api/convert returns 400 for a boolean value (FR4) (1.9919ms)\n✔ POST /api/convert returns 400 for an unsupported unit (FR4) (2.8485ms)\n✔ POST /api/convert returns 400 for a value below absolute zero (FR4) (2.1805ms)\n✔ POST /api/convert returns 400 for malformed JSON (FR4) (1.853ms)\n✔ POST /api/convert returns 400 for a non-object body (FR4) (1.7417ms)\n✔ C to F conversion (0.9747ms)\n✔ F to C conversion (0.1134ms)\n✔ C to K conversion (0.1109ms)\n✔ K to C conversion (0.116ms)\n✔ F to K conversion (0.1231ms)\n✔ K to F conversion (0.0899ms)\n✖ same-unit conversion preserves the value (0.2344ms)\n✔ negative values are preserved for C and F (0.1072ms)\n✔ booleans are rejected (0.4989ms)\n✔ non-numeric values are rejected (0.2668ms)\n✔ missing value is rejected (0.1208ms)\n✔ unsupported units are rejected (0.2376ms)\n✔ absolute-zero boundaries are allowed (FR4) (0.1065ms)\n✔ values below absolute zero are rejected (FR4) (0.1267ms)\n✔ below-zero rejected even for same-unit conversion (FR4) (0.1387ms)\n✔ validate returns null for valid input and a nonempty string otherwise (0.1315ms)\n✔ UNITS and ABSOLUTE_ZERO are exported constants (1.3642ms)\nℹ tests 29\nℹ suites 0\nℹ pass 28\nℹ fail 1\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 199.135\n\n✖ failing tests:\n\ntest at test\\convert.test.js:52:1\n✖ same-unit conversion preserves the value (0.2344ms)\n  Error: temperature below absolute zero\n      at convert (file:///D:/projects/Task-superagent/runs/superagent-v03/20261106-153708-continuation/project/source/convert.js:54:11)\n      at TestContext.<anonymous> (file:///D:/projects/Task-superagent/runs/superagent-v03/20261106-153708-continuation/project/test/convert.test.js:56:18)\n      at Test.runInAsyncScope (node:async_hooks:227:14)\n      at Test.run (node:internal/test_runner/test:1402:25)\n      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)\n      at Test.postRun (node:internal/test_runner/test:1542:19)\n      at Test.run (node:internal/test_runner/test:1467:12)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)\n",
+          "snapshot_id": "8dd86deb88c0f70d2755df137d2c3ad2a851d160c9f7ba81fdd45dd18d2fbc3c",
+          "snapshot_after": "8dd86deb88c0f70d2755df137d2c3ad2a851d160c9f7ba81fdd45dd18d2fbc3c",
+          "stale": false
+        },
+        "result_snapshot": "8f2872e86b8865a9d0aead1d6fad1da69eff4c91f7d1b2372db146c8ab7e5247"
+      }
+    ]
+  },
+  "inherited_attempts": 18,
+  "new_attempts": 2,
+  "sessions": [
+    "coder-T1",
+    "coder-T2",
+    "coder-T3",
+    "coder-T4",
+    "coder-T5",
+    "planner",
+    "reviewer"
+  ],
+  "budget_after": {
+    "limit_cny": null,
+    "charged_cny": 497.641668,
+    "uncertain_requests": 14,
+    "request_count": 2259,
+    "prices": {
+      "input_per_million": 12,
+      "output_per_million": 27,
+      "reference_date": "2026-11-05"
+    }
+  },
+  "new_usage_estimated_cny": 0.489552
+}

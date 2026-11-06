@@ -1,0 +1,53 @@
+{
+  "kind": "independent_design_review",
+  "status": "failed",
+  "original_requirements": [
+    "Architecture_Documentation.md:7",
+    "Architecture_Documentation.md:44"
+  ],
+  "compose_sha256": "36b509cbe163bf29ada18b444bf602d8242388e114999ddf017333103917e39d",
+  "findings": [
+    {
+      "service": "game-service",
+      "command": [
+        "sh",
+        "-c",
+        "echo 'game-service entrypoint: served by gateway'; sleep infinity"
+      ],
+      "issue": "Business role is a placeholder container; implementation remains in gateway",
+      "source": "compose.yaml"
+    },
+    {
+      "service": "question-service",
+      "command": [
+        "sh",
+        "-c",
+        "echo 'question-service entrypoint: served by gateway'; sleep infinity"
+      ],
+      "issue": "Business role is a placeholder container; implementation remains in gateway",
+      "source": "compose.yaml"
+    },
+    {
+      "service": "user-service",
+      "command": [
+        "sh",
+        "-c",
+        "echo 'user-service entrypoint: served by gateway'; sleep infinity"
+      ],
+      "issue": "Business role is a placeholder container; implementation remains in gateway",
+      "source": "compose.yaml"
+    },
+    {
+      "service": "admin-service",
+      "command": [
+        "sh",
+        "-c",
+        "echo 'admin-service entrypoint: served by gateway'; sleep infinity"
+      ],
+      "issue": "Business role is a placeholder container; implementation remains in gateway",
+      "source": "compose.yaml"
+    }
+  ],
+  "scope": "Static configuration review; HTTP checks do not establish separate-service implementation",
+  "manual_project_edits": false
+}

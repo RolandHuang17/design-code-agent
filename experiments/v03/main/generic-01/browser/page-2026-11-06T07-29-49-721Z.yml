@@ -1,0 +1,17 @@
+- generic [ref=e1]:
+  - heading "Temperature converter" [level=1] [ref=e2]
+  - generic [ref=e3]:
+    - generic [ref=e4]: Temperature
+    - spinbutton "Temperature" [ref=e5]: "-40"
+    - generic [ref=e6]: From
+    - combobox "From" [ref=e7]:
+      - option "Celsius (°C)"
+      - option "Fahrenheit (°F)"
+      - option "Kelvin (K)" [selected]
+    - generic [ref=e8]: To
+    - combobox "To" [ref=e9]:
+      - option "Fahrenheit (°F)"
+      - option "Celsius (°C)"
+      - option "Kelvin (K)" [selected]
+    - button "Convert" [active] [ref=e10]
+  - generic [ref=e11]: "-40 F"

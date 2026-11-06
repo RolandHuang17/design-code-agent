@@ -1,0 +1,198 @@
+{
+  "coder-t1": {
+    "result": {
+      "written": [
+        "package.json",
+        "src/convert.js"
+      ],
+      "revision": 2,
+      "snapshot_id": "5f0e4725deef256a526c6740f19c2ce0b4a93b366e3ae686f8b54ff8037fb931",
+      "candidate_id": "87d67448927b424fa8a7c660d8677553",
+      "checks": [
+        {
+          "path": "package.json",
+          "status": "passed"
+        },
+        {
+          "path": "src/convert.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-superagent\\runs\\superagent-v03\\20261106-152649-recovery\\stages\\artifacts\\candidates\\87d67448927b424fa8a7c660d8677553\\after\\src\\convert.js"
+          ],
+          "output": ""
+        }
+      ]
+    },
+    "files_generated": true
+  },
+  "coder-t2": {
+    "result": {
+      "written": "src/server.js",
+      "revision": 2,
+      "snapshot_id": "fa026eadc4f773beaa1e79d39f4014fcac9ea2dc1ebdbb2a5fa4e7c181881921",
+      "candidate_id": "648193c5418a421f8ec21b703ef64fea",
+      "checks": [
+        {
+          "path": "src/server.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-superagent\\runs\\superagent-v03\\20261106-152649-recovery\\stages\\artifacts\\candidates\\648193c5418a421f8ec21b703ef64fea\\after\\src\\server.js"
+          ],
+          "output": ""
+        }
+      ]
+    },
+    "files_generated": true
+  },
+  "coder-t3": {
+    "result": {
+      "written": "public/index.html",
+      "revision": 1,
+      "snapshot_id": "f3148965cea9a364604d69d4a85da44c6809c924d903ca1d1b6ee7421a92adc8",
+      "candidate_id": "a8588b8a65f84963aa10cfdf737c1e8d",
+      "checks": [
+        {
+          "path": "public/index.html",
+          "status": "passed"
+        }
+      ]
+    },
+    "files_generated": true
+  },
+  "coder-t4": {
+    "result": {
+      "written": "test/app.test.js",
+      "revision": 2,
+      "snapshot_id": "159c61f06a03b4ffe3e90ff28a520bac60cd6d558227d8bd44932bd23f7e592f",
+      "candidate_id": "caee378a83124595af709db810f00099",
+      "checks": [
+        {
+          "path": "test/app.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-superagent\\runs\\superagent-v03\\20261106-152649-recovery\\stages\\artifacts\\candidates\\caee378a83124595af709db810f00099\\after\\test\\app.test.js"
+          ],
+          "output": ""
+        }
+      ]
+    },
+    "files_generated": true
+  },
+  "coder-t5": {
+    "result": {
+      "written": "README.md",
+      "revision": 1,
+      "snapshot_id": "f54f43040edb5e6b493c957ce1f96eb38ff01d4e1a70a914cae0d8018de80af1",
+      "candidate_id": "8ee073fb063b448da2f222d596c76d9a",
+      "checks": [
+        {
+          "path": "README.md",
+          "status": "passed"
+        }
+      ]
+    },
+    "files_generated": true
+  },
+  "planner": {
+    "tasks": [
+      {
+        "id": "t1",
+        "description": "Create package.json (ESM module, Node >=22, scripts: start, build, test; no runtime dependencies) and src/convert.js containing the pure temperature conversion and validation logic. convert.js exports convert(value, from, to) returning {value, unit} and validate(payload) returning {value,from,to} or throwing an error with a nonempty message. Implements FR3 formulas, same-unit preservation, and FR4 validation (missing fields, nonnumeric, booleans, unsupported units, below absolute zero at C=-273.15, F=-459.67, K=0 with floating-point tolerance).",
+        "files": [
+          "package.json",
+          "src/convert.js"
+        ],
+        "depends_on": [],
+        "source": [
+          "input/0@ebb437192ddd627b2fa92b9d1309c8d712f0931720f2f779e496ae1acc2466b4"
+        ]
+      },
+      {
+        "id": "t2",
+        "description": "Create src/app.js exposing an HTTP handler/router (createApp) with GET / serving public/index.html, POST /api/convert parsing JSON, calling validate+convert and returning 200 {value,unit} or 400 {error} (malformed JSON included), and GET /health returning 200 {status:'ok'}. Also create src/server.js that starts the server on process.env.PORT (default 3000).",
+        "files": [
+          "src/app.js",
+          "src/server.js"
+        ],
+        "depends_on": [
+          "t1"
+        ],
+        "source": [
+          "input/0@ebb437192ddd627b2fa92b9d1309c8d712f0931720f2f779e496ae1acc2466b4",
+          "input/1@a6a4735305a4f271e2e303d0322630b5b6ebc37ccecd01d49c2047d7f752c34c"
+        ]
+      },
+      {
+        "id": "t3",
+        "description": "Create public/index.html with a numeric input, source and destination unit selectors (C/F/K), submit button, result display, and a visible error feedback element. Client-side JS POSTs to /api/convert, renders the returned {value, unit}, and shows the {error} string on 400.",
+        "files": [
+          "public/index.html"
+        ],
+        "depends_on": [
+          "t2"
+        ],
+        "source": [
+          "input/0@ebb437192ddd627b2fa92b9d1309c8d712f0931720f2f779e496ae1acc2466b4",
+          "input/1@a6a4735305a4f271e2e303d0322630b5b6ebc37ccecd01d49c2047d7f752c34c"
+        ]
+      },
+      {
+        "id": "t4",
+        "description": "Create real unit tests using node:test (no external test runner). test/convert.test.js tests conversion formulas, same-unit preservation, and all validation rejections (missing/nonnumeric/boolean/unsupported units/absolute zero boundaries/tolerance). test/app.test.js tests HTTP routes via the exported router/handler without a listening server: /health 200, /api/convert 200 and 400 cases, malformed JSON 400, and GET / 200.",
+        "files": [
+          "test/convert.test.js",
+          "test/app.test.js"
+        ],
+        "depends_on": [
+          "t1",
+          "t2"
+        ],
+        "source": [
+          "input/0@ebb437192ddd627b2fa92b9d1309c8d712f0931720f2f779e496ae1acc2466b4"
+        ]
+      },
+      {
+        "id": "t5",
+        "description": "Create README.md documenting install (npm install), start (npm start, PORT default 3000), test (npm test), build (npm run build = node --check syntax validation), API contract, limitations (no external services, single process), and a source-to-code/test traceability table mapping FR1-FR5 and NFR1-NFR2 to the implementing files.",
+        "files": [
+          "README.md"
+        ],
+        "depends_on": [
+          "t1",
+          "t2",
+          "t3",
+          "t4"
+        ],
+        "source": [
+          "input/0@ebb437192ddd627b2fa92b9d1309c8d712f0931720f2f779e496ae1acc2466b4"
+        ]
+      }
+    ],
+    "assumptions": [
+      "Use ESM (\"type\": \"module\") across the app for a single consistent module convention.",
+      "Use only Node.js built-ins (node:http, node:test, node:assert) so package.json has no runtime or dev dependencies to pin.",
+      "npm run build performs source syntax checking via `node --check` on source files (no bundler/transpile), satisfying NFR1.",
+      "public/index.html is served by the HTTP handler reading the file relative to the app module (__dirname via import.meta.url).",
+      "Below-absolute-zero boundary tolerance is implemented by allowing values >= absoluteZero - 1e-9 (insignificant floating-point error)."
+    ]
+  },
+  "reviewer": {
+    "approved": false,
+    "issues": [
+      "Critical: createApp() calls route(req,res).catch(...) but route() returns undefined for GET /health, the 404 fallthrough, and any method-mismatched route (because sendJson returns undefined and route is not async). This throws `TypeError: Cannot read properties of undefined (reading 'catch')` synchronously inside the request listener, crashing the server (uncaughtException) on /health and every unmatched request.",
+      "Test masking: test/app.test.js's mock resolves the request promise inside res.end() synchronously before the TypeError is thrown, and the subsequent reject() is a no-op (promise already resolved). Thus the GET /health test passes 200 even though production code throws. Add a 404/unmatched-route assertion (which does not throw) and/or make the mock propagate synchronous handler throws."
+    ]
+  }
+}

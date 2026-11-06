@@ -1,0 +1,108 @@
+{
+  "items": [
+    {
+      "id": "TR-FR1",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 6},
+      "description": "FR1: librarian creates a title with a positive number of copies.",
+      "files": ["src/catalog.js", "src/app.js", "src/repository.js", "src/pgRepository.js"],
+      "tests": ["test/catalog.test.js", "test/api.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "TR-FR2",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 7},
+      "description": "FR2: readers see remaining copies and borrow an available book.",
+      "files": ["src/catalog.js", "src/loans.js", "public/index.html", "public/app.js"],
+      "tests": ["test/loans.test.js", "test/api.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "TR-FR3",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 8},
+      "description": "FR3: at most one active loan per reader for the same book; another reader may borrow another copy.",
+      "files": ["src/loans.js", "src/schema.js"],
+      "tests": ["test/loans.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "TR-FR4",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 9},
+      "description": "FR4: returning restores one copy; repeated/concurrent returns never increment more than once.",
+      "files": ["src/loans.js"],
+      "tests": ["test/loans.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "TR-FR5",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 10},
+      "description": "FR5: invalid input 400; insufficient copies and duplicate active loans 409; missing records 404.",
+      "files": ["src/app.js", "src/catalog.js", "src/loans.js"],
+      "tests": ["test/api.test.js", "test/catalog.test.js", "test/loans.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "TR-NFR1",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 11},
+      "description": "NFR1: eight simultaneous borrowers of the only copy yield exactly one successful loan; inventory never negative.",
+      "files": ["src/loans.js", "src/pgRepository.js", "src/memoryRepository.js"],
+      "tests": ["test/loans.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "TR-NFR2",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 12},
+      "description": "NFR2: books/stock/loans survive restart using PostgreSQL 16.",
+      "files": ["src/pgRepository.js", "src/schema.js", "docker-compose.yml"],
+      "tests": [],
+      "status": "implemented"
+    },
+    {
+      "id": "TR-DEPLOY",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 15},
+      "description": "Compose services gateway on container 3000 and postgres on 5432; gateway serves UI at / and /health; idempotent schema bootstrap.",
+      "files": ["docker-compose.yml", "Dockerfile", "src/server.js", "src/schema.js"],
+      "tests": [],
+      "status": "implemented"
+    },
+    {
+      "id": "TR-REST",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 19},
+      "description": "REST interface: POST/GET books, POST/GET loans, idempotent return, documented in OpenAPI.",
+      "files": ["src/app.js", "openapi.yaml"],
+      "tests": ["test/api.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "TR-SEQ",
+      "source": {"document": "Architecture_View.md", "start_line": 22},
+      "description": "Borrow sequence: transaction + row lock, validate stock/active loan, insert+decrement+commit, else rollback 409.",
+      "files": ["src/loans.js", "src/pgRepository.js"],
+      "tests": ["test/loans.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "TR-STATE",
+      "source": {"document": "Architecture_View.md", "start_line": 44},
+      "description": "Loan state: active -> returned with stock+1; repeated return leaves stock unchanged.",
+      "files": ["src/loans.js"],
+      "tests": ["test/loans.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "TR-COMPONENT",
+      "source": {"document": "Architecture_View.md", "start_line": 3},
+      "description": "Component view: Browser, Gateway (Catalog + Loans), PostgreSQL; reader/librarian actors.",
+      "files": ["public/index.html", "src/catalog.js", "src/loans.js", "src/app.js"],
+      "tests": ["test/catalog.test.js", "test/loans.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "TR-SUPPLEMENT",
+      "source": {"document": "library.md", "start_line": 8},
+      "description": "Supplement: fixed HTTP status contract, no OAuth, no in-memory persistence at runtime, dependency lockfile + build/check.",
+      "files": ["src/app.js", "src/server.js", "package.json", "openapi.yaml"],
+      "tests": ["test/api.test.js"],
+      "status": "implemented"
+    }
+  ]
+}

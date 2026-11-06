@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Library borrowing</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Library borrowing</h1>
+    <p class="subtitle">List books, borrow with a reader ID, and return loans.</p>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h2>Add a book</h2>
+      <form id="add-book-form" class="inline-form">
+        <input id="add-title" type="text" placeholder="Title" required />
+        <input id="add-copies" type="number" min="1" step="1" placeholder="Copies" required />
+        <button type="submit">Add book</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2>Books</h2>
+      <div id="books" class="books">
+        <p class="muted">Loading books&hellip;</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Borrow / return</h2>
+      <form id="borrow-form" class="inline-form">
+        <input id="borrow-reader" type="text" placeholder="Reader ID" required />
+        <input id="borrow-book" type="text" placeholder="Book ID" required />
+        <button type="submit">Borrow</button>
+      </form>
+      <form id="return-form" class="inline-form">
+        <input id="return-loan" type="text" placeholder="Loan ID" required />
+        <button type="submit">Return loan</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2>Loans</h2>
+      <div id="loans" class="loans">
+        <p class="muted">Loading loans&hellip;</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="feedback" class="feedback hidden" role="status" aria-live="polite"></div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

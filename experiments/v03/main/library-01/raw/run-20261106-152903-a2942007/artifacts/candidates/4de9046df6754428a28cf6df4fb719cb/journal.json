@@ -1,0 +1,18 @@
+{
+  "root": "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\library-01\\run-20261106-152903-a2942007\\project",
+  "changes": [
+    {
+      "path": "openapi.yaml",
+      "before": null,
+      "after": "cb546888aa395dfb5dbcd494190d10f2cf3f14298b5370c7c52ada312d321a73"
+    }
+  ],
+  "checks": [
+    {
+      "path": "openapi.yaml",
+      "status": "passed",
+      "kind": "syntax_format"
+    }
+  ],
+  "status": "committed"
+}

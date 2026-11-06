@@ -1,0 +1,48 @@
+{
+  "kind": "clean_windows_dual_acceptance",
+  "status": "passed_with_runtime_gaps",
+  "main_sha256": "a635c121d35b98b42df108551b9ec7120cb49c3984c198ec891f40e10ef66d76",
+  "prototype_sha256": "837cf47c9be73aa1ced0b2a987f9dc6eff5e0dff45ff4abcb29b2f1a02ffe7a7",
+  "inventory": "environment-final.txt",
+  "main_final_run": "run-20261106-171739-58af4633",
+  "main_final_cancel": "run-20261106-172101-bbb68865",
+  "main_gui_checks": [
+    "double-click from Chinese/space paths on read-only media and local disk",
+    "0813 connection",
+    "two document parse preview",
+    "real files generated",
+    "cancel",
+    "result folder"
+  ],
+  "prototype_gui_checks": [
+    "real planner and isolated code workers",
+    "read-only review",
+    "missing Node checks marked unverified",
+    "safe-point pause",
+    "close exe and relaunch",
+    "same SQLite recovery",
+    "cancel",
+    "explicit acknowledgement of unknown requests",
+    "open result folder",
+    "open JSON report via Notepad once"
+  ],
+  "host_after_export": "Three unmodified generated projects each passed six independent HTTP/restart checks. Additional unit/build results stored beside each project. These are host checks, not guest checks.",
+  "guest_runtime_installation": "No Python/Node/Docker installed. WindowsApps python alias not a Python runtime.",
+  "executable_hashes_match_guest_inventory": true,
+  "recovery": "independent-recovery.json",
+  "ledger": {
+    "reservations": 123,
+    "charged_cny": 11.947704,
+    "states": {
+      "uncertain": 6,
+      "settled": 117
+    },
+    "note": "Contains older guest runs as well; not all charged amount belongs to v0.3."
+  },
+  "limitations": [
+    "Not a forced OS process-kill recovery test",
+    "JSON report opening may require choosing a local text editor",
+    "Prototype report.run.reason retains historical cancellation text after completion; use current state, verification and event history",
+    "An input-method focus error was cleared before any recovery API request; private configuration screenshots were not archived"
+  ]
+}

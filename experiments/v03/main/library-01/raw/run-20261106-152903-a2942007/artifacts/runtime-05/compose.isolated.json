@@ -1,0 +1,74 @@
+{
+  "networks": {
+    "default": {
+      "ipam": {}
+    }
+  },
+  "services": {
+    "gateway": {
+      "build": {
+        "context": "/mnt/d/projects/Task-main-resource-fix/runs/v03/main/library-01/run-20261106-152903-a2942007/project",
+        "dockerfile": "Dockerfile"
+      },
+      "command": null,
+      "depends_on": {
+        "postgres": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "entrypoint": null,
+      "environment": {
+        "PGDATABASE": "library",
+        "PGHOST": "postgres",
+        "PGPASSWORD": "library",
+        "PGPORT": "5432",
+        "PGUSER": "library",
+        "PORT": "3000"
+      },
+      "healthcheck": {
+        "test": [
+          "CMD-SHELL",
+          "node -e \"fetch('http://localhost:3000/health').then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))\""
+        ],
+        "timeout": "5s",
+        "interval": "5s",
+        "retries": 10
+      },
+      "networks": {
+        "default": null
+      },
+      "ports": [
+        {
+          "target": 3000,
+          "published": "13294",
+          "host_ip": "127.0.0.1",
+          "protocol": "tcp"
+        }
+      ]
+    },
+    "postgres": {
+      "command": null,
+      "entrypoint": null,
+      "environment": {
+        "POSTGRES_DB": "library",
+        "POSTGRES_PASSWORD": "library",
+        "POSTGRES_USER": "library"
+      },
+      "healthcheck": {
+        "test": [
+          "CMD-SHELL",
+          "pg_isready -U library -d library"
+        ],
+        "timeout": "5s",
+        "interval": "5s",
+        "retries": 10
+      },
+      "image": "postgres:16",
+      "networks": {
+        "default": null
+      },
+      "ports": []
+    }
+  }
+}

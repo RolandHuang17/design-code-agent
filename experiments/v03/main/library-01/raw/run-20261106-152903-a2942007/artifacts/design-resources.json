@@ -1,0 +1,92 @@
+[
+  {
+    "id": "design:6c1dcea22c483670756fc9c91ad102864290399063b3e15a90fdd93ab7057cea",
+    "document": "Architecture_Documentation.md",
+    "version": "6c1dcea22c483670756fc9c91ad102864290399063b3e15a90fdd93ab7057cea",
+    "origin": "original input",
+    "line_count": 28,
+    "headings": [
+      {
+        "level": 1,
+        "title": "Library borrowing architecture",
+        "start_line": 1,
+        "end_line": 28
+      },
+      {
+        "level": 2,
+        "title": "Scope and requirements",
+        "start_line": 3,
+        "end_line": 13
+      },
+      {
+        "level": 2,
+        "title": "Architecture and deployment",
+        "start_line": 14,
+        "end_line": 18
+      },
+      {
+        "level": 2,
+        "title": "REST interface",
+        "start_line": 19,
+        "end_line": 26
+      },
+      {
+        "level": 2,
+        "title": "Delivery",
+        "start_line": 27,
+        "end_line": 28
+      }
+    ],
+    "preview": "# Library borrowing architecture\n\n## Scope and requirements\nCreate a local browser application for a small library. Users list books and available copies, borrow a book using an explicitly entered reader ID, and return a loan. The frontend provides clear success/error feedback. Reader IDs are demonstration inputs, not "
+  },
+  {
+    "id": "design:8fa9ea8c9a2bce9fc5a5a3627488d913865bbe77b5e18e1d3c1e7291e739254c",
+    "document": "Architecture_View.md",
+    "version": "8fa9ea8c9a2bce9fc5a5a3627488d913865bbe77b5e18e1d3c1e7291e739254c",
+    "origin": "original input",
+    "line_count": 51,
+    "headings": [
+      {
+        "level": 1,
+        "title": "Library architecture views",
+        "start_line": 1,
+        "end_line": 51
+      },
+      {
+        "level": 2,
+        "title": "Component view",
+        "start_line": 3,
+        "end_line": 21
+      },
+      {
+        "level": 2,
+        "title": "Borrow sequence",
+        "start_line": 22,
+        "end_line": 43
+      },
+      {
+        "level": 2,
+        "title": "Loan state",
+        "start_line": 44,
+        "end_line": 51
+      }
+    ],
+    "preview": "# Library architecture views\n\n## Component view\n```plantuml\n@startuml\nactor Reader\nactor Librarian\ncomponent Browser\ncomponent Gateway {\n component Catalog\n component Loans\n}\ndatabase PostgreSQL\nReader --> Browser\nLibrarian --> Browser\nBrowser --> Gateway : HTTP REST\nCatalog --> PostgreSQL : books / available copies\nLo"
+  },
+  {
+    "id": "design:07cc2a8520420f189ca37bdb07dbae000144aa1c3577e9d3e528051b9545cbb4",
+    "document": "library.md",
+    "version": "07cc2a8520420f189ca37bdb07dbae000144aa1c3577e9d3e528051b9545cbb4",
+    "origin": "Operator benchmark supplement; not original design",
+    "line_count": 16,
+    "headings": [
+      {
+        "level": 1,
+        "title": "Library borrowing: independent acceptance supplement",
+        "start_line": 1,
+        "end_line": 16
+      }
+    ],
+    "preview": "# Library borrowing: independent acceptance supplement\n\nOrigin: operator benchmark supplement, not part of the original architecture documents.\n\nImplement the accompanying library design using Node22/Express/PostgreSQL. Keep the repository concise (roughly12–18 files). Serve the browser through Compose service gateway "
+  }
+]

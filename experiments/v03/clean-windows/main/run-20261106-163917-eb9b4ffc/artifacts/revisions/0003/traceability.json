@@ -1,0 +1,84 @@
+{
+  "items": [
+    {
+      "id": "FR1",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 6},
+      "description": "GET /health returns HTTP 200 and JSON {\"status\":\"ok\"}.",
+      "files": ["src/app.cjs"],
+      "tests": ["test/app.test.cjs"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR2",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 7},
+      "description": "Unknown routes return HTTP 404 and a JSON error; the service must still answer /health after an unknown request.",
+      "files": ["src/app.cjs"],
+      "tests": ["test/app.test.cjs"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR3",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 8},
+      "description": "npm start listens on process.env.PORT (default 3000); exported server factory is separate from the executable startup file.",
+      "files": ["src/app.cjs", "src/server.cjs", "package.json"],
+      "tests": ["test/app.test.cjs"],
+      "status": "implemented"
+    },
+    {
+      "id": "NFR1",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 9},
+      "description": "npm test runs real HTTP tests on an ephemeral loopback port checking health, unknown route, and health again, then closes the server; no HTTP mocks.",
+      "files": ["test/app.test.cjs", "package.json"],
+      "tests": ["test/app.test.cjs"],
+      "status": "implemented"
+    },
+    {
+      "id": "NFR2",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 10},
+      "description": "npm run build checks all source JavaScript syntax; deliver package.json, source, tests, and README with instructions and a source-to-requirement mapping; consistent CommonJS .cjs conventions.",
+      "files": ["package.json", "scripts/check-syntax.cjs", "src/app.cjs", "src/server.cjs", "README.md"],
+      "tests": [],
+      "status": "implemented"
+    },
+    {
+      "id": "CONSTRAINT-1",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 4},
+      "description": "Stateless service using only built-in http and node:test; no database, Docker, identity provider, third-party packages, or cloud infrastructure.",
+      "files": ["package.json", "src/app.cjs", "src/server.cjs", "test/app.test.cjs"],
+      "tests": ["test/app.test.cjs"],
+      "status": "implemented"
+    },
+    {
+      "id": "VIEW-startup",
+      "source": {"document": "Architecture_View.md", "start_line": 10},
+      "description": "Startup entry component creates the application and listens on PORT (diagram: Startup --> Application).",
+      "files": ["src/server.cjs"],
+      "tests": ["test/app.test.cjs"],
+      "status": "implemented"
+    },
+    {
+      "id": "VIEW-application",
+      "source": {"document": "Architecture_View.md", "start_line": 11},
+      "description": "Exported HTTP server factory component (diagram: Application) used by both startup and tests.",
+      "files": ["src/app.cjs"],
+      "tests": ["test/app.test.cjs"],
+      "status": "implemented"
+    },
+    {
+      "id": "VIEW-tests",
+      "source": {"document": "Architecture_View.md", "start_line": 12},
+      "description": "Real ephemeral-port tests component (diagram: Tests) creates the application on a loopback random port.",
+      "files": ["test/app.test.cjs"],
+      "tests": ["test/app.test.cjs"],
+      "status": "implemented"
+    },
+    {
+      "id": "VIEW-client",
+      "source": {"document": "Architecture_View.md", "start_line": 13},
+      "description": "Client sends GET /health or an unknown route to the application (diagram: Client --> Application).",
+      "files": ["src/app.cjs"],
+      "tests": ["test/app.test.cjs"],
+      "status": "implemented"
+    }
+  ]
+}

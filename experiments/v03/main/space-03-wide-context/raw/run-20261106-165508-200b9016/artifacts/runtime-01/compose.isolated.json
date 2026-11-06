@@ -1,0 +1,347 @@
+{
+  "networks": {
+    "default": {
+      "ipam": {}
+    }
+  },
+  "services": {
+    "admin-service": {
+      "command": [
+        "sh",
+        "-c",
+        "echo 'admin-service entrypoint: served by gateway'; sleep infinity"
+      ],
+      "depends_on": {
+        "gateway": {
+          "condition": "service_started",
+          "required": true
+        }
+      },
+      "entrypoint": null,
+      "image": "busybox:1.36.1",
+      "networks": {
+        "default": null
+      },
+      "restart": "no",
+      "ports": []
+    },
+    "elasticsearch": {
+      "command": null,
+      "entrypoint": null,
+      "environment": {
+        "ES_JAVA_OPTS": "-Xms512m -Xmx512m",
+        "discovery.type": "single-node",
+        "xpack.security.enabled": "false"
+      },
+      "healthcheck": {
+        "test": [
+          "CMD-SHELL",
+          "curl -sf http://localhost:9200/_cluster/health || exit 1"
+        ],
+        "timeout": "5s",
+        "interval": "10s",
+        "retries": 10,
+        "start_period": "30s"
+      },
+      "image": "docker.elastic.co/elasticsearch/elasticsearch:8.13.4",
+      "networks": {
+        "default": null
+      },
+      "restart": "unless-stopped",
+      "ports": []
+    },
+    "game-service": {
+      "command": [
+        "sh",
+        "-c",
+        "echo 'game-service entrypoint: served by gateway'; sleep infinity"
+      ],
+      "depends_on": {
+        "gateway": {
+          "condition": "service_started",
+          "required": true
+        }
+      },
+      "entrypoint": null,
+      "image": "busybox:1.36.1",
+      "networks": {
+        "default": null
+      },
+      "restart": "no",
+      "ports": []
+    },
+    "gateway": {
+      "build": {
+        "context": "/mnt/d/projects/Task-v03-runs/runs/v03/main/space-03-wide-context/run-20261106-165508-200b9016/project",
+        "dockerfile": "Dockerfile"
+      },
+      "command": null,
+      "depends_on": {
+        "postgres": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "entrypoint": null,
+      "environment": {
+        "ADMIN_ROLE": "admin",
+        "DATABASE_URL": "postgres://space_fractions:space_fractions@postgres:5432/space_fractions",
+        "DISABLED_FEATURES": "",
+        "ELASTICSEARCH_URL": "http://elasticsearch:9200",
+        "OIDC_AUDIENCE": "account",
+        "OIDC_CLIENT_ID": "space-fractions-client",
+        "OIDC_ISSUER": "http://localhost:13972/realms/space-fractions",
+        "OIDC_JWKS_URI": "http://keycloak:8080/realms/space-fractions/protocol/openid-connect/certs",
+        "OIDC_PUBLIC_ORIGIN": "http://localhost:13972",
+        "PORT": "3000",
+        "PUBLIC_ORIGIN": "http://localhost:13971",
+        "RABBITMQ_URL": "amqp://rabbitmq:5672",
+        "REDIS_URL": "redis://redis:6379"
+      },
+      "healthcheck": {
+        "test": [
+          "CMD",
+          "node",
+          "-e",
+          "require('http').get('http://localhost:3000/health',r=>{process.exit(r.statusCode===200?0:1)}).on('error',()=>process.exit(1))"
+        ],
+        "timeout": "5s",
+        "interval": "10s",
+        "retries": 5,
+        "start_period": "15s"
+      },
+      "networks": {
+        "default": null
+      },
+      "ports": [
+        {
+          "target": 3000,
+          "published": "13971",
+          "host_ip": "127.0.0.1",
+          "protocol": "tcp"
+        }
+      ],
+      "restart": "unless-stopped"
+    },
+    "keycloak": {
+      "command": [
+        "start-dev",
+        "--import-realm"
+      ],
+      "entrypoint": null,
+      "environment": {
+        "KC_HOSTNAME_STRICT": "false",
+        "KC_HOSTNAME_STRICT_HTTPS": "false",
+        "KC_HOSTNAME_URL": "http://localhost:13972",
+        "KEYCLOAK_ADMIN": "admin",
+        "KEYCLOAK_ADMIN_PASSWORD": "admin",
+        "KC_HTTP_PORT": "8080"
+      },
+      "healthcheck": {
+        "test": [
+          "CMD-SHELL",
+          "bash -c 'exec 3<>/dev/tcp/localhost/8080' || exit 1"
+        ],
+        "timeout": "5s",
+        "interval": "10s",
+        "retries": 10,
+        "start_period": "40s"
+      },
+      "image": "quay.io/keycloak/keycloak:24.0.5",
+      "networks": {
+        "default": null
+      },
+      "ports": [
+        {
+          "target": 8080,
+          "published": "13972",
+          "host_ip": "127.0.0.1",
+          "protocol": "tcp"
+        }
+      ],
+      "restart": "unless-stopped",
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "/mnt/d/projects/Task-v03-runs/runs/v03/main/space-03-wide-context/run-20261106-165508-200b9016/project/keycloak/realm.json",
+          "target": "/opt/keycloak/data/import/realm.json",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        }
+      ]
+    },
+    "postgres": {
+      "command": null,
+      "entrypoint": null,
+      "environment": {
+        "POSTGRES_DB": "space_fractions",
+        "POSTGRES_PASSWORD": "space_fractions",
+        "POSTGRES_USER": "space_fractions"
+      },
+      "healthcheck": {
+        "test": [
+          "CMD-SHELL",
+          "pg_isready -U space_fractions -d space_fractions"
+        ],
+        "timeout": "5s",
+        "interval": "5s",
+        "retries": 10
+      },
+      "image": "postgres:16.3-alpine",
+      "networks": {
+        "default": null
+      },
+      "restart": "unless-stopped",
+      "volumes": [
+        {
+          "type": "volume",
+          "source": "postgres-data",
+          "target": "/var/lib/postgresql/data",
+          "volume": {}
+        }
+      ],
+      "ports": []
+    },
+    "prometheus": {
+      "command": [
+        "--config.file=/etc/prometheus/prometheus.yml"
+      ],
+      "entrypoint": null,
+      "healthcheck": {
+        "test": [
+          "CMD-SHELL",
+          "wget -q -O /dev/null http://localhost:9090/-/ready || exit 1"
+        ],
+        "timeout": "5s",
+        "interval": "10s",
+        "retries": 5
+      },
+      "image": "prom/prometheus:v2.53.0",
+      "networks": {
+        "default": null
+      },
+      "ports": [],
+      "restart": "unless-stopped",
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "/mnt/d/projects/Task-v03-runs/runs/v03/main/space-03-wide-context/run-20261106-165508-200b9016/project/reference/prometheus.yml",
+          "target": "/etc/prometheus/prometheus.yml",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        }
+      ]
+    },
+    "question-service": {
+      "command": [
+        "sh",
+        "-c",
+        "echo 'question-service entrypoint: served by gateway'; sleep infinity"
+      ],
+      "depends_on": {
+        "gateway": {
+          "condition": "service_started",
+          "required": true
+        }
+      },
+      "entrypoint": null,
+      "image": "busybox:1.36.1",
+      "networks": {
+        "default": null
+      },
+      "restart": "no",
+      "ports": []
+    },
+    "rabbitmq": {
+      "command": null,
+      "entrypoint": null,
+      "healthcheck": {
+        "test": [
+          "CMD",
+          "rabbitmq-diagnostics",
+          "-q",
+          "ping"
+        ],
+        "timeout": "5s",
+        "interval": "10s",
+        "retries": 5,
+        "start_period": "15s"
+      },
+      "image": "rabbitmq:3.13-alpine",
+      "networks": {
+        "default": null
+      },
+      "restart": "unless-stopped",
+      "ports": []
+    },
+    "redis": {
+      "command": null,
+      "entrypoint": null,
+      "healthcheck": {
+        "test": [
+          "CMD",
+          "redis-cli",
+          "ping"
+        ],
+        "timeout": "3s",
+        "interval": "5s",
+        "retries": 5
+      },
+      "image": "redis:7.2-alpine",
+      "networks": {
+        "default": null
+      },
+      "restart": "unless-stopped",
+      "ports": []
+    },
+    "user-service": {
+      "command": [
+        "sh",
+        "-c",
+        "echo 'user-service entrypoint: served by gateway'; sleep infinity"
+      ],
+      "depends_on": {
+        "gateway": {
+          "condition": "service_started",
+          "required": true
+        }
+      },
+      "entrypoint": null,
+      "image": "busybox:1.36.1",
+      "networks": {
+        "default": null
+      },
+      "restart": "no",
+      "ports": []
+    }
+  },
+  "volumes": {
+    "postgres-data": {}
+  },
+  "x-gateway-defaults": {
+    "depends_on": {
+      "postgres": {
+        "condition": "service_healthy"
+      }
+    },
+    "environment": {
+      "ADMIN_ROLE": "admin",
+      "DATABASE_URL": "postgres://space_fractions:space_fractions@postgres:5432/space_fractions",
+      "DISABLED_FEATURES": "",
+      "ELASTICSEARCH_URL": "http://elasticsearch:9200",
+      "OIDC_AUDIENCE": "account",
+      "OIDC_CLIENT_ID": "space-fractions-client",
+      "OIDC_ISSUER": "http://localhost:13972/realms/space-fractions",
+      "OIDC_JWKS_URI": "http://keycloak:8080/realms/space-fractions/protocol/openid-connect/certs",
+      "OIDC_PUBLIC_ORIGIN": "http://localhost:13972",
+      "PORT": "3000",
+      "PUBLIC_ORIGIN": "http://localhost:13971",
+      "RABBITMQ_URL": "amqp://rabbitmq:5672",
+      "REDIS_URL": "redis://redis:6379"
+    }
+  }
+}

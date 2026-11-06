@@ -1,0 +1,18 @@
+{
+  "root": "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\library-01\\run-20261106-152903-a2942007\\project",
+  "changes": [
+    {
+      "path": "plan.json",
+      "before": null,
+      "after": "20b9d1c836d9398317ddb74314100ee8c3b8ae95eef97f21efe2c4ec0399ce98"
+    }
+  ],
+  "checks": [
+    {
+      "path": "plan.json",
+      "status": "passed",
+      "kind": "syntax_format"
+    }
+  ],
+  "status": "committed"
+}

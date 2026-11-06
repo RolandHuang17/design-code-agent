@@ -1,0 +1,84 @@
+{
+  "version": "0.3.0",
+  "build_commit": "0a7d7c83d212d9b97d480877a42b896b43923e46",
+  "regression": {
+    "passed": 147,
+    "skipped": 1,
+    "skip_reason": "Windows symlink permission",
+    "elapsed_seconds_latest": 17.41
+  },
+  "files": {
+    "main": {
+      "path": "dist\\v03-build-05\\main\\DesignCodeAgent.exe",
+      "sha256": "a635c121d35b98b42df108551b9ec7120cb49c3984c198ec891f40e10ef66d76",
+      "bytes": 13591312
+    },
+    "prototype": {
+      "path": "dist\\v03-build-04\\prototype\\DesignCodeAgent-Superagent.exe",
+      "sha256": "837cf47c9be73aa1ced0b2a987f9dc6eff5e0dff45ff4abcb29b2f1a02ffe7a7",
+      "bytes": 14246552
+    }
+  },
+  "source_hashes": {
+    "codeagent/budget.py": "1e9c3222ddd7624114b62086b8f36c2f9a646571fa946c30da61bb0b13b23f52",
+    "codeagent/candidates.py": "d9c193071e25d055d2e37233abd315eb84a9591d27dc29ca10ea975013d2b97a",
+    "codeagent/cases.py": "17efbd819b5908e0ca7ffca5532c9486db47108018b984e49d5eb6a2e982148c",
+    "codeagent/checks.py": "c69b9844e8f9555849e8205bada8a6bb8c4da8850203374a6ab92aa4bf44198d",
+    "codeagent/cli.py": "6ed91cb9f26d0f0cd26b4ba539ec50021e78c6060edfbf69b04faa8c85a77d7f",
+    "codeagent/config.py": "548cec1513f4b3e5fc4ab58260a59d983344768ed882823ba3ebe1dca65270fe",
+    "codeagent/engine.py": "a2aecb761ef5950a6e8d10a978f986fb0be889b5db1d8dfe7defd639ec2ea668",
+    "codeagent/evidence.py": "81f349081cda31b8d3f230b51d80bd9f74b4187c7084c7b46b2f07398ae89db0",
+    "codeagent/gui.py": "3464b3d2be0e564627ed5e8a1a3dd9b104280bce4bfb48f4ae657d3ad071108d",
+    "codeagent/inputs.py": "6a2ad7d399a4c981a4d6ec55e2ea974c1c8dec2753e90685771064896f501f12",
+    "codeagent/planning.py": "7d36d1ba1f8ec4b2485b9c44dfe97053d4660fbd0495760b4c6893cd385c2873",
+    "codeagent/prompts.py": "fa714ab91405719ea401866b42841a81dbbbe0505fc975a4f5c92435d5d80fde",
+    "codeagent/provider.py": "454317f3579994a56c3804ee368faa91fbfa872d6cf203c3d9d2f51ad7c1d21c",
+    "codeagent/runtime.py": "5b02fcad4002bebffe404b71539daca681379df1cf1323d5334b8fb376f0450c",
+    "codeagent/safety.py": "e12c23689b4ef325013e2257905da6e0957397ff2ab64d260540d8b7fbbe5b4c",
+    "codeagent/startup.py": "ee92839da1994ffa63f0c69ec6dc1d6dee94d02170ac4ddc22d7400aff677593",
+    "codeagent/tools.py": "75e4987d654b9d7e94d8a31c6a8ecb2d73e6434824f40b8676bab4899e798ebf",
+    "codeagent/__init__.py": "25dc2dae04ced1865728dd4dff1524ed43ada7fa32720b516a50b974b138e52a",
+    "codeagent/__main__.py": "3129adff95e0f38b87ab34cddfc27082c7892bcaec267ff5d40f160fdf55b44a",
+    "codeagent/acceptance/http_checks.py": "137c4d444f513fcb83419527b3305afa9f28f1b5ea8bbabe11fa5673b105a4f0",
+    "codeagent/acceptance/__init__.py": "a3a5f4b3c36c7a68f9e7f65a05eb6cb5fa61c7d39a9cecc0625e18a6bc256f7d",
+    "codeagent/superagent/gui.py": "9405ef52491afa72dde98d984bd892ff635944a8ac74c3fd253a8bd491bc0824",
+    "codeagent/superagent/runtime.py": "474ac535917549b5704b4f103eb730cc402d214d99e1191fa7b1129e39321c0b",
+    "codeagent/superagent/store.py": "7fbce58135cfb3b74f5760f323a52eeaddf286a998ee96079e6c7a724055cf63",
+    "codeagent/superagent/__init__.py": "2280624d0198a434340c06e15b7dc7ddfb888aa9016a3be03dec4fe4c6d0efd1"
+  },
+  "clean_windows": "final_main05_and_prototype04_observed; raw guest evidence archived separately",
+  "build_attempts": [
+    {
+      "directory": "v03-build-01",
+      "result": "failed",
+      "reason": "PyInstaller spec directory changed relative data resolution; absolute paths fixed"
+    },
+    {
+      "directory": "v03-build-02",
+      "result": "built_intermediate"
+    },
+    {
+      "directory": "v03-build-03",
+      "result": "built_intermediate"
+    },
+    {
+      "directory": "v03-build-04",
+      "result": "built_final_candidate"
+    },
+    {
+      "directory": "v03-build-05/main",
+      "result": "built_final_main_candidate",
+      "reason": "Permit bounded investigation across more than eight modules"
+    }
+  ],
+  "superseded_main_candidates": [
+    {
+      "path": "dist\\v03-build-04\\main\\DesignCodeAgent.exe",
+      "sha256": "86b0fd433a2a2c7a84ccccedb91a7c31e9719e04572745497155dc8386501a5b",
+      "bytes": 13589649
+    }
+  ],
+  "main_controller_commit": "344829d",
+  "prototype_controller_note": "Prototype executable retained from build04; repair change is in main engine only",
+  "clean_windows_inventory": "clean-windows/environment-final.txt"
+}

@@ -1,0 +1,11 @@
+{
+  "status": "checks_passed_requires_review",
+  "generation_origin": "seed",
+  "run": "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-03-wide-context\\run-20261106-165508-200b9016",
+  "turns": 56,
+  "source_unchanged": true,
+  "parent_unchanged": true,
+  "project_manually_edited": false,
+  "independent_acceptance": "pending",
+  "run_estimated_cny": 31.922454000000002
+}

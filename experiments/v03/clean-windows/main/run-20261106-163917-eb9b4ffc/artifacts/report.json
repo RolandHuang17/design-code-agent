@@ -1,0 +1,510 @@
+{
+  "status": "completed_with_gaps",
+  "provider": "bailian",
+  "model": "deepseek-v4-pro-0813",
+  "uses_official_endpoint": false,
+  "real_api_run": true,
+  "checks": [
+    {
+      "profile": "static",
+      "status": "unverified",
+      "results": [
+        {
+          "check": "required:package.json",
+          "status": "passed"
+        },
+        {
+          "check": "required:README.md",
+          "status": "passed"
+        },
+        {
+          "check": "required:traceability.json",
+          "status": "passed"
+        },
+        {
+          "check": "package.json",
+          "status": "passed"
+        },
+        {
+          "check": "plan.json",
+          "status": "passed"
+        },
+        {
+          "check": "traceability.json",
+          "status": "passed"
+        },
+        {
+          "check": "scripts/check-syntax.cjs",
+          "status": "unverified",
+          "reason": "缺少 Node.js"
+        },
+        {
+          "check": "src/app.cjs",
+          "status": "unverified",
+          "reason": "缺少 Node.js"
+        },
+        {
+          "check": "src/server.cjs",
+          "status": "unverified",
+          "reason": "缺少 Node.js"
+        },
+        {
+          "check": "test/app.test.cjs",
+          "status": "unverified",
+          "reason": "缺少 Node.js"
+        }
+      ],
+      "snapshot_id": "6226264cfef649e00431b60f7c5fffdd9ad0092ed36ae2849e8d307d5e7733a2",
+      "snapshot_after": "6226264cfef649e00431b60f7c5fffdd9ad0092ed36ae2849e8d307d5e7733a2",
+      "stale": false
+    },
+    {
+      "profile": "install",
+      "status": "unverified",
+      "reason": "未找到标准 Node/npm 安装；请按 README 手动安装依赖",
+      "snapshot_id": "6226264cfef649e00431b60f7c5fffdd9ad0092ed36ae2849e8d307d5e7733a2",
+      "snapshot_after": "6226264cfef649e00431b60f7c5fffdd9ad0092ed36ae2849e8d307d5e7733a2",
+      "stale": false
+    },
+    {
+      "profile": "test",
+      "status": "unverified",
+      "reason": "缺少 Node.js/npm 或 Docker",
+      "snapshot_id": "6226264cfef649e00431b60f7c5fffdd9ad0092ed36ae2849e8d307d5e7733a2",
+      "snapshot_after": "6226264cfef649e00431b60f7c5fffdd9ad0092ed36ae2849e8d307d5e7733a2",
+      "stale": false
+    },
+    {
+      "profile": "integration",
+      "status": "not_applicable",
+      "optional": true,
+      "reason": "项目未声明独立 test:integration；不计为通过，领域 HTTP 由项目外 runtime 验收",
+      "snapshot_id": "6226264cfef649e00431b60f7c5fffdd9ad0092ed36ae2849e8d307d5e7733a2"
+    },
+    {
+      "profile": "build",
+      "status": "unverified",
+      "reason": "缺少 Node.js/npm 或 Docker",
+      "snapshot_id": "6226264cfef649e00431b60f7c5fffdd9ad0092ed36ae2849e8d307d5e7733a2",
+      "snapshot_after": "6226264cfef649e00431b60f7c5fffdd9ad0092ed36ae2849e8d307d5e7733a2",
+      "stale": false
+    },
+    {
+      "profile": "compose",
+      "status": "not_applicable",
+      "optional": true,
+      "reason": "通用项目未声明 Compose；未将特定案例部署结构强加给输入",
+      "snapshot_id": "6226264cfef649e00431b60f7c5fffdd9ad0092ed36ae2849e8d307d5e7733a2"
+    },
+    {
+      "profile": "plan_references",
+      "status": "passed",
+      "problems": [],
+      "snapshot_id": "6226264cfef649e00431b60f7c5fffdd9ad0092ed36ae2849e8d307d5e7733a2",
+      "limitation": "Checks planned files and literal relative imports, not dynamic imports or semantic compatibility"
+    },
+    {
+      "profile": "traceability_links",
+      "status": "passed",
+      "problems": [],
+      "limitation": "只检查链接和来源范围；语义覆盖需要独立审查",
+      "snapshot_id": "6226264cfef649e00431b60f7c5fffdd9ad0092ed36ae2849e8d307d5e7733a2"
+    },
+    {
+      "profile": "runtime",
+      "status": "not_applicable",
+      "optional": true,
+      "reason": "通用项目无内置领域HTTP验收；业务正确性需另行独立检查",
+      "snapshot_id": "6226264cfef649e00431b60f7c5fffdd9ad0092ed36ae2849e8d307d5e7733a2"
+    },
+    {
+      "profile": "startup",
+      "status": "unverified",
+      "endpoint": "/",
+      "meaning": "Local HTTP listener readiness only; not domain correctness",
+      "reason": "Standard Node.js/npm runtime is unavailable",
+      "snapshot_id": "6226264cfef649e00431b60f7c5fffdd9ad0092ed36ae2849e8d307d5e7733a2",
+      "snapshot_after": "6226264cfef649e00431b60f7c5fffdd9ad0092ed36ae2849e8d307d5e7733a2",
+      "stale": false,
+      "selection": "Host heuristic: HTTP/Express/web-server/REST terms in design; readiness only"
+    }
+  ],
+  "repair_rounds": 1,
+  "acceptance_profile": "generic-node",
+  "generation_origin": "fresh",
+  "schema_version": 2,
+  "limitation": "Checks do not establish semantic architecture fidelity, production readiness or performance. Review traceability and run independent acceptance tests.",
+  "turns": 22,
+  "bounded_replan_used": false,
+  "elapsed_seconds": 160.78,
+  "tool_metrics": {
+    "reads": 7,
+    "repeated_reads": 0,
+    "tool_errors": 0,
+    "writes": 12,
+    "host_derived_writes": 0
+  },
+  "budget": {
+    "limit_cny": 50.0,
+    "charged_cny": 4.50531,
+    "uncertain_requests": 2,
+    "request_count": 49,
+    "prices": {
+      "input_per_million": 12.0,
+      "output_per_million": 27.0,
+      "reference_date": "2026-11-05"
+    }
+  },
+  "global_ledger_delta_cny": 2.511843,
+  "run_estimated_cny": 2.511843,
+  "cost_scope": "This run's responses with valid usage only; uncertain reservations stay charged in the global ledger. Global delta may include concurrent runs.",
+  "usage": [
+    {
+      "usage": {
+        "prompt_tokens": 3766,
+        "total_tokens": 3933,
+        "completion_tokens": 167,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        }
+      },
+      "estimated_cny": 0.049701,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-fb71f127-4244-9b8d-960e-5bf5ee47ef3a"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 4586,
+        "total_tokens": 7235,
+        "completion_tokens": 2649,
+        "prompt_tokens_details": {
+          "cached_tokens": 3584
+        }
+      },
+      "estimated_cny": 0.126555,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-500d7691-46a6-9ac9-9672-ab975cb067a6"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 7480,
+        "total_tokens": 8550,
+        "completion_tokens": 1070,
+        "prompt_tokens_details": {
+          "cached_tokens": 4352
+        }
+      },
+      "estimated_cny": 0.11865,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-bbd659e9-1f88-9e00-a880-a95197216547"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 8679,
+        "total_tokens": 8744,
+        "completion_tokens": 65,
+        "prompt_tokens_details": {
+          "cached_tokens": 7424
+        }
+      },
+      "estimated_cny": 0.105903,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-84036a99-4df4-978f-adcf-5e2c70c0b188"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 8975,
+        "total_tokens": 9199,
+        "completion_tokens": 224,
+        "prompt_tokens_details": {
+          "cached_tokens": 8448
+        }
+      },
+      "estimated_cny": 0.113748,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-7321fdd3-bb2c-99d4-8b11-ba232562bf36"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 11182,
+        "total_tokens": 11768,
+        "completion_tokens": 586,
+        "prompt_tokens_details": {
+          "cached_tokens": 8960
+        }
+      },
+      "estimated_cny": 0.150006,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-faa271b1-061e-9fa6-923d-6dd2fa90ee73"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 7171,
+        "total_tokens": 7422,
+        "completion_tokens": 251,
+        "prompt_tokens_details": {
+          "cached_tokens": 2304
+        }
+      },
+      "estimated_cny": 0.092829,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-68b0cadd-808c-9d1b-928e-5dd5b6ceaa8d"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 7784,
+        "total_tokens": 7852,
+        "completion_tokens": 68,
+        "prompt_tokens_details": {
+          "cached_tokens": 2816
+        }
+      },
+      "estimated_cny": 0.095244,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-403dccb8-29b1-975f-9031-a347b1a19757"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 8108,
+        "total_tokens": 8280,
+        "completion_tokens": 172,
+        "prompt_tokens_details": {
+          "cached_tokens": 7680
+        }
+      },
+      "estimated_cny": 0.10194,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-60ed2a27-f197-9011-bacf-553e196e2ca5"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 7728,
+        "total_tokens": 7797,
+        "completion_tokens": 69,
+        "prompt_tokens_details": {
+          "cached_tokens": 2816
+        }
+      },
+      "estimated_cny": 0.094599,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-00d4cf17-4ba7-9b41-8a34-a2aae661c771"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 8053,
+        "total_tokens": 8598,
+        "completion_tokens": 545,
+        "prompt_tokens_details": {
+          "cached_tokens": 7680
+        }
+      },
+      "estimated_cny": 0.111351,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-e56142d2-c50f-989b-a267-4bec787d6154"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 8864,
+        "total_tokens": 9067,
+        "completion_tokens": 203,
+        "prompt_tokens_details": {
+          "cached_tokens": 3072
+        }
+      },
+      "estimated_cny": 0.111849,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-f570461b-06bf-928e-821b-f5310a1bca9a"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 8716,
+        "total_tokens": 8777,
+        "completion_tokens": 61,
+        "prompt_tokens_details": {
+          "cached_tokens": 3328
+        }
+      },
+      "estimated_cny": 0.106239,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-0f3f3f2e-9124-97f4-b200-a175cae54216"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 8979,
+        "total_tokens": 9322,
+        "completion_tokens": 343,
+        "prompt_tokens_details": {
+          "cached_tokens": 8704
+        }
+      },
+      "estimated_cny": 0.117009,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-2ff75f57-62df-9cec-904b-8f453a2d8554"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 9205,
+        "total_tokens": 9981,
+        "completion_tokens": 776,
+        "prompt_tokens_details": {
+          "cached_tokens": 3840
+        }
+      },
+      "estimated_cny": 0.131412,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-474e7178-7c3b-96ac-bf2a-c14188b1e9e6"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 7507,
+        "total_tokens": 7563,
+        "completion_tokens": 56,
+        "prompt_tokens_details": {
+          "cached_tokens": 3072
+        }
+      },
+      "estimated_cny": 0.091596,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-6ee48b69-63b6-9301-a542-736426fd9acf"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 8803,
+        "total_tokens": 9087,
+        "completion_tokens": 284,
+        "prompt_tokens_details": {
+          "cached_tokens": 7424
+        }
+      },
+      "estimated_cny": 0.113304,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-ebb9fe30-249d-953b-bdae-c5645f4ca151"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 9972,
+        "total_tokens": 10316,
+        "completion_tokens": 344,
+        "prompt_tokens_details": {
+          "cached_tokens": 8704
+        }
+      },
+      "estimated_cny": 0.128952,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-993d14cf-09c4-9ec9-8620-81ff3321d2ad"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 10457,
+        "total_tokens": 10758,
+        "completion_tokens": 301,
+        "prompt_tokens_details": {
+          "cached_tokens": 9728
+        }
+      },
+      "estimated_cny": 0.133611,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-f2ede2a2-26d2-99fc-ba3e-1fbaae20fcea"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 10899,
+        "total_tokens": 11072,
+        "completion_tokens": 173,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.135459,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-8553a730-1dfd-941a-af9a-421b45c62c59"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 11193,
+        "total_tokens": 11299,
+        "completion_tokens": 106,
+        "prompt_tokens_details": {
+          "cached_tokens": 10752
+        }
+      },
+      "estimated_cny": 0.137178,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-6762ea45-5b80-9763-9091-4e57d9021db1"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 11609,
+        "total_tokens": 11809,
+        "completion_tokens": 200,
+        "prompt_tokens_details": {
+          "cached_tokens": 11008
+        }
+      },
+      "estimated_cny": 0.144708,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-59859c3b-4ff6-9522-8699-39b3fbfc4968"
+    }
+  ],
+  "valid_api_responses": 22,
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "637985cddf23df52af48b4dc1b72929f23f2d33e6e878ded6ff624c95c20056c"
+    },
+    {
+      "path": "architecture-decisions.md",
+      "sha256": "75f20440ebebd7bd3467cb137056c8672506a74f053e972622398b212373af29"
+    },
+    {
+      "path": "package.json",
+      "sha256": "a0bd0a69190fecb32909f230fe6888d6b655fde738ffc4b233f1e21e7567bcaf"
+    },
+    {
+      "path": "plan.json",
+      "sha256": "03db858d8e5dbf636c93ab53619c6c5189793932fd54cae62e78f1726cba2c5e"
+    },
+    {
+      "path": "traceability.json",
+      "sha256": "f84ab542347142604ca1872e26e9c09e42afe0af0f3ad19e4adcec59b2aa25b2"
+    },
+    {
+      "path": "scripts/check-syntax.cjs",
+      "sha256": "9a570dcd27ccf93655bd41efa9f910660fa1c39c22c90c81253e4a977be7e2b0"
+    },
+    {
+      "path": "src/app.cjs",
+      "sha256": "0d56b8aae95afccfaf72e29b7de606c096838d977bede17e716749369f23338a"
+    },
+    {
+      "path": "src/server.cjs",
+      "sha256": "04d0891b6fe7503a626670cf5f557a8e7589f1eb37b01aebaae603a324c73589"
+    },
+    {
+      "path": "test/app.test.cjs",
+      "sha256": "913e5f4486eef3ded5d8b7460de031f21903e23d09cbdfc508e60501363dda33"
+    }
+  ]
+}

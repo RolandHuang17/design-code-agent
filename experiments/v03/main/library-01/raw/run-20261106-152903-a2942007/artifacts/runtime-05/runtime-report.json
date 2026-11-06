@@ -1,0 +1,297 @@
+{
+  "profile": "runtime",
+  "acceptance_profile": "library",
+  "status": "passed",
+  "checks": [
+    {
+      "check": "gateway ready",
+      "status": "passed"
+    },
+    {
+      "check": "browser entry served",
+      "status": "passed",
+      "http_status": 200
+    },
+    {
+      "check": "invalid book copies rejected",
+      "status": "passed",
+      "http_status": 400
+    },
+    {
+      "check": "create book with one available copy",
+      "status": "passed",
+      "http_status": 201
+    },
+    {
+      "check": "concurrent borrowers cannot oversell",
+      "status": "passed",
+      "statuses": [
+        409,
+        409,
+        409,
+        409,
+        201,
+        409,
+        409,
+        409
+      ]
+    },
+    {
+      "check": "stock after borrowing is zero",
+      "status": "passed"
+    },
+    {
+      "check": "concurrent duplicate returns restore exactly one copy",
+      "status": "passed",
+      "statuses": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ]
+    },
+    {
+      "check": "borrow returned copy",
+      "status": "passed",
+      "http_status": 201
+    },
+    {
+      "check": "active duplicate rejected",
+      "status": "passed",
+      "http_status": 409
+    },
+    {
+      "check": "book inventory persists after restart",
+      "status": "passed"
+    },
+    {
+      "check": "loan persists and can be returned after restart",
+      "status": "passed",
+      "http_status": 200
+    },
+    {
+      "check": "persisted loan returns one copy",
+      "status": "passed"
+    }
+  ],
+  "cleanup": "passed",
+  "backend": "wsl",
+  "project": "dca-03d772e45e94",
+  "stages": [
+    {
+      "stage": [
+        "version",
+        "--format",
+        "{{.Server.Version}}"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Windows\\system32\\wsl.exe",
+        "-d",
+        "Ubuntu",
+        "-u",
+        "root",
+        "--",
+        "env",
+        "GATEWAY_PORT=13294",
+        "OIDC_PORT=13295",
+        "PUBLIC_ORIGIN=http://localhost:13294",
+        "OIDC_PUBLIC_ORIGIN=http://localhost:13295",
+        "OIDC_ISSUER=http://localhost:13295/realms/space-fractions",
+        "docker",
+        "version",
+        "--format",
+        "{{.Server.Version}}"
+      ],
+      "output": "29.1.3\n"
+    },
+    {
+      "stage": [
+        "config",
+        "--format",
+        "json"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Windows\\system32\\wsl.exe",
+        "-d",
+        "Ubuntu",
+        "-u",
+        "root",
+        "--",
+        "env",
+        "GATEWAY_PORT=13294",
+        "OIDC_PORT=13295",
+        "PUBLIC_ORIGIN=http://localhost:13294",
+        "OIDC_PUBLIC_ORIGIN=http://localhost:13295",
+        "OIDC_ISSUER=http://localhost:13295/realms/space-fractions",
+        "docker",
+        "compose",
+        "--project-directory",
+        "/mnt/d/projects/Task-main-resource-fix/runs/v03/main/library-01/run-20261106-152903-a2942007/project",
+        "-p",
+        "dca-03d772e45e94",
+        "-f",
+        "/mnt/d/projects/Task-main-resource-fix/runs/v03/main/library-01/run-20261106-152903-a2942007/project/compose.yaml",
+        "config",
+        "--format",
+        "json"
+      ],
+      "output": "{\n  \"name\": \"dca-03d772e45e94\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"dca-03d772e45e94_default\",\n      \"ipam\": {}\n    }\n  },\n  \"services\": {\n    \"gateway\": {\n      \"build\": {\n        \"context\": \"/mnt/d/projects/Task-main-resource-fix/runs/v03/main/library-01/run-20261106-152903-a2942007/project\",\n        \"dockerfile\": \"Dockerfile\"\n      },\n      \"command\": null,\n      \"depends_on\": {\n        \"postgres\": {\n          \"condition\": \"service_healthy\",\n          \"required\": true\n        }\n      },\n      \"entrypoint\": null,\n      \"environment\": {\n        \"PGDATABASE\": \"library\",\n        \"PGHOST\": \"postgres\",\n        \"PGPASSWORD\": \"library\",\n        \"PGPORT\": \"5432\",\n        \"PGUSER\": \"library\",\n        \"PORT\": \"3000\"\n      },\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD-SHELL\",\n          \"node -e \\\"fetch('http://localhost:3000/health').then(r =\\u003e process.exit(r.ok ? 0 : 1)).catch(() =\\u003e process.exit(1))\\\"\"\n        ],\n        \"timeout\": \"5s\",\n        \"interval\": \"5s\",\n        \"retries\": 10\n      },\n      \"networks\": {\n        \"default\": null\n      },\n      \"ports\": [\n        {\n          \"mode\": \"ingress\",\n          \"target\": 3000,\n          \"published\": \"3000\",\n          \"protocol\": \"tcp\"\n        }\n      ]\n    },\n    \"postgres\": {\n      \"command\": null,\n      \"entrypoint\": null,\n      \"environment\": {\n        \"POSTGRES_DB\": \"library\",\n        \"POSTGRES_PASSWORD\": \"library\",\n        \"POSTGRES_USER\": \"library\"\n      },\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD-SHELL\",\n          \"pg_isready -U library -d library\"\n        ],\n        \"timeout\": \"5s\",\n        \"interval\": \"5s\",\n        \"retries\": 10\n      },\n      \"image\": \"postgres:16\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"ports\": [\n        {\n          \"mode\": \"ingress\",\n          \"target\": 5432,\n          \"published\": \"5432\",\n          \"protocol\": \"tcp\"\n        }\n      ]\n    }\n  }\n}"
+    },
+    {
+      "stage": [
+        "up",
+        "-d",
+        "--build"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Windows\\system32\\wsl.exe",
+        "-d",
+        "Ubuntu",
+        "-u",
+        "root",
+        "--",
+        "env",
+        "GATEWAY_PORT=13294",
+        "OIDC_PORT=13295",
+        "PUBLIC_ORIGIN=http://localhost:13294",
+        "OIDC_PUBLIC_ORIGIN=http://localhost:13295",
+        "OIDC_ISSUER=http://localhost:13295/realms/space-fractions",
+        "docker",
+        "compose",
+        "--project-directory",
+        "/mnt/d/projects/Task-main-resource-fix/runs/v03/main/library-01/run-20261106-152903-a2942007/project",
+        "-p",
+        "dca-03d772e45e94",
+        "-f",
+        "/mnt/d/projects/Task-main-resource-fix/runs/v03/main/library-01/run-20261106-152903-a2942007/artifacts/runtime-05/compose.isolated.json",
+        "up",
+        "-d",
+        "--build"
+      ],
+      "output": "time=\"2026-11-06T15:42:02+08:00\" level=warning msg=\"Docker Compose is configured to build using Bake, but buildx isn't installed\"\n#0 building with \"default\" instance using docker driver\n\n#1 [gateway internal] load build definition from Dockerfile\n#1 transferring dockerfile: 561B 0.0s done\n#1 DONE 0.0s\n\n#2 [gateway internal] load metadata for docker.io/library/node:22-alpine\n#2 DONE 0.1s\n\n#3 [gateway internal] load .dockerignore\n#3 transferring context: 701B 0.0s done\n#3 DONE 0.0s\n\n#4 [gateway internal] load build context\n#4 transferring context: 3.06kB 0.0s done\n#4 DONE 0.1s\n\n#5 [gateway build 1/4] FROM docker.io/library/node:22-alpine@sha256:fe4f6d74e20370acb04ad889077d14d0f64a9c8ea6a42bc60cddf1e844699914\n#5 resolve docker.io/library/node:22-alpine@sha256:fe4f6d74e20370acb04ad889077d14d0f64a9c8ea6a42bc60cddf1e844699914 0.0s done\n#5 DONE 0.1s\n\n#6 [gateway build 4/4] RUN npm ci --omit=dev\n#6 CACHED\n\n#7 [gateway runtime 3/6] COPY --from=build /app/node_modules ./node_modules\n#7 CACHED\n\n#8 [gateway build 2/4] WORKDIR /app\n#8 CACHED\n\n#9 [gateway build 3/4] COPY package.json package-lock.json ./\n#9 CACHED\n\n#10 [gateway runtime 4/6] COPY package.json ./\n#10 CACHED\n\n#11 [gateway runtime 5/6] COPY src ./src\n#11 DONE 0.1s\n\n#12 [gateway runtime 6/6] COPY public ./public\n#12 DONE 0.1s\n\n#13 [gateway] exporting to image\n#13 exporting layers\n#13 exporting layers 0.3s done\n#13 exporting manifest sha256:1068455c9693024ea19d9eef17573010693b800aa534ed3cb376646adf461888 0.0s done\n#13 exporting config sha256:77f49d2bb3b4fc83a0532496a4b9578f47e2125abca5c18013f77017e792b44c 0.0s done\n#13 exporting attestation manifest sha256:4f1006a8be3bc63f369679ff2adbe24a13d04abc2dcc9cc8cacb7a6a7b58ae4f\n#13 exporting attestation manifest sha256:4f1006a8be3bc63f369679ff2adbe24a13d04abc2dcc9cc8cacb7a6a7b58ae4f 0.1s done\n#13 exporting manifest list sha256:7d77d8b79af6397ee39cb5d73f5448d3068ee1a894308384bcbafbad7c840a52 0.0s done\n#13 naming to docker.io/library/dca-03d772e45e94-gateway:latest\n#13 naming to docker.io/library/dca-03d772e45e94-gateway:latest done\n#13 unpacking to docker.io/library/dca-03d772e45e94-gateway:latest 0.1s done\n#13 DONE 0.6s\n\n#14 [gateway] resolving provenance for metadata file\n#14 DONE 0.0s\n gateway  Built\n Network dca-03d772e45e94_default  Creating\n Network dca-03d772e45e94_default  Created\n Container dca-03d772e45e94-postgres-1  Creating\n Container dca-03d772e45e94-postgres-1  Created\n Container dca-03d772e45e94-gateway-1  Creating\n Container dca-03d772e45e94-gateway-1  Created\n Container dca-03d772e45e94-postgres-1  Starting\n Container dca-03d772e45e94-postgres-1  Started\n Container dca-03d772e45e94-postgres-1  Waiting\n Container dca-03d772e45e94-postgres-1  Healthy\n Container dca-03d772e45e94-gateway-1  Starting\n Container dca-03d772e45e94-gateway-1  Started\n"
+    },
+    {
+      "stage": [
+        "restart",
+        "gateway"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Windows\\system32\\wsl.exe",
+        "-d",
+        "Ubuntu",
+        "-u",
+        "root",
+        "--",
+        "env",
+        "GATEWAY_PORT=13294",
+        "OIDC_PORT=13295",
+        "PUBLIC_ORIGIN=http://localhost:13294",
+        "OIDC_PUBLIC_ORIGIN=http://localhost:13295",
+        "OIDC_ISSUER=http://localhost:13295/realms/space-fractions",
+        "docker",
+        "compose",
+        "--project-directory",
+        "/mnt/d/projects/Task-main-resource-fix/runs/v03/main/library-01/run-20261106-152903-a2942007/project",
+        "-p",
+        "dca-03d772e45e94",
+        "-f",
+        "/mnt/d/projects/Task-main-resource-fix/runs/v03/main/library-01/run-20261106-152903-a2942007/artifacts/runtime-05/compose.isolated.json",
+        "restart",
+        "gateway"
+      ],
+      "output": " Container dca-03d772e45e94-gateway-1  Restarting\n Container dca-03d772e45e94-gateway-1  Started\n"
+    },
+    {
+      "stage": [
+        "logs",
+        "--no-color",
+        "--tail",
+        "40"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Windows\\system32\\wsl.exe",
+        "-d",
+        "Ubuntu",
+        "-u",
+        "root",
+        "--",
+        "env",
+        "GATEWAY_PORT=13294",
+        "OIDC_PORT=13295",
+        "PUBLIC_ORIGIN=http://localhost:13294",
+        "OIDC_PUBLIC_ORIGIN=http://localhost:13295",
+        "OIDC_ISSUER=http://localhost:13295/realms/space-fractions",
+        "docker",
+        "compose",
+        "--project-directory",
+        "/mnt/d/projects/Task-main-resource-fix/runs/v03/main/library-01/run-20261106-152903-a2942007/project",
+        "-p",
+        "dca-03d772e45e94",
+        "-f",
+        "/mnt/d/projects/Task-main-resource-fix/runs/v03/main/library-01/run-20261106-152903-a2942007/artifacts/runtime-05/compose.isolated.json",
+        "logs",
+        "--no-color",
+        "--tail",
+        "40"
+      ],
+      "output": "postgres-1  | running bootstrap script ... ok\npostgres-1  | performing post-bootstrap initialization ... ok\npostgres-1  | initdb: warning: enabling \"trust\" authentication for local connections\npostgres-1  | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.\npostgres-1  | syncing data to disk ... ok\npostgres-1  | \npostgres-1  | \npostgres-1  | Success. You can now start the database server using:\npostgres-1  | \npostgres-1  |     pg_ctl -D /var/lib/postgresql/data -l logfile start\npostgres-1  | \npostgres-1  | waiting for server to start....2026-11-06 07:42:06.151 UTC [48] LOG:  starting PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit\npostgres-1  | 2026-11-06 07:42:06.155 UTC [48] LOG:  listening on Unix socket \"/var/run/postgresql/.s.PGSQL.5432\"\npostgres-1  | 2026-11-06 07:42:06.168 UTC [51] LOG:  database system was shut down at 2026-11-06 07:42:05 UTC\npostgres-1  | 2026-11-06 07:42:06.175 UTC [48] LOG:  database system is ready to accept connections\npostgres-1  |  done\npostgres-1  | server started\npostgres-1  | CREATE DATABASE\npostgres-1  | \npostgres-1  | \npostgres-1  | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*\npostgres-1  | \npostgres-1  | 2026-11-06 07:42:06.338 UTC [48] LOG:  received fast shutdown request\npostgres-1  | waiting for server to shut down....2026-11-06 07:42:06.342 UTC [48] LOG:  aborting any active transactions\npostgres-1  | 2026-11-06 07:42:06.344 UTC [48] LOG:  background worker \"logical replication launcher\" (PID 54) exited with exit code 1\npostgres-1  | 2026-11-06 07:42:06.344 UTC [49] LOG:  shutting down\npostgres-1  | 2026-11-06 07:42:06.348 UTC [49] LOG:  checkpoint starting: shutdown immediate\npostgres-1  | 2026-11-06 07:42:06.589 UTC [49] LOG:  checkpoint complete: wrote 926 buffers (5.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.027 s, sync=0.200 s, total=0.245 s; sync files=301, longest=0.006 s, average=0.001 s; distance=4273 kB, estimate=4273 kB; lsn=0/191F0E0, redo lsn=0/191F0E0\npostgres-1  | 2026-11-06 07:42:06.596 UTC [48] LOG:  database system is shut down\npostgres-1  |  done\npostgres-1  | server stopped\npostgres-1  | \npostgres-1  | PostgreSQL init process complete; ready for start up.\npostgres-1  | \ngateway-1   | Library gateway listening on port 3000\ngateway-1   | Library gateway listening on port 3000\npostgres-1  | 2026-11-06 07:42:06.666 UTC [1] LOG:  starting PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit\npostgres-1  | 2026-11-06 07:42:06.666 UTC [1] LOG:  listening on IPv4 address \"0.0.0.0\", port 5432\npostgres-1  | 2026-11-06 07:42:06.666 UTC [1] LOG:  listening on IPv6 address \"::\", port 5432\npostgres-1  | 2026-11-06 07:42:06.674 UTC [1] LOG:  listening on Unix socket \"/var/run/postgresql/.s.PGSQL.5432\"\npostgres-1  | 2026-11-06 07:42:06.684 UTC [64] LOG:  database system was shut down at 2026-11-06 07:42:06 UTC\npostgres-1  | 2026-11-06 07:42:06.692 UTC [1] LOG:  database system is ready to accept connections\n"
+    },
+    {
+      "stage": [
+        "down",
+        "--volumes",
+        "--remove-orphans"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Windows\\system32\\wsl.exe",
+        "-d",
+        "Ubuntu",
+        "-u",
+        "root",
+        "--",
+        "env",
+        "GATEWAY_PORT=13294",
+        "OIDC_PORT=13295",
+        "PUBLIC_ORIGIN=http://localhost:13294",
+        "OIDC_PUBLIC_ORIGIN=http://localhost:13295",
+        "OIDC_ISSUER=http://localhost:13295/realms/space-fractions",
+        "docker",
+        "compose",
+        "--project-directory",
+        "/mnt/d/projects/Task-main-resource-fix/runs/v03/main/library-01/run-20261106-152903-a2942007/project",
+        "-p",
+        "dca-03d772e45e94",
+        "-f",
+        "/mnt/d/projects/Task-main-resource-fix/runs/v03/main/library-01/run-20261106-152903-a2942007/artifacts/runtime-05/compose.isolated.json",
+        "down",
+        "--volumes",
+        "--remove-orphans"
+      ],
+      "output": " Container dca-03d772e45e94-gateway-1  Stopping\n Container dca-03d772e45e94-gateway-1  Stopped\n Container dca-03d772e45e94-gateway-1  Removing\n Container dca-03d772e45e94-gateway-1  Removed\n Container dca-03d772e45e94-postgres-1  Stopping\n Container dca-03d772e45e94-postgres-1  Stopped\n Container dca-03d772e45e94-postgres-1  Removing\n Container dca-03d772e45e94-postgres-1  Removed\n Network dca-03d772e45e94_default  Removing\n Network dca-03d772e45e94_default  Removed\n"
+    }
+  ],
+  "source_modified_by_host": false,
+  "isolation_note": "Owned Compose project and loopback ports; Docker execution is not an OS security sandbox"
+}

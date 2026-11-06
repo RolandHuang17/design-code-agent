@@ -1,0 +1,196 @@
+# Space Fractions — local development / acceptance environment.
+#
+# This Compose file wires the gateway (which hosts the game/question/user/admin
+# service entrypoints in one process per the supplement contract) together with
+# the supporting infrastructure. PostgreSQL is the system of record; Redis,
+# RabbitMQ, Elasticsearch and Prometheus are real integrations that degrade
+# gracefully when absent (the gateway's /health and core game flow do not
+# require them).
+#
+# Service IDs are part of the operator acceptance contract and MUST remain
+# exactly: gateway, game-service, question-service, user-service, admin-service,
+# postgres, redis, rabbitmq, elasticsearch, keycloak, prometheus.
+#
+# All browser-facing URLs derive from PUBLIC_ORIGIN and OIDC_ISSUER /
+# OIDC_PUBLIC_ORIGIN; the container-on-container ports never leak a fixed
+# public host port to the browser. The host acceptance harness remaps ports,
+# so the application must not assume public host port == container port.
+
+name: space-fractions
+
+x-gateway-defaults: &gateway-defaults
+  environment: &gateway-env
+    PORT: "3000"
+    PUBLIC_ORIGIN: ${PUBLIC_ORIGIN:-http://localhost:3000}
+    OIDC_ISSUER: ${OIDC_ISSUER:-http://localhost:8080/realms/space-fractions}
+    OIDC_PUBLIC_ORIGIN: ${OIDC_PUBLIC_ORIGIN:-http://localhost:8080}
+    # Internal (service-to-service) JWKS URL — never the browser-facing issuer.
+    OIDC_JWKS_URI: ${OIDC_JWKS_URI:-http://keycloak:8080/realms/space-fractions/protocol/openid-connect/certs}
+    OIDC_AUDIENCE: ${OIDC_AUDIENCE:-account}
+    OIDC_CLIENT_ID: ${OIDC_CLIENT_ID:-space-fractions-client}
+    ADMIN_ROLE: ${ADMIN_ROLE:-admin}
+    DATABASE_URL: ${DATABASE_URL:-postgres://space_fractions:space_fractions@postgres:5432/space_fractions}
+    REDIS_URL: redis://redis:6379
+    RABBITMQ_URL: amqp://rabbitmq:5672
+    ELASTICSEARCH_URL: http://elasticsearch:9200
+    # Disable metrics registry build only if explicitly requested; prometheus
+    # scrapes /metrics so metrics remain enabled by default.
+    DISABLED_FEATURES: ${DISABLED_FEATURES:-}
+  depends_on:
+    postgres:
+      condition: service_healthy
+
+services:
+  # ---- Browser gateway (container port 3000) --------------------------------
+  # Hosts the Express app serving the static UI at /, the OIDC-secured REST API,
+  # and GET /health. The separate game/question/user/admin "service" entrypoints
+  # are modules behind this single gateway process (see architecture-decisions).
+  gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment: *gateway-env
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:3000/health',r=>{process.exit(r.statusCode===200?0:1)}).on('error',()=>process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+    restart: unless-stopped
+
+  # ---- Service entrypoints ----------------------------------------------------
+  # Per the supplement contract each service is a distinct entrypoint module, but
+  # they are deployed inside the same gateway image/process (compromise C4).
+  # These aliases exist to satisfy the required Compose service IDs and make the
+  # microservice boundary explicit for any future split; they intentionally share
+  # no public port and are treated as no-op companions to the gateway.
+  game-service:
+    image: busybox:1.36.1
+    command: ["sh", "-c", "echo 'game-service entrypoint: served by gateway'; sleep infinity"]
+    depends_on:
+      gateway:
+        condition: service_started
+    restart: "no"
+
+  question-service:
+    image: busybox:1.36.1
+    command: ["sh", "-c", "echo 'question-service entrypoint: served by gateway'; sleep infinity"]
+    depends_on:
+      gateway:
+        condition: service_started
+    restart: "no"
+
+  user-service:
+    image: busybox:1.36.1
+    command: ["sh", "-c", "echo 'user-service entrypoint: served by gateway'; sleep infinity"]
+    depends_on:
+      gateway:
+        condition: service_started
+    restart: "no"
+
+  admin-service:
+    image: busybox:1.36.1
+    command: ["sh", "-c", "echo 'admin-service entrypoint: served by gateway'; sleep infinity"]
+    depends_on:
+      gateway:
+        condition: service_started
+    restart: "no"
+
+  # ---- Infrastructure ---------------------------------------------------------
+
+  postgres:
+    image: postgres:16.3-alpine
+    environment:
+      POSTGRES_USER: space_fractions
+      POSTGRES_PASSWORD: space_fractions
+      POSTGRES_DB: space_fractions
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U space_fractions -d space_fractions"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  redis:
+    image: redis:7.2-alpine
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
+
+  rabbitmq:
+    image: rabbitmq:3.13-alpine
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+    restart: unless-stopped
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.13.4
+    environment:
+      discovery.type: single-node
+      xpack.security.enabled: "false"
+      ES_JAVA_OPTS: "-Xms512m -Xmx512m"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:9200/_cluster/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+    restart: unless-stopped
+
+  prometheus:
+    image: prom/prometheus:v2.53.0
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+    volumes:
+      - ./reference/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    ports:
+      - "9090:9090"
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://localhost:9090/-/ready || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # ---- Identity provider ------------------------------------------------------
+  keycloak:
+    # Keycloak 24.0.5 per contract. Image provides bash but no curl/wget.
+    image: quay.io/keycloak/keycloak:24.0.5
+    command: ["start-dev", "--import-realm"]
+    environment:
+      # Bootstrap admin pair for the local-only fixture. Distinct from the app's
+      # 'admin' realm user (student/admin/other). Never use these as prod creds.
+      KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN:-admin}
+      KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD:-admin}
+      # Public frontend origin derives from OIDC_PUBLIC_ORIGIN, never a fixed port.
+      KC_HOSTNAME_URL: ${OIDC_PUBLIC_ORIGIN:-http://localhost:8080}
+      KC_HOSTNAME_STRICT: "false"
+      KC_HOSTNAME_STRICT_HTTPS: "false"
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./keycloak/realm.json:/opt/keycloak/data/import/realm.json:ro
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c 'exec 3<>/dev/tcp/localhost/8080' || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 40s
+    restart: unless-stopped
+
+volumes:
+  postgres-data:

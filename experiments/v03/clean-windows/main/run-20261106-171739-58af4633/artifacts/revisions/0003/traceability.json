@@ -1,0 +1,52 @@
+{
+  "items": [
+    {
+      "id": "FR1",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 7},
+      "description": "GET /health returns HTTP 200 and JSON {\"status\":\"ok\"}.",
+      "files": ["src/app.cjs"],
+      "tests": ["test/health.test.cjs"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR2",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 8},
+      "description": "Unknown routes return HTTP 404 and a JSON error. After an unknown request the service must still answer /health.",
+      "files": ["src/app.cjs"],
+      "tests": ["test/health.test.cjs"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR3",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 9},
+      "description": "npm start listens on process.env.PORT, default 3000. Exported application/server factory is kept separate from the executable startup file.",
+      "files": ["src/app.cjs", "src/server.cjs"],
+      "tests": [],
+      "status": "implemented"
+    },
+    {
+      "id": "NFR1",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 10},
+      "description": "npm test runs real HTTP tests on an ephemeral loopback port checking health, unknown route and health again; close the server after testing; no mocks.",
+      "files": ["test/health.test.cjs"],
+      "tests": ["test/health.test.cjs"],
+      "status": "implemented"
+    },
+    {
+      "id": "NFR2",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 11},
+      "description": "npm run build checks all source JavaScript syntax. Deliver package.json, source, tests and README with instructions and a source-to-requirement mapping. CommonJS .cjs files.",
+      "files": ["package.json", "scripts/check-syntax.cjs", "README.md"],
+      "tests": [],
+      "status": "implemented"
+    },
+    {
+      "id": "VIEW-structure",
+      "source": {"document": "Architecture_View.md", "start_line": 5},
+      "description": "PlantUML structure: Startup entry creates/listens on PORT; Tests create/listen on loopback random port; Client hits Application for /health or unknown route. All three components realized by src/server.cjs, test/health.test.cjs and src/app.cjs respectively.",
+      "files": ["src/app.cjs", "src/server.cjs", "test/health.test.cjs"],
+      "tests": ["test/health.test.cjs"],
+      "status": "implemented"
+    }
+  ]
+}

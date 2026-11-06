@@ -1,0 +1,96 @@
+{
+  "tasks": [
+    {
+      "id": "T1",
+      "state": "checks_passed_requires_review",
+      "missing": [],
+      "snapshot_id": "922603e45e456e36a4b5c685f2911bd155cfc6c30bce7f87503e68fde328a535",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T2",
+      "state": "checks_passed_requires_review",
+      "missing": [],
+      "snapshot_id": "922603e45e456e36a4b5c685f2911bd155cfc6c30bce7f87503e68fde328a535",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T3",
+      "state": "checks_passed_requires_review",
+      "missing": [],
+      "snapshot_id": "922603e45e456e36a4b5c685f2911bd155cfc6c30bce7f87503e68fde328a535",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T4",
+      "state": "checks_passed_requires_review",
+      "missing": [],
+      "snapshot_id": "922603e45e456e36a4b5c685f2911bd155cfc6c30bce7f87503e68fde328a535",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T5",
+      "state": "checks_passed_requires_review",
+      "missing": [],
+      "snapshot_id": "922603e45e456e36a4b5c685f2911bd155cfc6c30bce7f87503e68fde328a535",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T6",
+      "state": "checks_passed_requires_review",
+      "missing": [],
+      "snapshot_id": "922603e45e456e36a4b5c685f2911bd155cfc6c30bce7f87503e68fde328a535",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T7",
+      "state": "checks_passed_requires_review",
+      "missing": [],
+      "snapshot_id": "922603e45e456e36a4b5c685f2911bd155cfc6c30bce7f87503e68fde328a535",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T9",
+      "state": "checks_passed_requires_review",
+      "missing": [],
+      "snapshot_id": "922603e45e456e36a4b5c685f2911bd155cfc6c30bce7f87503e68fde328a535",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T8",
+      "state": "checks_passed_requires_review",
+      "missing": [],
+      "snapshot_id": "922603e45e456e36a4b5c685f2911bd155cfc6c30bce7f87503e68fde328a535",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T11",
+      "state": "checks_passed_requires_review",
+      "missing": [],
+      "snapshot_id": "922603e45e456e36a4b5c685f2911bd155cfc6c30bce7f87503e68fde328a535",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T10",
+      "state": "checks_passed_requires_review",
+      "missing": [],
+      "snapshot_id": "922603e45e456e36a4b5c685f2911bd155cfc6c30bce7f87503e68fde328a535",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T12",
+      "state": "checks_passed_requires_review",
+      "missing": [],
+      "snapshot_id": "922603e45e456e36a4b5c685f2911bd155cfc6c30bce7f87503e68fde328a535",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T13",
+      "state": "checks_passed_requires_review",
+      "missing": [],
+      "snapshot_id": "922603e45e456e36a4b5c685f2911bd155cfc6c30bce7f87503e68fde328a535",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    }
+  ],
+  "snapshot_id": "922603e45e456e36a4b5c685f2911bd155cfc6c30bce7f87503e68fde328a535"
+}

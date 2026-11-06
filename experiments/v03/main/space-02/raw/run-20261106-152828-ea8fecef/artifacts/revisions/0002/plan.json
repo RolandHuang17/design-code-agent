@@ -1,0 +1,190 @@
+{
+  "summary": "Space Fractions is a web-based fraction-learning game for sixth graders. The original design specifies a microservices architecture (GameComponent, QuestionComponent, UserComponent) with Express/PostgreSQL and an OAuth2 security posture; the operator supplement layers a concrete acceptance contract (Node.js 22+, Keycloak OIDC PKCE, exact rational arithmetic, owner authorization, pause/resume, scoring, question CRUD) plus Redis/RabbitMQ/Elasticsearch/Prometheus integrations and a gateway on port 3000. This plan implements separate service entrypoints behind one gateway process, PostgreSQL as system of record, and reference-only cloud/K8s/Vault/Istio configs. Contradiction C1 (error budget math) is documented; Node.js 22 and PG16 supersede the original versions per the supplement.",
+  "tasks": [
+    {
+      "id": "T1",
+      "description": "Project scaffold: package.json (pinned deps, scripts test/build/start/test:integration), .env.example, .gitignore, README.md, plan.json, traceability.json, architecture-decisions.md (this file). Establishes the module boundary and script contracts.",
+      "files": ["package.json", ".env.example", ".gitignore", "README.md", "plan.json", "traceability.json", "architecture-decisions.md"],
+      "depends_on": [],
+      "sources": [
+        {"document": "space-fractions.md", "start_line": 1, "end_line": 55},
+        {"document": "Architecture_Documentation.md", "start_line": 232, "end_line": 240}
+      ],
+      "contracts": [
+        {"description": "Root package.json must expose scripts test, build, start, test:integration with pinned dependency versions; build must actually check source.", "source": {"document": "space-fractions.md", "start_line": 38}}
+      ]
+    },
+    {
+      "id": "T2",
+      "description": "Shared domain library: fraction rational arithmetic (reduce via gcd, validate single reduced fraction), game state machine (Playing/Paused/GameOver), and core types. No external I/O.",
+      "files": ["lib/fraction.js", "lib/game-state.js", "lib/types.js"],
+      "depends_on": ["T1"],
+      "sources": [
+        {"document": "Architecture_View.md", "start_line": 21, "end_line": 78},
+        {"document": "space-fractions.md", "start_line": 11, "end_line": 14}
+      ],
+      "contracts": [
+        {"description": "Exact rational arithmetic: equality via reduced numerator/denominator; malformed fraction returns a typed validation error.", "source": {"document": "space-fractions.md", "start_line": 11}},
+        {"description": "Game lifecycle states Playing/Paused/GameOver with pause/resume/gameOver transitions only.", "source": {"document": "Architecture_View.md", "start_line": 67}}
+      ]
+    },
+    {
+      "id": "T3",
+      "description": "Persistence layer: SQL migrations (games with game_state JSONB seed + expanded questions/answers/users tables) and idempotent seed data. Every seed answer is a valid single reduced fraction. Honors original games DDL and PG16 constraints (no EXCLUDED in RETURNING).",
+      "files": ["sql/game_ddl.sql", "sql/migrations/001_init.sql", "sql/seed/001_questions.sql", "lib/db.js"],
+      "depends_on": ["T2"],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 118, "end_line": 124},
+        {"document": "space-fractions.md", "start_line": 41, "end_line": 49}
+      ],
+      "contracts": [
+        {"description": "games table: id SERIAL PRIMARY KEY, game_state JSONB NOT NULL (verbatim from original).", "source": {"document": "Architecture_Documentation.md", "start_line": 118}},
+        {"description": "Score updates serialize per game and deduplicate in the same transaction; no EXCLUDED in RETURNING; subject->numeric user id upsert; one owned transaction client with rollback on error.", "source": {"document": "space-fractions.md", "start_line": 43}}
+      ]
+    },
+    {
+      "id": "T4",
+      "description": "Auth module: OIDC issuer/audience/JWKS validation, admin role extraction, and subject->user id mapping. Uses a provider-agnostic verifier interface so unit tests can inject a fake.",
+      "files": ["lib/auth.js", "lib/user-map.js"],
+      "depends_on": ["T3"],
+      "sources": [
+        {"document": "space-fractions.md", "start_line": 14, "end_line": 16},
+        {"document": "Architecture_Documentation.md", "start_line": 157, "end_line": 161}
+      ],
+      "contracts": [
+        {"description": "Backend validates issuer/audience/JWKS (http://keycloak:8080/realms/space-fractions/protocol/openid-connect/certs); admin role from realm_access.roles; missing/invalid token -> 401.", "source": {"document": "space-fractions.md", "start_line": 46}}
+      ]
+    },
+    {
+      "id": "T5",
+      "description": "Question service module: question CRUD/storage, stable ordering, no correctAnswer in player responses, search via Elasticsearch client with bounded timeout.",
+      "files": ["services/question-service.js", "lib/search.js"],
+      "depends_on": ["T3", "T4"],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 47, "end_line": 50},
+        {"document": "space-fractions.md", "start_line": 19, "end_line": 31}
+      ],
+      "contracts": [
+        {"description": "POST /api/admin/questions {prompt,options,correctAnswer} -> 201 {id,...}; GET /api/admin/questions -> {questions:[{id,prompt,options,correctAnswer}]}; DELETE -> 200/204; normal users 403.", "source": {"document": "space-fractions.md", "start_line": 19}},
+        {"description": "Never include correctAnswer in a player-facing response.", "source": {"document": "space-fractions.md", "start_line": 22}}
+      ]
+    },
+    {
+      "id": "T6",
+      "description": "Game service module: create game (optional questionIds), play lifecycle (pause/resume), answer submission with scoring/dedup/pause guard, score view, owner authorization. Emits RabbitMQ score events; Redis read-through cache.",
+      "files": ["services/game-service.js", "lib/cache.js", "lib/events.js"],
+      "depends_on": ["T5"],
+      "sources": [
+        {"document": "Architecture_View.md", "start_line": 96, "end_line": 110},
+        {"document": "space-fractions.md", "start_line": 20, "end_line": 28}
+      ],
+      "contracts": [
+        {"description": "POST /api/games {questionIds?} -> 201 {id,questions:[{id,prompt,options}]}; GET /api/games/:id -> state (no correctAnswer); POST pause/resume; POST answers {questionId,answer} -> {correct,score}; repeat answer no score increase; paused answer -> 409; malformed fraction -> 400; other user's game -> 403/404.", "source": {"document": "space-fractions.md", "start_line": 20}}
+      ]
+    },
+    {
+      "id": "T7",
+      "description": "Gateway/HTTP entrypoints: Express app wiring game/question/user/admin service modules, /health, static browser UI at /, original GET /play compatibility, admin role middleware, metrics endpoint. One process, multiple service entrypoint modules.",
+      "files": ["services/user-service.js", "services/admin-service.js", "gateway/app.js", "gateway/index.js", "public/index.html", "public/app.js", "public/style.css"],
+      "depends_on": ["T5", "T6"],
+      "sources": [
+        {"document": "space-fractions.md", "start_line": 15, "end_line": 18},
+        {"document": "Architecture_Documentation.md", "start_line": 81, "end_line": 103}
+      ],
+      "contracts": [
+        {"description": "GET /health -> 200; UI at /; authenticated endpoints use Bearer OIDC tokens; original GET /play returns gameId for backward compatibility.", "source": {"document": "space-fractions.md", "start_line": 15}}
+      ]
+    },
+    {
+      "id": "T8",
+      "description": "OpenAPI specification and internal.proto: full REST contract (including GET /play compatibility and all /api endpoints) + GameService.Play proto contract.",
+      "files": ["openapi.yaml", "internal.proto"],
+      "depends_on": ["T7"],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 80, "end_line": 117},
+        {"document": "space-fractions.md", "start_line": 15, "end_line": 18}
+      ],
+      "contracts": [
+        {"description": "openapi.yaml documents the gateway contract incl. GET /play; internal.proto declares GameService.Play(PlayRequest)->PlayResponse.", "source": {"document": "Architecture_Documentation.md", "start_line": 80}}
+      ]
+    },
+    {
+      "id": "T9",
+      "description": "Unit tests (node:test, in-memory/fake adapters, no live infra): scoring, pause/resume, authorization (403/401), invalid input (400 malformed fraction), dedup, error behavior.",
+      "files": ["test/fraction.test.js", "test/game-service.test.js", "test/auth.test.js"],
+      "depends_on": ["T2", "T4", "T6"],
+      "sources": [
+        {"document": "space-fractions.md", "start_line": 39, "end_line": 40},
+        {"document": "Architecture_Documentation.md", "start_line": 189, "end_line": 198}
+      ],
+      "contracts": [
+        {"description": "Tests must assert scoring, pause/resume, authorization, invalid input, and error behavior without requiring live infra.", "source": {"document": "space-fractions.md", "start_line": 39}}
+      ]
+    },
+    {
+      "id": "T10",
+      "description": "Integration tests (separate, gated behind live infra): real HTTP against Compose stack including Keycloak token fixtures, PG transaction behavior, and admin CRUD.",
+      "files": ["test/integration.test.js"],
+      "depends_on": ["T8", "T9"],
+      "sources": [
+        {"document": "space-fractions.md", "start_line": 40, "end_line": 40}
+      ],
+      "contracts": [
+        {"description": "Integration tests run against running infrastructure and must not run as part of default npm test.", "source": {"document": "space-fractions.md", "start_line": 40}}
+      ]
+    },
+    {
+      "id": "T11",
+      "description": "Compose + Dockerfiles: services gateway, game-service, question-service, user-service, admin-service, postgres, redis, rabbitmq, elasticsearch, keycloak, prometheus; Keycloak 24.0.5 with PKCE S256 client, demo users, directAccessGrantsEnabled (local-only); bind-mounted realm import; healthchecks.",
+      "files": ["compose.yaml", "Dockerfile", "keycloak/realm.json"],
+      "depends_on": ["T7"],
+      "sources": [
+        {"document": "space-fractions.md", "start_line": 33, "end_line": 35},
+        {"document": "space-fractions.md", "start_line": 44, "end_line": 48}
+      ],
+      "contracts": [
+        {"description": "Compose service IDs exactly: gateway, game-service, question-service, user-service, admin-service, postgres, redis, rabbitmq, elasticsearch, keycloak, prometheus; gateway 3000, keycloak 8080; PUBLIC_ORIGIN/OIDC_ISSUER drive redirects.", "source": {"document": "space-fractions.md", "start_line": 44}}
+      ]
+    },
+    {
+      "id": "T12",
+      "description": "Reference-only infrastructure (NOT production-validated, labeled): Kubernetes manifests, Jenkinsfile, AWS Terraform example, Vault and Istio reference config.",
+      "files": ["k8s/spacefractions-deployment.yaml", "Jenkinsfile", "terraform/main.tf", "reference/vault.hcl", "reference/istio.yaml"],
+      "depends_on": ["T11"],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 130, "end_line": 156},
+        {"document": "space-fractions.md", "start_line": 31, "end_line": 32}
+      ],
+      "contracts": [
+        {"description": "Kubernetes Deployment replicas=3 containerPort 80 per original; reference-only configs labeled and not claimed validated.", "source": {"document": "Architecture_Documentation.md", "start_line": 131}}
+      ]
+    },
+    {
+      "id": "T13",
+      "description": "Build script (actual syntax/consistency check of sources, OpenAPI/proto validation, no echo placeholder) plus traceability.json populated from T1 with implemented/partial statuses and test links.",
+      "files": ["scripts/check.js", "traceability.json"],
+      "depends_on": ["T1", "T8", "T9"],
+      "sources": [
+        {"document": "space-fractions.md", "start_line": 39, "end_line": 39}
+      ],
+      "contracts": [
+        {"description": "Build script performs a real check (e.g., node --check across sources, JSON/YAML presence validation).", "source": {"document": "space-fractions.md", "start_line": 39}}
+      ]
+    }
+  ],
+  "assumptions": [
+    "A-1: OIDC subject mapped to numeric user id via idempotent upsert (table schema assumed).",
+    "A-2: Answers normalized to single reduced fraction; equality via reduced numerator/denominator.",
+    "A-3: Stable question order via deterministic sort key.",
+    "A-4: Empty/no questionIds draws from seeded question bank.",
+    "A-5: admin role = realm role 'admin' in realm_access.roles.",
+    "A-6: Redis/RabbitMQ/Elasticsearch/Prometheus degrade gracefully when absent (log + pass-through).",
+    "A-7: GET /play returns gameId (integer) and default question set."
+  ],
+  "conflicts": [
+    "C1: 99.99% uptime vs 1% error budget (Architecture_Documentation.md line 181); resolved to 0.01%.",
+    "C2: Node.js 18-20 (original) vs Node.js 22+ (supplement); supplement wins.",
+    "C3: single JSONB games table (original) vs full question/answer/user schema (supplement); expanded schema, seed DDL preserved.",
+    "C4: microservices (original) vs separate entrypoints + one gateway (supplement); separate modules behind one gateway process."
+  ]
+}

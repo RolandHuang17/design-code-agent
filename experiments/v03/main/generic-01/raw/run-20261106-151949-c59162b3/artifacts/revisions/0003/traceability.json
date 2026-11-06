@@ -1,0 +1,68 @@
+{
+  "items": [
+    {
+      "id": "FR1",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 7},
+      "description": "GET / serves an HTML page with a numeric input, source and destination unit selectors, submit button, result and visible error feedback.",
+      "files": ["lib/app.js"],
+      "tests": ["test/app.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR2",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 8},
+      "description": "POST /api/convert accepts JSON {\"value\":number,\"from\":\"C\"|\"F\"|\"K\",\"to\":\"C\"|\"F\"|\"K\"} and returns 200 JSON {\"value\":number,\"unit\":destination unit} without integer rounding.",
+      "files": ["lib/app.js", "lib/convert.js"],
+      "tests": ["test/convert.test.js", "test/app.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR3",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 9},
+      "description": "Conversion formulas C = (F-32)*5/9 and K = C+273.15; same-unit conversion preserves the value; negative C/F valid above absolute zero.",
+      "files": ["lib/convert.js"],
+      "tests": ["test/convert.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR4",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 10},
+      "description": "Reject missing fields, nonnumeric, booleans, unsupported units, malformed JSON, and below-absolute-zero (even same-unit) with HTTP 400 and JSON {\"error\": nonempty}; boundary -273.15 C / -459.67 F / 0 K with float tolerance.",
+      "files": ["lib/app.js", "lib/convert.js"],
+      "tests": ["test/convert.test.js", "test/app.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR5",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 12},
+      "description": "GET /health returns HTTP 200 JSON {\"status\":\"ok\"}.",
+      "files": ["lib/app.js"],
+      "tests": ["test/app.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "NFR1",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 13},
+      "description": "Conversion logic separated from HTTP handling and testable without a server; npm test runs meaningful tests; npm run build checks source syntax.",
+      "files": ["lib/convert.js", "lib/app.js", "package.json", "server.js"],
+      "tests": ["test/convert.test.js", "test/app.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "NFR2",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 13},
+      "description": "npm start starts server on process.env.PORT default 3000; no external runtime services; install/start/test instructions and limitations documented.",
+      "files": ["server.js", "package.json", "README.md"],
+      "tests": ["test/app.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "VIEW-1",
+      "source": {"document": "Architecture_View.md", "start_line": 3},
+      "description": "Component interaction: User → UI (enter temp/units) → HTTP (POST /api/convert) → Convert (validate/convert) → HTTP (result/error) → UI (JSON 200 or 400).",
+      "files": ["lib/app.js", "lib/convert.js"],
+      "tests": ["test/convert.test.js", "test/app.test.js"],
+      "status": "implemented"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "root": "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project",
+  "changes": [
+    {
+      "path": "test/integration.test.js",
+      "before": "d2ce03d8c3f8a2bdd95de98d10bf839267035bf039b13702493969bc11c78e92",
+      "after": "97d57b15885f88ad5a66cee472e8190db1ff9014baf2ea839b9de966b161bfe0"
+    }
+  ],
+  "checks": [
+    {
+      "path": "test/integration.test.js",
+      "status": "passed",
+      "kind": "syntax_format",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\artifacts\\candidates\\3c1f6ca0807a46baa436836f0c7b969f\\after\\test\\integration.test.js"
+      ],
+      "output": ""
+    }
+  ],
+  "status": "committed"
+}

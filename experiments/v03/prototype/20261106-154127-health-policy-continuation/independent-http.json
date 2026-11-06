@@ -1,0 +1,62 @@
+{
+  "origin": "independent_operator_HTTP_and_restart",
+  "manual_project_edits": false,
+  "checks": [
+    {
+      "restart_index": 0,
+      "path": "/health",
+      "status": 200,
+      "body": {
+        "status": "ok"
+      },
+      "passed": true
+    },
+    {
+      "restart_index": 0,
+      "path": "/unknown-route",
+      "status": 404,
+      "body": {
+        "error": "not_found"
+      },
+      "passed": true
+    },
+    {
+      "restart_index": 0,
+      "path": "/health",
+      "status": 200,
+      "body": {
+        "status": "ok"
+      },
+      "passed": true
+    },
+    {
+      "restart_index": 1,
+      "path": "/health",
+      "status": 200,
+      "body": {
+        "status": "ok"
+      },
+      "passed": true
+    },
+    {
+      "restart_index": 1,
+      "path": "/unknown-route",
+      "status": 404,
+      "body": {
+        "error": "not_found"
+      },
+      "passed": true
+    },
+    {
+      "restart_index": 1,
+      "path": "/health",
+      "status": 200,
+      "body": {
+        "status": "ok"
+      },
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "count": 6
+}

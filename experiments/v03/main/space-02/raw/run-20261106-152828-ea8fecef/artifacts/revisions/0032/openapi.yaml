@@ -1,0 +1,533 @@
+openapi: 3.0.3
+info:
+  title: Space Fractions API
+  description: >-
+    Gateway HTTP contract for the Space Fractions game — a sixth-grade fraction
+    learning game implemented as a microservices-style system (GameComponent,
+    QuestionComponent, UserComponent) behind a single Express gateway.
+
+    This document is the authoritative external REST contract. It includes the
+    original backward-compatible GET /play (Architecture_Documentation.md 81-103)
+    plus the operator acceptance endpoints (space-fractions.md 15-31). All
+    authenticated endpoints require an OIDC Bearer access token; the
+    administrator question CRUD endpoints additionally require the realm `admin`
+    role (non-admin verified users receive 403).
+
+    Never is a `correctAnswer` returned on any player-facing endpoint.
+  version: 1.0.0
+  contact:
+    name: Space Fractions team
+
+servers:
+  - url: http://localhost:3000
+    description: Local development gateway (container port 3000).
+
+tags:
+  - name: Health
+    description: Liveness and observability.
+  - name: Game
+    description: Game creation, play lifecycle, answering, and scoring.
+  - name: Question
+    description: Question search (player-safe) and administrator CRUD.
+  - name: Operations
+    description: Prometheus metrics.
+
+security:
+  - bearerAuth: []
+
+paths:
+  /health:
+    get:
+      tags: [Health]
+      summary: Liveness probe
+      description: Returns 200 when the gateway is up. No authentication required.
+      security: []
+      responses:
+        "200":
+          description: Gateway is healthy.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [status]
+                properties:
+                  status:
+                    type: string
+                    enum: [ok]
+
+  /metrics:
+    get:
+      tags: [Operations]
+      summary: Prometheus metrics exposition
+      description: >-
+        Prometheus text exposition from the real prom-client registry. Returns
+        200 even when no registry is configured (empty exposition, never a
+        placeholder body).
+      security: []
+      responses:
+        "200":
+          description: Metrics in Prometheus text format.
+          content:
+            text/plain:
+              schema:
+                type: string
+
+  /play:
+    get:
+      tags: [Game]
+      summary: Start a game (backward-compatible entrypoint)
+      description: >-
+        Original GET /play contract from Architecture_Documentation.md (81-103).
+        Requires authentication and creates a game with the default question set,
+        returning only the game id.
+      responses:
+        "200":
+          description: Game started.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [gameId]
+                properties:
+                  gameId:
+                    type: integer
+                    description: Game ID.
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+
+  /api/games:
+    post:
+      tags: [Game]
+      summary: Create a game
+      description: >-
+        Creates a new game owned by the authenticated user. An optional
+        `questionIds` array enables reproducible practice with a fixed question
+        set; otherwise the default seeded question bank is used. Player-safe
+        questions never include correctAnswer.
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                questionIds:
+                  type: array
+                  items:
+                    type: integer
+                    minimum: 1
+      responses:
+        "201":
+          description: Game created.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GameCreated"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+
+  /api/games/{id}:
+    get:
+      tags: [Game]
+      summary: Get game state
+      description: >-
+        Returns the player-safe game state for the owner. Other users' games
+        yield 403; unknown games yield 404. No correctAnswer is included.
+      parameters:
+        - $ref: "#/components/parameters/GameId"
+      responses:
+        "200":
+          description: Game state.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GameState"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+
+  /api/games/{id}/pause:
+    post:
+      tags: [Game]
+      summary: Pause a game
+      description: Transitions a Playing game to Paused. Only the owner may pause.
+      parameters:
+        - $ref: "#/components/parameters/GameId"
+      responses:
+        "200":
+          description: Game paused.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StateResult"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "409":
+          $ref: "#/components/responses/Conflict"
+
+  /api/games/{id}/resume:
+    post:
+      tags: [Game]
+      summary: Resume a game
+      description: Transitions a Paused game back to Playing. Only the owner may resume.
+      parameters:
+        - $ref: "#/components/parameters/GameId"
+      responses:
+        "200":
+          description: Game resumed.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StateResult"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "409":
+          $ref: "#/components/responses/Conflict"
+
+  /api/games/{id}/answers:
+    post:
+      tags: [Game]
+      summary: Submit an answer
+      description: >-
+        Submits a fraction answer for a question within the game. Answers are
+        validated with exact rational arithmetic server-side; a malformed
+        fraction yields 400. Answering while paused yields 409. Each correct
+        answer counts 1; repeating an already-answered question is idempotent and
+        never increases the score. Only the owner may answer.
+      parameters:
+        - $ref: "#/components/parameters/GameId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [questionId, answer]
+              properties:
+                questionId:
+                  type: integer
+                  minimum: 1
+                answer:
+                  type: string
+                  description: A single reduced fraction, e.g. "1/2".
+                  example: "1/2"
+      responses:
+        "200":
+          description: Answer result.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AnswerResult"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "409":
+          $ref: "#/components/responses/Conflict"
+
+  /api/games/{id}/score:
+    get:
+      tags: [Game]
+      summary: Get game score
+      description: Returns the current score for the owner's game.
+      parameters:
+        - $ref: "#/components/parameters/GameId"
+      responses:
+        "200":
+          description: Current score.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ScoreResult"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+
+  /api/questions/search:
+    get:
+      tags: [Question]
+      summary: Search questions
+      description: >-
+        Full-text question search via Elasticsearch. Results are player-safe
+        (no correctAnswer). Requires authentication.
+      parameters:
+        - name: q
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Search query string.
+      responses:
+        "200":
+          description: Matching public questions.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [matched]
+                properties:
+                  matched:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/PublicQuestion"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+
+  /api/admin/questions:
+    post:
+      tags: [Question]
+      summary: Create a question (admin only)
+      description: >-
+        Creates a new question. Requires the realm `admin` role; normal users
+        receive 403. Returns the admin projection including correctAnswer.
+      security:
+        - bearerAuth: []
+          adminRole: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [prompt, options, correctAnswer]
+              properties:
+                prompt:
+                  type: string
+                options:
+                  type: array
+                  items:
+                    type: string
+                correctAnswer:
+                  type: string
+                  description: A single reduced fraction, e.g. "1/2".
+      responses:
+        "201":
+          description: Question created.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminQuestion"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+    get:
+      tags: [Question]
+      summary: List questions (admin only)
+      description: >-
+        Returns all questions in stable order, admin projection (with
+        correctAnswer). Requires the realm `admin` role.
+      security:
+        - bearerAuth: []
+          adminRole: []
+      responses:
+        "200":
+          description: Ordered question list.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [questions]
+                properties:
+                  questions:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/AdminQuestion"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+
+  /api/admin/questions/{id}:
+    delete:
+      tags: [Question]
+      summary: Delete a question (admin only)
+      description: >-
+        Deletes a question by id. Requires the realm `admin` role. Returns 200
+        (empty body) when deleted, 404 when no such question exists.
+      security:
+        - bearerAuth: []
+          adminRole: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+      responses:
+        "200":
+          description: Question deleted (empty body).
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: OIDC access token (Keycloak space-fractions realm).
+    adminRole:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: >-
+        Requires the realm `admin` role in realm_access.roles. Applied together
+        with bearerAuth to express the administrator authorization gate.
+
+  parameters:
+    GameId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+        minimum: 1
+      description: Game identifier.
+
+  schemas:
+    PublicQuestion:
+      type: object
+      required: [id, prompt, options]
+      properties:
+        id:
+          type: integer
+        prompt:
+          type: string
+        options:
+          type: array
+          items:
+            type: string
+
+    GameCreated:
+      type: object
+      required: [id, questions]
+      properties:
+        id:
+          type: integer
+        questions:
+          type: array
+          items:
+            $ref: "#/components/schemas/PublicQuestion"
+
+    GameState:
+      type: object
+      required: [id, state, score, questions]
+      description: Player-safe game state; never includes correctAnswer.
+      properties:
+        id:
+          type: integer
+        state:
+          type: string
+          enum: [PLAYING, PAUSED, GAME_OVER]
+        score:
+          type: integer
+        questions:
+          type: array
+          items:
+            $ref: "#/components/schemas/PublicQuestion"
+
+    StateResult:
+      type: object
+      required: [state]
+      properties:
+        state:
+          type: string
+          enum: [PLAYING, PAUSED]
+
+    AnswerResult:
+      type: object
+      required: [correct, score]
+      properties:
+        correct:
+          type: boolean
+        score:
+          type: integer
+
+    ScoreResult:
+      type: object
+      required: [score]
+      properties:
+        score:
+          type: integer
+
+    AdminQuestion:
+      type: object
+      required: [id, prompt, options, correctAnswer]
+      properties:
+        id:
+          type: integer
+        prompt:
+          type: string
+        options:
+          type: array
+          items:
+            type: string
+        correctAnswer:
+          type: string
+
+  responses:
+    BadRequest:
+      description: Malformed input (e.g. invalid fraction or invalid id).
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    Unauthorized:
+      description: Missing or invalid credentials.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    Forbidden:
+      description: Authenticated user lacks permission (e.g. other user's game, non-admin on admin endpoint).
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    NotFound:
+      description: Resource not found.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    Conflict:
+      description: State conflict (e.g. answering while paused, invalid transition).
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+
+    Error:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: string

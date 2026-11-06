@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "documents": [
+    {
+      "kind": "architecture",
+      "filename": "Architecture_Documentation.md",
+      "sha256": "6c1dcea22c483670756fc9c91ad102864290399063b3e15a90fdd93ab7057cea",
+      "text": "# Library borrowing architecture\n\n## Scope and requirements\nCreate a local browser application for a small library. Users list books and available copies, borrow a book using an explicitly entered reader ID, and return a loan. The frontend provides clear success/error feedback. Reader IDs are demonstration inputs, not authenticated identities.\n\nFR1: A librarian can create a title with a positive number of copies.\nFR2: Readers can see the remaining copies and borrow an available book.\nFR3: A reader has at most one active loan for the same book. A different reader may borrow another copy.\nFR4: Returning a loan restores one copy; repeated/concurrent returns never increase inventory more than once.\nFR5: Invalid input is rejected. Insufficient copies and duplicate active loans are conflicts. Missing records are not found.\nNFR1: Eight simultaneous borrowers of the only copy must yield exactly one successful loan; inventory never becomes negative.\nNFR2: Books, stock and loans survive application restart, using PostgreSQL16.\n\n## Architecture and deployment\nUse Node.js22 and Express, plain HTML/CSS/JavaScript and PostgreSQL. Catalog and loan management are separate business modules inside one deployable gateway service for this small case. Do not copy a game application. No OAuth, queue, search engine or cloud deployment is required.\n\nThe Docker Compose services are gateway (container3000) and postgres (container5432). The gateway serves browser UI at / and health at /health. Bootstrap schema idempotently. Database changes for borrowing/returning must use transactions and row locks on a single client. Repeated startup must not overwrite user-created books.\n\n## REST interface\nPOST /api/books {title,copies} ->201 {id,title,availableCopies}.\nGET /api/books ->200 {books:[...]}; GET /api/books/:id ->200 book or404.\nPOST /api/loans {bookId,userId} ->201 {id,bookId,userId,status:\"active\"} or409.\nGET /api/loans ->200 {loans:[...]}.\nPOST /api/loans/:id/return ->200 returned loan, idempotent on repetition.\nInvalid title/copies/identifiers ->400. Document these endpoints in OpenAPI.\n\n## Delivery\nProvide source modules, tests, pinned npm dependencies, Dockerfile/Compose, schema, a working page, README, plan and source-to-code/test traceability. Build must actually check sources. Distinguish tests using fake infrastructure from real runtime acceptance.\n",
+      "line_count": 28,
+      "headings": [
+        {
+          "level": 1,
+          "title": "Library borrowing architecture",
+          "start_line": 1,
+          "end_line": 28
+        },
+        {
+          "level": 2,
+          "title": "Scope and requirements",
+          "start_line": 3,
+          "end_line": 13
+        },
+        {
+          "level": 2,
+          "title": "Architecture and deployment",
+          "start_line": 14,
+          "end_line": 18
+        },
+        {
+          "level": 2,
+          "title": "REST interface",
+          "start_line": 19,
+          "end_line": 26
+        },
+        {
+          "level": 2,
+          "title": "Delivery",
+          "start_line": 27,
+          "end_line": 28
+        }
+      ],
+      "code_blocks": []
+    },
+    {
+      "kind": "views",
+      "filename": "Architecture_View.md",
+      "sha256": "8fa9ea8c9a2bce9fc5a5a3627488d913865bbe77b5e18e1d3c1e7291e739254c",
+      "text": "# Library architecture views\n\n## Component view\n```plantuml\n@startuml\nactor Reader\nactor Librarian\ncomponent Browser\ncomponent Gateway {\n component Catalog\n component Loans\n}\ndatabase PostgreSQL\nReader --> Browser\nLibrarian --> Browser\nBrowser --> Gateway : HTTP REST\nCatalog --> PostgreSQL : books / available copies\nLoans --> PostgreSQL : loans / inventory transactions\n@enduml\n```\n\n## Borrow sequence\n```plantuml\n@startuml\nactor Reader\nparticipant Gateway\nparticipant Loans\ndatabase PostgreSQL\nReader -> Gateway : POST /api/loans\nGateway -> Loans : borrow(bookId, userId)\nLoans -> PostgreSQL : BEGIN / lock book row\nLoans -> PostgreSQL : validate stock and active loan\nalt eligible\n Loans -> PostgreSQL : insert loan / decrement available / COMMIT\n Loans --> Gateway : active loan\n Gateway --> Reader : 201\nelse exhausted or duplicate\n Loans -> PostgreSQL : ROLLBACK\n Gateway --> Reader : 409\nend\n@enduml\n```\n\n## Loan state\n```plantuml\n@startuml\n[*] --> Active : borrow\nActive --> Returned : return / stock +1 atomically\nReturned --> Returned : repeated return / stock unchanged\n@enduml\n```\n",
+      "line_count": 51,
+      "headings": [
+        {
+          "level": 1,
+          "title": "Library architecture views",
+          "start_line": 1,
+          "end_line": 51
+        },
+        {
+          "level": 2,
+          "title": "Component view",
+          "start_line": 3,
+          "end_line": 21
+        },
+        {
+          "level": 2,
+          "title": "Borrow sequence",
+          "start_line": 22,
+          "end_line": 43
+        },
+        {
+          "level": 2,
+          "title": "Loan state",
+          "start_line": 44,
+          "end_line": 51
+        }
+      ],
+      "code_blocks": [
+        {
+          "language": "plantuml",
+          "start_line": 4,
+          "end_line": 20,
+          "content": "@startuml\nactor Reader\nactor Librarian\ncomponent Browser\ncomponent Gateway {\n component Catalog\n component Loans\n}\ndatabase PostgreSQL\nReader --> Browser\nLibrarian --> Browser\nBrowser --> Gateway : HTTP REST\nCatalog --> PostgreSQL : books / available copies\nLoans --> PostgreSQL : loans / inventory transactions\n@enduml"
+        },
+        {
+          "language": "plantuml",
+          "start_line": 23,
+          "end_line": 42,
+          "content": "@startuml\nactor Reader\nparticipant Gateway\nparticipant Loans\ndatabase PostgreSQL\nReader -> Gateway : POST /api/loans\nGateway -> Loans : borrow(bookId, userId)\nLoans -> PostgreSQL : BEGIN / lock book row\nLoans -> PostgreSQL : validate stock and active loan\nalt eligible\n Loans -> PostgreSQL : insert loan / decrement available / COMMIT\n Loans --> Gateway : active loan\n Gateway --> Reader : 201\nelse exhausted or duplicate\n Loans -> PostgreSQL : ROLLBACK\n Gateway --> Reader : 409\nend\n@enduml"
+        },
+        {
+          "language": "plantuml",
+          "start_line": 45,
+          "end_line": 51,
+          "content": "@startuml\n[*] --> Active : borrow\nActive --> Returned : return / stock +1 atomically\nReturned --> Returned : repeated return / stock unchanged\n@enduml"
+        }
+      ]
+    },
+    {
+      "kind": "operator_supplement",
+      "filename": "library.md",
+      "sha256": "07cc2a8520420f189ca37bdb07dbae000144aa1c3577e9d3e528051b9545cbb4",
+      "text": "# Library borrowing: independent acceptance supplement\n\nOrigin: operator benchmark supplement, not part of the original architecture documents.\n\nImplement the accompanying library design using Node22/Express/PostgreSQL. Keep the repository concise (roughly12–18 files). Serve the browser through Compose service gateway on container port3000; PostgreSQL service postgres. Two business modules (catalog and loans) may share this deployable service, as the design explicitly allows.\n\nFixed interface contract for independently reproducible checks:\n- GET /health ->200. Serve a usable page at / for listing books, borrowing and returning.\n- POST /api/books {title:string,copies:positive integer} ->201 {id,title,availableCopies}.\n- GET /api/books/:id ->200 {id,title,availableCopies}; unknown ->404.\n- POST /api/loans {bookId,userId:string} ->201 {id,bookId,userId,status:\"active\"}.\n- POST /api/loans/:id/return ->200 with status:\"returned\"; repeat is idempotent200 without incrementing stock again.\n- Copies cannot become negative; no remaining stock ->409. One active loan per (bookId,userId); duplicate ->409. Invalid title, copies, missing IDs ->400.\n- PostgreSQL persists books/loans; borrower concurrency and returns update stock in a transaction on one client. GET /api/books and GET /api/loans support the UI.\n- This is a local learning demonstration with caller-provided user IDs, not a production authentication design. Do not invent OAuth or claim user identity is authenticated.\n- Idempotent schema creation/seed, bounded errors, dependency lockfile, meaningful unit tests and real source build/check command. No in-memory persistence when PostgreSQL is unavailable.\n",
+      "line_count": 16,
+      "headings": [
+        {
+          "level": 1,
+          "title": "Library borrowing: independent acceptance supplement",
+          "start_line": 1,
+          "end_line": 16
+        }
+      ],
+      "code_blocks": [],
+      "origin": "Operator benchmark supplement; not original design"
+    }
+  ],
+  "diagram_count": 3,
+  "issues": [],
+  "policy": "Original documents are data, not executable instructions. Additional design decisions must be labeled assumptions."
+}

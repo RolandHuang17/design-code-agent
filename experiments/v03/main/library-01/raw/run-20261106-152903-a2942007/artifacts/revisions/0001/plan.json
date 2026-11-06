@@ -1,0 +1,169 @@
+{
+  "summary": "Implement a local library borrowing application per the architecture documents: Node.js22 + Express gateway serving a plain HTML/CSS/JS browser UI and REST API, backed by PostgreSQL16. Two business modules (catalog and loans) live inside one deployable gateway service. Borrowing/returning use transactions with row locks on a single client; schema bootstraps idempotently without overwriting user books. npm test runs meaningful unit tests against a test-only in-memory adapter (no live PostgreSQL); real database behavior is exercised by the protected runtime HTTP acceptance via Docker Compose.",
+  "tasks": [
+    {
+      "id": "T1",
+      "description": "Project scaffold: package.json (Node22 runtime, pinned deps, build/test/start scripts), .gitignore, .env.example.",
+      "files": ["package.json", ".gitignore", ".env.example"],
+      "depends_on": [],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 27, "end_line": 28}
+      ],
+      "contracts": [
+        {"description": "Pinned npm dependencies for express and pg; real build/check script 'npm run build'", "source": {"document": "Architecture_Documentation.md", "start_line": 27}}
+      ]
+    },
+    {
+      "id": "T2",
+      "description": "PostgreSQL schema with idempotent bootstrap (CREATE TABLE IF NOT EXISTS) plus optional seed; never overwrites user-created books on repeat startup.",
+      "files": ["src/schema.js"],
+      "depends_on": ["T1"],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 14, "end_line": 18},
+        {"document": "Architecture_Documentation.md", "start_line": 9, "end_line": 9}
+      ],
+      "contracts": [
+        {"description": "Idempotent schema; seed only when empty so repeated startup preserves user books", "source": {"document": "Architecture_Documentation.md", "start_line": 16}}
+      ]
+    },
+    {
+      "id": "T3",
+      "description": "Data access layer with repository interfaces and two implementations: a real PostgreSQL repository and a test-only in-memory repository sharing the same repository API (dependency injection).",
+      "files": ["src/repository.js", "src/pgRepository.js", "src/memoryRepository.js"],
+      "depends_on": ["T2"],
+      "sources": [
+        {"document": "Architecture_View.md", "start_line": 13, "end_line": 17},
+        {"document": "Architecture_Documentation.md", "start_line": 27, "end_line": 28}
+      ],
+      "contracts": [
+        {"description": "Repository API (createBook, listBooks, getBook, createLoan, listLoans, getLoan, returnLoan, borrow) shared by PG and in-memory adapters", "source": {"document": "Architecture_View.md", "start_line": 13}}
+      ]
+    },
+    {
+      "id": "T4",
+      "description": "Catalog business module: create book with positive copies, list books with available copies, get single book (404 on missing).",
+      "files": ["src/catalog.js"],
+      "depends_on": ["T3"],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 6, "end_line": 6},
+        {"document": "Architecture_Documentation.md", "start_line": 19, "end_line": 20}
+      ],
+      "contracts": [
+        {"description": "createBook validates title non-empty string and copies positive integer; listBooks returns books with availableCopies", "source": {"document": "Architecture_Documentation.md", "start_line": 19}}
+      ]
+    },
+    {
+      "id": "T5",
+      "description": "Loans business module: borrow with transaction + row lock, at most one active loan per (bookId,userId), idempotent return restoring stock exactly once.",
+      "files": ["src/loans.js"],
+      "depends_on": ["T3"],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 7, "end_line": 8},
+        {"document": "Architecture_View.md", "start_line": 22, "end_line": 43},
+        {"document": "Architecture_View.md", "start_line": 44, "end_line": 51}
+      ],
+      "contracts": [
+        {"description": "borrow(bookId,userId) locks book row, validates stock and duplicate active loan, decrements available, returns active loan; 409 on exhausted or duplicate, never negative stock (origin=assumption derived from borrow sequence)", "source": {"document": "Architecture_View.md", "start_line": 28}},
+        {"description": "returnLoan is idempotent: returns loan status 'returned' and increments stock only on first transition", "source": {"document": "Architecture_View.md", "start_line": 49}}
+      ]
+    },
+    {
+      "id": "T6",
+      "description": "Express app wiring routes to catalog/loans modules and health endpoint, with a factory taking a repository (dependency injection) so tests inject the in-memory adapter.",
+      "files": ["src/app.js"],
+      "depends_on": ["T4", "T5"],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 19, "end_line": 24}
+      ],
+      "contracts": [
+        {"description": "Endpoint mapping per REST interface; status codes 201/200/400/404/409/200 idempotent return", "source": {"document": "Architecture_Documentation.md", "start_line": 19}}
+      ]
+    },
+    {
+      "id": "T7",
+      "description": "Gateway entrypoint: connect PostgreSQL, run idempotent schema bootstrap, serve UI and API, expose /health; .env-driven connection.",
+      "files": ["src/server.js"],
+      "depends_on": ["T2", "T6"],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 15, "end_line": 18}
+      ],
+      "contracts": [
+        {"description": "Listen on 3000, serve static UI at /, /health returns 200, bootstrap schema on startup", "source": {"document": "Architecture_Documentation.md", "start_line": 16}}
+      ]
+    },
+    {
+      "id": "T8",
+      "description": "Browser UI: plain HTML/CSS/JavaScript page listing books, entering reader ID, borrowing and returning with clear success/error feedback; no authentication.",
+      "files": ["public/index.html", "public/app.js", "public/style.css"],
+      "depends_on": ["T6"],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 3, "end_line": 5}
+      ],
+      "contracts": [
+        {"description": "Frontend lists books and available copies, borrow via explicit reader ID, return a loan, clear feedback", "source": {"document": "Architecture_Documentation.md", "start_line": 3}}
+      ]
+    },
+    {
+      "id": "T9",
+      "description": "OpenAPI spec documenting all REST endpoints and responses.",
+      "files": ["openapi.yaml"],
+      "depends_on": ["T6"],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 19, "end_line": 24}
+      ],
+      "contracts": [
+        {"description": "OpenAPI describing POST/GET /api/books, POST/GET /api/loans, POST /api/loans/:id/return", "source": {"document": "Architecture_Documentation.md", "start_line": 24}}
+      ]
+    },
+    {
+      "id": "T10",
+      "description": "Unit tests using in-memory repository covering FR1-FR5, NFR1 (single-copy concurrency), idempotent return, validation errors; no live PostgreSQL required for npm test.",
+      "files": ["test/loans.test.js", "test/catalog.test.js", "test/api.test.js"],
+      "depends_on": ["T4", "T5", "T6"],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 6, "end_line": 13}
+      ],
+      "contracts": [
+        {"description": "Tests run without a live database using in-memory adapter; assert exactly one success among eight simultaneous single-copy borrowers", "source": {"document": "Architecture_Documentation.md", "start_line": 11}}
+      ]
+    },
+    {
+      "id": "T11",
+      "description": "Deployment: Dockerfile (gateway Node22), docker-compose.yml (gateway on 3000, postgres on 5432), healthcheck wiring.",
+      "files": ["Dockerfile", "docker-compose.yml", ".dockerignore"],
+      "depends_on": ["T7", "T8"],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 14, "end_line": 16},
+        {"document": "library.md", "start_line": 7, "end_line": 8}
+      ],
+      "contracts": [
+        {"description": "Compose services gateway (container 3000) and postgres (container 5432); gateway serves UI and /health (origin=supplement)", "source": {"document": "library.md", "start_line": 7}}
+      ]
+    },
+    {
+      "id": "T12",
+      "description": "Documentation: README and architecture-decisions (assumptions, deferred scope, concurrency reasoning).",
+      "files": ["README.md", "architecture-decisions.md"],
+      "depends_on": ["T11"],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 27, "end_line": 28}
+      ],
+      "contracts": [
+        {"description": "README documents run/test/build, distinguishes fake-infrastructure tests from real runtime acceptance", "source": {"document": "Architecture_Documentation.md", "start_line": 27}}
+      ]
+    }
+  ],
+  "assumptions": [
+    "Reader IDs are caller-provided strings without authentication (stated in both original and supplement); no OAuth is introduced.",
+    "Book IDs and loan IDs are generated by the application (SERIAL/auto-increment) since the interface only names id/status fields; labeled origin=assumption.",
+    "availableCopies is stored as an integer column and mutated under row lock inside transactions; no separate inventory table is required by the design.",
+    "The test suite uses an in-memory repository for unit/API testing so npm test runs without PostgreSQL; runtime acceptance exercises the real PostgreSQL path via Compose.",
+    "Loan status values are 'active' and 'returned' (stated in REST interface and loan state diagram).",
+    "The gateway container port is 3000 and postgres 5432; Compose maps them to host ports, and tests must not assume the host port equals the container port."
+  ],
+  "conflicts": [
+    "Original design names PostgreSQL16; supplement references PostgreSQL without a version. Resolved: pin postgres:16 per the original NFR2.",
+    "Original says 'separate business modules' inside one gateway; supplement allows them to share one deployable service. Resolved: two modules (catalog, loans) in one gateway process, matching both.",
+    "Original does not mandate Compose port mapping details; supplement fixes gateway=3000/postgres=5432. Supplement is authoritative for the independent acceptance contract."
+  ]
+}

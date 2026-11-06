@@ -1,0 +1,36 @@
+{
+  "source_commit": "dace5f2aa989a82a2fa6717ec141ff68412cac29",
+  "source_frozen": true,
+  "created": 1793950010.0080125,
+  "input_sha256": {
+    "Architecture_Documentation.md": "428e346c9cd7fc9ed63f793591d47869e0d110bf6f002efb54d33159cde39c11",
+    "Architecture_View.md": "850c8560156d669579d0a7e7f9a28389e83a4d90d9be3b14d5845ef2d37352be"
+  },
+  "source_sha256": {
+    "codeagent\\budget.py": "1e9c3222ddd7624114b62086b8f36c2f9a646571fa946c30da61bb0b13b23f52",
+    "codeagent\\candidates.py": "5bf74661cbe0b46b48ad7bb4e8c3378b9095e02096e18bd0ccfe434dd07580b5",
+    "codeagent\\cases.py": "17efbd819b5908e0ca7ffca5532c9486db47108018b984e49d5eb6a2e982148c",
+    "codeagent\\checks.py": "f105cb17a64c5039d00906364e72f0233715ea8f4139bb85f3a70c0bd817e598",
+    "codeagent\\cli.py": "29c92505fc121ad507807ebe87b32c4c327d0bfdb49aa7f81c19bed5f72f50e6",
+    "codeagent\\config.py": "548cec1513f4b3e5fc4ab58260a59d983344768ed882823ba3ebe1dca65270fe",
+    "codeagent\\engine.py": "9bbfc3269a7be58094a4147764aaf256ac69fcb1da8980fb278a6376c454e6e0",
+    "codeagent\\evidence.py": "e4b730e10dd5a7339dc993176ce99a202351e3d3d5049537ce6740cfecf7bac2",
+    "codeagent\\gui.py": "84c84fa3c9465b5495295fe31bd57f45a26d5aae2985c5b9dc2f6f8af7e83c11",
+    "codeagent\\inputs.py": "6a2ad7d399a4c981a4d6ec55e2ea974c1c8dec2753e90685771064896f501f12",
+    "codeagent\\prompts.py": "f36e64b1f69ea68342c27f1eef0c331aa64d95e50b79f53923bc754ee5462331",
+    "codeagent\\provider.py": "454317f3579994a56c3804ee368faa91fbfa872d6cf203c3d9d2f51ad7c1d21c",
+    "codeagent\\runtime.py": "f82ad62e753c27cacf0d4cc3a97f678200d45122638604c525adca16d16a583b",
+    "codeagent\\safety.py": "e12c23689b4ef325013e2257905da6e0957397ff2ab64d260540d8b7fbbe5b4c",
+    "codeagent\\tools.py": "85a2726984450ae25d5db1812967dcd6cf3cc6243d600ecde8f7879c32d4de19",
+    "codeagent\\__init__.py": "25dc2dae04ced1865728dd4dff1524ed43ada7fa32720b516a50b974b138e52a",
+    "codeagent\\__main__.py": "3129adff95e0f38b87ab34cddfc27082c7892bcaec267ff5d40f160fdf55b44a",
+    "codeagent\\acceptance\\http_checks.py": "137c4d444f513fcb83419527b3305afa9f28f1b5ea8bbabe11fa5673b105a4f0",
+    "codeagent\\acceptance\\__init__.py": "a3a5f4b3c36c7a68f9e7f65a05eb6cb5fa61c7d39a9cecc0625e18a6bc256f7d",
+    "codeagent\\superagent\\gui.py": "40f075cf1db98707ad89e449f11699955a0beec2558ae06928c4be06e5b9853f",
+    "codeagent\\superagent\\runtime.py": "624c04ddc1d496dfe41b284cca4e259ca96d987dd6c8d9b60a1c1a2c6e693de0",
+    "codeagent\\superagent\\store.py": "7fbce58135cfb3b74f5760f323a52eeaddf286a998ee96079e6c7a724055cf63",
+    "codeagent\\superagent\\__init__.py": "2280624d0198a434340c06e15b7dc7ddfb888aa9016a3be03dec4fe4c6d0efd1"
+  },
+  "manual_project_edits": false,
+  "recorded_during_initial_frozen_execution": true
+}

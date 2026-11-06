@@ -1,0 +1,52 @@
+[
+  {
+    "id": "design:428e346c9cd7fc9ed63f793591d47869e0d110bf6f002efb54d33159cde39c11",
+    "document": "Architecture_Documentation.md",
+    "version": "428e346c9cd7fc9ed63f793591d47869e0d110bf6f002efb54d33159cde39c11",
+    "origin": "original input",
+    "line_count": 16,
+    "headings": [
+      {
+        "level": 1,
+        "title": "Temperature converter",
+        "start_line": 1,
+        "end_line": 16
+      },
+      {
+        "level": 2,
+        "title": "Scope",
+        "start_line": 3,
+        "end_line": 5
+      },
+      {
+        "level": 2,
+        "title": "Requirements",
+        "start_line": 6,
+        "end_line": 14
+      },
+      {
+        "level": 2,
+        "title": "Design decisions",
+        "start_line": 15,
+        "end_line": 16
+      }
+    ],
+    "preview": "# Temperature converter\n\n## Scope\nBuild a small browser-based temperature converter. This is a single Node.js 22 application, not a microservice application. No database, identity service, message queue, Docker, OpenAPI specification or cloud deployment is required. Deliver package.json, source files, real unit tests, "
+  },
+  {
+    "id": "design:850c8560156d669579d0a7e7f9a28389e83a4d90d9be3b14d5845ef2d37352be",
+    "document": "Architecture_View.md",
+    "version": "850c8560156d669579d0a7e7f9a28389e83a4d90d9be3b14d5845ef2d37352be",
+    "origin": "original input",
+    "line_count": 15,
+    "headings": [
+      {
+        "level": 1,
+        "title": "Temperature converter views",
+        "start_line": 1,
+        "end_line": 15
+      }
+    ],
+    "preview": "# Temperature converter views\n\n```plantuml\n@startuml\nactor User\ncomponent \"Browser page\" as UI\ncomponent \"HTTP application\" as HTTP\ncomponent \"Pure temperature conversion\" as Convert\nUser --> UI : enter temperature and units\nUI --> HTTP : POST /api/convert\nHTTP --> Convert : validate and convert\nConvert --> HTTP : nume"
+  }
+]

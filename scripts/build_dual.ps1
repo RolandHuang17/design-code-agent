@@ -33,4 +33,4 @@ foreach ($program in @(
     $hash = (Get-FileHash -LiteralPath (Join-Path $target "$($program.Name).exe") -Algorithm SHA256).Hash.ToLowerInvariant()
     "$hash  $($program.Name).exe" | Set-Content -Encoding ascii (Join-Path $target 'SHA256SUMS.txt')
 }
-Write-Output "Built two separate programs under $output. Clean-Windows and real-model acceptance remain separate checks."
+Write-Output "Built selected track ($Track) under $output. Clean-Windows and real-model acceptance remain separate checks."

@@ -1,0 +1,15 @@
+{
+  "name": "minimal-http-health-service",
+  "version": "1.0.0",
+  "description": "Minimal stateless Node.js 22 HTTP health service using only built-in http and node:test.",
+  "private": true,
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node src/server.cjs",
+    "test": "node --test test/app.test.cjs",
+    "build": "node --check src/app.cjs && node --check src/server.cjs"
+  }
+}

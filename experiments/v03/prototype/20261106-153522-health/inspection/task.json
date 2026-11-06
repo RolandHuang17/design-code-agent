@@ -1,0 +1,76 @@
+{
+  "t1": {
+    "id": "t1",
+    "description": "Create package.json pinning Node >=22, scripts (start/build/test) and test script",
+    "files": [
+      "package.json"
+    ],
+    "depends_on": [],
+    "source": [
+      "input/0@f07c58ac8c699dbedb8104627ed42bef89953f5c6200b888c1f43a16ab2afdce"
+    ],
+    "state": "completed",
+    "meaning": "candidate integrated; run validation still required"
+  },
+  "t2": {
+    "id": "t2",
+    "description": "Create app.cjs exporting createApp() HTTP server factory handling /health (FR1) and 404 JSON (FR2)",
+    "files": [
+      "app.cjs"
+    ],
+    "depends_on": [],
+    "source": [
+      "input/1@35ebe611da5d03d48e291b226326d51febda329a318673a1349a37fd3607ebba"
+    ],
+    "state": "completed",
+    "meaning": "candidate integrated; run validation still required"
+  },
+  "t3": {
+    "id": "t3",
+    "description": "Create index.cjs startup entry that creates app and listens on PORT default 3000 (FR3)",
+    "files": [
+      "index.cjs"
+    ],
+    "depends_on": [
+      "t2"
+    ],
+    "source": [
+      "input/1@35ebe611da5d03d48e291b226326d51febda329a318673a1349a37fd3607ebba"
+    ],
+    "state": "completed",
+    "meaning": "candidate integrated; run validation still required"
+  },
+  "t4": {
+    "id": "t4",
+    "description": "Create test/health.test.cjs using node:test real HTTP on ephemeral port: health, unknown, health (NFR1)",
+    "files": [
+      "test/health.test.cjs"
+    ],
+    "depends_on": [
+      "t2"
+    ],
+    "source": [
+      "input/0@f07c58ac8c699dbedb8104627ed42bef89953f5c6200b888c1f43a16ab2afdce"
+    ],
+    "state": "completed",
+    "meaning": "candidate integrated; run validation still required"
+  },
+  "t5": {
+    "id": "t5",
+    "description": "Create README.md with install/start/test instructions and source-to-requirement mapping (NFR2)",
+    "files": [
+      "README.md"
+    ],
+    "depends_on": [
+      "t1",
+      "t2",
+      "t3",
+      "t4"
+    ],
+    "source": [
+      "input/0@f07c58ac8c699dbedb8104627ed42bef89953f5c6200b888c1f43a16ab2afdce"
+    ],
+    "state": "completed",
+    "meaning": "candidate integrated; run validation still required"
+  }
+}

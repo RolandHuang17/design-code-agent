@@ -1,0 +1,177 @@
+{
+  "coder-T1": {
+    "result": {
+      "written": "README.md",
+      "revision": 2,
+      "snapshot_id": "2f859cd1676b6967d5d5a932872ac26f16e197dd20a5e18f3d3e257eeaff8740",
+      "candidate_id": "d3c0c3edb4684bcba85c875d90d01142",
+      "checks": [
+        {
+          "path": "README.md",
+          "status": "passed"
+        }
+      ]
+    },
+    "files_generated": true
+  },
+  "coder-T2": {
+    "result": {
+      "written": "source/convert.js",
+      "revision": 1,
+      "snapshot_id": "e8d6851ded6abb7fad1d8eab618c738d3a127fae2de43bce303aa4da8a11dc46",
+      "candidate_id": "956cf6ce7aef4ca5b6d28d488749320a",
+      "checks": [
+        {
+          "path": "source/convert.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-superagent\\runs\\superagent-v03\\20261106-152132-normal\\stages\\artifacts\\candidates\\956cf6ce7aef4ca5b6d28d488749320a\\after\\source\\convert.js"
+          ],
+          "output": ""
+        }
+      ]
+    },
+    "files_generated": true
+  },
+  "coder-T3": {
+    "result": {
+      "written": "public/index.html",
+      "revision": 3,
+      "snapshot_id": "4c17c011168a7dcec0ac092d0b38805081c99bf53d14a12d852032b95d0f4518",
+      "candidate_id": "4f6ca49933204701a6cafa78cc56725a",
+      "checks": [
+        {
+          "path": "public/index.html",
+          "status": "passed"
+        }
+      ]
+    },
+    "files_generated": true
+  },
+  "coder-T4": {
+    "result": {
+      "written": "test/convert.test.js",
+      "revision": 1,
+      "snapshot_id": "b11b9b08748a587ab615175db39af537ac0c43d2c8f88ccd2a2d1c95e1b01a42",
+      "candidate_id": "3651c0c366dd4218bd81f2ea1633b6d3",
+      "checks": [
+        {
+          "path": "test/convert.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-superagent\\runs\\superagent-v03\\20261106-152132-normal\\stages\\artifacts\\candidates\\3651c0c366dd4218bd81f2ea1633b6d3\\after\\test\\convert.test.js"
+          ],
+          "output": ""
+        }
+      ]
+    },
+    "files_generated": true
+  },
+  "coder-T5": {
+    "result": {
+      "written": "test/api.test.js",
+      "revision": 1,
+      "snapshot_id": "8958b90ef878d224f4346960f003c60b702117aec0530cba3d46c4f9c9503020",
+      "candidate_id": "00571e8622fa402991b1d6d0f77e02b4",
+      "checks": [
+        {
+          "path": "test/api.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-superagent\\runs\\superagent-v03\\20261106-152132-normal\\stages\\artifacts\\candidates\\00571e8622fa402991b1d6d0f77e02b4\\after\\test\\api.test.js"
+          ],
+          "output": ""
+        }
+      ]
+    },
+    "files_generated": true
+  },
+  "planner": {
+    "tasks": [
+      {
+        "id": "T1",
+        "description": "Project scaffolding: package.json (ESM, Node 22 engine, scripts start/test/build via node --check and node --test) and README.md documenting install/start/test and limitations.",
+        "files": [
+          "package.json",
+          "README.md"
+        ],
+        "depends_on": [],
+        "source": [
+          "input/0@ebb437192ddd627b2fa92b9d1309c8d712f0931720f2f779e496ae1acc2466b4"
+        ]
+      },
+      {
+        "id": "T2",
+        "description": "Pure conversion & validation module convert.js: export convert(value, from, to) and validate units/types/absolute-zero (FR3, FR4). No HTTP dependency (NFR1).",
+        "files": [
+          "source/convert.js"
+        ],
+        "depends_on": [],
+        "source": [
+          "input/0@ebb437192ddd627b2fa92b9d1309c8d712f0931720f2f779e496ae1acc2466b4"
+        ]
+      },
+      {
+        "id": "T3",
+        "description": "HTTP layer: app.js exports createServer/request handler for GET / (HTML), POST /api/convert (FR2, FR4), GET /health (FR5); index.js starts on process.env.PORT; public/index.html provides the browser form (FR1).",
+        "files": [
+          "source/app.js",
+          "source/index.js",
+          "public/index.html"
+        ],
+        "depends_on": [
+          "T2"
+        ],
+        "source": [
+          "input/0@ebb437192ddd627b2fa92b9d1309c8d712f0931720f2f779e496ae1acc2466b4",
+          "input/1@a6a4735305a4f271e2e303d0322630b5b6ebc37ccecd01d49c2047d7f752c34c"
+        ]
+      },
+      {
+        "id": "T4",
+        "description": "Unit tests for pure logic: convert.test.js covering C/F/K conversions, same-unit, negative values, booleans, unsupported units, absolute-zero boundaries (FR3, FR4 boundary).",
+        "files": [
+          "test/convert.test.js"
+        ],
+        "depends_on": [
+          "T2"
+        ],
+        "source": [
+          "input/0@ebb437192ddd627b2fa92b9d1309c8d712f0931720f2f779e496ae1acc2466b4"
+        ]
+      },
+      {
+        "id": "T5",
+        "description": "Integration tests for HTTP endpoints: api.test.js starting server on ephemeral port; asserts GET / HTML, POST /api/convert 200 & 400 cases (missing/nonnumeric/below-zero/malformed JSON), GET /health (FR1, FR2, FR4, FR5).",
+        "files": [
+          "test/api.test.js"
+        ],
+        "depends_on": [
+          "T3"
+        ],
+        "source": [
+          "input/0@ebb437192ddd627b2fa92b9d1309c8d712f0931720f2f779e496ae1acc2466b4",
+          "input/1@a6a4735305a4f271e2e303d0322630b5b6ebc37ccecd01d49c2047d7f752c34c"
+        ]
+      }
+    ],
+    "assumptions": [
+      "Use ESM ('type': 'module') with no external runtime or dev dependencies; rely on Node 22 built-in node:test runner so npm install is trivial.",
+      "npm run build performs syntax checking via 'node --check' on source files since there is no compilation step.",
+      "Public HTML page is a static file served from public/index.html for GET /.",
+      "Absolute-zero boundaries: -273.15 C, -459.67 F, 0 K, allowing insignificant floating-point error per FR4."
+    ]
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "items": [
+    {
+      "id": "FR-1",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 31},
+      "description": "Play game: users can start and play fraction questions with answers, scoring, pause/resume.",
+      "files": ["src/services/game-service.js", "src/gateway.js", "openapi.yaml"],
+      "tests": ["test/game-service.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR-FRAC",
+      "source": {"document": "space-fractions.md", "start_line": 10},
+      "description": "Exact rational arithmetic for fraction answers; server-side input validation; correct answers never sent to players.",
+      "files": ["src/lib/fraction.js", "src/services/game-service.js"],
+      "tests": ["test/fraction.test.js", "test/game-service.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR-ADMIN",
+      "source": {"document": "space-fractions.md", "start_line": 14},
+      "description": "Authenticated administrator question CRUD (create/delete/list); normal users get 403.",
+      "files": ["src/services/admin-service.js", "src/gateway.js"],
+      "tests": ["test/admin-service.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR-SCORE",
+      "source": {"document": "space-fractions.md", "start_line": 18},
+      "description": "Scoring: each correct answer counts 1; repeat answers do not increase score; score view per game.",
+      "files": ["src/services/game-service.js"],
+      "tests": ["test/game-service.test.js", "test/integration/db.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR-PAUSE",
+      "source": {"document": "space-fractions.md", "start_line": 17},
+      "description": "Pause/resume; answering while paused returns 409.",
+      "files": ["src/services/game-service.js"],
+      "tests": ["test/game-service.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR-AUTHZ",
+      "source": {"document": "space-fractions.md", "start_line": 20},
+      "description": "Each game authorized by owner; other users' games return 403 or 404.",
+      "files": ["src/services/game-service.js"],
+      "tests": ["test/game-service.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "NFR-1",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 32},
+      "description": "Performance: fast responses via Redis cache and bounded timeouts.",
+      "files": ["src/lib/cache.js", "src/lib/http.js"],
+      "tests": ["test/game-service.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "ASR-1",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 33},
+      "description": "Data durability: question/game data persisted in PostgreSQL with idempotent migrations.",
+      "files": ["sql/migrations/001_init.sql", "src/db/migrate.js", "src/db/pool.js"],
+      "tests": ["test/integration/db.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "ASR-2",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 22},
+      "description": "Security: OIDC/OAuth2 authentication, issuer/audience/JWKS validation, admin roles.",
+      "files": ["src/lib/oidc.js", "src/gateway.js"],
+      "tests": ["test/oidc.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "UC-PLAY",
+      "source": {"document": "Architecture_View.md", "start_line": 3},
+      "description": "Use case: Play Game (EndUser).",
+      "files": ["src/gateway.js", "src/services/game-service.js"],
+      "tests": ["test/game-service.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "UC-SCORE",
+      "source": {"document": "Architecture_View.md", "start_line": 3},
+      "description": "Use case: View Score.",
+      "files": ["src/services/game-service.js"],
+      "tests": ["test/game-service.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "UC-UPDATE",
+      "source": {"document": "Architecture_View.md", "start_line": 3},
+      "description": "Use case: Update Questions (Admin).",
+      "files": ["src/services/admin-service.js"],
+      "tests": ["test/admin-service.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "UC-HELP",
+      "source": {"document": "Architecture_View.md", "start_line": 3},
+      "description": "Use case: View Help.",
+      "files": ["src/public/index.html", "src/gateway.js"],
+      "tests": [],
+      "status": "implemented"
+    },
+    {
+      "id": "STATE-MACHINE",
+      "source": {"document": "Architecture_View.md", "start_line": 67},
+      "description": "State diagram: Playing/Paused/GameOver transitions (pause/resume/gameOver).",
+      "files": ["src/services/game-service.js"],
+      "tests": ["test/game-service.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "CLASS-MODEL",
+      "source": {"document": "Architecture_View.md", "start_line": 23},
+      "description": "Class diagram: Game, Question, User, Admin entities and their operations.",
+      "files": ["src/lib/fraction.js", "src/services/game-service.js", "src/services/admin-service.js", "src/services/user-service.js"],
+      "tests": ["test/game-service.test.js", "test/admin-service.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "TECH-STACK",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 51},
+      "description": "Technology stack: Node/Express/PostgreSQL/Redis/RabbitMQ/Elasticsearch/OAuth2/Prometheus.",
+      "files": ["package.json", "compose.yaml", "src/lib/cache.js", "src/lib/queue.js", "src/lib/search.js", "src/lib/metrics.js"],
+      "tests": [],
+      "status": "implemented"
+    },
+    {
+      "id": "COMPAT-PLAY",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 82},
+      "description": "Original GET /play API compatibility retained in OpenAPI and gateway.",
+      "files": ["openapi.yaml", "src/gateway.js"],
+      "tests": [],
+      "status": "implemented"
+    },
+    {
+      "id": "INTERNAL-PROTO",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 104},
+      "description": "Internal GameService contract via internal.proto.",
+      "files": ["internal.proto"],
+      "tests": [],
+      "status": "implemented"
+    },
+    {
+      "id": "SCHEMA-GAMES",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 118},
+      "description": "Games data model/schema with game_state JSONB.",
+      "files": ["sql/migrations/001_init.sql"],
+      "tests": ["test/integration/db.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "DEPLOY-K8S",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 131},
+      "description": "Kubernetes-ready deployment plan (reference-only).",
+      "files": ["k8s/spacefractions-deployment.yaml"],
+      "tests": [],
+      "status": "implemented"
+    },
+    {
+      "id": "OBS-METRICS",
+      "source": {"document": "Architecture_Documentation.md", "start_line": 175},
+      "description": "Per-component and business metrics via Prometheus.",
+      "files": ["src/lib/metrics.js"],
+      "tests": [],
+      "status": "implemented"
+    },
+    {
+      "id": "COMPOSE-TOPO",
+      "source": {"document": "space-fractions.md", "start_line": 35},
+      "description": "Compose must contain gateway, game-service, question-service, user-service, admin-service, postgres, redis, rabbitmq, elasticsearch, keycloak, prometheus.",
+      "files": ["compose.yaml"],
+      "tests": [],
+      "status": "implemented"
+    }
+  ]
+}

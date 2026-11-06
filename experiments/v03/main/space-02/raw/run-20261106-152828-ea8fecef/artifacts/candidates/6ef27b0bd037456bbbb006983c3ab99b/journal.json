@@ -1,0 +1,26 @@
+{
+  "root": "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project",
+  "changes": [
+    {
+      "path": "lib/cache.js",
+      "before": null,
+      "after": "8d14384250ea93936e492a5683775a57c705db5670a41c491e419e8c6b18893d"
+    }
+  ],
+  "checks": [
+    {
+      "path": "lib/cache.js",
+      "status": "passed",
+      "kind": "syntax_format",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\artifacts\\candidates\\6ef27b0bd037456bbbb006983c3ab99b\\after\\lib\\cache.js"
+      ],
+      "output": ""
+    }
+  ],
+  "status": "committed"
+}

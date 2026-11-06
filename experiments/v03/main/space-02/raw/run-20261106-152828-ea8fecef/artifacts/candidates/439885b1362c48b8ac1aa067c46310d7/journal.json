@@ -1,0 +1,26 @@
+{
+  "root": "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project",
+  "changes": [
+    {
+      "path": "scripts/check.js",
+      "before": "59dc1edaf8e034ad10750731f9b7185957efa0fd0793931f73a036dd409e8a06",
+      "after": "160c1966b424453f4b3029f79d2db7f131b01478767bc825612d68e676518cf0"
+    }
+  ],
+  "checks": [
+    {
+      "path": "scripts/check.js",
+      "status": "passed",
+      "kind": "syntax_format",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\artifacts\\candidates\\439885b1362c48b8ac1aa067c46310d7\\after\\scripts\\check.js"
+      ],
+      "output": ""
+    }
+  ],
+  "status": "committed"
+}

@@ -1,0 +1,18 @@
+{
+  "root": "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project",
+  "changes": [
+    {
+      "path": "terraform/main.tf",
+      "before": null,
+      "after": "e578b0bc2b2df24f9fa74bbda0461a2f8520d43f4241a6f8c48b55a9a223b43c"
+    }
+  ],
+  "checks": [
+    {
+      "path": "terraform/main.tf",
+      "status": "not_applicable",
+      "kind": "syntax_format"
+    }
+  ],
+  "status": "committed"
+}

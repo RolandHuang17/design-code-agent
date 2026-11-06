@@ -1,0 +1,36 @@
+# Node.js / npm artifacts
+node_modules
+npm-debug.log*
+# NOTE: package-lock.json is NOT ignored here; the host generates it during
+# the install check and the Dockerfile COPYs it for `npm ci`.
+
+# Test and coverage output
+coverage
+.nyc_output
+
+# Environment files (placeholders only, never copy real secrets)
+.env
+.env.local
+.env.*.local
+
+# Git and editor noise
+.git
+.gitignore
+.gitattributes
+.gitmodules
+.vscode
+.idea
+.DS_Store
+
+# Documentation and metadata (not needed in the runtime image)
+README.md
+architecture-decisions.md
+plan.json
+traceability.json
+openapi.yaml
+
+# Docker/Compose files themselves
+Dockerfile
+docker-compose.yml
+compose.yaml
+.dockerignore

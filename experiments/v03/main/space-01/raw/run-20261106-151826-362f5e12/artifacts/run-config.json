@@ -1,0 +1,42 @@
+{
+  "provider": "bailian",
+  "base_url": "https://ws-hzkcuvkt74i3d6ol.cn-beijing.maas.aliyuncs.com/compatible-mode/v1",
+  "model": "deepseek-v4-pro-0813",
+  "uses_official_endpoint": false,
+  "allow_project_execution": true,
+  "max_repair_rounds": 10,
+  "acceptance_profile": "space-fractions",
+  "runtime_backend": "auto",
+  "max_turns": 300,
+  "input_hashes": [
+    "111282df7817bca771e53c82ebb053707a3217cb8f11733a2c25b631ca81db55",
+    "77dac057e13f122ddc6fc19294490c6a961f00429b72f15df81a81adc91bdbc8",
+    "0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c"
+  ],
+  "seed_project": null,
+  "agent_source_hashes": {
+    "__init__.py": "25dc2dae04ced1865728dd4dff1524ed43ada7fa32720b516a50b974b138e52a",
+    "__main__.py": "3129adff95e0f38b87ab34cddfc27082c7892bcaec267ff5d40f160fdf55b44a",
+    "budget.py": "1e9c3222ddd7624114b62086b8f36c2f9a646571fa946c30da61bb0b13b23f52",
+    "candidates.py": "5bf74661cbe0b46b48ad7bb4e8c3378b9095e02096e18bd0ccfe434dd07580b5",
+    "cases.py": "17efbd819b5908e0ca7ffca5532c9486db47108018b984e49d5eb6a2e982148c",
+    "checks.py": "f105cb17a64c5039d00906364e72f0233715ea8f4139bb85f3a70c0bd817e598",
+    "cli.py": "48ef55644ab6767ad4b9fe4cb9970c23a1446a9f36b0715bee069e259552e526",
+    "config.py": "548cec1513f4b3e5fc4ab58260a59d983344768ed882823ba3ebe1dca65270fe",
+    "engine.py": "684d692a866e334b9c3e536b67149a761e7aed3b61ee7ee7a3c680cd2a7818f4",
+    "evidence.py": "e4b730e10dd5a7339dc993176ce99a202351e3d3d5049537ce6740cfecf7bac2",
+    "gui.py": "d060ef7650c5936e1dc23676f35dacaf706c9489a2aa27530d5c08ef9a82406c",
+    "inputs.py": "6a2ad7d399a4c981a4d6ec55e2ea974c1c8dec2753e90685771064896f501f12",
+    "planning.py": "9bc768d8ccf8614a1728f054fa08be103b7254fe8f53babc4def7f8c0fa86ebd",
+    "prompts.py": "3b7de7a48e1b8b6d1bf7ca8c40ae4a5067f8509eb8803af98aa9dbb496f462c8",
+    "provider.py": "454317f3579994a56c3804ee368faa91fbfa872d6cf203c3d9d2f51ad7c1d21c",
+    "runtime.py": "f82ad62e753c27cacf0d4cc3a97f678200d45122638604c525adca16d16a583b",
+    "safety.py": "e12c23689b4ef325013e2257905da6e0957397ff2ab64d260540d8b7fbbe5b4c",
+    "tools.py": "85a2726984450ae25d5db1812967dcd6cf3cc6243d600ecde8f7879c32d4de19",
+    "acceptance/__init__.py": "a3a5f4b3c36c7a68f9e7f65a05eb6cb5fa61c7d39a9cecc0625e18a6bc256f7d",
+    "acceptance/auth.cjs": "2b74b5dda31ec22569b2c870fd062c4a6a84cd963aed0e41e240f7a74c61c26c",
+    "acceptance/http_checks.py": "137c4d444f513fcb83419527b3305afa9f28f1b5ea8bbabe11fa5673b105a4f0",
+    "cases/library.md": "07cc2a8520420f189ca37bdb07dbae000144aa1c3577e9d3e528051b9545cbb4",
+    "cases/space-fractions.md": "0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c"
+  }
+}

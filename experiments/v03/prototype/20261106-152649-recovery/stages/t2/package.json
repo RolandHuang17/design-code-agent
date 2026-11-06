@@ -1,0 +1,14 @@
+{
+  "name": "temperature-converter",
+  "version": "1.0.0",
+  "description": "Browser-based temperature converter",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "build": "node --check src/convert.js && node --check src/app.js && node --check src/server.js",
+    "test": "node --test"
+  }
+}

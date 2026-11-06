@@ -1,0 +1,26 @@
+{
+  "root": "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project",
+  "changes": [
+    {
+      "path": "test/fake-pg.js",
+      "before": null,
+      "after": "eb88597071415c8ed05b779d1e6b6d925c360a1483c062cb2329347bbb622908"
+    }
+  ],
+  "checks": [
+    {
+      "path": "test/fake-pg.js",
+      "status": "passed",
+      "kind": "syntax_format",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\artifacts\\candidates\\997ba44fde704b969e1bc3c587062cde\\after\\test\\fake-pg.js"
+      ],
+      "output": ""
+    }
+  ],
+  "status": "committed"
+}

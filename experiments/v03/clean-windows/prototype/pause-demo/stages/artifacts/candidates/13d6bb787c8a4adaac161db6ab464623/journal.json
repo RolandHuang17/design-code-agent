@@ -1,0 +1,18 @@
+{
+  "root": "C:\\Users\\tasktest\\Documents\\DesignCodeAgent-Superagent\\pause-demo\\stages\\readme",
+  "changes": [
+    {
+      "path": "README.md",
+      "before": null,
+      "after": "d1beb3fbdf8a25b79b104a86cfbc6cabe86cfbf504bc77c628578d6a45c822a7"
+    }
+  ],
+  "checks": [
+    {
+      "path": "README.md",
+      "status": "not_applicable",
+      "kind": "syntax_format"
+    }
+  ],
+  "status": "committed"
+}

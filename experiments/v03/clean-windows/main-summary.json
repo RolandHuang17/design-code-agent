@@ -1,0 +1,39 @@
+{
+  "kind": "clean_windows_main",
+  "runs": [
+    {
+      "run": "run-20261106-163917-eb9b4ffc",
+      "exe_candidate": "superseded_main04",
+      "status": "completed_with_gaps",
+      "turns": 22,
+      "estimated_cny": 2.511843,
+      "manual_project_edits": false
+    },
+    {
+      "run": "run-20261106-164459-40b921c9",
+      "exe_candidate": "superseded_main04",
+      "status": "cancelled",
+      "turns": 2,
+      "estimated_cny": 0.049782,
+      "manual_project_edits": false
+    },
+    {
+      "run": "run-20261106-171739-58af4633",
+      "exe_candidate": "main05",
+      "status": "completed_with_gaps",
+      "turns": 24,
+      "estimated_cny": 3.005118,
+      "manual_project_edits": false
+    },
+    {
+      "run": "run-20261106-172101-bbb68865",
+      "exe_candidate": "main05",
+      "status": "cancelled",
+      "turns": 2,
+      "estimated_cny": 0.049674,
+      "manual_project_edits": false
+    }
+  ],
+  "transport": "Native .NET helper ZIP, loopback-only receiver; no project runtime installed",
+  "original_zip_sha256": "ac311cd03d5b3e9fe85c5b04b4cfb8ae10f88f76cb2c53f54ef24074e0d95b05"
+}

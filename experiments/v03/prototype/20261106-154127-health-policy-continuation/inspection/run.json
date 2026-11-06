@@ -1,0 +1,260 @@
+{
+  "inputs": [
+    {
+      "resource": "input/0@f07c58ac8c699dbedb8104627ed42bef89953f5c6200b888c1f43a16ab2afdce",
+      "version": "f07c58ac8c699dbedb8104627ed42bef89953f5c6200b888c1f43a16ab2afdce",
+      "summary": "{\"kind\": \"architecture\", \"filename\": \"Architecture_Documentation.md\", \"sha256\": \"f91f2225801db7527855186d88e9b93b92848b2847b975ed9af7ca05fbcd2ae6\", \"text\": \"# Minimal HTTP health s",
+      "chars": 1492
+    },
+    {
+      "resource": "input/1@35ebe611da5d03d48e291b226326d51febda329a318673a1349a37fd3607ebba",
+      "version": "35ebe611da5d03d48e291b226326d51febda329a318673a1349a37fd3607ebba",
+      "summary": "{\"kind\": \"views\", \"filename\": \"Architecture_View.md\", \"sha256\": \"446c5fbd88e637f94c98eabe698bf7d20bc08646b70c6d0053011eb1a923947b\", \"text\": \"# Health service structure\\n\\nOrigin: o",
+      "chars": 1185
+    }
+  ],
+  "lease": null,
+  "plan": {
+    "tasks": [
+      {
+        "id": "t1",
+        "description": "Create package.json pinning Node >=22, scripts (start/build/test) and test script",
+        "files": [
+          "package.json"
+        ],
+        "depends_on": [],
+        "source": [
+          "input/0@f07c58ac8c699dbedb8104627ed42bef89953f5c6200b888c1f43a16ab2afdce"
+        ]
+      },
+      {
+        "id": "t2",
+        "description": "Create app.cjs exporting createApp() HTTP server factory handling /health (FR1) and 404 JSON (FR2)",
+        "files": [
+          "app.cjs"
+        ],
+        "depends_on": [],
+        "source": [
+          "input/1@35ebe611da5d03d48e291b226326d51febda329a318673a1349a37fd3607ebba"
+        ]
+      },
+      {
+        "id": "t3",
+        "description": "Create index.cjs startup entry that creates app and listens on PORT default 3000 (FR3)",
+        "files": [
+          "index.cjs"
+        ],
+        "depends_on": [
+          "t2"
+        ],
+        "source": [
+          "input/1@35ebe611da5d03d48e291b226326d51febda329a318673a1349a37fd3607ebba"
+        ]
+      },
+      {
+        "id": "t4",
+        "description": "Create test/health.test.cjs using node:test real HTTP on ephemeral port: health, unknown, health (NFR1)",
+        "files": [
+          "test/health.test.cjs"
+        ],
+        "depends_on": [
+          "t2"
+        ],
+        "source": [
+          "input/0@f07c58ac8c699dbedb8104627ed42bef89953f5c6200b888c1f43a16ab2afdce"
+        ]
+      },
+      {
+        "id": "t5",
+        "description": "Create README.md with install/start/test instructions and source-to-requirement mapping (NFR2)",
+        "files": [
+          "README.md"
+        ],
+        "depends_on": [
+          "t1",
+          "t2",
+          "t3",
+          "t4"
+        ],
+        "source": [
+          "input/0@f07c58ac8c699dbedb8104627ed42bef89953f5c6200b888c1f43a16ab2afdce"
+        ]
+      }
+    ],
+    "assumptions": [
+      "All source files use .cjs extension and CommonJS (require/module.exports) per NFR2",
+      "npm run build uses node --check on each .cjs source file for syntax checking (NFR2)",
+      "Tests use node:test with a server listening on port 0 (ephemeral loopback) to satisfy NFR1",
+      "No third-party packages; http and node:test are the only built-ins used"
+    ]
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "advisories": [
+      "Advisory: app.cjs does not handle non-GET requests to /health differently (e.g. POST /health returns 404), which is not required but could be clarified; FR1 only specifies GET so this is acceptable.",
+      "Advisory: index.cjs does not guard against listen errors (e.g. EADDRINUSE on the fixed port), purely optional hardening not required by FR3.",
+      "Advisory: README's mapping lists package-lock.json nowhere, though the repo includes one; minor documentation gap, not a requirement violation."
+    ]
+  },
+  "review_policy": "requirement-linked-v1",
+  "review_snapshot": "b05a6d5659b77b693824b94b1e405cc9fdbfabb5eeca178eefef0e16e404986c",
+  "state": {
+    "state": "completed",
+    "created": 1793950522.7333953,
+    "reference": "https://github.com/deepseek-ai/dsh-superagent-prototype/tree/8c32a9dc5d72c033816c6a8110b37f40cf94fba4",
+    "updated": 1793950913.7806454,
+    "verification": "checks_passed_requires_review",
+    "review": {
+      "approved": true,
+      "issues": [],
+      "advisories": [
+        "Advisory: app.cjs does not handle non-GET requests to /health differently (e.g. POST /health returns 404), which is not required but could be clarified; FR1 only specifies GET so this is acceptable.",
+        "Advisory: index.cjs does not guard against listen errors (e.g. EADDRINUSE on the fixed port), purely optional hardening not required by FR3.",
+        "Advisory: README's mapping lists package-lock.json nowhere, though the repo includes one; minor documentation gap, not a requirement violation."
+      ]
+    },
+    "checks": [
+      {
+        "state": "completed",
+        "profile": "static",
+        "snapshot": "b05a6d5659b77b693824b94b1e405cc9fdbfabb5eeca178eefef0e16e404986c",
+        "result": {
+          "profile": "static",
+          "status": "passed",
+          "results": [
+            {
+              "check": "required:package.json",
+              "status": "passed"
+            },
+            {
+              "check": "required:README.md",
+              "status": "passed"
+            },
+            {
+              "check": "app.cjs",
+              "status": "passed",
+              "exit_code": 0,
+              "timed_out": false,
+              "command": [
+                "C:\\Program Files\\nodejs\\node.EXE",
+                "--check",
+                "D:\\projects\\Task-superagent\\runs\\superagent-v03\\20261106-154127-health-policy-continuation\\project\\app.cjs"
+              ],
+              "output": ""
+            },
+            {
+              "check": "index.cjs",
+              "status": "passed",
+              "exit_code": 0,
+              "timed_out": false,
+              "command": [
+                "C:\\Program Files\\nodejs\\node.EXE",
+                "--check",
+                "D:\\projects\\Task-superagent\\runs\\superagent-v03\\20261106-154127-health-policy-continuation\\project\\index.cjs"
+              ],
+              "output": ""
+            },
+            {
+              "check": "package-lock.json",
+              "status": "passed"
+            },
+            {
+              "check": "package.json",
+              "status": "passed"
+            },
+            {
+              "check": "test/health.test.cjs",
+              "status": "passed",
+              "exit_code": 0,
+              "timed_out": false,
+              "command": [
+                "C:\\Program Files\\nodejs\\node.EXE",
+                "--check",
+                "D:\\projects\\Task-superagent\\runs\\superagent-v03\\20261106-154127-health-policy-continuation\\project\\test\\health.test.cjs"
+              ],
+              "output": ""
+            }
+          ],
+          "snapshot_id": "befb78a8786f91fec7d934f1581cfc7cc48e5c55d9577c9b5b5d568a70498254",
+          "snapshot_after": "befb78a8786f91fec7d934f1581cfc7cc48e5c55d9577c9b5b5d568a70498254",
+          "stale": false
+        },
+        "result_snapshot": "b05a6d5659b77b693824b94b1e405cc9fdbfabb5eeca178eefef0e16e404986c"
+      },
+      {
+        "state": "completed",
+        "profile": "install",
+        "snapshot": "b05a6d5659b77b693824b94b1e405cc9fdbfabb5eeca178eefef0e16e404986c",
+        "result": {
+          "profile": "install",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+            "ci",
+            "--ignore-scripts",
+            "--no-audit",
+            "--no-fund"
+          ],
+          "output": "\nup to date in 703ms\n",
+          "snapshot_id": "befb78a8786f91fec7d934f1581cfc7cc48e5c55d9577c9b5b5d568a70498254",
+          "snapshot_after": "befb78a8786f91fec7d934f1581cfc7cc48e5c55d9577c9b5b5d568a70498254",
+          "stale": false
+        },
+        "result_snapshot": "b05a6d5659b77b693824b94b1e405cc9fdbfabb5eeca178eefef0e16e404986c"
+      },
+      {
+        "state": "completed",
+        "profile": "test",
+        "snapshot": "b05a6d5659b77b693824b94b1e405cc9fdbfabb5eeca178eefef0e16e404986c",
+        "result": {
+          "profile": "test",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+            "run",
+            "test",
+            "--ignore-scripts"
+          ],
+          "output": "\n> minimal-http-health-service@1.0.0 test\n> node --test\n\n✔ GET /health returns 200 and JSON { status: ok } (FR1) (12.4678ms)\n✔ unknown route returns 404 and a JSON error (FR2) (2.7528ms)\n✔ GET /health still returns 200 after an unknown request (FR2) (1.9515ms)\nℹ tests 3\nℹ suites 0\nℹ pass 3\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 139.9682\n",
+          "test_count": 3,
+          "skipped_count": 0,
+          "test_execution": "observed",
+          "snapshot_id": "befb78a8786f91fec7d934f1581cfc7cc48e5c55d9577c9b5b5d568a70498254",
+          "snapshot_after": "befb78a8786f91fec7d934f1581cfc7cc48e5c55d9577c9b5b5d568a70498254",
+          "stale": false
+        },
+        "result_snapshot": "b05a6d5659b77b693824b94b1e405cc9fdbfabb5eeca178eefef0e16e404986c"
+      },
+      {
+        "state": "completed",
+        "profile": "build",
+        "snapshot": "b05a6d5659b77b693824b94b1e405cc9fdbfabb5eeca178eefef0e16e404986c",
+        "result": {
+          "profile": "build",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+            "run",
+            "build",
+            "--ignore-scripts"
+          ],
+          "output": "\n> minimal-http-health-service@1.0.0 build\n> node --check app.cjs && node --check index.cjs && node --check test/health.test.cjs\n\n",
+          "snapshot_id": "befb78a8786f91fec7d934f1581cfc7cc48e5c55d9577c9b5b5d568a70498254",
+          "snapshot_after": "befb78a8786f91fec7d934f1581cfc7cc48e5c55d9577c9b5b5d568a70498254",
+          "stale": false
+        },
+        "result_snapshot": "b05a6d5659b77b693824b94b1e405cc9fdbfabb5eeca178eefef0e16e404986c"
+      }
+    ]
+  }
+}

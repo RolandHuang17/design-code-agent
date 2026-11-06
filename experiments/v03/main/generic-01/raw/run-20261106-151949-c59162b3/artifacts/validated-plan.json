@@ -1,0 +1,264 @@
+{
+  "summary": "A single Node.js 22 browser-based temperature converter: a stateless HTTP application exposing GET / (HTML page), POST /api/convert (C/F/K conversion with FR4 validation), and GET /health. Conversion logic is isolated in a pure module for server-less unit testing. Zero runtime dependencies; npm test runs node:test assertions, npm run build performs node --check over source, npm start serves on process.env.PORT (default 3000).",
+  "tasks": [
+    {
+      "id": "T1",
+      "description": "Create package.json (CommonJS, Node >=22 engines) with scripts: start, test, build; no runtime dependencies; no lockfile (host-generated).",
+      "files": [
+        "package.json"
+      ],
+      "depends_on": [],
+      "sources": [
+        {
+          "document": "Architecture_Documentation.md",
+          "start_line": 3,
+          "end_line": 16,
+          "resource_id": "design:428e346c9cd7fc9ed63f793591d47869e0d110bf6f002efb54d33159cde39c11",
+          "version": "428e346c9cd7fc9ed63f793591d47869e0d110bf6f002efb54d33159cde39c11"
+        }
+      ],
+      "contracts": [
+        {
+          "description": "npm start serves on process.env.PORT default 3000; npm test executes meaningful tests; npm run build checks source syntax.",
+          "source": {
+            "document": "Architecture_Documentation.md",
+            "start_line": 13
+          }
+        },
+        {
+          "description": "CommonJS module convention; no runtime dependencies to pin.",
+          "source": {
+            "document": "Architecture_Documentation.md",
+            "start_line": 15
+          }
+        }
+      ]
+    },
+    {
+      "id": "T2",
+      "description": "Implement pure temperature conversion and validation in lib/convert.js: C/F/K conversion with FR3 formulas, same-unit short-circuit after absolute-zero validation, and validation error messages for FR4.",
+      "files": [
+        "lib/convert.js"
+      ],
+      "depends_on": [],
+      "sources": [
+        {
+          "document": "Architecture_Documentation.md",
+          "start_line": 7,
+          "end_line": 12,
+          "resource_id": "design:428e346c9cd7fc9ed63f793591d47869e0d110bf6f002efb54d33159cde39c11",
+          "version": "428e346c9cd7fc9ed63f793591d47869e0d110bf6f002efb54d33159cde39c11"
+        }
+      ],
+      "contracts": [
+        {
+          "description": "convert(value, from, to) returns { value, unit }; units limited to C|F|K.",
+          "source": {
+            "document": "Architecture_Documentation.md",
+            "start_line": 7
+          }
+        },
+        {
+          "description": "Formulas: C = (F-32)*5/9 and K = C+273.15; same-unit preserves value.",
+          "source": {
+            "document": "Architecture_Documentation.md",
+            "start_line": 9
+          }
+        },
+        {
+          "description": "Reject missing/nonnumeric/boolean/unsupported units and below-absolute-zero (including same-unit); boundary epsilon tolerance. origin=assumption for the epsilon magnitude (1e-9).",
+          "source": {
+            "document": "Architecture_Documentation.md",
+            "start_line": 10
+          }
+        }
+      ]
+    },
+    {
+      "id": "T3",
+      "description": "Implement HTTP application lib/app.js: GET / returns HTML page (numeric input, from/to unit selectors, submit button, result, visible error feedback); POST /api/convert maps validation to 400 {error} and success to 200 {value,unit}; GET /health returns 200 {status:ok}.",
+      "files": [
+        "lib/app.js"
+      ],
+      "depends_on": [
+        "T2"
+      ],
+      "sources": [
+        {
+          "document": "Architecture_Documentation.md",
+          "start_line": 7,
+          "end_line": 14,
+          "resource_id": "design:428e346c9cd7fc9ed63f793591d47869e0d110bf6f002efb54d33159cde39c11",
+          "version": "428e346c9cd7fc9ed63f793591d47869e0d110bf6f002efb54d33159cde39c11"
+        },
+        {
+          "document": "Architecture_View.md",
+          "start_line": 3,
+          "end_line": 15,
+          "resource_id": "design:850c8560156d669579d0a7e7f9a28389e83a4d90d9be3b14d5845ef2d37352be",
+          "version": "850c8560156d669579d0a7e7f9a28389e83a4d90d9be3b14d5845ef2d37352be"
+        }
+      ],
+      "contracts": [
+        {
+          "description": "GET / returns HTML page with numeric input, source/destination unit selectors, submit button, result and visible error feedback.",
+          "source": {
+            "document": "Architecture_Documentation.md",
+            "start_line": 7
+          }
+        },
+        {
+          "description": "POST /api/convert returns 200 {value, unit} on success; 400 {error} on invalid input including malformed JSON.",
+          "source": {
+            "document": "Architecture_Documentation.md",
+            "start_line": 8
+          }
+        },
+        {
+          "description": "GET /health returns 200 {\"status\":\"ok\"}.",
+          "source": {
+            "document": "Architecture_Documentation.md",
+            "start_line": 12
+          }
+        },
+        {
+          "description": "HTTP handler delegates validation/conversion to lib/convert.js (Pure temperature conversion component).",
+          "source": {
+            "document": "Architecture_View.md",
+            "start_line": 6
+          }
+        }
+      ]
+    },
+    {
+      "id": "T5",
+      "description": "Write unit tests test/convert.test.js covering conversion formulas, same-unit, boundary absolute-zero tolerance, and all FR4 rejection cases — no server required.",
+      "files": [
+        "test/convert.test.js"
+      ],
+      "depends_on": [
+        "T2"
+      ],
+      "sources": [
+        {
+          "document": "Architecture_Documentation.md",
+          "start_line": 8,
+          "end_line": 12,
+          "resource_id": "design:428e346c9cd7fc9ed63f793591d47869e0d110bf6f002efb54d33159cde39c11",
+          "version": "428e346c9cd7fc9ed63f793591d47869e0d110bf6f002efb54d33159cde39c11"
+        }
+      ],
+      "contracts": [
+        {
+          "description": "Tests exercise lib/convert.js directly without a running server (NFR1).",
+          "source": {
+            "document": "Architecture_Documentation.md",
+            "start_line": 13
+          }
+        }
+      ]
+    },
+    {
+      "id": "T4",
+      "description": "Implement server entry point server.js that creates the app and listens on process.env.PORT (default 3000).",
+      "files": [
+        "server.js"
+      ],
+      "depends_on": [
+        "T3"
+      ],
+      "sources": [
+        {
+          "document": "Architecture_Documentation.md",
+          "start_line": 13,
+          "end_line": 13,
+          "resource_id": "design:428e346c9cd7fc9ed63f793591d47869e0d110bf6f002efb54d33159cde39c11",
+          "version": "428e346c9cd7fc9ed63f793591d47869e0d110bf6f002efb54d33159cde39c11"
+        }
+      ],
+      "contracts": [
+        {
+          "description": "Starts the HTTP server on PORT env var, default 3000.",
+          "source": {
+            "document": "Architecture_Documentation.md",
+            "start_line": 13
+          }
+        }
+      ]
+    },
+    {
+      "id": "T6",
+      "description": "Write HTTP route tests test/app.test.js using node:test with an in-process server/listener, covering GET /, POST /api/convert success and failure, malformed JSON, and GET /health.",
+      "files": [
+        "test/app.test.js"
+      ],
+      "depends_on": [
+        "T3"
+      ],
+      "sources": [
+        {
+          "document": "Architecture_Documentation.md",
+          "start_line": 7,
+          "end_line": 12,
+          "resource_id": "design:428e346c9cd7fc9ed63f793591d47869e0d110bf6f002efb54d33159cde39c11",
+          "version": "428e346c9cd7fc9ed63f793591d47869e0d110bf6f002efb54d33159cde39c11"
+        }
+      ],
+      "contracts": [
+        {
+          "description": "Tests verify GET /, POST /api/convert (200 and 400 paths), and GET /health responses.",
+          "source": {
+            "document": "Architecture_Documentation.md",
+            "start_line": 7
+          }
+        }
+      ]
+    },
+    {
+      "id": "T7",
+      "description": "Write README.md documenting install, start, test, build instructions, the API contract, and limitations (stateless, no persistence, no rounding, boundary tolerance).",
+      "files": [
+        "README.md"
+      ],
+      "depends_on": [
+        "T1",
+        "T4"
+      ],
+      "sources": [
+        {
+          "document": "Architecture_Documentation.md",
+          "start_line": 3,
+          "end_line": 16,
+          "resource_id": "design:428e346c9cd7fc9ed63f793591d47869e0d110bf6f002efb54d33159cde39c11",
+          "version": "428e346c9cd7fc9ed63f793591d47869e0d110bf6f002efb54d33159cde39c11"
+        }
+      ],
+      "contracts": [
+        {
+          "description": "Document install/start/test instructions and limitations (NFR2).",
+          "source": {
+            "document": "Architecture_Documentation.md",
+            "start_line": 13
+          }
+        }
+      ]
+    }
+  ],
+  "assumptions": [
+    "CommonJS chosen as the consistent module convention (either is permitted by the design; CommonJS keeps node --check/build tooling straightforward).",
+    "Absolute-zero boundary tolerance epsilon is 1e-9 (magnitude not specified; any insignificant float error is acceptable per FR4).",
+    "The HTML page performs conversion by POST /api/convert via client-side fetch and renders the JSON result/error inline.",
+    "The server listens on 0.0.0.0 so it is reachable when run in containers/remapped ports during acceptance (acceptance remaps public ports without assuming host port equals container port).",
+    "No deployment artifacts (Docker/Compose/OpenAPI/gateway) are produced because the scope explicitly excludes them."
+  ],
+  "conflicts": [
+    "None. The two input documents are consistent: Architecture_View.md is a component view of the same single-app scope described in Architecture_Documentation.md.",
+    "Architecture_View.md labels the conversion component 'Convert' while Architecture_Documentation.md does not name the module; resolved by naming it lib/convert.js (labeling of the file is an assumption, not attributed to the source)."
+  ],
+  "host_validation": {
+    "dependency_order_checked": true,
+    "unique_file_owners": true,
+    "tasks_without_source_links": [],
+    "limitation": "Checks structural references, not semantic coverage or interface compatibility"
+  }
+}

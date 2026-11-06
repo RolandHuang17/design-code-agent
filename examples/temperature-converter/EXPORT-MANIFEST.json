@@ -1,0 +1,21 @@
+{
+  "trial": "experiments/v03/main/generic-01",
+  "run_name": "run-20261106-151949-c59162b3",
+  "project_manually_modified": false,
+  "policy": "Project and input bytes copied without editing. Acceptance applies to this one fresh trial, not a general success rate.",
+  "files": {
+    "project/README.md": "1d47807184ace1e84e6c737348928d44f23f7b4d7a71febc4a40996f7b47bae6",
+    "project/architecture-decisions.md": "99494eafeb38dcbe879439a7f9c9a34a6767531c04a0200875c865250ef214bb",
+    "project/package-lock.json": "26e72bb4066dbab737c5ed7bbbea7a823b033637376e09d822227428ccc5ba0d",
+    "project/package.json": "9ecd2f4d9520f5084157925bffae3617725f658c959f378a5f994c3aa570594b",
+    "project/plan.json": "64ad6c02a706243dc350241999575725dc67f73c6f98dc254f4896e90ca8d0d2",
+    "project/server.js": "3afc6cb4828754af90059f5cd13e35e04d41057139dbc6ba8fa49203690bc7fc",
+    "project/traceability.json": "002b9cc27384dd25d548692b053136beb87dd64bc0b8752c8f6665bf94d8884f",
+    "project/lib/app.js": "80b2497e5cd9361255546daafeb3ab200c4508835684a583fcd37c6aeca974c1",
+    "project/lib/convert.js": "d652ac52c63d86fde68f1e2c37100910e49669371cc49827a6e7566572a2930a",
+    "project/test/app.test.js": "ce3f98c520d5a9e58241584282360f57526fae37d2ff30389cd4b8f9fb685f5f",
+    "project/test/convert.test.js": "0a21ae7813a9be26b579710efdc3e879ed028be168aefcf40d423884a1f0f9cf",
+    "inputs/Architecture_Documentation.md": "428e346c9cd7fc9ed63f793591d47869e0d110bf6f002efb54d33159cde39c11",
+    "inputs/Architecture_View.md": "850c8560156d669579d0a7e7f9a28389e83a4d90d9be3b14d5845ef2d37352be"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "root": "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\library-01\\run-20261106-152903-a2942007\\project",
+  "changes": [
+    {
+      "path": "test/api.test.js",
+      "before": "3b86e2f64104dace9f665c81ecc2ce7a7d5c87748a966487ff46b5d0a0379ac6",
+      "after": "06eb67445b195012b21c81bac2f282ef00f96f4913d65e8c1b63bf3c13e3d1c5"
+    }
+  ],
+  "checks": [
+    {
+      "path": "test/api.test.js",
+      "status": "passed",
+      "kind": "syntax_format",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\library-01\\run-20261106-152903-a2942007\\artifacts\\candidates\\45b4d625b1bd4ffcb9927d8fd8e8fc52\\after\\test\\api.test.js"
+      ],
+      "output": ""
+    }
+  ],
+  "status": "committed"
+}

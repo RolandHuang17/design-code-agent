@@ -1,0 +1,641 @@
+[
+  {
+    "profile": "static",
+    "status": "passed",
+    "results": [
+      {
+        "check": "required:package.json",
+        "status": "passed"
+      },
+      {
+        "check": "required:README.md",
+        "status": "passed"
+      },
+      {
+        "check": "required:traceability.json",
+        "status": "passed"
+      },
+      {
+        "check": "compose.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "openapi.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "package-lock.json",
+        "status": "passed"
+      },
+      {
+        "check": "package.json",
+        "status": "passed"
+      },
+      {
+        "check": "plan.json",
+        "status": "passed"
+      },
+      {
+        "check": "traceability.json",
+        "status": "passed"
+      },
+      {
+        "check": "gateway/app.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-02-continuation\\run-20261106-160407-98d09edf\\project\\gateway\\app.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "gateway/index.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-02-continuation\\run-20261106-160407-98d09edf\\project\\gateway\\index.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "k8s/spacefractions-deployment.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "keycloak/realm.json",
+        "status": "passed"
+      },
+      {
+        "check": "lib/auth.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-02-continuation\\run-20261106-160407-98d09edf\\project\\lib\\auth.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "lib/cache.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-02-continuation\\run-20261106-160407-98d09edf\\project\\lib\\cache.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "lib/db.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-02-continuation\\run-20261106-160407-98d09edf\\project\\lib\\db.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "lib/events.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-02-continuation\\run-20261106-160407-98d09edf\\project\\lib\\events.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "lib/fraction.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-02-continuation\\run-20261106-160407-98d09edf\\project\\lib\\fraction.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "lib/game-state.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-02-continuation\\run-20261106-160407-98d09edf\\project\\lib\\game-state.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "lib/search.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-02-continuation\\run-20261106-160407-98d09edf\\project\\lib\\search.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "lib/types.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-02-continuation\\run-20261106-160407-98d09edf\\project\\lib\\types.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "lib/user-map.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-02-continuation\\run-20261106-160407-98d09edf\\project\\lib\\user-map.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "public/app.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-02-continuation\\run-20261106-160407-98d09edf\\project\\public\\app.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "reference/istio.yaml",
+        "status": "passed"
+      },
+      {
+        "check": "reference/prometheus.yml",
+        "status": "passed"
+      },
+      {
+        "check": "scripts/check.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-02-continuation\\run-20261106-160407-98d09edf\\project\\scripts\\check.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "services/admin-service.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-02-continuation\\run-20261106-160407-98d09edf\\project\\services\\admin-service.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "services/game-service.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-02-continuation\\run-20261106-160407-98d09edf\\project\\services\\game-service.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "services/question-service.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-02-continuation\\run-20261106-160407-98d09edf\\project\\services\\question-service.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "services/user-service.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-02-continuation\\run-20261106-160407-98d09edf\\project\\services\\user-service.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "test/auth.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-02-continuation\\run-20261106-160407-98d09edf\\project\\test\\auth.test.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "test/fake-pg.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-02-continuation\\run-20261106-160407-98d09edf\\project\\test\\fake-pg.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "test/fraction.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-02-continuation\\run-20261106-160407-98d09edf\\project\\test\\fraction.test.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "test/game-service.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-02-continuation\\run-20261106-160407-98d09edf\\project\\test\\game-service.test.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "test/integration.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-02-continuation\\run-20261106-160407-98d09edf\\project\\test\\integration.test.js"
+        ],
+        "output": ""
+      }
+    ],
+    "snapshot_id": "6208860e8c2067558d0e6f8e4b6f81fa00e5e515086eaebf6da8fc5f928596b3",
+    "snapshot_after": "6208860e8c2067558d0e6f8e4b6f81fa00e5e515086eaebf6da8fc5f928596b3",
+    "stale": false
+  },
+  {
+    "profile": "install",
+    "status": "passed",
+    "exit_code": 0,
+    "timed_out": false,
+    "command": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+      "ci",
+      "--ignore-scripts",
+      "--no-audit",
+      "--no-fund"
+    ],
+    "output": "npm warn deprecated prom-client@15.1.2: prom-client has been replaced by @prometheus-io/client\n\nadded 124 packages in 2s\n",
+    "snapshot_id": "6208860e8c2067558d0e6f8e4b6f81fa00e5e515086eaebf6da8fc5f928596b3",
+    "snapshot_after": "6208860e8c2067558d0e6f8e4b6f81fa00e5e515086eaebf6da8fc5f928596b3",
+    "stale": false
+  },
+  {
+    "profile": "test",
+    "status": "passed",
+    "exit_code": 0,
+    "timed_out": false,
+    "command": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+      "run",
+      "test",
+      "--ignore-scripts"
+    ],
+    "output": "\n> space-fractions@1.0.0 test\n> node --test test/fraction.test.js test/game-service.test.js test/auth.test.js\n\n✔ subjectOf returns the sub claim (1.0137ms)\n✔ subjectOf throws 401 when sub is missing (0.4082ms)\n✔ subjectOf throws 401 when sub is empty (0.1326ms)\n✔ isAdmin is true when realm_access.roles contains admin (0.1204ms)\n✔ isAdmin is false when role absent (0.1186ms)\n✔ isAdmin is false for malformed/missing payload (0.1154ms)\n✔ requireRole allows admin (0.1411ms)\n✔ requireRole throws 403 for non-admin (0.1364ms)\n✔ verifyToken rejects a missing token with 401 (0.3431ms)\n✔ verifyToken rejects an empty/whitespace token with 401 (0.2464ms)\n✔ verifyToken surfaces verification failure as 401 AuthError (0.2703ms)\n✔ resolveUserId upserts via client-shaped db and returns numeric id (0.9691ms)\n✔ resolveUserId upserts via pool-shaped db and returns numeric id (0.2999ms)\n✔ resolveUserId rejects payload missing sub with 401 (0.2875ms)\n✔ resolveUserId throws 500 when no backend is available (0.2213ms)\n✔ displayNameOf prefers preferred_username and falls back to sub (0.1907ms)\n✔ mapSubjectToUser delegates to upsertUser on client-shaped backend (0.2159ms)\n✔ mapSubjectToUser throws when no backend is available (0.1454ms)\n✔ authenticate returns payload/userId/admin for a valid admin token (0.2138ms)\n✔ authenticate marks non-admin token as admin=false (0.1273ms)\n✔ authenticate throws 401 when authorization header lacks a token (0.2218ms)\n✔ gcd returns the greatest common divisor of two integers (2.4571ms)\n✔ reduce normalizes sign so the denominator is always positive (1.0156ms)\n✔ reduce produces a canonical reduced form (0.148ms)\n✔ reduce throws a typed error for a zero denominator (0.4716ms)\n✔ reduce throws a typed error for non-safe-integer parts (0.3115ms)\n✔ fromParts delegates to reduce (0.2531ms)\n✔ parseFraction accepts a plain fraction (0.5978ms)\n✔ parseFraction normalizes fractional equality (2/4 === 1/2) (0.2774ms)\n✔ parseFraction accepts whole numbers as integer/1 (0.198ms)\n✔ parseFraction accepts mixed numbers (0.3455ms)\n✔ parseFraction accepts negative fractions (0.2461ms)\n✔ parseFraction accepts zero (0.1921ms)\n✔ parseFraction rejects malformed input (empty, non-string, bad numeric) (0.4597ms)\n✔ parseFraction rejects a zero denominator in string form (0.2262ms)\n✔ parseFraction rejects an improper mixed number fraction part (0.2173ms)\n✔ equals compares canonical forms (0.1876ms)\n✔ format renders canonical fractions readably (0.1976ms)\n✔ parseFraction accepts a single reduced fraction from seed-style input (0.3465ms)\n✔ newGame returns 201-shaped {id, questions} without correctAnswer (2.4383ms)\n✔ answer submits a correct answer and increments score by 1 (1.2239ms)\n✔ answer marks an incorrect answer without increasing score (0.6991ms)\n✔ repeating a question does not increase the score (idempotent) (1.1818ms)\n✔ pause then resume transitions state; answering while paused is a 409 (1.8076ms)\n✔ pause/resume/answer enforce owner authorization (403 for other users) (0.8739ms)\n✔ accessing a non-existent game returns 404 (0.3193ms)\n✔ malformed fraction answer is rejected as 400 (1.356ms)\n✔ validateAnswerText accepts valid fractions and rejects malformed ones (0.3655ms)\n✔ score view returns the accumulated score for the owner (0.7911ms)\n✔ viewGame exposes player-safe state and never leaks correctAnswer (0.5616ms)\n✔ fraction equality is exercised end-to-end via the real fraction module (0.8488ms)\nℹ tests 51\nℹ suites 0\nℹ pass 51\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 260.042\n",
+    "test_count": 51,
+    "skipped_count": 0,
+    "test_execution": "observed",
+    "snapshot_id": "6208860e8c2067558d0e6f8e4b6f81fa00e5e515086eaebf6da8fc5f928596b3",
+    "snapshot_after": "6208860e8c2067558d0e6f8e4b6f81fa00e5e515086eaebf6da8fc5f928596b3",
+    "stale": false
+  },
+  {
+    "profile": "integration",
+    "status": "failed",
+    "exit_code": 1,
+    "timed_out": false,
+    "command": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+      "run",
+      "test:integration",
+      "--ignore-scripts"
+    ],
+    "output": "\n> space-fractions@1.0.0 test:integration\n> node --test test/integration.test.js\n\n✔ GET /health returns 200 (71.4098ms)\n✖ admin can create, list, and delete a question (admin CRUD) (20.6274ms)\n✖ normal user gets 403 on admin endpoints (4.3056ms)\n✔ missing/invalid credentials yield 401 (7.0256ms)\n✖ full game lifecycle: create, answer, score, and owner isolation (3.3898ms)\n✖ pause/resume and answering while paused -> 409 (3.9708ms)\nℹ tests 6\nℹ suites 0\nℹ pass 2\nℹ fail 4\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 455.4097\n\n✖ failing tests:\n\ntest at test\\integration.test.js:195:1\n✖ admin can create, list, and delete a question (admin CRUD) (20.6274ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  500 !== 201\n  \n      at TestContext.<anonymous> (D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-02-continuation\\run-20261106-160407-98d09edf\\project\\test\\integration.test.js:204:10)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 500,\n    expected: 201,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration.test.js:222:1\n✖ normal user gets 403 on admin endpoints (4.3056ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  500 !== 403\n  \n      at TestContext.<anonymous> (D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-02-continuation\\run-20261106-160407-98d09edf\\project\\test\\integration.test.js:226:10)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 500,\n    expected: 403,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration.test.js:240:1\n✖ full game lifecycle: create, answer, score, and owner isolation (3.3898ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  500 !== 201\n  \n      at TestContext.<anonymous> (D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-02-continuation\\run-20261106-160407-98d09edf\\project\\test\\integration.test.js:245:10)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 500,\n    expected: 201,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at test\\integration.test.js:280:1\n✖ pause/resume and answering while paused -> 409 (3.9708ms)\n  TypeError [Error]: Cannot read properties of undefined (reading '0')\n      at TestContext.<anonymous> (D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-02-continuation\\run-20261106-160407-98d09edf\\project\\test\\integration.test.js:286:44)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)\n",
+    "snapshot_id": "6208860e8c2067558d0e6f8e4b6f81fa00e5e515086eaebf6da8fc5f928596b3",
+    "snapshot_after": "6208860e8c2067558d0e6f8e4b6f81fa00e5e515086eaebf6da8fc5f928596b3",
+    "stale": false
+  },
+  {
+    "profile": "build",
+    "status": "passed",
+    "exit_code": 0,
+    "timed_out": false,
+    "command": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+      "run",
+      "build",
+      "--ignore-scripts"
+    ],
+    "output": "\n> space-fractions@1.0.0 build\n> node scripts/check.js\n\nbuild check passed: sources, configs and contracts verified\n",
+    "snapshot_id": "6208860e8c2067558d0e6f8e4b6f81fa00e5e515086eaebf6da8fc5f928596b3",
+    "snapshot_after": "6208860e8c2067558d0e6f8e4b6f81fa00e5e515086eaebf6da8fc5f928596b3",
+    "stale": false
+  },
+  {
+    "profile": "compose",
+    "status": "passed",
+    "backend": "wsl",
+    "evidence": "Actual compose config command in protected runtime stages",
+    "snapshot_id": "6208860e8c2067558d0e6f8e4b6f81fa00e5e515086eaebf6da8fc5f928596b3"
+  },
+  {
+    "profile": "plan_references",
+    "status": "passed",
+    "problems": [],
+    "snapshot_id": "6208860e8c2067558d0e6f8e4b6f81fa00e5e515086eaebf6da8fc5f928596b3",
+    "limitation": "Checks planned files and literal relative imports, not dynamic imports or semantic compatibility"
+  },
+  {
+    "profile": "traceability_links",
+    "status": "passed",
+    "problems": [],
+    "limitation": "只检查链接和来源范围；语义覆盖需要独立审查",
+    "snapshot_id": "6208860e8c2067558d0e6f8e4b6f81fa00e5e515086eaebf6da8fc5f928596b3"
+  },
+  {
+    "profile": "runtime",
+    "acceptance_profile": "space-fractions",
+    "status": "failed",
+    "checks": [
+      {
+        "check": "gateway ready",
+        "status": "passed"
+      },
+      {
+        "check": "browser entry served",
+        "status": "passed",
+        "http_status": 200
+      },
+      {
+        "check": "local identity-provider fixture admin",
+        "status": "passed",
+        "http_status": 200
+      },
+      {
+        "check": "browser client is public and requires S256",
+        "status": "passed"
+      },
+      {
+        "check": "temporary public callback origin configured",
+        "status": "passed",
+        "http_status": 204
+      },
+      {
+        "check": "OIDC fixture login: student",
+        "status": "failed",
+        "http_status": 400
+      }
+    ],
+    "error": "AssertionError: OIDC fixture login: student: {\"http_status\": 400}",
+    "cleanup": "passed",
+    "backend": "wsl",
+    "project": "dca-be592108573f",
+    "stages": [
+      {
+        "stage": [
+          "version",
+          "--format",
+          "{{.Server.Version}}"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Windows\\system32\\wsl.exe",
+          "-d",
+          "Ubuntu",
+          "-u",
+          "root",
+          "--",
+          "env",
+          "GATEWAY_PORT=9796",
+          "OIDC_PORT=9797",
+          "PUBLIC_ORIGIN=http://localhost:9796",
+          "OIDC_PUBLIC_ORIGIN=http://localhost:9797",
+          "OIDC_ISSUER=http://localhost:9797/realms/space-fractions",
+          "docker",
+          "version",
+          "--format",
+          "{{.Server.Version}}"
+        ],
+        "output": "29.1.3\n"
+      },
+      {
+        "stage": [
+          "config",
+          "--format",
+          "json"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Windows\\system32\\wsl.exe",
+          "-d",
+          "Ubuntu",
+          "-u",
+          "root",
+          "--",
+          "env",
+          "GATEWAY_PORT=9796",
+          "OIDC_PORT=9797",
+          "PUBLIC_ORIGIN=http://localhost:9796",
+          "OIDC_PUBLIC_ORIGIN=http://localhost:9797",
+          "OIDC_ISSUER=http://localhost:9797/realms/space-fractions",
+          "docker",
+          "compose",
+          "--project-directory",
+          "/mnt/d/projects/Task-v03-runs/runs/v03/main/space-02-continuation/run-20261106-160407-98d09edf/project",
+          "-p",
+          "dca-be592108573f",
+          "-f",
+          "/mnt/d/projects/Task-v03-runs/runs/v03/main/space-02-continuation/run-20261106-160407-98d09edf/project/compose.yaml",
+          "config",
+          "--format",
+          "json"
+        ],
+        "output": "{\n  \"name\": \"dca-be592108573f\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"dca-be592108573f_default\",\n      \"ipam\": {}\n    }\n  },\n  \"services\": {\n    \"admin-service\": {\n      \"command\": [\n        \"sh\",\n        \"-c\",\n        \"echo 'admin-service entrypoint: served by gateway'; sleep infinity\"\n      ],\n      \"depends_on\": {\n        \"gateway\": {\n          \"condition\": \"service_started\",\n          \"required\": true\n        }\n      },\n      \"entrypoint\": null,\n      \"image\": \"busybox:1.36.1\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"restart\": \"no\"\n    },\n    \"elasticsearch\": {\n      \"command\": null,\n      \"entrypoint\": null,\n      \"environment\": {\n        \"ES_JAVA_OPTS\": \"-Xms512m -Xmx512m\",\n        \"discovery.type\": \"single-node\",\n        \"xpack.security.enabled\": \"false\"\n      },\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD-SHELL\",\n          \"curl -sf http://localhost:9200/_cluster/health || exit 1\"\n        ],\n        \"timeout\": \"5s\",\n        \"interval\": \"10s\",\n        \"retries\": 10,\n        \"start_period\": \"30s\"\n      },\n      \"image\": \"docker.elastic.co/elasticsearch/elasticsearch:8.13.4\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"restart\": \"unless-stopped\"\n    },\n    \"game-service\": {\n      \"command\": [\n        \"sh\",\n        \"-c\",\n        \"echo 'game-service entrypoint: served by gateway'; sleep infinity\"\n      ],\n      \"depends_on\": {\n        \"gateway\": {\n          \"condition\": \"service_started\",\n          \"required\": true\n        }\n      },\n      \"entrypoint\": null,\n      \"image\": \"busybox:1.36.1\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"restart\": \"no\"\n    },\n    \"gateway\": {\n      \"build\": {\n        \"context\": \"/mnt/d/projects/Task-v03-runs/runs/v03/main/space-02-continuation/run-20261106-160407-98d09edf/project\",\n        \"dockerfile\": \"Dockerfile\"\n      },\n      \"command\": null,\n      \"depends_on\": {\n        \"postgres\": {\n          \"condition\": \"service_healthy\",\n          \"required\": true\n        }\n      },\n      \"entrypoint\": null,\n      \"environment\": {\n        \"ADMIN_ROLE\": \"admin\",\n        \"DATABASE_URL\": \"postgres://space_fractions:space_fractions@postgres:5432/space_fractions\",\n        \"DISABLED_FEATURES\": \"\",\n        \"ELASTICSEARCH_URL\": \"http://elasticsearch:9200\",\n        \"OIDC_AUDIENCE\": \"account\",\n        \"OIDC_CLIENT_ID\": \"space-fractions-client\",\n        \"OIDC_ISSUER\": \"http://localhost:9797/realms/space-fractions\",\n        \"OIDC_JWKS_URI\": \"http://keycloak:8080/realms/space-fractions/protocol/openid-connect/certs\",\n        \"OIDC_PUBLIC_ORIGIN\": \"http://localhost:9797\",\n        \"PORT\": \"3000\",\n        \"PUBLIC_ORIGIN\": \"http://localhost:9796\",\n        \"RABBITMQ_URL\": \"amqp://rabbitmq:5672\",\n        \"REDIS_URL\": \"redis://redis:6379\"\n      },\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD\",\n          \"node\",\n          \"-e\",\n          \"require('http').get('http://localhost:3000/health',r=\\u003e{process.exit(r.statusCode===200?0:1)}).on('error',()=\\u003eprocess.exit(1))\"\n        ],\n        \"timeout\": \"5s\",\n        \"interval\": \"10s\",\n        \"retries\": 5,\n        \"start_period\": \"15s\"\n      },\n      \"networks\": {\n        \"default\": null\n      },\n      \"ports\": [\n        {\n          \"mode\": \"ingress\",\n          \"target\": 3000,\n          \"published\": \"3000\",\n          \"protocol\": \"tcp\"\n        }\n      ],\n      \"restart\": \"unless-stopped\"\n    },\n    \"keycloak\": {\n      \"command\": [\n        \"start-dev\",\n        \"--import-realm\"\n      ],\n      \"entrypoint\": null,\n      \"environment\": {\n        \"KC_HOSTNAME_STRICT\": \"false\",\n        \"KC_HOSTNAME_STRICT_HTTPS\": \"false\",\n        \"KC_HOSTNAME_URL\": \"http://localhost:9797\",\n        \"KEYCLOAK_ADMIN\": \"admin\",\n        \"KEYCLOAK_ADMIN_PASSWORD\": \"admin\"\n      },\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD-SHELL\",\n          \"bash -c 'exec 3\\u003c\\u003e/dev/tcp/localhost/8080' || exit 1\"\n        ],\n        \"timeout\": \"5s\",\n        \"interval\": \"10s\",\n        \"retries\": 10,\n        \"start_period\": \"40s\"\n      },\n      \"image\": \"quay.io/keycloak/keycloak:24.0.5\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"ports\": [\n        {\n          \"mode\": \"ingress\",\n          \"target\": 8080,\n          \"published\": \"8080\",\n          \"protocol\": \"tcp\"\n        }\n      ],\n      \"restart\": \"unless-stopped\",\n      \"volumes\": [\n        {\n          \"type\": \"bind\",\n          \"source\": \"/mnt/d/projects/Task-v03-runs/runs/v03/main/space-02-continuation/run-20261106-160407-98d09edf/project/keycloak/realm.json\",\n          \"target\": \"/opt/keycloak/data/import/realm.json\",\n          \"read_only\": true,\n          \"bind\": {\n            \"create_host_path\": true\n          }\n        }\n      ]\n    },\n    \"postgres\": {\n      \"command\": null,\n      \"entrypoint\": null,\n      \"environment\": {\n        \"POSTGRES_DB\": \"space_fractions\",\n        \"POSTGRES_PASSWORD\": \"space_fractions\",\n        \"POSTGRES_USER\": \"space_fractions\"\n      },\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD-SHELL\",\n          \"pg_isready -U space_fractions -d space_fractions\"\n        ],\n        \"timeout\": \"5s\",\n        \"interval\": \"5s\",\n        \"retries\": 10\n      },\n      \"image\": \"postgres:16.3-alpine\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"restart\": \"unless-stopped\",\n      \"volumes\": [\n        {\n          \"type\": \"volume\",\n          \"source\": \"postgres-data\",\n          \"target\": \"/var/lib/postgresql/data\",\n          \"volume\": {}\n        }\n      ]\n    },\n    \"prometheus\": {\n      \"command\": [\n        \"--config.file=/etc/prometheus/prometheus.yml\"\n      ],\n      \"entrypoint\": null,\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD-SHELL\",\n          \"wget -q -O /dev/null http://localhost:9090/-/ready || exit 1\"\n        ],\n        \"timeout\": \"5s\",\n        \"interval\": \"10s\",\n        \"retries\": 5\n      },\n      \"image\": \"prom/prometheus:v2.53.0\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"ports\": [\n        {\n          \"mode\": \"ingress\",\n          \"target\": 9090,\n          \"published\": \"9090\",\n          \"protocol\": \"tcp\"\n        }\n      ],\n      \"restart\": \"unless-stopped\",\n      \"volumes\": [\n        {\n          \"type\": \"bind\",\n          \"source\": \"/mnt/d/projects/Task-v03-runs/runs/v03/main/space-02-continuation/run-20261106-160407-98d09edf/project/reference/prometheus.yml\",\n          \"target\": \"/etc/prometheus/prometheus.yml\",\n          \"read_only\": true,\n          \"bind\": {\n            \"create_host_path\": true\n          }\n        }\n      ]\n    },\n    \"question-service\": {\n      \"command\": [\n        \"sh\",\n        \"-c\",\n        \"echo 'question-service entrypoint: served by gateway'; sleep infinity\"\n      ],\n      \"depends_on\": {\n        \"gateway\": {\n          \"condition\": \"service_started\",\n          \"required\": true\n        }\n      },\n      \"entrypoint\": null,\n      \"image\": \"busybox:1.36.1\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"restart\": \"no\"\n    },\n    \"rabbitmq\": {\n      \"command\": null,\n      \"entrypoint\": null,\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD\",\n          \"rabbitmq-diagnostics\",\n          \"-q\",\n          \"ping\"\n        ],\n        \"timeout\": \"5s\",\n        \"interval\": \"10s\",\n        \"retries\": 5,\n        \"start_period\": \"15s\"\n      },\n      \"image\": \"rabbitmq:3.13-alpine\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"restart\": \"unless-stopped\"\n    },\n    \"redis\": {\n      \"command\": null,\n      \"entrypoint\": null,\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD\",\n          \"redis-cli\",\n          \"ping\"\n        ],\n        \"timeout\": \"3s\",\n        \"interval\": \"5s\",\n        \"retries\": 5\n      },\n      \"image\": \"redis:7.2-alpine\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"restart\": \"unless-stopped\"\n    },\n    \"user-service\": {\n      \"command\": [\n        \"sh\",\n        \"-c\",\n        \"echo 'user-service entrypoint: served by gateway'; sleep infinity\"\n      ],\n      \"depends_on\": {\n        \"gateway\": {\n          \"condition\": \"service_started\",\n          \"required\": true\n        }\n      },\n      \"entrypoint\": null,\n      \"image\": \"busybox:1.36.1\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"restart\": \"no\"\n    }\n  },\n  \"volumes\": {\n    \"postgres-data\": {\n      \"name\": \"dca-be592108573f_postgres-data\"\n    }\n  },\n  \"x-gateway-defaults\": {\n    \"depends_on\": {\n      \"postgres\": {\n        \"condition\": \"service_healthy\"\n      }\n    },\n    \"environment\": {\n      \"ADMIN_ROLE\": \"admin\",\n      \"DATABASE_URL\": \"postgres://space_fractions:space_fractions@postgres:5432/space_fractions\",\n      \"DISABLED_FEATURES\": \"\",\n      \"ELASTICSEARCH_URL\": \"http://elasticsearch:9200\",\n      \"OIDC_AUDIENCE\": \"account\",\n      \"OIDC_CLIENT_ID\": \"space-fractions-client\",\n      \"OIDC_ISSUER\": \"http://localhost:9797/realms/space-fractions\",\n      \"OIDC_JWKS_URI\": \"http://keycloak:8080/realms/space-fractions/protocol/openid-connect/certs\",\n      \"OIDC_PUBLIC_ORIGIN\": \"http://localhost:9797\",\n      \"PORT\": \"3000\",\n      \"PUBLIC_ORIGIN\": \"http://localhost:9796\",\n      \"RABBITMQ_URL\": \"amqp://rabbitmq:5672\",\n      \"REDIS_URL\": \"redis://redis:6379\"\n    }\n  }\n}"
+      },
+      {
+        "stage": [
+          "up",
+          "-d",
+          "--build"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Windows\\system32\\wsl.exe",
+          "-d",
+          "Ubuntu",
+          "-u",
+          "root",
+          "--",
+          "env",
+          "GATEWAY_PORT=9796",
+          "OIDC_PORT=9797",
+          "PUBLIC_ORIGIN=http://localhost:9796",
+          "OIDC_PUBLIC_ORIGIN=http://localhost:9797",
+          "OIDC_ISSUER=http://localhost:9797/realms/space-fractions",
+          "docker",
+          "compose",
+          "--project-directory",
+          "/mnt/d/projects/Task-v03-runs/runs/v03/main/space-02-continuation/run-20261106-160407-98d09edf/project",
+          "-p",
+          "dca-be592108573f",
+          "-f",
+          "/mnt/d/projects/Task-v03-runs/runs/v03/main/space-02-continuation/run-20261106-160407-98d09edf/artifacts/runtime-02/compose.isolated.json",
+          "up",
+          "-d",
+          "--build"
+        ],
+        "output": "time=\"2026-11-06T16:11:47+08:00\" level=warning msg=\"Docker Compose is configured to build using Bake, but buildx isn't installed\"\n#0 building with \"default\" instance using docker driver\n\n#1 [gateway internal] load build definition from Dockerfile\n#1 transferring dockerfile: 1.63kB 0.0s done\n#1 DONE 0.0s\n\n#2 [gateway internal] load metadata for docker.io/library/node:22-alpine\n#2 DONE 0.1s\n\n#3 [gateway internal] load .dockerignore\n#3 transferring context: 2B 0.0s done\n#3 DONE 0.0s\n\n#4 [gateway build 1/8] FROM docker.io/library/node:22-alpine@sha256:fe4f6d74e20370acb04ad889077d14d0f64a9c8ea6a42bc60cddf1e844699914\n#4 resolve docker.io/library/node:22-alpine@sha256:fe4f6d74e20370acb04ad889077d14d0f64a9c8ea6a42bc60cddf1e844699914 0.0s done\n#4 DONE 0.0s\n\n#5 [gateway internal] load build context\n#5 transferring context: 8.14MB 4.9s\n#5 transferring context: 13.76MB 8.0s done\n#5 DONE 8.0s\n\n#6 [gateway build 3/8] COPY package.json ./\n#6 CACHED\n\n#7 [gateway build 4/8] COPY package-lock.json ./\n#7 CACHED\n\n#8 [gateway build 2/8] WORKDIR /app\n#8 CACHED\n\n#9 [gateway build 5/8] RUN npm ci\n#9 CACHED\n\n#10 [gateway build 6/8] COPY . .\n#10 DONE 1.1s\n\n#11 [gateway build 7/8] RUN npm run build\n#11 0.492 \n#11 0.492 > space-fractions@1.0.0 build\n#11 0.492 > node scripts/check.js\n#11 0.492 \n#11 1.174 build check passed: sources, configs and contracts verified\n#11 DONE 1.2s\n\n#12 [gateway build 8/8] RUN npm prune --omit=dev\n#12 3.285 \n#12 3.285 up to date, audited 123 packages in 3s\n#12 3.285 \n#12 3.285 14 packages are looking for funding\n#12 3.285   run `npm fund` for details\n#12 3.319 \n#12 3.319 11 vulnerabilities (3 low, 3 moderate, 5 high)\n#12 3.319 \n#12 3.319 To address issues that do not require attention, run:\n#12 3.319   npm audit fix\n#12 3.319 \n#12 3.319 To address all issues, run:\n#12 3.319   npm audit fix --force\n#12 3.319 \n#12 3.319 Run `npm audit` for details.\n#12 DONE 3.4s\n\n#13 [gateway stage-1 3/4] RUN addgroup -S spacefractions && adduser -S spacefractions -G spacefractions\n#13 CACHED\n\n#14 [gateway stage-1 4/4] COPY --from=build --chown=spacefractions:spacefractions /app ./\n#14 DONE 0.7s\n\n#15 [gateway] exporting to image\n#15 exporting layers\n#15 exporting layers 0.6s done\n#15 exporting manifest sha256:eca96064d488cb600ae8aa2c49aa0348df79e11933e3439f9c3d4b1631a03c71 0.0s done\n#15 exporting config sha256:933eb2d496fe154a8cc31e0a2b56b0f7cd41c3b264e8d809f9cd155e3fca6836 0.0s done\n#15 exporting attestation manifest sha256:9395aeb0a1fc5dd555024997e5e39e194357aed35659c0126556ca10f595b914 0.1s done\n#15 exporting manifest list sha256:27263936c7d0b56f30d8ccca7750a9ac479cfa5b094b4a7ef2fa7cdecfc36272\n#15 exporting manifest list sha256:27263936c7d0b56f30d8ccca7750a9ac479cfa5b094b4a7ef2fa7cdecfc36272 0.0s done\n#15 naming to docker.io/library/dca-be592108573f-gateway:latest done\n#15 unpacking to docker.io/library/dca-be592108573f-gateway:latest\n#15 unpacking to docker.io/library/dca-be592108573f-gateway:latest 0.6s done\n#15 DONE 1.4s\n\n#16 [gateway] resolving provenance for metadata file\n#16 DONE 0.0s\n gateway  Built\n Network dca-be592108573f_default  Creating\n Network dca-be592108573f_default  Created\n Volume dca-be592108573f_postgres-data  Creating\n Volume dca-be592108573f_postgres-data  Created\n Container dca-be592108573f-rabbitmq-1  Creating\n Container dca-be592108573f-redis-1  Creating\n Container dca-be592108573f-elasticsearch-1  Creating\n Container dca-be592108573f-postgres-1  Creating\n Container dca-be592108573f-prometheus-1  Creating\n Container dca-be592108573f-keycloak-1  Creating\n Container dca-be592108573f-rabbitmq-1  Created\n Container dca-be592108573f-redis-1  Created\n Container dca-be592108573f-keycloak-1  Created\n Container dca-be592108573f-prometheus-1  Created\n Container dca-be592108573f-elasticsearch-1  Created\n Container dca-be592108573f-postgres-1  Created\n Container dca-be592108573f-gateway-1  Creating\n Container dca-be592108573f-gateway-1  Created\n Container dca-be592108573f-question-service-1  Creating\n Container dca-be592108573f-admin-service-1  Creating\n Container dca-be592108573f-game-service-1  Creating\n Container dca-be592108573f-user-service-1  Creating\n Container dca-be592108573f-admin-service-1  Created\n Container dca-be592108573f-user-service-1  Created\n Container dca-be592108573f-game-service-1  Created\n Container dca-be592108573f-question-service-1  Created\n Container dca-be592108573f-elasticsearch-1  Starting\n Container dca-be592108573f-keycloak-1  Starting\n Container dca-be592108573f-redis-1  Starting\n Container dca-be592108573f-postgres-1  Starting\n Container dca-be592108573f-prometheus-1  Starting\n Container dca-be592108573f-rabbitmq-1  Starting\n Container dca-be592108573f-elasticsearch-1  Started\n Container dca-be592108573f-postgres-1  Started\n Container dca-be592108573f-postgres-1  Waiting\n Container dca-be592108573f-redis-1  Started\n Container dca-be592108573f-rabbitmq-1  Started\n Container dca-be592108573f-prometheus-1  Started\n Container dca-be592108573f-keycloak-1  Started\n Container dca-be592108573f-postgres-1  Healthy\n Container dca-be592108573f-gateway-1  Starting\n Container dca-be592108573f-gateway-1  Started\n Container dca-be592108573f-admin-service-1  Starting\n Container dca-be592108573f-user-service-1  Starting\n Container dca-be592108573f-game-service-1  Starting\n Container dca-be592108573f-question-service-1  Starting\n Container dca-be592108573f-question-service-1  Started\n Container dca-be592108573f-game-service-1  Started\n Container dca-be592108573f-user-service-1  Started\n Container dca-be592108573f-admin-service-1  Started\n"
+      },
+      {
+        "stage": [
+          "logs",
+          "--no-color",
+          "--tail",
+          "40"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Windows\\system32\\wsl.exe",
+          "-d",
+          "Ubuntu",
+          "-u",
+          "root",
+          "--",
+          "env",
+          "GATEWAY_PORT=9796",
+          "OIDC_PORT=9797",
+          "PUBLIC_ORIGIN=http://localhost:9796",
+          "OIDC_PUBLIC_ORIGIN=http://localhost:9797",
+          "OIDC_ISSUER=http://localhost:9797/realms/space-fractions",
+          "docker",
+          "compose",
+          "--project-directory",
+          "/mnt/d/projects/Task-v03-runs/runs/v03/main/space-02-continuation/run-20261106-160407-98d09edf/project",
+          "-p",
+          "dca-be592108573f",
+          "-f",
+          "/mnt/d/projects/Task-v03-runs/runs/v03/main/space-02-continuation/run-20261106-160407-98d09edf/artifacts/runtime-02/compose.isolated.json",
+          "logs",
+          "--no-color",
+          "--tail",
+          "40"
+        ],
+        "output": ", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[b53d5885a957][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"iKBFt_75T3Oep7TjS1curw\",\"elasticsearch.node.id\":\"LmlWViRpRqOeJTdz2RVARw\",\"elasticsearch.node.name\":\"b53d5885a957\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1  | {\"@timestamp\":\"2026-11-06T08:12:26.669Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [7-days-default]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[b53d5885a957][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"iKBFt_75T3Oep7TjS1curw\",\"elasticsearch.node.id\":\"LmlWViRpRqOeJTdz2RVARw\",\"elasticsearch.node.name\":\"b53d5885a957\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1  | {\"@timestamp\":\"2026-11-06T08:12:26.719Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [90-days-default]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[b53d5885a957][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"iKBFt_75T3Oep7TjS1curw\",\"elasticsearch.node.id\":\"LmlWViRpRqOeJTdz2RVARw\",\"elasticsearch.node.name\":\"b53d5885a957\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1  | {\"@timestamp\":\"2026-11-06T08:12:26.767Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [365-days-default]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[b53d5885a957][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"iKBFt_75T3Oep7TjS1curw\",\"elasticsearch.node.id\":\"LmlWViRpRqOeJTdz2RVARw\",\"elasticsearch.node.name\":\"b53d5885a957\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1  | {\"@timestamp\":\"2026-11-06T08:12:26.806Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [synthetics]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[b53d5885a957][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"iKBFt_75T3Oep7TjS1curw\",\"elasticsearch.node.id\":\"LmlWViRpRqOeJTdz2RVARw\",\"elasticsearch.node.name\":\"b53d5885a957\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1  | {\"@timestamp\":\"2026-11-06T08:12:26.842Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [180-days-default]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[b53d5885a957][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"iKBFt_75T3Oep7TjS1curw\",\"elasticsearch.node.id\":\"LmlWViRpRqOeJTdz2RVARw\",\"elasticsearch.node.name\":\"b53d5885a957\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1  | {\"@timestamp\":\"2026-11-06T08:12:26.905Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [30-days-default]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[b53d5885a957][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"iKBFt_75T3Oep7TjS1curw\",\"elasticsearch.node.id\":\"LmlWViRpRqOeJTdz2RVARw\",\"elasticsearch.node.name\":\"b53d5885a957\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1  | {\"@timestamp\":\"2026-11-06T08:12:26.942Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [90-days@lifecycle]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[b53d5885a957][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"iKBFt_75T3Oep7TjS1curw\",\"elasticsearch.node.id\":\"LmlWViRpRqOeJTdz2RVARw\",\"elasticsearch.node.name\":\"b53d5885a957\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1  | {\"@timestamp\":\"2026-11-06T08:12:26.981Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [metrics@lifecycle]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[b53d5885a957][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"iKBFt_75T3Oep7TjS1curw\",\"elasticsearch.node.id\":\"LmlWViRpRqOeJTdz2RVARw\",\"elasticsearch.node.name\":\"b53d5885a957\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nredis-1          | 1:M 06 Nov 2026 08:12:05.237 * Server initialized\nredis-1          | 1:M 06 Nov 2026 08:12:05.237 * Ready to accept connections tcp\nkeycloak-1       | Updating the configuration and installing your custom providers, if any. Please wait.\ngame-service-1   | game-service entrypoint: served by gateway\ngateway-1        | migrations applied: game_ddl.sql, 001_init.sql\ngateway-1        | Space Fractions gateway listening on 0.0.0.0:3000\nkeycloak-1       | 2026-11-06 08:12:16,023 WARN  [io.qua.dep.ind.IndexWrapper] (build-12) Failed to index org.springframework.core.io.DefaultResourceLoader: Class does not exist in ClassLoader QuarkusClassLoader:Deployment Class Loader: PROD for keycloak@130a0f66\nkeycloak-1       | 2026-11-06 08:12:16,033 WARN  [io.qua.dep.ind.IndexWrapper] (build-12) Failed to index org.springframework.core.io.ResourceLoader: Class does not exist in ClassLoader QuarkusClassLoader:Deployment Class Loader: PROD for keycloak@130a0f66\nkeycloak-1       | 2026-11-06 08:12:16,049 WARN  [io.qua.dep.ind.IndexWrapper] (build-12) Failed to index org.apache.tools.ant.Task: Class does not exist in ClassLoader QuarkusClassLoader:Deployment Class Loader: PROD for keycloak@130a0f66\nkeycloak-1       | 2026-11-06 08:12:16,111 WARN  [io.qua.dep.ind.IndexWrapper] (build-12) Failed to index org.springframework.core.io.Resource: Class does not exist in ClassLoader QuarkusClassLoader:Deployment Class Loader: PROD for keycloak@130a0f66\nkeycloak-1       | 2026-11-06 08:12:16,179 WARN  [io.qua.dep.ind.IndexWrapper] (build-12) Failed to index org.apache.activemq.artemis.core.journal.RecordInfo: Class does not exist in ClassLoader QuarkusClassLoader:Deployment Class Loader: PROD for keycloak@130a0f66\nkeycloak-1       | 2026-11-06 08:12:16,181 WARN  [io.qua.dep.ind.IndexWrapper] (build-12) Failed to index org.apache.activemq.artemis.core.journal.Journal: Class does not exist in ClassLoader QuarkusClassLoader:Deployment Class Loader: PROD for keycloak@130a0f66\nkeycloak-1       | 2026-11-06 08:12:16,183 WARN  [io.qua.dep.ind.IndexWrapper] (build-12) Failed to index io.mashona.logwriting.ArrayStore: Class does not exist in ClassLoader QuarkusClassLoader:Deployment Class Loader: PROD for keycloak@130a0f66\nkeycloak-1       | 2026-11-06 08:12:16,202 WARN  [io.qua.dep.ind.IndexWrapper] (build-12) Failed to index jakarta.jms.XAConnection: Class does not exist in ClassLoader QuarkusClassLoader:Deployment Class Loader: PROD for keycloak@130a0f66\nkeycloak-1       | 2026-11-06 08:12:16,206 WARN  [io.qua.dep.ind.IndexWrapper] (build-12) Failed to index jakarta.jms.XASession: Class does not exist in ClassLoader QuarkusClassLoader:Deployment Class Loader: PROD for keycloak@130a0f66\nkeycloak-1       | 2026-11-06 08:12:16,212 WARN  [io.qua.dep.ind.IndexWrapper] (build-12) Failed to index jakarta.jms.XAConnectionFactory: Class does not exist in ClassLoader QuarkusClassLoader:Deployment Class Loader: PROD for keycloak@130a0f66\nkeycloak-1       | 2026-11-06 08:12:16,322 WARN  [io.qua.dep.ind.IndexWrapper] (build-12) Failed to index jakarta.jms.Connection: Class does not exist in ClassLoader QuarkusClassLoader:Deployment Class Loader: PROD for keycloak@130a0f66\nkeycloak-1       | 2026-11-06 08:12:22,185 INFO  [io.qua.dep.QuarkusAugmentor] (main) Quarkus augmentation completed in 13450ms\nkeycloak-1       | 2026-11-06 08:12:23,624 INFO  [org.keycloak.quarkus.runtime.hostname.DefaultHostnameProvider] (main) Hostname settings: Base URL: http://localhost:9797, Hostname: localhost, Strict HTTPS: false, Path: /, Strict BackChannel: false, Admin URL: <unset>, Admin: <request>, Port: 9797, Proxied: false\nkeycloak-1       | 2026-11-06 08:12:25,903 WARN  [io.quarkus.agroal.runtime.DataSources] (JPA Startup Thread) Datasource <default> enables XA but transaction recovery is not enabled. Please enable transaction recovery by setting quarkus.transaction-manager.enable-recovery=true, otherwise data may be lost if the application is terminated abruptly\nkeycloak-1       | 2026-11-06 08:12:26,480 WARN  [org.infinispan.CONFIG] (keycloak-cache-init) ISPN000569: Unable to persist Infinispan internal caches as no global state enabled\nkeycloak-1       | 2026-11-06 08:12:26,617 INFO  [org.infinispan.CONTAINER] (keycloak-cache-init) ISPN000556: Starting user marshaller 'org.infinispan.jboss.marshalling.core.JBossUserMarshaller'\nkeycloak-1       | 2026-11-06 08:12:28,385 INFO  [org.keycloak.quarkus.runtime.storage.legacy.liquibase.QuarkusJpaUpdaterProvider] (main) Initializing database schema. Using changelog META-INF/jpa-changelog-master.xml\nkeycloak-1       | \nkeycloak-1       | UPDATE SUMMARY\nkeycloak-1       | Run:                        124\nkeycloak-1       | Previously run:               0\nrabbitmq-1       | 2026-11-06 08:12:17.750849+00:00 [info] <0.637.0> Setting segment_entry_count for vhost '/' with 0 queues to '2048'\u001b[0m\nadmin-service-1  | admin-service entrypoint: served by gateway\nrabbitmq-1       | 2026-11-06 08:12:17.772076+00:00 [info] <0.637.0> Starting message stores for vhost '/'\u001b[0m\nrabbitmq-1       | 2026-11-06 08:12:17.772391+00:00 [info] <0.646.0> Message store \"628WB79CIFDYO9LJI6DKMI09L/msg_store_transient\": using rabbit_msg_store_ets_index to provide index\u001b[0m\nrabbitmq-1       | 2026-11-06 08:12:17.775726+00:00 [info] <0.637.0> Started message store of type transient for vhost '/'\u001b[0m\nrabbitmq-1       | 2026-11-06 08:12:17.776060+00:00 [info] <0.650.0> Message store \"628WB79CIFDYO9LJI6DKMI09L/msg_store_persistent\": using rabbit_msg_store_ets_index to provide index\u001b[0m\nrabbitmq-1       | \u001b[38;5;214m2026-11-06 08:12:17.777632+00:00 [warning] <0.650.0> Message store \"628WB79CIFDYO9LJI6DKMI09L/msg_store_persistent\": rebuilding indices from scratch\u001b[0m\nrabbitmq-1       | 2026-11-06 08:12:17.778897+00:00 [info] <0.637.0> Started message store of type persistent for vhost '/'\u001b[0m\nrabbitmq-1       | 2026-11-06 08:12:17.779106+00:00 [info] <0.637.0> Recovering 0 queues of type rabbit_classic_queue took 27ms\u001b[0m\nrabbitmq-1       | 2026-11-06 08:12:17.779170+00:00 [info] <0.637.0> Recovering 0 queues of type rabbit_quorum_queue took 0ms\u001b[0m\nrabbitmq-1       | 2026-11-06 08:12:17.779233+00:00 [info] <0.637.0> Recovering 0 queues of type rabbit_stream_queue took 0ms\u001b[0m\nrabbitmq-1       | 2026-11-06 08:12:17.789445+00:00 [info] <0.254.0> Created user 'guest'\u001b[0m\nrabbitmq-1       | 2026-11-06 08:12:17.794421+00:00 [info] <0.254.0> Successfully set user tags for user 'guest' to [administrator]\u001b[0m\nrabbitmq-1       | 2026-11-06 08:12:17.799076+00:00 [info] <0.254.0> Successfully set permissions for user 'guest' in virtual host '/' to '.*', '.*', '.*'\u001b[0m\nrabbitmq-1       | 2026-11-06 08:12:17.799200+00:00 [info] <0.254.0> Running boot step rabbit_observer_cli defined by app rabbit\u001b[0m\nkeycloak-1       | Filtered out:                 0\nquestion-service-1  | question-service entrypoint: served by gateway\nkeycloak-1          | -------------------------------\nkeycloak-1          | Total change sets:          124\nkeycloak-1          | \nkeycloak-1          | 2026-11-06 08:12:30,550 INFO  [org.keycloak.connections.infinispan.DefaultInfinispanConnectionProviderFactory] (main) Node name: node_16322, Site name: null\nkeycloak-1          | 2026-11-06 08:12:30,728 INFO  [org.keycloak.broker.provider.AbstractIdentityProviderMapper] (main) Registering class org.keycloak.broker.provider.mappersync.ConfigSyncEventListener\nkeycloak-1          | 2026-11-06 08:12:30,779 INFO  [org.keycloak.services] (main) KC-SERVICES0050: Initializing master realm\nkeycloak-1          | 2026-11-06 08:12:32,028 INFO  [org.keycloak.exportimport.singlefile.SingleFileImportProvider] (main) Full importing from file /opt/keycloak/bin/../data/import/realm.json\nkeycloak-1          | 2026-11-06 08:12:34,038 INFO  [org.keycloak.exportimport.util.ImportUtils] (main) Realm 'space-fractions' imported\nkeycloak-1          | 2026-11-06 08:12:34,083 INFO  [org.keycloak.exportimport.dir.DirImportProvider] (main) Importing from directory /opt/keycloak/bin/../data/import\nkeycloak-1          | 2026-11-06 08:12:34,084 INFO  [org.keycloak.services] (main) KC-SERVICES0030: Full model import requested. Strategy: IGNORE_EXISTING\nkeycloak-1          | 2026-11-06 08:12:34,085 INFO  [org.keycloak.services] (main) KC-SERVICES0032: Import finished successfully\npostgres-1       | 2026-11-06 08:12:05.974 UTC [36] WARNING:  no usable system locales were found\nrabbitmq-1       | 2026-11-06 08:12:17.799371+00:00 [info] <0.254.0> Running boot step rabbit_looking_glass defined by app rabbit\u001b[0m\nrabbitmq-1          | 2026-11-06 08:12:17.799425+00:00 [info] <0.254.0> Running boot step rabbit_core_metrics_gc defined by app rabbit\u001b[0m\nrabbitmq-1          | 2026-11-06 08:12:17.799581+00:00 [info] <0.254.0> Running boot step background_gc defined by app rabbit\u001b[0m\npostgres-1          | performing post-bootstrap initialization ... ok\nkeycloak-1          | 2026-11-06 08:12:34,359 INFO  [org.keycloak.services] (main) KC-SERVICES0009: Added user 'admin' to realm 'master'\npostgres-1          | initdb: warning: enabling \"trust\" authentication for local connections\nkeycloak-1          | 2026-11-06 08:12:34,430 INFO  [io.quarkus] (main) Keycloak 24.0.5 on JVM (powered by Quarkus 3.8.4) started in 12.015s. Listening on: http://0.0.0.0:8080\npostgres-1          | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.\npostgres-1          | syncing data to disk ... ok\npostgres-1          | \npostgres-1          | \npostgres-1          | Success. You can now start the database server using:\npostgres-1          | \npostgres-1          |     pg_ctl -D /var/lib/postgresql/data -l logfile start\npostgres-1          | \npostgres-1          | waiting for server to start....2026-11-06 08:12:07.751 UTC [42] LOG:  starting PostgreSQL 16.3 on x86_64-pc-linux-musl, compiled by gcc (Alpine 13.2.1_git20240309) 13.2.1 20240309, 64-bit\npostgres-1          | 2026-11-06 08:12:07.756 UTC [42] LOG:  listening on Unix socket \"/var/run/postgresql/.s.PGSQL.5432\"\npostgres-1          | 2026-11-06 08:12:07.771 UTC [45] LOG:  database system was shut down at 2026-11-06 08:12:06 UTC\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T08:12:27.023Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [7-days@lifecycle]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[b53d5885a957][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"iKBFt_75T3Oep7TjS1curw\",\"elasticsearch.node.id\":\"LmlWViRpRqOeJTdz2RVARw\",\"elasticsearch.node.name\":\"b53d5885a957\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T08:12:27.071Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [synthetics@lifecycle]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[b53d5885a957][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"iKBFt_75T3Oep7TjS1curw\",\"elasticsearch.node.id\":\"LmlWViRpRqOeJTdz2RVARw\",\"elasticsearch.node.name\":\"b53d5885a957\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nkeycloak-1          | 2026-11-06 08:12:34,430 INFO  [io.quarkus] (main) Profile dev activated. \nkeycloak-1          | 2026-11-06 08:12:34,430 INFO  [io.quarkus] (main) Installed features: [agroal, cdi, hibernate-orm, jdbc-h2, keycloak, logging-gelf, narayana-jta, reactive-routes, resteasy-reactive, resteasy-reactive-jackson, smallrye-context-propagation, vertx]\nkeycloak-1          | 2026-11-06 08:12:34,433 WARN  [org.keycloak.quarkus.runtime.KeycloakMain] (main) Running the server in development mode. DO NOT use this configuration in production.\nkeycloak-1          | 2026-11-06 08:12:44,753 WARN  [org.keycloak.events] (executor-thread-1) type=\"LOGIN_ERROR\", realmId=\"space-fractions\", clientId=\"space-fractions-client\", userId=\"null\", ipAddress=\"172.20.0.1\", error=\"resolve_required_actions\", auth_method=\"openid-connect\", grant_type=\"password\", client_auth_method=\"client-secret\", username=\"student\"\nrabbitmq-1          | 2026-11-06 08:12:17.799727+00:00 [info] <0.254.0> Running boot step routing_ready defined by app rabbit\u001b[0m\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T08:12:27.115Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [30-days@lifecycle]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[b53d5885a957][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"iKBFt_75T3Oep7TjS1curw\",\"elasticsearch.node.id\":\"LmlWViRpRqOeJTdz2RVARw\",\"elasticsearch.node.name\":\"b53d5885a957\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nrabbitmq-1          | 2026-11-06 08:12:17.799759+00:00 [info] <0.254.0> Running boot step pre_flight defined by app rabbit\u001b[0m\nrabbitmq-1          | 2026-11-06 08:12:17.799834+00:00 [info] <0.254.0> Running boot step notify_cluster defined by app rabbit\u001b[0m\nrabbitmq-1          | 2026-11-06 08:12:17.799866+00:00 [info] <0.254.0> Running boot step networking defined by app rabbit\u001b[0m\nrabbitmq-1          | 2026-11-06 08:12:17.799921+00:00 [info] <0.254.0> Running boot step rabbit_quorum_queue_periodic_membership_reconciliation defined by app rabbit\u001b[0m\nrabbitmq-1          | 2026-11-06 08:12:17.800096+00:00 [info] <0.254.0> Running boot step definition_import_worker_pool defined by app rabbit\u001b[0m\nrabbitmq-1          | 2026-11-06 08:12:17.800139+00:00 [info] <0.317.0> Starting worker pool 'definition_import_pool' with 16 processes in it\u001b[0m\nrabbitmq-1          | 2026-11-06 08:12:17.801005+00:00 [info] <0.254.0> Running boot step cluster_name defined by app rabbit\u001b[0m\nrabbitmq-1          | 2026-11-06 08:12:17.801091+00:00 [info] <0.254.0> Initialising internal cluster ID to 'rabbitmq-cluster-id-0dq5KdhgmLIL9LI_j9YgZQ'\u001b[0m\nrabbitmq-1          | 2026-11-06 08:12:17.805758+00:00 [info] <0.254.0> Running boot step virtual_host_reconciliation defined by app rabbit\u001b[0m\npostgres-1          | 2026-11-06 08:12:07.784 UTC [42] LOG:  database system is ready to accept connections\npostgres-1          |  done\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T08:12:27.158Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [metrics]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[b53d5885a957][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"iKBFt_75T3Oep7TjS1curw\",\"elasticsearch.node.id\":\"LmlWViRpRqOeJTdz2RVARw\",\"elasticsearch.node.name\":\"b53d5885a957\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T08:12:27.203Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [180-days@lifecycle]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[b53d5885a957][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"iKBFt_75T3Oep7TjS1curw\",\"elasticsearch.node.id\":\"LmlWViRpRqOeJTdz2RVARw\",\"elasticsearch.node.name\":\"b53d5885a957\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T08:12:27.242Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [slm-history-ilm-policy]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[b53d5885a957][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"iKBFt_75T3Oep7TjS1curw\",\"elasticsearch.node.id\":\"LmlWViRpRqOeJTdz2RVARw\",\"elasticsearch.node.name\":\"b53d5885a957\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nrabbitmq-1          | 2026-11-06 08:12:17.806050+00:00 [info] <0.254.0> Running boot step direct_client defined by app rabbit\u001b[0m\nrabbitmq-1          | 2026-11-06 08:12:17.806180+00:00 [info] <0.254.0> Running boot step rabbit_federation_exchange defined by app rabbitmq_federation\u001b[0m\nrabbitmq-1          | 2026-11-06 08:12:17.806608+00:00 [info] <0.699.0> Resetting node maintenance status\u001b[0m\npostgres-1          | server started\npostgres-1          | CREATE DATABASE\npostgres-1          | \nrabbitmq-1          | 2026-11-06 08:12:23.006063+00:00 [info] <0.737.0> Prometheus metrics: HTTP (non-TLS) listener started on port 15692\u001b[0m\nrabbitmq-1          | 2026-11-06 08:12:23.006292+00:00 [info] <0.699.0> Ready to start client connection listeners\u001b[0m\nrabbitmq-1          | 2026-11-06 08:12:23.008355+00:00 [info] <0.781.0> started TCP listener on [::]:5672\u001b[0m\nrabbitmq-1          |  completed with 4 plugins.\nrabbitmq-1          | 2026-11-06 08:12:23.128126+00:00 [info] <0.699.0> Server startup complete; 4 plugins started.\u001b[0m\nrabbitmq-1          | 2026-11-06 08:12:23.128126+00:00 [info] <0.699.0>  * rabbitmq_prometheus\u001b[0m\nrabbitmq-1          | 2026-11-06 08:12:23.128126+00:00 [info] <0.699.0>  * rabbitmq_federation\u001b[0m\nrabbitmq-1          | 2026-11-06 08:12:23.128126+00:00 [info] <0.699.0>  * rabbitmq_management_agent\u001b[0m\nrabbitmq-1          | 2026-11-06 08:12:23.128126+00:00 [info] <0.699.0>  * rabbitmq_web_dispatch\u001b[0m\nrabbitmq-1          | 2026-11-06 08:12:23.298423+00:00 [info] <0.9.0> Time to start RabbitMQ: 17483 ms\u001b[0m\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T08:12:27.280Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [365-days@lifecycle]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[b53d5885a957][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"iKBFt_75T3Oep7TjS1curw\",\"elasticsearch.node.id\":\"LmlWViRpRqOeJTdz2RVARw\",\"elasticsearch.node.name\":\"b53d5885a957\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T08:12:27.317Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [watch-history-ilm-policy-16]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[b53d5885a957][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"iKBFt_75T3Oep7TjS1curw\",\"elasticsearch.node.id\":\"LmlWViRpRqOeJTdz2RVARw\",\"elasticsearch.node.name\":\"b53d5885a957\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T08:12:27.355Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [logs@lifecycle]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[b53d5885a957][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"iKBFt_75T3Oep7TjS1curw\",\"elasticsearch.node.id\":\"LmlWViRpRqOeJTdz2RVARw\",\"elasticsearch.node.name\":\"b53d5885a957\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T08:12:27.393Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [ilm-history-ilm-policy]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[b53d5885a957][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"iKBFt_75T3Oep7TjS1curw\",\"elasticsearch.node.id\":\"LmlWViRpRqOeJTdz2RVARw\",\"elasticsearch.node.name\":\"b53d5885a957\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T08:12:27.434Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [.fleet-file-tohost-meta-ilm-policy]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[b53d5885a957][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"iKBFt_75T3Oep7TjS1curw\",\"elasticsearch.node.id\":\"LmlWViRpRqOeJTdz2RVARw\",\"elasticsearch.node.name\":\"b53d5885a957\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T08:12:27.473Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [.fleet-file-fromhost-data-ilm-policy]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[b53d5885a957][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"iKBFt_75T3Oep7TjS1curw\",\"elasticsearch.node.id\":\"LmlWViRpRqOeJTdz2RVARw\",\"elasticsearch.node.name\":\"b53d5885a957\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T08:12:27.519Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [.fleet-actions-results-ilm-policy]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[b53d5885a957][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"iKBFt_75T3Oep7TjS1curw\",\"elasticsearch.node.id\":\"LmlWViRpRqOeJTdz2RVARw\",\"elasticsearch.node.name\":\"b53d5885a957\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\npostgres-1          | \npostgres-1          | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*\npostgres-1          | \npostgres-1          | waiting for server to shut down....2026-11-06 08:12:07.970 UTC [42] LOG:  received fast shutdown request\npostgres-1          | 2026-11-06 08:12:07.980 UTC [42] LOG:  aborting any active transactions\npostgres-1          | 2026-11-06 08:12:07.992 UTC [42] LOG:  background worker \"logical replication launcher\" (PID 48) exited with exit code 1\npostgres-1          | 2026-11-06 08:12:07.996 UTC [43] LOG:  shutting down\npostgres-1          | 2026-11-06 08:12:08.000 UTC [43] LOG:  checkpoint starting: shutdown immediate\npostgres-1          | 2026-11-06 08:12:08.400 UTC [43] LOG:  checkpoint complete: wrote 924 buffers (5.6%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.087 s, sync=0.286 s, total=0.404 s; sync files=301, longest=0.007 s, average=0.001 s; distance=4267 kB, estimate=4267 kB; lsn=0/191AAA8, redo lsn=0/191AAA8\npostgres-1          | 2026-11-06 08:12:08.413 UTC [42] LOG:  database system is shut down\npostgres-1          |  done\npostgres-1          | server stopped\npostgres-1          | \npostgres-1          | PostgreSQL init process complete; ready for start up.\npostgres-1          | \npostgres-1          | 2026-11-06 08:12:08.525 UTC [1] LOG:  starting PostgreSQL 16.3 on x86_64-pc-linux-musl, compiled by gcc (Alpine 13.2.1_git20240309) 13.2.1 20240309, 64-bit\npostgres-1          | 2026-11-06 08:12:08.525 UTC [1] LOG:  listening on IPv4 address \"0.0.0.0\", port 5432\npostgres-1          | 2026-11-06 08:12:08.525 UTC [1] LOG:  listening on IPv6 address \"::\", port 5432\npostgres-1          | 2026-11-06 08:12:08.539 UTC [1] LOG:  listening on Unix socket \"/var/run/postgresql/.s.PGSQL.5432\"\npostgres-1          | 2026-11-06 08:12:08.554 UTC [58] LOG:  database system was shut down at 2026-11-06 08:12:08 UTC\npostgres-1          | 2026-11-06 08:12:08.565 UTC [1] LOG:  database system is ready to accept connections\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T08:12:27.567Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [.deprecation-indexing-ilm-policy]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[b53d5885a957][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"iKBFt_75T3Oep7TjS1curw\",\"elasticsearch.node.id\":\"LmlWViRpRqOeJTdz2RVARw\",\"elasticsearch.node.name\":\"b53d5885a957\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T08:12:27.611Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [.fleet-file-fromhost-meta-ilm-policy]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[b53d5885a957][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"iKBFt_75T3Oep7TjS1curw\",\"elasticsearch.node.id\":\"LmlWViRpRqOeJTdz2RVARw\",\"elasticsearch.node.name\":\"b53d5885a957\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T08:12:27.652Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [.fleet-file-tohost-data-ilm-policy]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[b53d5885a957][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"iKBFt_75T3Oep7TjS1curw\",\"elasticsearch.node.id\":\"LmlWViRpRqOeJTdz2RVARw\",\"elasticsearch.node.name\":\"b53d5885a957\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T08:12:27.817Z\", \"log.level\": \"INFO\", \"message\":\"Node [{b53d5885a957}{LmlWViRpRqOeJTdz2RVARw}] is selected as the current health node.\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[b53d5885a957][management][T#5]\",\"log.logger\":\"org.elasticsearch.health.node.selection.HealthNodeTaskExecutor\",\"elasticsearch.cluster.uuid\":\"iKBFt_75T3Oep7TjS1curw\",\"elasticsearch.node.id\":\"LmlWViRpRqOeJTdz2RVARw\",\"elasticsearch.node.name\":\"b53d5885a957\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T08:12:27.943Z\", \"log.level\": \"INFO\", \"message\":\"license [4e21d044-ff97-44f8-aecf-a15fcc3120be] mode [basic] - valid\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[b53d5885a957][clusterApplierService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.license.ClusterStateLicenseService\",\"elasticsearch.cluster.uuid\":\"iKBFt_75T3Oep7TjS1curw\",\"elasticsearch.node.id\":\"LmlWViRpRqOeJTdz2RVARw\",\"elasticsearch.node.name\":\"b53d5885a957\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\n"
+      },
+      {
+        "stage": [
+          "down",
+          "--volumes",
+          "--remove-orphans"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Windows\\system32\\wsl.exe",
+          "-d",
+          "Ubuntu",
+          "-u",
+          "root",
+          "--",
+          "env",
+          "GATEWAY_PORT=9796",
+          "OIDC_PORT=9797",
+          "PUBLIC_ORIGIN=http://localhost:9796",
+          "OIDC_PUBLIC_ORIGIN=http://localhost:9797",
+          "OIDC_ISSUER=http://localhost:9797/realms/space-fractions",
+          "docker",
+          "compose",
+          "--project-directory",
+          "/mnt/d/projects/Task-v03-runs/runs/v03/main/space-02-continuation/run-20261106-160407-98d09edf/project",
+          "-p",
+          "dca-be592108573f",
+          "-f",
+          "/mnt/d/projects/Task-v03-runs/runs/v03/main/space-02-continuation/run-20261106-160407-98d09edf/artifacts/runtime-02/compose.isolated.json",
+          "down",
+          "--volumes",
+          "--remove-orphans"
+        ],
+        "output": " Container dca-be592108573f-user-service-1  Stopping\n Container dca-be592108573f-rabbitmq-1  Stopping\n Container dca-be592108573f-redis-1  Stopping\n Container dca-be592108573f-game-service-1  Stopping\n Container dca-be592108573f-admin-service-1  Stopping\n Container dca-be592108573f-elasticsearch-1  Stopping\n Container dca-be592108573f-question-service-1  Stopping\n Container dca-be592108573f-prometheus-1  Stopping\n Container dca-be592108573f-keycloak-1  Stopping\n Container dca-be592108573f-prometheus-1  Stopped\n Container dca-be592108573f-prometheus-1  Removing\n Container dca-be592108573f-redis-1  Stopped\n Container dca-be592108573f-redis-1  Removing\n Container dca-be592108573f-prometheus-1  Removed\n Container dca-be592108573f-redis-1  Removed\n Container dca-be592108573f-keycloak-1  Stopped\n Container dca-be592108573f-keycloak-1  Removing\n Container dca-be592108573f-keycloak-1  Removed\n Container dca-be592108573f-rabbitmq-1  Stopped\n Container dca-be592108573f-rabbitmq-1  Removing\n Container dca-be592108573f-rabbitmq-1  Removed\n Container dca-be592108573f-elasticsearch-1  Stopped\n Container dca-be592108573f-elasticsearch-1  Removing\n Container dca-be592108573f-elasticsearch-1  Removed\n Container dca-be592108573f-user-service-1  Stopped\n Container dca-be592108573f-user-service-1  Removing\n Container dca-be592108573f-question-service-1  Stopped\n Container dca-be592108573f-question-service-1  Removing\n Container dca-be592108573f-user-service-1  Removed\n Container dca-be592108573f-game-service-1  Stopped\n Container dca-be592108573f-game-service-1  Removing\n Container dca-be592108573f-question-service-1  Removed\n Container dca-be592108573f-admin-service-1  Stopped\n Container dca-be592108573f-admin-service-1  Removing\n Container dca-be592108573f-game-service-1  Removed\n Container dca-be592108573f-admin-service-1  Removed\n Container dca-be592108573f-gateway-1  Stopping\n Container dca-be592108573f-gateway-1  Stopped\n Container dca-be592108573f-gateway-1  Removing\n Container dca-be592108573f-gateway-1  Removed\n Container dca-be592108573f-postgres-1  Stopping\n Container dca-be592108573f-postgres-1  Stopped\n Container dca-be592108573f-postgres-1  Removing\n Container dca-be592108573f-postgres-1  Removed\n Volume dca-be592108573f_postgres-data  Removing\n Network dca-be592108573f_default  Removing\n Volume dca-be592108573f_postgres-data  Removed\n Network dca-be592108573f_default  Removed\n"
+      }
+    ],
+    "source_modified_by_host": false,
+    "isolation_note": "Owned Compose project and loopback ports; Docker execution is not an OS security sandbox",
+    "snapshot_id": "6208860e8c2067558d0e6f8e4b6f81fa00e5e515086eaebf6da8fc5f928596b3",
+    "snapshot_after": "6208860e8c2067558d0e6f8e4b6f81fa00e5e515086eaebf6da8fc5f928596b3",
+    "stale": false
+  }
+]

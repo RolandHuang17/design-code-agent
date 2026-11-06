@@ -1,0 +1,127 @@
+[
+  {
+    "profile": "static",
+    "status": "unverified",
+    "results": [
+      {
+        "check": "required:package.json",
+        "status": "passed"
+      },
+      {
+        "check": "required:README.md",
+        "status": "passed"
+      },
+      {
+        "check": "required:traceability.json",
+        "status": "passed"
+      },
+      {
+        "check": "package.json",
+        "status": "passed"
+      },
+      {
+        "check": "plan.json",
+        "status": "passed"
+      },
+      {
+        "check": "traceability.json",
+        "status": "passed"
+      },
+      {
+        "check": "scripts/check-syntax.cjs",
+        "status": "unverified",
+        "reason": "缺少 Node.js"
+      },
+      {
+        "check": "src/app.cjs",
+        "status": "unverified",
+        "reason": "缺少 Node.js"
+      },
+      {
+        "check": "src/server.cjs",
+        "status": "unverified",
+        "reason": "缺少 Node.js"
+      },
+      {
+        "check": "test/app.test.cjs",
+        "status": "unverified",
+        "reason": "缺少 Node.js"
+      }
+    ],
+    "snapshot_id": "14ee7d3b90412ae3e70d8f67c0f9bafeb334fe057efdf1840091519ef017499d",
+    "snapshot_after": "14ee7d3b90412ae3e70d8f67c0f9bafeb334fe057efdf1840091519ef017499d",
+    "stale": false
+  },
+  {
+    "profile": "install",
+    "status": "unverified",
+    "reason": "未找到标准 Node/npm 安装；请按 README 手动安装依赖",
+    "snapshot_id": "14ee7d3b90412ae3e70d8f67c0f9bafeb334fe057efdf1840091519ef017499d",
+    "snapshot_after": "14ee7d3b90412ae3e70d8f67c0f9bafeb334fe057efdf1840091519ef017499d",
+    "stale": false
+  },
+  {
+    "profile": "test",
+    "status": "unverified",
+    "reason": "缺少 Node.js/npm 或 Docker",
+    "snapshot_id": "14ee7d3b90412ae3e70d8f67c0f9bafeb334fe057efdf1840091519ef017499d",
+    "snapshot_after": "14ee7d3b90412ae3e70d8f67c0f9bafeb334fe057efdf1840091519ef017499d",
+    "stale": false
+  },
+  {
+    "profile": "integration",
+    "status": "not_applicable",
+    "optional": true,
+    "reason": "项目未声明独立 test:integration；不计为通过，领域 HTTP 由项目外 runtime 验收",
+    "snapshot_id": "14ee7d3b90412ae3e70d8f67c0f9bafeb334fe057efdf1840091519ef017499d"
+  },
+  {
+    "profile": "build",
+    "status": "unverified",
+    "reason": "缺少 Node.js/npm 或 Docker",
+    "snapshot_id": "14ee7d3b90412ae3e70d8f67c0f9bafeb334fe057efdf1840091519ef017499d",
+    "snapshot_after": "14ee7d3b90412ae3e70d8f67c0f9bafeb334fe057efdf1840091519ef017499d",
+    "stale": false
+  },
+  {
+    "profile": "compose",
+    "status": "not_applicable",
+    "optional": true,
+    "reason": "通用项目未声明 Compose；未将特定案例部署结构强加给输入",
+    "snapshot_id": "14ee7d3b90412ae3e70d8f67c0f9bafeb334fe057efdf1840091519ef017499d"
+  },
+  {
+    "profile": "plan_references",
+    "status": "passed",
+    "problems": [],
+    "snapshot_id": "14ee7d3b90412ae3e70d8f67c0f9bafeb334fe057efdf1840091519ef017499d",
+    "limitation": "Checks planned files and literal relative imports, not dynamic imports or semantic compatibility"
+  },
+  {
+    "profile": "traceability_links",
+    "status": "failed",
+    "problems": [
+      "已实现条目缺少代码或测试：NFR2"
+    ],
+    "limitation": "只检查链接和来源范围；语义覆盖需要独立审查",
+    "snapshot_id": "14ee7d3b90412ae3e70d8f67c0f9bafeb334fe057efdf1840091519ef017499d"
+  },
+  {
+    "profile": "runtime",
+    "status": "not_applicable",
+    "optional": true,
+    "reason": "通用项目无内置领域HTTP验收；业务正确性需另行独立检查",
+    "snapshot_id": "14ee7d3b90412ae3e70d8f67c0f9bafeb334fe057efdf1840091519ef017499d"
+  },
+  {
+    "profile": "startup",
+    "status": "unverified",
+    "endpoint": "/",
+    "meaning": "Local HTTP listener readiness only; not domain correctness",
+    "reason": "Standard Node.js/npm runtime is unavailable",
+    "snapshot_id": "14ee7d3b90412ae3e70d8f67c0f9bafeb334fe057efdf1840091519ef017499d",
+    "snapshot_after": "14ee7d3b90412ae3e70d8f67c0f9bafeb334fe057efdf1840091519ef017499d",
+    "stale": false,
+    "selection": "Host heuristic: HTTP/Express/web-server/REST terms in design; readiness only"
+  }
+]

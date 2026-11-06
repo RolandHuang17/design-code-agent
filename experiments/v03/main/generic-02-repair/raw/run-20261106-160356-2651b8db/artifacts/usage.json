@@ -1,0 +1,113 @@
+{
+  "requests": [
+    {
+      "usage": {
+        "prompt_tokens": 9719,
+        "total_tokens": 9838,
+        "completion_tokens": 119,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        }
+      },
+      "estimated_cny": 0.119841,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-d82dc4df-b711-9046-a2c3-e072d73fb104"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 11113,
+        "total_tokens": 11259,
+        "completion_tokens": 146,
+        "prompt_tokens_details": {
+          "cached_tokens": 9472
+        }
+      },
+      "estimated_cny": 0.137298,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-4b775ed2-724f-9cf6-bcf1-55d76f5bf0f0"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 11543,
+        "total_tokens": 11763,
+        "completion_tokens": 220,
+        "prompt_tokens_details": {
+          "cached_tokens": 11008
+        }
+      },
+      "estimated_cny": 0.144456,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-ad3c9a1b-9310-9454-8169-be0920a764d7"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 11988,
+        "total_tokens": 12130,
+        "completion_tokens": 142,
+        "prompt_tokens_details": {
+          "cached_tokens": 11520
+        }
+      },
+      "estimated_cny": 0.14769,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-1be49486-8915-9564-8dfc-b6623b017ec4"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 12369,
+        "total_tokens": 12421,
+        "completion_tokens": 52,
+        "prompt_tokens_details": {
+          "cached_tokens": 11776
+        }
+      },
+      "estimated_cny": 0.149832,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-8f88f620-79fd-92c0-bc16-c9742731d52a"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 12732,
+        "total_tokens": 12809,
+        "completion_tokens": 77,
+        "prompt_tokens_details": {
+          "cached_tokens": 12288
+        }
+      },
+      "estimated_cny": 0.154863,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-30f4595f-b654-9fc7-a524-6d0b6021e047"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 13567,
+        "total_tokens": 13872,
+        "completion_tokens": 305,
+        "prompt_tokens_details": {
+          "cached_tokens": 12544
+        }
+      },
+      "estimated_cny": 0.171039,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-6533d0de-6c46-95ff-b48e-41565b38dbbb"
+    }
+  ],
+  "cumulative_budget": {
+    "limit_cny": null,
+    "charged_cny": 542.269038,
+    "uncertain_requests": 12,
+    "request_count": 2409,
+    "prices": {
+      "input_per_million": 12,
+      "output_per_million": 27,
+      "reference_date": "2026-11-05"
+    }
+  }
+}

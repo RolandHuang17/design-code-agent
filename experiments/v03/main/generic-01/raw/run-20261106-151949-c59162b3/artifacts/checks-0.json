@@ -1,0 +1,195 @@
+[
+  {
+    "profile": "static",
+    "status": "passed",
+    "results": [
+      {
+        "check": "required:package.json",
+        "status": "passed"
+      },
+      {
+        "check": "required:README.md",
+        "status": "passed"
+      },
+      {
+        "check": "required:traceability.json",
+        "status": "passed"
+      },
+      {
+        "check": "package-lock.json",
+        "status": "passed"
+      },
+      {
+        "check": "package.json",
+        "status": "passed"
+      },
+      {
+        "check": "plan.json",
+        "status": "passed"
+      },
+      {
+        "check": "server.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\generic-01\\run-20261106-151949-c59162b3\\project\\server.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "traceability.json",
+        "status": "passed"
+      },
+      {
+        "check": "lib/app.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\generic-01\\run-20261106-151949-c59162b3\\project\\lib\\app.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "lib/convert.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\generic-01\\run-20261106-151949-c59162b3\\project\\lib\\convert.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "test/app.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\generic-01\\run-20261106-151949-c59162b3\\project\\test\\app.test.js"
+        ],
+        "output": ""
+      },
+      {
+        "check": "test/convert.test.js",
+        "status": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "command": [
+          "C:\\Program Files\\nodejs\\node.EXE",
+          "--check",
+          "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\generic-01\\run-20261106-151949-c59162b3\\project\\test\\convert.test.js"
+        ],
+        "output": ""
+      }
+    ],
+    "snapshot_id": "66252816ef6167b7ba6545b1b237c7142d8fea02068f9bb09abcb94077397602",
+    "snapshot_after": "66252816ef6167b7ba6545b1b237c7142d8fea02068f9bb09abcb94077397602",
+    "stale": false
+  },
+  {
+    "profile": "install",
+    "status": "passed",
+    "exit_code": 0,
+    "timed_out": false,
+    "command": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+      "ci",
+      "--ignore-scripts",
+      "--no-audit",
+      "--no-fund"
+    ],
+    "output": "\nup to date in 618ms\n",
+    "snapshot_id": "66252816ef6167b7ba6545b1b237c7142d8fea02068f9bb09abcb94077397602",
+    "snapshot_after": "66252816ef6167b7ba6545b1b237c7142d8fea02068f9bb09abcb94077397602",
+    "stale": false,
+    "derived_artifact": {
+      "path": "package-lock.json",
+      "origin": "npm dependency resolution (host fixed command)",
+      "sha256": "26e72bb4066dbab737c5ed7bbbea7a823b033637376e09d822227428ccc5ba0d",
+      "revision": 11
+    }
+  },
+  {
+    "profile": "test",
+    "status": "passed",
+    "exit_code": 0,
+    "timed_out": false,
+    "command": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+      "run",
+      "test",
+      "--ignore-scripts"
+    ],
+    "output": "\n> temperature-converter@1.0.0 test\n> node --test\n\n✔ GET / returns HTML page with expected elements (83.2304ms)\n✔ POST /api/convert converts C to F with fractional result preserved (11.2028ms)\n✔ POST /api/convert preserves fractional (non-integer) values (5.0846ms)\n✔ POST /api/convert same-unit preserves the value (5.8573ms)\n✔ POST /api/convert rejects below absolute zero with 400 (5.0837ms)\n✔ POST /api/convert rejects malformed JSON with 400 (5.1333ms)\n✔ POST /api/convert rejects missing fields with 400 (4.1089ms)\n✔ POST /api/convert rejects boolean value with 400 (3.9046ms)\n✔ POST /api/convert rejects unsupported unit with 400 (4.5732ms)\n✔ GET /health returns 200 {status:ok} (6.8678ms)\n✔ C to F uses C = (F - 32) * 5 / 9 inverse (1.8241ms)\n✔ F to C uses C = (F - 32) * 5 / 9 (0.16ms)\n✔ C to K uses K = C + 273.15 (0.1224ms)\n✔ K to C uses C = K - 273.15 (0.1122ms)\n✔ F to K converts through Celsius (0.1628ms)\n✔ K to F converts through Celsius (0.1422ms)\n✔ negative Celsius above absolute zero is valid (0.1526ms)\n✔ negative Fahrenheit above absolute zero is valid (0.1413ms)\n✔ same-unit conversion preserves the value (0.2382ms)\n✔ does not round the API value to an integer (0.2744ms)\n✔ absolute zero boundaries are accepted (with epsilon tolerance) (0.1634ms)\n✔ insignificant floating-point error at boundaries is tolerated (0.1397ms)\n✔ missing value is rejected (0.9076ms)\n✔ nonnumeric values are rejected (0.2231ms)\n✔ booleans are rejected (0.2076ms)\n✔ unsupported units are rejected (0.2304ms)\n✔ temperatures below absolute zero are rejected (0.1646ms)\n✔ below-zero value is rejected even for same-unit conversion (0.1883ms)\n✔ ConversionError carries a non-empty message (0.1273ms)\nℹ tests 29\nℹ suites 0\nℹ pass 29\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 231.4428\n",
+    "test_count": 29,
+    "skipped_count": 0,
+    "test_execution": "observed",
+    "snapshot_id": "66252816ef6167b7ba6545b1b237c7142d8fea02068f9bb09abcb94077397602",
+    "snapshot_after": "66252816ef6167b7ba6545b1b237c7142d8fea02068f9bb09abcb94077397602",
+    "stale": false
+  },
+  {
+    "profile": "integration",
+    "status": "not_applicable",
+    "optional": true,
+    "reason": "项目未声明独立 test:integration；不计为通过，领域 HTTP 由项目外 runtime 验收",
+    "snapshot_id": "66252816ef6167b7ba6545b1b237c7142d8fea02068f9bb09abcb94077397602"
+  },
+  {
+    "profile": "build",
+    "status": "passed",
+    "exit_code": 0,
+    "timed_out": false,
+    "command": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+      "run",
+      "build",
+      "--ignore-scripts"
+    ],
+    "output": "\n> temperature-converter@1.0.0 build\n> node --check server.js && node --check lib/convert.js && node --check lib/app.js\n\n",
+    "snapshot_id": "66252816ef6167b7ba6545b1b237c7142d8fea02068f9bb09abcb94077397602",
+    "snapshot_after": "66252816ef6167b7ba6545b1b237c7142d8fea02068f9bb09abcb94077397602",
+    "stale": false
+  },
+  {
+    "profile": "compose",
+    "status": "not_applicable",
+    "optional": true,
+    "reason": "通用项目未声明 Compose；未将特定案例部署结构强加给输入",
+    "snapshot_id": "66252816ef6167b7ba6545b1b237c7142d8fea02068f9bb09abcb94077397602"
+  },
+  {
+    "profile": "plan_references",
+    "status": "passed",
+    "problems": [],
+    "snapshot_id": "66252816ef6167b7ba6545b1b237c7142d8fea02068f9bb09abcb94077397602",
+    "limitation": "Checks planned files and literal relative imports, not dynamic imports or semantic compatibility"
+  },
+  {
+    "profile": "traceability_links",
+    "status": "passed",
+    "problems": [],
+    "limitation": "只检查链接和来源范围；语义覆盖需要独立审查",
+    "snapshot_id": "66252816ef6167b7ba6545b1b237c7142d8fea02068f9bb09abcb94077397602"
+  },
+  {
+    "profile": "runtime",
+    "status": "not_applicable",
+    "optional": true,
+    "reason": "通用项目无内置领域HTTP验收；业务正确性需另行独立检查",
+    "snapshot_id": "66252816ef6167b7ba6545b1b237c7142d8fea02068f9bb09abcb94077397602"
+  }
+]

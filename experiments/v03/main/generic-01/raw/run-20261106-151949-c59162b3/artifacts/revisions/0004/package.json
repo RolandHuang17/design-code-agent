@@ -1,0 +1,16 @@
+{
+  "name": "temperature-converter",
+  "version": "1.0.0",
+  "description": "Small browser-based temperature converter (C/F/K) with a pure conversion module and stateless Node.js HTTP app.",
+  "type": "commonjs",
+  "main": "server.js",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test",
+    "build": "node --check server.js && node --check lib/convert.js && node --check lib/app.js"
+  }
+}

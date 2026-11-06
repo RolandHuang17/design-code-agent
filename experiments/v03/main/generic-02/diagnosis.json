@@ -1,0 +1,11 @@
+{
+  "status": "independent_startup_failed",
+  "generation_host_checks": "passed",
+  "independent_acceptance": "failed_before_http",
+  "source_unchanged": true,
+  "manual_project_edits": false,
+  "failure": "npm start exits 0 before binding a port on Windows",
+  "root_cause_observed": "src/server.js compares import.meta.url with file:// + slash-normalized Windows argv path, omitting the third slash of the Windows file URL; startServer is never invoked",
+  "checks_executed": 0,
+  "project_fix": "not_attempted"
+}

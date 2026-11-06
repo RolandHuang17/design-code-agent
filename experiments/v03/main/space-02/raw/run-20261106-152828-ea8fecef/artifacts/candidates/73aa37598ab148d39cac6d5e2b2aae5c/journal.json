@@ -1,0 +1,26 @@
+{
+  "root": "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\project",
+  "changes": [
+    {
+      "path": "services/admin-service.js",
+      "before": null,
+      "after": "ca1d9ff61001ef53ea8e1dbd02da439792c4b8648cb0b9924ada3cbc08c03af8"
+    }
+  ],
+  "checks": [
+    {
+      "path": "services/admin-service.js",
+      "status": "passed",
+      "kind": "syntax_format",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\space-02\\run-20261106-152828-ea8fecef\\artifacts\\candidates\\73aa37598ab148d39cac6d5e2b2aae5c\\after\\services\\admin-service.js"
+      ],
+      "output": ""
+    }
+  ],
+  "status": "committed"
+}

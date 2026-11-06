@@ -1,0 +1,69 @@
+# ---------------------------------------------------------------------------
+# Space Fractions — Kubernetes deployment manifest
+#
+# STATUS: REFERENCE-ONLY. NOT production-validated.
+# This manifest mirrors the container specification embedded in the original
+# Architecture_Documentation.md (section E, "Kubernetes-ready plan": replicas=3,
+# containerPort 80). It has NOT been validated against a live cluster, TLS
+# ingress, service-mesh, secret management or DB HA topology. Treat every value
+# here as illustrative and review before any real deployment.
+#
+# Notes / deviations relevant when adapting:
+#   * The original plan exposes containerPort 80. Our gateway container (see
+#     ../Dockerfile) actually listens on /health and the UI on port 3000 and
+#     runs as a non-root user. Production deployments should override the
+#     containerPort and Service targetPort to 3000, or front the gateway with
+#     an ingress/load-balancer mapping public 80/443 -> 3000.
+#   * Environment variables come from a Secret/ConfigMap, not literals; only
+#     placeholder <...> values are shown here.
+# ---------------------------------------------------------------------------
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spacefractions
+  labels:
+    app: spacefractions
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: spacefractions
+  template:
+    metadata:
+      labels:
+        app: spacefractions
+    spec:
+      containers:
+      - name: spacefractions
+        image: spacefractions:latest
+        ports:
+        - containerPort: 80
+        env:
+        # OIDC endpoints must be supplied from the deployment environment.
+        # PUBLIC_ORIGIN drives browser redirects; OIDC_ISSUER is the public
+        # identity-provider origin seen by backend validation.
+        - name: PUBLIC_ORIGIN
+          value: "<public-origin>"
+        - name: OIDC_ISSUER
+          value: "<oidc-issuer>"
+        - name: OIDC_JWKS_URI
+          value: "<oidc-jwks-uri>"
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: spacefractions-secrets
+              key: DATABASE_URL
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 15
+          periodSeconds: 20
+      # Secrets and config MUST NOT be committed to this manifest. Supply them
+      # through a cluster Secret/ConfigMap rather than inline literals.

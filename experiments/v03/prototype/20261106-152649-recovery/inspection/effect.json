@@ -1,0 +1,22 @@
+{
+  "merge-t1": {
+    "state": "completed",
+    "task": "t1"
+  },
+  "merge-t2": {
+    "state": "completed",
+    "task": "t2"
+  },
+  "merge-t3": {
+    "state": "completed",
+    "task": "t3"
+  },
+  "merge-t4": {
+    "state": "completed",
+    "task": "t4"
+  },
+  "merge-t5": {
+    "state": "completed",
+    "task": "t5"
+  }
+}

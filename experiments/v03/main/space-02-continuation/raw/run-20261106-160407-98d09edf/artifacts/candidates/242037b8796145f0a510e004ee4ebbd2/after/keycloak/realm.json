@@ -1,0 +1,134 @@
+{
+  "id": "space-fractions",
+  "realm": "space-fractions",
+  "enabled": true,
+  "displayName": "Space Fractions (local-only demo)",
+  "sslRequired": "none",
+  "registrationAllowed": false,
+  "loginWithEmailAllowed": false,
+  "duplicateEmailsAllowed": true,
+  "resetPasswordAllowed": false,
+  "editUsernameAllowed": false,
+  "bruteForceProtected": false,
+  "accessTokenLifespan": 300,
+  "accessCodeLifespan": 60,
+  "defaultSignatureAlgorithm": "RS256",
+  "revokeRefreshToken": false,
+  "refreshTokenMaxReuse": 0,
+  "clients": [
+    {
+      "clientId": "space-fractions-client",
+      "name": "Space Fractions Public Browser Client",
+      "enabled": true,
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": false,
+      "implicitFlowEnabled": false,
+      "protocol": "openid-connect",
+      "attributes": {
+        "oauth2.device.authorization.grant.enabled": false,
+        "pkce.code.challenge.method": "S256",
+        "oidc.ciba.grant.enabled": false,
+        "backchannel.logout.session.required": true,
+        "backchannel.logout.revoke.offline.tokens": false,
+        "post.logout.redirect.uris": "+",
+        "consent.screen.text": "",
+        "frontchannel.logout.url": ""
+      },
+      "redirectUris": [
+        "http://localhost:3000/*",
+        "http://localhost:3100/*"
+      ],
+      "webOrigins": [
+        "+",
+        "http://localhost:3000",
+        "http://localhost:3100"
+      ]
+    },
+    {
+      "clientId": "account",
+      "name": "Account Console",
+      "enabled": true,
+      "publicClient": true,
+      "standardFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "implicitFlowEnabled": false,
+      "protocol": "openid-connect",
+      "redirectUris": [
+        "/realms/space-fractions/account/*"
+      ],
+      "webOrigins": [
+        "+"
+      ]
+    }
+  ],
+  "roles": {
+    "realm": [
+      {
+        "name": "admin",
+        "description": "Application administrator role (question CRUD)",
+        "composite": false,
+        "clientRole": false,
+        "containerId": "space-fractions"
+      }
+    ]
+  },
+  "users": [
+    {
+      "username": "student",
+      "enabled": true,
+      "emailVerified": false,
+      "firstName": "Student",
+      "lastName": "Pilot",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "student",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [],
+      "requiredActions": [],
+      "emailVerified": true
+    },
+    {
+      "username": "admin",
+      "enabled": true,
+      "emailVerified": false,
+      "firstName": "Administrator",
+      "lastName": "Pilot",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "admin",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "admin"
+      ],
+      "requiredActions": [],
+      "emailVerified": true
+    },
+    {
+      "username": "other",
+      "enabled": true,
+      "emailVerified": false,
+      "firstName": "Other",
+      "lastName": "Pilot",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "other",
+          "temporary": false
+        }
+      ],
+      "realmRoles": []
+    }
+  ],
+  "groups": [],
+  "enabledEventTypes": [],
+  "eventsEnabled": false,
+  "adminEventsEnabled": false
+}

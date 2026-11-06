@@ -1,0 +1,26 @@
+{
+  "root": "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\library-01\\run-20261106-152903-a2942007\\project",
+  "changes": [
+    {
+      "path": "src/pgRepository.js",
+      "before": null,
+      "after": "d80be9e9b7575b8944301e38b1dcbec64488d89f81edb986a68001c78e803922"
+    }
+  ],
+  "checks": [
+    {
+      "path": "src/pgRepository.js",
+      "status": "passed",
+      "kind": "syntax_format",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task-main-resource-fix\\runs\\v03\\main\\library-01\\run-20261106-152903-a2942007\\artifacts\\candidates\\55291af0a7f045e68000771be199da5a\\after\\src\\pgRepository.js"
+      ],
+      "output": ""
+    }
+  ],
+  "status": "committed"
+}

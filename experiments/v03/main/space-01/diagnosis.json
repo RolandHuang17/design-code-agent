@@ -1,0 +1,14 @@
+{
+  "status": "generation_failed_before_verification",
+  "run": "runs\\v03\\main\\space-01\\run-20261106-151826-362f5e12",
+  "source_unchanged_rechecked": true,
+  "project_report_hashes_match": true,
+  "manual_project_edits": false,
+  "failure": "任务 T3 未完成目标文件；停止并保留结果",
+  "root_cause_observed": "Model confused read_source character limit with source line count, paging 55..800 characters across 15 turns and never creating src/lib/config.js",
+  "independent_acceptance": "not_run_incomplete_project",
+  "runtime_checks": "not_reached",
+  "model_turns": 39,
+  "elapsed_seconds": 353.3,
+  "run_estimated_cny": 8.023734
+}

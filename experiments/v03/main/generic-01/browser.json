@@ -1,0 +1,31 @@
+{
+  "kind": "independent_browser",
+  "status": "passed",
+  "source_matches_original_run": true,
+  "method": "Real Chromium via Playwright CLI, operator actions using observed page controls",
+  "checks": [
+    {
+      "check": "0C to F shows 32 F",
+      "status": "passed"
+    },
+    {
+      "check": "negative valid -40C to F shows -40 F",
+      "status": "passed"
+    },
+    {
+      "check": "-1K to K rejected visibly and previous result cleared",
+      "status": "passed"
+    },
+    {
+      "check": "273.15K to C shows 0 C and error cleared",
+      "status": "passed"
+    }
+  ],
+  "console_observations": [
+    "favicon.ico 404, cosmetic",
+    "Invalid conversion request intentionally returned HTTP400"
+  ],
+  "limitations": [
+    "Single fresh trial; no general success-rate claim"
+  ]
+}
