@@ -60,11 +60,32 @@ class Application:
         style.configure("TButton", font=("Microsoft YaHei UI", 10), padding=(12, 6))
         style.configure("Primary.TButton", background="#176b70", foreground="white")
         style.configure("TCheckbutton", background="#f2f5f9", font=("Microsoft YaHei UI", 9))
-        header = tk.Frame(root, bg="#142c48", padx=24, pady=16)
+        viewport = ttk.Frame(root)
+        viewport.pack(fill="both", expand=True)
+        viewport.rowconfigure(0, weight=1)
+        viewport.columnconfigure(0, weight=1)
+        canvas = tk.Canvas(viewport, bg="#f2f5f9", highlightthickness=0)
+        canvas.grid(row=0, column=0, sticky="nsew")
+        ttk.Scrollbar(viewport, orient="vertical", command=canvas.yview).grid(row=0, column=1, sticky="ns")
+        ttk.Scrollbar(viewport, orient="horizontal", command=canvas.xview).grid(row=1, column=0, sticky="ew")
+        vertical = viewport.grid_slaves(row=0, column=1)[0]
+        horizontal = viewport.grid_slaves(row=1, column=0)[0]
+        canvas.configure(yscrollcommand=vertical.set, xscrollcommand=horizontal.set)
+        content = ttk.Frame(canvas)
+        content_window = canvas.create_window(0, 0, anchor="nw", window=content)
+
+        def resize_content(_=None):
+            canvas.itemconfigure(content_window, width=max(canvas.winfo_width(), content.winfo_reqwidth()),
+                                 height=max(canvas.winfo_height(), content.winfo_reqheight()))
+            canvas.configure(scrollregion=canvas.bbox("all"))
+
+        content.bind("<Configure>", resize_content)
+        canvas.bind("<Configure>", resize_content)
+        header = tk.Frame(content, bg="#142c48", padx=24, pady=16)
         header.pack(fill="x")
         tk.Label(header, text="DesignCodeAgent", bg="#142c48", fg="white", font=("Segoe UI", 22, "bold")).pack(anchor="w")
         tk.Label(header, text="架构理解  /  工具调用  /  测试反馈  /  可追溯交付", bg="#142c48", fg="#b7d4df", font=("Microsoft YaHei UI", 10)).pack(anchor="w", pady=(4, 0))
-        body = ttk.Frame(root, padding=(22, 12))
+        body = ttk.Frame(content, padding=(22, 12))
         body.pack(fill="both", expand=True)
         body.columnconfigure(0, weight=1)
         body.rowconfigure(3, weight=1)
@@ -263,6 +284,12 @@ class Application:
 
 
 def main():
+    if os.name == "nt":
+        import ctypes
+        try:
+            ctypes.windll.shcore.SetProcessDpiAwareness(1)
+        except (AttributeError, OSError):
+            pass
     root = tk.Tk()
     Application(root)
     root.mainloop()
