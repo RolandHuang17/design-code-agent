@@ -39,6 +39,19 @@ def setup_package(tmp_path, monkeypatch):
     Path('dist/prototype/app.exe').write_bytes(b'prototype executable fixture')
 
 
+def test_prototype_index_keeps_nested_verification_gaps_and_stale_jobs(tmp_path):
+    (tmp_path / 'report.json').write_text(json.dumps({'prototype': True, 'run': {
+        'state': 'completed', 'verification': 'unverified', 'checks': [
+            {'state': 'stale', 'profile': 'test', 'result': {'status': 'passed'}},
+            {'state': 'completed', 'profile': 'static', 'result': {'status': 'passed'}}]}}))
+    row = summarize(tmp_path)['reports'][0]
+    assert row['program'] == 'prototype'
+    assert row['status'] == 'completed'
+    assert row['verification'] == 'unverified'
+    assert row['checks'][0]['status'] == 'unverified'
+    assert row['checks'][1]['status'] == 'passed'
+
+
 def test_dual_package_hashes_and_preserves_two_separate_programs(tmp_path, monkeypatch):
     setup_package(tmp_path, monkeypatch)
     package(Path('dist/main/app.exe'), Path('dist/prototype/app.exe'), Path('dist/bundle.zip'))

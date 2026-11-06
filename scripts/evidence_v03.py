@@ -20,16 +20,27 @@ def summarize(root):
             report = json.loads(path.read_text(encoding='utf-8'))
             if not isinstance(report, dict):
                 raise ValueError('report is not an object')
-            checks = report.get('checks', [])
+            prototype = report.get('prototype') is True
+            run = report.get('run') if prototype and isinstance(report.get('run'), dict) else report
+            checks = run.get('checks', [])
             if not isinstance(checks, list):
                 checks = []
             checks = [c for c in checks if isinstance(c, dict)]
+            normalized_checks = []
+            for check in checks:
+                result = check.get('result') if prototype and isinstance(check.get('result'), dict) else check
+                status = result.get('status', 'unverified')
+                if prototype and check.get('state') != 'completed':
+                    status = 'unverified' if check.get('state') in ('stale', 'running', 'interrupted') else 'failed'
+                normalized_checks.append({'profile': result.get('profile', check.get('profile', result.get('check', 'unknown'))),
+                                          'status': status, **({'job_state': check.get('state')} if prototype else {})})
             rows.append({'report': path.relative_to(root).as_posix(), 'sha256': digest(path),
-                         'status': report.get('status', 'unclassified'),
+                         'program': 'prototype' if prototype else 'main_or_independent_acceptance',
+                         'status': run.get('state', 'unclassified') if prototype else report.get('status', 'unclassified'),
+                         'verification': run.get('verification', 'not_recorded'),
                          'generation_origin': report.get('generation_origin', 'not_recorded'),
                          'turns': report.get('turns'), 'estimated_cny': report.get('run_estimated_cny'),
-                         'checks': [{'profile': c.get('profile', c.get('check', 'unknown')), 'status': c.get('status', 'unverified')}
-                                    for c in checks],
+                         'checks': normalized_checks,
                          'independent_acceptance': 'Only separately recorded operator acceptance establishes this; not inferred from model text'})
         except (ValueError, OSError) as error:
             rows.append({'report': path.relative_to(root).as_posix(), 'status': 'unreadable', 'error_type': type(error).__name__})
