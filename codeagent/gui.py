@@ -101,7 +101,27 @@ class Application:
         ttk.Combobox(account, textvariable=self.model, values=("deepseek-v4-pro", "deepseek-v4-pro-0813"), state="readonly", width=28).grid(row=0, column=3, sticky="ew")
         self.entry_row(account, "Base URL", self.base_url, 1, columnspan=3)
         ttk.Label(account, text="API Key").grid(row=2, column=0, sticky="w", pady=5)
-        ttk.Entry(account, textvariable=self.api_key, show="●").grid(row=2, column=1, columnspan=2, sticky="ew")
+        key_entry = ttk.Entry(account, textvariable=self.api_key, show="●")
+        key_entry.grid(row=2, column=1, columnspan=2, sticky="ew")
+        if os.name == "nt":
+            # IME composition windows are outside Tk's password masking. API keys
+            # are ASCII; disassociate IME only while this field has focus.
+            import ctypes
+            associate = ctypes.windll.imm32.ImmAssociateContext
+            associate.argtypes = (ctypes.c_void_p, ctypes.c_void_p)
+            associate.restype = ctypes.c_void_p
+            ime_context = [None]
+
+            def key_focus_in(_):
+                ime_context[0] = associate(key_entry.winfo_id(), None)
+
+            def key_focus_out(_):
+                if ime_context[0]:
+                    associate(key_entry.winfo_id(), ime_context[0])
+                    ime_context[0] = None
+
+            key_entry.bind("<FocusIn>", key_focus_in)
+            key_entry.bind("<FocusOut>", key_focus_out)
         ttk.Button(account, text="读取环境变量", command=self.read_key).grid(row=2, column=3, sticky="e")
         price = ttk.Frame(account)
         price.grid(row=3, column=0, columnspan=4, sticky="ew", pady=5)
