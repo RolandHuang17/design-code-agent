@@ -13,26 +13,32 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from codeagent.config import user_variable
 
 
-def package(exe, output):
+def package(exe, output, bundle_version='0.2.0'):
     workspace = Path.cwd().resolve()
     output = output.resolve()
     manifest_path = Path('experiments/v02/build-final.json')
     manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
     if hashlib.sha256(exe.read_bytes()).hexdigest() != manifest['exe_sha256']:
         raise ValueError('Executable does not match the verified final build manifest')
-    archive_path = output.parent / 'DesignCodeAgent-v0.2.0-windows-x64.zip'
+    if not re.fullmatch(r'\d+\.\d+\.\d+', bundle_version):
+        raise ValueError('Bundle version must be a numeric major.minor.patch version')
+    archive_path = output.parent / f'DesignCodeAgent-v{bundle_version}-windows-x64.zip'
     if not output.is_relative_to(workspace / 'dist') or output.exists() or archive_path.exists():
         raise ValueError('Release output and ZIP must be new paths under workspace dist')
     output.mkdir(parents=True)
     names = subprocess.check_output(['git', 'ls-files', '-z']).decode('utf-8').split('\0')
     for name in filter(None, names):
         path = Path(name)
-        if name in {'README.md', 'LICENSE'} or path.parts[0] in {'docs', 'examples', 'experiments'}:
+        if name in {'README.md', 'LICENSE', 'NOTICE.md'} or path.parts[0] in {'docs', 'examples', 'experiments'}:
             target = output / path
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(path, target)
     shutil.copyfile(exe, output / 'DesignCodeAgent.exe')
     shutil.copyfile(manifest_path, output / 'BUILD-MANIFEST.json')
+    bundle = {'bundle_version': bundle_version, 'program_version': manifest['version'],
+              'exe_sha256': manifest['exe_sha256'],
+              'documentation_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip()}
+    (output / 'BUNDLE-MANIFEST.json').write_text(json.dumps(bundle, indent=2) + '\n', encoding='utf-8')
     for folder, destination in [('benchmarks/smoke', 'examples/smoke'), ('benchmarks/library', 'examples/library-inputs')]:
         target = output / destination
         target.mkdir(parents=True, exist_ok=True)
@@ -59,5 +65,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--exe', required=True, type=Path)
     parser.add_argument('--output', required=True, type=Path)
+    parser.add_argument('--bundle-version', default='0.2.0')
     args = parser.parse_args()
-    print(json.dumps(package(args.exe, args.output), indent=2))
+    print(json.dumps(package(args.exe, args.output, args.bundle_version), indent=2))

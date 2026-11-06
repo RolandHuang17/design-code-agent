@@ -4,13 +4,13 @@
 
 本项目用于 coding agent 作业。核心实现采用 Python / Tkinter；不依赖 Claude Code 安装，不使用预写的 Space Fractions 项目替代模型生成。
 
+当前发布包 v0.2.1 为文档修订，桌面程序版本仍为 0.2.0。
+
 ![Windows 桌面界面与免费解析结果](docs/images/desktop-v02.jpg)
 
 v0.2 源码新增案例输入分离、独立 Docker/HTTP 反馈、0/3轮修复设置、宿主派生锁文件和冻结实验记录。九次冻结实验已完成：借阅零轮修复0/3、三轮修复3/3，Space Fractions三轮修复0/3。小样本不推导普遍成功率；失败、成功和中断均保留。见 [最终结果](docs/v02-results.md)、[实验协议](docs/v02-experiments.md) 和 [可展开原始检查的离线审阅页](experiments/v02/20261106-v02-e3/review.html)。[全新借阅生成项目](examples/library/README.md) 未人工修改源码，并完成独立HTTP和浏览器复验。[浏览器反馈修复示例](docs/browser-feedback-v02.md) 保留了接口检查通过后仍发现页面错误的真实过程。
 
 真实案例与验证：[Space Fractions 交付副本](examples/space-fractions/README.md) 包含原始输出、操作者修改差异及独立验收。项目单元测试 83/83、集成测试 59/59，真实 HTTP 17/17 通过；并发重复计分和服务重启持久化已复验。**交付副本经过修正，这不是一次全自动成功的声明。**
-
-> 使用者已向老师确认：本作业允许使用阿里云百炼。本项目后续实验固定使用 `deepseek-v4-pro-0813`，报告如实记录实际平台、地址和模型；工具也保留 DeepSeek 官方模式。v0.1 的原始历史报告不回写。
 
 最终工具回归 **78通过、1跳过**；已完成 [无Python的干净Windows验收](docs/clean-windows.md)。全部失败、中断、开发续跑和正式实验可在 [离线证据总索引](experiments/v02/review.html) 展开查看。
 
@@ -25,7 +25,7 @@ Windows 用户从 [Releases](https://github.com/RolandHuang17/design-code-agent/
 5. 点击“开始生成”。若需自动安装依赖并执行生成项目测试，勾选对应执行选项。此功能以当前用户权限运行生成代码，**不是系统沙箱**；建议在专门开发环境使用。
 6. 通过“打开结果目录”查看生成项目、原始输入、事件日志和验证报告。取消会停止本地等待；远端请求可能继续完成，不确定费用预留会保留。单次请求整体等待上限 300 秒。
 
-每次创建独立任务目录，不覆盖之前的项目。Windows 中文及空格路径受支持。
+每次创建独立任务目录，不覆盖之前的项目。Windows 中文及空格路径受支持。本次实验配置为百炼 `deepseek-v4-pro-0813`，平台、型号和用量记录在运行报告中。
 
 ## 从源码运行
 
@@ -106,23 +106,13 @@ run-时间-随机编号/
 
 ## 预算与边界
 
-- 默认累计上限 50 元，包含连接测试和此前运行；可调整为其他正数。明确取消金额上限可在界面填写 `不限`，CLI 使用 `--budget unlimited`，仍保留计价、用量和未知请求预留。本次开发实验使用者已明确取消费用上限。账本位于 `%LOCALAPPDATA%/DesignCodeAgent/budget.json`，没有界面内“重置费用”功能，原有费用不清零。
+- 默认累计上限 50 元，包含连接测试和此前运行；可调整为其他正数。明确取消金额上限可在界面填写 `不限`，CLI 使用 `--budget unlimited`，仍保留计价、用量和未知请求预留。本次实验未设金额上限，用量与未知请求预留持续记录。账本位于 `%LOCALAPPDATA%/DesignCodeAgent/budget.json`，没有界面内“重置费用”功能，原有费用不清零。
 - 请求前按 UTF-8 字节数加协议余量及输出上限预留；有 usage 才结算。超时、重试和不确定错误保留预留，因此可能比实际账单更保守。缓存折扣不用于预算放宽。
 - 单价由用户核对确认。模型服务实际账单才是最终收费依据；价格上界失效时工具估算不能保证实际费用上限。
 - 最多 300 个模型轮次，限流 / 指定服务端错误最多重试两次；无网络响应时不盲目重发。生成按规划任务中的目标文件逐一推进，并提供接口索引和读取次数限制，避免反复遍历仓库。输出截断时不执行任何残缺调用，最多提示缩小单次写入后重试两次；超出限制或上下文上限则停止并保留结果。每次尝试均计入预算。
 - 文件工具限制在任务项目目录，禁止绝对路径、路径穿越、Windows 保留名、符号链接和 junction；检查子进程使用精简环境，不继承 API 密钥或 `NODE_OPTIONS`。
 - API 域名限定为 DeepSeek / 阿里云，拒绝重定向，不使用系统代理；公司网络如要求代理，需调整部署环境后使用。执行生成代码仍具有当前用户权限，不能把文件工具边界当作代码执行隔离。
 
-## 构建与验证
+本项目使用 AI 辅助实现与测试，生成结果及人工修正来源见实验记录。
 
-```powershell
-powershell -ExecutionPolicy Bypass -File scripts/build.ps1
-```
-
-输出为 `dist/DesignCodeAgent.exe`，同时附带示例输入和 SHA256 校验值。已配置 GitHub Actions Windows 测试和打包；本次因 GitHub 账户账单锁定，作业未能启动，验证与发布包构建均在本机完成。干净 Windows 验收状态见 [验证记录](docs/validation.md)。
-
-更多材料：[机制调研](docs/research.md)、[架构与限制](docs/design.md)、[评价口径](docs/experiment-protocol.md)、[演示与讲解](docs/demo.md)、[代码导读](docs/code-tour.md)、[五分钟讲解与免费练习](docs/explain-in-five-minutes.md)、[干净 Windows 验收安排](docs/clean-windows.md)、[实验记录](examples/README.md)。
-
-## 许可与来源
-
-工具原创实现采用 MIT 许可。老师提供的两份架构材料及作业说明保留原始内容，其权利归原作者所有，不纳入工具代码的 MIT 授权。参考仓库均列明实际访问情况；本项目不声称复现 Claude Code 全部能力。使用 AI 辅助实现与测试，真实 API 生成结果须以实验记录为证。
+许可、输入材料权属与参考来源见 [来源说明](NOTICE.md)。
