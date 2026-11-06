@@ -22,7 +22,7 @@ TOOL_SCHEMAS = [
     schema("write_file", "Create a UTF-8 source file, or replace a file previously read in this context. Max 80000 bytes.", {"path": STRING, "content": STRING}, ["path", "content"]),
     schema("edit_file", "Replace exactly one occurrence in a file previously read; fails if ambiguous or stale.", {"path": STRING, "old": STRING, "new": STRING}, ["path", "old", "new"]),
     schema("apply_changes", "Stage related complete files together; validate syntax, check read hashes and commit with rollback journal. Existing files must have been read.", {"changes": {"type": "array", "minItems": 1, "maxItems": 12, "items": {"type": "object", "properties": {"path": STRING, "content": STRING}, "required": ["path", "content"], "additionalProperties": False}}}, ["changes"]),
-    schema("run_check", "Run fixed validation. runtime starts the protected host-selected Docker/HTTP acceptance and returns actual failures. No arbitrary shell commands.", {"profile": {"type": "string", "enum": ["static", "install", "test", "integration", "build", "compose", "auth", "runtime"]}}, ["profile"]),
+    schema("run_check", "Run fixed validation. startup runs npm start and checks local HTTP readiness; runtime runs protected Docker/HTTP acceptance. No arbitrary shell commands.", {"profile": {"type": "string", "enum": ["static", "install", "test", "integration", "build", "compose", "auth", "runtime", "startup"]}}, ["profile"]),
 ]
 
 

@@ -22,6 +22,7 @@ Cover every supplied UML diagram and documented FR/NFR/ASR; use clearly labeled 
 unnumbered requirements. Include actual test file links, not invented paths.
 
 Write small modules through tools (one file per write). Read a file before editing it.
+For executable web apps, npm start must actually keep an HTTP listener alive on process.env.PORT. The host probes real startup separately from tests. Use portable Node entrypoint detection on Windows and POSIX; successful syntax/tests do not establish startup.
 Do not write API keys or private credentials. .env.example must contain placeholders only.
 Do not implement this by copying an earlier example or hardcoded domain template: generate from the inputs.
 After completing a phase, reply with a short factual summary without tool calls.

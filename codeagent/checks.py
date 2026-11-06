@@ -15,7 +15,7 @@ import yaml
 from .provider import Cancelled
 from .safety import project_files
 
-PROFILES = ("static", "install", "test", "integration", "build", "compose", "auth")
+PROFILES = ("static", "install", "test", "integration", "build", "compose", "auth", "startup")
 COMPOSE_NAMES = ("compose.yaml", "compose.yml", "docker-compose.yaml", "docker-compose.yml")
 
 
@@ -136,6 +136,9 @@ def _validate(root: Path, profile: str, cancel: threading.Event, allow_execution
         raise ValueError("未知检查类型")
     if cancel.is_set():
         raise Cancelled("用户取消")
+    if profile == "startup":
+        from .startup import probe_startup
+        return probe_startup(root, cancel, allow_execution)
     if profile == "static":
         results = []
         files = list(project_files(root))

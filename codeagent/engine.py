@@ -480,6 +480,15 @@ class Agent:
         else:
             checks.append({"profile": "runtime", "status": "not_applicable", "optional": True,
                            "reason": "通用项目无内置领域HTTP验收；业务正确性需另行独立检查"})
+            original_text = "\n".join(d.get("text", "") for d in (self.documents or {}).get("documents", []))
+            is_http = bool(re.search(r"\bhttps?\b|\bexpress\b|web\s*server|\bREST\b|网页", original_text, re.I))
+            if is_http:
+                if blocked or any(c.get("profile") == "build" and c.get("status") == "failed" for c in checks):
+                    checks.append({"profile": "startup", "status": "unverified", "reason": "Fix static/install/build before HTTP startup"})
+                else:
+                    startup = tools.execute("run_check", '{"profile":"startup"}')
+                    startup["selection"] = "Host heuristic: HTTP/Express/web-server/REST terms in design; readiness only"
+                    checks.append(startup)
         current_snapshot = project_digest(tools.root)
         for item in checks:
             if "snapshot_id" not in item:

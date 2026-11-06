@@ -22,3 +22,7 @@ include = ["codeagent*"]
 [tool.setuptools.package-data]
 codeagent = ["acceptance/*.cjs", "cases/*.md"]
 
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+norecursedirs = ["experiments", "examples", "runs", ".local", "build", "dist"]
+
