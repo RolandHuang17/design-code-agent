@@ -44,12 +44,12 @@ def test_unicode_paths_and_stale_edits(tmp_path):
     write = lambda content: tools.execute("write_file", json.dumps({"path": "中文 目录/a.js", "content": content}))
     assert write("one")["written"]
     path = tmp_path / "中文 目录/a.js"
-    path.write_text("external change", encoding="utf-8")
+    path.write_text("// external change", encoding="utf-8")
     assert "error" in write("two")
-    assert tools.execute("read_file", '{"path":"中文 目录/a.js"}')["content"] == "external change"
+    assert tools.execute("read_file", '{"path":"中文 目录/a.js"}')["content"] == "// external change"
     result = tools.execute("edit_file", '{"path":"中文 目录/a.js","old":"external","new":"reviewed"}')
     assert "written" in result
-    assert path.read_text() == "reviewed change"
+    assert path.read_text() == "// reviewed change"
     assert "error" in write("actual-secret")
 
 
