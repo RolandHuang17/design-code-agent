@@ -1,0 +1,176 @@
+{
+  "summary": "Implement the Space Fractions sixth-grade fraction-learning microservices as a runnable Node.js 22+ repository. A browser gateway (port 3000) fronts game/question/user/admin services backed by PostgreSQL (source of truth), Redis (cache), RabbitMQ (score events), Elasticsearch (question search), Keycloak (OIDC) and Prometheus (metrics). Exact rational fraction arithmetic, per-game owner authorization, transactional score deduplication, idempotent migrations/seeds, and an independent REST acceptance contract (plus original GET /play compatibility) are implemented. Reference-only cloud/deployment configs are labelled and not claimed validated.",
+  "tasks": [
+    {
+      "id": "T01-shared-domain",
+      "description": "Implement shared domain utilities: exact rational fraction parser/normalizer/comparator (fraction.js) and a pure question-answer scoring validator. No external services; pure functions consumed by game-service and question-service.",
+      "files": ["src/shared/fraction.js"],
+      "depends_on": [],
+      "sources": [
+        {"document": "space-fractions.md", "start_line": 9, "end_line": 10},
+        {"document": "Architecture_View.md", "start_line": 33, "end_line": 39}
+      ],
+      "contracts": [
+        {"description": "parseFraction/equals operate on exact numerator/denominator pairs; malformed fraction throws/returns invalid (label origin=assumption: exact string grammar).", "source": {"document": "space-fractions.md", "start_line": 10}}
+      ]
+    },
+    {
+      "id": "T02-db-schema",
+      "description": "SQL migrations and idempotent seed data (games, users, questions, game_questions, answers). Every seed correct_answer is a valid single fraction. Preserve original 'games' table naming.",
+      "files": ["sql/migrations/001_schema.sql", "sql/seed.sql", "sql/game_ddl.sql"],
+      "depends_on": [],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 118, "end_line": 124},
+        {"document": "space-fractions.md", "start_line": 47, "end_line": 50}
+      ],
+      "contracts": [
+        {"description": "games(id, owner_id, state, score); unique(users.subject); unique answers(game_id,question_id) for dedup.", "source": {"document": "space-fractions.md", "start_line": 48}}
+      ]
+    },
+    {
+      "id": "T03-fraction-service",
+      "description": "Question service: CRUD + search via real Elasticsearch client, validation of question payloads and correctAnswer against the fraction validator.",
+      "files": ["packages/question-service/src/index.js", "packages/question-service/src/repository.js", "packages/question-service/src/search.js"],
+      "depends_on": ["T01-shared-domain", "T02-db-schema"],
+      "sources": [
+        {"document": "space-fractions.md", "start_line": 7, "end_line": 10},
+        {"document": "Architecture_View.md", "start_line": 111, "end_line": 118}
+      ],
+      "contracts": [
+        {"description": "POST question validation: prompt nonempty, options array of strings, correctAnswer a single valid fraction (label origin=assumption: merge of supplement CRUD + original Question getPrompt/getOptions).", "source": {"document": "space-fractions.md", "start_line": 16}}
+      ]
+    },
+    {
+      "id": "T04-user-auth",
+      "description": "User service and OIDC middleware: validate issuer/audience/JWKS, map verified sub to numeric user id via users table, require owner/admin.",
+      "files": ["packages/user-service/src/index.js", "src/shared/oidc.js"],
+      "depends_on": ["T02-db-schema"],
+      "sources": [
+        {"document": "space-fractions.md", "start_line": 10, "end_line": 14},
+        {"document": "space-fractions.md", "start_line": 37, "end_line": 44}
+      ],
+      "contracts": [
+        {"description": "OIDC_ISSUER public issuer; OIDC_JWKS_URI internal http://keycloak:8080 certs; PKCE S256 browser client; admin role check.", "source": {"document": "space-fractions.md", "start_line": 40}}
+      ]
+    },
+    {
+      "id": "T05-admin-service",
+      "description": "Admin service: authenticated question CRUD (POST/DELETE per acceptance), 403 for non-admin, 404 on missing id.",
+      "files": ["packages/admin-service/src/index.js"],
+      "depends_on": ["T03-fraction-service", "T04-user-auth"],
+      "sources": [
+        {"document": "space-fractions.md", "start_line": 15, "end_line": 16},
+        {"document": "Architecture_View.md", "start_line": 3, "end_line": 14}
+      ],
+      "contracts": [
+        {"description": "POST /api/admin/questions -> 201 {id,...}; DELETE /api/admin/questions/:id -> 200/204; normal user -> 403.", "source": {"document": "space-fractions.md", "start_line": 15}}
+      ]
+    },
+    {
+      "id": "T06-game-service",
+      "description": "Game service: create/get/pause/resume/answer/score with per-game serialization, transactional dedup, never expose correctAnswer, owner authorization, 409 on paused answer and repeat.",
+      "files": ["packages/game-service/src/index.js", "packages/game-service/src/repository.js", "packages/game-service/src/events.js"],
+      "depends_on": ["T01-shared-domain", "T03-fraction-service", "T04-user-auth"],
+      "sources": [
+        {"document": "space-fractions.md", "start_line": 17, "end_line": 24},
+        {"document": "space-fractions.md", "start_line": 47, "end_line": 50}
+      ],
+      "contracts": [
+        {"description": "POST /api/games -> 201 {id,questions:[{id,prompt,options}]}; answer -> {correct,score}; each correct =1; repeat no increment; other user's game 403/404.", "source": {"document": "space-fractions.md", "start_line": 19}}
+      ]
+    },
+    {
+      "id": "T07-gateway",
+      "description": "Gateway on port 3000: GET /health 200, serve browser UI at /, route to downstream services with bounded timeouts and error handling; publish Prometheus metrics and RabbitMQ score events.",
+      "files": ["packages/gateway/src/index.js", "packages/gateway/public/index.html", "packages/gateway/public/app.js", "packages/gateway/public/style.css", "src/metrics.js"],
+      "depends_on": ["T05-admin-service", "T06-game-service"],
+      "sources": [
+        {"document": "space-fractions.md", "start_line": 15, "end_line": 24},
+        {"document": "space-fractions.md", "start_line": 30, "end_line": 31}
+      ],
+      "contracts": [
+        {"description": "Gateway container port 3000; serve UI at /; Bearer OIDC tokens; health returns 200.", "source": {"document": "space-fractions.md", "start_line": 15}}
+      ]
+    },
+    {
+      "id": "T08-contracts",
+      "description": "OpenAPI (REST + original GET /play) and internal.proto documenting the gateway and internal service contracts.",
+      "files": ["openapi.yaml", "internal.proto"],
+      "depends_on": ["T07-gateway"],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 80, "end_line": 117},
+        {"document": "Architecture_Documentation.md", "start_line": 303, "end_line": 308}
+      ],
+      "contracts": [
+        {"description": "GET /play returns gameId (backwards compatibility); internal.proto GameService.Play -> PlayResponse{gameId}.", "source": {"document": "Architecture_Documentation.md", "start_line": 105}}
+      ]
+    },
+    {
+      "id": "T09-compose-infra",
+      "description": "Compose configuration and Dockerfiles connecting gateway, game/question/user/admin services, postgres, redis, rabbitmq, elasticsearch, keycloak, prometheus; bind Keycloak realm/config; env placeholders.",
+      "files": ["compose.yaml", "packages/gateway/Dockerfile", "packages/game-service/Dockerfile", "packages/question-service/Dockerfile", "packages/user-service/Dockerfile", "packages/admin-service/Dockerfile", "infra/keycloak/realm.json", ".env.example"],
+      "depends_on": ["T07-gateway"],
+      "sources": [
+        {"document": "space-fractions.md", "start_line": 30, "end_line": 45},
+        {"document": "Architecture_Documentation.md", "start_line": 130, "end_line": 156}
+      ],
+      "contracts": [
+        {"description": "Compose service IDs: gateway, game-service, question-service, user-service, admin-service, postgres, redis, rabbitmq, elasticsearch, keycloak, prometheus; gateway 3000, keycloak 8080; demo users student/admin/other.", "source": {"document": "space-fractions.md", "start_line": 30}}
+      ]
+    },
+    {
+      "id": "T10-reference-configs",
+      "description": "Reference-only (NOT validated) Kubernetes manifests, Jenkinsfile, AWS Terraform example, Vault and Istio reference configs, clearly labelled as unverified.",
+      "files": ["k8s/spacefractions-deployment.yaml", "Jenkinsfile", "terraform/main.tf", "infra/vault-policy.hcl", "infra/istio-gateway.yaml"],
+      "depends_on": [],
+      "sources": [
+        {"document": "Architecture_Documentation.md", "start_line": 132, "end_line": 152},
+        {"document": "space-fractions.md", "start_line": 24, "end_line": 29}
+      ],
+      "contracts": [
+        {"description": "All reference configs labelled reference-only; no production validation claimed.", "source": {"document": "space-fractions.md", "start_line": 27}}
+      ]
+    },
+    {
+      "id": "T11-tests",
+      "description": "node:test unit/integration tests with in-memory adapters (no live DB/Redis/OIDC): scoring, pause/resume, authorization (403/404), malformed fraction 400, missing creds 401, dedup, error behavior.",
+      "files": ["test/fraction.test.js", "test/scoring.test.js", "test/auth.test.js", "test/game-routes.test.js"],
+      "depends_on": ["T01-shared-domain", "T05-admin-service", "T06-game-service"],
+      "sources": [
+        {"document": "space-fractions.md", "start_line": 32, "end_line": 34},
+        {"document": "space-fractions.md", "start_line": 20, "end_line": 24}
+      ],
+      "contracts": [
+        {"description": "Tests assert scoring, pause/resume, authorization, invalid input, and error behavior without external infrastructure.", "source": {"document": "space-fractions.md", "start_line": 33}}
+      ]
+    },
+    {
+      "id": "T12-root-docs",
+      "description": "Root package.json (pinned deps; scripts test/build/start), README (local/Compose run, URLs, local-only demo accounts, tests, deviations, runtime requirements, unverified infra), traceability.json and plan.json.",
+      "files": ["package.json", "README.md", "traceability.json"],
+      "depends_on": ["T01-shared-domain", "T02-db-schema", "T03-fraction-service", "T04-user-auth", "T05-admin-service", "T06-game-service", "T07-gateway", "T08-contracts", "T09-compose-infra", "T10-reference-configs", "T11-tests"],
+      "sources": [
+        {"document": "space-fractions.md", "start_line": 25, "end_line": 29},
+        {"document": "space-fractions.md", "start_line": 35, "end_line": 36}
+      ],
+      "contracts": [
+        {"description": "package.json scripts test/build/start; build actually checks/prepares source; README documents local-only demo accounts and unverified infra.", "source": {"document": "space-fractions.md", "start_line": 35}}
+      ]
+    }
+  ],
+  "assumptions": [
+    "Node.js 22+ overrides original Node 18-20 (operator runtime target).",
+    "PostgreSQL 16 overrides original PostgreSQL 14-15.",
+    "Original games JSONB game_state expanded into normalized tables while retaining 'games' name.",
+    "GET /play maps to gateway game creation returning gameId (backwards compatibility).",
+    "Question order is stable via explicit position column.",
+    "Error budget corrected from 1% to 0.01% (INPUT-001; 99.99% SLO).",
+    "Exact rational fraction string grammar is 'a/b' (or integer) — implementation-defined (origin=assumption)."
+  ],
+  "conflicts": [
+    "INPUT-001: Architecture_Documentation.md line 181 states 99.99% uptime and 1% error budget; 99.99% availability implies 0.01% error budget. Resolved to 0.01%.",
+    "Node.js version: original 18-20 vs supplement 22+; resolved to 22+.",
+    "PostgreSQL version: original 14-15 vs supplement PG16; resolved to 16.",
+    "ASR-1 traceability maps to QuestionComponent/sql/question_ddl.sql but schema shows 'games' table; resolved by providing full schema including questions."
+  ]
+}

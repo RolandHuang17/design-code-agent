@@ -1,0 +1,19 @@
+# Prometheus scrape configuration for the Space Fractions local Compose topology.
+#
+# Reference-only monitoring integration: the gateway exposes GET /metrics on
+# container port 3000 in the standard Prometheus text exposition format
+# (see packages/gateway/src/index.js and src/metrics.js). This file is consumed
+# by the `prometheus` service in compose.yaml as a bind-mounted, read-only config.
+#
+# Service discovery uses Compose DNS names. The scrape interval is short for
+# local-only observability; it is not a production tuning recommendation.
+
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: "space-fractions-gateway"
+    metrics_path: "/metrics"
+    static_configs:
+      - targets: ["gateway:3000"]

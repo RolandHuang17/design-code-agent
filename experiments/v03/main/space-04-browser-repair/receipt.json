@@ -1,0 +1,11 @@
+{
+  "status": "completed_with_gaps",
+  "generation_origin": "seed",
+  "run": "D:\\projects\\Task-v03-final-runs\\runs\\v03\\main\\space-04-browser-repair\\run-20261106-185814-f678db31",
+  "turns": 17,
+  "source_unchanged": true,
+  "parent_unchanged": true,
+  "project_manually_edited": false,
+  "independent_acceptance": "pending",
+  "run_estimated_cny": 8.989035
+}

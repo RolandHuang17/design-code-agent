@@ -1,0 +1,57 @@
+{
+  "kind": "clean_windows_main06",
+  "status": "passed_with_runtime_gaps",
+  "main_sha256": "4c672743d3828fda0bf679f39964fbca4492775a9c187cf57e50dc9351ee0eee",
+  "prototype_sha256": "837cf47c9be73aa1ced0b2a987f9dc6eff5e0dff45ff4abcb29b2f1a02ffe7a7",
+  "inventory": "environment-main06.txt",
+  "raw_archive": "main06-task-evidence.zip",
+  "raw_archive_sha256": "233f28a9667d2fe643dbbf606675596cdf24b29c8c3f88f29800a6cda6bbce79",
+  "runs": [
+    {
+      "run": "run-20261106-185240-eb0fb7d1",
+      "status": "completed_with_gaps",
+      "turns": 17,
+      "elapsed_seconds": 103.72,
+      "repair_rounds": 1,
+      "run_estimated_cny": 1.7728140000000001
+    },
+    {
+      "run": "run-20261106-185903-a5d2ec6c",
+      "status": "cancelled",
+      "turns": 2,
+      "elapsed_seconds": 19.06,
+      "repair_rounds": 0,
+      "run_estimated_cny": 0.050403
+    }
+  ],
+  "source_unchanged_during_export": true,
+  "project_manually_edited": false,
+  "guest_runtime": "Python/Node/Docker not installed; generated tests marked unverified",
+  "host_after_export": [
+    "main06-host-checks.json",
+    "main06-host-independent.json"
+  ],
+  "observations": [
+    "Double-click final main06 from Chinese/space read-only medium",
+    "0813 real connection",
+    "Two original health-demo input files parsed",
+    "Fresh project generated",
+    "Second task cancelled",
+    "Result directory opened"
+  ],
+  "note": "Supersedes main05 as final candidate; previous raw exports and aggregate retained",
+  "cleanup": {
+    "guest_power_state": "poweroff",
+    "nat_localhost_reachable": false,
+    "loopback_receiver_stopped": true
+  },
+  "ledger": {
+    "reservations": 143,
+    "charged_cny": 14.490723,
+    "states": {
+      "uncertain": 7,
+      "settled": 136
+    },
+    "note": "Cumulative guest ledger includes older runs; unknown fees remain reserved; not solely this run cost"
+  }
+}

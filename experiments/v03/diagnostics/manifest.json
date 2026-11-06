@@ -1,0 +1,12 @@
+{
+  "source_commit": "c3bd87d5eaa2bc603255b9d1f94e16411babad49",
+  "controller_source_hashes": {
+    "codeagent/runtime.py": "eddd3de20a88cf0c7453353338ac9c7c3c75855d992f8b3ef2b2e7d9d98180a3",
+    "codeagent/engine.py": "1d0ec5a304e42fcddbf2d2950f96483034efefed399a6d1f83ea9b67fd19828b",
+    "codeagent/tools.py": "abff885a2378edb989d055cdc3cec46cd71737f7de83cbcb7dd557410b4c82be"
+  },
+  "original_result_preserved": true,
+  "runner_original_sha256": "eef2c368b2b44c9c76e20abbd48e99b9b3968a93817b4fc95356391736aaaef4",
+  "reproduction_runner": "smoke.py adjusts imports for published location and writes a new temporary directory, preserving archived result.json",
+  "fixture_origin": "Operator-authored Docker failure, not model generation"
+}

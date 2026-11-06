@@ -1,0 +1,26 @@
+{
+  "name": "space-fractions",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Space Fractions — sixth-grade fraction-learning microservices (Node.js 22+, Express, PostgreSQL, Keycloak OIDC).",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "test": "node --test test/",
+    "test:unit": "node --test test/fraction.test.js test/scoring.test.js test/auth.test.js test/game-routes.test.js",
+    "build": "node scripts/build.mjs",
+    "start": "node packages/gateway/src/index.js",
+    "start:game-service": "node packages/game-service/src/index.js",
+    "start:question-service": "node packages/question-service/src/index.js",
+    "start:user-service": "node packages/user-service/src/index.js",
+    "start:admin-service": "node packages/admin-service/src/index.js"
+  },
+  "dependencies": {
+    "@elastic/elasticsearch": "8.15.1",
+    "amqplib": "0.10.4",
+    "express": "4.21.0",
+    "pg": "8.12.0"
+  }
+}

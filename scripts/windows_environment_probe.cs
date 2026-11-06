@@ -66,6 +66,14 @@ class EnvironmentProbe {
                     report.AppendLine(executable+"\r\n"+BitConverter.ToString(hash.ComputeHash(stream)).Replace("-", "").ToLowerInvariant());
             }
         }
+        report.AppendLine("\r\nRead-only acceptance media executable SHA256:");
+        foreach(DriveInfo drive in DriveInfo.GetDrives()) {
+            if(drive.DriveType!=DriveType.CDRom || !drive.IsReady || drive.VolumeLabel!="DCA_V03_ACCEPT") continue;
+            foreach(string executable in Directory.GetFiles(drive.RootDirectory.FullName,"DesignCodeAgent*.exe",SearchOption.AllDirectories)) {
+                using(var stream=File.OpenRead(executable)) using(var hash=SHA256.Create())
+                    report.AppendLine(executable+"\r\n"+BitConverter.ToString(hash.ComputeHash(stream)).Replace("-", "").ToLowerInvariant());
+            }
+        }
         report.AppendLine("\r\nBundled runtimes inside standalone executables are not system installations.");
         report.AppendLine("This inventory alone does not prove absence of every portable runtime; pair it with the fresh-OS snapshot and GUI evidence.");
         string output = Path.Combine(desktop, "DCA-clean-environment-"+DateTime.UtcNow.ToString("yyyyMMdd-HHmmss")+".txt");

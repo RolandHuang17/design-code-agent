@@ -1,0 +1,189 @@
+{
+  "source_project": "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-04-final-fresh\\run-20261106-172541-c110ad7c\\project",
+  "files": [
+    {
+      "path": ".env.example",
+      "sha256": "30473611dd8aa4856b57814174051e64f96ec302d31b8a5c7447e204be0ebe2d"
+    },
+    {
+      "path": "Jenkinsfile",
+      "sha256": "9d3afef4f7795774e32f63119b208c6d1bc68ded690e07394cf6ca5eaa59932a"
+    },
+    {
+      "path": "README.md",
+      "sha256": "3ffa519203cc1ab1389dea3ce43b62381ca56bdcdcd056164ca9fe49d96a7b7f"
+    },
+    {
+      "path": "architecture-decisions.md",
+      "sha256": "f69d8f5587538d2d52cb132a3524f9ec60905cefc0d2769efaca2abad9542923"
+    },
+    {
+      "path": "compose.yaml",
+      "sha256": "199752e8327d1f62eeb12be0932e5cb6993b2628d0826144936cd2bcefba9919"
+    },
+    {
+      "path": "internal.proto",
+      "sha256": "d72be380b0d49a57591ba59b3b24c77dd178ccf36fb92ded021e5e5575ec02ca"
+    },
+    {
+      "path": "openapi.yaml",
+      "sha256": "06fdf46026ec0830c22efbd81b296f3be7e73b71cef055f2644d24094befb9cd"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "f9d8da5c333a01285f4ed11bba861387423087448618a8d8378b377a07303d2c"
+    },
+    {
+      "path": "package.json",
+      "sha256": "5315f7358114028873cf5a04c5dde2611e9bb0b0ebe37eee43f6221bfa52b866"
+    },
+    {
+      "path": "plan.json",
+      "sha256": "1de7d54ec6bb0aa96c15295d0a4c9677945c00b0899182445fe8e3aa90187f56"
+    },
+    {
+      "path": "traceability.json",
+      "sha256": "07da1b030296d27eef41d772179e8041d93900250466c0cce99d286503f4530d"
+    },
+    {
+      "path": "infra/istio-gateway.yaml",
+      "sha256": "1dce004e64d9ab742e3535bded65eba5821ebdf74e71c553fc141a0af6028877"
+    },
+    {
+      "path": "infra/prometheus.yml",
+      "sha256": "c655aa4232e878646d561a6d0a7c0e34e3f1cf5ced9015245450325cffb87379"
+    },
+    {
+      "path": "infra/vault-policy.hcl",
+      "sha256": "c1ddab16d4e3ad0f2dec6f80cf9bd4b646a28d0c8c7cc1f139d207e7c60363ab"
+    },
+    {
+      "path": "infra/keycloak/realm.json",
+      "sha256": "14a5cea1ab0bf39803aa32e2104bd8ab66bab5b3d85786507c78160a80da5dce"
+    },
+    {
+      "path": "k8s/spacefractions-deployment.yaml",
+      "sha256": "5ae32689894e6be2c576c05eaa2ee6c25d93828d4f6bab0475a9859e4b868e6b"
+    },
+    {
+      "path": "packages/admin-service/Dockerfile",
+      "sha256": "03e2fe23e2c15d903cb0ea73f79c3eebd43d858c882201374806add73964c5a8"
+    },
+    {
+      "path": "packages/admin-service/src/index.js",
+      "sha256": "12c4031a5bf902ec95a9ccc132eaf35bad0de7b488b2bd38cdfd2ec204bc8362"
+    },
+    {
+      "path": "packages/game-service/Dockerfile",
+      "sha256": "f81cdcc8c6189bc56ed1b64669584b1e93d59e7a71c95600fb3c9cf84d325921"
+    },
+    {
+      "path": "packages/game-service/src/events.js",
+      "sha256": "37c4cc5fe94a1bdb32329569743c3f73d8651c2ba870377f39fa063e365ec26c"
+    },
+    {
+      "path": "packages/game-service/src/index.js",
+      "sha256": "f9e9432c9a752d908fc122125fec1e556d0ad647991fbf09d399de77b5e48880"
+    },
+    {
+      "path": "packages/game-service/src/repository.js",
+      "sha256": "e5cecef1b5f3ea29e7246fe2dd5067b23287c57f98c8ad9f897a1a910959bcec"
+    },
+    {
+      "path": "packages/gateway/Dockerfile",
+      "sha256": "ecc8d9c98d3a1d21a180845d4b94dfedbcc9fafd50d0f89e78706dea2d614260"
+    },
+    {
+      "path": "packages/gateway/public/app.js",
+      "sha256": "d1a787f8f542e061047516186b62b130cef76c08dc10e23b8e8e87a53bae63d2"
+    },
+    {
+      "path": "packages/gateway/public/index.html",
+      "sha256": "1a8f28d2049d75c29407465787b6a7e082382e71061051081905fcad477be93a"
+    },
+    {
+      "path": "packages/gateway/public/style.css",
+      "sha256": "e82f899060765c999b960a8f4b12d19a43eaf6b6f5809a195edcdc0bc7050d5d"
+    },
+    {
+      "path": "packages/gateway/src/index.js",
+      "sha256": "b1be966a1f154a09bb269dc1f431b6edc4c8c4eb7ecf89c83195236610a9f11f"
+    },
+    {
+      "path": "packages/question-service/Dockerfile",
+      "sha256": "a1037788201cd377c6568082541c0b7d608df32f242e9536cf69e0a7fefdbc7c"
+    },
+    {
+      "path": "packages/question-service/src/index.js",
+      "sha256": "9e1a3b412602b0e660d2c9899bc2bc1d0447918bb4a28ab90c0428f61c45b12f"
+    },
+    {
+      "path": "packages/question-service/src/repository.js",
+      "sha256": "f132f4fd021a077ef9a645c2705a1d1e5d475b8838e3ceef946d3a4acaf271a5"
+    },
+    {
+      "path": "packages/question-service/src/search.js",
+      "sha256": "0f71be2a24c9dd3ec7457bb0e18c49f2dec84f792e61421f771fc1d208a838fd"
+    },
+    {
+      "path": "packages/user-service/Dockerfile",
+      "sha256": "a99dc338b1b225e0152c44480b93864799f914423315da5adac1cf2a5b23581b"
+    },
+    {
+      "path": "packages/user-service/src/index.js",
+      "sha256": "1e6a24a81600351cfde8ca5bcdfa834bd1b4b2e2cc692560fb58852f0e3f912b"
+    },
+    {
+      "path": "scripts/build.mjs",
+      "sha256": "0a9000e16a2c6fcc055576fcbfd97ea4641502810cbceaa4a7a9b468aaaf631c"
+    },
+    {
+      "path": "sql/game_ddl.sql",
+      "sha256": "09dcc8cc964d71f0038a8256e2176e36c46518c5885d323c448e1cbcfc43488c"
+    },
+    {
+      "path": "sql/seed.sql",
+      "sha256": "06d3b65a035c3e032da7b817939dd8f991db1b2ac24846154de12cf201845c5b"
+    },
+    {
+      "path": "sql/migrations/001_schema.sql",
+      "sha256": "07f6255bf5009962ee380d36d2030e4a4d888bd7c6aea09e20014a0702595229"
+    },
+    {
+      "path": "src/metrics.js",
+      "sha256": "af439a82d134dba20b9523106937dba75f22a758fb0f75b137ebf51335dbc6e4"
+    },
+    {
+      "path": "src/shared/fraction.js",
+      "sha256": "004ba794409a437cd23184f05e394d462bc0a8079ea5b452a5bafb7c18b6d2be"
+    },
+    {
+      "path": "src/shared/oidc.js",
+      "sha256": "86c6f5a6f5aa0bf2c710f22e53dc8bee4331a5ecdbb8f3f9e54b85b08b11c8d4"
+    },
+    {
+      "path": "terraform/main.tf",
+      "sha256": "74c7c08ed2e921bf49946280de37f05d300923acd0fdc0397c094682c810c793"
+    },
+    {
+      "path": "test/auth.test.js",
+      "sha256": "72bbbfa918c15e1cb1555e3590850b5c8c84c60064be11a249eadc7009f72fa5"
+    },
+    {
+      "path": "test/fraction.test.js",
+      "sha256": "e23e0d9edc3de4cf13d7e7ae5f822e8fc2f29da101ff64b2bb69c210d28b8989"
+    },
+    {
+      "path": "test/game-routes.test.js",
+      "sha256": "a0fab4dc114c91ae702769bbe4fe9efffb38f1cbd5534b799d00c04fc14f107a"
+    },
+    {
+      "path": "test/scoring.test.js",
+      "sha256": "4ca37894707010db6348ebb4d13cdfb9c61c24fd155086e48066d3409e922279"
+    },
+    {
+      "path": "test/helpers/http.js",
+      "sha256": "d4c445d68ddd6e382ce7774c55a4523ae7f73d28817b77aab70aba2e467aed1a"
+    }
+  ]
+}

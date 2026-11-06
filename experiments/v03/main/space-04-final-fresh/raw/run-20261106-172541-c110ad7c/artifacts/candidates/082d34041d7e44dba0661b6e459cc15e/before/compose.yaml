@@ -1,0 +1,222 @@
+# Space Fractions — local Compose topology.
+#
+# Reference: Architecture_Documentation.md lines 130-156 (deployment), and the
+# operator supplement space-fractions.md lines 30-45 (service IDs, ports,
+# Keycloak runtime contract). This file wires the full microservices topology:
+#
+#   gateway (3000) -> game-service (3001), question-service (3002),
+#                     user-service (3003), admin-service (3004)
+#   postgres (source of truth), redis (cache), rabbitmq (score events),
+#   elasticsearch (question search), keycloak (OIDC), prometheus (metrics).
+#
+# NOTE: the browser gateway container listens on port 3000 and Keycloak on 8080
+# internally. Public browser URLs/redirects are derived from PUBLIC_ORIGIN and
+# OIDC_ISSUER/OIDC_PUBLIC_ORIGIN at runtime — never from a hard-coded host port
+# (the acceptance harness remaps host ports). Demo users/credentials below are
+# LOCAL-ONLY fixtures; they are not production guidance.
+
+name: space-fractions
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: spacefractions-postgres
+    environment:
+      POSTGRES_USER: spacefractions
+      POSTGRES_PASSWORD: spacefractions
+      POSTGRES_DB: spacefractions
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+      # Idempotent schema + seed applied on FIRST boot only (empty data dir).
+      # The hand-rolled composite also replays migration 001 + seed, but those
+      # files are idempotent (CREATE IF NOT EXISTS / ON CONFLICT) so re-running
+      # against an existing volume is safe.
+      - ./sql/migrations/001_schema.sql:/docker-entrypoint-initdb.d/01_schema.sql:ro
+      - ./sql/seed.sql:/docker-entrypoint-initdb.d/02_seed.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U spacefractions -d spacefractions"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    container_name: spacefractions-redis
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  rabbitmq:
+    image: rabbitmq:3.13-management-alpine
+    container_name: spacefractions-rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: spacefractions
+      RABBITMQ_DEFAULT_PASS: spacefractions
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.14.3
+    container_name: spacefractions-elasticsearch
+    environment:
+      discovery.type: single-node
+      xpack.security.enabled: "false"
+      ES_JAVA_OPTS: "-Xms256m -Xmx256m"
+    ports:
+      - "9200:9200"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:9200/_cluster/health || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:24.0.5
+    container_name: spacefractions-keycloak
+    command: start-dev
+    environment:
+      # Local-only bootstrap admin (distinct from the app's realm admin user).
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      # Public frontend origin derives from OIDC_PUBLIC_ORIGIN at runtime so
+      # realm redirect/issuer links match a remapped test origin.
+      KC_HOSTNAME_URL: ${OIDC_PUBLIC_ORIGIN:-http://localhost:8080}
+      KC_HTTP_PORT: 8080
+      KC_PROXY: edge
+    ports:
+      - "8080:8080"
+    volumes:
+      # Realm (space-fractions) import: demo users student/admin/other, public
+      # client space-fractions-client (PKCE S256, direct grants enabled for the
+      # local-only password fixtures only). Bind-mounted and must exist.
+      - ./infra/keycloak/realm.json:/opt/keycloak/data/import/realm.json:ro
+    healthcheck:
+      test: ["CMD-SHELL", "exec 3<>/dev/tcp/127.0.0.1/8080 && printf 'GET /realms/space-fractions/.well-known/openid-configuration HTTP/1.0\r\nHost: localhost\r\n\r\n' >&3 && grep -q openid-configuration <&3 2>/dev/null || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 12
+
+  user-service:
+    build:
+      context: .
+      dockerfile: packages/user-service/Dockerfile
+    container_name: spacefractions-user-service
+    environment:
+      PORT: "3003"
+      DATABASE_URL: postgres://spacefractions:spacefractions@postgres:5432/spacefractions
+      OIDC_ISSUER: ${OIDC_ISSUER:-http://localhost:8080/realms/space-fractions}
+      OIDC_JWKS_URI: http://keycloak:8080/realms/space-fractions/protocol/openid-connect/certs
+      OIDC_AUDIENCE: account
+      OIDC_ADMIN_ROLE: admin
+    depends_on:
+      postgres:
+        condition: service_healthy
+      keycloak:
+        condition: service_healthy
+
+  question-service:
+    build:
+      context: .
+      dockerfile: packages/question-service/Dockerfile
+    container_name: spacefractions-question-service
+    environment:
+      PORT: "3002"
+      DATABASE_URL: postgres://spacefractions:spacefractions@postgres:5432/spacefractions
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+    depends_on:
+      postgres:
+        condition: service_healthy
+      elasticsearch:
+        condition: service_healthy
+
+  admin-service:
+    build:
+      context: .
+      dockerfile: packages/admin-service/Dockerfile
+    container_name: spacefractions-admin-service
+    environment:
+      PORT: "3004"
+      DATABASE_URL: postgres://spacefractions:spacefractions@postgres:5432/spacefractions
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+      OIDC_ISSUER: ${OIDC_ISSUER:-http://localhost:8080/realms/space-fractions}
+      OIDC_JWKS_URI: http://keycloak:8080/realms/space-fractions/protocol/openid-connect/certs
+      OIDC_AUDIENCE: account
+      OIDC_ADMIN_ROLE: admin
+    depends_on:
+      postgres:
+        condition: service_healthy
+      elasticsearch:
+        condition: service_healthy
+      keycloak:
+        condition: service_healthy
+
+  game-service:
+    build:
+      context: .
+      dockerfile: packages/game-service/Dockerfile
+    container_name: spacefractions-game-service
+    environment:
+      PORT: "3001"
+      DATABASE_URL: postgres://spacefractions:spacefractions@postgres:5432/spacefractions
+      RABBITMQ_URL: amqp://spacefractions:spacefractions@rabbitmq:5672
+      OIDC_ISSUER: ${OIDC_ISSUER:-http://localhost:8080/realms/space-fractions}
+      OIDC_JWKS_URI: http://keycloak:8080/realms/space-fractions/protocol/openid-connect/certs
+      OIDC_AUDIENCE: account
+      OIDC_ADMIN_ROLE: admin
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+      keycloak:
+        condition: service_healthy
+
+  gateway:
+    build:
+      context: .
+      dockerfile: packages/gateway/Dockerfile
+    container_name: spacefractions-gateway
+    environment:
+      PORT: "3000"
+      # Public browser origin derived from PUBLIC_ORIGIN (never a fixed port).
+      PUBLIC_ORIGIN: ${PUBLIC_ORIGIN:-http://localhost:3000}
+      GAME_SERVICE_URL: http://game-service:3001
+      QUESTION_SERVICE_URL: http://question-service:3002
+      USER_SERVICE_URL: http://user-service:3003
+      ADMIN_SERVICE_URL: http://admin-service:3004
+    ports:
+      - "3000:3000"
+    depends_on:
+      game-service:
+        condition: service_started
+      question-service:
+        condition: service_started
+      user-service:
+        condition: service_started
+      admin-service:
+        condition: service_started
+
+  prometheus:
+    image: prom/prometheus:v2.53.1
+    container_name: spacefractions-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./infra/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    depends_on:
+      - gateway
+
+volumes:
+  pg_data:

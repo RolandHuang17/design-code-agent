@@ -17,7 +17,7 @@ v0.3 提供两个独立程序，分别验收：
 
 ## 快速开始
 
-Windows 用户从 [Releases](https://github.com/RolandHuang17/design-code-agent/releases) 下载发布压缩包，解压后双击 `DesignCodeAgent.exe`。桌面工具自带 Python 运行时，无需预装 Python；联网生成仍需模型服务密钥。生成项目的构建与运行另需 Node.js / Docker。
+Windows 用户从 [Releases](https://github.com/RolandHuang17/design-code-agent/releases) 下载发布压缩包，解压后双击 `main/DesignCodeAgent.exe`；架构原型位于 `prototype/DesignCodeAgent-Superagent.exe`。桌面工具自带 Python 运行时，无需预装 Python；联网生成仍需模型服务密钥。生成项目的构建与运行另需 Node.js / Docker。
 
 1. 选择平台并填写匹配地域的 Base URL。官方模式为 `https://api.deepseek.com`；百炼选择控制台给出的 OpenAI 兼容地址，结尾为 `/compatible-mode/v1`。
 2. 在遮蔽输入框粘贴 API Key，或点击“读取环境变量”：官方使用 `DEEPSEEK_API_KEY`，百炼使用 `DASHSCOPE_API_KEY`。可另配 `DASHSCOPE_BASE_URL`。密钥默认仅在内存使用。Windows 微软拼音请先切换英文，建议使用粘贴或读取环境变量；输入法尚未提交的组合候选窗口不受文本框遮蔽保护。
@@ -86,6 +86,8 @@ flowchart LR
 
 工具：`list_files`、`read_file`、`write_file`、`edit_file`、`run_check`。修改文件需先读取并校验哈希；局部替换要求唯一匹配。候选修改先通过JS语法／JSON／YAML格式门禁，再接受到工作目录；检查绑定代码快照。对于文档中识别到的通用HTTP项目，另执行真实 npm start 就绪探测，不将其等同于业务正确性。检查类型固定为静态语法、依赖安装、单元测试、HTTP 集成测试、构建、Compose 配置和当前案例的独立 JWT 验收。安装禁用生命周期脚本；测试 / 构建及 JWT 检查会执行生成代码。
 
+容器启动失败时，宿主只读取本次 Compose 项目的容器状态和健康检查输出，将具体失败返回给模型。同一代码快照在模型修复阶段最多实际执行两次运行验收，之后明确复用已有证据；修改代码后重新计数，最终宿主验证始终实际重跑。
+
 ## 输出和证据
 
 ```text
@@ -108,6 +110,7 @@ run-时间-随机编号/
 ## 预算与边界
 
 - 默认累计上限 50 元，包含连接测试和此前运行；可调整为其他正数。明确取消金额上限可在界面填写 `不限`，CLI 使用 `--budget unlimited`，仍保留计价、用量和未知请求预留。本次实验未设金额上限，用量与未知请求预留持续记录。账本位于 `%LOCALAPPDATA%/DesignCodeAgent/budget.json`，没有界面内“重置费用”功能，原有费用不清零。
+- 完整 Space Fractions 微服务案例较大，可将修复上限设为十轮并准备相应预算。本轮一次全新生成实际用了四轮修复、约85分钟，用量上界估算111.21元；HTTP通过后网页仍需独立验收。详见 [实跑记录](docs/v03-validation.md)，不保证其他输入具有相同耗时或结果。
 - 请求前按 UTF-8 字节数加协议余量及输出上限预留；有 usage 才结算。超时、重试和不确定错误保留预留，因此可能比实际账单更保守。缓存折扣不用于预算放宽。
 - 单价由用户核对确认。模型服务实际账单才是最终收费依据；价格上界失效时工具估算不能保证实际费用上限。
 - 最多 300 个模型轮次，限流 / 指定服务端错误最多重试两次；无网络响应时不盲目重发。生成按规划任务中的目标文件逐一推进，并提供接口索引和读取次数限制，避免反复遍历仓库。输出截断时不执行任何残缺调用，最多提示缩小单次写入后重试两次；超出限制或上下文上限则停止并保留结果。每次尝试均计入预算。

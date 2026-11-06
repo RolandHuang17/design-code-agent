@@ -1,0 +1,81 @@
+# =============================================================================
+# REFERENCE-ONLY — NOT PRODUCTION VALIDATED
+# -----------------------------------------------------------------------------
+# This Istio Gateway/VirtualService configuration is provided as an
+# illustrative reference for the Space Fractions service-mesh topology
+# described in Architecture_Documentation.md (see "TLS & service-mesh
+# considerations"). It has NOT been validated against any live cluster and
+# MUST be reviewed before use. No deployment, security or availability
+# claims are made for this file.
+# =============================================================================
+
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: spacefractions-gateway
+  namespace: spacefractions
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+    - port:
+        number: 443
+        name: https
+        protocol: HTTPS
+      tls:
+        mode: SIMPLE
+        credentialName: spacefractions-tls
+      hosts:
+        - "spacefractions.example.com"
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - "spacefractions.example.com"
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: spacefractions-vs
+  namespace: spacefractions
+spec:
+  hosts:
+    - "spacefractions.example.com"
+  gateways:
+    - spacefractions-gateway
+  http:
+    # Redirect plaintext HTTP to HTTPS (termination at the mesh ingress).
+    - match:
+        - port: 80
+      redirect:
+        scheme: https
+        authority: "spacefractions.example.com"
+    - match:
+        - uri:
+            prefix: /api/
+      route:
+        - destination:
+            host: gateway.spacefractions.svc.cluster.local
+            port:
+              number: 3000
+    - match:
+        - uri:
+            prefix: /
+      route:
+        - destination:
+            host: gateway.spacefractions.svc.cluster.local
+            port:
+              number: 3000
+---
+# Optional strict mutual TLS within the mesh. Comment out if you are not yet
+# ready to enforce mesh-wide mTLS; the Gateway above still terminates external
+# TLS traffic.
+apiVersion: security.istio.io/v1beta1
+kind: PeerAuthentication
+metadata:
+  name: spacefractions-mtls
+  namespace: spacefractions
+spec:
+  mtls:
+    mode: STRICT

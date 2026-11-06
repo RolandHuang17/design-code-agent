@@ -1,0 +1,7 @@
+[
+  {
+    "profile": "browser_ui_visibility_and_admin",
+    "status": "failed",
+    "details": "Independent actual Chromium at http://localhost:10312 using actual Keycloak http://localhost:10313: student/student and admin/admin PKCE browser logins succeed and display authenticated names. Both pages have blank main and no Play, score, help, or admin question controls. Student reload preserves authentication but main remains blank. Relevant observed code: packages/gateway/public/style.css lines107-112 sets .view display:none and .view.active display:block, whereas app.js show() lines54-56 only toggles hidden and never active. index.html contains student view sections but no #view-admin; app.js renderAdmin has no observed invocation. Original UI requirements require student game start/answer/scoring/pause/resume/help and authenticated administrator question CRUD. Repair visibility coherently and provide working game and admin page flows; do not merely bypass styling or mark unobserved flows passed. All game/CRUD/persistence interactions remain skipped until a separate real browser retest. Screenshots and snapshots in browser/ show actual blank mains. No generated source or browser DOM/CSS was manually changed."
+  }
+]

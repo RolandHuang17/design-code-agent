@@ -1,0 +1,18 @@
+{
+  "root": "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-04-final-fresh\\run-20261106-172541-c110ad7c\\project",
+  "changes": [
+    {
+      "path": "infra/keycloak/realm.json",
+      "before": "a1f1740d190df87907293b568c51b86cca551ca0fa8024875348b86e4068eeec",
+      "after": "fd3fa462cc86cc3600794814ad5ea80471a8f4f82d6dbfaf3c7b1ef8afb615f0"
+    }
+  ],
+  "checks": [
+    {
+      "path": "infra/keycloak/realm.json",
+      "status": "passed",
+      "kind": "syntax_format"
+    }
+  ],
+  "status": "committed"
+}

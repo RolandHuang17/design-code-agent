@@ -1,0 +1,222 @@
+syntax = "proto3";
+
+// Internal service contracts for the Space Fractions system.
+//
+// Primary source: Architecture_Documentation.md "Internal contracts"
+// (GameService.Play -> PlayResponse{gameId}). The remaining services
+// (Question, Game state/answers, User/AuthZ, Admin CRUD, score events)
+// are derived interfaces resolved from the operator-supplied acceptance
+// contract; they are labelled as assumptions where no upstream line states
+// them. This file documents the logical gRPC-shaped contracts shared
+// between services, not a wire-level implementation.
+//
+// These protos do NOT expose correctAnswer to players (game-service and
+// question-search responses omit it); correctAnswer is only returned on
+// admin-facing contracts.
+
+package spacefractions;
+
+// ---------------------------------------------------------------------------
+// Original contract (Architecture_Documentation.md lines 104-117)
+// ---------------------------------------------------------------------------
+
+// GameService owns game state and player interaction.
+service GameService {
+  // Play starts (or resumes) a game and returns its game id.
+  // Kept for backwards compatibility with the original /play external API.
+  rpc Play(PlayRequest) returns (PlayResponse) {}
+
+  rpc CreateGame(CreateGameRequest) returns (CreateGameResponse) {}
+  rpc GetGame(GetGameRequest) returns (GameResponse) {}
+  rpc PauseGame(PauseGameRequest) returns (GameResponse) {}
+  rpc ResumeGame(ResumeGameRequest) returns (GameResponse) {}
+  rpc AnswerQuestion(AnswerRequest) returns (AnswerResponse) {}
+  rpc GetScore(GetScoreRequest) returns (ScoreResponse) {}
+}
+
+message PlayRequest {
+  // Deprecated legacy field from the original internal contract.
+  int32 gameId = 1;
+}
+
+message PlayResponse {
+  // Game id of the started game.
+  int32 gameId = 1;
+}
+
+message CreateGameRequest {
+  // Optional id list for reproducible practice. Empty = default set.
+  repeated string questionIds = 1;
+}
+
+message CreateGameResponse {
+  string id = 1;
+  repeated PlayerQuestion questions = 2;
+}
+
+message GetGameRequest {
+  string id = 1;
+}
+
+message PauseGameRequest {
+  string id = 1;
+}
+
+message ResumeGameRequest {
+  string id = 1;
+}
+
+message AnswerRequest {
+  string gameId = 1;
+  string questionId = 2;
+  // Exact fraction string, e.g. "3/4". Validated server-side.
+  string answer = 3;
+}
+
+message AnswerResponse {
+  bool correct = 1;
+  // Each correct answer adds exactly 1 point.
+  int32 score = 2;
+}
+
+message GetScoreRequest {
+  string id = 1;
+}
+
+message ScoreResponse {
+  int32 score = 1;
+}
+
+message GameResponse {
+  string id = 1;
+  // in-progress | paused | finished
+  string state = 2;
+  int32 score = 3;
+  repeated PlayerQuestion questions = 4;
+}
+
+// Player-facing question never carries the correct answer.
+// (origin=assumption: correctAnswer must be omitted from player responses)
+message PlayerQuestion {
+  string id = 1;
+  string prompt = 2;
+  repeated string options = 3;
+}
+
+// ---------------------------------------------------------------------------
+// QuestionService — question persistence, validation, and search
+// (origin=assumption: derived from supplement question CRUD/search)
+// ---------------------------------------------------------------------------
+
+service QuestionService {
+  rpc GetQuestion(GetQuestionRequest) returns (AdminQuestion) {}
+  rpc ValidateQuestion(ValidateQuestionRequest) returns (ValidationResponse) {}
+  rpc SearchQuestions(SearchRequest) returns (SearchResponse) {}
+}
+
+message GetQuestionRequest {
+  string id = 1;
+}
+
+message ValidateQuestionRequest {
+  string prompt = 1;
+  repeated string options = 2;
+  // Must be a single valid exact-arithmetic fraction (e.g. "1/2").
+  string correctAnswer = 3;
+}
+
+message ValidationResponse {
+  bool valid = 1;
+  // Empty when valid; otherwise a human-readable reason (400 mapping).
+  string error = 2;
+}
+
+message SearchRequest {
+  string query = 1;
+}
+
+message SearchResponse {
+  // Search results that omit correctAnswer for players.
+  repeated PlayerQuestion results = 1;
+}
+
+// ---------------------------------------------------------------------------
+// AdminService — authenticated question CRUD
+// (origin=assumption: derived from supplement POST/DELETE admin contract)
+// ---------------------------------------------------------------------------
+
+service AdminService {
+  rpc ListQuestions(ListQuestionsRequest) returns (ListQuestionsResponse) {}
+  rpc CreateQuestion(CreateQuestionRequest) returns (AdminQuestion) {}
+  rpc DeleteQuestion(DeleteQuestionRequest) returns (DeleteQuestionResponse) {}
+}
+
+message ListQuestionsRequest {}
+
+message ListQuestionsResponse {
+  repeated AdminQuestion questions = 1;
+}
+
+message CreateQuestionRequest {
+  string prompt = 1;
+  repeated string options = 2;
+  string correctAnswer = 3;
+}
+
+message DeleteQuestionRequest {
+  string id = 1;
+}
+
+message DeleteQuestionResponse {
+  bool deleted = 1;
+}
+
+// Admin-facing question includes correctAnswer (role-restricted).
+message AdminQuestion {
+  string id = 1;
+  string prompt = 2;
+  repeated string options = 3;
+  string correctAnswer = 4;
+}
+
+// ---------------------------------------------------------------------------
+// UserService — authentication and authorization
+// (origin=assumption: derived from supplement OIDC owner/admin enforcement)
+// ---------------------------------------------------------------------------
+
+service UserService {
+  // Map a verified OIDC subject to an internal numeric user id.
+  rpc ResolveUser(ResolveUserRequest) returns (ResolveUserResponse) {}
+  rpc CheckAdmin(CheckAdminRequest) returns (CheckAdminResponse) {}
+}
+
+message ResolveUserRequest {
+  // OIDC "sub" claim from a verified access token.
+  string subject = 1;
+}
+
+message ResolveUserResponse {
+  // Internal numeric user id stored in the users table.
+  int64 userId = 1;
+}
+
+message CheckAdminRequest {
+  int64 userId = 1;
+}
+
+message CheckAdminResponse {
+  bool isAdmin = 1;
+}
+
+// ---------------------------------------------------------------------------
+// ScoreEvent — RabbitMQ message published on each scored answer
+// (origin=assumption: derived from supplement "RabbitMQ score events")
+// ---------------------------------------------------------------------------
+
+message ScoreEvent {
+  string gameId = 1;
+  int64 userId = 2;
+  string questionId = 3;
+  bool correct = 4;
+  int32 score = 5;
+}

@@ -1,0 +1,91 @@
+# =============================================================================
+# Space Fractions — Kubernetes deployment reference
+# STATUS: REFERENCE-ONLY — NOT production-validated.
+#
+# This manifest is generated from the architecture documentation for
+# illustration purposes and has NOT been tested against a live cluster.
+# Do NOT deploy to production without review, security hardening, secrets
+# handling, resource tuning, and service-mesh/TLS configuration.
+#
+# Reference sources:
+#   - Architecture_Documentation.md (Kubernetes-ready plan, lines 131-152)
+#   - space-fractions.md (reference-only configs, lines 24-29)
+# =============================================================================
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: spacefractions
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: spacefractions-env
+  namespace: spacefractions
+data:
+  # Public issuer must derive from PUBLIC_ORIGIN/OIDC_ISSUER, not a hard-coded
+  # cluster host. Placeholders only; inject real values via a secret manager.
+  OIDC_ISSUER: "https://PLACEHOLDER-PUBLIC-ISSUER.example"
+  OIDC_JWKS_URI: "http://keycloak:8080/realms/space-fractions/protocol/openid-connect/certs"
+  PUBLIC_ORIGIN: "https://PLACEHOLDER-public.example"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spacefractions
+  namespace: spacefractions
+  labels:
+    app: spacefractions
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: spacefractions
+  template:
+    metadata:
+      labels:
+        app: spacefractions
+    spec:
+      containers:
+        - name: spacefractions
+          image: spacefractions:latest
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: spacefractions-env
+          # Secrets must be sourced from an external secret manager (e.g. Vault
+          # CSI driver / External Secrets), never hard-coded here.
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 80
+            initialDelaySeconds: 15
+            periodSeconds: 20
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spacefractions
+  namespace: spacefractions
+spec:
+  selector:
+    app: spacefractions
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+  type: ClusterIP

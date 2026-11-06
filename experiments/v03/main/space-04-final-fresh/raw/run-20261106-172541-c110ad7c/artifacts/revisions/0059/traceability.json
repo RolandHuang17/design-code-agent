@@ -1,0 +1,203 @@
+{
+  "items": [
+    {
+      "id": "FR-1",
+      "source": { "document": "Architecture_Documentation.md", "start_line": 28 },
+      "description": "Play game: create a game session and interact with fraction questions.",
+      "files": [
+        "packages/gateway/src/index.js",
+        "packages/game-service/src/index.js"
+      ],
+      "tests": ["test/game-routes.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR-2",
+      "source": { "document": "Architecture_View.md", "start_line": 6 },
+      "description": "View score: return the current integer score for a game.",
+      "files": ["packages/game-service/src/index.js"],
+      "tests": ["test/game-routes.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR-3",
+      "source": { "document": "Architecture_View.md", "start_line": 7 },
+      "description": "Update questions: authenticated administrator question management.",
+      "files": [
+        "packages/question-service/src/index.js",
+        "packages/admin-service/src/index.js"
+      ],
+      "tests": ["test/auth.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR-4",
+      "source": { "document": "Architecture_View.md", "start_line": 8 },
+      "description": "View help: serve the player help content from the browser UI.",
+      "files": [
+        "packages/gateway/public/index.html",
+        "packages/gateway/public/app.js"
+      ],
+      "tests": [],
+      "status": "partial"
+    },
+    {
+      "id": "FR-5",
+      "source": { "document": "space-fractions.md", "start_line": 7 },
+      "description": "Introduction movie and main menu presented before play.",
+      "files": [
+        "packages/gateway/public/index.html",
+        "packages/gateway/public/app.js"
+      ],
+      "tests": [],
+      "status": "partial"
+    },
+    {
+      "id": "FR-6",
+      "source": { "document": "space-fractions.md", "start_line": 7 },
+      "description": "Main menu navigation between play, score view and help.",
+      "files": [
+        "packages/gateway/public/index.html",
+        "packages/gateway/public/app.js"
+      ],
+      "tests": [],
+      "status": "partial"
+    },
+    {
+      "id": "FR-7",
+      "source": { "document": "space-fractions.md", "start_line": 19 },
+      "description": "Pause/resume a game; answering while paused is rejected with 409.",
+      "files": [
+        "packages/game-service/src/index.js",
+        "packages/game-service/src/repository.js"
+      ],
+      "tests": ["test/game-routes.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR-8",
+      "source": { "document": "space-fractions.md", "start_line": 20 },
+      "description": "Submit answers with exact rational comparison and per-answer scoring.",
+      "files": [
+        "packages/game-service/src/index.js",
+        "packages/game-service/src/repository.js",
+        "src/shared/fraction.js"
+      ],
+      "tests": ["test/game-routes.test.js", "test/scoring.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR-9",
+      "source": { "document": "space-fractions.md", "start_line": 7 },
+      "description": "Ending scene with feedback once the game is over.",
+      "files": [
+        "packages/gateway/public/index.html",
+        "packages/gateway/public/app.js"
+      ],
+      "tests": [],
+      "status": "partial"
+    },
+    {
+      "id": "FR-10",
+      "source": { "document": "space-fractions.md", "start_line": 15 },
+      "description": "Authenticated administrator question CRUD (POST/DELETE) with 403 for non-admins.",
+      "files": [
+        "packages/admin-service/src/index.js",
+        "packages/question-service/src/index.js",
+        "packages/question-service/src/repository.js",
+        "packages/question-service/src/search.js"
+      ],
+      "tests": ["test/auth.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "NFR-1",
+      "source": { "document": "Architecture_Documentation.md", "start_line": 30 },
+      "description": "Performance: low-latency responses via caching and bounded timeouts.",
+      "files": [
+        "packages/gateway/src/index.js",
+        "src/metrics.js"
+      ],
+      "tests": [],
+      "status": "partial"
+    },
+    {
+      "id": "NFR-2",
+      "source": { "document": "Architecture_Documentation.md", "start_line": 175 },
+      "description": "Observability: Prometheus metrics for game and question activity.",
+      "files": ["src/metrics.js"],
+      "tests": [],
+      "status": "partial"
+    },
+    {
+      "id": "NFR-3",
+      "source": { "document": "space-fractions.md", "start_line": 25 },
+      "description": "Score events published to RabbitMQ for downstream consumers.",
+      "files": ["packages/game-service/src/events.js"],
+      "tests": [],
+      "status": "partial"
+    },
+    {
+      "id": "NFR-4",
+      "source": { "document": "space-fractions.md", "start_line": 12 },
+      "description": "Bounded downstream timeouts, error handling and health checks.",
+      "files": ["packages/gateway/src/index.js"],
+      "tests": [],
+      "status": "partial"
+    },
+    {
+      "id": "ASR-1",
+      "source": { "document": "Architecture_Documentation.md", "start_line": 32 },
+      "description": "Data durability: PostgreSQL persistence with migrations, seeds and transactional dedup.",
+      "files": [
+        "sql/migrations/001_schema.sql",
+        "sql/seed.sql",
+        "sql/game_ddl.sql",
+        "packages/game-service/src/repository.js",
+        "packages/question-service/src/repository.js"
+      ],
+      "tests": ["test/game-routes.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "ASR-2",
+      "source": { "document": "space-fractions.md", "start_line": 11 },
+      "description": "Security: OIDC issuer/audience/JWKS validation and admin-role authorization.",
+      "files": [
+        "src/shared/oidc.js",
+        "packages/user-service/src/index.js",
+        "packages/admin-service/src/index.js"
+      ],
+      "tests": ["test/auth.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "DERIVED-1",
+      "source": { "document": "space-fractions.md", "start_line": 10 },
+      "description": "Exact rational fraction arithmetic for answers and scoring (origin=assumption).",
+      "files": ["src/shared/fraction.js"],
+      "tests": ["test/fraction.test.js", "test/scoring.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "DERIVED-2",
+      "source": { "document": "space-fractions.md", "start_line": 10 },
+      "description": "Per-game owner authorization: other users' games return 403 or 404 with no existence leak (origin=assumption).",
+      "files": [
+        "packages/game-service/src/index.js",
+        "packages/game-service/src/repository.js",
+        "packages/user-service/src/index.js"
+      ],
+      "tests": ["test/game-routes.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "DERIVED-3",
+      "source": { "document": "space-fractions.md", "start_line": 35 },
+      "description": "Build-time source verification: syntax checks and presence of contract artifacts.",
+      "files": ["scripts/build.mjs", "package.json"],
+      "tests": [],
+      "status": "partial"
+    }
+  ]
+}

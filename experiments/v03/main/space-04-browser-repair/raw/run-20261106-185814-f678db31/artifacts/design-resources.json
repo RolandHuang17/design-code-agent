@@ -1,0 +1,302 @@
+[
+  {
+    "id": "design:111282df7817bca771e53c82ebb053707a3217cb8f11733a2c25b631ca81db55",
+    "document": "Architecture_Documentation.md",
+    "version": "111282df7817bca771e53c82ebb053707a3217cb8f11733a2c25b631ca81db55",
+    "origin": "original input",
+    "line_count": 315,
+    "headings": [
+      {
+        "level": 1,
+        "title": "A. Executive Summary",
+        "start_line": 6,
+        "end_line": 27
+      },
+      {
+        "level": 1,
+        "title": "B. Traceability & Rationale",
+        "start_line": 28,
+        "end_line": 36
+      },
+      {
+        "level": 1,
+        "title": "C. Architecture Overview",
+        "start_line": 37,
+        "end_line": 45
+      },
+      {
+        "level": 1,
+        "title": "D. Detailed Technical Design",
+        "start_line": 46,
+        "end_line": 129
+      },
+      {
+        "level": 2,
+        "title": "GameComponent",
+        "start_line": 47,
+        "end_line": 129
+      },
+      {
+        "level": 3,
+        "title": "Responsibilities & data ownership",
+        "start_line": 48,
+        "end_line": 50
+      },
+      {
+        "level": 3,
+        "title": "Technology options",
+        "start_line": 51,
+        "end_line": 64
+      },
+      {
+        "level": 3,
+        "title": "Recommended default stack",
+        "start_line": 65,
+        "end_line": 79
+      },
+      {
+        "level": 3,
+        "title": "Interface design",
+        "start_line": 80,
+        "end_line": 117
+      },
+      {
+        "level": 4,
+        "title": "External APIs",
+        "start_line": 81,
+        "end_line": 103
+      },
+      {
+        "level": 4,
+        "title": "Internal contracts",
+        "start_line": 104,
+        "end_line": 117
+      },
+      {
+        "level": 3,
+        "title": "Data model / schema",
+        "start_line": 118,
+        "end_line": 124
+      },
+      {
+        "level": 3,
+        "title": "Caching & consistency strategy",
+        "start_line": 125,
+        "end_line": 129
+      },
+      {
+        "level": 1,
+        "title": "E. Operations & Deployment",
+        "start_line": 130,
+        "end_line": 156
+      },
+      {
+        "level": 2,
+        "title": "Kubernetes-ready plan",
+        "start_line": 131,
+        "end_line": 152
+      },
+      {
+        "level": 2,
+        "title": "DB HA topology",
+        "start_line": 153,
+        "end_line": 156
+      },
+      {
+        "level": 1,
+        "title": "F. Security Design",
+        "start_line": 157,
+        "end_line": 173
+      },
+      {
+        "level": 2,
+        "title": "Auth & AuthZ",
+        "start_line": 158,
+        "end_line": 161
+      },
+      {
+        "level": 2,
+        "title": "Secrets management & rotation policy",
+        "start_line": 162,
+        "end_line": 165
+      },
+      {
+        "level": 2,
+        "title": "TLS & service-mesh considerations",
+        "start_line": 166,
+        "end_line": 169
+      },
+      {
+        "level": 2,
+        "title": "Threat model summary",
+        "start_line": 170,
+        "end_line": 173
+      },
+      {
+        "level": 1,
+        "title": "G. Observability & SRE",
+        "start_line": 174,
+        "end_line": 188
+      },
+      {
+        "level": 2,
+        "title": "Key per-component & business metrics",
+        "start_line": 175,
+        "end_line": 178
+      },
+      {
+        "level": 2,
+        "title": "SLOs, error budgets, RTO/RPO",
+        "start_line": 179,
+        "end_line": 184
+      },
+      {
+        "level": 2,
+        "title": "Dashboard & runbook sketch",
+        "start_line": 185,
+        "end_line": 188
+      },
+      {
+        "level": 1,
+        "title": "H. Testing Strategy",
+        "start_line": 189,
+        "end_line": 202
+      },
+      {
+        "level": 2,
+        "title": "Matrix mapping Unit / Integration / Contract / E2E / Chaos tests to components",
+        "start_line": 190,
+        "end_line": 198
+      },
+      {
+        "level": 2,
+        "title": "Test data management and environment isolation strategy",
+        "start_line": 199,
+        "end_line": 202
+      },
+      {
+        "level": 1,
+        "title": "I. Migration, Data Conversion & Rollout Plan",
+        "start_line": 203,
+        "end_line": 216
+      },
+      {
+        "level": 2,
+        "title": "High-level migration steps",
+        "start_line": 204,
+        "end_line": 208
+      },
+      {
+        "level": 2,
+        "title": "Data-sync strategies",
+        "start_line": 209,
+        "end_line": 212
+      },
+      {
+        "level": 2,
+        "title": "Backwards compatibility notes and migration windows for public APIs",
+        "start_line": 213,
+        "end_line": 216
+      },
+      {
+        "level": 1,
+        "title": "J. Tradeoffs & Alternatives",
+        "start_line": 217,
+        "end_line": 222
+      },
+      {
+        "level": 2,
+        "title": "For each major decision",
+        "start_line": 218,
+        "end_line": 222
+      },
+      {
+        "level": 1,
+        "title": "K. Open Questions & Assumptions",
+        "start_line": 223,
+        "end_line": 231
+      },
+      {
+        "level": 2,
+        "title": "Assumptions",
+        "start_line": 224,
+        "end_line": 227
+      },
+      {
+        "level": 2,
+        "title": "Unresolved stakeholder questions needing input",
+        "start_line": 228,
+        "end_line": 231
+      },
+      {
+        "level": 1,
+        "title": "L. Deliverables",
+        "start_line": 232,
+        "end_line": 308
+      },
+      {
+        "level": 1,
+        "title": "How to review",
+        "start_line": 309,
+        "end_line": 315
+      }
+    ],
+    "preview": "Analysis Plan:\r\nScope: Design a production-ready architectural documentation for the Space Fractions system.\r\nApproach: Align with the Requirements document and 11 PlantUML diagrams to create a comprehensive architecture.\r\nValidation: Verify that every FR/NFR/ASR is mapped in the traceability matrix and that all major "
+  },
+  {
+    "id": "design:77dac057e13f122ddc6fc19294490c6a961f00429b72f15df81a81adc91bdbc8",
+    "document": "Architecture_View.md",
+    "version": "77dac057e13f122ddc6fc19294490c6a961f00429b72f15df81a81adc91bdbc8",
+    "origin": "original input",
+    "line_count": 201,
+    "headings": [
+      {
+        "level": 2,
+        "title": "ScenarioView",
+        "start_line": 1,
+        "end_line": 20
+      },
+      {
+        "level": 2,
+        "title": "LogicView",
+        "start_line": 21,
+        "end_line": 78
+      },
+      {
+        "level": 2,
+        "title": "ProcessView",
+        "start_line": 79,
+        "end_line": 145
+      },
+      {
+        "level": 2,
+        "title": "DevelopmentView",
+        "start_line": 146,
+        "end_line": 176
+      },
+      {
+        "level": 2,
+        "title": "PhysicalView",
+        "start_line": 177,
+        "end_line": 201
+      }
+    ],
+    "preview": "## ScenarioView\r\n1. UseCase — Scenario View: Use Case Diagram\r\n```plantuml\r\n@startuml UseCaseDiagram\r\nleft to right direction\r\nactor EndUser as \"End User\"\r\nactor Admin as \"Admin\"\r\nrectangle System {\r\n  usecase \"Play Game\" as (PlayGame)\r\n  usecase \"View Score\" as (ViewScore)\r\n  usecase \"Update Questions\" as (UpdateQuest"
+  },
+  {
+    "id": "design:0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c",
+    "document": "space-fractions.md",
+    "version": "0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c",
+    "origin": "Operator benchmark supplement; not original design",
+    "line_count": 55,
+    "headings": [
+      {
+        "level": 1,
+        "title": "Space Fractions supplementary implementation and acceptance contract",
+        "start_line": 1,
+        "end_line": 55
+      }
+    ],
+    "preview": "# Space Fractions supplementary implementation and acceptance contract\r\n\r\nOrigin: operator-provided benchmark supplement, NOT original teacher requirements.\r\nInterpret the two original documents first. Record deviations and missing details.\r\n\r\nHonor the input architecture: Space Fractions, sixth-grade fraction learning"
+  }
+]

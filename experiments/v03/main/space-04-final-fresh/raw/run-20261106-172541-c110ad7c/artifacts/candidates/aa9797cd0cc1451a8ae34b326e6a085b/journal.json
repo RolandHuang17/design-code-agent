@@ -1,0 +1,18 @@
+{
+  "root": "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-04-final-fresh\\run-20261106-172541-c110ad7c\\project",
+  "changes": [
+    {
+      "path": "sql/seed.sql",
+      "before": null,
+      "after": "06d3b65a035c3e032da7b817939dd8f991db1b2ac24846154de12cf201845c5b"
+    }
+  ],
+  "checks": [
+    {
+      "path": "sql/seed.sql",
+      "status": "not_applicable",
+      "kind": "syntax_format"
+    }
+  ],
+  "status": "committed"
+}

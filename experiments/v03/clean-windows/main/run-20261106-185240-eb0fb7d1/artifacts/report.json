@@ -1,0 +1,431 @@
+{
+  "status": "completed_with_gaps",
+  "provider": "bailian",
+  "model": "deepseek-v4-pro-0813",
+  "uses_official_endpoint": false,
+  "real_api_run": true,
+  "checks": [
+    {
+      "profile": "static",
+      "status": "unverified",
+      "results": [
+        {
+          "check": "required:package.json",
+          "status": "passed"
+        },
+        {
+          "check": "required:README.md",
+          "status": "passed"
+        },
+        {
+          "check": "required:traceability.json",
+          "status": "passed"
+        },
+        {
+          "check": "app.cjs",
+          "status": "unverified",
+          "reason": "缺少 Node.js"
+        },
+        {
+          "check": "package.json",
+          "status": "passed"
+        },
+        {
+          "check": "plan.json",
+          "status": "passed"
+        },
+        {
+          "check": "server.cjs",
+          "status": "unverified",
+          "reason": "缺少 Node.js"
+        },
+        {
+          "check": "traceability.json",
+          "status": "passed"
+        },
+        {
+          "check": "test/health.test.cjs",
+          "status": "unverified",
+          "reason": "缺少 Node.js"
+        }
+      ],
+      "snapshot_id": "11c58de740f13cf28cb499416478184eb72afe1b1f0c84221638a474b01d48a3",
+      "snapshot_after": "11c58de740f13cf28cb499416478184eb72afe1b1f0c84221638a474b01d48a3",
+      "stale": false
+    },
+    {
+      "profile": "install",
+      "status": "unverified",
+      "reason": "未找到标准 Node/npm 安装；请按 README 手动安装依赖",
+      "snapshot_id": "11c58de740f13cf28cb499416478184eb72afe1b1f0c84221638a474b01d48a3",
+      "snapshot_after": "11c58de740f13cf28cb499416478184eb72afe1b1f0c84221638a474b01d48a3",
+      "stale": false
+    },
+    {
+      "profile": "test",
+      "status": "unverified",
+      "reason": "缺少 Node.js/npm 或 Docker",
+      "snapshot_id": "11c58de740f13cf28cb499416478184eb72afe1b1f0c84221638a474b01d48a3",
+      "snapshot_after": "11c58de740f13cf28cb499416478184eb72afe1b1f0c84221638a474b01d48a3",
+      "stale": false
+    },
+    {
+      "profile": "integration",
+      "status": "not_applicable",
+      "optional": true,
+      "reason": "项目未声明独立 test:integration；不计为通过，领域 HTTP 由项目外 runtime 验收",
+      "snapshot_id": "11c58de740f13cf28cb499416478184eb72afe1b1f0c84221638a474b01d48a3"
+    },
+    {
+      "profile": "build",
+      "status": "unverified",
+      "reason": "缺少 Node.js/npm 或 Docker",
+      "snapshot_id": "11c58de740f13cf28cb499416478184eb72afe1b1f0c84221638a474b01d48a3",
+      "snapshot_after": "11c58de740f13cf28cb499416478184eb72afe1b1f0c84221638a474b01d48a3",
+      "stale": false
+    },
+    {
+      "profile": "compose",
+      "status": "not_applicable",
+      "optional": true,
+      "reason": "通用项目未声明 Compose；未将特定案例部署结构强加给输入",
+      "snapshot_id": "11c58de740f13cf28cb499416478184eb72afe1b1f0c84221638a474b01d48a3"
+    },
+    {
+      "profile": "plan_references",
+      "status": "passed",
+      "problems": [],
+      "snapshot_id": "11c58de740f13cf28cb499416478184eb72afe1b1f0c84221638a474b01d48a3",
+      "limitation": "Checks planned files and literal relative imports, not dynamic imports or semantic compatibility"
+    },
+    {
+      "profile": "traceability_links",
+      "status": "passed",
+      "problems": [],
+      "limitation": "只检查链接和来源范围；语义覆盖需要独立审查",
+      "snapshot_id": "11c58de740f13cf28cb499416478184eb72afe1b1f0c84221638a474b01d48a3"
+    },
+    {
+      "profile": "runtime",
+      "status": "not_applicable",
+      "optional": true,
+      "reason": "通用项目无内置领域HTTP验收；业务正确性需另行独立检查",
+      "snapshot_id": "11c58de740f13cf28cb499416478184eb72afe1b1f0c84221638a474b01d48a3"
+    },
+    {
+      "profile": "startup",
+      "status": "unverified",
+      "endpoint": "/",
+      "meaning": "Local HTTP listener readiness only; not domain correctness",
+      "reason": "Standard Node.js/npm runtime is unavailable",
+      "snapshot_id": "11c58de740f13cf28cb499416478184eb72afe1b1f0c84221638a474b01d48a3",
+      "snapshot_after": "11c58de740f13cf28cb499416478184eb72afe1b1f0c84221638a474b01d48a3",
+      "stale": false,
+      "selection": "Host heuristic: HTTP/Express/web-server/REST terms in design; readiness only"
+    }
+  ],
+  "repair_rounds": 1,
+  "acceptance_profile": "generic-node",
+  "generation_origin": "fresh",
+  "schema_version": 2,
+  "limitation": "Checks do not establish semantic architecture fidelity, production readiness or performance. Review traceability and run independent acceptance tests.",
+  "turns": 17,
+  "bounded_replan_used": false,
+  "elapsed_seconds": 103.72,
+  "tool_metrics": {
+    "reads": 6,
+    "repeated_reads": 0,
+    "tool_errors": 0,
+    "writes": 10,
+    "host_derived_writes": 0
+  },
+  "budget": {
+    "limit_cny": null,
+    "charged_cny": 13.720656,
+    "uncertain_requests": 6,
+    "request_count": 141,
+    "prices": {
+      "input_per_million": 12.0,
+      "output_per_million": 27.0,
+      "reference_date": "2026-11-05"
+    }
+  },
+  "global_ledger_delta_cny": 1.7728140000000003,
+  "run_estimated_cny": 1.7728140000000001,
+  "cost_scope": "This run's responses with valid usage only; uncertain reservations stay charged in the global ledger. Global delta may include concurrent runs.",
+  "usage": [
+    {
+      "usage": {
+        "prompt_tokens": 3838,
+        "total_tokens": 4003,
+        "completion_tokens": 165,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792
+        }
+      },
+      "estimated_cny": 0.050511,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-27b3020b-616f-9554-b8f1-32d17bc8f7e3"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 4690,
+        "total_tokens": 7006,
+        "completion_tokens": 2316,
+        "prompt_tokens_details": {
+          "cached_tokens": 3584
+        }
+      },
+      "estimated_cny": 0.118812,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-962195d2-bd64-9b76-be29-f3c98dc1f550"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 7257,
+        "total_tokens": 7832,
+        "completion_tokens": 575,
+        "prompt_tokens_details": {
+          "cached_tokens": 4608
+        }
+      },
+      "estimated_cny": 0.102609,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-30679834-b457-9494-8f0d-69a28e91d50a"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 7958,
+        "total_tokens": 8022,
+        "completion_tokens": 64,
+        "prompt_tokens_details": {
+          "cached_tokens": 7168
+        }
+      },
+      "estimated_cny": 0.097224,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-c78e4d47-69b1-953f-a0ee-14355a33510f"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 8239,
+        "total_tokens": 8694,
+        "completion_tokens": 455,
+        "prompt_tokens_details": {
+          "cached_tokens": 7936
+        }
+      },
+      "estimated_cny": 0.111153,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-79376b8b-caf4-9dbc-aebd-a80106b5acad"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 6480,
+        "total_tokens": 6701,
+        "completion_tokens": 221,
+        "prompt_tokens_details": {
+          "cached_tokens": 2304
+        }
+      },
+      "estimated_cny": 0.083727,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-2fec79a7-6220-9322-8745-498dee85d910"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 6883,
+        "total_tokens": 7175,
+        "completion_tokens": 292,
+        "prompt_tokens_details": {
+          "cached_tokens": 2304
+        }
+      },
+      "estimated_cny": 0.09048,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-1435d30b-f1ad-9c0f-bc65-b96e34a857cd"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 7509,
+        "total_tokens": 7575,
+        "completion_tokens": 66,
+        "prompt_tokens_details": {
+          "cached_tokens": 2560
+        }
+      },
+      "estimated_cny": 0.09189,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-14787520-3fa1-9ec7-af20-cd1f890e28a8"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 7895,
+        "total_tokens": 8027,
+        "completion_tokens": 132,
+        "prompt_tokens_details": {
+          "cached_tokens": 7424
+        }
+      },
+      "estimated_cny": 0.098304,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-b7365d0d-56e3-923a-8834-1fcd15f7a89d"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 7548,
+        "total_tokens": 7613,
+        "completion_tokens": 65,
+        "prompt_tokens_details": {
+          "cached_tokens": 2560
+        }
+      },
+      "estimated_cny": 0.092331,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-0702355f-a401-938a-b1c1-1933cae8daaf"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 7933,
+        "total_tokens": 8384,
+        "completion_tokens": 451,
+        "prompt_tokens_details": {
+          "cached_tokens": 7424
+        }
+      },
+      "estimated_cny": 0.107373,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-b8356a55-694b-91a1-80a6-3e5abd0ef623"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 8972,
+        "total_tokens": 9604,
+        "completion_tokens": 632,
+        "prompt_tokens_details": {
+          "cached_tokens": 2560
+        }
+      },
+      "estimated_cny": 0.124728,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-2d04e63c-3ea5-99d2-be12-ad879d2331ff"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 7654,
+        "total_tokens": 7744,
+        "completion_tokens": 90,
+        "prompt_tokens_details": {
+          "cached_tokens": 3072
+        }
+      },
+      "estimated_cny": 0.094278,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-ac594be2-95ca-972b-8a73-cc9a518b5b94"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 8616,
+        "total_tokens": 8829,
+        "completion_tokens": 213,
+        "prompt_tokens_details": {
+          "cached_tokens": 7424
+        }
+      },
+      "estimated_cny": 0.109143,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-65a9faac-7a59-9b9f-84b5-ddb91308e37f"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 9479,
+        "total_tokens": 10262,
+        "completion_tokens": 783,
+        "prompt_tokens_details": {
+          "cached_tokens": 8448
+        }
+      },
+      "estimated_cny": 0.134889,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-2e3b90de-ab0a-9c0b-804c-506009950a19"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 10497,
+        "total_tokens": 10553,
+        "completion_tokens": 56,
+        "prompt_tokens_details": {
+          "cached_tokens": 9472
+        }
+      },
+      "estimated_cny": 0.127476,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-c9c5a73f-808b-9c18-bab9-09a7a2c2a95d"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 10829,
+        "total_tokens": 11123,
+        "completion_tokens": 294,
+        "prompt_tokens_details": {
+          "cached_tokens": 10240
+        }
+      },
+      "estimated_cny": 0.137886,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-5a0d7c41-54b9-9b96-ac10-4fcacfc68e5d"
+    }
+  ],
+  "valid_api_responses": 17,
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "f088385cb7b1f362af8ad3c2d0449d40a10f32f419f60dd233c6d002322d9218"
+    },
+    {
+      "path": "app.cjs",
+      "sha256": "277fae156dc1f081b7d4d49ff578525c11caa67c064ec7ed5650dd9216c5df3f"
+    },
+    {
+      "path": "architecture-decisions.md",
+      "sha256": "b1e2a06eea30627ec1273e7c18381192087a75cba97c53da1d2f3c94090b4eda"
+    },
+    {
+      "path": "package.json",
+      "sha256": "53e105e3d2977074fd6731a411cc87382d37cfb84591ffca502fbe85a9a0a35c"
+    },
+    {
+      "path": "plan.json",
+      "sha256": "4a1857150f7f430ac4c5d31c19f5dac0d3f5c530e8397d4a48fb7c2e30707348"
+    },
+    {
+      "path": "server.cjs",
+      "sha256": "95989d0e8870c944da4b10847ccccc6cff367bb694ae9a760a4a1e61a7bb1851"
+    },
+    {
+      "path": "traceability.json",
+      "sha256": "c404b89872d93d55fc42de84ca18b621e860f01cabf8812b5f28721cb152d010"
+    },
+    {
+      "path": "test/health.test.cjs",
+      "sha256": "9fe270664b212b14155f24f1ee11ec1ae91e031013ba51ba422eb6f2c2989660"
+    }
+  ]
+}

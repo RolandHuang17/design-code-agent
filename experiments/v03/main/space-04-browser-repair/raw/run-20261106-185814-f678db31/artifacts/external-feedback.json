@@ -1,0 +1,7 @@
+[
+  {
+    "profile": "browser_login",
+    "status": "failed",
+    "details": "Independent real Chromium review: entry http://localhost:2644/ loaded. Clicking generated Sign in attempted http://localhost:8080/realms/space-fractions/protocol/openid-connect/auth with response_type=code, client_id=space-fractions-client, redirect_uri=http://localhost:2644/, PKCE S256; Chromium displayed ERR_CONNECTION_REFUSED. Actual isolated Keycloak identity public origin was http://localhost:2645 (KC_HOSTNAME_URL), as configured in the owned Compose deployment. HTTP preflight passed27/27, including local demo tokens and PKCE client setup, but that does not prove browser login. Original UI/OAuth requirements require authenticated student game flows and admin UI; benchmark runtime contract requires public links/realm redirects derived from supplied public origins instead of a fixed host port. All remaining browser student start/answer/score/pause/resume/help, admin operations and reload persistence checks were skipped until independently retested. No credentials were submitted in browser, no auth cookies forced, and no generated source modified. Evidence: browser.json, browser/login-failed.png and browser/page-2026-11-06T10-53-43-379Z.yml."
+  }
+]

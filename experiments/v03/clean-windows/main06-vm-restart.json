@@ -1,0 +1,6 @@
+{
+  "kind": "clean_windows_environment_interruption",
+  "reason": "After boot, the guest desktop clock and input stopped responding before launching final main06. No guest model task was active. ACPI and pause/resume did not recover it; reset only the dedicated VM.",
+  "previous_evidence_preserved": true,
+  "host_paid_trial_affected": false
+}

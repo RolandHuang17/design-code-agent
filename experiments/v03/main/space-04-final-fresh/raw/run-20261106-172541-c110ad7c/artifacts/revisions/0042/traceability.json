@@ -1,0 +1,224 @@
+{
+  "items": [
+    {
+      "id": "FR-1",
+      "source": { "document": "Architecture_View.md", "start_line": 12 },
+      "description": "Play Game use case: gateways create a game and return the question set to the player.",
+      "files": [
+        "packages/game-service/src/index.js",
+        "packages/gateway/src/index.js",
+        "openapi.yaml"
+      ],
+      "tests": ["test/game-routes.test.js", "test/scoring.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR-2",
+      "source": { "document": "Architecture_View.md", "start_line": 13 },
+      "description": "View Score use case: expose per-game score without leaking correct answers.",
+      "files": ["packages/game-service/src/index.js"],
+      "tests": ["test/scoring.test.js", "test/game-routes.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR-3",
+      "source": { "document": "Architecture_View.md", "start_line": 14 },
+      "description": "Update Questions use case: authenticated administrator question CRUD.",
+      "files": [
+        "packages/admin-service/src/index.js",
+        "packages/question-service/src/index.js"
+      ],
+      "tests": ["test/auth.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR-4",
+      "source": { "document": "Architecture_View.md", "start_line": 15 },
+      "description": "View Help use case: introduce rules and help content to the player.",
+      "files": [
+        "packages/gateway/public/index.html",
+        "packages/gateway/public/app.js"
+      ],
+      "tests": [],
+      "status": "implemented"
+    },
+    {
+      "id": "FR-5",
+      "source": { "document": "space-fractions.md", "start_line": 9 },
+      "description": "Exact rational arithmetic for fraction answers; server-side input validation.",
+      "files": [
+        "src/shared/fraction.js",
+        "packages/question-service/src/index.js"
+      ],
+      "tests": ["test/fraction.test.js", "test/scoring.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR-6",
+      "source": { "document": "space-fractions.md", "start_line": 19 },
+      "description": "Game answer/scoring contract: POST /api/games/:id/answers returns {correct,score}; each correct answer counts 1.",
+      "files": [
+        "packages/game-service/src/index.js",
+        "packages/game-service/src/repository.js"
+      ],
+      "tests": ["test/scoring.test.js", "test/game-routes.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR-7",
+      "source": { "document": "space-fractions.md", "start_line": 20 },
+      "description": "Transactionally deduplicate answer scoring per game; repeating a question must not increase score.",
+      "files": [
+        "packages/game-service/src/repository.js",
+        "packages/game-service/src/index.js"
+      ],
+      "tests": ["test/scoring.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR-8",
+      "source": { "document": "space-fractions.md", "start_line": 19 },
+      "description": "Pause/resume game state; answering while paused returns 409.",
+      "files": ["packages/game-service/src/index.js"],
+      "tests": ["test/game-routes.test.js", "test/scoring.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR-9",
+      "source": { "document": "space-fractions.md", "start_line": 15 },
+      "description": "Admin question CRUD contract: POST /api/admin/questions -> 201; DELETE /api/admin/questions/:id -> 200/204.",
+      "files": ["packages/admin-service/src/index.js"],
+      "tests": ["test/auth.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR-10",
+      "source": { "document": "space-fractions.md", "start_line": 15 },
+      "description": "Gateway serves browser UI at / and exposes GET /health returning 200; original GET /play kept for backwards compatibility.",
+      "files": [
+        "packages/gateway/src/index.js",
+        "packages/gateway/public/index.html",
+        "packages/gateway/public/app.js",
+        "openapi.yaml",
+        "internal.proto"
+      ],
+      "tests": [],
+      "status": "implemented"
+    },
+    {
+      "id": "NFR-1",
+      "source": { "document": "Architecture_Documentation.md", "start_line": 303 },
+      "description": "Performance: game responds quickly to user input (see SequenceDiagram1).",
+      "files": ["internal.proto", "packages/game-service/src/index.js"],
+      "tests": [],
+      "status": "partial"
+    },
+    {
+      "id": "NFR-2",
+      "source": { "document": "space-fractions.md", "start_line": 14 },
+      "description": "Security/AuthZ: authorize each game by owner; validate OIDC issuer/audience/JWKS and admin roles.",
+      "files": [
+        "src/shared/oidc.js",
+        "packages/user-service/src/index.js",
+        "packages/game-service/src/index.js"
+      ],
+      "tests": ["test/auth.test.js", "test/game-routes.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "NFR-3",
+      "source": { "document": "space-fractions.md", "start_line": 11 },
+      "description": "Bounded downstream timeouts and error handling in the gateway.",
+      "files": ["packages/gateway/src/index.js"],
+      "tests": ["test/game-routes.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "NFR-4",
+      "source": { "document": "space-fractions.md", "start_line": 26 },
+      "description": "Observability: Prometheus metrics and RabbitMQ score events as real integrations.",
+      "files": [
+        "src/metrics.js",
+        "packages/game-service/src/events.js"
+      ],
+      "tests": [],
+      "status": "implemented"
+    },
+    {
+      "id": "NFR-5",
+      "source": { "document": "space-fractions.md", "start_line": 35 },
+      "description": "Reproducible build: build script actually checks/prepares source; tests use node:test with pinned deps.",
+      "files": ["package.json", "scripts/build.mjs"],
+      "tests": ["test/fraction.test.js", "test/scoring.test.js", "test/auth.test.js", "test/game-routes.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "ASR-1",
+      "source": { "document": "Architecture_Documentation.md", "start_line": 303 },
+      "description": "Data durability: PostgreSQL owns game/question/answer state; idempotent migrations and seeds.",
+      "files": [
+        "sql/migrations/001_schema.sql",
+        "sql/seed.sql",
+        "sql/game_ddl.sql"
+      ],
+      "tests": [],
+      "status": "implemented"
+    },
+    {
+      "id": "ASR-2",
+      "source": { "document": "space-fractions.md", "start_line": 30 },
+      "description": "Deployment: working Compose configuration with gateway on container port 3000 and Keycloak on 8080.",
+      "files": ["compose.yaml", ".env.example"],
+      "tests": [],
+      "status": "implemented"
+    },
+    {
+      "id": "DERIVED-1",
+      "source": { "document": "space-fractions.md", "start_line": 40 },
+      "description": "Public URLs derive from PUBLIC_ORIGIN and OIDC_ISSUER/OIDC_PUBLIC_ORIGIN, not a fixed host port.",
+      "files": [
+        "packages/gateway/src/index.js",
+        "src/shared/oidc.js",
+        "compose.yaml",
+        ".env.example",
+        "infra/keycloak/realm.json"
+      ],
+      "tests": [],
+      "status": "implemented"
+    },
+    {
+      "id": "DERIVED-2",
+      "source": { "document": "space-fractions.md", "start_line": 48 },
+      "description": "Map verified sub strings to numeric internal user IDs; unique(users.subject); stable question order via position.",
+      "files": [
+        "packages/user-service/src/index.js",
+        "sql/migrations/001_schema.sql"
+      ],
+      "tests": [],
+      "status": "implemented"
+    },
+    {
+      "id": "DERIVED-3",
+      "source": { "document": "space-fractions.md", "start_line": 22 },
+      "description": "Never include correctAnswer in any player-facing response.",
+      "files": [
+        "packages/game-service/src/index.js",
+        "openapi.yaml"
+      ],
+      "tests": ["test/game-routes.test.js", "test/scoring.test.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "DERIVED-4",
+      "source": { "document": "space-fractions.md", "start_line": 18 },
+      "description": "Malformed fraction -> 400; missing/invalid credentials -> 401; other user's game -> 403/404.",
+      "files": [
+        "src/shared/fraction.js",
+        "src/shared/oidc.js",
+        "packages/game-service/src/index.js"
+      ],
+      "tests": ["test/fraction.test.js", "test/auth.test.js", "test/game-routes.test.js"],
+      "status": "implemented"
+    }
+  ]
+}

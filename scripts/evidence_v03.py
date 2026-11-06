@@ -8,7 +8,9 @@ from urllib.parse import quote
 
 
 EVIDENCE_NAMES = {'report.json', 'manifest.json', 'receipt.json', 'diagnosis.json', 'browser.json',
-                  'manifest-start.json', 'summary.json', 'build-final.json', 'clean-windows.json', 'interruption.json'}
+                  'manifest-start.json', 'summary.json', 'build-final.json', 'clean-windows.json', 'interruption.json',
+                  'result.json', 'tool-regression.json', 'upstream-reading.json', 'ci.json', 'delivery-audit.json',
+                  'main06-summary.json', 'main06-host-checks.json', 'main06-host-independent.json'}
 EXCLUDED_PARTS = {'node_modules', '.git', '.venv', '__pycache__', 'project', 'source', 'stages', 'candidates', 'revisions', 'inputs'}
 
 

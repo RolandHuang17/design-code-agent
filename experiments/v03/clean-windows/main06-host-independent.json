@@ -1,0 +1,95 @@
+{
+  "kind": "independent_health_http_restart",
+  "status": "passed",
+  "source_hashes_before": {
+    "README.md": "f088385cb7b1f362af8ad3c2d0449d40a10f32f419f60dd233c6d002322d9218",
+    "app.cjs": "277fae156dc1f081b7d4d49ff578525c11caa67c064ec7ed5650dd9216c5df3f",
+    "architecture-decisions.md": "b1e2a06eea30627ec1273e7c18381192087a75cba97c53da1d2f3c94090b4eda",
+    "package.json": "53e105e3d2977074fd6731a411cc87382d37cfb84591ffca502fbe85a9a0a35c",
+    "plan.json": "4a1857150f7f430ac4c5d31c19f5dac0d3f5c530e8397d4a48fb7c2e30707348",
+    "server.cjs": "95989d0e8870c944da4b10847ccccc6cff367bb694ae9a760a4a1e61a7bb1851",
+    "traceability.json": "c404b89872d93d55fc42de84ca18b621e860f01cabf8812b5f28721cb152d010",
+    "test/health.test.cjs": "9fe270664b212b14155f24f1ee11ec1ae91e031013ba51ba422eb6f2c2989660"
+  },
+  "checks": [
+    {
+      "restart_index": 0,
+      "path": "/health",
+      "http_status": 200,
+      "body": {
+        "status": "ok"
+      },
+      "passed": true
+    },
+    {
+      "restart_index": 0,
+      "path": "/unknown-route",
+      "http_status": 404,
+      "body": {
+        "error": "not found"
+      },
+      "passed": true
+    },
+    {
+      "restart_index": 0,
+      "path": "/health",
+      "http_status": 200,
+      "body": {
+        "status": "ok"
+      },
+      "passed": true
+    },
+    {
+      "restart_index": 1,
+      "path": "/health",
+      "http_status": 200,
+      "body": {
+        "status": "ok"
+      },
+      "passed": true
+    },
+    {
+      "restart_index": 1,
+      "path": "/unknown-route",
+      "http_status": 404,
+      "body": {
+        "error": "not found"
+      },
+      "passed": true
+    },
+    {
+      "restart_index": 1,
+      "path": "/health",
+      "http_status": 200,
+      "body": {
+        "status": "ok"
+      },
+      "passed": true
+    }
+  ],
+  "cleanup": [
+    {
+      "restart_index": 0,
+      "process_stopped": true,
+      "port_closed": true,
+      "output_tail": "\n> minimal-http-health-service@1.0.0 start\n> node server.cjs\n\nhealth service listening on port 10525\n"
+    },
+    {
+      "restart_index": 1,
+      "process_stopped": true,
+      "port_closed": true,
+      "output_tail": "\n> minimal-http-health-service@1.0.0 start\n> node server.cjs\n\nhealth service listening on port 10532\n"
+    }
+  ],
+  "source_hashes_after": {
+    "README.md": "f088385cb7b1f362af8ad3c2d0449d40a10f32f419f60dd233c6d002322d9218",
+    "app.cjs": "277fae156dc1f081b7d4d49ff578525c11caa67c064ec7ed5650dd9216c5df3f",
+    "architecture-decisions.md": "b1e2a06eea30627ec1273e7c18381192087a75cba97c53da1d2f3c94090b4eda",
+    "package.json": "53e105e3d2977074fd6731a411cc87382d37cfb84591ffca502fbe85a9a0a35c",
+    "plan.json": "4a1857150f7f430ac4c5d31c19f5dac0d3f5c530e8397d4a48fb7c2e30707348",
+    "server.cjs": "95989d0e8870c944da4b10847ccccc6cff367bb694ae9a760a4a1e61a7bb1851",
+    "traceability.json": "c404b89872d93d55fc42de84ca18b621e860f01cabf8812b5f28721cb152d010",
+    "test/health.test.cjs": "9fe270664b212b14155f24f1ee11ec1ae91e031013ba51ba422eb6f2c2989660"
+  },
+  "source_unchanged": true
+}

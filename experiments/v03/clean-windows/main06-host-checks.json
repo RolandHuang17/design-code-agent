@@ -1,0 +1,114 @@
+{
+  "kind": "host_after_native_export",
+  "meaning": "Host checks of unchanged guest output; does not overwrite guest unverified checks",
+  "checks": [
+    {
+      "profile": "static",
+      "status": "passed",
+      "results": [
+        {
+          "check": "required:package.json",
+          "status": "passed"
+        },
+        {
+          "check": "required:README.md",
+          "status": "passed"
+        },
+        {
+          "check": "required:traceability.json",
+          "status": "passed"
+        },
+        {
+          "check": "app.cjs",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\experiments\\v03\\clean-windows\\main\\run-20261106-185240-eb0fb7d1\\project\\app.cjs"
+          ],
+          "output": ""
+        },
+        {
+          "check": "package.json",
+          "status": "passed"
+        },
+        {
+          "check": "plan.json",
+          "status": "passed"
+        },
+        {
+          "check": "server.cjs",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\experiments\\v03\\clean-windows\\main\\run-20261106-185240-eb0fb7d1\\project\\server.cjs"
+          ],
+          "output": ""
+        },
+        {
+          "check": "traceability.json",
+          "status": "passed"
+        },
+        {
+          "check": "test/health.test.cjs",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task\\experiments\\v03\\clean-windows\\main\\run-20261106-185240-eb0fb7d1\\project\\test\\health.test.cjs"
+          ],
+          "output": ""
+        }
+      ],
+      "snapshot_id": "11c58de740f13cf28cb499416478184eb72afe1b1f0c84221638a474b01d48a3",
+      "snapshot_after": "11c58de740f13cf28cb499416478184eb72afe1b1f0c84221638a474b01d48a3",
+      "stale": false
+    },
+    {
+      "profile": "test",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "run",
+        "test",
+        "--ignore-scripts"
+      ],
+      "output": "\n> minimal-http-health-service@1.0.0 test\n> node --test\n\n✔ GET /health returns 200 with {\"status\":\"ok\"} (40.177ms)\n✔ unknown route returns 404 with JSON error (3.6329ms)\n✔ GET /health still works after an unknown request (2.9262ms)\nℹ tests 3\nℹ suites 0\nℹ pass 3\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 190.6828\n",
+      "test_count": 3,
+      "skipped_count": 0,
+      "test_execution": "observed",
+      "snapshot_id": "11c58de740f13cf28cb499416478184eb72afe1b1f0c84221638a474b01d48a3",
+      "snapshot_after": "11c58de740f13cf28cb499416478184eb72afe1b1f0c84221638a474b01d48a3",
+      "stale": false
+    },
+    {
+      "profile": "build",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "run",
+        "build",
+        "--ignore-scripts"
+      ],
+      "output": "\n> minimal-http-health-service@1.0.0 build\n> node --check app.cjs && node --check server.cjs && node --check test/health.test.cjs\n\n",
+      "snapshot_id": "11c58de740f13cf28cb499416478184eb72afe1b1f0c84221638a474b01d48a3",
+      "snapshot_after": "11c58de740f13cf28cb499416478184eb72afe1b1f0c84221638a474b01d48a3",
+      "stale": false
+    }
+  ],
+  "source_unchanged": true,
+  "status": "passed"
+}

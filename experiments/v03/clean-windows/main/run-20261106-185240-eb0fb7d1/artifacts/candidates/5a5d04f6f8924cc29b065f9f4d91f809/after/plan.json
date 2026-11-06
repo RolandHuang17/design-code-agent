@@ -1,0 +1,101 @@
+{
+  "summary": "Implement a minimal stateless Node.js 22 HTTP health service using only built-in http and node:test. A single exported server factory (app.cjs) is consumed by both the executable startup entry (server.cjs) and real ephemeral-loopback-port tests (test/health.test.cjs). No database, Docker, identity provider, third-party packages, or cloud infrastructure.",
+  "tasks": [
+    {
+      "id": "T1",
+      "description": "Package manifest with start/test/build scripts, engines node>=22, CommonJS .cjs convention, no dependencies.",
+      "files": ["package.json"],
+      "depends_on": [],
+      "sources": [
+        {"document": "0-Architecture_Documentation.md", "start_line": 9, "end_line": 11}
+      ],
+      "contracts": [
+        {"description": "npm start runs server.cjs; npm test runs node --test; npm run build runs node --check on all source files", "source": {"document": "0-Architecture_Documentation.md", "start_line": 10}}
+      ]
+    },
+    {
+      "id": "T2",
+      "description": "Exported HTTP server factory app.cjs routing GET /health to 200 {\"status\":\"ok\"} and all other routes to 404 JSON error.",
+      "files": ["app.cjs"],
+      "depends_on": [],
+      "sources": [
+        {"document": "0-Architecture_Documentation.md", "start_line": 7, "end_line": 8},
+        {"document": "1-Architecture_View.md", "start_line": 7, "end_line": 8}
+      ],
+      "contracts": [
+        {"description": "createServer() factory returns an http.Server that maps GET /health to 200 and status ok, and any other path/method to 404 with JSON error body", "source": {"document": "0-Architecture_Documentation.md", "start_line": 7}},
+        {"description": "Unknown request must not break subsequent /health responses (stateless handler)", "source": {"document": "0-Architecture_Documentation.md", "start_line": 8}}
+      ]
+    },
+    {
+      "id": "T3",
+      "description": "Executable startup entry server.cjs that imports the factory, listens on process.env.PORT default 3000, with portable entrypoint detection.",
+      "files": ["server.cjs"],
+      "depends_on": ["T2"],
+      "sources": [
+        {"document": "0-Architecture_Documentation.md", "start_line": 9, "end_line": 9},
+        {"document": "1-Architecture_View.md", "start_line": 6, "end_line": 6}
+      ],
+      "contracts": [
+        {"description": "server.cjs creates the app and listens on PORT (default 3000); startup stays separate so tests never bind a fixed port", "source": {"document": "0-Architecture_Documentation.md", "start_line": 9}}
+      ]
+    },
+    {
+      "id": "T4",
+      "description": "Real HTTP tests on ephemeral loopback port covering health, unknown route, and health again; close the server after tests.",
+      "files": ["test/health.test.cjs"],
+      "depends_on": ["T2"],
+      "sources": [
+        {"document": "0-Architecture_Documentation.md", "start_line": 10, "end_line": 10},
+        {"document": "1-Architecture_View.md", "start_line": 7, "end_line": 7}
+      ],
+      "contracts": [
+        {"description": "npm test performs actual HTTP requests on a loopback ephemeral port: GET /health -> 200 {status:ok}, unknown route -> 404 JSON, GET /health again -> 200; server closed in teardown, no mocks", "source": {"document": "0-Architecture_Documentation.md", "start_line": 10}}
+      ]
+    },
+    {
+      "id": "T5",
+      "description": "README with install/start/test instructions and a source-to-requirement mapping.",
+      "files": ["README.md"],
+      "depends_on": ["T1", "T2", "T3", "T4"],
+      "sources": [
+        {"document": "0-Architecture_Documentation.md", "start_line": 11, "end_line": 11}
+      ],
+      "contracts": [
+        {"description": "README documents npm install/start/test/build usage and maps each FR/NFR to its source and test file", "source": {"document": "0-Architecture_Documentation.md", "start_line": 11}}
+      ]
+    },
+    {
+      "id": "T6",
+      "description": "Traceability matrix mapping each requirement to implementation files and tests.",
+      "files": ["traceability.json"],
+      "depends_on": ["T2", "T3", "T4"],
+      "sources": [
+        {"document": "0-Architecture_Documentation.md", "start_line": 7, "end_line": 11}
+      ],
+      "contracts": [
+        {"description": "Trace each FR/NFR to concrete files and test files", "source": {"document": "0-Architecture_Documentation.md", "start_line": 7}}
+      ]
+    },
+    {
+      "id": "T7",
+      "description": "Architecture decision record documenting minimal built-in-only scope and factory/startup separation.",
+      "files": ["architecture-decisions.md"],
+      "depends_on": [],
+      "sources": [
+        {"document": "0-Architecture_Documentation.md", "start_line": 6, "end_line": 9},
+        {"document": "1-Architecture_View.md", "start_line": 7, "end_line": 11}
+      ],
+      "contracts": [
+        {"description": "Record decision to use only built-in http/node:test and to separate factory from executable startup", "source": {"document": "0-Architecture_Documentation.md", "start_line": 6}}
+      ]
+    }
+  ],
+  "assumptions": [
+    "A1 (assumption): No database, Docker, Compose, gateway, identity provider, or OpenAPI are required; the original documents explicitly exclude them, so none are produced.",
+    "A2 (assumption): CommonJS .cjs extension is applied to all source and test files per NFR2's 'consistent CommonJS conventions with .cjs source files'.",
+    "A3 (assumption): The 404 error JSON body shape is fixed as {\"error\":\"not found\"} since the design requires 'a JSON error' but does not specify field names (origin=assumption).",
+    "A4 (assumption): package.json has zero dependencies and zero devDependencies, relying entirely on Node built-ins."
+  ],
+  "conflicts": []
+}

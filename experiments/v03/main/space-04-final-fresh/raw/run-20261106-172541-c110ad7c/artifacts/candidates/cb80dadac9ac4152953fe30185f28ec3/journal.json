@@ -1,0 +1,18 @@
+{
+  "root": "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-04-final-fresh\\run-20261106-172541-c110ad7c\\project",
+  "changes": [
+    {
+      "path": "sql/migrations/001_schema.sql",
+      "before": null,
+      "after": "07f6255bf5009962ee380d36d2030e4a4d888bd7c6aea09e20014a0702595229"
+    }
+  ],
+  "checks": [
+    {
+      "path": "sql/migrations/001_schema.sql",
+      "status": "not_applicable",
+      "kind": "syntax_format"
+    }
+  ],
+  "status": "committed"
+}

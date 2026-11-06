@@ -1,0 +1,44 @@
+{
+  "items": [
+    {
+      "id": "FR1",
+      "source": {"document": "0-Architecture_Documentation.md", "start_line": 7},
+      "description": "GET /health returns HTTP 200 and JSON {\"status\":\"ok\"}.",
+      "files": ["app.cjs"],
+      "tests": ["test/health.test.cjs"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR2",
+      "source": {"document": "0-Architecture_Documentation.md", "start_line": 8},
+      "description": "Unknown routes return HTTP 404 and a JSON error; service still answers /health afterward.",
+      "files": ["app.cjs"],
+      "tests": ["test/health.test.cjs"],
+      "status": "implemented"
+    },
+    {
+      "id": "FR3",
+      "source": {"document": "0-Architecture_Documentation.md", "start_line": 9},
+      "description": "npm start listens on process.env.PORT (default 3000); factory separated from executable startup.",
+      "files": ["server.cjs", "app.cjs"],
+      "tests": [],
+      "status": "implemented"
+    },
+    {
+      "id": "NFR1",
+      "source": {"document": "0-Architecture_Documentation.md", "start_line": 10},
+      "description": "npm test runs real HTTP tests on an ephemeral loopback port (health, unknown route, health again) and closes the server; no mocks.",
+      "files": ["test/health.test.cjs"],
+      "tests": ["test/health.test.cjs"],
+      "status": "implemented"
+    },
+    {
+      "id": "NFR2",
+      "source": {"document": "0-Architecture_Documentation.md", "start_line": 11},
+      "description": "npm run build checks all source JavaScript syntax; deliver package.json, source, tests, README with install/start/test and source-to-requirement mapping; CommonJS .cjs files.",
+      "files": ["package.json", "app.cjs", "server.cjs", "test/health.test.cjs", "README.md"],
+      "tests": [],
+      "status": "implemented"
+    }
+  ]
+}

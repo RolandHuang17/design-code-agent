@@ -1,0 +1,87 @@
+{
+  "kind": "independent_browser",
+  "status": "failed",
+  "base_url": "http://localhost:10312",
+  "identity_url": "http://localhost:10313",
+  "checks": [
+    {
+      "check": "entry and runtime configuration",
+      "status": "passed",
+      "observation": "Entry and config loaded at localhost10312; Sign in navigated to actual Keycloak localhost10313 with PKCE S256."
+    },
+    {
+      "check": "student real browser authentication",
+      "status": "passed",
+      "observation": "student/student submitted through actual Keycloak form; returned to app showing student and Sign out."
+    },
+    {
+      "check": "student visible main menu",
+      "status": "failed",
+      "observation": "Main blank with no Play/View Score/Help controls after login, and after reload."
+    },
+    {
+      "check": "admin real browser authentication",
+      "status": "passed",
+      "observation": "Separate fresh Chromium session admin/admin through Keycloak returned showing admin and Sign out."
+    },
+    {
+      "check": "admin visible question operations",
+      "status": "failed",
+      "observation": "Main blank; no admin controls visible. Generated index.html has no view-admin section; app.js renderAdmin exists but no invocation observed."
+    },
+    {
+      "check": "student start",
+      "status": "skipped",
+      "reason": "No visible game/menu controls; UI blocker retained without DOM/CSS modifications or forced API substitutes."
+    },
+    {
+      "check": "answer and score",
+      "status": "skipped",
+      "reason": "No visible game/menu controls; UI blocker retained without DOM/CSS modifications or forced API substitutes."
+    },
+    {
+      "check": "pause and resume",
+      "status": "skipped",
+      "reason": "No visible game/menu controls; UI blocker retained without DOM/CSS modifications or forced API substitutes."
+    },
+    {
+      "check": "help",
+      "status": "skipped",
+      "reason": "No visible game/menu controls; UI blocker retained without DOM/CSS modifications or forced API substitutes."
+    },
+    {
+      "check": "game state reload persistence",
+      "status": "skipped",
+      "reason": "No visible game/menu controls; UI blocker retained without DOM/CSS modifications or forced API substitutes."
+    },
+    {
+      "check": "admin question CRUD",
+      "status": "skipped",
+      "reason": "No visible game/menu controls; UI blocker retained without DOM/CSS modifications or forced API substitutes."
+    }
+  ],
+  "source_matches_original_run": true,
+  "original_report_files": 46,
+  "original_hash_mismatches": [],
+  "source_unchanged": true,
+  "manual_project_edits": false,
+  "cleanup": {
+    "stop_method": "cooperative stop file",
+    "server_exit_code": 0,
+    "playwright_sessions_closed": [
+      "v03space04repair",
+      "v03space04repairadmin"
+    ],
+    "owned_project": "dca-e1c4ad53bf54",
+    "post_stop_ps_exit_code": 0,
+    "post_stop_ps_stdout": "",
+    "post_stop_ps_stderr": "",
+    "no_owned_containers_remain": true
+  },
+  "lineage": "Seed continuation of space-04-final-fresh; not a new generation. Only compose.yaml, gateway/public/index.html and gateway/src/index.js changed.",
+  "gaps_in_original_report": [
+    "integration not_applicable: no test:integration script",
+    "external_review_retest unverified: independent browser retest required"
+  ],
+  "previous_feedback_resolution": "Fixed public identity origin: real student/admin PKCE authentication now works. Full UI acceptance still fails."
+}

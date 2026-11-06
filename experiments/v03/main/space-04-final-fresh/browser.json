@@ -1,0 +1,68 @@
+{
+  "kind": "independent_browser",
+  "status": "failed",
+  "browser": "real Chromium via @playwright/cli session v03space04",
+  "base_url": "http://localhost:2644",
+  "identity_url": "http://localhost:2645",
+  "checks": [
+    {
+      "check": "browser entry",
+      "status": "passed",
+      "url": "http://localhost:2644/",
+      "title": "Space Fractions — Sixth-Grade Fraction Learning"
+    },
+    {
+      "check": "real OIDC browser sign-in",
+      "status": "failed",
+      "observed": "Generated Sign in navigates to localhost:8080 Keycloak auth endpoint; Chromium ERR_CONNECTION_REFUSED. Owned Keycloak was at localhost:2645. No credentials submitted.",
+      "attempted_authorization_endpoint": "http://localhost:8080/realms/space-fractions/protocol/openid-connect/auth"
+    },
+    {
+      "check": "student start",
+      "status": "skipped",
+      "reason": "Blocked by real browser login failure; no cookies/auth forced"
+    },
+    {
+      "check": "student answer and score",
+      "status": "skipped",
+      "reason": "Blocked by real browser login failure; no cookies/auth forced"
+    },
+    {
+      "check": "pause and resume",
+      "status": "skipped",
+      "reason": "Blocked by real browser login failure; no cookies/auth forced"
+    },
+    {
+      "check": "help in authenticated game",
+      "status": "skipped",
+      "reason": "Blocked by real browser login failure; no cookies/auth forced"
+    },
+    {
+      "check": "admin question operations",
+      "status": "skipped",
+      "reason": "Blocked by real browser login failure; no cookies/auth forced"
+    },
+    {
+      "check": "reload persistence",
+      "status": "skipped",
+      "reason": "Blocked by real browser login failure; no cookies/auth forced"
+    }
+  ],
+  "source_matches_original_run": true,
+  "original_report_files": 46,
+  "original_hash_mismatches": [],
+  "source_unchanged": true,
+  "manual_project_edits": false,
+  "cleanup": {
+    "origin": "independent post-stop owned project query",
+    "project": "dca-7e67c1dc6752",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "no_owned_containers_remain": true,
+    "server_process_exit_code": 0,
+    "stop_method": "cooperative stop file",
+    "playwright_session_closed": true
+  },
+  "limitations": "HTTP fixture acceptance passed separately. Browser login failure prevents full UI acceptance. No model calls or repairs."
+}

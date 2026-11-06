@@ -1,0 +1,18 @@
+{
+  "root": "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-04-final-fresh\\run-20261106-172541-c110ad7c\\project",
+  "changes": [
+    {
+      "path": "infra/vault-policy.hcl",
+      "before": null,
+      "after": "c1ddab16d4e3ad0f2dec6f80cf9bd4b646a28d0c8c7cc1f139d207e7c60363ab"
+    }
+  ],
+  "checks": [
+    {
+      "path": "infra/vault-policy.hcl",
+      "status": "not_applicable",
+      "kind": "syntax_format"
+    }
+  ],
+  "status": "committed"
+}

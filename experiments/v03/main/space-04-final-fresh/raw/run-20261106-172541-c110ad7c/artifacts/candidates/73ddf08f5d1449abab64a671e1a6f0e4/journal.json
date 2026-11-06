@@ -1,0 +1,26 @@
+{
+  "root": "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-04-final-fresh\\run-20261106-172541-c110ad7c\\project",
+  "changes": [
+    {
+      "path": "packages/question-service/src/index.js",
+      "before": "40f54e6e7c8319ea211f0a6dff34d2532a94323b418336bf8db7447bae22b30c",
+      "after": "9e1a3b412602b0e660d2c9899bc2bc1d0447918bb4a28ab90c0428f61c45b12f"
+    }
+  ],
+  "checks": [
+    {
+      "path": "packages/question-service/src/index.js",
+      "status": "passed",
+      "kind": "syntax_format",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "D:\\projects\\Task-v03-runs\\runs\\v03\\main\\space-04-final-fresh\\run-20261106-172541-c110ad7c\\artifacts\\candidates\\73ddf08f5d1449abab64a671e1a6f0e4\\after\\packages\\question-service\\src\\index.js"
+      ],
+      "output": ""
+    }
+  ],
+  "status": "committed"
+}

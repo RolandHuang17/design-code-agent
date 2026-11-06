@@ -1,0 +1,19 @@
+{
+  "kind": "tool_regression",
+  "command": "powershell -File scripts/build_dual.ps1 -OutputDirectory dist/v03-build-06 -Track main",
+  "controller_commit": "e1991ce",
+  "observed_console_result": "171 passed, 1 skipped in 17.15s",
+  "passed": 171,
+  "skipped": 1,
+  "skip_reason": "Windows symbolic-link privilege",
+  "exit_code": 0,
+  "record_type": "Operator transcription of successful build command output; not CI output",
+  "intermediate_failure": {
+    "scope": "Offline package fixture, before final build",
+    "failed": 2,
+    "passed": 145,
+    "skipped": 1,
+    "cause": "New mandatory examples were absent from temporary package fixtures",
+    "resolution": "Fixture includes both example provenance files; archive test checks original CRLF bytes; targeted11 then final171 tests pass"
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "id": "space-fractions",
+  "realm": "space-fractions",
+  "enabled": true,
+  "displayName": "Space Fractions",
+  "registrationAllowed": false,
+  "rememberMe": false,
+  "resetPasswordAllowed": false,
+  "loginWithEmailAllowed": false,
+  "duplicateEmailsAllowed": false,
+  "sslRequired": "external",
+  "accessTokenLifespan": 900,
+  "ssoSessionIdleTimeout": 1800,
+  "ssoSessionMaxLifespan": 28800,
+  "defaultSignatureAlgorithm": "RS256",
+  "bruteForceProtected": false,
+
+  "roles": {
+    "realm": [
+      { "name": "admin", "description": "Space Fractions administrator role" }
+    ]
+  },
+
+  "clients": [
+    {
+      "clientId": "space-fractions-client",
+      "name": "Space Fractions Browser Client",
+      "enabled": true,
+      "publicClient": true,
+      "protocol": "openid-connect",
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": false,
+      "authorizationServicesEnabled": false,
+      "consentRequired": false,
+      "pkce": {
+        "codeChallengeMethod": "S256"
+      },
+      "attributes": {
+        "pkce.code.challenge.method": "S256"
+      },
+      "rootUrl": "",
+      "baseUrl": "",
+      "redirectUris": [
+        "http://localhost:3000/*",
+        "http://localhost:3100/*",
+        "+"
+      ],
+      "webOrigins": [
+        "http://localhost:3000",
+        "http://localhost:3100",
+        "+"
+      ],
+      "protocolMappers": [
+        {
+          "name": "audience",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "consentRequired": false,
+          "config": {
+            "included.client.audience": "account",
+            "id.token.claim": "false",
+            "access.token.claim": "true"
+          }
+        },
+        {
+          "name": "realm roles",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-realm-role-mapper",
+          "consentRequired": false,
+          "config": {
+            "multivalued": "true",
+            "userinfo.token.claim": "true",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "claim.name": "realm_access.roles",
+            "jsonType.label": "String"
+          }
+        }
+      ]
+    }
+  ],
+
+  "users": [
+    {
+      "username": "student",
+      "enabled": true,
+      "emailVerified": false,
+      "firstName": "Student",
+      "lastName": "Learner",
+      "email": "student@example.invalid",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "student",
+          "temporary": false
+        }
+      ],
+      "realmRoles": []
+    },
+    {
+      "username": "admin",
+      "enabled": true,
+      "emailVerified": false,
+      "firstName": "Admin",
+      "lastName": "Operator",
+      "email": "admin@example.invalid",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "admin",
+          "temporary": false
+        }
+      ],
+      "realmRoles": ["admin"]
+    },
+    {
+      "username": "other",
+      "enabled": true,
+      "emailVerified": false,
+      "firstName": "Other",
+      "lastName": "User",
+      "email": "other@example.invalid",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "other",
+          "temporary": false
+        }
+      ],
+      "realmRoles": []
+    }
+  ]
+}

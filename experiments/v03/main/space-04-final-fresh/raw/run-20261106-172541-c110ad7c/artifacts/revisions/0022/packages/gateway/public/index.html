@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Space Fractions — Sixth-Grade Fraction Learning</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Space Fractions</h1>
+    <div class="auth-area" id="auth-area">
+      <button id="login-btn" class="btn" type="button" hidden>Sign in</button>
+      <span id="user-name" class="user-name" hidden></span>
+      <button id="logout-btn" class="btn" type="button" hidden>Sign out</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Introduction -->
+    <section id="view-intro" class="view">
+      <h2>Welcome, Space Cadet!</h2>
+      <p>
+        Solve fraction puzzles to explore the galaxy. Each correct answer earns
+        one point. Enter your answers as exact fractions (like <code>3/4</code>)
+        or whole numbers.
+      </p>
+      <button id="start-btn" class="btn btn-primary" type="button">Start a new game</button>
+    </section>
+
+    <!-- Main menu -->
+    <section id="view-menu" class="view" hidden>
+      <h2>Main Menu</h2>
+      <nav class="menu">
+        <button id="menu-play-btn" class="btn" type="button">Play</button>
+        <button id="menu-score-btn" class="btn" type="button">View Score</button>
+        <button id="menu-help-btn" class="btn" type="button">Help</button>
+      </nav>
+    </section>
+
+    <!-- Play -->
+    <section id="view-play" class="view" hidden>
+      <h2>Question <span id="question-index">1</span></h2>
+      <p id="question-prompt" class="prompt"></p>
+      <div id="question-options" class="options"></div>
+      <form id="answer-form" class="answer-form">
+        <label for="answer-input">Your answer</label>
+        <input id="answer-input" type="text" autocomplete="off" placeholder="e.g. 3/4" />
+        <button id="answer-submit" class="btn btn-primary" type="submit">Submit</button>
+      </form>
+      <div id="answer-feedback" class="feedback" hidden></div>
+      <div class="play-controls">
+        <button id="pause-btn" class="btn" type="button">Pause</button>
+        <button id="resume-btn" class="btn" type="button" hidden>Resume</button>
+      </div>
+      <div id="score-inline" class="score-inline">Score: <span id="score-value">0</span></div>
+    </section>
+
+    <!-- Paused -->
+    <section id="view-paused" class="view" hidden>
+      <h2>Game Paused</h2>
+      <p>Your game is paused. Resume whenever you are ready.</p>
+      <button id="paused-resume-btn" class="btn btn-primary" type="button">Resume</button>
+    </section>
+
+    <!-- Ending feedback -->
+    <section id="view-ending" class="view" hidden>
+      <h2>Mission Complete</h2>
+      <p id="ending-text"></p>
+      <button id="ending-menu-btn" class="btn" type="button">Back to menu</button>
+    </section>
+
+    <!-- Score view -->
+    <section id="view-score" class="view" hidden>
+      <h2>Your Score</h2>
+      <p class="big-score"><span id="final-score">0</span> points</p>
+      <button id="score-menu-btn" class="btn" type="button">Back to menu</button>
+    </section>
+
+    <!-- Help -->
+    <section id="view-help" class="view" hidden>
+      <h2>Help</h2>
+      <p>
+        A fraction like <code>2/3</code> means two parts out of three equal parts.
+        Enter answers as <code>numerator/denominator</code> (for example
+        <code>1/2</code>) or as a whole number (for example <code>2</code>).
+      </p>
+      <p>
+        Equivalent fractions count as correct: <code>1/2</code> is the same as
+        <code>2/4</code> because they name the same value.
+      </p>
+      <button id="help-menu-btn" class="btn" type="button">Back to menu</button>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Space Fractions — a sixth-grade fraction learning game.</p>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

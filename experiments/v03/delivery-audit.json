@@ -1,0 +1,196 @@
+{
+  "kind": "read_only_final_delivery_audit",
+  "scope": "main06/prototype04 and v03 public evidence; no runtime/model calls; no SQLite opened",
+  "head": "5531e14f6e8a480ae8725d68dbe616c352a0d79b",
+  "blockers": [],
+  "notes": [
+    "171/1 regression record is explicitly an operator transcription, not CI; no regression or paid experiment rerun in this audit.",
+    "Browser-repair directory may still be receiving delivery_audit outputs; inventory checked as observed, no files modified there.",
+    "README/docs reviewed after root update: browser-repair is listed as a continuation with 17 responses, CNY8.989035, HTTP27/27 and browser3 passed/2 failed/6 skipped; these match observed evidence. Space04fresh remains a separate fresh generation with browser failure. No full UI success is claimed.",
+    "Historical public SQLite WAL/SHM sidecars belong to the original prototype raw archive and are retained unchanged as instructed by root; this audit only enumerated them and never opened any SQLite or created sidecars.",
+    "A further UI continuation was reported in progress by root; it is outside this completed evidence snapshot and no outcome is inferred."
+  ],
+  "executables": {
+    "main": {
+      "path": "dist/v03-build-06/main/DesignCodeAgent.exe",
+      "sha256": "4c672743d3828fda0bf679f39964fbca4492775a9c187cf57e50dc9351ee0eee",
+      "bytes": 13590243,
+      "manifest_match": true
+    },
+    "prototype": {
+      "path": "dist/v03-build-04/prototype/DesignCodeAgent-Superagent.exe",
+      "sha256": "837cf47c9be73aa1ced0b2a987f9dc6eff5e0dff45ff4abcb29b2f1a02ffe7a7",
+      "bytes": 14246552,
+      "manifest_match": true
+    }
+  },
+  "main_source_hash_mismatches": [],
+  "prototype_commit_source_hash_mismatches": [],
+  "inventories": {
+    "experiments/v03/clean-windows/archive-manifest.json": {
+      "files": 269,
+      "mismatches": []
+    },
+    "experiments/v03/clean-windows/archive-manifest-final.json": {
+      "files": 349,
+      "mismatches": []
+    },
+    "experiments/v03/main/space-04-final-fresh/archive-manifest.json": {
+      "files": 429,
+      "mismatches": []
+    },
+    "experiments/v03/main/space-04-browser-repair/archive-manifest.json": {
+      "files": 127,
+      "mismatches": []
+    }
+  },
+  "main06_raw_zip": {
+    "sha256": "233f28a9667d2fe643dbbf606675596cdf24b29c8c3f88f29800a6cda6bbce79",
+    "summary_hash_match": true,
+    "source_members": 27,
+    "missing_exported_members": [],
+    "byte_mismatches": []
+  },
+  "guest_environment": {
+    "final_main_exe_hash_present": true,
+    "prototype_exe_hash_present": true,
+    "guest_status": "passed_with_runtime_gaps",
+    "guest_runtime": "Python/Node/Docker not installed; generated tests marked unverified",
+    "host_checks_separate": [
+      "main06-host-checks.json",
+      "main06-host-independent.json"
+    ]
+  },
+  "regression": {
+    "kind": "tool_regression",
+    "command": "powershell -File scripts/build_dual.ps1 -OutputDirectory dist/v03-build-06 -Track main",
+    "controller_commit": "e1991ce",
+    "observed_console_result": "171 passed, 1 skipped in 17.15s",
+    "passed": 171,
+    "skipped": 1,
+    "skip_reason": "Windows symbolic-link privilege",
+    "exit_code": 0,
+    "record_type": "Operator transcription of successful build command output; not CI output",
+    "intermediate_failure": {
+      "scope": "Offline package fixture, before final build",
+      "failed": 2,
+      "passed": 145,
+      "skipped": 1,
+      "cause": "New mandatory examples were absent from temporary package fixtures",
+      "resolution": "Fixture includes both example provenance files; archive test checks original CRLF bytes; targeted11 then final171 tests pass"
+    }
+  },
+  "guest_host_separation": {
+    "guest_report_status": "completed_with_gaps",
+    "guest_check_statuses": [
+      {
+        "profile": "static",
+        "status": "unverified"
+      },
+      {
+        "profile": "install",
+        "status": "unverified"
+      },
+      {
+        "profile": "test",
+        "status": "unverified"
+      },
+      {
+        "profile": "integration",
+        "status": "not_applicable"
+      },
+      {
+        "profile": "build",
+        "status": "unverified"
+      },
+      {
+        "profile": "compose",
+        "status": "not_applicable"
+      },
+      {
+        "profile": "plan_references",
+        "status": "passed"
+      },
+      {
+        "profile": "traceability_links",
+        "status": "passed"
+      },
+      {
+        "profile": "runtime",
+        "status": "not_applicable"
+      },
+      {
+        "profile": "startup",
+        "status": "unverified"
+      }
+    ],
+    "host_meaning": "Host checks of unchanged guest output; does not overwrite guest unverified checks",
+    "host_status": "passed",
+    "host_test_count": 3,
+    "independent_http_checks": 6,
+    "independent_status": "passed",
+    "host_source_hashes_match_unchanged_export": true,
+    "independent_before_after_equal": true
+  },
+  "old_tracked_evidence_changed_against_HEAD": [
+    "experiments/v03/build-final.json"
+  ],
+  "preexisting_public_sqlite_sidecars": [
+    "experiments/v03/prototype/20261106-152132-normal/state.sqlite-shm",
+    "experiments/v03/prototype/20261106-152132-normal/state.sqlite-wal"
+  ],
+  "space_browser_results": {
+    "space-04-final-fresh": {
+      "status": "failed",
+      "failed_checks": [
+        "real OIDC browser sign-in"
+      ],
+      "source_unchanged": true,
+      "lineage": "fresh generation",
+      "cleanup": {
+        "origin": "independent post-stop owned project query",
+        "project": "dca-7e67c1dc6752",
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "",
+        "no_owned_containers_remain": true,
+        "server_process_exit_code": 0,
+        "stop_method": "cooperative stop file",
+        "playwright_session_closed": true
+      }
+    },
+    "space-04-browser-repair": {
+      "status": "failed",
+      "failed_checks": [
+        "student visible main menu",
+        "admin visible question operations"
+      ],
+      "source_unchanged": true,
+      "lineage": "Seed continuation of space-04-final-fresh; not a new generation. Only compose.yaml, gateway/public/index.html and gateway/src/index.js changed.",
+      "cleanup": {
+        "stop_method": "cooperative stop file",
+        "server_exit_code": 0,
+        "playwright_sessions_closed": [
+          "v03space04repair",
+          "v03space04repairadmin"
+        ],
+        "owned_project": "dca-e1c4ad53bf54",
+        "post_stop_ps_exit_code": 0,
+        "post_stop_ps_stdout": "",
+        "post_stop_ps_stderr": "",
+        "no_owned_containers_remain": true
+      }
+    }
+  },
+  "local_links": {
+    "checked": 68,
+    "broken": []
+  },
+  "credential_scan": {
+    "files_scanned": 2676,
+    "exact_configured_secret_check_enabled": true,
+    "matching_filenames_only": [],
+    "matching_archive_filenames_only": []
+  },
+  "status": "passed_with_scope_limits"
+}
