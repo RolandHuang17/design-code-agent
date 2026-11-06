@@ -10,7 +10,7 @@ $distRoot = [IO.Path]::GetFullPath((Join-Path $workspace 'dist')) + [IO.Path]::D
 if (-not $output.StartsWith($distRoot, [StringComparison]::OrdinalIgnoreCase) -or (Test-Path -LiteralPath $output)) {
     throw 'Output must be a new directory below workspace dist; existing releases are preserved'
 }
-if (-not (Test-Path -LiteralPath $Python)) { throw 'Python environment missing; install fixed build dependencies first' }
+if (-not (Test-Path -LiteralPath $Python) -and -not (Get-Command $Python -ErrorAction SilentlyContinue)) { throw 'Python environment missing; install fixed build dependencies first' }
 & $Python -m pytest -q
 if ($LASTEXITCODE -ne 0) { throw 'Tests failed; no executable is built' }
 foreach ($program in @(
