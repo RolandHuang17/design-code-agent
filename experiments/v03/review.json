@@ -1,0 +1,5885 @@
+{
+  "scope": "v0.3 only; main-tool trials and architecture-prototype demos remain separate",
+  "policy": "All discovered reports are listed, including failures and interruptions. No general success-rate claim.",
+  "reports": [
+    {
+      "report": "build-final.json",
+      "sha256": "8c9e874dad38a3eed41543a12f358d1206a8d9c11f56d3bebeedf3abe3f86630",
+      "record_kind": "build-final",
+      "program": "main_or_independent_acceptance",
+      "status": "unclassified",
+      "recorded_status": "unclassified",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "ci.json",
+      "sha256": "19f486aa7bd086c2c7ea28f8f652526ac216f3cb240c605ce35416289523383f",
+      "record_kind": "ci",
+      "program": "main_or_independent_acceptance",
+      "status": "completed",
+      "recorded_status": "completed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "source_commit": "e8a2e2524ade83f43dd88353fd9b5e99f69da86f"
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/clean-windows.json",
+      "sha256": "40fee06a31dd8db96cb44194004c30feb0a9e8fccada249952536505c0bca4f7",
+      "record_kind": "clean_windows_dual_acceptance",
+      "program": "main_or_independent_acceptance",
+      "status": "passed_with_runtime_gaps",
+      "recorded_status": "passed_with_runtime_gaps",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "cleanup": {
+          "guest_power_state": "poweroff",
+          "nat_localhost_reachable": false,
+          "loopback_receiver_stopped": true
+        },
+        "limitations": [
+          "Not a forced OS process-kill recovery test",
+          "JSON report opening may require choosing a local text editor",
+          "Prototype report.run.reason retains historical cancellation text after completion; use current state, verification and event history",
+          "An input-method focus error was cleared before any recovery API request; private configuration screenshots were not archived"
+        ]
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/independent-recovery.json",
+      "sha256": "94c39edf30d0e21d41f283828581b361d8a0d4acd557114c9f579a5717a1800d",
+      "record_kind": "native_windows_process_recovery",
+      "program": "main_or_independent_acceptance",
+      "status": "passed",
+      "recorded_status": "passed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/main/independent-main05-health.json",
+      "sha256": "7fcceb7427615295d032000f901c69b09d1c97fc7bea7d2af58430db046fd765",
+      "record_kind": "independent_health_http_restart",
+      "program": "main_or_independent_acceptance",
+      "status": "passed",
+      "recorded_status": "passed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        }
+      ],
+      "details": {
+        "source_unchanged": true,
+        "cleanup": [
+          {
+            "restart_index": 0,
+            "process_stopped": true,
+            "port_closed": true,
+            "output_tail": "\n> minimal-http-health-service@1.0.0 start\n> node src/server.cjs\n\nhealth service listening on port 1696\n"
+          },
+          {
+            "restart_index": 1,
+            "process_stopped": true,
+            "port_closed": true,
+            "output_tail": "\n> minimal-http-health-service@1.0.0 start\n> node src/server.cjs\n\nhealth service listening on port 1702\n"
+          }
+        ]
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/main/independent-main05-host-checks.json",
+      "sha256": "4af160ac8278d903f53bc2683cc5227c0de7ed559205cb9e5dae8cddcb299f77",
+      "record_kind": "independent_host_after_guest_export",
+      "program": "main_or_independent_acceptance",
+      "status": "passed",
+      "recorded_status": "passed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/main/run-20261106-163917-eb9b4ffc/artifacts/checks-0.json",
+      "sha256": "014fa137e4643f06d304d338c65943a1e9b485024778f5ebc552593047b14174",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "unverified"
+        },
+        {
+          "profile": "install",
+          "status": "unverified"
+        },
+        {
+          "profile": "test",
+          "status": "unverified"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "unverified"
+        },
+        {
+          "profile": "compose",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "failed"
+        },
+        {
+          "profile": "runtime",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "startup",
+          "status": "unverified"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/main/run-20261106-163917-eb9b4ffc/artifacts/checks-1.json",
+      "sha256": "fc3fe50579d6a44dbd73e44b55be3017dea538ba6ff5375b57904c74006f394d",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "unverified"
+        },
+        {
+          "profile": "install",
+          "status": "unverified"
+        },
+        {
+          "profile": "test",
+          "status": "unverified"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "unverified"
+        },
+        {
+          "profile": "compose",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "startup",
+          "status": "unverified"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/main/run-20261106-163917-eb9b4ffc/artifacts/report.json",
+      "sha256": "295fa5ecfba036528af60d0ff0c2ac012bd1dc281673c35502f4f9fafd984243",
+      "record_kind": "report",
+      "program": "main_or_independent_acceptance",
+      "status": "completed_with_gaps",
+      "recorded_status": "completed_with_gaps",
+      "verification": "not_recorded",
+      "generation_origin": "fresh",
+      "turns": 22,
+      "estimated_cny": 2.511843,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "unverified"
+        },
+        {
+          "profile": "install",
+          "status": "unverified"
+        },
+        {
+          "profile": "test",
+          "status": "unverified"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "unverified"
+        },
+        {
+          "profile": "compose",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "startup",
+          "status": "unverified"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/main/run-20261106-164459-40b921c9/artifacts/report.json",
+      "sha256": "eaa05ef8cc693ee5593068ff19e75ed5d30a54a2a905454eb98c583901be459e",
+      "record_kind": "report",
+      "program": "main_or_independent_acceptance",
+      "status": "cancelled",
+      "recorded_status": "cancelled",
+      "verification": "not_recorded",
+      "generation_origin": "fresh",
+      "turns": 2,
+      "estimated_cny": 0.049782,
+      "checks": [],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/main/run-20261106-171739-58af4633/artifacts/checks-0.json",
+      "sha256": "d5e440f9f4b2e8abb78fbfe04630e21be7942491a4c5ae0a6ba9cf291af5f607",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "unverified"
+        },
+        {
+          "profile": "install",
+          "status": "unverified"
+        },
+        {
+          "profile": "test",
+          "status": "unverified"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "unverified"
+        },
+        {
+          "profile": "compose",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "failed"
+        },
+        {
+          "profile": "runtime",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "startup",
+          "status": "unverified"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/main/run-20261106-171739-58af4633/artifacts/checks-1.json",
+      "sha256": "14a669be36e3fa92e0233d45014a89ad2c9c94ddf2cb23ea5a820846abbb813a",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "unverified"
+        },
+        {
+          "profile": "install",
+          "status": "unverified"
+        },
+        {
+          "profile": "test",
+          "status": "unverified"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "unverified"
+        },
+        {
+          "profile": "compose",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "startup",
+          "status": "unverified"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/main/run-20261106-171739-58af4633/artifacts/report.json",
+      "sha256": "739a6b1555e6cf03b7652ce82fc203c3e36530a16b2b8a230add8ee46a45069a",
+      "record_kind": "report",
+      "program": "main_or_independent_acceptance",
+      "status": "completed_with_gaps",
+      "recorded_status": "completed_with_gaps",
+      "verification": "not_recorded",
+      "generation_origin": "fresh",
+      "turns": 24,
+      "estimated_cny": 3.005118,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "unverified"
+        },
+        {
+          "profile": "install",
+          "status": "unverified"
+        },
+        {
+          "profile": "test",
+          "status": "unverified"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "unverified"
+        },
+        {
+          "profile": "compose",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "startup",
+          "status": "unverified"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/main/run-20261106-172101-bbb68865/artifacts/report.json",
+      "sha256": "8e454bc68c78539c0021138417d1d5251e053edbb0eb9a0c1d8d33c44766f1b3",
+      "record_kind": "report",
+      "program": "main_or_independent_acceptance",
+      "status": "cancelled",
+      "recorded_status": "cancelled",
+      "verification": "not_recorded",
+      "generation_origin": "fresh",
+      "turns": 2,
+      "estimated_cny": 0.049674,
+      "checks": [],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/main/run-20261106-185240-eb0fb7d1/artifacts/checks-0.json",
+      "sha256": "18c22546bb377a58cef57f651d24df6d9733937c1d64ed14001481afb32fda0f",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "unverified"
+        },
+        {
+          "profile": "install",
+          "status": "unverified"
+        },
+        {
+          "profile": "test",
+          "status": "unverified"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "unverified"
+        },
+        {
+          "profile": "compose",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "failed"
+        },
+        {
+          "profile": "runtime",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "startup",
+          "status": "unverified"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/main/run-20261106-185240-eb0fb7d1/artifacts/checks-1.json",
+      "sha256": "58981eb052c6df07cdcb03431043502755a15c0f1d5e0a0f0f5761efb1ddd4d2",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "unverified"
+        },
+        {
+          "profile": "install",
+          "status": "unverified"
+        },
+        {
+          "profile": "test",
+          "status": "unverified"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "unverified"
+        },
+        {
+          "profile": "compose",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "startup",
+          "status": "unverified"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/main/run-20261106-185240-eb0fb7d1/artifacts/report.json",
+      "sha256": "421b02d040f8258d1d8131f0127a96c2d9f1b376158c909d350432dc32adbabd",
+      "record_kind": "report",
+      "program": "main_or_independent_acceptance",
+      "status": "completed_with_gaps",
+      "recorded_status": "completed_with_gaps",
+      "verification": "not_recorded",
+      "generation_origin": "fresh",
+      "turns": 17,
+      "estimated_cny": 1.7728140000000001,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "unverified"
+        },
+        {
+          "profile": "install",
+          "status": "unverified"
+        },
+        {
+          "profile": "test",
+          "status": "unverified"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "unverified"
+        },
+        {
+          "profile": "compose",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "startup",
+          "status": "unverified"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/main/run-20261106-185903-a5d2ec6c/artifacts/report.json",
+      "sha256": "973b80bfbd6d1b93ded57c44eae0db4d12a7e9eadbc14ba12cbe3f0132c8c983",
+      "record_kind": "report",
+      "program": "main_or_independent_acceptance",
+      "status": "cancelled",
+      "recorded_status": "cancelled",
+      "verification": "not_recorded",
+      "generation_origin": "fresh",
+      "turns": 2,
+      "estimated_cny": 0.050403,
+      "checks": [],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/main06-host-checks.json",
+      "sha256": "502b22a0257d0f35cfe0232600d80036689bb71eb08c8dd222a5b2ae9fc8151d",
+      "record_kind": "host_after_native_export",
+      "program": "main_or_independent_acceptance",
+      "status": "passed",
+      "recorded_status": "passed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        }
+      ],
+      "details": {
+        "source_unchanged": true
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/main06-host-independent.json",
+      "sha256": "c06d1b8b7f46f6e7725d164a204b71885259f1a07bba19cafd84274bb4e98a26",
+      "record_kind": "independent_health_http_restart",
+      "program": "main_or_independent_acceptance",
+      "status": "passed",
+      "recorded_status": "passed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        }
+      ],
+      "details": {
+        "source_unchanged": true,
+        "cleanup": [
+          {
+            "restart_index": 0,
+            "process_stopped": true,
+            "port_closed": true,
+            "output_tail": "\n> minimal-http-health-service@1.0.0 start\n> node server.cjs\n\nhealth service listening on port 10525\n"
+          },
+          {
+            "restart_index": 1,
+            "process_stopped": true,
+            "port_closed": true,
+            "output_tail": "\n> minimal-http-health-service@1.0.0 start\n> node server.cjs\n\nhealth service listening on port 10532\n"
+          }
+        ]
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/main06-summary.json",
+      "sha256": "6888600672bc53973ec1676aadf0e0cdf67a2293db52a1dfc6226af24e576270",
+      "record_kind": "clean_windows_main06",
+      "program": "main_or_independent_acceptance",
+      "status": "passed_with_runtime_gaps",
+      "recorded_status": "passed_with_runtime_gaps",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "cleanup": {
+          "guest_power_state": "poweroff",
+          "nat_localhost_reachable": false,
+          "loopback_receiver_stopped": true
+        }
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/prototype/independent-health-http.json",
+      "sha256": "ea29c98b0ab8b402dc89db1bb86023f60df2664fef78b8f020290c4e2719f17d",
+      "record_kind": "independent_health_http_restart",
+      "program": "main_or_independent_acceptance",
+      "status": "passed",
+      "recorded_status": "passed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        }
+      ],
+      "details": {
+        "source_unchanged": true,
+        "cleanup": [
+          {
+            "restart_index": 0,
+            "process_stopped": true,
+            "port_closed": true,
+            "output_tail": "\n> minimal-http-health-service@1.0.0 start\n> node server.cjs\n\nHealth service listening on port 2305\n"
+          },
+          {
+            "restart_index": 1,
+            "process_stopped": true,
+            "port_closed": true,
+            "output_tail": "\n> minimal-http-health-service@1.0.0 start\n> node server.cjs\n\nHealth service listening on port 2311\n"
+          }
+        ]
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/prototype/independent-host-checks.json",
+      "sha256": "8279c5abc5c19c05471b82e5226222695151f892e4a4e4b3b79199d6cb0f5856",
+      "record_kind": "host_after_guest_export",
+      "program": "main_or_independent_acceptance",
+      "status": "passed",
+      "recorded_status": "passed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/prototype/pause-demo/independent-health-http.json",
+      "sha256": "5439fc1306a02b0eb0029827037fdb763879f01bf7926c5984a797c4983d458b",
+      "record_kind": "independent_health_http_restart",
+      "program": "main_or_independent_acceptance",
+      "status": "passed",
+      "recorded_status": "passed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        }
+      ],
+      "details": {
+        "source_unchanged": true,
+        "cleanup": [
+          {
+            "restart_index": 0,
+            "process_stopped": true,
+            "port_closed": true,
+            "output_tail": "\n> minimal-http-health-service@1.0.0 start\n> node src/index.cjs\n\nHealth service listening on port 2317\n"
+          },
+          {
+            "restart_index": 1,
+            "process_stopped": true,
+            "port_closed": true,
+            "output_tail": "\n> minimal-http-health-service@1.0.0 start\n> node src/index.cjs\n\nHealth service listening on port 2323\n"
+          }
+        ]
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/prototype/pause-demo/independent-host-checks.json",
+      "sha256": "6fbf7c53725105ac9891be48bd94cb087f1c0436d9579ae45658b41b662dc647",
+      "record_kind": "host_after_guest_export",
+      "program": "main_or_independent_acceptance",
+      "status": "passed",
+      "recorded_status": "passed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/prototype/pause-demo/report.json",
+      "sha256": "217fb1d86bbb4400440ca9cac4aad002217adc698611139dc49436e3708a4620",
+      "record_kind": "report",
+      "program": "prototype",
+      "status": "completed",
+      "recorded_status": "completed",
+      "verification": "unverified",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "unverified",
+          "job_state": "completed"
+        },
+        {
+          "profile": "install",
+          "status": "unverified",
+          "job_state": "completed"
+        },
+        {
+          "profile": "test",
+          "status": "unverified",
+          "job_state": "completed"
+        },
+        {
+          "profile": "build",
+          "status": "unverified",
+          "job_state": "completed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "clean-windows/prototype/report.json",
+      "sha256": "21ec85f9c1d583346b66f81deb2b27acd2456d72d8edd9abb17738ddb2099ddc",
+      "record_kind": "report",
+      "program": "prototype",
+      "status": "completed",
+      "recorded_status": "completed",
+      "verification": "unverified",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "unverified",
+          "job_state": "completed"
+        },
+        {
+          "profile": "install",
+          "status": "unverified",
+          "job_state": "completed"
+        },
+        {
+          "profile": "test",
+          "status": "unverified",
+          "job_state": "completed"
+        },
+        {
+          "profile": "build",
+          "status": "unverified",
+          "job_state": "completed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "delivery-audit.json",
+      "sha256": "e540cd940d9821f99dccff6de1f21d78ba21e246304e5ebb6698e2b8d353db18",
+      "record_kind": "read_only_final_delivery_audit",
+      "program": "main_or_independent_acceptance",
+      "status": "passed_with_scope_limits",
+      "recorded_status": "passed_with_scope_limits",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "diagnostics/manifest.json",
+      "sha256": "278170ae874ec4b1fd0cba05de8ddb91a824b323b4399ac259157a882b323809",
+      "record_kind": "manifest",
+      "program": "main_or_independent_acceptance",
+      "status": "unclassified",
+      "recorded_status": "unclassified",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "source_commit": "c3bd87d5eaa2bc603255b9d1f94e16411babad49"
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "diagnostics/result.json",
+      "sha256": "818b65bc722972369e4aaa4c00ece653e7184ac6905f6e7aabad55ff00bdeceb",
+      "record_kind": "result",
+      "program": "main_or_independent_acceptance",
+      "status": "failed",
+      "recorded_status": "failed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "cleanup": "passed"
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "frozen-history.json",
+      "sha256": "3df2d94d50fc0dbe46aeea0e26f9c98f4098e48e6db898e5a9a6cca8c3237d40",
+      "record_kind": "frozen_source_history_scan",
+      "program": "main_or_independent_acceptance",
+      "status": "passed",
+      "recorded_status": "passed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "policy": "Original worker commit histories retained and publicly reachable; no rewrite or squash of failed experiments"
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "independent-final-delivery.json",
+      "sha256": "b445624d9632242f71bab38d9980a5cfcfafb4ce2c0ed4df0ae3b61ef96c3dee",
+      "record_kind": "read_only_final_delivery_audit",
+      "program": "main_or_independent_acceptance",
+      "status": "passed_with_scope_limits",
+      "recorded_status": "passed_with_scope_limits",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "independent-index-check.json",
+      "sha256": "b0ac474ad649660e804e2c2ee501aa3cdc2998e3767932c852418a85f0f7224d",
+      "record_kind": "offline_check_history_verification",
+      "program": "main_or_independent_acceptance",
+      "status": "passed",
+      "recorded_status": "passed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/generic-01/browser.json",
+      "sha256": "aff708cdce75000b51185aea083275d4a866de914ab265bdb814d87d2d47165f",
+      "record_kind": "independent_browser",
+      "program": "main_or_independent_acceptance",
+      "status": "passed",
+      "recorded_status": "passed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "0C to F shows 32 F",
+          "status": "passed"
+        },
+        {
+          "profile": "negative valid -40C to F shows -40 F",
+          "status": "passed"
+        },
+        {
+          "profile": "-1K to K rejected visibly and previous result cleared",
+          "status": "passed"
+        },
+        {
+          "profile": "273.15K to C shows 0 C and error cleared",
+          "status": "passed"
+        }
+      ],
+      "details": {
+        "source_matches_original_run": true,
+        "limitations": [
+          "Single fresh trial; no general success-rate claim"
+        ]
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/generic-01/independent-http.json",
+      "sha256": "9849fa76b0bd9a944c24b961f4b157e26f64699066dc5d82b1c03d7390509805",
+      "record_kind": "operator_temperature_process_acceptance",
+      "program": "main_or_independent_acceptance",
+      "status": "passed",
+      "recorded_status": "passed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "health",
+          "status": "passed"
+        },
+        {
+          "profile": "browser HTML",
+          "status": "passed"
+        },
+        {
+          "profile": "convert 0C to F",
+          "status": "passed"
+        },
+        {
+          "profile": "convert 212F to C",
+          "status": "passed"
+        },
+        {
+          "profile": "convert 273.15K to C",
+          "status": "passed"
+        },
+        {
+          "profile": "convert -40C to F",
+          "status": "passed"
+        },
+        {
+          "profile": "convert 0K to F",
+          "status": "passed"
+        },
+        {
+          "profile": "convert -459.67F to K",
+          "status": "passed"
+        },
+        {
+          "profile": "convert 12.75C to C",
+          "status": "passed"
+        },
+        {
+          "profile": "convert 1C to F",
+          "status": "passed"
+        },
+        {
+          "profile": "missing fields",
+          "status": "passed"
+        },
+        {
+          "profile": "numeric string",
+          "status": "passed"
+        },
+        {
+          "profile": "boolean value",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown unit",
+          "status": "passed"
+        },
+        {
+          "profile": "below absolute zero",
+          "status": "passed"
+        },
+        {
+          "profile": "invalid same-unit",
+          "status": "passed"
+        },
+        {
+          "profile": "malformed JSON",
+          "status": "passed"
+        }
+      ],
+      "details": {
+        "source_unchanged": true,
+        "cleanup": {
+          "process_stopped": true
+        },
+        "limitations": [
+          "HTTP checks do not establish browser interaction or arbitrary-project correctness"
+        ]
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/generic-01/manifest.json",
+      "sha256": "533f199cd7dcd1d348d0943758d0f33b50fee24ace2ad8e9c1a962ef71a7148d",
+      "record_kind": "manifest",
+      "program": "main_or_independent_acceptance",
+      "status": "unclassified",
+      "recorded_status": "unclassified",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "policy": "Fresh run, no seed or manual project edits. Independent checker not supplied to model.",
+        "source_commit": "33eff4e6431b9780996493820bcd26c8aee5c71e"
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/generic-01/raw/run-20261106-151949-c59162b3/artifacts/checks-0.json",
+      "sha256": "2e803571cf97cfd99d8a7539e0f7c77cb936331fdb7ba1d53b0bf401cf6d6a1f",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "not_applicable"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/generic-01/raw/run-20261106-151949-c59162b3/artifacts/report.json",
+      "sha256": "36749a4c45dab3b8d2defec597ec60469dd2cb8818bbc083ba956e63bbc85d3c",
+      "record_kind": "report",
+      "program": "main_or_independent_acceptance",
+      "status": "checks_passed_requires_review",
+      "recorded_status": "checks_passed_requires_review",
+      "verification": "not_recorded",
+      "generation_origin": "fresh",
+      "turns": 20,
+      "estimated_cny": 2.23713,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "not_applicable"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/generic-01/receipt.json",
+      "sha256": "7dddaa1bbe8b6cd4ccc4aae2d85335b4dcbf1deb43b9ae96caaf9ce25969fa67",
+      "record_kind": "receipt",
+      "program": "main_or_independent_acceptance",
+      "status": "checks_passed_requires_review",
+      "recorded_status": "checks_passed_requires_review",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": 20,
+      "estimated_cny": 2.23713,
+      "checks": [],
+      "details": {
+        "independent_acceptance": "pending",
+        "source_unchanged": true
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/generic-02/diagnosis.json",
+      "sha256": "fff2032aa96247bfc709380c42ea900160edd37d036c9e2f8afe108f380a8610",
+      "record_kind": "diagnosis",
+      "program": "main_or_independent_acceptance",
+      "status": "independent_startup_failed",
+      "recorded_status": "independent_startup_failed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "failure": "npm start exits 0 before binding a port on Windows",
+        "root_cause_observed": "src/server.js compares import.meta.url with file:// + slash-normalized Windows argv path, omitting the third slash of the Windows file URL; startServer is never invoked",
+        "independent_acceptance": "failed_before_http",
+        "source_unchanged": true
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/generic-02/independent-http.json",
+      "sha256": "039ebb5d4460705ed4e10391afc349b2860f562e806ad1dbc45189f64090e424",
+      "record_kind": "operator_temperature_process_acceptance",
+      "program": "main_or_independent_acceptance",
+      "status": "failed",
+      "recorded_status": "failed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "source_unchanged": true,
+        "cleanup": {
+          "process_stopped": true
+        }
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/generic-02/manifest.json",
+      "sha256": "c8a05ed4a35b544b89b7bc28a962dddec5060ba9f3fb1dc22c6cb6a30947d151",
+      "record_kind": "manifest",
+      "program": "main_or_independent_acceptance",
+      "status": "unclassified",
+      "recorded_status": "unclassified",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "policy": "Fresh run, no seed or manual project edits. Independent checker not supplied to model.",
+        "source_commit": "f894eca90b6f3e9061591ec7769fc3c249e84060"
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/generic-02/raw/run-20261106-153532-68837ca5/artifacts/checks-0.json",
+      "sha256": "6c93e766b19b8bb07f53bb72ef911b32af7c63175e5e6221ee6acb4dfe55db19",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "failed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "failed"
+        },
+        {
+          "profile": "runtime",
+          "status": "not_applicable"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/generic-02/raw/run-20261106-153532-68837ca5/artifacts/checks-1.json",
+      "sha256": "ea1c5adc8fd051d8f9f8c9bda9ade39fec06d7b013f6173f51d23e781fbdb15d",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "not_applicable"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/generic-02/raw/run-20261106-153532-68837ca5/artifacts/report.json",
+      "sha256": "d909f49d10c70fc3b36c43773caf4edff06064f7a30584bd299f2756bfc9edc8",
+      "record_kind": "report",
+      "program": "main_or_independent_acceptance",
+      "status": "checks_passed_requires_review",
+      "recorded_status": "checks_passed_requires_review",
+      "verification": "not_recorded",
+      "generation_origin": "fresh",
+      "turns": 34,
+      "estimated_cny": 5.074728,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "not_applicable"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/generic-02/receipt.json",
+      "sha256": "fe593c3886b9f21b8a7fa3d8c9d4e0b7917d8ff99ec250d572dac13cee7308bd",
+      "record_kind": "receipt",
+      "program": "main_or_independent_acceptance",
+      "status": "checks_passed_requires_review",
+      "recorded_status": "checks_passed_requires_review",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": 34,
+      "estimated_cny": 5.074728,
+      "checks": [],
+      "details": {
+        "independent_acceptance": "pending",
+        "source_unchanged": true
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/generic-02-repair/independent-http.json",
+      "sha256": "d4477ee0875b9db61de9956ca22e00189caa3f539cb54f0a5818bc30af1304eb",
+      "record_kind": "operator_temperature_process_acceptance",
+      "program": "main_or_independent_acceptance",
+      "status": "passed",
+      "recorded_status": "passed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "health",
+          "status": "passed"
+        },
+        {
+          "profile": "browser HTML",
+          "status": "passed"
+        },
+        {
+          "profile": "convert 0C to F",
+          "status": "passed"
+        },
+        {
+          "profile": "convert 212F to C",
+          "status": "passed"
+        },
+        {
+          "profile": "convert 273.15K to C",
+          "status": "passed"
+        },
+        {
+          "profile": "convert -40C to F",
+          "status": "passed"
+        },
+        {
+          "profile": "convert 0K to F",
+          "status": "passed"
+        },
+        {
+          "profile": "convert -459.67F to K",
+          "status": "passed"
+        },
+        {
+          "profile": "convert 12.75C to C",
+          "status": "passed"
+        },
+        {
+          "profile": "convert 1C to F",
+          "status": "passed"
+        },
+        {
+          "profile": "missing fields",
+          "status": "passed"
+        },
+        {
+          "profile": "numeric string",
+          "status": "passed"
+        },
+        {
+          "profile": "boolean value",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown unit",
+          "status": "passed"
+        },
+        {
+          "profile": "below absolute zero",
+          "status": "passed"
+        },
+        {
+          "profile": "invalid same-unit",
+          "status": "passed"
+        },
+        {
+          "profile": "malformed JSON",
+          "status": "passed"
+        }
+      ],
+      "details": {
+        "source_unchanged": true,
+        "cleanup": {
+          "process_stopped": true
+        },
+        "limitations": [
+          "HTTP checks do not establish browser interaction or arbitrary-project correctness"
+        ]
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/generic-02-repair/manifest.json",
+      "sha256": "e4ae487de5f3d53d441bbe5687619c4fec4e708e6f3e2f994b440b0aa9b729e8",
+      "record_kind": "manifest",
+      "program": "main_or_independent_acceptance",
+      "status": "unclassified",
+      "recorded_status": "unclassified",
+      "verification": "not_recorded",
+      "generation_origin": "seed",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "policy": "Checkpoint continuation, not a fresh trial; no manual edits to generated source",
+        "source_commit": "81bb456a3b348e3a6d57db45695049b474492550"
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/generic-02-repair/raw/run-20261106-160356-2651b8db/artifacts/checks-0.json",
+      "sha256": "19f2a7cdc5c0a1da95ca417d50412906757e5df24ffe41cad0e594882ea964a2",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "startup",
+          "status": "failed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/generic-02-repair/raw/run-20261106-160356-2651b8db/artifacts/checks-1.json",
+      "sha256": "2a53405c0ae409acd0b9592dde81f83eb8a31f2ddc0205d72c37a6ce134926e2",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "startup",
+          "status": "passed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/generic-02-repair/raw/run-20261106-160356-2651b8db/artifacts/report.json",
+      "sha256": "c2c140388dd32f690068d72403147d2ff461b3cc6d569e010d758eadf5c3b1c2",
+      "record_kind": "report",
+      "program": "main_or_independent_acceptance",
+      "status": "checks_passed_requires_review",
+      "recorded_status": "checks_passed_requires_review",
+      "verification": "not_recorded",
+      "generation_origin": "seed",
+      "turns": 7,
+      "estimated_cny": 1.025019,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "startup",
+          "status": "passed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/generic-02-repair/receipt.json",
+      "sha256": "0a58a24146aac25b2ed8aa0a1f6eeb111add35682ba1cea4c6802156866fb19b",
+      "record_kind": "receipt",
+      "program": "main_or_independent_acceptance",
+      "status": "checks_passed_requires_review",
+      "recorded_status": "checks_passed_requires_review",
+      "verification": "not_recorded",
+      "generation_origin": "seed",
+      "turns": 7,
+      "estimated_cny": 1.025019,
+      "checks": [],
+      "details": {
+        "independent_acceptance": "pending",
+        "source_unchanged": true
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/library-01/browser.json",
+      "sha256": "d15694c02fb48e05ab3c9841d2d223b007919dd52897f4c7b85801199abcee75",
+      "record_kind": "independent_browser",
+      "program": "main_or_independent_acceptance",
+      "status": "passed",
+      "recorded_status": "passed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "add title with one copy",
+          "status": "passed"
+        },
+        {
+          "profile": "borrow produces active loan and zero available copies",
+          "status": "passed"
+        },
+        {
+          "profile": "second reader cannot borrow zero stock and sees error",
+          "status": "passed"
+        },
+        {
+          "profile": "return loan restores one available copy",
+          "status": "passed"
+        },
+        {
+          "profile": "reload preserves returned loan and stock",
+          "status": "passed"
+        }
+      ],
+      "details": {
+        "source_matches_original_run": true
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/library-01/diagnosis.json",
+      "sha256": "5ccc5624e7fb572378e85f1a500bbb6ebc28eb5b1c63068a81b32841f1023c3e",
+      "record_kind": "diagnosis",
+      "program": "main_or_independent_acceptance",
+      "status": "checks_passed_requires_review",
+      "recorded_status": "checks_passed_requires_review",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": 85,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "passed"
+        }
+      ],
+      "details": {
+        "source_unchanged_rechecked": true
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/library-01/independent-browser-preflight.json",
+      "sha256": "f669f0ed8dd05b2feb6f150829e541fd5da66846500dbdf8674e51c0b9f40a32",
+      "record_kind": "independent-browser-preflight",
+      "program": "main_or_independent_acceptance",
+      "status": "passed",
+      "recorded_status": "passed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "gateway ready",
+          "status": "passed"
+        },
+        {
+          "profile": "browser entry served",
+          "status": "passed"
+        },
+        {
+          "profile": "invalid book copies rejected",
+          "status": "passed"
+        },
+        {
+          "profile": "create book with one available copy",
+          "status": "passed"
+        },
+        {
+          "profile": "concurrent borrowers cannot oversell",
+          "status": "passed"
+        },
+        {
+          "profile": "stock after borrowing is zero",
+          "status": "passed"
+        },
+        {
+          "profile": "concurrent duplicate returns restore exactly one copy",
+          "status": "passed"
+        },
+        {
+          "profile": "borrow returned copy",
+          "status": "passed"
+        },
+        {
+          "profile": "active duplicate rejected",
+          "status": "passed"
+        },
+        {
+          "profile": "book inventory persists after restart",
+          "status": "passed"
+        },
+        {
+          "profile": "loan persists and can be returned after restart",
+          "status": "passed"
+        },
+        {
+          "profile": "persisted loan returns one copy",
+          "status": "passed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/library-01/manifest.json",
+      "sha256": "ee5f77f15a214589dc673f907f86ac2b72a602520ad542c673f4a1959d4cbf2b",
+      "record_kind": "manifest",
+      "program": "main_or_independent_acceptance",
+      "status": "unclassified",
+      "recorded_status": "unclassified",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "policy": "Fresh run, no seed or manual project edits. Independent checker not supplied to model.",
+        "source_commit": "e83107b7c8d0223a3379609f9d135a94db1e0be2"
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/library-01/raw/run-20261106-152903-a2942007/artifacts/checks-0.json",
+      "sha256": "593b3e7b3fad06d53f18ed5951fe112cdfecbe0f511db614be77ee802f5dc48a",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "failed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "unverified"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "failed"
+        },
+        {
+          "profile": "runtime",
+          "status": "failed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/library-01/raw/run-20261106-152903-a2942007/artifacts/checks-1.json",
+      "sha256": "dc944f7c33b195b68c02c26e2b32e03a57cb58b7825c8447afc9918aeb4462bf",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "failed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/library-01/raw/run-20261106-152903-a2942007/artifacts/checks-2.json",
+      "sha256": "267a572cf87b937e8c16768032052fe8d68e90651e52e1cc4c73ba6dfa459db1",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "passed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/library-01/raw/run-20261106-152903-a2942007/artifacts/report.json",
+      "sha256": "754acc6adfdbe67709ec9b711c497307c69133663204441043c44b675ac349b8",
+      "record_kind": "report",
+      "program": "main_or_independent_acceptance",
+      "status": "checks_passed_requires_review",
+      "recorded_status": "checks_passed_requires_review",
+      "verification": "not_recorded",
+      "generation_origin": "fresh",
+      "turns": 85,
+      "estimated_cny": 17.638434,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "passed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/library-01/receipt.json",
+      "sha256": "371707743c4d6a3730b0fc36de237a05b3f7d9bd94d5fb81f4bc098997a058dd",
+      "record_kind": "receipt",
+      "program": "main_or_independent_acceptance",
+      "status": "checks_passed_requires_review",
+      "recorded_status": "checks_passed_requires_review",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": 85,
+      "estimated_cny": 17.638434,
+      "checks": [],
+      "details": {
+        "independent_acceptance": "pending",
+        "source_unchanged": true
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-01/diagnosis.json",
+      "sha256": "c162cf511bb22dfc4b1cee8b2bdf39646b797a7b7b62a627233c27d7fe95d2c7",
+      "record_kind": "diagnosis",
+      "program": "main_or_independent_acceptance",
+      "status": "generation_failed_before_verification",
+      "recorded_status": "generation_failed_before_verification",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": 8.023734,
+      "checks": [],
+      "details": {
+        "failure": "任务 T3 未完成目标文件；停止并保留结果",
+        "root_cause_observed": "Model confused read_source character limit with source line count, paging 55..800 characters across 15 turns and never creating src/lib/config.js",
+        "independent_acceptance": "not_run_incomplete_project",
+        "runtime_checks": "not_reached",
+        "source_unchanged_rechecked": true
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-01/manifest.json",
+      "sha256": "eea41924ba7abe8164c5af6a1bc12c6f93f395c80c1783b63b5cbfa52c7a5470",
+      "record_kind": "manifest",
+      "program": "main_or_independent_acceptance",
+      "status": "unclassified",
+      "recorded_status": "unclassified",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "policy": "Fresh run, no seed or manual project edits. Independent checker not supplied to model.",
+        "source_commit": "d00483b1c15ae3c5a5402fdb0b9b2f8274e1451d"
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-01/raw/run-20261106-151826-362f5e12/artifacts/report.json",
+      "sha256": "a205415bfdcfbf8a1a55a8587c02396b2bfb6cc0b0db9d9896b561be4fb033b4",
+      "record_kind": "report",
+      "program": "main_or_independent_acceptance",
+      "status": "failed",
+      "recorded_status": "failed",
+      "verification": "not_recorded",
+      "generation_origin": "fresh",
+      "turns": 39,
+      "estimated_cny": 8.023734,
+      "checks": [],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-01/receipt.json",
+      "sha256": "87a92dd3fcd96ef4f9e7b2fe9021ee0f8aafa339bf516fe288674dd6392862cf",
+      "record_kind": "receipt",
+      "program": "main_or_independent_acceptance",
+      "status": "failed",
+      "recorded_status": "failed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": 39,
+      "estimated_cny": 8.023734,
+      "checks": [],
+      "details": {
+        "independent_acceptance": "pending",
+        "source_unchanged": true
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-02/interruption.json",
+      "sha256": "521c0c3ae9280cd2e41d5160168a721ad1ec68ac0fc2cc68f38efbcbdf71b26e",
+      "record_kind": "interruption",
+      "program": "main_or_independent_acceptance",
+      "status": "interrupted",
+      "recorded_status": "interrupted",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "policy": "Original report, receipt and project preserved; continuation is not fresh generation."
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-02/manifest.json",
+      "sha256": "44613c9456e865ffef0a3e0b171735626b319296e8f39d67e26390a6274c3b81",
+      "record_kind": "manifest",
+      "program": "main_or_independent_acceptance",
+      "status": "unclassified",
+      "recorded_status": "unclassified",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "policy": "Fresh run, no seed or manual project edits. Independent checker not supplied to model.",
+        "source_commit": "e83107b7c8d0223a3379609f9d135a94db1e0be2"
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-02/raw/run-20261106-152828-ea8fecef/artifacts/checks-0.json",
+      "sha256": "0d49a533d061abcb99d0cff7fbbfc64c37b8400543d0d54df3d7bbfe47dde2ab",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "failed"
+        },
+        {
+          "profile": "integration",
+          "status": "failed"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "failed"
+        },
+        {
+          "profile": "runtime",
+          "status": "failed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-02/raw/run-20261106-152828-ea8fecef/artifacts/report.json",
+      "sha256": "4befcd73a6a1cb1f8c36ff51dea724e787bea34918a1b969e8a9033f3b72df30",
+      "record_kind": "report",
+      "program": "main_or_independent_acceptance",
+      "status": "interrupted",
+      "recorded_status": "running",
+      "verification": "not_recorded",
+      "generation_origin": "fresh",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-02/receipt.json",
+      "sha256": "ec2c16b6b4c031d79cd6eed74f5a2b976cb08cb1d6a0f70b1271e4c9a0e4b868",
+      "record_kind": "receipt",
+      "program": "main_or_independent_acceptance",
+      "status": "interrupted",
+      "recorded_status": "running",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-02-continuation/diagnosis.json",
+      "sha256": "ca55886fa07b1cec33146223ad62364f19cf964f199f378f08194a7b6dacaf98",
+      "record_kind": "operator_stop_diagnosis",
+      "program": "main_or_independent_acceptance",
+      "status": "cancelled",
+      "recorded_status": "cancelled",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-02-continuation/manifest.json",
+      "sha256": "23e8a170c632f5b317722fa9f45dcf006f2280b543ea41d64128fca2c67ad9cc",
+      "record_kind": "manifest",
+      "program": "main_or_independent_acceptance",
+      "status": "unclassified",
+      "recorded_status": "unclassified",
+      "verification": "not_recorded",
+      "generation_origin": "seed",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "policy": "Checkpoint continuation, not a fresh trial; no manual edits to generated source",
+        "source_commit": "81bb456a3b348e3a6d57db45695049b474492550"
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-02-continuation/raw/run-20261106-160407-98d09edf/artifacts/checks-0.json",
+      "sha256": "bf53f73d4778a6cebe3ea930009f94a8fd980dfe21bbdbfc0fdd1426c34757d7",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "failed"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "failed"
+        },
+        {
+          "profile": "runtime",
+          "status": "failed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-02-continuation/raw/run-20261106-160407-98d09edf/artifacts/checks-1.json",
+      "sha256": "9c9ff1ff4c4b249b26ab3279451ba546c7b7b85b6746c670fbcdf057d2734398",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "failed"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "failed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-02-continuation/raw/run-20261106-160407-98d09edf/artifacts/checks-2.json",
+      "sha256": "fce41304e4238c126c34e82b11ec6762a909f891c4e060f4be08e563fd02af45",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "failed"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "failed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-02-continuation/raw/run-20261106-160407-98d09edf/artifacts/checks-3.json",
+      "sha256": "d6f5742ef1c5bc4309429bf5b648c7bfc13730069cda5f6d8f9b4994666f3c58",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "failed"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "failed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-02-continuation/raw/run-20261106-160407-98d09edf/artifacts/checks-4.json",
+      "sha256": "6db1c2246ea0ec77f7e9e62773d00760fca8005dbed86764ae81c26dbc1b4b92",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "failed"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "failed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-02-continuation/raw/run-20261106-160407-98d09edf/artifacts/report.json",
+      "sha256": "2cc5d8e20e83681e392219862e51371fa899998411c0a37ec0c469347ed83d93",
+      "record_kind": "report",
+      "program": "main_or_independent_acceptance",
+      "status": "cancelled",
+      "recorded_status": "cancelled",
+      "verification": "not_recorded",
+      "generation_origin": "seed",
+      "turns": 100,
+      "estimated_cny": 54.80085,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "failed"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "failed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-02-continuation/receipt.json",
+      "sha256": "70e50540b4170eaebea0f1740a3a12c1da26d52a897b3273f611ec61c53abdae",
+      "record_kind": "receipt",
+      "program": "main_or_independent_acceptance",
+      "status": "cancelled",
+      "recorded_status": "cancelled",
+      "verification": "not_recorded",
+      "generation_origin": "seed",
+      "turns": 100,
+      "estimated_cny": 54.80085,
+      "checks": [],
+      "details": {
+        "independent_acceptance": "pending",
+        "source_unchanged": true
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-03-wide-context/browser.json",
+      "sha256": "ea5bd630987ec8cb811f5d0bda7912c71ddd4af6f7f7a625537686335ec039b2",
+      "record_kind": "independent_browser",
+      "program": "main_or_independent_acceptance",
+      "status": "failed",
+      "recorded_status": "failed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "Open generated game page",
+          "status": "passed"
+        },
+        {
+          "profile": "Sign In opens identity provider",
+          "status": "failed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-03-wide-context/independent-architecture.json",
+      "sha256": "e36c18d9ea45e239c37c2ea9ef7a7807eccb99d367b99db6af8e5bcd6fce2d96",
+      "record_kind": "independent_design_review",
+      "program": "main_or_independent_acceptance",
+      "status": "failed",
+      "recorded_status": "failed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-03-wide-context/independent-browser-preflight.json",
+      "sha256": "3b0d9e12a5fc8927df40b532e0391779a430c6390113194c5f735ecff33f3cf2",
+      "record_kind": "independent-browser-preflight",
+      "program": "main_or_independent_acceptance",
+      "status": "passed",
+      "recorded_status": "passed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "gateway ready",
+          "status": "passed"
+        },
+        {
+          "profile": "browser entry served",
+          "status": "passed"
+        },
+        {
+          "profile": "local identity-provider fixture admin",
+          "status": "passed"
+        },
+        {
+          "profile": "browser client is public and requires S256",
+          "status": "passed"
+        },
+        {
+          "profile": "temporary public callback origin configured",
+          "status": "passed"
+        },
+        {
+          "profile": "OIDC fixture login: student",
+          "status": "passed"
+        },
+        {
+          "profile": "OIDC fixture login: admin",
+          "status": "passed"
+        },
+        {
+          "profile": "OIDC fixture login: other",
+          "status": "passed"
+        },
+        {
+          "profile": "missing authentication rejected",
+          "status": "passed"
+        },
+        {
+          "profile": "wrong signature rejected",
+          "status": "passed"
+        },
+        {
+          "profile": "ordinary user denied administration",
+          "status": "passed"
+        },
+        {
+          "profile": "admin creates practice question 0",
+          "status": "passed"
+        },
+        {
+          "profile": "admin creates practice question 1",
+          "status": "passed"
+        },
+        {
+          "profile": "authenticated game creation",
+          "status": "passed"
+        },
+        {
+          "profile": "player questions hide correct answers",
+          "status": "passed"
+        },
+        {
+          "profile": "cross-user ownership enforced",
+          "status": "passed"
+        },
+        {
+          "profile": "pause",
+          "status": "passed"
+        },
+        {
+          "profile": "paused answer rejected",
+          "status": "passed"
+        },
+        {
+          "profile": "resume",
+          "status": "passed"
+        },
+        {
+          "profile": "invalid fraction rejected",
+          "status": "passed"
+        },
+        {
+          "profile": "eight concurrent equivalent answers score once",
+          "status": "passed"
+        },
+        {
+          "profile": "score persists across application restart",
+          "status": "passed"
+        },
+        {
+          "profile": "second question increments score",
+          "status": "passed"
+        },
+        {
+          "profile": "completed duplicate safely handled",
+          "status": "passed"
+        },
+        {
+          "profile": "completed score remains two",
+          "status": "passed"
+        },
+        {
+          "profile": "practice question cleanup",
+          "status": "passed"
+        },
+        {
+          "profile": "practice question cleanup",
+          "status": "passed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-03-wide-context/manifest.json",
+      "sha256": "94eb34b302022986a05e2d40dc7fbd47ff9f65a1d76ed1ab6313a179b6d0bea3",
+      "record_kind": "manifest",
+      "program": "main_or_independent_acceptance",
+      "status": "unclassified",
+      "recorded_status": "unclassified",
+      "verification": "not_recorded",
+      "generation_origin": "seed",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "policy": "Checkpoint continuation, not a fresh trial; no manual edits to generated source",
+        "source_commit": "344829d7e8169bd1aa7a890b8b1741c3015368c3"
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-03-wide-context/raw/run-20261106-165508-200b9016/artifacts/checks-0.json",
+      "sha256": "aff06c57613988455c5c89d1cc0b8cbebf71c15a5693a48ddabb7ea6fb65ef4e",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "passed"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "failed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-03-wide-context/raw/run-20261106-165508-200b9016/artifacts/checks-1.json",
+      "sha256": "a396ffbe1726d5d516ce3354af550e02c43fb77896adca14174ac7aeff5407da",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "passed"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "failed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-03-wide-context/raw/run-20261106-165508-200b9016/artifacts/checks-2.json",
+      "sha256": "260284d4203ae95e6eb1dd525f5665ce944dccc381c99b7a934837656276e5fd",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "passed"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "failed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-03-wide-context/raw/run-20261106-165508-200b9016/artifacts/checks-3.json",
+      "sha256": "790357e2bfedd51b3b0471b5c5ee38d47efe1300385830cf89e7ea5deaf74096",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "passed"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "failed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-03-wide-context/raw/run-20261106-165508-200b9016/artifacts/checks-4.json",
+      "sha256": "b065da0bbb19e3ee9fdac554fd8c01e7b2c954739e612f07719cf201da132f70",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "passed"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "passed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-03-wide-context/raw/run-20261106-165508-200b9016/artifacts/report.json",
+      "sha256": "c964155fce2bec8cbd3c2475f1196e043c09e52a1ec8161fa46f356a5cfed20e",
+      "record_kind": "report",
+      "program": "main_or_independent_acceptance",
+      "status": "checks_passed_requires_review",
+      "recorded_status": "checks_passed_requires_review",
+      "verification": "not_recorded",
+      "generation_origin": "seed",
+      "turns": 56,
+      "estimated_cny": 31.922454000000002,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "passed"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "passed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-03-wide-context/receipt.json",
+      "sha256": "baf5d7f6c91c6707f1d96e37d1330211defe921c2494d2bdb0f57e9482c5abc5",
+      "record_kind": "receipt",
+      "program": "main_or_independent_acceptance",
+      "status": "checks_passed_requires_review",
+      "recorded_status": "checks_passed_requires_review",
+      "verification": "not_recorded",
+      "generation_origin": "seed",
+      "turns": 56,
+      "estimated_cny": 31.922454000000002,
+      "checks": [],
+      "details": {
+        "independent_acceptance": "pending",
+        "source_unchanged": true
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-browser-repair/browser.json",
+      "sha256": "1b7215553aa1f0c53c0fd5a297086e980aaac6ae81ac9649488c793ef358ba87",
+      "record_kind": "independent_browser",
+      "program": "main_or_independent_acceptance",
+      "status": "failed",
+      "recorded_status": "failed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "entry and runtime configuration",
+          "status": "passed"
+        },
+        {
+          "profile": "student real browser authentication",
+          "status": "passed"
+        },
+        {
+          "profile": "student visible main menu",
+          "status": "failed"
+        },
+        {
+          "profile": "admin real browser authentication",
+          "status": "passed"
+        },
+        {
+          "profile": "admin visible question operations",
+          "status": "failed"
+        },
+        {
+          "profile": "student start",
+          "status": "skipped"
+        },
+        {
+          "profile": "answer and score",
+          "status": "skipped"
+        },
+        {
+          "profile": "pause and resume",
+          "status": "skipped"
+        },
+        {
+          "profile": "help",
+          "status": "skipped"
+        },
+        {
+          "profile": "game state reload persistence",
+          "status": "skipped"
+        },
+        {
+          "profile": "admin question CRUD",
+          "status": "skipped"
+        }
+      ],
+      "details": {
+        "source_unchanged": true,
+        "source_matches_original_run": true,
+        "cleanup": {
+          "stop_method": "cooperative stop file",
+          "server_exit_code": 0,
+          "playwright_sessions_closed": [
+            "v03space04repair",
+            "v03space04repairadmin"
+          ],
+          "owned_project": "dca-e1c4ad53bf54",
+          "post_stop_ps_exit_code": 0,
+          "post_stop_ps_stdout": "",
+          "post_stop_ps_stderr": "",
+          "no_owned_containers_remain": true
+        }
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-browser-repair/independent-architecture.json",
+      "sha256": "09b66b249ac446dd032edd42d3dacc29c1d924b188d8faa764dd247c24c331cf",
+      "record_kind": "independent_static_architecture_review",
+      "program": "main_or_independent_acceptance",
+      "status": "findings",
+      "recorded_status": "findings",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "source_matches_original_run": true
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-browser-repair/independent-browser-preflight.json",
+      "sha256": "80be4a48f6f0f585076d0bf818874eb06869b5602c76f40a80105291026f99cf",
+      "record_kind": "independent-browser-preflight",
+      "program": "main_or_independent_acceptance",
+      "status": "passed",
+      "recorded_status": "passed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "gateway ready",
+          "status": "passed"
+        },
+        {
+          "profile": "browser entry served",
+          "status": "passed"
+        },
+        {
+          "profile": "local identity-provider fixture admin",
+          "status": "passed"
+        },
+        {
+          "profile": "browser client is public and requires S256",
+          "status": "passed"
+        },
+        {
+          "profile": "temporary public callback origin configured",
+          "status": "passed"
+        },
+        {
+          "profile": "OIDC fixture login: student",
+          "status": "passed"
+        },
+        {
+          "profile": "OIDC fixture login: admin",
+          "status": "passed"
+        },
+        {
+          "profile": "OIDC fixture login: other",
+          "status": "passed"
+        },
+        {
+          "profile": "missing authentication rejected",
+          "status": "passed"
+        },
+        {
+          "profile": "wrong signature rejected",
+          "status": "passed"
+        },
+        {
+          "profile": "ordinary user denied administration",
+          "status": "passed"
+        },
+        {
+          "profile": "admin creates practice question 0",
+          "status": "passed"
+        },
+        {
+          "profile": "admin creates practice question 1",
+          "status": "passed"
+        },
+        {
+          "profile": "authenticated game creation",
+          "status": "passed"
+        },
+        {
+          "profile": "player questions hide correct answers",
+          "status": "passed"
+        },
+        {
+          "profile": "cross-user ownership enforced",
+          "status": "passed"
+        },
+        {
+          "profile": "pause",
+          "status": "passed"
+        },
+        {
+          "profile": "paused answer rejected",
+          "status": "passed"
+        },
+        {
+          "profile": "resume",
+          "status": "passed"
+        },
+        {
+          "profile": "invalid fraction rejected",
+          "status": "passed"
+        },
+        {
+          "profile": "eight concurrent equivalent answers score once",
+          "status": "passed"
+        },
+        {
+          "profile": "score persists across application restart",
+          "status": "passed"
+        },
+        {
+          "profile": "second question increments score",
+          "status": "passed"
+        },
+        {
+          "profile": "completed duplicate safely handled",
+          "status": "passed"
+        },
+        {
+          "profile": "completed score remains two",
+          "status": "passed"
+        },
+        {
+          "profile": "practice question cleanup",
+          "status": "passed"
+        },
+        {
+          "profile": "practice question cleanup",
+          "status": "passed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-browser-repair/manifest.json",
+      "sha256": "f40a974e5c810417d9d9a688e47694cbcab3875bc0d9d47e9ecb5742d34134e9",
+      "record_kind": "manifest",
+      "program": "main_or_independent_acceptance",
+      "status": "unclassified",
+      "recorded_status": "unclassified",
+      "verification": "not_recorded",
+      "generation_origin": "seed",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "policy": "Checkpoint continuation, not a fresh trial; no manual edits to generated source",
+        "source_commit": "5531e14f6e8a480ae8725d68dbe616c352a0d79b"
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-browser-repair/raw/run-20261106-185814-f678db31/artifacts/checks-0.json",
+      "sha256": "6cd0a342d77c7416f6ec19f9a2c01971186ea8ba4371a7a73e16aacac7a63e1e",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "passed"
+        },
+        {
+          "profile": "browser_login",
+          "status": "failed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-browser-repair/raw/run-20261106-185814-f678db31/artifacts/checks-1.json",
+      "sha256": "bb88c9621fd903ea33065a9f6f2cedca0243a1ba54a2180761f413107e6b8c76",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "passed"
+        },
+        {
+          "profile": "external_review_retest",
+          "status": "unverified"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-browser-repair/raw/run-20261106-185814-f678db31/artifacts/report.json",
+      "sha256": "9e214791d6b04fe53f8e1321985f46786c3e2be6adb7823e6c6e70b5a785ffa8",
+      "record_kind": "report",
+      "program": "main_or_independent_acceptance",
+      "status": "completed_with_gaps",
+      "recorded_status": "completed_with_gaps",
+      "verification": "not_recorded",
+      "generation_origin": "seed",
+      "turns": 17,
+      "estimated_cny": 8.989035,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "passed"
+        },
+        {
+          "profile": "external_review_retest",
+          "status": "unverified"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-browser-repair/receipt.json",
+      "sha256": "176055f973fa2fe56f99f61e2db6fe8c6bf5e4f9a8f23f5f311b13dda7de5420",
+      "record_kind": "receipt",
+      "program": "main_or_independent_acceptance",
+      "status": "completed_with_gaps",
+      "recorded_status": "completed_with_gaps",
+      "verification": "not_recorded",
+      "generation_origin": "seed",
+      "turns": 17,
+      "estimated_cny": 8.989035,
+      "checks": [],
+      "details": {
+        "independent_acceptance": "pending",
+        "source_unchanged": true
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-final-fresh/browser.json",
+      "sha256": "809817e821399d8774b8d5744e7fa37bc38c86a8cc86e429438932bfdf60ff52",
+      "record_kind": "independent_browser",
+      "program": "main_or_independent_acceptance",
+      "status": "failed",
+      "recorded_status": "failed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "browser entry",
+          "status": "passed"
+        },
+        {
+          "profile": "real OIDC browser sign-in",
+          "status": "failed"
+        },
+        {
+          "profile": "student start",
+          "status": "skipped"
+        },
+        {
+          "profile": "student answer and score",
+          "status": "skipped"
+        },
+        {
+          "profile": "pause and resume",
+          "status": "skipped"
+        },
+        {
+          "profile": "help in authenticated game",
+          "status": "skipped"
+        },
+        {
+          "profile": "admin question operations",
+          "status": "skipped"
+        },
+        {
+          "profile": "reload persistence",
+          "status": "skipped"
+        }
+      ],
+      "details": {
+        "source_unchanged": true,
+        "source_matches_original_run": true,
+        "cleanup": {
+          "origin": "independent post-stop owned project query",
+          "project": "dca-7e67c1dc6752",
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": "",
+          "no_owned_containers_remain": true,
+          "server_process_exit_code": 0,
+          "stop_method": "cooperative stop file",
+          "playwright_session_closed": true
+        },
+        "limitations": "HTTP fixture acceptance passed separately. Browser login failure prevents full UI acceptance. No model calls or repairs."
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-final-fresh/independent-architecture.json",
+      "sha256": "82e7358d1cb27d5a1165dae7d705219d8638fd59f90d79fadfc5a79781fb6204",
+      "record_kind": "independent_static_architecture_review",
+      "program": "main_or_independent_acceptance",
+      "status": "findings",
+      "recorded_status": "findings",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "source_matches_original_run": true
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-final-fresh/independent-browser-preflight.json",
+      "sha256": "cbf6a79d50a364c4435980db28cfea2ce858a33e30203e0349bbe81c99c65da7",
+      "record_kind": "independent-browser-preflight",
+      "program": "main_or_independent_acceptance",
+      "status": "passed",
+      "recorded_status": "passed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "gateway ready",
+          "status": "passed"
+        },
+        {
+          "profile": "browser entry served",
+          "status": "passed"
+        },
+        {
+          "profile": "local identity-provider fixture admin",
+          "status": "passed"
+        },
+        {
+          "profile": "browser client is public and requires S256",
+          "status": "passed"
+        },
+        {
+          "profile": "temporary public callback origin configured",
+          "status": "passed"
+        },
+        {
+          "profile": "OIDC fixture login: student",
+          "status": "passed"
+        },
+        {
+          "profile": "OIDC fixture login: admin",
+          "status": "passed"
+        },
+        {
+          "profile": "OIDC fixture login: other",
+          "status": "passed"
+        },
+        {
+          "profile": "missing authentication rejected",
+          "status": "passed"
+        },
+        {
+          "profile": "wrong signature rejected",
+          "status": "passed"
+        },
+        {
+          "profile": "ordinary user denied administration",
+          "status": "passed"
+        },
+        {
+          "profile": "admin creates practice question 0",
+          "status": "passed"
+        },
+        {
+          "profile": "admin creates practice question 1",
+          "status": "passed"
+        },
+        {
+          "profile": "authenticated game creation",
+          "status": "passed"
+        },
+        {
+          "profile": "player questions hide correct answers",
+          "status": "passed"
+        },
+        {
+          "profile": "cross-user ownership enforced",
+          "status": "passed"
+        },
+        {
+          "profile": "pause",
+          "status": "passed"
+        },
+        {
+          "profile": "paused answer rejected",
+          "status": "passed"
+        },
+        {
+          "profile": "resume",
+          "status": "passed"
+        },
+        {
+          "profile": "invalid fraction rejected",
+          "status": "passed"
+        },
+        {
+          "profile": "eight concurrent equivalent answers score once",
+          "status": "passed"
+        },
+        {
+          "profile": "score persists across application restart",
+          "status": "passed"
+        },
+        {
+          "profile": "second question increments score",
+          "status": "passed"
+        },
+        {
+          "profile": "completed duplicate safely handled",
+          "status": "passed"
+        },
+        {
+          "profile": "completed score remains two",
+          "status": "passed"
+        },
+        {
+          "profile": "practice question cleanup",
+          "status": "passed"
+        },
+        {
+          "profile": "practice question cleanup",
+          "status": "passed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-final-fresh/manifest.json",
+      "sha256": "f07b0e78de8bff3a28b95b7daf9114aa623e4727a0a17f00d403830d7119460a",
+      "record_kind": "manifest",
+      "program": "main_or_independent_acceptance",
+      "status": "unclassified",
+      "recorded_status": "unclassified",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "policy": "Fresh run, no seed or manual project edits. Independent checker not supplied to model.",
+        "source_commit": "344829d7e8169bd1aa7a890b8b1741c3015368c3"
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-final-fresh/raw/run-20261106-172541-c110ad7c/artifacts/checks-0.json",
+      "sha256": "33944e1bea1c27a0800e3425ef392bc7ccecf2e1bf111de045294f6c901b22f0",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "failed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "failed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "plan_references",
+          "status": "failed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "failed"
+        },
+        {
+          "profile": "runtime",
+          "status": "failed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-final-fresh/raw/run-20261106-172541-c110ad7c/artifacts/checks-1.json",
+      "sha256": "d2e22d3f34a54997723936d6a292cd8ad93f8664248f8052af1d2d50510aeb70",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "failed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "failed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-final-fresh/raw/run-20261106-172541-c110ad7c/artifacts/checks-2.json",
+      "sha256": "ad09e30432bb5724fba8fd81bd6354bd867045bffab49c01ff0b7a952accf912",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "failed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-final-fresh/raw/run-20261106-172541-c110ad7c/artifacts/checks-3.json",
+      "sha256": "72f3bc1bdfad6e2f558bf81dd35fe7e0070d621c41dfe3e6df23f83ea213bbd4",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "failed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-final-fresh/raw/run-20261106-172541-c110ad7c/artifacts/checks-4.json",
+      "sha256": "77a831372dac0a1ebe7ed3e90abb768a1e9aadc211f905e8ee120ac2857c0660",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "passed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-final-fresh/raw/run-20261106-172541-c110ad7c/artifacts/report.json",
+      "sha256": "2bb06032fcaf31beaa13a407162a24e24d011c1bd14cd68420b1da035eb37d8a",
+      "record_kind": "report",
+      "program": "main_or_independent_acceptance",
+      "status": "checks_passed_requires_review",
+      "recorded_status": "checks_passed_requires_review",
+      "verification": "not_recorded",
+      "generation_origin": "fresh",
+      "turns": 249,
+      "estimated_cny": 111.208251,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "passed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-final-fresh/receipt.json",
+      "sha256": "1abc6e7c287cbd545156f057cc681e003660561f2ceb7a977e6b50f05a6c67c7",
+      "record_kind": "receipt",
+      "program": "main_or_independent_acceptance",
+      "status": "checks_passed_requires_review",
+      "recorded_status": "checks_passed_requires_review",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": 249,
+      "estimated_cny": 111.208251,
+      "checks": [],
+      "details": {
+        "independent_acceptance": "pending",
+        "source_unchanged": true
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-state-repair/browser.json",
+      "sha256": "3c7fa0330fcc4d4058b400405dd33dfca7ad252327841bd5be2d6345ac60c57d",
+      "record_kind": "independent_browser",
+      "program": "main_or_independent_acceptance",
+      "status": "passed",
+      "recorded_status": "passed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "entry",
+          "status": "passed"
+        },
+        {
+          "profile": "student PKCE login",
+          "status": "passed"
+        },
+        {
+          "profile": "student game start",
+          "status": "passed"
+        },
+        {
+          "profile": "pause",
+          "status": "passed"
+        },
+        {
+          "profile": "resume",
+          "status": "passed"
+        },
+        {
+          "profile": "answer scoring",
+          "status": "passed"
+        },
+        {
+          "profile": "reload score1 from server",
+          "status": "passed"
+        },
+        {
+          "profile": "help",
+          "status": "passed"
+        },
+        {
+          "profile": "full game scoring regression",
+          "status": "passed"
+        },
+        {
+          "profile": "ending feedback",
+          "status": "passed"
+        },
+        {
+          "profile": "reload score8 from server",
+          "status": "passed"
+        },
+        {
+          "profile": "admin PKCE login",
+          "status": "passed"
+        },
+        {
+          "profile": "admin list",
+          "status": "passed"
+        },
+        {
+          "profile": "admin create",
+          "status": "passed"
+        },
+        {
+          "profile": "admin update",
+          "status": "passed"
+        },
+        {
+          "profile": "admin update persistence after reload",
+          "status": "passed"
+        },
+        {
+          "profile": "admin delete",
+          "status": "passed"
+        },
+        {
+          "profile": "admin delete list refresh",
+          "status": "passed"
+        }
+      ],
+      "details": {
+        "source_unchanged": true,
+        "source_matches_original_run": true,
+        "cleanup": {
+          "stop_method": "cooperative stop file",
+          "server_exit_code": 0,
+          "playwright_sessions_closed": [
+            "v03space04state",
+            "v03space04stateadmin"
+          ],
+          "owned_project": "dca-09afe8a77b3e",
+          "post_stop_ps_exit_code": 0,
+          "post_stop_ps_stdout": "",
+          "post_stop_ps_stderr": "",
+          "no_owned_containers_remain": true
+        }
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-state-repair/independent-architecture.json",
+      "sha256": "2ce940e2bf246520b05a851c7d8eb0a2d7948c06189130d058d1265a8d4cd711",
+      "record_kind": "independent_static_architecture_review",
+      "program": "main_or_independent_acceptance",
+      "status": "observations_with_limits",
+      "recorded_status": "observations_with_limits",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "source_matches_original_run": true
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-state-repair/independent-browser-preflight.json",
+      "sha256": "cbf6a79d50a364c4435980db28cfea2ce858a33e30203e0349bbe81c99c65da7",
+      "record_kind": "independent-browser-preflight",
+      "program": "main_or_independent_acceptance",
+      "status": "passed",
+      "recorded_status": "passed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "gateway ready",
+          "status": "passed"
+        },
+        {
+          "profile": "browser entry served",
+          "status": "passed"
+        },
+        {
+          "profile": "local identity-provider fixture admin",
+          "status": "passed"
+        },
+        {
+          "profile": "browser client is public and requires S256",
+          "status": "passed"
+        },
+        {
+          "profile": "temporary public callback origin configured",
+          "status": "passed"
+        },
+        {
+          "profile": "OIDC fixture login: student",
+          "status": "passed"
+        },
+        {
+          "profile": "OIDC fixture login: admin",
+          "status": "passed"
+        },
+        {
+          "profile": "OIDC fixture login: other",
+          "status": "passed"
+        },
+        {
+          "profile": "missing authentication rejected",
+          "status": "passed"
+        },
+        {
+          "profile": "wrong signature rejected",
+          "status": "passed"
+        },
+        {
+          "profile": "ordinary user denied administration",
+          "status": "passed"
+        },
+        {
+          "profile": "admin creates practice question 0",
+          "status": "passed"
+        },
+        {
+          "profile": "admin creates practice question 1",
+          "status": "passed"
+        },
+        {
+          "profile": "authenticated game creation",
+          "status": "passed"
+        },
+        {
+          "profile": "player questions hide correct answers",
+          "status": "passed"
+        },
+        {
+          "profile": "cross-user ownership enforced",
+          "status": "passed"
+        },
+        {
+          "profile": "pause",
+          "status": "passed"
+        },
+        {
+          "profile": "paused answer rejected",
+          "status": "passed"
+        },
+        {
+          "profile": "resume",
+          "status": "passed"
+        },
+        {
+          "profile": "invalid fraction rejected",
+          "status": "passed"
+        },
+        {
+          "profile": "eight concurrent equivalent answers score once",
+          "status": "passed"
+        },
+        {
+          "profile": "score persists across application restart",
+          "status": "passed"
+        },
+        {
+          "profile": "second question increments score",
+          "status": "passed"
+        },
+        {
+          "profile": "completed duplicate safely handled",
+          "status": "passed"
+        },
+        {
+          "profile": "completed score remains two",
+          "status": "passed"
+        },
+        {
+          "profile": "practice question cleanup",
+          "status": "passed"
+        },
+        {
+          "profile": "practice question cleanup",
+          "status": "passed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-state-repair/independent-http.json",
+      "sha256": "07228cc89e10a7403d0edf9fa72e4c6380523c0b83ad6aff755660abddd3b879",
+      "record_kind": "independent-http",
+      "program": "main_or_independent_acceptance",
+      "status": "passed",
+      "recorded_status": "passed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "gateway ready",
+          "status": "passed"
+        },
+        {
+          "profile": "browser entry served",
+          "status": "passed"
+        },
+        {
+          "profile": "local identity-provider fixture admin",
+          "status": "passed"
+        },
+        {
+          "profile": "browser client is public and requires S256",
+          "status": "passed"
+        },
+        {
+          "profile": "temporary public callback origin configured",
+          "status": "passed"
+        },
+        {
+          "profile": "OIDC fixture login: student",
+          "status": "passed"
+        },
+        {
+          "profile": "OIDC fixture login: admin",
+          "status": "passed"
+        },
+        {
+          "profile": "OIDC fixture login: other",
+          "status": "passed"
+        },
+        {
+          "profile": "missing authentication rejected",
+          "status": "passed"
+        },
+        {
+          "profile": "wrong signature rejected",
+          "status": "passed"
+        },
+        {
+          "profile": "ordinary user denied administration",
+          "status": "passed"
+        },
+        {
+          "profile": "admin creates practice question 0",
+          "status": "passed"
+        },
+        {
+          "profile": "admin creates practice question 1",
+          "status": "passed"
+        },
+        {
+          "profile": "authenticated game creation",
+          "status": "passed"
+        },
+        {
+          "profile": "player questions hide correct answers",
+          "status": "passed"
+        },
+        {
+          "profile": "cross-user ownership enforced",
+          "status": "passed"
+        },
+        {
+          "profile": "pause",
+          "status": "passed"
+        },
+        {
+          "profile": "paused answer rejected",
+          "status": "passed"
+        },
+        {
+          "profile": "resume",
+          "status": "passed"
+        },
+        {
+          "profile": "invalid fraction rejected",
+          "status": "passed"
+        },
+        {
+          "profile": "eight concurrent equivalent answers score once",
+          "status": "passed"
+        },
+        {
+          "profile": "score persists across application restart",
+          "status": "passed"
+        },
+        {
+          "profile": "second question increments score",
+          "status": "passed"
+        },
+        {
+          "profile": "completed duplicate safely handled",
+          "status": "passed"
+        },
+        {
+          "profile": "completed score remains two",
+          "status": "passed"
+        },
+        {
+          "profile": "practice question cleanup",
+          "status": "passed"
+        },
+        {
+          "profile": "practice question cleanup",
+          "status": "passed"
+        }
+      ],
+      "details": {
+        "source_unchanged": true,
+        "source_matches_original_run": true
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-state-repair/manifest.json",
+      "sha256": "dc1324511cfd7e85814f682a3bc78fd596212887e496a18ed23b039d5262290a",
+      "record_kind": "manifest",
+      "program": "main_or_independent_acceptance",
+      "status": "unclassified",
+      "recorded_status": "unclassified",
+      "verification": "not_recorded",
+      "generation_origin": "seed",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "policy": "Checkpoint continuation, not a fresh trial; no manual edits to generated source",
+        "source_commit": "5531e14f6e8a480ae8725d68dbe616c352a0d79b"
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-state-repair/raw/run-20261106-193116-2685348c/artifacts/checks-0.json",
+      "sha256": "e6944bb370082855496bab76a65956f8a29a8e1e5a4eff76b9cebffbb5b44c2d",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "passed"
+        },
+        {
+          "profile": "browser_reload_server_score_recovery",
+          "status": "failed"
+        },
+        {
+          "profile": "browser_admin_update",
+          "status": "failed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-state-repair/raw/run-20261106-193116-2685348c/artifacts/checks-1.json",
+      "sha256": "f1a0df546997811aa5dc793b8110247da5a11b54497a313c14cb88abe0495658",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "passed"
+        },
+        {
+          "profile": "external_review_retest",
+          "status": "unverified"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-state-repair/raw/run-20261106-193116-2685348c/artifacts/report.json",
+      "sha256": "fa16c1d6a3b8eae7b85bf91f2a2f76b744f600f2698b5f4523f06e328a620a66",
+      "record_kind": "report",
+      "program": "main_or_independent_acceptance",
+      "status": "completed_with_gaps",
+      "recorded_status": "completed_with_gaps",
+      "verification": "not_recorded",
+      "generation_origin": "seed",
+      "turns": 40,
+      "estimated_cny": 21.164715,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "passed"
+        },
+        {
+          "profile": "external_review_retest",
+          "status": "unverified"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-state-repair/receipt.json",
+      "sha256": "83b2222be1ad9dc77d10aa8f2b017db3a7b0d111910c7b6eefa0a5bf3fa2876c",
+      "record_kind": "receipt",
+      "program": "main_or_independent_acceptance",
+      "status": "completed_with_gaps",
+      "recorded_status": "completed_with_gaps",
+      "verification": "not_recorded",
+      "generation_origin": "seed",
+      "turns": 40,
+      "estimated_cny": 21.164715,
+      "checks": [],
+      "details": {
+        "independent_acceptance": "pending",
+        "source_unchanged": true
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-ui-repair/browser.json",
+      "sha256": "a7e5edbbbd2e288f477fcf846d7b3202f011166494c9ce4a3dc25efa38ae535e",
+      "record_kind": "independent_browser",
+      "program": "main_or_independent_acceptance",
+      "status": "failed",
+      "recorded_status": "failed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "entry",
+          "status": "passed"
+        },
+        {
+          "profile": "student real PKCE login",
+          "status": "passed"
+        },
+        {
+          "profile": "student start",
+          "status": "passed"
+        },
+        {
+          "profile": "pause",
+          "status": "passed"
+        },
+        {
+          "profile": "resume",
+          "status": "passed"
+        },
+        {
+          "profile": "answer and scoring",
+          "status": "passed"
+        },
+        {
+          "profile": "ending feedback",
+          "status": "passed"
+        },
+        {
+          "profile": "score view before reload",
+          "status": "passed"
+        },
+        {
+          "profile": "help",
+          "status": "passed"
+        },
+        {
+          "profile": "authentication after reload",
+          "status": "passed"
+        },
+        {
+          "profile": "admin real PKCE login",
+          "status": "passed"
+        },
+        {
+          "profile": "admin list",
+          "status": "passed"
+        },
+        {
+          "profile": "admin create",
+          "status": "passed"
+        },
+        {
+          "profile": "admin creation reload persistence",
+          "status": "passed"
+        },
+        {
+          "profile": "admin delete",
+          "status": "passed"
+        },
+        {
+          "profile": "admin list refresh after delete",
+          "status": "passed"
+        },
+        {
+          "profile": "student score/game recovery after reload",
+          "status": "failed"
+        },
+        {
+          "profile": "admin update question",
+          "status": "skipped"
+        }
+      ],
+      "details": {
+        "source_unchanged": true,
+        "source_matches_original_run": true,
+        "cleanup": {
+          "stop_method": "cooperative stop file",
+          "server_exit_code": 0,
+          "playwright_sessions_closed": [
+            "v03space04ui",
+            "v03space04uiadmin"
+          ],
+          "owned_project": "dca-995c08348c86",
+          "post_stop_ps_exit_code": 0,
+          "post_stop_ps_stdout": "",
+          "post_stop_ps_stderr": "",
+          "no_owned_containers_remain": true
+        },
+        "limitations": "No browser DOM/CSS changes; no API calls substituted for UI actions; no general success-rate/production claim."
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-ui-repair/independent-architecture.json",
+      "sha256": "63a39bbac1d2b7d145175d02161b90d269a169d2a6306a0c1e68b7319aaaccbe",
+      "record_kind": "independent_static_architecture_review",
+      "program": "main_or_independent_acceptance",
+      "status": "findings",
+      "recorded_status": "findings",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "source_matches_original_run": true
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-ui-repair/independent-browser-preflight.json",
+      "sha256": "d05f0a8b6331849b84277f35c4cdbb9db1acab8d83b1ec50f74c83a9ba397e91",
+      "record_kind": "independent-browser-preflight",
+      "program": "main_or_independent_acceptance",
+      "status": "passed",
+      "recorded_status": "passed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "gateway ready",
+          "status": "passed"
+        },
+        {
+          "profile": "browser entry served",
+          "status": "passed"
+        },
+        {
+          "profile": "local identity-provider fixture admin",
+          "status": "passed"
+        },
+        {
+          "profile": "browser client is public and requires S256",
+          "status": "passed"
+        },
+        {
+          "profile": "temporary public callback origin configured",
+          "status": "passed"
+        },
+        {
+          "profile": "OIDC fixture login: student",
+          "status": "passed"
+        },
+        {
+          "profile": "OIDC fixture login: admin",
+          "status": "passed"
+        },
+        {
+          "profile": "OIDC fixture login: other",
+          "status": "passed"
+        },
+        {
+          "profile": "missing authentication rejected",
+          "status": "passed"
+        },
+        {
+          "profile": "wrong signature rejected",
+          "status": "passed"
+        },
+        {
+          "profile": "ordinary user denied administration",
+          "status": "passed"
+        },
+        {
+          "profile": "admin creates practice question 0",
+          "status": "passed"
+        },
+        {
+          "profile": "admin creates practice question 1",
+          "status": "passed"
+        },
+        {
+          "profile": "authenticated game creation",
+          "status": "passed"
+        },
+        {
+          "profile": "player questions hide correct answers",
+          "status": "passed"
+        },
+        {
+          "profile": "cross-user ownership enforced",
+          "status": "passed"
+        },
+        {
+          "profile": "pause",
+          "status": "passed"
+        },
+        {
+          "profile": "paused answer rejected",
+          "status": "passed"
+        },
+        {
+          "profile": "resume",
+          "status": "passed"
+        },
+        {
+          "profile": "invalid fraction rejected",
+          "status": "passed"
+        },
+        {
+          "profile": "eight concurrent equivalent answers score once",
+          "status": "passed"
+        },
+        {
+          "profile": "score persists across application restart",
+          "status": "passed"
+        },
+        {
+          "profile": "second question increments score",
+          "status": "passed"
+        },
+        {
+          "profile": "completed duplicate safely handled",
+          "status": "passed"
+        },
+        {
+          "profile": "completed score remains two",
+          "status": "passed"
+        },
+        {
+          "profile": "practice question cleanup",
+          "status": "passed"
+        },
+        {
+          "profile": "practice question cleanup",
+          "status": "passed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-ui-repair/manifest.json",
+      "sha256": "a0ac645a900ff0e9aee853ff240b6fe7a1dab72d70a5814540e83796f2b439ae",
+      "record_kind": "manifest",
+      "program": "main_or_independent_acceptance",
+      "status": "unclassified",
+      "recorded_status": "unclassified",
+      "verification": "not_recorded",
+      "generation_origin": "seed",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "policy": "Checkpoint continuation, not a fresh trial; no manual edits to generated source",
+        "source_commit": "5531e14f6e8a480ae8725d68dbe616c352a0d79b"
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-ui-repair/raw/run-20261106-191401-214930b2/artifacts/checks-0.json",
+      "sha256": "c19e93acdea38144b1924bdfe5933d65db70363ea30ebe2b8df9238d7fe49be3",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "passed"
+        },
+        {
+          "profile": "browser_ui_visibility_and_admin",
+          "status": "failed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-ui-repair/raw/run-20261106-191401-214930b2/artifacts/checks-1.json",
+      "sha256": "02b78094e4264a99fb99dd904c70a24fbc347bb09d53e5888449ce6be8f71445",
+      "record_kind": "original_check_batch",
+      "program": "main_or_independent_acceptance",
+      "status": "recorded_checks",
+      "recorded_status": "recorded_checks",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "passed"
+        },
+        {
+          "profile": "external_review_retest",
+          "status": "unverified"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-ui-repair/raw/run-20261106-191401-214930b2/artifacts/report.json",
+      "sha256": "e7f89689001f18ece099df113b086d0ebc05a86a6c4dbe2b16111fdeda782816",
+      "record_kind": "report",
+      "program": "main_or_independent_acceptance",
+      "status": "completed_with_gaps",
+      "recorded_status": "completed_with_gaps",
+      "verification": "not_recorded",
+      "generation_origin": "seed",
+      "turns": 18,
+      "estimated_cny": 9.45132,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed"
+        },
+        {
+          "profile": "install",
+          "status": "passed"
+        },
+        {
+          "profile": "test",
+          "status": "passed"
+        },
+        {
+          "profile": "integration",
+          "status": "not_applicable"
+        },
+        {
+          "profile": "build",
+          "status": "passed"
+        },
+        {
+          "profile": "compose",
+          "status": "passed"
+        },
+        {
+          "profile": "plan_references",
+          "status": "passed"
+        },
+        {
+          "profile": "traceability_links",
+          "status": "passed"
+        },
+        {
+          "profile": "runtime",
+          "status": "passed"
+        },
+        {
+          "profile": "external_review_retest",
+          "status": "unverified"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "main/space-04-ui-repair/receipt.json",
+      "sha256": "d7138a0143e514f8a164efb1e3512561474263a9ef6cbec07a63f6f5193882ae",
+      "record_kind": "receipt",
+      "program": "main_or_independent_acceptance",
+      "status": "completed_with_gaps",
+      "recorded_status": "completed_with_gaps",
+      "verification": "not_recorded",
+      "generation_origin": "seed",
+      "turns": 18,
+      "estimated_cny": 9.45132,
+      "checks": [],
+      "details": {
+        "independent_acceptance": "pending",
+        "source_unchanged": true
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "prototype/20261106-152132-normal/manifest-start.json",
+      "sha256": "7fe4ea3ec17661e6dd1b1e48897108308afdcc025661caeb9808879009c13967",
+      "record_kind": "manifest-start",
+      "program": "main_or_independent_acceptance",
+      "status": "unclassified",
+      "recorded_status": "unclassified",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "source_commit": "dace5f2aa989a82a2fa6717ec141ff68412cac29"
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "prototype/20261106-152132-normal/manifest.json",
+      "sha256": "c0ecd2de2603da5b881294391e9e4c27782fdffaa79a4afd885db1b60f675a57",
+      "record_kind": "manifest",
+      "program": "main_or_independent_acceptance",
+      "status": "unclassified",
+      "recorded_status": "unclassified",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "source_commit": "dace5f2aa989a82a2fa6717ec141ff68412cac29"
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "prototype/20261106-152132-normal/report.json",
+      "sha256": "27c05aca9d722487467fd855c6a1722bdcd1b21d3072cb3ea6da0c2e29224e3c",
+      "record_kind": "report",
+      "program": "prototype",
+      "status": "blocked",
+      "recorded_status": "blocked",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "prototype/20261106-152649-recovery/independent-crash-probe.json",
+      "sha256": "beb156163af2087c060695658d25227af2bc119565855f7b29ad4354ea778d8b",
+      "record_kind": "independent-crash-probe",
+      "program": "main_or_independent_acceptance",
+      "status": "unclassified",
+      "recorded_status": "unclassified",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "prototype/20261106-152649-recovery/manifest-start.json",
+      "sha256": "8a05a5c4322028135364c5550db17e70dfd8ca364f400b15ab648cabf854be93",
+      "record_kind": "manifest-start",
+      "program": "main_or_independent_acceptance",
+      "status": "unclassified",
+      "recorded_status": "unclassified",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "source_commit": "dace5f2aa989a82a2fa6717ec141ff68412cac29"
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "prototype/20261106-152649-recovery/manifest.json",
+      "sha256": "da1b9c6491c337cec3984371c30d071fb65d20a07b0cf914703cee4ed1e039aa",
+      "record_kind": "manifest",
+      "program": "main_or_independent_acceptance",
+      "status": "unclassified",
+      "recorded_status": "unclassified",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "source_commit": "dace5f2aa989a82a2fa6717ec141ff68412cac29"
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "prototype/20261106-152649-recovery/report.json",
+      "sha256": "d8241566e052fa011340c893894c75e7ab788f99da9561afa9ac4f7caec24b48",
+      "record_kind": "report",
+      "program": "prototype",
+      "status": "blocked",
+      "recorded_status": "blocked",
+      "verification": "checks_passed_requires_review",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed",
+          "job_state": "completed"
+        },
+        {
+          "profile": "install",
+          "status": "passed",
+          "job_state": "completed"
+        },
+        {
+          "profile": "test",
+          "status": "passed",
+          "job_state": "completed"
+        },
+        {
+          "profile": "build",
+          "status": "passed",
+          "job_state": "completed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "prototype/20261106-153522-health/independent-http.json",
+      "sha256": "8987e15cfc5f9f476be729598bc7b449eba51c7a18da79c0c2b475f003d8943e",
+      "record_kind": "independent-http",
+      "program": "main_or_independent_acceptance",
+      "status": "passed",
+      "recorded_status": "passed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "prototype/20261106-153522-health/manifest-start.json",
+      "sha256": "a38bfbeb67d5c294a2e08549116aa6ed5f98ec817ecf78716acd9802efbf268c",
+      "record_kind": "manifest-start",
+      "program": "main_or_independent_acceptance",
+      "status": "unclassified",
+      "recorded_status": "unclassified",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "source_commit": "4c41d363ca0bed95dbabf5fde112e336311c7bc4"
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "prototype/20261106-153522-health/manifest.json",
+      "sha256": "93ab1b234fc8b5ec3d9d850254698f9ac873a6cc0cd7302de26d425caa76dc07",
+      "record_kind": "manifest",
+      "program": "main_or_independent_acceptance",
+      "status": "unclassified",
+      "recorded_status": "unclassified",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "source_commit": "4c41d363ca0bed95dbabf5fde112e336311c7bc4"
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "prototype/20261106-153522-health/report.json",
+      "sha256": "52b19870cbc0943d18fc4dce2ceda4e354433cf288d42ddc09ad4ce3ae01b74b",
+      "record_kind": "report",
+      "program": "prototype",
+      "status": "blocked",
+      "recorded_status": "blocked",
+      "verification": "checks_passed_requires_review",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed",
+          "job_state": "completed"
+        },
+        {
+          "profile": "install",
+          "status": "passed",
+          "job_state": "completed"
+        },
+        {
+          "profile": "test",
+          "status": "passed",
+          "job_state": "completed"
+        },
+        {
+          "profile": "build",
+          "status": "passed",
+          "job_state": "completed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "prototype/20261106-153708-continuation/manifest-start.json",
+      "sha256": "0aa65f0d3b7f06553b70f60dff3ffde5b711881e2abd76cd05f2d10ccb917d24",
+      "record_kind": "checkpoint_continuation_not_fresh_generation",
+      "program": "main_or_independent_acceptance",
+      "status": "unclassified",
+      "recorded_status": "unclassified",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "source_commit": "4c41d363ca0bed95dbabf5fde112e336311c7bc4"
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "prototype/20261106-153708-continuation/manifest.json",
+      "sha256": "a21e3e654d7b50e9bcd680f7fbd4e05cc78178c7bfff3d850111c970d71094a3",
+      "record_kind": "checkpoint_continuation_not_fresh_generation",
+      "program": "main_or_independent_acceptance",
+      "status": "unclassified",
+      "recorded_status": "unclassified",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "source_commit": "4c41d363ca0bed95dbabf5fde112e336311c7bc4"
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "prototype/20261106-153708-continuation/report.json",
+      "sha256": "5be692b2ed3a321a521b7ed13be9b61b06043d6d032016921df92bd17d8517d8",
+      "record_kind": "report",
+      "program": "prototype",
+      "status": "failed",
+      "recorded_status": "failed",
+      "verification": "failed",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed",
+          "job_state": "completed"
+        },
+        {
+          "profile": "install",
+          "status": "passed",
+          "job_state": "completed"
+        },
+        {
+          "profile": "test",
+          "status": "failed",
+          "job_state": "completed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "prototype/20261106-154127-health-policy-continuation/independent-http.json",
+      "sha256": "8987e15cfc5f9f476be729598bc7b449eba51c7a18da79c0c2b475f003d8943e",
+      "record_kind": "independent-http",
+      "program": "main_or_independent_acceptance",
+      "status": "passed",
+      "recorded_status": "passed",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        },
+        {
+          "profile": "unknown",
+          "status": "passed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "prototype/20261106-154127-health-policy-continuation/manifest-start.json",
+      "sha256": "bca323d7c7dd4d36d25ef37bcbab001d3f8e41ef66f85a2639377ca9e928d619",
+      "record_kind": "checkpoint_re_review_not_fresh_generation",
+      "program": "main_or_independent_acceptance",
+      "status": "unclassified",
+      "recorded_status": "unclassified",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "source_commit": "1f425d3bcd3b8d096cca3f14d06ff474d5a7358e"
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "prototype/20261106-154127-health-policy-continuation/manifest.json",
+      "sha256": "70aa5b1d35bbc6d92af58909733e0079d2c1092a19b52c3bac3d95b1657ee354",
+      "record_kind": "checkpoint_re_review_not_fresh_generation",
+      "program": "main_or_independent_acceptance",
+      "status": "unclassified",
+      "recorded_status": "unclassified",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "source_commit": "1f425d3bcd3b8d096cca3f14d06ff474d5a7358e"
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "prototype/20261106-154127-health-policy-continuation/report.json",
+      "sha256": "d388e70d615e76ea558d13f94052bdc5edf425beb5682adc4c4011f3ec947703",
+      "record_kind": "report",
+      "program": "prototype",
+      "status": "completed",
+      "recorded_status": "completed",
+      "verification": "checks_passed_requires_review",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [
+        {
+          "profile": "static",
+          "status": "passed",
+          "job_state": "completed"
+        },
+        {
+          "profile": "install",
+          "status": "passed",
+          "job_state": "completed"
+        },
+        {
+          "profile": "test",
+          "status": "passed",
+          "job_state": "completed"
+        },
+        {
+          "profile": "build",
+          "status": "passed",
+          "job_state": "completed"
+        }
+      ],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "prototype/summary.json",
+      "sha256": "c52781f0c17b18113db1471ba7384847091dab73cd46a4e679cabe81b5e50752",
+      "record_kind": "summary",
+      "program": "main_or_independent_acceptance",
+      "status": "unclassified",
+      "recorded_status": "unclassified",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {
+        "limitations": "No OS-process-kill recovery experiment. Coordinator reconstructed in same Python process. Checkpoint continuations are not fresh generations. All model costs estimates, not provider bills."
+      },
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "tool-regression.json",
+      "sha256": "1ca1dd54a2d25cb508ccecb616c05adf26af95508fe423f4bca6dfbc8ef1b42f",
+      "record_kind": "tool_regression",
+      "program": "main_or_independent_acceptance",
+      "status": "unclassified",
+      "recorded_status": "unclassified",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    },
+    {
+      "report": "upstream-reading.json",
+      "sha256": "875428fc80f9bef0fcb1deea0f98ad286a0c2a9477f7576dfd00c48d85aa082b",
+      "record_kind": "primary_upstream_source_reading",
+      "program": "main_or_independent_acceptance",
+      "status": "unclassified",
+      "recorded_status": "unclassified",
+      "verification": "not_recorded",
+      "generation_origin": "not_recorded",
+      "turns": null,
+      "estimated_cny": null,
+      "checks": [],
+      "details": {},
+      "independent_acceptance": "Only separately recorded operator acceptance establishes this; not inferred from model text"
+    }
+  ]
+}

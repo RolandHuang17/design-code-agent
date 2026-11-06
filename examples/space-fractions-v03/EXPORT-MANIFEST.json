@@ -1,0 +1,247 @@
+{
+  "kind": "byte_identical_main_project_export",
+  "final_trial": "experiments/v03/main/space-04-state-repair",
+  "run_name": "run-20261106-193116-2685348c",
+  "policy": "One fresh generation plus three operator-feedback Agent seed continuations. Product files and original inputs copied byte-for-byte; generated source/README not manually edited. Scope-limited acceptance only.",
+  "lineage": [
+    {
+      "trial": "experiments/v03/main/space-04-final-fresh",
+      "kind": "fresh_generation"
+    },
+    {
+      "trial": "experiments/v03/main/space-04-browser-repair",
+      "kind": "operator_feedback_agent_seed_continuation"
+    },
+    {
+      "trial": "experiments/v03/main/space-04-ui-repair",
+      "kind": "operator_feedback_agent_seed_continuation"
+    },
+    {
+      "trial": "experiments/v03/main/space-04-state-repair",
+      "kind": "operator_feedback_agent_seed_continuation"
+    }
+  ],
+  "project_manually_modified": false,
+  "source_matches_original_final_report": true,
+  "input_sources": {
+    "inputs/Architecture_Documentation.md": {
+      "final_trial_path": "experiments/v03/main/space-04-state-repair/raw/run-20261106-193116-2685348c/inputs/1-Architecture_Documentation.md",
+      "fresh_input_path": "experiments/v03/main/space-04-final-fresh/raw/run-20261106-172541-c110ad7c/inputs/1-Architecture_Documentation.md",
+      "unchanged_from_fresh_input": true
+    },
+    "inputs/Architecture_View.md": {
+      "final_trial_path": "experiments/v03/main/space-04-state-repair/raw/run-20261106-193116-2685348c/inputs/2-Architecture_View.md",
+      "fresh_input_path": "experiments/v03/main/space-04-final-fresh/raw/run-20261106-172541-c110ad7c/inputs/2-Architecture_View.md",
+      "unchanged_from_fresh_input": true
+    },
+    "inputs/space-fractions.md": {
+      "final_trial_path": "experiments/v03/main/space-04-state-repair/raw/run-20261106-193116-2685348c/inputs/space-fractions.md",
+      "fresh_input_path": "experiments/v03/main/space-04-final-fresh/raw/run-20261106-172541-c110ad7c/inputs/space-fractions.md",
+      "unchanged_from_fresh_input": true
+    }
+  },
+  "acceptance": {
+    "independent_http": "../../experiments/v03/main/space-04-state-repair/independent-http.json",
+    "browser": "../../experiments/v03/main/space-04-state-repair/browser.json",
+    "http_passed": 27,
+    "browser_passed": 18
+  },
+  "files": {
+    "project/.env.example": {
+      "sha256": "30473611dd8aa4856b57814174051e64f96ec302d31b8a5c7447e204be0ebe2d",
+      "bytes": 2913
+    },
+    "project/architecture-decisions.md": {
+      "sha256": "f69d8f5587538d2d52cb132a3524f9ec60905cefc0d2769efaca2abad9542923",
+      "bytes": 6719
+    },
+    "project/compose.yaml": {
+      "sha256": "1c384e72119f3174e60710ff9d2d9b31a174791743777847136eb58a6bb135d6",
+      "bytes": 9426
+    },
+    "project/internal.proto": {
+      "sha256": "d72be380b0d49a57591ba59b3b24c77dd178ccf36fb92ded021e5e5575ec02ca",
+      "bytes": 6350
+    },
+    "project/Jenkinsfile": {
+      "sha256": "9d3afef4f7795774e32f63119b208c6d1bc68ded690e07394cf6ca5eaa59932a",
+      "bytes": 2959
+    },
+    "project/openapi.yaml": {
+      "sha256": "fd00a6fd287d7daa3de9e56f41a487aa0cab99ea22101b84c7b9287e277643dc",
+      "bytes": 12938
+    },
+    "project/package-lock.json": {
+      "sha256": "f9d8da5c333a01285f4ed11bba861387423087448618a8d8378b377a07303d2c",
+      "bytes": 45835
+    },
+    "project/package.json": {
+      "sha256": "5315f7358114028873cf5a04c5dde2611e9bb0b0ebe37eee43f6221bfa52b866",
+      "bytes": 966
+    },
+    "project/plan.json": {
+      "sha256": "1de7d54ec6bb0aa96c15295d0a4c9677945c00b0899182445fe8e3aa90187f56",
+      "bytes": 12105
+    },
+    "project/README.md": {
+      "sha256": "3ffa519203cc1ab1389dea3ce43b62381ca56bdcdcd056164ca9fe49d96a7b7f",
+      "bytes": 9912
+    },
+    "project/traceability.json": {
+      "sha256": "07da1b030296d27eef41d772179e8041d93900250466c0cce99d286503f4530d",
+      "bytes": 7166
+    },
+    "project/infra/istio-gateway.yaml": {
+      "sha256": "1dce004e64d9ab742e3535bded65eba5821ebdf74e71c553fc141a0af6028877",
+      "bytes": 2319
+    },
+    "project/infra/prometheus.yml": {
+      "sha256": "c655aa4232e878646d561a6d0a7c0e34e3f1cf5ced9015245450325cffb87379",
+      "bytes": 747
+    },
+    "project/infra/vault-policy.hcl": {
+      "sha256": "c1ddab16d4e3ad0f2dec6f80cf9bd4b646a28d0c8c7cc1f139d207e7c60363ab",
+      "bytes": 2543
+    },
+    "project/k8s/spacefractions-deployment.yaml": {
+      "sha256": "5ae32689894e6be2c576c05eaa2ee6c25d93828d4f6bab0475a9859e4b868e6b",
+      "bytes": 2615
+    },
+    "project/scripts/build.mjs": {
+      "sha256": "0a9000e16a2c6fcc055576fcbfd97ea4641502810cbceaa4a7a9b468aaaf631c",
+      "bytes": 1860
+    },
+    "project/sql/game_ddl.sql": {
+      "sha256": "09dcc8cc964d71f0038a8256e2176e36c46518c5885d323c448e1cbcfc43488c",
+      "bytes": 2958
+    },
+    "project/sql/seed.sql": {
+      "sha256": "06d3b65a035c3e032da7b817939dd8f991db1b2ac24846154de12cf201845c5b",
+      "bytes": 4238
+    },
+    "project/src/metrics.js": {
+      "sha256": "af439a82d134dba20b9523106937dba75f22a758fb0f75b137ebf51335dbc6e4",
+      "bytes": 2944
+    },
+    "project/terraform/main.tf": {
+      "sha256": "74c7c08ed2e921bf49946280de37f05d300923acd0fdc0397c094682c810c793",
+      "bytes": 5112
+    },
+    "project/test/auth.test.js": {
+      "sha256": "72bbbfa918c15e1cb1555e3590850b5c8c84c60064be11a249eadc7009f72fa5",
+      "bytes": 7298
+    },
+    "project/test/fraction.test.js": {
+      "sha256": "e23e0d9edc3de4cf13d7e7ae5f822e8fc2f29da101ff64b2bb69c210d28b8989",
+      "bytes": 4618
+    },
+    "project/test/game-routes.test.js": {
+      "sha256": "a0fab4dc114c91ae702769bbe4fe9efffb38f1cbd5534b799d00c04fc14f107a",
+      "bytes": 10003
+    },
+    "project/test/scoring.test.js": {
+      "sha256": "4ca37894707010db6348ebb4d13cdfb9c61c24fd155086e48066d3409e922279",
+      "bytes": 10872
+    },
+    "project/infra/keycloak/realm.json": {
+      "sha256": "14a5cea1ab0bf39803aa32e2104bd8ab66bab5b3d85786507c78160a80da5dce",
+      "bytes": 3269
+    },
+    "project/packages/admin-service/Dockerfile": {
+      "sha256": "03e2fe23e2c15d903cb0ea73f79c3eebd43d858c882201374806add73964c5a8",
+      "bytes": 1647
+    },
+    "project/packages/game-service/Dockerfile": {
+      "sha256": "f81cdcc8c6189bc56ed1b64669584b1e93d59e7a71c95600fb3c9cf84d325921",
+      "bytes": 1449
+    },
+    "project/packages/gateway/Dockerfile": {
+      "sha256": "ecc8d9c98d3a1d21a180845d4b94dfedbcc9fafd50d0f89e78706dea2d614260",
+      "bytes": 1450
+    },
+    "project/packages/question-service/Dockerfile": {
+      "sha256": "a1037788201cd377c6568082541c0b7d608df32f242e9536cf69e0a7fefdbc7c",
+      "bytes": 1414
+    },
+    "project/packages/user-service/Dockerfile": {
+      "sha256": "a99dc338b1b225e0152c44480b93864799f914423315da5adac1cf2a5b23581b",
+      "bytes": 1448
+    },
+    "project/packages/admin-service/src/index.js": {
+      "sha256": "11d25ff154a39284156841be8dcf2a3005bbb3adc70f8fd3a817cfbd704efefd",
+      "bytes": 10218
+    },
+    "project/packages/game-service/src/events.js": {
+      "sha256": "37c4cc5fe94a1bdb32329569743c3f73d8651c2ba870377f39fa063e365ec26c",
+      "bytes": 4044
+    },
+    "project/packages/game-service/src/index.js": {
+      "sha256": "288a79b523761afb9d40f37c461466e542c4f8dcb1c49e53d23ec581e5ac73c2",
+      "bytes": 14999
+    },
+    "project/packages/game-service/src/repository.js": {
+      "sha256": "133deac417c6f0610b120609c6c7caf7aab7f5397291f7c83d7500a6240e182a",
+      "bytes": 11997
+    },
+    "project/packages/gateway/public/app.js": {
+      "sha256": "c33a7f83ef5614d0abfc34981e30707255c4a4e4bc146fa637827d41664ac2bf",
+      "bytes": 21880
+    },
+    "project/packages/gateway/public/index.html": {
+      "sha256": "04027391d0933955e4f650cbdc5602a934d3f0086cc5b86ef5848b26c081fac9",
+      "bytes": 5900
+    },
+    "project/packages/gateway/public/style.css": {
+      "sha256": "297d7594e7e9e09fd5a1be174af9f80bf49731c04cc46d7123557908197da5f9",
+      "bytes": 5320
+    },
+    "project/packages/gateway/src/index.js": {
+      "sha256": "36c69f6c07dc3d5465f99fcd632f3c1788f28473c71e0349e230e976c4b6cf01",
+      "bytes": 15029
+    },
+    "project/packages/question-service/src/index.js": {
+      "sha256": "9e1a3b412602b0e660d2c9899bc2bc1d0447918bb4a28ab90c0428f61c45b12f",
+      "bytes": 8136
+    },
+    "project/packages/question-service/src/repository.js": {
+      "sha256": "7bfb0782cf1df88ae41ee2419ec62964701f10486f8b23cfa238576c056bfec1",
+      "bytes": 5342
+    },
+    "project/packages/question-service/src/search.js": {
+      "sha256": "0f71be2a24c9dd3ec7457bb0e18c49f2dec84f792e61421f771fc1d208a838fd",
+      "bytes": 4278
+    },
+    "project/packages/user-service/src/index.js": {
+      "sha256": "1e6a24a81600351cfde8ca5bcdfa834bd1b4b2e2cc692560fb58852f0e3f912b",
+      "bytes": 9968
+    },
+    "project/sql/migrations/001_schema.sql": {
+      "sha256": "07f6255bf5009962ee380d36d2030e4a4d888bd7c6aea09e20014a0702595229",
+      "bytes": 4580
+    },
+    "project/src/shared/fraction.js": {
+      "sha256": "004ba794409a437cd23184f05e394d462bc0a8079ea5b452a5bafb7c18b6d2be",
+      "bytes": 7591
+    },
+    "project/src/shared/oidc.js": {
+      "sha256": "86c6f5a6f5aa0bf2c710f22e53dc8bee4331a5ecdbb8f3f9e54b85b08b11c8d4",
+      "bytes": 8783
+    },
+    "project/test/helpers/http.js": {
+      "sha256": "f92a476e30eb3fee895c1371d7b0b7a6511f535c4a3d45c15dac8e7c9f98e1d3",
+      "bytes": 3263
+    },
+    "inputs/Architecture_Documentation.md": {
+      "sha256": "111282df7817bca771e53c82ebb053707a3217cb8f11733a2c25b631ca81db55",
+      "bytes": 10454
+    },
+    "inputs/Architecture_View.md": {
+      "sha256": "77dac057e13f122ddc6fc19294490c6a961f00429b72f15df81a81adc91bdbc8",
+      "bytes": 4242
+    },
+    "inputs/space-fractions.md": {
+      "sha256": "0b185dc05dc4dfd4b00b135ad8e98a5b9288682bf2e16ff62f2e1f31033f6a8c",
+      "bytes": 6357
+    }
+  }
+}

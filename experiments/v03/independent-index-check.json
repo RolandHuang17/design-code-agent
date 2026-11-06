@@ -1,0 +1,9 @@
+{
+  "kind": "offline_check_history_verification",
+  "status": "passed",
+  "command": "python -m pytest tests/test_v03_delivery.py -q",
+  "observed_console": "12 passed in 2.13s",
+  "record_type": "Operator transcription; separate from the171/1 binary-build regression and not CI",
+  "meaning": "Earlier checks-N arrays are indexed without inferring overall pass; original bytes remain unchanged",
+  "helper_sha256": "e17c893db0c2f2bf2aaa7a55ad7cb0bda3560d873f9bf5f14624632ffdb37171"
+}

@@ -1,0 +1,1540 @@
+{
+  "status": "completed_with_gaps",
+  "provider": "bailian",
+  "model": "deepseek-v4-pro-0813",
+  "uses_official_endpoint": false,
+  "real_api_run": true,
+  "checks": [
+    {
+      "profile": "static",
+      "status": "passed",
+      "results": [
+        {
+          "check": "required:package.json",
+          "status": "passed"
+        },
+        {
+          "check": "required:README.md",
+          "status": "passed"
+        },
+        {
+          "check": "required:traceability.json",
+          "status": "passed"
+        },
+        {
+          "check": "compose.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "openapi.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "package-lock.json",
+          "status": "passed"
+        },
+        {
+          "check": "package.json",
+          "status": "passed"
+        },
+        {
+          "check": "plan.json",
+          "status": "passed"
+        },
+        {
+          "check": "traceability.json",
+          "status": "passed"
+        },
+        {
+          "check": "infra/istio-gateway.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "infra/prometheus.yml",
+          "status": "passed"
+        },
+        {
+          "check": "infra/keycloak/realm.json",
+          "status": "passed"
+        },
+        {
+          "check": "k8s/spacefractions-deployment.yaml",
+          "status": "passed"
+        },
+        {
+          "check": "packages/admin-service/src/index.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-final-runs\\runs\\v03\\main\\space-04-state-repair\\run-20261106-193116-2685348c\\project\\packages\\admin-service\\src\\index.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "packages/game-service/src/events.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-final-runs\\runs\\v03\\main\\space-04-state-repair\\run-20261106-193116-2685348c\\project\\packages\\game-service\\src\\events.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "packages/game-service/src/index.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-final-runs\\runs\\v03\\main\\space-04-state-repair\\run-20261106-193116-2685348c\\project\\packages\\game-service\\src\\index.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "packages/game-service/src/repository.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-final-runs\\runs\\v03\\main\\space-04-state-repair\\run-20261106-193116-2685348c\\project\\packages\\game-service\\src\\repository.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "packages/gateway/public/app.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-final-runs\\runs\\v03\\main\\space-04-state-repair\\run-20261106-193116-2685348c\\project\\packages\\gateway\\public\\app.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "packages/gateway/src/index.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-final-runs\\runs\\v03\\main\\space-04-state-repair\\run-20261106-193116-2685348c\\project\\packages\\gateway\\src\\index.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "packages/question-service/src/index.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-final-runs\\runs\\v03\\main\\space-04-state-repair\\run-20261106-193116-2685348c\\project\\packages\\question-service\\src\\index.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "packages/question-service/src/repository.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-final-runs\\runs\\v03\\main\\space-04-state-repair\\run-20261106-193116-2685348c\\project\\packages\\question-service\\src\\repository.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "packages/question-service/src/search.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-final-runs\\runs\\v03\\main\\space-04-state-repair\\run-20261106-193116-2685348c\\project\\packages\\question-service\\src\\search.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "packages/user-service/src/index.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-final-runs\\runs\\v03\\main\\space-04-state-repair\\run-20261106-193116-2685348c\\project\\packages\\user-service\\src\\index.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "scripts/build.mjs",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-final-runs\\runs\\v03\\main\\space-04-state-repair\\run-20261106-193116-2685348c\\project\\scripts\\build.mjs"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/metrics.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-final-runs\\runs\\v03\\main\\space-04-state-repair\\run-20261106-193116-2685348c\\project\\src\\metrics.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/shared/fraction.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-final-runs\\runs\\v03\\main\\space-04-state-repair\\run-20261106-193116-2685348c\\project\\src\\shared\\fraction.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "src/shared/oidc.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-final-runs\\runs\\v03\\main\\space-04-state-repair\\run-20261106-193116-2685348c\\project\\src\\shared\\oidc.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/auth.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-final-runs\\runs\\v03\\main\\space-04-state-repair\\run-20261106-193116-2685348c\\project\\test\\auth.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/fraction.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-final-runs\\runs\\v03\\main\\space-04-state-repair\\run-20261106-193116-2685348c\\project\\test\\fraction.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/game-routes.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-final-runs\\runs\\v03\\main\\space-04-state-repair\\run-20261106-193116-2685348c\\project\\test\\game-routes.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/scoring.test.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-final-runs\\runs\\v03\\main\\space-04-state-repair\\run-20261106-193116-2685348c\\project\\test\\scoring.test.js"
+          ],
+          "output": ""
+        },
+        {
+          "check": "test/helpers/http.js",
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Program Files\\nodejs\\node.EXE",
+            "--check",
+            "D:\\projects\\Task-v03-final-runs\\runs\\v03\\main\\space-04-state-repair\\run-20261106-193116-2685348c\\project\\test\\helpers\\http.js"
+          ],
+          "output": ""
+        }
+      ],
+      "snapshot_id": "9663c2785295848726733b1d3e3c69b531fcd029da1cb486ff6d655b56c4287f",
+      "snapshot_after": "9663c2785295848726733b1d3e3c69b531fcd029da1cb486ff6d655b56c4287f",
+      "stale": false
+    },
+    {
+      "profile": "install",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "output": "\nadded 110 packages in 2s\n",
+      "snapshot_id": "9663c2785295848726733b1d3e3c69b531fcd029da1cb486ff6d655b56c4287f",
+      "snapshot_after": "9663c2785295848726733b1d3e3c69b531fcd029da1cb486ff6d655b56c4287f",
+      "stale": false
+    },
+    {
+      "profile": "test",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "run",
+        "test",
+        "--ignore-scripts"
+      ],
+      "output": "\n> space-fractions@1.0.0 test\n> node --test test/*.test.js\n\n✔ missing credentials return 401 on admin and user endpoints (27.9295ms)\n✔ malformed authorization scheme returns 401 (3.8077ms)\n✔ invalid token (verifier rejects) returns 401 (3.7559ms)\n✔ verifier throw AuthError propagates to 401 (3.5022ms)\n✔ non-admin user receives 403 on admin endpoints (17.8881ms)\n✔ admin can list, create, and delete questions (7.7903ms)\n✔ admin create validates malformed fraction -> 400 (3.4006ms)\n✔ user-service resolves admin and student principals with roles (3.5264ms)\n✔ parseFraction accepts an integer (1.7934ms)\n✔ parseFraction normalizes simple fractions (0.307ms)\n✔ parseFraction accepts mixed numbers (0.224ms)\n✔ parseFraction rejects malformed and invalid input (0.156ms)\n✔ formatFraction produces canonical strings (0.17ms)\n✔ equals compares equivalent fraction representations exactly (0.1856ms)\n✔ compare orders fractions exactly (0.1826ms)\n✔ arithmetic operations are exact and normalized (0.2445ms)\n✔ gcd returns a positive divisor and handles zero (0.1551ms)\n✔ normalize returns null for a zero denominator (0.1855ms)\n✔ toFraction coerces strings and objects and rejects bad values (0.1298ms)\n✔ validateAnswer scores exact rational equivalence (0.1531ms)\n✔ validateAnswer handles malformed answers and missing correct answers (0.1106ms)\n✔ POST /api/games creates a game with all questions and no correctAnswer (40.7168ms)\n✔ POST /api/games accepts explicit questionIds for reproducible practice (8.4627ms)\n✔ POST /api/games with an unknown questionId returns 404 (5.7127ms)\n✔ GET /api/games/:id returns state without correctAnswer (7.2309ms)\n✔ pause and resume mutate state and answering while paused returns 409 (11.5183ms)\n✔ answers aggregate score and repeat does not increment (409) (9.4414ms)\n✔ other user's game is denied (404) with no existence leak (5.4129ms)\n✔ missing credentials return 401 on protected routes (5.3654ms)\n✔ malformed fraction answer returns 400 (4.793ms)\n✔ invalid ids and payloads return 400 (5.3136ms)\n✔ unknown question id on answer returns 404 (3.2459ms)\n✔ GET /health is unauthenticated and returns 200 (3.2215ms)\n✔ each correct answer counts one point and exposes no correctAnswer (51.4026ms)\n✔ an incorrect answer does not increment the score (9.6627ms)\n✔ repeating a question answer returns 409 and does not double-count (9.2648ms)\n✔ the in-memory repository deduplicates directly (transactional contract) (1.0247ms)\n✔ answering while paused returns 409 (10.166ms)\n✔ other users game is denied with 403/404 (no existence leak) (5.7772ms)\n✔ missing credentials return 401 (4.9317ms)\n✔ malformed fraction answer returns 400 (4.1169ms)\n✔ invalid payloads return 400 (5.5426ms)\n✔ unknown question id returns 404 (3.572ms)\n✔ validateAnswer treats equivalent reduced forms as correct (0.3157ms)\nℹ tests 44\nℹ suites 0\nℹ pass 44\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 4668.8238\n",
+      "test_count": 44,
+      "skipped_count": 0,
+      "test_execution": "observed",
+      "snapshot_id": "9663c2785295848726733b1d3e3c69b531fcd029da1cb486ff6d655b56c4287f",
+      "snapshot_after": "9663c2785295848726733b1d3e3c69b531fcd029da1cb486ff6d655b56c4287f",
+      "stale": false
+    },
+    {
+      "profile": "integration",
+      "status": "not_applicable",
+      "optional": true,
+      "reason": "项目未声明独立 test:integration；不计为通过，领域 HTTP 由项目外 runtime 验收",
+      "snapshot_id": "9663c2785295848726733b1d3e3c69b531fcd029da1cb486ff6d655b56c4287f"
+    },
+    {
+      "profile": "build",
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "run",
+        "build",
+        "--ignore-scripts"
+      ],
+      "output": "\n> space-fractions@1.0.0 build\n> node scripts/build.mjs\n\nBuild checks passed: 19 JS files valid, contract artifacts present.\n",
+      "snapshot_id": "9663c2785295848726733b1d3e3c69b531fcd029da1cb486ff6d655b56c4287f",
+      "snapshot_after": "9663c2785295848726733b1d3e3c69b531fcd029da1cb486ff6d655b56c4287f",
+      "stale": false
+    },
+    {
+      "profile": "compose",
+      "status": "passed",
+      "backend": "wsl",
+      "evidence": "Actual compose config command in protected runtime stages",
+      "snapshot_id": "9663c2785295848726733b1d3e3c69b531fcd029da1cb486ff6d655b56c4287f"
+    },
+    {
+      "profile": "plan_references",
+      "status": "passed",
+      "problems": [],
+      "snapshot_id": "9663c2785295848726733b1d3e3c69b531fcd029da1cb486ff6d655b56c4287f",
+      "limitation": "Checks planned files and literal relative imports, not dynamic imports or semantic compatibility"
+    },
+    {
+      "profile": "traceability_links",
+      "status": "passed",
+      "problems": [],
+      "limitation": "只检查链接和来源范围；语义覆盖需要独立审查",
+      "snapshot_id": "9663c2785295848726733b1d3e3c69b531fcd029da1cb486ff6d655b56c4287f"
+    },
+    {
+      "profile": "runtime",
+      "acceptance_profile": "space-fractions",
+      "status": "passed",
+      "checks": [
+        {
+          "check": "gateway ready",
+          "status": "passed"
+        },
+        {
+          "check": "browser entry served",
+          "status": "passed",
+          "http_status": 200
+        },
+        {
+          "check": "local identity-provider fixture admin",
+          "status": "passed",
+          "http_status": 200
+        },
+        {
+          "check": "browser client is public and requires S256",
+          "status": "passed"
+        },
+        {
+          "check": "temporary public callback origin configured",
+          "status": "passed",
+          "http_status": 204
+        },
+        {
+          "check": "OIDC fixture login: student",
+          "status": "passed",
+          "http_status": 200
+        },
+        {
+          "check": "OIDC fixture login: admin",
+          "status": "passed",
+          "http_status": 200
+        },
+        {
+          "check": "OIDC fixture login: other",
+          "status": "passed",
+          "http_status": 200
+        },
+        {
+          "check": "missing authentication rejected",
+          "status": "passed",
+          "http_status": 401
+        },
+        {
+          "check": "wrong signature rejected",
+          "status": "passed",
+          "http_status": 401
+        },
+        {
+          "check": "ordinary user denied administration",
+          "status": "passed",
+          "http_status": 403
+        },
+        {
+          "check": "admin creates practice question 0",
+          "status": "passed",
+          "http_status": 201
+        },
+        {
+          "check": "admin creates practice question 1",
+          "status": "passed",
+          "http_status": 201
+        },
+        {
+          "check": "authenticated game creation",
+          "status": "passed",
+          "http_status": 201
+        },
+        {
+          "check": "player questions hide correct answers",
+          "status": "passed"
+        },
+        {
+          "check": "cross-user ownership enforced",
+          "status": "passed",
+          "http_status": 404
+        },
+        {
+          "check": "pause",
+          "status": "passed",
+          "http_status": 200
+        },
+        {
+          "check": "paused answer rejected",
+          "status": "passed",
+          "http_status": 409
+        },
+        {
+          "check": "resume",
+          "status": "passed",
+          "http_status": 200
+        },
+        {
+          "check": "invalid fraction rejected",
+          "status": "passed",
+          "http_status": 400
+        },
+        {
+          "check": "eight concurrent equivalent answers score once",
+          "status": "passed",
+          "score": 1,
+          "statuses": [
+            409,
+            409,
+            409,
+            409,
+            409,
+            409,
+            409,
+            200
+          ]
+        },
+        {
+          "check": "score persists across application restart",
+          "status": "passed",
+          "score": 1
+        },
+        {
+          "check": "second question increments score",
+          "status": "passed",
+          "http_status": 200,
+          "score": 2
+        },
+        {
+          "check": "completed duplicate safely handled",
+          "status": "passed",
+          "http_status": 409
+        },
+        {
+          "check": "completed score remains two",
+          "status": "passed"
+        },
+        {
+          "check": "practice question cleanup",
+          "status": "passed",
+          "http_status": 200
+        },
+        {
+          "check": "practice question cleanup",
+          "status": "passed",
+          "http_status": 200
+        }
+      ],
+      "cleanup": "passed",
+      "backend": "wsl",
+      "project": "dca-754afdb52d1d",
+      "stages": [
+        {
+          "stage": [
+            "version",
+            "--format",
+            "{{.Server.Version}}"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Windows\\system32\\wsl.exe",
+            "-d",
+            "Ubuntu",
+            "-u",
+            "root",
+            "--",
+            "env",
+            "GATEWAY_PORT=14485",
+            "OIDC_PORT=14486",
+            "PUBLIC_ORIGIN=http://localhost:14485",
+            "OIDC_PUBLIC_ORIGIN=http://localhost:14486",
+            "OIDC_ISSUER=http://localhost:14486/realms/space-fractions",
+            "docker",
+            "version",
+            "--format",
+            "{{.Server.Version}}"
+          ],
+          "output": "29.1.3\n"
+        },
+        {
+          "stage": [
+            "config",
+            "--format",
+            "json"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Windows\\system32\\wsl.exe",
+            "-d",
+            "Ubuntu",
+            "-u",
+            "root",
+            "--",
+            "env",
+            "GATEWAY_PORT=14485",
+            "OIDC_PORT=14486",
+            "PUBLIC_ORIGIN=http://localhost:14485",
+            "OIDC_PUBLIC_ORIGIN=http://localhost:14486",
+            "OIDC_ISSUER=http://localhost:14486/realms/space-fractions",
+            "docker",
+            "compose",
+            "--project-directory",
+            "/mnt/d/projects/Task-v03-final-runs/runs/v03/main/space-04-state-repair/run-20261106-193116-2685348c/project",
+            "-p",
+            "dca-754afdb52d1d",
+            "-f",
+            "/mnt/d/projects/Task-v03-final-runs/runs/v03/main/space-04-state-repair/run-20261106-193116-2685348c/project/compose.yaml",
+            "config",
+            "--format",
+            "json"
+          ],
+          "output": "{\n  \"name\": \"dca-754afdb52d1d\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"dca-754afdb52d1d_default\",\n      \"ipam\": {}\n    }\n  },\n  \"services\": {\n    \"admin-service\": {\n      \"build\": {\n        \"context\": \"/mnt/d/projects/Task-v03-final-runs/runs/v03/main/space-04-state-repair/run-20261106-193116-2685348c/project\",\n        \"dockerfile\": \"packages/admin-service/Dockerfile\"\n      },\n      \"command\": null,\n      \"container_name\": \"spacefractions-admin-service\",\n      \"depends_on\": {\n        \"elasticsearch\": {\n          \"condition\": \"service_healthy\",\n          \"required\": true\n        },\n        \"keycloak\": {\n          \"condition\": \"service_healthy\",\n          \"required\": true\n        },\n        \"postgres\": {\n          \"condition\": \"service_healthy\",\n          \"required\": true\n        }\n      },\n      \"entrypoint\": null,\n      \"environment\": {\n        \"DATABASE_URL\": \"postgres://spacefractions:spacefractions@postgres:5432/spacefractions\",\n        \"ELASTICSEARCH_URL\": \"http://elasticsearch:9200\",\n        \"OIDC_ADMIN_ROLE\": \"admin\",\n        \"OIDC_AUDIENCE\": \"account\",\n        \"OIDC_ISSUER\": \"http://localhost:14486/realms/space-fractions\",\n        \"OIDC_JWKS_URI\": \"http://keycloak:8080/realms/space-fractions/protocol/openid-connect/certs\",\n        \"PORT\": \"3004\"\n      },\n      \"networks\": {\n        \"default\": null\n      }\n    },\n    \"elasticsearch\": {\n      \"command\": null,\n      \"container_name\": \"spacefractions-elasticsearch\",\n      \"entrypoint\": null,\n      \"environment\": {\n        \"ES_JAVA_OPTS\": \"-Xms256m -Xmx256m\",\n        \"discovery.type\": \"single-node\",\n        \"xpack.security.enabled\": \"false\"\n      },\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD-SHELL\",\n          \"curl -sf http://localhost:9200/_cluster/health || exit 1\"\n        ],\n        \"timeout\": \"10s\",\n        \"interval\": \"15s\",\n        \"retries\": 10\n      },\n      \"image\": \"docker.elastic.co/elasticsearch/elasticsearch:8.14.3\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"ports\": [\n        {\n          \"mode\": \"ingress\",\n          \"target\": 9200,\n          \"published\": \"9200\",\n          \"protocol\": \"tcp\"\n        }\n      ]\n    },\n    \"game-service\": {\n      \"build\": {\n        \"context\": \"/mnt/d/projects/Task-v03-final-runs/runs/v03/main/space-04-state-repair/run-20261106-193116-2685348c/project\",\n        \"dockerfile\": \"packages/game-service/Dockerfile\"\n      },\n      \"command\": null,\n      \"container_name\": \"spacefractions-game-service\",\n      \"depends_on\": {\n        \"keycloak\": {\n          \"condition\": \"service_healthy\",\n          \"required\": true\n        },\n        \"postgres\": {\n          \"condition\": \"service_healthy\",\n          \"required\": true\n        },\n        \"rabbitmq\": {\n          \"condition\": \"service_healthy\",\n          \"required\": true\n        }\n      },\n      \"entrypoint\": null,\n      \"environment\": {\n        \"DATABASE_URL\": \"postgres://spacefractions:spacefractions@postgres:5432/spacefractions\",\n        \"OIDC_ADMIN_ROLE\": \"admin\",\n        \"OIDC_AUDIENCE\": \"account\",\n        \"OIDC_ISSUER\": \"http://localhost:14486/realms/space-fractions\",\n        \"OIDC_JWKS_URI\": \"http://keycloak:8080/realms/space-fractions/protocol/openid-connect/certs\",\n        \"PORT\": \"3001\",\n        \"RABBITMQ_URL\": \"amqp://spacefractions:spacefractions@rabbitmq:5672\"\n      },\n      \"networks\": {\n        \"default\": null\n      }\n    },\n    \"gateway\": {\n      \"build\": {\n        \"context\": \"/mnt/d/projects/Task-v03-final-runs/runs/v03/main/space-04-state-repair/run-20261106-193116-2685348c/project\",\n        \"dockerfile\": \"packages/gateway/Dockerfile\"\n      },\n      \"command\": null,\n      \"container_name\": \"spacefractions-gateway\",\n      \"depends_on\": {\n        \"admin-service\": {\n          \"condition\": \"service_started\",\n          \"required\": true\n        },\n        \"game-service\": {\n          \"condition\": \"service_started\",\n          \"required\": true\n        },\n        \"question-service\": {\n          \"condition\": \"service_started\",\n          \"required\": true\n        },\n        \"user-service\": {\n          \"condition\": \"service_started\",\n          \"required\": true\n        }\n      },\n      \"entrypoint\": null,\n      \"environment\": {\n        \"ADMIN_SERVICE_URL\": \"http://admin-service:3004\",\n        \"GAME_SERVICE_URL\": \"http://game-service:3001\",\n        \"OIDC_CLIENT_ID\": \"space-fractions-client\",\n        \"OIDC_ISSUER\": \"http://localhost:14486/realms/space-fractions\",\n        \"OIDC_PUBLIC_ORIGIN\": \"http://localhost:14486\",\n        \"PORT\": \"3000\",\n        \"PUBLIC_ORIGIN\": \"http://localhost:14485\",\n        \"QUESTION_SERVICE_URL\": \"http://question-service:3002\",\n        \"USER_SERVICE_URL\": \"http://user-service:3003\"\n      },\n      \"networks\": {\n        \"default\": null\n      },\n      \"ports\": [\n        {\n          \"mode\": \"ingress\",\n          \"target\": 3000,\n          \"published\": \"3000\",\n          \"protocol\": \"tcp\"\n        }\n      ]\n    },\n    \"keycloak\": {\n      \"command\": [\n        \"start-dev\",\n        \"--import-realm\"\n      ],\n      \"container_name\": \"spacefractions-keycloak\",\n      \"entrypoint\": null,\n      \"environment\": {\n        \"KC_HOSTNAME_STRICT\": \"false\",\n        \"KC_HOSTNAME_STRICT_HTTPS\": \"false\",\n        \"KC_HOSTNAME_URL\": \"http://localhost:14486\",\n        \"KC_HTTP_PORT\": \"8080\",\n        \"KC_PROXY\": \"edge\",\n        \"KEYCLOAK_ADMIN\": \"admin\",\n        \"KEYCLOAK_ADMIN_PASSWORD\": \"admin\"\n      },\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD-SHELL\",\n          \"bash -c ': \\u003c/dev/tcp/127.0.0.1/8080'\"\n        ],\n        \"timeout\": \"5s\",\n        \"interval\": \"10s\",\n        \"retries\": 15,\n        \"start_period\": \"1m0s\"\n      },\n      \"image\": \"quay.io/keycloak/keycloak:24.0.5\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"ports\": [\n        {\n          \"mode\": \"ingress\",\n          \"target\": 8080,\n          \"published\": \"8080\",\n          \"protocol\": \"tcp\"\n        }\n      ],\n      \"volumes\": [\n        {\n          \"type\": \"bind\",\n          \"source\": \"/mnt/d/projects/Task-v03-final-runs/runs/v03/main/space-04-state-repair/run-20261106-193116-2685348c/project/infra/keycloak/realm.json\",\n          \"target\": \"/opt/keycloak/data/import/realm.json\",\n          \"read_only\": true,\n          \"bind\": {\n            \"create_host_path\": true\n          }\n        }\n      ]\n    },\n    \"postgres\": {\n      \"command\": null,\n      \"container_name\": \"spacefractions-postgres\",\n      \"entrypoint\": null,\n      \"environment\": {\n        \"POSTGRES_DB\": \"spacefractions\",\n        \"POSTGRES_PASSWORD\": \"spacefractions\",\n        \"POSTGRES_USER\": \"spacefractions\"\n      },\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD-SHELL\",\n          \"pg_isready -U spacefractions -d spacefractions\"\n        ],\n        \"timeout\": \"5s\",\n        \"interval\": \"5s\",\n        \"retries\": 10\n      },\n      \"image\": \"postgres:16-alpine\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"ports\": [\n        {\n          \"mode\": \"ingress\",\n          \"target\": 5432,\n          \"published\": \"5432\",\n          \"protocol\": \"tcp\"\n        }\n      ],\n      \"volumes\": [\n        {\n          \"type\": \"volume\",\n          \"source\": \"pg_data\",\n          \"target\": \"/var/lib/postgresql/data\",\n          \"volume\": {}\n        },\n        {\n          \"type\": \"bind\",\n          \"source\": \"/mnt/d/projects/Task-v03-final-runs/runs/v03/main/space-04-state-repair/run-20261106-193116-2685348c/project/sql/migrations/001_schema.sql\",\n          \"target\": \"/docker-entrypoint-initdb.d/01_schema.sql\",\n          \"read_only\": true,\n          \"bind\": {\n            \"create_host_path\": true\n          }\n        },\n        {\n          \"type\": \"bind\",\n          \"source\": \"/mnt/d/projects/Task-v03-final-runs/runs/v03/main/space-04-state-repair/run-20261106-193116-2685348c/project/sql/seed.sql\",\n          \"target\": \"/docker-entrypoint-initdb.d/02_seed.sql\",\n          \"read_only\": true,\n          \"bind\": {\n            \"create_host_path\": true\n          }\n        }\n      ]\n    },\n    \"prometheus\": {\n      \"command\": null,\n      \"container_name\": \"spacefractions-prometheus\",\n      \"depends_on\": {\n        \"gateway\": {\n          \"condition\": \"service_started\",\n          \"required\": true\n        }\n      },\n      \"entrypoint\": null,\n      \"image\": \"prom/prometheus:v2.53.1\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"ports\": [\n        {\n          \"mode\": \"ingress\",\n          \"target\": 9090,\n          \"published\": \"9090\",\n          \"protocol\": \"tcp\"\n        }\n      ],\n      \"volumes\": [\n        {\n          \"type\": \"bind\",\n          \"source\": \"/mnt/d/projects/Task-v03-final-runs/runs/v03/main/space-04-state-repair/run-20261106-193116-2685348c/project/infra/prometheus.yml\",\n          \"target\": \"/etc/prometheus/prometheus.yml\",\n          \"read_only\": true,\n          \"bind\": {\n            \"create_host_path\": true\n          }\n        }\n      ]\n    },\n    \"question-service\": {\n      \"build\": {\n        \"context\": \"/mnt/d/projects/Task-v03-final-runs/runs/v03/main/space-04-state-repair/run-20261106-193116-2685348c/project\",\n        \"dockerfile\": \"packages/question-service/Dockerfile\"\n      },\n      \"command\": null,\n      \"container_name\": \"spacefractions-question-service\",\n      \"depends_on\": {\n        \"elasticsearch\": {\n          \"condition\": \"service_healthy\",\n          \"required\": true\n        },\n        \"postgres\": {\n          \"condition\": \"service_healthy\",\n          \"required\": true\n        }\n      },\n      \"entrypoint\": null,\n      \"environment\": {\n        \"DATABASE_URL\": \"postgres://spacefractions:spacefractions@postgres:5432/spacefractions\",\n        \"ELASTICSEARCH_URL\": \"http://elasticsearch:9200\",\n        \"PORT\": \"3002\"\n      },\n      \"networks\": {\n        \"default\": null\n      }\n    },\n    \"rabbitmq\": {\n      \"command\": null,\n      \"container_name\": \"spacefractions-rabbitmq\",\n      \"entrypoint\": null,\n      \"environment\": {\n        \"RABBITMQ_DEFAULT_PASS\": \"spacefractions\",\n        \"RABBITMQ_DEFAULT_USER\": \"spacefractions\"\n      },\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD\",\n          \"rabbitmq-diagnostics\",\n          \"-q\",\n          \"ping\"\n        ],\n        \"timeout\": \"5s\",\n        \"interval\": \"10s\",\n        \"retries\": 10\n      },\n      \"image\": \"rabbitmq:3.13-management-alpine\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"ports\": [\n        {\n          \"mode\": \"ingress\",\n          \"target\": 5672,\n          \"published\": \"5672\",\n          \"protocol\": \"tcp\"\n        },\n        {\n          \"mode\": \"ingress\",\n          \"target\": 15672,\n          \"published\": \"15672\",\n          \"protocol\": \"tcp\"\n        }\n      ]\n    },\n    \"redis\": {\n      \"command\": null,\n      \"container_name\": \"spacefractions-redis\",\n      \"entrypoint\": null,\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD\",\n          \"redis-cli\",\n          \"ping\"\n        ],\n        \"timeout\": \"3s\",\n        \"interval\": \"5s\",\n        \"retries\": 10\n      },\n      \"image\": \"redis:7-alpine\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"ports\": [\n        {\n          \"mode\": \"ingress\",\n          \"target\": 6379,\n          \"published\": \"6379\",\n          \"protocol\": \"tcp\"\n        }\n      ]\n    },\n    \"user-service\": {\n      \"build\": {\n        \"context\": \"/mnt/d/projects/Task-v03-final-runs/runs/v03/main/space-04-state-repair/run-20261106-193116-2685348c/project\",\n        \"dockerfile\": \"packages/user-service/Dockerfile\"\n      },\n      \"command\": null,\n      \"container_name\": \"spacefractions-user-service\",\n      \"depends_on\": {\n        \"keycloak\": {\n          \"condition\": \"service_healthy\",\n          \"required\": true\n        },\n        \"postgres\": {\n          \"condition\": \"service_healthy\",\n          \"required\": true\n        }\n      },\n      \"entrypoint\": null,\n      \"environment\": {\n        \"DATABASE_URL\": \"postgres://spacefractions:spacefractions@postgres:5432/spacefractions\",\n        \"OIDC_ADMIN_ROLE\": \"admin\",\n        \"OIDC_AUDIENCE\": \"account\",\n        \"OIDC_ISSUER\": \"http://localhost:14486/realms/space-fractions\",\n        \"OIDC_JWKS_URI\": \"http://keycloak:8080/realms/space-fractions/protocol/openid-connect/certs\",\n        \"PORT\": \"3003\"\n      },\n      \"networks\": {\n        \"default\": null\n      }\n    }\n  },\n  \"volumes\": {\n    \"pg_data\": {\n      \"name\": \"dca-754afdb52d1d_pg_data\"\n    }\n  }\n}"
+        },
+        {
+          "stage": [
+            "up",
+            "-d",
+            "--build"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Windows\\system32\\wsl.exe",
+            "-d",
+            "Ubuntu",
+            "-u",
+            "root",
+            "--",
+            "env",
+            "GATEWAY_PORT=14485",
+            "OIDC_PORT=14486",
+            "PUBLIC_ORIGIN=http://localhost:14485",
+            "OIDC_PUBLIC_ORIGIN=http://localhost:14486",
+            "OIDC_ISSUER=http://localhost:14486/realms/space-fractions",
+            "docker",
+            "compose",
+            "--project-directory",
+            "/mnt/d/projects/Task-v03-final-runs/runs/v03/main/space-04-state-repair/run-20261106-193116-2685348c/project",
+            "-p",
+            "dca-754afdb52d1d",
+            "-f",
+            "/mnt/d/projects/Task-v03-final-runs/runs/v03/main/space-04-state-repair/run-20261106-193116-2685348c/artifacts/runtime-02/compose.isolated.json",
+            "up",
+            "-d",
+            "--build"
+          ],
+          "output": "time=\"2026-11-06T19:40:27+08:00\" level=warning msg=\"Docker Compose is configured to build using Bake, but buildx isn't installed\"\n#0 building with \"default\" instance using docker driver\n\n#1 [admin-service internal] load build definition from Dockerfile\n#1 transferring dockerfile: 1.69kB 0.0s done\n#1 DONE 0.0s\n\n#2 [question-service internal] load build definition from Dockerfile\n#2 transferring dockerfile: 1.45kB 0.0s done\n#2 DONE 0.0s\n\n#3 [user-service internal] load build definition from Dockerfile\n#3 transferring dockerfile: 1.49kB 0.0s done\n#3 DONE 0.1s\n\n#4 [game-service internal] load build definition from Dockerfile\n#4 transferring dockerfile: 1.49kB 0.0s done\n#4 DONE 0.1s\n\n#5 [admin-service internal] load metadata for docker.io/library/node:22-alpine\n#5 DONE 0.1s\n\n#6 [game-service internal] load .dockerignore\n#6 transferring context:\n#6 transferring context: 2B 0.0s done\n#6 DONE 0.0s\n\n#7 [user-service internal] load .dockerignore\n#7 transferring context: 2B 0.0s done\n#7 DONE 0.1s\n\n#8 [admin-service internal] load .dockerignore\n#8 transferring context: 2B 0.0s done\n#8 DONE 0.1s\n\n#9 [question-service internal] load .dockerignore\n#9 transferring context: 2B 0.0s done\n#9 DONE 0.1s\n\n#10 [question-service internal] load build context\n#10 ...\n\n#11 [admin-service 1/5] FROM docker.io/library/node:22-alpine@sha256:fe4f6d74e20370acb04ad889077d14d0f64a9c8ea6a42bc60cddf1e844699914\n#11 resolve docker.io/library/node:22-alpine@sha256:fe4f6d74e20370acb04ad889077d14d0f64a9c8ea6a42bc60cddf1e844699914 0.0s done\n#11 DONE 0.1s\n\n#10 [question-service internal] load build context\n#10 transferring context: 12.16MB 5.0s\n#10 ...\n\n#12 [admin-service internal] load build context\n#12 transferring context: 19.52MB 6.7s done\n#12 DONE 6.7s\n\n#13 [game-service internal] load build context\n#13 transferring context: 19.52MB 6.7s done\n#13 DONE 6.8s\n\n#14 [admin-service 3/5] COPY package.json ./\n#14 CACHED\n\n#15 [admin-service 2/5] WORKDIR /usr/src/app\n#15 CACHED\n\n#16 [game-service 4/5] RUN npm install --omit=dev --ignore-scripts || true\n#16 CACHED\n\n#10 [question-service internal] load build context\n#10 ...\n\n#17 [game-service 5/5] COPY . .\n#17 DONE 1.2s\n\n#18 [game-service] exporting to image\n#18 exporting layers\n#18 ...\n\n#16 [user-service 4/5] RUN npm install --omit=dev --ignore-scripts || true\n#16 CACHED\n\n#17 [user-service 5/5] COPY . .\n#17 DONE 1.2s\n\n#19 [user-service internal] load build context\n#19 transferring context: 19.52MB 8.0s done\n#19 DONE 8.1s\n\n#20 [user-service] exporting to image\n#20 ...\n\n#10 [question-service internal] load build context\n#10 transferring context: 19.52MB 8.5s done\n#10 DONE 8.5s\n\n#16 [question-service 4/5] RUN npm install --omit=dev --ignore-scripts || true\n#16 CACHED\n\n#17 [question-service 5/5] COPY . .\n#17 DONE 1.2s\n\n#21 [question-service] exporting to image\n#21 exporting layers 0.1s done\n#21 exporting manifest sha256:039ae2e16adf849698430b12c5a5de341a622e0fea778be2cda986b1dc157423 0.1s done\n#21 exporting config sha256:c00d433b48e4965ce4e929cd052a9f6b4527f376d4baf04324a6bff3a7f10252\n#21 exporting config sha256:c00d433b48e4965ce4e929cd052a9f6b4527f376d4baf04324a6bff3a7f10252 0.1s done\n#21 exporting attestation manifest sha256:3ac8fe0f45a4d4c44c9e8344c2fabc4284f6b27aa2270a2aeaf2d5abaafd643f\n#21 exporting attestation manifest sha256:3ac8fe0f45a4d4c44c9e8344c2fabc4284f6b27aa2270a2aeaf2d5abaafd643f 0.2s done\n#21 exporting manifest list sha256:19c8557bdb76d5fdc8d753a15e4c917085708995d73eb74a24ea5505846bffb4 0.1s done\n#21 naming to docker.io/library/dca-754afdb52d1d-question-service:latest\n#21 naming to docker.io/library/dca-754afdb52d1d-question-service:latest 0.0s done\n#21 unpacking to docker.io/library/dca-754afdb52d1d-question-service:latest\n#21 unpacking to docker.io/library/dca-754afdb52d1d-question-service:latest 0.6s done\n#21 DONE 1.3s\n\n#22 [admin-service] exporting to image\n#22 exporting layers 0.7s done\n#22 exporting manifest sha256:c58c543567a0a018145d31fc88a675b8b422707a66ae5da6051cd37ae77c50e6 0.1s done\n#22 exporting config sha256:4f0ac6f5df64c8a5617d6d220d09546b61eee01a723da988889eeac36f1c51c5 0.1s done\n#22 exporting attestation manifest sha256:bc4f6d926e9eab81a5888448831f92588e0e5ffa285cb1e4d5f6b604afbd5168 0.2s done\n#22 exporting manifest list sha256:84e479a2aa31899056e3c52bf47da3f03ab0d9ec2430fb404bf5fd783aed4515 0.1s done\n#22 naming to docker.io/library/dca-754afdb52d1d-admin-service:latest 0.0s done\n#22 unpacking to docker.io/library/dca-754afdb52d1d-admin-service:latest 0.6s done\n#22 DONE 1.9s\n\n#18 [game-service] exporting to image\n#18 exporting layers 0.7s done\n#18 exporting manifest sha256:3ea90b9d1b3f751da44fdc040d72608b2435d81f592496ec9cd3dba996136eb7 0.1s done\n#18 exporting config sha256:ca058682fdb7ce229f2719fc0f0237bc6881f82479885b7ab9addf1e74722259 0.1s done\n#18 exporting attestation manifest sha256:07009a47f2daa611be62906b4c37a1dd569678fa461158d7d41f4e240a6b597d 0.2s done\n#18 exporting manifest list sha256:7573a99be80a8bc6493cb88e784564ab1bcb60686ec93ad69262a300b7d5dba3 0.1s done\n#18 naming to docker.io/library/dca-754afdb52d1d-game-service:latest 0.0s done\n#18 unpacking to docker.io/library/dca-754afdb52d1d-game-service:latest 0.6s done\n#18 DONE 1.9s\n\n#20 [user-service] exporting to image\n#20 exporting layers 0.6s done\n#20 exporting manifest sha256:b07875460217fcd25946bdd9c945e9eea61ad7e11ce721bbb80a42901acd7f90 0.1s done\n#20 exporting config sha256:7712c8bde745278b323440fcca36f112352516f16f418c02575c268495d52c08 0.1s done\n#20 exporting attestation manifest sha256:f806324c850a5f0b54f610adb9acd98c0b982dc716660825d1f978c61a467d94 0.2s done\n#20 exporting manifest list sha256:48ecc13f649900bec62c554b42979bf6ff9812ac7fcfa74f951c7410993963dc 0.1s done\n#20 naming to docker.io/library/dca-754afdb52d1d-user-service:latest 0.0s done\n#20 unpacking to docker.io/library/dca-754afdb52d1d-user-service:latest 0.6s done\n#20 DONE 1.7s\n\n#23 [admin-service] resolving provenance for metadata file\n#23 DONE 0.2s\n\n#24 [question-service] resolving provenance for metadata file\n#24 DONE 0.2s\n\n#25 [game-service] resolving provenance for metadata file\n#25 DONE 0.1s\n\n#26 [user-service] resolving provenance for metadata file\n#26 DONE 0.0s\n\n#27 [gateway internal] load build definition from Dockerfile\n#27 transferring dockerfile: 1.49kB done\n#27 DONE 0.0s\n\n#5 [gateway internal] load metadata for docker.io/library/node:22-alpine\n#5 DONE 0.1s\n\n#28 [gateway internal] load .dockerignore\n#28 transferring context: 2B 0.0s done\n#28 DONE 0.0s\n\n#11 [gateway 1/5] FROM docker.io/library/node:22-alpine@sha256:fe4f6d74e20370acb04ad889077d14d0f64a9c8ea6a42bc60cddf1e844699914\n#11 resolve docker.io/library/node:22-alpine@sha256:fe4f6d74e20370acb04ad889077d14d0f64a9c8ea6a42bc60cddf1e844699914 0.0s done\n#11 DONE 0.1s\n\n#29 [gateway internal] load build context\n#29 transferring context: 86.86kB 5.0s\n#29 transferring context: 164.61kB 10.1s\n#29 transferring context: 208.92kB 12.5s done\n#29 DONE 12.5s\n\n#30 [gateway 3/5] COPY package.json ./\n#30 CACHED\n\n#31 [gateway 4/5] RUN npm install --omit=dev --ignore-scripts || true\n#31 CACHED\n\n#15 [gateway 2/5] WORKDIR /usr/src/app\n#15 CACHED\n\n#32 [gateway 5/5] COPY . .\n#32 CACHED\n\n#33 [gateway] exporting to image\n#33 exporting layers done\n#33 exporting manifest sha256:ae899a308d6a83e7259da4fdde21b3ce257ad5ec6801bfe9e36287d341454d82 0.0s done\n#33 exporting config sha256:4a4764d12559a00b7e3bf22215ee3a31e3d616fb75d791f2a2cdeb308d8d5168 0.0s done\n#33 exporting attestation manifest sha256:8c6e97327f900d46c543e54269f17b9c825be549794c4ac7362449c12a6d68c8 0.1s done\n#33 exporting manifest list sha256:8a4dc7ad2f671a6e8c0c09dcb2a64ee205a6a9715f94ea25ed1d02087a9483da\n#33 exporting manifest list sha256:8a4dc7ad2f671a6e8c0c09dcb2a64ee205a6a9715f94ea25ed1d02087a9483da 0.0s done\n#33 naming to docker.io/library/dca-754afdb52d1d-gateway:latest done\n#33 unpacking to docker.io/library/dca-754afdb52d1d-gateway:latest 0.0s done\n#33 DONE 0.2s\n\n#34 [gateway] resolving provenance for metadata file\n#34 DONE 0.0s\n admin-service  Built\n game-service  Built\n gateway  Built\n question-service  Built\n user-service  Built\n Network dca-754afdb52d1d_default  Creating\n Network dca-754afdb52d1d_default  Created\n Volume dca-754afdb52d1d_pg_data  Creating\n Volume dca-754afdb52d1d_pg_data  Created\n Container dca-754afdb52d1d-rabbitmq-1  Creating\n Container dca-754afdb52d1d-redis-1  Creating\n Container dca-754afdb52d1d-elasticsearch-1  Creating\n Container dca-754afdb52d1d-keycloak-1  Creating\n Container dca-754afdb52d1d-postgres-1  Creating\n Container dca-754afdb52d1d-postgres-1  Created\n Container dca-754afdb52d1d-keycloak-1  Created\n Container dca-754afdb52d1d-user-service-1  Creating\n Container dca-754afdb52d1d-rabbitmq-1  Created\n Container dca-754afdb52d1d-game-service-1  Creating\n Container dca-754afdb52d1d-elasticsearch-1  Created\n Container dca-754afdb52d1d-question-service-1  Creating\n Container dca-754afdb52d1d-admin-service-1  Creating\n Container dca-754afdb52d1d-redis-1  Created\n Container dca-754afdb52d1d-question-service-1  Created\n Container dca-754afdb52d1d-game-service-1  Created\n Container dca-754afdb52d1d-user-service-1  Created\n Container dca-754afdb52d1d-admin-service-1  Created\n Container dca-754afdb52d1d-gateway-1  Creating\n Container dca-754afdb52d1d-gateway-1  Created\n Container dca-754afdb52d1d-prometheus-1  Creating\n Container dca-754afdb52d1d-prometheus-1  Created\n Container dca-754afdb52d1d-rabbitmq-1  Starting\n Container dca-754afdb52d1d-redis-1  Starting\n Container dca-754afdb52d1d-elasticsearch-1  Starting\n Container dca-754afdb52d1d-postgres-1  Starting\n Container dca-754afdb52d1d-keycloak-1  Starting\n Container dca-754afdb52d1d-redis-1  Started\n Container dca-754afdb52d1d-elasticsearch-1  Started\n Container dca-754afdb52d1d-rabbitmq-1  Started\n Container dca-754afdb52d1d-keycloak-1  Started\n Container dca-754afdb52d1d-postgres-1  Started\n Container dca-754afdb52d1d-elasticsearch-1  Waiting\n Container dca-754afdb52d1d-postgres-1  Waiting\n Container dca-754afdb52d1d-keycloak-1  Waiting\n Container dca-754afdb52d1d-postgres-1  Waiting\n Container dca-754afdb52d1d-elasticsearch-1  Waiting\n Container dca-754afdb52d1d-keycloak-1  Waiting\n Container dca-754afdb52d1d-postgres-1  Waiting\n Container dca-754afdb52d1d-keycloak-1  Waiting\n Container dca-754afdb52d1d-postgres-1  Waiting\n Container dca-754afdb52d1d-rabbitmq-1  Waiting\n Container dca-754afdb52d1d-postgres-1  Healthy\n Container dca-754afdb52d1d-postgres-1  Healthy\n Container dca-754afdb52d1d-postgres-1  Healthy\n Container dca-754afdb52d1d-postgres-1  Healthy\n Container dca-754afdb52d1d-rabbitmq-1  Healthy\n Container dca-754afdb52d1d-keycloak-1  Healthy\n Container dca-754afdb52d1d-keycloak-1  Healthy\n Container dca-754afdb52d1d-user-service-1  Starting\n Container dca-754afdb52d1d-keycloak-1  Healthy\n Container dca-754afdb52d1d-game-service-1  Starting\n Container dca-754afdb52d1d-elasticsearch-1  Healthy\n Container dca-754afdb52d1d-admin-service-1  Starting\n Container dca-754afdb52d1d-elasticsearch-1  Healthy\n Container dca-754afdb52d1d-question-service-1  Starting\n Container dca-754afdb52d1d-admin-service-1  Started\n Container dca-754afdb52d1d-question-service-1  Started\n Container dca-754afdb52d1d-user-service-1  Started\n Container dca-754afdb52d1d-game-service-1  Started\n Container dca-754afdb52d1d-gateway-1  Starting\n Container dca-754afdb52d1d-gateway-1  Started\n Container dca-754afdb52d1d-prometheus-1  Starting\n Container dca-754afdb52d1d-prometheus-1  Started\n"
+        },
+        {
+          "stage": [
+            "restart",
+            "admin-service",
+            "game-service",
+            "gateway",
+            "question-service",
+            "user-service"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Windows\\system32\\wsl.exe",
+            "-d",
+            "Ubuntu",
+            "-u",
+            "root",
+            "--",
+            "env",
+            "GATEWAY_PORT=14485",
+            "OIDC_PORT=14486",
+            "PUBLIC_ORIGIN=http://localhost:14485",
+            "OIDC_PUBLIC_ORIGIN=http://localhost:14486",
+            "OIDC_ISSUER=http://localhost:14486/realms/space-fractions",
+            "docker",
+            "compose",
+            "--project-directory",
+            "/mnt/d/projects/Task-v03-final-runs/runs/v03/main/space-04-state-repair/run-20261106-193116-2685348c/project",
+            "-p",
+            "dca-754afdb52d1d",
+            "-f",
+            "/mnt/d/projects/Task-v03-final-runs/runs/v03/main/space-04-state-repair/run-20261106-193116-2685348c/artifacts/runtime-02/compose.isolated.json",
+            "restart",
+            "admin-service",
+            "game-service",
+            "gateway",
+            "question-service",
+            "user-service"
+          ],
+          "output": " Container dca-754afdb52d1d-gateway-1  Restarting\n Container dca-754afdb52d1d-question-service-1  Restarting\n Container dca-754afdb52d1d-user-service-1  Restarting\n Container dca-754afdb52d1d-admin-service-1  Restarting\n Container dca-754afdb52d1d-game-service-1  Restarting\n Container dca-754afdb52d1d-user-service-1  Started\n Container dca-754afdb52d1d-admin-service-1  Started\n Container dca-754afdb52d1d-gateway-1  Started\n Container dca-754afdb52d1d-question-service-1  Started\n Container dca-754afdb52d1d-game-service-1  Started\n"
+        },
+        {
+          "stage": [
+            "logs",
+            "--no-color",
+            "--tail",
+            "40"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Windows\\system32\\wsl.exe",
+            "-d",
+            "Ubuntu",
+            "-u",
+            "root",
+            "--",
+            "env",
+            "GATEWAY_PORT=14485",
+            "OIDC_PORT=14486",
+            "PUBLIC_ORIGIN=http://localhost:14485",
+            "OIDC_PUBLIC_ORIGIN=http://localhost:14486",
+            "OIDC_ISSUER=http://localhost:14486/realms/space-fractions",
+            "docker",
+            "compose",
+            "--project-directory",
+            "/mnt/d/projects/Task-v03-final-runs/runs/v03/main/space-04-state-repair/run-20261106-193116-2685348c/project",
+            "-p",
+            "dca-754afdb52d1d",
+            "-f",
+            "/mnt/d/projects/Task-v03-final-runs/runs/v03/main/space-04-state-repair/run-20261106-193116-2685348c/artifacts/runtime-02/compose.isolated.json",
+            "logs",
+            "--no-color",
+            "--tail",
+            "40"
+          ],
+          "output": "imestamp\":\"2026-11-06T11:41:15.850Z\", \"log.level\": \"INFO\", \"message\":\"adding index template [logs] for index patterns [logs-*-*]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[5f357efe6f42][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.cluster.metadata.MetadataIndexTemplateService\",\"elasticsearch.cluster.uuid\":\"XWiMa9IWRIaApLE0YUiiZg\",\"elasticsearch.node.id\":\"duqoxealStOflLqy4lpehg\",\"elasticsearch.node.name\":\"5f357efe6f42\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1  | {\"@timestamp\":\"2026-11-06T11:41:15.905Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [metrics]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[5f357efe6f42][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"XWiMa9IWRIaApLE0YUiiZg\",\"elasticsearch.node.id\":\"duqoxealStOflLqy4lpehg\",\"elasticsearch.node.name\":\"5f357efe6f42\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1  | {\"@timestamp\":\"2026-11-06T11:41:15.965Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [synthetics]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[5f357efe6f42][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"XWiMa9IWRIaApLE0YUiiZg\",\"elasticsearch.node.id\":\"duqoxealStOflLqy4lpehg\",\"elasticsearch.node.name\":\"5f357efe6f42\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\npostgres-1       | CREATE INDEX\ngateway-1        | gateway listening on :3000\ngateway-1        | gateway listening on :3000\npostgres-1       | CREATE TABLE\npostgres-1       | CREATE INDEX\npostgres-1       | CREATE TABLE\npostgres-1       | COMMIT\npostgres-1       | \npostgres-1       | \npostgres-1       | /usr/local/bin/docker-entrypoint.sh: running /docker-entrypoint-initdb.d/02_seed.sql\npostgres-1       | INSERT 0 3\npostgres-1       | INSERT 0 8\npostgres-1       | INSERT 0 1\nprometheus-1     | ts=2026-11-06T11:41:24.427Z caller=main.go:589 level=info msg=\"No time or size retention was set so using the default time retention\" duration=15d\nelasticsearch-1  | {\"@timestamp\":\"2026-11-06T11:41:16.024Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [7-days-default]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[5f357efe6f42][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"XWiMa9IWRIaApLE0YUiiZg\",\"elasticsearch.node.id\":\"duqoxealStOflLqy4lpehg\",\"elasticsearch.node.name\":\"5f357efe6f42\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1  | {\"@timestamp\":\"2026-11-06T11:41:16.086Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [30-days-default]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[5f357efe6f42][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"XWiMa9IWRIaApLE0YUiiZg\",\"elasticsearch.node.id\":\"duqoxealStOflLqy4lpehg\",\"elasticsearch.node.name\":\"5f357efe6f42\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1  | {\"@timestamp\":\"2026-11-06T11:41:16.138Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [180-days-default]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[5f357efe6f42][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"XWiMa9IWRIaApLE0YUiiZg\",\"elasticsearch.node.id\":\"duqoxealStOflLqy4lpehg\",\"elasticsearch.node.name\":\"5f357efe6f42\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1  | {\"@timestamp\":\"2026-11-06T11:41:16.191Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [90-days-default]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[5f357efe6f42][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"XWiMa9IWRIaApLE0YUiiZg\",\"elasticsearch.node.id\":\"duqoxealStOflLqy4lpehg\",\"elasticsearch.node.name\":\"5f357efe6f42\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1  | {\"@timestamp\":\"2026-11-06T11:41:16.243Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [365-days-default]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[5f357efe6f42][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"XWiMa9IWRIaApLE0YUiiZg\",\"elasticsearch.node.id\":\"duqoxealStOflLqy4lpehg\",\"elasticsearch.node.name\":\"5f357efe6f42\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nkeycloak-1       | 2026-11-06 11:41:01,092 WARN  [io.qua.dep.ind.IndexWrapper] (build-89) Failed to index org.apache.activemq.artemis.core.journal.Journal: Class does not exist in ClassLoader QuarkusClassLoader:Deployment Class Loader: PROD for keycloak@130a0f66\nkeycloak-1       | 2026-11-06 11:41:01,104 WARN  [io.qua.dep.ind.IndexWrapper] (build-89) Failed to index jakarta.jms.XAConnection: Class does not exist in ClassLoader QuarkusClassLoader:Deployment Class Loader: PROD for keycloak@130a0f66\nkeycloak-1       | 2026-11-06 11:41:01,105 WARN  [io.qua.dep.ind.IndexWrapper] (build-89) Failed to index jakarta.jms.XASession: Class does not exist in ClassLoader QuarkusClassLoader:Deployment Class Loader: PROD for keycloak@130a0f66\nkeycloak-1       | 2026-11-06 11:41:01,106 WARN  [io.qua.dep.ind.IndexWrapper] (build-89) Failed to index jakarta.jms.XAConnectionFactory: Class does not exist in ClassLoader QuarkusClassLoader:Deployment Class Loader: PROD for keycloak@130a0f66\nkeycloak-1       | 2026-11-06 11:41:01,168 WARN  [io.qua.dep.ind.IndexWrapper] (build-89) Failed to index org.apache.tools.ant.Task: Class does not exist in ClassLoader QuarkusClassLoader:Deployment Class Loader: PROD for keycloak@130a0f66\nkeycloak-1       | 2026-11-06 11:41:01,174 WARN  [io.qua.dep.ind.IndexWrapper] (build-89) Failed to index org.springframework.core.io.Resource: Class does not exist in ClassLoader QuarkusClassLoader:Deployment Class Loader: PROD for keycloak@130a0f66\nkeycloak-1       | 2026-11-06 11:41:01,177 WARN  [io.qua.dep.ind.IndexWrapper] (build-89) Failed to index org.springframework.core.io.DefaultResourceLoader: Class does not exist in ClassLoader QuarkusClassLoader:Deployment Class Loader: PROD for keycloak@130a0f66\nprometheus-1     | ts=2026-11-06T11:41:24.427Z caller=main.go:633 level=info msg=\"Starting Prometheus Server\" mode=server version=\"(version=2.53.1, branch=HEAD, revision=14cfec3f6048b735e08c1e9c64c8d4211d32bab4)\"\nprometheus-1     | ts=2026-11-06T11:41:24.427Z caller=main.go:638 level=info build_context=\"(go=go1.22.5, platform=linux/amd64, user=root@9f8e5b6970da, date=20240710-10:16:27, tags=netgo,builtinassets,stringlabels)\"\nprometheus-1     | ts=2026-11-06T11:41:24.427Z caller=main.go:639 level=info host_details=\"(Linux 6.18.54.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Tue Oct  6 19:13:07 UTC 2026 x86_64 26d7cd63c065 localdomain)\"\nprometheus-1     | ts=2026-11-06T11:41:24.427Z caller=main.go:640 level=info fd_limits=\"(soft=1048576, hard=1048576)\"\nprometheus-1     | ts=2026-11-06T11:41:24.427Z caller=main.go:641 level=info vm_limits=\"(soft=unlimited, hard=unlimited)\"\nprometheus-1     | ts=2026-11-06T11:41:24.429Z caller=web.go:568 level=info component=web msg=\"Start listening for connections\" address=0.0.0.0:9090\nprometheus-1     | ts=2026-11-06T11:41:24.430Z caller=main.go:1148 level=info msg=\"Starting TSDB ...\"\nprometheus-1     | ts=2026-11-06T11:41:24.431Z caller=tls_config.go:313 level=info component=web msg=\"Listening on\" address=[::]:9090\nprometheus-1     | ts=2026-11-06T11:41:24.431Z caller=tls_config.go:316 level=info component=web msg=\"TLS is disabled.\" http2=false address=[::]:9090\nprometheus-1     | ts=2026-11-06T11:41:24.433Z caller=head.go:626 level=info component=tsdb msg=\"Replaying on-disk memory mappable chunks if any\"\nprometheus-1     | ts=2026-11-06T11:41:24.433Z caller=head.go:713 level=info component=tsdb msg=\"On-disk memory mappable chunks replay completed\" duration=1.152µs\nkeycloak-1       | 2026-11-06 11:41:01,178 WARN  [io.qua.dep.ind.IndexWrapper] (build-89) Failed to index org.springframework.core.io.ResourceLoader: Class does not exist in ClassLoader QuarkusClassLoader:Deployment Class Loader: PROD for keycloak@130a0f66\nelasticsearch-1  | {\"@timestamp\":\"2026-11-06T11:41:16.317Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [metrics@lifecycle]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[5f357efe6f42][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"XWiMa9IWRIaApLE0YUiiZg\",\"elasticsearch.node.id\":\"duqoxealStOflLqy4lpehg\",\"elasticsearch.node.name\":\"5f357efe6f42\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1  | {\"@timestamp\":\"2026-11-06T11:41:16.372Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [logs@lifecycle]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[5f357efe6f42][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"XWiMa9IWRIaApLE0YUiiZg\",\"elasticsearch.node.id\":\"duqoxealStOflLqy4lpehg\",\"elasticsearch.node.name\":\"5f357efe6f42\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1  | {\"@timestamp\":\"2026-11-06T11:41:16.439Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [synthetics@lifecycle]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[5f357efe6f42][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"XWiMa9IWRIaApLE0YUiiZg\",\"elasticsearch.node.id\":\"duqoxealStOflLqy4lpehg\",\"elasticsearch.node.name\":\"5f357efe6f42\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1  | {\"@timestamp\":\"2026-11-06T11:41:16.491Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [365-days@lifecycle]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[5f357efe6f42][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"XWiMa9IWRIaApLE0YUiiZg\",\"elasticsearch.node.id\":\"duqoxealStOflLqy4lpehg\",\"elasticsearch.node.name\":\"5f357efe6f42\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1  | {\"@timestamp\":\"2026-11-06T11:41:16.540Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [90-days@lifecycle]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[5f357efe6f42][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"XWiMa9IWRIaApLE0YUiiZg\",\"elasticsearch.node.id\":\"duqoxealStOflLqy4lpehg\",\"elasticsearch.node.name\":\"5f357efe6f42\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1  | {\"@timestamp\":\"2026-11-06T11:41:16.586Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [180-days@lifecycle]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[5f357efe6f42][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"XWiMa9IWRIaApLE0YUiiZg\",\"elasticsearch.node.id\":\"duqoxealStOflLqy4lpehg\",\"elasticsearch.node.name\":\"5f357efe6f42\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1  | {\"@timestamp\":\"2026-11-06T11:41:16.629Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [7-days@lifecycle]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[5f357efe6f42][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"XWiMa9IWRIaApLE0YUiiZg\",\"elasticsearch.node.id\":\"duqoxealStOflLqy4lpehg\",\"elasticsearch.node.name\":\"5f357efe6f42\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1  | {\"@timestamp\":\"2026-11-06T11:41:16.668Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [slm-history-ilm-policy]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[5f357efe6f42][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"XWiMa9IWRIaApLE0YUiiZg\",\"elasticsearch.node.id\":\"duqoxealStOflLqy4lpehg\",\"elasticsearch.node.name\":\"5f357efe6f42\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\npostgres-1       | INSERT 0 5\npostgres-1       | \npostgres-1       | \npostgres-1       | waiting for server to shut down....2026-11-06 11:40:55.780 UTC [41] LOG:  received fast shutdown request\npostgres-1       | 2026-11-06 11:40:55.783 UTC [41] LOG:  aborting any active transactions\nelasticsearch-1  | {\"@timestamp\":\"2026-11-06T11:41:16.712Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [logs]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[5f357efe6f42][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"XWiMa9IWRIaApLE0YUiiZg\",\"elasticsearch.node.id\":\"duqoxealStOflLqy4lpehg\",\"elasticsearch.node.name\":\"5f357efe6f42\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1  | {\"@timestamp\":\"2026-11-06T11:41:16.765Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [30-days@lifecycle]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[5f357efe6f42][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"XWiMa9IWRIaApLE0YUiiZg\",\"elasticsearch.node.id\":\"duqoxealStOflLqy4lpehg\",\"elasticsearch.node.name\":\"5f357efe6f42\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nprometheus-1     | ts=2026-11-06T11:41:24.433Z caller=head.go:721 level=info component=tsdb msg=\"Replaying WAL, this may take a while\"\nprometheus-1     | ts=2026-11-06T11:41:24.435Z caller=head.go:793 level=info component=tsdb msg=\"WAL segment loaded\" segment=0 maxSegment=0\nprometheus-1     | ts=2026-11-06T11:41:24.435Z caller=head.go:830 level=info component=tsdb msg=\"WAL replay completed\" checkpoint_replay_duration=40.932µs wal_replay_duration=1.81668ms wbl_replay_duration=140ns chunk_snapshot_load_duration=0s mmap_chunk_replay_duration=1.152µs total_replay_duration=1.873649ms\nprometheus-1     | ts=2026-11-06T11:41:24.437Z caller=main.go:1169 level=info fs_type=EXT4_SUPER_MAGIC\nprometheus-1     | ts=2026-11-06T11:41:24.437Z caller=main.go:1172 level=info msg=\"TSDB started\"\nprometheus-1     | ts=2026-11-06T11:41:24.437Z caller=main.go:1354 level=info msg=\"Loading configuration file\" filename=/etc/prometheus/prometheus.yml\nprometheus-1     | ts=2026-11-06T11:41:24.439Z caller=main.go:1391 level=info msg=\"updated GOGC\" old=100 new=75\nprometheus-1     | ts=2026-11-06T11:41:24.439Z caller=main.go:1402 level=info msg=\"Completed loading of configuration file\" filename=/etc/prometheus/prometheus.yml totalDuration=1.804969ms db_storage=1.333µs remote_storage=1.713µs web_handler=521ns query_engine=1.052µs scrape=671.131µs scrape_sd=29.462µs notify=992ns notify_sd=932ns rules=1.222µs tracing=5.92µs\nkeycloak-1       | 2026-11-06 11:41:01,212 WARN  [io.qua.dep.ind.IndexWrapper] (build-89) Failed to index jakarta.jms.Connection: Class does not exist in ClassLoader QuarkusClassLoader:Deployment Class Loader: PROD for keycloak@130a0f66\nquestion-service-1  | question-service listening on :3002\nkeycloak-1          | 2026-11-06 11:41:07,470 INFO  [io.qua.dep.QuarkusAugmentor] (main) Quarkus augmentation completed in 11551ms\nkeycloak-1          | 2026-11-06 11:41:08,761 WARN  [org.keycloak.quarkus.runtime.cli.Picocli] (main) The following used options or option values are DEPRECATED and will be removed in a future release:\nquestion-service-1  | question-service listening on :3002\nadmin-service-1  | admin-service listening on :3004\nprometheus-1        | ts=2026-11-06T11:41:24.439Z caller=main.go:1133 level=info msg=\"Server is ready to receive web requests.\"\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T11:41:16.812Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [watch-history-ilm-policy-16]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[5f357efe6f42][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"XWiMa9IWRIaApLE0YUiiZg\",\"elasticsearch.node.id\":\"duqoxealStOflLqy4lpehg\",\"elasticsearch.node.name\":\"5f357efe6f42\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nadmin-service-1     | search index failed (non-fatal) resource_already_exists_exception\nprometheus-1        | ts=2026-11-06T11:41:24.439Z caller=manager.go:164 level=info component=\"rule manager\" msg=\"Starting rule manager...\"\nadmin-service-1     | \tRoot causes:\npostgres-1       | 2026-11-06 11:40:55.786 UTC [41] LOG:  background worker \"logical replication launcher\" (PID 47) exited with exit code 1\nadmin-service-1     | \t\tresource_already_exists_exception: index [questions/cFFzHqqrSMatoxJ39G3z9g] already exists\npostgres-1          | 2026-11-06 11:40:55.787 UTC [42] LOG:  shutting down\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T11:41:16.858Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [ilm-history-ilm-policy]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[5f357efe6f42][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"XWiMa9IWRIaApLE0YUiiZg\",\"elasticsearch.node.id\":\"duqoxealStOflLqy4lpehg\",\"elasticsearch.node.name\":\"5f357efe6f42\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\npostgres-1          | 2026-11-06 11:40:55.796 UTC [42] LOG:  checkpoint starting: shutdown immediate\nadmin-service-1     | admin-service listening on :3004\nkeycloak-1          | \t- proxy: Use proxy-headers.\nkeycloak-1          | Consult the Release Notes for details.\nadmin-service-1     | search remove failed (non-fatal) {\"_index\":\"questions\",\"_id\":\"10\",\"_version\":1,\"result\":\"not_found\",\"_shards\":{\"total\":2,\"successful\":1,\"failed\":0},\"_seq_no\":2,\"_primary_term\":1}\npostgres-1          | 2026-11-06 11:40:56.090 UTC [42] LOG:  checkpoint complete: wrote 965 buffers (5.9%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.045 s, sync=0.230 s, total=0.303 s; sync files=327, longest=0.008 s, average=0.001 s; distance=4431 kB, estimate=4431 kB; lsn=0/194B0A8, redo lsn=0/194B0A8\nkeycloak-1          | 2026-11-06 11:41:09,564 INFO  [org.keycloak.quarkus.runtime.hostname.DefaultHostnameProvider] (main) Hostname settings: Base URL: http://localhost:14486, Hostname: localhost, Strict HTTPS: false, Path: /, Strict BackChannel: false, Admin URL: <unset>, Admin: <request>, Port: 14486, Proxied: true\nkeycloak-1          | 2026-11-06 11:41:12,009 WARN  [io.quarkus.agroal.runtime.DataSources] (JPA Startup Thread) Datasource <default> enables XA but transaction recovery is not enabled. Please enable transaction recovery by setting quarkus.transaction-manager.enable-recovery=true, otherwise data may be lost if the application is terminated abruptly\nkeycloak-1          | 2026-11-06 11:41:12,789 WARN  [org.infinispan.CONFIG] (keycloak-cache-init) ISPN000569: Unable to persist Infinispan internal caches as no global state enabled\nkeycloak-1          | 2026-11-06 11:41:12,966 INFO  [org.infinispan.CONTAINER] (keycloak-cache-init) ISPN000556: Starting user marshaller 'org.infinispan.jboss.marshalling.core.JBossUserMarshaller'\nkeycloak-1          | 2026-11-06 11:41:13,888 WARN  [io.quarkus.vertx.http.runtime.VertxHttpRecorder] (main) The X-Forwarded-* and Forwarded headers will be considered when determining the proxy address. This configuration can cause a security issue as clients can forge requests and send a forwarded header that is not overwritten by the proxy. Please consider use one of these headers just to forward the proxy address in requests.\nkeycloak-1          | 2026-11-06 11:41:13,904 INFO  [org.keycloak.broker.provider.AbstractIdentityProviderMapper] (main) Registering class org.keycloak.broker.provider.mappersync.ConfigSyncEventListener\nkeycloak-1          | 2026-11-06 11:41:13,939 INFO  [org.keycloak.connections.infinispan.DefaultInfinispanConnectionProviderFactory] (main) Node name: node_495740, Site name: null\nkeycloak-1          | 2026-11-06 11:41:16,273 INFO  [org.keycloak.quarkus.runtime.storage.legacy.liquibase.QuarkusJpaUpdaterProvider] (main) Initializing database schema. Using changelog META-INF/jpa-changelog-master.xml\nkeycloak-1          | \nkeycloak-1          | UPDATE SUMMARY\nkeycloak-1          | Run:                        124\nkeycloak-1          | Previously run:               0\nkeycloak-1          | Filtered out:                 0\nkeycloak-1          | -------------------------------\nkeycloak-1          | Total change sets:          124\nkeycloak-1          | \nkeycloak-1          | 2026-11-06 11:41:19,156 INFO  [org.keycloak.services] (main) KC-SERVICES0050: Initializing master realm\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T11:41:16.903Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [.fleet-file-tohost-meta-ilm-policy]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[5f357efe6f42][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"XWiMa9IWRIaApLE0YUiiZg\",\"elasticsearch.node.id\":\"duqoxealStOflLqy4lpehg\",\"elasticsearch.node.name\":\"5f357efe6f42\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T11:41:16.949Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [.fleet-actions-results-ilm-policy]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[5f357efe6f42][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"XWiMa9IWRIaApLE0YUiiZg\",\"elasticsearch.node.id\":\"duqoxealStOflLqy4lpehg\",\"elasticsearch.node.name\":\"5f357efe6f42\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T11:41:16.990Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [.deprecation-indexing-ilm-policy]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[5f357efe6f42][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"XWiMa9IWRIaApLE0YUiiZg\",\"elasticsearch.node.id\":\"duqoxealStOflLqy4lpehg\",\"elasticsearch.node.name\":\"5f357efe6f42\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T11:41:17.037Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [.fleet-file-fromhost-data-ilm-policy]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[5f357efe6f42][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"XWiMa9IWRIaApLE0YUiiZg\",\"elasticsearch.node.id\":\"duqoxealStOflLqy4lpehg\",\"elasticsearch.node.name\":\"5f357efe6f42\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T11:41:17.078Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [.fleet-file-tohost-data-ilm-policy]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[5f357efe6f42][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"XWiMa9IWRIaApLE0YUiiZg\",\"elasticsearch.node.id\":\"duqoxealStOflLqy4lpehg\",\"elasticsearch.node.name\":\"5f357efe6f42\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T11:41:17.130Z\", \"log.level\": \"INFO\", \"message\":\"adding index lifecycle policy [.fleet-file-fromhost-meta-ilm-policy]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[5f357efe6f42][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.xpack.ilm.action.TransportPutLifecycleAction\",\"elasticsearch.cluster.uuid\":\"XWiMa9IWRIaApLE0YUiiZg\",\"elasticsearch.node.id\":\"duqoxealStOflLqy4lpehg\",\"elasticsearch.node.name\":\"5f357efe6f42\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T11:41:17.271Z\", \"log.level\": \"INFO\", \"message\":\"Node [{5f357efe6f42}{duqoxealStOflLqy4lpehg}] is selected as the current health node.\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[5f357efe6f42][management][T#2]\",\"log.logger\":\"org.elasticsearch.health.node.selection.HealthNodeTaskExecutor\",\"elasticsearch.cluster.uuid\":\"XWiMa9IWRIaApLE0YUiiZg\",\"elasticsearch.node.id\":\"duqoxealStOflLqy4lpehg\",\"elasticsearch.node.name\":\"5f357efe6f42\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T11:41:17.436Z\", \"log.level\": \"INFO\", \"message\":\"license [413e6982-a266-4abd-bf9c-66c11c7fdcab] mode [basic] - valid\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[5f357efe6f42][clusterApplierService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.license.ClusterStateLicenseService\",\"elasticsearch.cluster.uuid\":\"XWiMa9IWRIaApLE0YUiiZg\",\"elasticsearch.node.id\":\"duqoxealStOflLqy4lpehg\",\"elasticsearch.node.name\":\"5f357efe6f42\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nkeycloak-1          | 2026-11-06 11:41:20,326 INFO  [org.keycloak.exportimport.singlefile.SingleFileImportProvider] (main) Full importing from file /opt/keycloak/bin/../data/import/realm.json\nkeycloak-1          | 2026-11-06 11:41:22,187 INFO  [org.keycloak.exportimport.util.ImportUtils] (main) Realm 'space-fractions' imported\nkeycloak-1          | 2026-11-06 11:41:22,236 INFO  [org.keycloak.exportimport.dir.DirImportProvider] (main) Importing from directory /opt/keycloak/bin/../data/import\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T11:41:52.722Z\", \"log.level\": \"INFO\", \"message\":\"[questions] creating index, cause [api], templates [], shards [1]/[1]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[5f357efe6f42][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.cluster.metadata.MetadataCreateIndexService\",\"elasticsearch.cluster.uuid\":\"XWiMa9IWRIaApLE0YUiiZg\",\"elasticsearch.node.id\":\"duqoxealStOflLqy4lpehg\",\"elasticsearch.node.name\":\"5f357efe6f42\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\nelasticsearch-1     | {\"@timestamp\":\"2026-11-06T11:41:53.061Z\", \"log.level\": \"INFO\", \"message\":\"[questions/cFFzHqqrSMatoxJ39G3z9g] update_mapping [_doc]\", \"ecs.version\": \"1.2.0\",\"service.name\":\"ES_ECS\",\"event.dataset\":\"elasticsearch.server\",\"process.thread.name\":\"elasticsearch[5f357efe6f42][masterService#updateTask][T#1]\",\"log.logger\":\"org.elasticsearch.cluster.metadata.MetadataMappingService\",\"elasticsearch.cluster.uuid\":\"XWiMa9IWRIaApLE0YUiiZg\",\"elasticsearch.node.id\":\"duqoxealStOflLqy4lpehg\",\"elasticsearch.node.name\":\"5f357efe6f42\",\"elasticsearch.cluster.name\":\"docker-cluster\"}\npostgres-1          | 2026-11-06 11:40:56.099 UTC [41] LOG:  database system is shut down\npostgres-1          |  done\npostgres-1          | server stopped\npostgres-1          | \npostgres-1          | PostgreSQL init process complete; ready for start up.\npostgres-1          | \npostgres-1          | 2026-11-06 11:40:56.215 UTC [1] LOG:  starting PostgreSQL 16.15 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit\npostgres-1          | 2026-11-06 11:40:56.215 UTC [1] LOG:  listening on IPv4 address \"0.0.0.0\", port 5432\npostgres-1          | 2026-11-06 11:40:56.215 UTC [1] LOG:  listening on IPv6 address \"::\", port 5432\npostgres-1          | 2026-11-06 11:40:56.224 UTC [1] LOG:  listening on Unix socket \"/var/run/postgresql/.s.PGSQL.5432\"\npostgres-1          | 2026-11-06 11:40:56.234 UTC [61] LOG:  database system was shut down at 2026-11-06 11:40:56 UTC\npostgres-1          | 2026-11-06 11:40:56.245 UTC [1] LOG:  database system is ready to accept connections\npostgres-1          | 2026-11-06 11:42:09.824 UTC [180] WARNING:  there is no transaction in progress\npostgres-1          | 2026-11-06 11:42:09.828 UTC [183] WARNING:  there is no transaction in progress\nkeycloak-1          | 2026-11-06 11:41:22,236 INFO  [org.keycloak.services] (main) KC-SERVICES0030: Full model import requested. Strategy: IGNORE_EXISTING\nkeycloak-1          | 2026-11-06 11:41:22,237 INFO  [org.keycloak.services] (main) KC-SERVICES0032: Import finished successfully\nkeycloak-1          | 2026-11-06 11:41:22,488 INFO  [org.keycloak.services] (main) KC-SERVICES0009: Added user 'admin' to realm 'master'\nkeycloak-1          | 2026-11-06 11:41:22,565 INFO  [io.quarkus] (main) Keycloak 24.0.5 on JVM (powered by Quarkus 3.8.4) started in 14.823s. Listening on: http://0.0.0.0:8080\nkeycloak-1          | 2026-11-06 11:41:22,565 INFO  [io.quarkus] (main) Profile dev activated. \nkeycloak-1          | 2026-11-06 11:41:22,565 INFO  [io.quarkus] (main) Installed features: [agroal, cdi, hibernate-orm, jdbc-h2, keycloak, logging-gelf, narayana-jta, reactive-routes, resteasy-reactive, resteasy-reactive-jackson, smallrye-context-propagation, vertx]\nkeycloak-1          | 2026-11-06 11:41:22,568 WARN  [org.keycloak.quarkus.runtime.KeycloakMain] (main) Running the server in development mode. DO NOT use this configuration in production.\npostgres-1          | 2026-11-06 11:42:09.831 UTC [184] WARNING:  there is no transaction in progress\npostgres-1          | 2026-11-06 11:42:09.834 UTC [182] WARNING:  there is no transaction in progress\npostgres-1          | 2026-11-06 11:42:09.844 UTC [186] WARNING:  there is no transaction in progress\npostgres-1          | 2026-11-06 11:42:09.848 UTC [187] WARNING:  there is no transaction in progress\npostgres-1          | 2026-11-06 11:42:09.855 UTC [187] WARNING:  there is no transaction in progress\npostgres-1          | 2026-11-06 11:42:19.876 UTC [197] WARNING:  there is no transaction in progress\n"
+        },
+        {
+          "stage": [
+            "down",
+            "--volumes",
+            "--remove-orphans"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "command": [
+            "C:\\Windows\\system32\\wsl.exe",
+            "-d",
+            "Ubuntu",
+            "-u",
+            "root",
+            "--",
+            "env",
+            "GATEWAY_PORT=14485",
+            "OIDC_PORT=14486",
+            "PUBLIC_ORIGIN=http://localhost:14485",
+            "OIDC_PUBLIC_ORIGIN=http://localhost:14486",
+            "OIDC_ISSUER=http://localhost:14486/realms/space-fractions",
+            "docker",
+            "compose",
+            "--project-directory",
+            "/mnt/d/projects/Task-v03-final-runs/runs/v03/main/space-04-state-repair/run-20261106-193116-2685348c/project",
+            "-p",
+            "dca-754afdb52d1d",
+            "-f",
+            "/mnt/d/projects/Task-v03-final-runs/runs/v03/main/space-04-state-repair/run-20261106-193116-2685348c/artifacts/runtime-02/compose.isolated.json",
+            "down",
+            "--volumes",
+            "--remove-orphans"
+          ],
+          "output": " Container dca-754afdb52d1d-redis-1  Stopping\n Container dca-754afdb52d1d-prometheus-1  Stopping\n Container dca-754afdb52d1d-prometheus-1  Stopped\n Container dca-754afdb52d1d-prometheus-1  Removing\n Container dca-754afdb52d1d-redis-1  Stopped\n Container dca-754afdb52d1d-redis-1  Removing\n Container dca-754afdb52d1d-prometheus-1  Removed\n Container dca-754afdb52d1d-gateway-1  Stopping\n Container dca-754afdb52d1d-redis-1  Removed\n Container dca-754afdb52d1d-gateway-1  Stopped\n Container dca-754afdb52d1d-gateway-1  Removing\n Container dca-754afdb52d1d-gateway-1  Removed\n Container dca-754afdb52d1d-admin-service-1  Stopping\n Container dca-754afdb52d1d-question-service-1  Stopping\n Container dca-754afdb52d1d-game-service-1  Stopping\n Container dca-754afdb52d1d-user-service-1  Stopping\n Container dca-754afdb52d1d-game-service-1  Stopped\n Container dca-754afdb52d1d-game-service-1  Removing\n Container dca-754afdb52d1d-user-service-1  Stopped\n Container dca-754afdb52d1d-user-service-1  Removing\n Container dca-754afdb52d1d-game-service-1  Removed\n Container dca-754afdb52d1d-rabbitmq-1  Stopping\n Container dca-754afdb52d1d-question-service-1  Stopped\n Container dca-754afdb52d1d-question-service-1  Removing\n Container dca-754afdb52d1d-user-service-1  Removed\n Container dca-754afdb52d1d-admin-service-1  Stopped\n Container dca-754afdb52d1d-admin-service-1  Removing\n Container dca-754afdb52d1d-question-service-1  Removed\n Container dca-754afdb52d1d-admin-service-1  Removed\n Container dca-754afdb52d1d-postgres-1  Stopping\n Container dca-754afdb52d1d-keycloak-1  Stopping\n Container dca-754afdb52d1d-elasticsearch-1  Stopping\n Container dca-754afdb52d1d-postgres-1  Stopped\n Container dca-754afdb52d1d-postgres-1  Removing\n Container dca-754afdb52d1d-postgres-1  Removed\n Container dca-754afdb52d1d-keycloak-1  Stopped\n Container dca-754afdb52d1d-keycloak-1  Removing\n Container dca-754afdb52d1d-keycloak-1  Removed\n Container dca-754afdb52d1d-rabbitmq-1  Stopped\n Container dca-754afdb52d1d-rabbitmq-1  Removing\n Container dca-754afdb52d1d-rabbitmq-1  Removed\n Container dca-754afdb52d1d-elasticsearch-1  Stopped\n Container dca-754afdb52d1d-elasticsearch-1  Removing\n Container dca-754afdb52d1d-elasticsearch-1  Removed\n Volume dca-754afdb52d1d_pg_data  Removing\n Network dca-754afdb52d1d_default  Removing\n Volume dca-754afdb52d1d_pg_data  Removed\n Network dca-754afdb52d1d_default  Removed\n"
+        }
+      ],
+      "source_modified_by_host": false,
+      "isolation_note": "Owned Compose project and loopback ports; Docker execution is not an OS security sandbox",
+      "snapshot_id": "9663c2785295848726733b1d3e3c69b531fcd029da1cb486ff6d655b56c4287f",
+      "snapshot_after": "9663c2785295848726733b1d3e3c69b531fcd029da1cb486ff6d655b56c4287f",
+      "stale": false
+    },
+    {
+      "profile": "external_review_retest",
+      "status": "unverified",
+      "reason": "外部反馈已用于修复，但必须由独立验收重新验证；不能根据模型文字判为通过"
+    }
+  ],
+  "repair_rounds": 1,
+  "acceptance_profile": "space-fractions",
+  "generation_origin": "seed",
+  "schema_version": 2,
+  "limitation": "Checks do not establish semantic architecture fidelity, production readiness or performance. Review traceability and run independent acceptance tests.",
+  "turns": 40,
+  "bounded_replan_used": false,
+  "elapsed_seconds": 675.22,
+  "tool_metrics": {
+    "reads": 34,
+    "repeated_reads": 0,
+    "tool_errors": 1,
+    "writes": 20,
+    "host_derived_writes": 0
+  },
+  "budget": {
+    "limit_cny": null,
+    "charged_cny": 779.805663,
+    "uncertain_requests": 12,
+    "request_count": 2889,
+    "prices": {
+      "input_per_million": 12,
+      "output_per_million": 27,
+      "reference_date": "2026-11-05"
+    }
+  },
+  "global_ledger_delta_cny": 21.164715,
+  "run_estimated_cny": 21.164715,
+  "cost_scope": "This run's responses with valid usage only; uncertain reservations stay charged in the global ledger. Global delta may include concurrent runs.",
+  "usage": [
+    {
+      "usage": {
+        "prompt_tokens": 29417,
+        "total_tokens": 29520,
+        "completion_tokens": 103,
+        "prompt_tokens_details": {
+          "cached_tokens": 14080
+        }
+      },
+      "estimated_cny": 0.355785,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-57876fd0-ff58-9e08-900c-df139d94c83c"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 37157,
+        "total_tokens": 37343,
+        "completion_tokens": 186,
+        "prompt_tokens_details": {
+          "cached_tokens": 29184
+        }
+      },
+      "estimated_cny": 0.450906,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-64ed7f07-9871-9fc9-b20c-5ff7acdc01b6"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 42119,
+        "total_tokens": 42398,
+        "completion_tokens": 279,
+        "prompt_tokens_details": {
+          "cached_tokens": 37120
+        }
+      },
+      "estimated_cny": 0.512961,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-d726181b-f531-9d99-ae27-71e7b9876919"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 46816,
+        "total_tokens": 47585,
+        "completion_tokens": 769,
+        "prompt_tokens_details": {
+          "cached_tokens": 41984
+        }
+      },
+      "estimated_cny": 0.582555,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-ce15e298-7ecf-951e-8405-22709408e018"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 47831,
+        "total_tokens": 48156,
+        "completion_tokens": 325,
+        "prompt_tokens_details": {
+          "cached_tokens": 46592
+        }
+      },
+      "estimated_cny": 0.582747,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-0b69b859-7162-9b99-b862-ae82060f4a1f"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 48416,
+        "total_tokens": 48802,
+        "completion_tokens": 386,
+        "prompt_tokens_details": {
+          "cached_tokens": 47616
+        }
+      },
+      "estimated_cny": 0.591414,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-e2570a91-6c29-9b8d-8fb8-acf8cff5bbef"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 49056,
+        "total_tokens": 49594,
+        "completion_tokens": 538,
+        "prompt_tokens_details": {
+          "cached_tokens": 48384
+        }
+      },
+      "estimated_cny": 0.603198,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-0093fa60-65fb-9a08-a73a-8261b650048f"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 49845,
+        "total_tokens": 50557,
+        "completion_tokens": 712,
+        "prompt_tokens_details": {
+          "cached_tokens": 48896
+        }
+      },
+      "estimated_cny": 0.617364,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-6dab0b5e-9f1b-97e5-a705-a3ba55bbfb88"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 50807,
+        "total_tokens": 51162,
+        "completion_tokens": 355,
+        "prompt_tokens_details": {
+          "cached_tokens": 49664
+        }
+      },
+      "estimated_cny": 0.619269,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-66a079d0-46ea-929a-ba76-b3203d0d1f86"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 51409,
+        "total_tokens": 51594,
+        "completion_tokens": 185,
+        "prompt_tokens_details": {
+          "cached_tokens": 50688
+        }
+      },
+      "estimated_cny": 0.621903,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-2e05ed1d-9162-95f2-91e9-ec330a7893c3"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 33898,
+        "total_tokens": 34178,
+        "completion_tokens": 280,
+        "prompt_tokens_details": {
+          "cached_tokens": 20992
+        }
+      },
+      "estimated_cny": 0.414336,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-7bd07c4f-7b1b-9b20-8948-d42ab20b6d04"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 34295,
+        "total_tokens": 34371,
+        "completion_tokens": 76,
+        "prompt_tokens_details": {
+          "cached_tokens": 33792
+        }
+      },
+      "estimated_cny": 0.413592,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-fea7a2f3-9a60-9940-9dab-d72905757efd"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 38791,
+        "total_tokens": 38920,
+        "completion_tokens": 129,
+        "prompt_tokens_details": {
+          "cached_tokens": 34048
+        }
+      },
+      "estimated_cny": 0.468975,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-b2d801e2-a6c6-95a6-a963-26f5ce52e547"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 42336,
+        "total_tokens": 42464,
+        "completion_tokens": 128,
+        "prompt_tokens_details": {
+          "cached_tokens": 38656
+        }
+      },
+      "estimated_cny": 0.511488,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-d3b7ecbb-45da-97e8-b989-cc727e252507"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 46882,
+        "total_tokens": 47300,
+        "completion_tokens": 418,
+        "prompt_tokens_details": {
+          "cached_tokens": 42240
+        }
+      },
+      "estimated_cny": 0.57387,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-330b51e3-0dec-99ff-bec9-53670a98cc2c"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 42451,
+        "total_tokens": 42564,
+        "completion_tokens": 113,
+        "prompt_tokens_details": {
+          "cached_tokens": 20992
+        }
+      },
+      "estimated_cny": 0.512463,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-c3c1d01c-ba26-90d6-91ce-0d6fc198ad08"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 43714,
+        "total_tokens": 44234,
+        "completion_tokens": 520,
+        "prompt_tokens_details": {
+          "cached_tokens": 42240
+        }
+      },
+      "estimated_cny": 0.538608,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-526bcaef-3caf-910c-a616-5cf5926bcc0b"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 48652,
+        "total_tokens": 49467,
+        "completion_tokens": 815,
+        "prompt_tokens_details": {
+          "cached_tokens": 43520
+        }
+      },
+      "estimated_cny": 0.605829,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-1e0ac357-b090-9bc1-b6c8-1552de749d94"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 51162,
+        "total_tokens": 56768,
+        "completion_tokens": 5606,
+        "prompt_tokens_details": {
+          "cached_tokens": 48640
+        }
+      },
+      "estimated_cny": 0.765306,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-81884106-c9e6-92dc-8e31-d1a49e7af576"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 40737,
+        "total_tokens": 40822,
+        "completion_tokens": 85,
+        "prompt_tokens_details": {
+          "cached_tokens": 29184
+        }
+      },
+      "estimated_cny": 0.491139,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-e5689aaf-feb6-96ae-ae45-6d7fd91bb0b9"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 29306,
+        "total_tokens": 29463,
+        "completion_tokens": 157,
+        "prompt_tokens_details": {
+          "cached_tokens": 28928
+        }
+      },
+      "estimated_cny": 0.355911,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-8ee8009b-579c-919b-9c86-c5f0570f93bb"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 41040,
+        "total_tokens": 41203,
+        "completion_tokens": 163,
+        "prompt_tokens_details": {
+          "cached_tokens": 29184
+        }
+      },
+      "estimated_cny": 0.496881,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-73259e18-1f97-9ff3-95be-48caedc5e407"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 46000,
+        "total_tokens": 46157,
+        "completion_tokens": 157,
+        "prompt_tokens_details": {
+          "cached_tokens": 40960
+        }
+      },
+      "estimated_cny": 0.556239,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-f9c09cfe-6d0f-9c5b-aaee-3a87f2cd79a4"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 50080,
+        "total_tokens": 50190,
+        "completion_tokens": 110,
+        "prompt_tokens_details": {
+          "cached_tokens": 45824
+        }
+      },
+      "estimated_cny": 0.60393,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-cba162ad-0ab1-9bef-b480-da5784598ae4"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 42241,
+        "total_tokens": 42393,
+        "completion_tokens": 152,
+        "prompt_tokens_details": {
+          "cached_tokens": 29184
+        }
+      },
+      "estimated_cny": 0.510996,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-e61ebb78-98d2-96ef-a752-4915efc3896c"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 49556,
+        "total_tokens": 50559,
+        "completion_tokens": 1003,
+        "prompt_tokens_details": {
+          "cached_tokens": 41984
+        }
+      },
+      "estimated_cny": 0.621753,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-ecd218d8-83ca-9630-83a4-ca2649f58172"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 42082,
+        "total_tokens": 42925,
+        "completion_tokens": 843,
+        "prompt_tokens_details": {
+          "cached_tokens": 20992
+        }
+      },
+      "estimated_cny": 0.527745,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-d36c4fdc-dcc3-9065-b544-47390fd23997"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 43420,
+        "total_tokens": 43551,
+        "completion_tokens": 131,
+        "prompt_tokens_details": {
+          "cached_tokens": 41984
+        }
+      },
+      "estimated_cny": 0.524577,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-d08303e1-a8d6-9c79-bd04-bb3e8623b175"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 46389,
+        "total_tokens": 47107,
+        "completion_tokens": 718,
+        "prompt_tokens_details": {
+          "cached_tokens": 43264
+        }
+      },
+      "estimated_cny": 0.576054,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-078eaa3c-6d9e-9b92-8747-f443057cd334"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 47243,
+        "total_tokens": 48219,
+        "completion_tokens": 976,
+        "prompt_tokens_details": {
+          "cached_tokens": 46336
+        }
+      },
+      "estimated_cny": 0.593268,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-435bb3de-a19f-9de9-a87d-997ba25b8908"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 48737,
+        "total_tokens": 48933,
+        "completion_tokens": 196,
+        "prompt_tokens_details": {
+          "cached_tokens": 47104
+        }
+      },
+      "estimated_cny": 0.590136,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-b61b4334-0ab0-947d-9362-c280de053864"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 49178,
+        "total_tokens": 49551,
+        "completion_tokens": 373,
+        "prompt_tokens_details": {
+          "cached_tokens": 48640
+        }
+      },
+      "estimated_cny": 0.600207,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-875899f3-337e-9152-bfe8-656f92532122"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 50023,
+        "total_tokens": 50095,
+        "completion_tokens": 72,
+        "prompt_tokens_details": {
+          "cached_tokens": 49152
+        }
+      },
+      "estimated_cny": 0.60222,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-6ad95d28-3813-9953-9f3a-13261775b8c8"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 32813,
+        "total_tokens": 33095,
+        "completion_tokens": 282,
+        "prompt_tokens_details": {
+          "cached_tokens": 20992
+        }
+      },
+      "estimated_cny": 0.40137,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-7d6afc8b-6019-99b8-a0f6-bcd821ec033f"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 33233,
+        "total_tokens": 33356,
+        "completion_tokens": 123,
+        "prompt_tokens_details": {
+          "cached_tokens": 32768
+        }
+      },
+      "estimated_cny": 0.402117,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-aba5d703-9b23-9243-b9b9-844cc1fd924e"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 35524,
+        "total_tokens": 36202,
+        "completion_tokens": 678,
+        "prompt_tokens_details": {
+          "cached_tokens": 33024
+        }
+      },
+      "estimated_cny": 0.444594,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-26ca691a-848f-9f73-9850-4ff8f8882b23"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 36346,
+        "total_tokens": 36413,
+        "completion_tokens": 67,
+        "prompt_tokens_details": {
+          "cached_tokens": 35328
+        }
+      },
+      "estimated_cny": 0.437961,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-e336ca89-de4d-90a9-9d44-7c1a2642fd6d"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 39317,
+        "total_tokens": 39752,
+        "completion_tokens": 435,
+        "prompt_tokens_details": {
+          "cached_tokens": 36096
+        }
+      },
+      "estimated_cny": 0.483549,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-54fa15a0-a4a9-9a1b-980a-5793e3dc46e9"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 39873,
+        "total_tokens": 39958,
+        "completion_tokens": 85,
+        "prompt_tokens_details": {
+          "cached_tokens": 39168
+        }
+      },
+      "estimated_cny": 0.480771,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-fc4951dd-dc9c-9131-a2a1-b448be93916f"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 43214,
+        "total_tokens": 43294,
+        "completion_tokens": 80,
+        "prompt_tokens_details": {
+          "cached_tokens": 39680
+        }
+      },
+      "estimated_cny": 0.520728,
+      "requested_model": "deepseek-v4-pro-0813",
+      "response_model": "deepseek-v4-pro-0813",
+      "request_id": "chatcmpl-8232b012-05d7-9001-abec-555d3349087e"
+    }
+  ],
+  "valid_api_responses": 40,
+  "files": [
+    {
+      "path": ".env.example",
+      "sha256": "30473611dd8aa4856b57814174051e64f96ec302d31b8a5c7447e204be0ebe2d"
+    },
+    {
+      "path": "Jenkinsfile",
+      "sha256": "9d3afef4f7795774e32f63119b208c6d1bc68ded690e07394cf6ca5eaa59932a"
+    },
+    {
+      "path": "README.md",
+      "sha256": "3ffa519203cc1ab1389dea3ce43b62381ca56bdcdcd056164ca9fe49d96a7b7f"
+    },
+    {
+      "path": "architecture-decisions.md",
+      "sha256": "f69d8f5587538d2d52cb132a3524f9ec60905cefc0d2769efaca2abad9542923"
+    },
+    {
+      "path": "compose.yaml",
+      "sha256": "1c384e72119f3174e60710ff9d2d9b31a174791743777847136eb58a6bb135d6"
+    },
+    {
+      "path": "internal.proto",
+      "sha256": "d72be380b0d49a57591ba59b3b24c77dd178ccf36fb92ded021e5e5575ec02ca"
+    },
+    {
+      "path": "openapi.yaml",
+      "sha256": "fd00a6fd287d7daa3de9e56f41a487aa0cab99ea22101b84c7b9287e277643dc"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "f9d8da5c333a01285f4ed11bba861387423087448618a8d8378b377a07303d2c"
+    },
+    {
+      "path": "package.json",
+      "sha256": "5315f7358114028873cf5a04c5dde2611e9bb0b0ebe37eee43f6221bfa52b866"
+    },
+    {
+      "path": "plan.json",
+      "sha256": "1de7d54ec6bb0aa96c15295d0a4c9677945c00b0899182445fe8e3aa90187f56"
+    },
+    {
+      "path": "traceability.json",
+      "sha256": "07da1b030296d27eef41d772179e8041d93900250466c0cce99d286503f4530d"
+    },
+    {
+      "path": "infra/istio-gateway.yaml",
+      "sha256": "1dce004e64d9ab742e3535bded65eba5821ebdf74e71c553fc141a0af6028877"
+    },
+    {
+      "path": "infra/prometheus.yml",
+      "sha256": "c655aa4232e878646d561a6d0a7c0e34e3f1cf5ced9015245450325cffb87379"
+    },
+    {
+      "path": "infra/vault-policy.hcl",
+      "sha256": "c1ddab16d4e3ad0f2dec6f80cf9bd4b646a28d0c8c7cc1f139d207e7c60363ab"
+    },
+    {
+      "path": "infra/keycloak/realm.json",
+      "sha256": "14a5cea1ab0bf39803aa32e2104bd8ab66bab5b3d85786507c78160a80da5dce"
+    },
+    {
+      "path": "k8s/spacefractions-deployment.yaml",
+      "sha256": "5ae32689894e6be2c576c05eaa2ee6c25d93828d4f6bab0475a9859e4b868e6b"
+    },
+    {
+      "path": "packages/admin-service/Dockerfile",
+      "sha256": "03e2fe23e2c15d903cb0ea73f79c3eebd43d858c882201374806add73964c5a8"
+    },
+    {
+      "path": "packages/admin-service/src/index.js",
+      "sha256": "11d25ff154a39284156841be8dcf2a3005bbb3adc70f8fd3a817cfbd704efefd"
+    },
+    {
+      "path": "packages/game-service/Dockerfile",
+      "sha256": "f81cdcc8c6189bc56ed1b64669584b1e93d59e7a71c95600fb3c9cf84d325921"
+    },
+    {
+      "path": "packages/game-service/src/events.js",
+      "sha256": "37c4cc5fe94a1bdb32329569743c3f73d8651c2ba870377f39fa063e365ec26c"
+    },
+    {
+      "path": "packages/game-service/src/index.js",
+      "sha256": "288a79b523761afb9d40f37c461466e542c4f8dcb1c49e53d23ec581e5ac73c2"
+    },
+    {
+      "path": "packages/game-service/src/repository.js",
+      "sha256": "133deac417c6f0610b120609c6c7caf7aab7f5397291f7c83d7500a6240e182a"
+    },
+    {
+      "path": "packages/gateway/Dockerfile",
+      "sha256": "ecc8d9c98d3a1d21a180845d4b94dfedbcc9fafd50d0f89e78706dea2d614260"
+    },
+    {
+      "path": "packages/gateway/public/app.js",
+      "sha256": "c33a7f83ef5614d0abfc34981e30707255c4a4e4bc146fa637827d41664ac2bf"
+    },
+    {
+      "path": "packages/gateway/public/index.html",
+      "sha256": "04027391d0933955e4f650cbdc5602a934d3f0086cc5b86ef5848b26c081fac9"
+    },
+    {
+      "path": "packages/gateway/public/style.css",
+      "sha256": "297d7594e7e9e09fd5a1be174af9f80bf49731c04cc46d7123557908197da5f9"
+    },
+    {
+      "path": "packages/gateway/src/index.js",
+      "sha256": "36c69f6c07dc3d5465f99fcd632f3c1788f28473c71e0349e230e976c4b6cf01"
+    },
+    {
+      "path": "packages/question-service/Dockerfile",
+      "sha256": "a1037788201cd377c6568082541c0b7d608df32f242e9536cf69e0a7fefdbc7c"
+    },
+    {
+      "path": "packages/question-service/src/index.js",
+      "sha256": "9e1a3b412602b0e660d2c9899bc2bc1d0447918bb4a28ab90c0428f61c45b12f"
+    },
+    {
+      "path": "packages/question-service/src/repository.js",
+      "sha256": "7bfb0782cf1df88ae41ee2419ec62964701f10486f8b23cfa238576c056bfec1"
+    },
+    {
+      "path": "packages/question-service/src/search.js",
+      "sha256": "0f71be2a24c9dd3ec7457bb0e18c49f2dec84f792e61421f771fc1d208a838fd"
+    },
+    {
+      "path": "packages/user-service/Dockerfile",
+      "sha256": "a99dc338b1b225e0152c44480b93864799f914423315da5adac1cf2a5b23581b"
+    },
+    {
+      "path": "packages/user-service/src/index.js",
+      "sha256": "1e6a24a81600351cfde8ca5bcdfa834bd1b4b2e2cc692560fb58852f0e3f912b"
+    },
+    {
+      "path": "scripts/build.mjs",
+      "sha256": "0a9000e16a2c6fcc055576fcbfd97ea4641502810cbceaa4a7a9b468aaaf631c"
+    },
+    {
+      "path": "sql/game_ddl.sql",
+      "sha256": "09dcc8cc964d71f0038a8256e2176e36c46518c5885d323c448e1cbcfc43488c"
+    },
+    {
+      "path": "sql/seed.sql",
+      "sha256": "06d3b65a035c3e032da7b817939dd8f991db1b2ac24846154de12cf201845c5b"
+    },
+    {
+      "path": "sql/migrations/001_schema.sql",
+      "sha256": "07f6255bf5009962ee380d36d2030e4a4d888bd7c6aea09e20014a0702595229"
+    },
+    {
+      "path": "src/metrics.js",
+      "sha256": "af439a82d134dba20b9523106937dba75f22a758fb0f75b137ebf51335dbc6e4"
+    },
+    {
+      "path": "src/shared/fraction.js",
+      "sha256": "004ba794409a437cd23184f05e394d462bc0a8079ea5b452a5bafb7c18b6d2be"
+    },
+    {
+      "path": "src/shared/oidc.js",
+      "sha256": "86c6f5a6f5aa0bf2c710f22e53dc8bee4331a5ecdbb8f3f9e54b85b08b11c8d4"
+    },
+    {
+      "path": "terraform/main.tf",
+      "sha256": "74c7c08ed2e921bf49946280de37f05d300923acd0fdc0397c094682c810c793"
+    },
+    {
+      "path": "test/auth.test.js",
+      "sha256": "72bbbfa918c15e1cb1555e3590850b5c8c84c60064be11a249eadc7009f72fa5"
+    },
+    {
+      "path": "test/fraction.test.js",
+      "sha256": "e23e0d9edc3de4cf13d7e7ae5f822e8fc2f29da101ff64b2bb69c210d28b8989"
+    },
+    {
+      "path": "test/game-routes.test.js",
+      "sha256": "a0fab4dc114c91ae702769bbe4fe9efffb38f1cbd5534b799d00c04fc14f107a"
+    },
+    {
+      "path": "test/scoring.test.js",
+      "sha256": "4ca37894707010db6348ebb4d13cdfb9c61c24fd155086e48066d3409e922279"
+    },
+    {
+      "path": "test/helpers/http.js",
+      "sha256": "f92a476e30eb3fee895c1371d7b0b7a6511f535c4a3d45c15dac8e7c9f98e1d3"
+    }
+  ]
+}

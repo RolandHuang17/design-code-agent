@@ -1,0 +1,377 @@
+{
+  "networks": {
+    "default": {
+      "ipam": {}
+    }
+  },
+  "services": {
+    "admin-service": {
+      "build": {
+        "context": "/mnt/d/projects/Task-v03-final-runs/runs/v03/main/space-04-state-repair/run-20261106-193116-2685348c/project",
+        "dockerfile": "packages/admin-service/Dockerfile"
+      },
+      "command": null,
+      "depends_on": {
+        "elasticsearch": {
+          "condition": "service_healthy",
+          "required": true
+        },
+        "keycloak": {
+          "condition": "service_healthy",
+          "required": true
+        },
+        "postgres": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "entrypoint": null,
+      "environment": {
+        "DATABASE_URL": "postgres://spacefractions:spacefractions@postgres:5432/spacefractions",
+        "ELASTICSEARCH_URL": "http://elasticsearch:9200",
+        "OIDC_ADMIN_ROLE": "admin",
+        "OIDC_AUDIENCE": "account",
+        "OIDC_ISSUER": "http://localhost:4307/realms/space-fractions",
+        "OIDC_JWKS_URI": "http://keycloak:8080/realms/space-fractions/protocol/openid-connect/certs",
+        "PORT": "3004"
+      },
+      "networks": {
+        "default": null
+      },
+      "ports": []
+    },
+    "elasticsearch": {
+      "command": null,
+      "entrypoint": null,
+      "environment": {
+        "ES_JAVA_OPTS": "-Xms256m -Xmx256m",
+        "discovery.type": "single-node",
+        "xpack.security.enabled": "false"
+      },
+      "healthcheck": {
+        "test": [
+          "CMD-SHELL",
+          "curl -sf http://localhost:9200/_cluster/health || exit 1"
+        ],
+        "timeout": "10s",
+        "interval": "15s",
+        "retries": 10
+      },
+      "image": "docker.elastic.co/elasticsearch/elasticsearch:8.14.3",
+      "networks": {
+        "default": null
+      },
+      "ports": []
+    },
+    "game-service": {
+      "build": {
+        "context": "/mnt/d/projects/Task-v03-final-runs/runs/v03/main/space-04-state-repair/run-20261106-193116-2685348c/project",
+        "dockerfile": "packages/game-service/Dockerfile"
+      },
+      "command": null,
+      "depends_on": {
+        "keycloak": {
+          "condition": "service_healthy",
+          "required": true
+        },
+        "postgres": {
+          "condition": "service_healthy",
+          "required": true
+        },
+        "rabbitmq": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "entrypoint": null,
+      "environment": {
+        "DATABASE_URL": "postgres://spacefractions:spacefractions@postgres:5432/spacefractions",
+        "OIDC_ADMIN_ROLE": "admin",
+        "OIDC_AUDIENCE": "account",
+        "OIDC_ISSUER": "http://localhost:4307/realms/space-fractions",
+        "OIDC_JWKS_URI": "http://keycloak:8080/realms/space-fractions/protocol/openid-connect/certs",
+        "PORT": "3001",
+        "RABBITMQ_URL": "amqp://spacefractions:spacefractions@rabbitmq:5672"
+      },
+      "networks": {
+        "default": null
+      },
+      "ports": []
+    },
+    "gateway": {
+      "build": {
+        "context": "/mnt/d/projects/Task-v03-final-runs/runs/v03/main/space-04-state-repair/run-20261106-193116-2685348c/project",
+        "dockerfile": "packages/gateway/Dockerfile"
+      },
+      "command": null,
+      "depends_on": {
+        "admin-service": {
+          "condition": "service_started",
+          "required": true
+        },
+        "game-service": {
+          "condition": "service_started",
+          "required": true
+        },
+        "question-service": {
+          "condition": "service_started",
+          "required": true
+        },
+        "user-service": {
+          "condition": "service_started",
+          "required": true
+        }
+      },
+      "entrypoint": null,
+      "environment": {
+        "ADMIN_SERVICE_URL": "http://admin-service:3004",
+        "GAME_SERVICE_URL": "http://game-service:3001",
+        "OIDC_CLIENT_ID": "space-fractions-client",
+        "OIDC_ISSUER": "http://localhost:4307/realms/space-fractions",
+        "OIDC_PUBLIC_ORIGIN": "http://localhost:4307",
+        "PORT": "3000",
+        "PUBLIC_ORIGIN": "http://localhost:4306",
+        "QUESTION_SERVICE_URL": "http://question-service:3002",
+        "USER_SERVICE_URL": "http://user-service:3003"
+      },
+      "networks": {
+        "default": null
+      },
+      "ports": [
+        {
+          "target": 3000,
+          "published": "4306",
+          "host_ip": "127.0.0.1",
+          "protocol": "tcp"
+        }
+      ]
+    },
+    "keycloak": {
+      "command": [
+        "start-dev",
+        "--import-realm"
+      ],
+      "entrypoint": null,
+      "environment": {
+        "KC_HOSTNAME_STRICT": "false",
+        "KC_HOSTNAME_STRICT_HTTPS": "false",
+        "KC_HOSTNAME_URL": "http://localhost:4307",
+        "KC_HTTP_PORT": "8080",
+        "KC_PROXY": "edge",
+        "KEYCLOAK_ADMIN": "admin",
+        "KEYCLOAK_ADMIN_PASSWORD": "admin"
+      },
+      "healthcheck": {
+        "test": [
+          "CMD-SHELL",
+          "bash -c ': </dev/tcp/127.0.0.1/8080'"
+        ],
+        "timeout": "5s",
+        "interval": "10s",
+        "retries": 15,
+        "start_period": "1m0s"
+      },
+      "image": "quay.io/keycloak/keycloak:24.0.5",
+      "networks": {
+        "default": null
+      },
+      "ports": [
+        {
+          "target": 8080,
+          "published": "4307",
+          "host_ip": "127.0.0.1",
+          "protocol": "tcp"
+        }
+      ],
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "/mnt/d/projects/Task-v03-final-runs/runs/v03/main/space-04-state-repair/run-20261106-193116-2685348c/project/infra/keycloak/realm.json",
+          "target": "/opt/keycloak/data/import/realm.json",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        }
+      ]
+    },
+    "postgres": {
+      "command": null,
+      "entrypoint": null,
+      "environment": {
+        "POSTGRES_DB": "spacefractions",
+        "POSTGRES_PASSWORD": "spacefractions",
+        "POSTGRES_USER": "spacefractions"
+      },
+      "healthcheck": {
+        "test": [
+          "CMD-SHELL",
+          "pg_isready -U spacefractions -d spacefractions"
+        ],
+        "timeout": "5s",
+        "interval": "5s",
+        "retries": 10
+      },
+      "image": "postgres:16-alpine",
+      "networks": {
+        "default": null
+      },
+      "ports": [],
+      "volumes": [
+        {
+          "type": "volume",
+          "source": "pg_data",
+          "target": "/var/lib/postgresql/data",
+          "volume": {}
+        },
+        {
+          "type": "bind",
+          "source": "/mnt/d/projects/Task-v03-final-runs/runs/v03/main/space-04-state-repair/run-20261106-193116-2685348c/project/sql/migrations/001_schema.sql",
+          "target": "/docker-entrypoint-initdb.d/01_schema.sql",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "/mnt/d/projects/Task-v03-final-runs/runs/v03/main/space-04-state-repair/run-20261106-193116-2685348c/project/sql/seed.sql",
+          "target": "/docker-entrypoint-initdb.d/02_seed.sql",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        }
+      ]
+    },
+    "prometheus": {
+      "command": null,
+      "depends_on": {
+        "gateway": {
+          "condition": "service_started",
+          "required": true
+        }
+      },
+      "entrypoint": null,
+      "image": "prom/prometheus:v2.53.1",
+      "networks": {
+        "default": null
+      },
+      "ports": [],
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "/mnt/d/projects/Task-v03-final-runs/runs/v03/main/space-04-state-repair/run-20261106-193116-2685348c/project/infra/prometheus.yml",
+          "target": "/etc/prometheus/prometheus.yml",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        }
+      ]
+    },
+    "question-service": {
+      "build": {
+        "context": "/mnt/d/projects/Task-v03-final-runs/runs/v03/main/space-04-state-repair/run-20261106-193116-2685348c/project",
+        "dockerfile": "packages/question-service/Dockerfile"
+      },
+      "command": null,
+      "depends_on": {
+        "elasticsearch": {
+          "condition": "service_healthy",
+          "required": true
+        },
+        "postgres": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "entrypoint": null,
+      "environment": {
+        "DATABASE_URL": "postgres://spacefractions:spacefractions@postgres:5432/spacefractions",
+        "ELASTICSEARCH_URL": "http://elasticsearch:9200",
+        "PORT": "3002"
+      },
+      "networks": {
+        "default": null
+      },
+      "ports": []
+    },
+    "rabbitmq": {
+      "command": null,
+      "entrypoint": null,
+      "environment": {
+        "RABBITMQ_DEFAULT_PASS": "spacefractions",
+        "RABBITMQ_DEFAULT_USER": "spacefractions"
+      },
+      "healthcheck": {
+        "test": [
+          "CMD",
+          "rabbitmq-diagnostics",
+          "-q",
+          "ping"
+        ],
+        "timeout": "5s",
+        "interval": "10s",
+        "retries": 10
+      },
+      "image": "rabbitmq:3.13-management-alpine",
+      "networks": {
+        "default": null
+      },
+      "ports": []
+    },
+    "redis": {
+      "command": null,
+      "entrypoint": null,
+      "healthcheck": {
+        "test": [
+          "CMD",
+          "redis-cli",
+          "ping"
+        ],
+        "timeout": "3s",
+        "interval": "5s",
+        "retries": 10
+      },
+      "image": "redis:7-alpine",
+      "networks": {
+        "default": null
+      },
+      "ports": []
+    },
+    "user-service": {
+      "build": {
+        "context": "/mnt/d/projects/Task-v03-final-runs/runs/v03/main/space-04-state-repair/run-20261106-193116-2685348c/project",
+        "dockerfile": "packages/user-service/Dockerfile"
+      },
+      "command": null,
+      "depends_on": {
+        "keycloak": {
+          "condition": "service_healthy",
+          "required": true
+        },
+        "postgres": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "entrypoint": null,
+      "environment": {
+        "DATABASE_URL": "postgres://spacefractions:spacefractions@postgres:5432/spacefractions",
+        "OIDC_ADMIN_ROLE": "admin",
+        "OIDC_AUDIENCE": "account",
+        "OIDC_ISSUER": "http://localhost:4307/realms/space-fractions",
+        "OIDC_JWKS_URI": "http://keycloak:8080/realms/space-fractions/protocol/openid-connect/certs",
+        "PORT": "3003"
+      },
+      "networks": {
+        "default": null
+      },
+      "ports": []
+    }
+  },
+  "volumes": {
+    "pg_data": {}
+  }
+}

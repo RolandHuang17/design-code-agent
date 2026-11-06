@@ -15,6 +15,18 @@ from scripts.package_v03 import package
 from scripts.check_temperature_project import check_project
 
 
+def test_index_exposes_earlier_check_batches_without_claiming_overall_pass(tmp_path):
+    path = tmp_path / 'checks-0.json'
+    original = b'[{"profile":"static","status":"passed"},{"profile":"runtime","status":"failed"}]'
+    path.write_bytes(original)
+    row = summarize(tmp_path)['reports'][0]
+    assert row['record_kind'] == 'original_check_batch'
+    assert row['status'] == 'recorded_checks'
+    assert [check['status'] for check in row['checks']] == ['passed', 'failed']
+    assert row['sha256'] == hashlib.sha256(original).hexdigest()
+    assert path.read_bytes() == original
+
+
 def test_index_preserves_interrupted_raw_status_and_boolean_acceptance(tmp_path):
     trial = tmp_path / 'trial'
     (trial / 'raw/artifacts').mkdir(parents=True)

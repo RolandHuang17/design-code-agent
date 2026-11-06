@@ -1,0 +1,327 @@
+{
+  "kind": "read_only_final_delivery_audit",
+  "scope": "main06/prototype04 and v03 public evidence; no runtime/model calls; no SQLite opened",
+  "head": "7c92ed25e8b61521c7c4f287ba8d83db6862c843",
+  "blockers": [],
+  "notes": [
+    "171/1 regression record is explicitly an operator transcription, not CI; no regression or paid experiment rerun in this audit.",
+    "All four Space04 trial archives preserve raw receipts/reports; subsequent independent browser results do not overwrite earlier failures or raw completed_with_gaps statuses.",
+    "README/docs distinguish one fresh generation and three operator-feedback Agent seed continuations. The final scope-limited HTTP/browser success does not establish a single fresh automatic success, general reliability, full design compliance or production readiness.",
+    "Historical public SQLite WAL/SHM sidecars belong to the original prototype raw archive and are retained unchanged as instructed by root; this audit only enumerated them and never opened any SQLite or created sidecars.",
+    "Final state-repair browser18/18 and HTTP27/27 are separately recorded from the original completed_with_gaps receipt; source cleanup and fixed acceptance limitations remain explicit."
+  ],
+  "executables": {
+    "main": {
+      "path": "dist/v03-build-06/main/DesignCodeAgent.exe",
+      "sha256": "4c672743d3828fda0bf679f39964fbca4492775a9c187cf57e50dc9351ee0eee",
+      "bytes": 13590243,
+      "manifest_match": true
+    },
+    "prototype": {
+      "path": "dist/v03-build-04/prototype/DesignCodeAgent-Superagent.exe",
+      "sha256": "837cf47c9be73aa1ced0b2a987f9dc6eff5e0dff45ff4abcb29b2f1a02ffe7a7",
+      "bytes": 14246552,
+      "manifest_match": true
+    }
+  },
+  "main_source_hash_mismatches": [],
+  "prototype_commit_source_hash_mismatches": [],
+  "exact_build_source_snapshots": {
+    "main": {
+      "python_files": 25,
+      "expected_files": 25,
+      "mismatches": [],
+      "extra": []
+    },
+    "prototype": {
+      "python_files": 25,
+      "expected_files": 25,
+      "mismatches": [],
+      "extra": []
+    }
+  },
+  "frozen_history": {
+    "recorded": {
+      "codex/superagent-v03": "1f425d3bcd3b8d096cca3f14d06ff474d5a7358e",
+      "codex/runtime-diagnostics": "c3bd87d5eaa2bc603255b9d1f94e16411babad49",
+      "codex/main-resource-fix-v03": "e83107b7c8d0223a3379609f9d135a94db1e0be2"
+    },
+    "live_remote_heads": {
+      "codex/main-resource-fix-v03": "e83107b7c8d0223a3379609f9d135a94db1e0be2",
+      "codex/runtime-diagnostics": "c3bd87d5eaa2bc603255b9d1f94e16411babad49",
+      "codex/superagent-v03": "1f425d3bcd3b8d096cca3f14d06ff474d5a7358e"
+    },
+    "match": true
+  },
+  "index_new_names": {
+    "frozen-history.json": {
+      "status": "passed",
+      "record_kind": "frozen_source_history_scan"
+    },
+    "clean-windows/main06-summary.json": {
+      "status": "passed_with_runtime_gaps",
+      "record_kind": "clean_windows_main06"
+    },
+    "clean-windows/main06-host-checks.json": {
+      "status": "passed",
+      "record_kind": "host_after_native_export"
+    },
+    "clean-windows/main06-host-independent.json": {
+      "status": "passed",
+      "record_kind": "independent_health_http_restart"
+    },
+    "tool-regression.json": {
+      "status": "unclassified",
+      "record_kind": "tool_regression"
+    }
+  },
+  "inventories": {
+    "experiments/v03/clean-windows/archive-manifest.json": {
+      "files": 269,
+      "mismatches": []
+    },
+    "experiments/v03/clean-windows/archive-manifest-final.json": {
+      "files": 349,
+      "mismatches": []
+    },
+    "experiments/v03/main/space-04-browser-repair/archive-manifest.json": {
+      "files": 127,
+      "mismatches": []
+    },
+    "experiments/v03/main/space-04-final-fresh/archive-manifest.json": {
+      "files": 429,
+      "mismatches": []
+    },
+    "experiments/v03/main/space-04-state-repair/archive-manifest.json": {
+      "files": 197,
+      "mismatches": []
+    },
+    "experiments/v03/main/space-04-ui-repair/archive-manifest.json": {
+      "files": 132,
+      "mismatches": []
+    }
+  },
+  "main06_raw_zip": {
+    "sha256": "233f28a9667d2fe643dbbf606675596cdf24b29c8c3f88f29800a6cda6bbce79",
+    "summary_hash_match": true,
+    "source_members": 27,
+    "missing_exported_members": [],
+    "byte_mismatches": []
+  },
+  "guest_environment": {
+    "final_main_exe_hash_present": true,
+    "prototype_exe_hash_present": true,
+    "guest_status": "passed_with_runtime_gaps",
+    "guest_runtime": "Python/Node/Docker not installed; generated tests marked unverified",
+    "host_checks_separate": [
+      "main06-host-checks.json",
+      "main06-host-independent.json"
+    ]
+  },
+  "regression": {
+    "kind": "tool_regression",
+    "command": "powershell -File scripts/build_dual.ps1 -OutputDirectory dist/v03-build-06 -Track main",
+    "controller_commit": "e1991ce",
+    "observed_console_result": "171 passed, 1 skipped in 17.15s",
+    "passed": 171,
+    "skipped": 1,
+    "skip_reason": "Windows symbolic-link privilege",
+    "exit_code": 0,
+    "record_type": "Operator transcription of successful build command output; not CI output",
+    "intermediate_failure": {
+      "scope": "Offline package fixture, before final build",
+      "failed": 2,
+      "passed": 145,
+      "skipped": 1,
+      "cause": "New mandatory examples were absent from temporary package fixtures",
+      "resolution": "Fixture includes both example provenance files; archive test checks original CRLF bytes; targeted11 then final171 tests pass"
+    }
+  },
+  "guest_host_separation": {
+    "guest_report_status": "completed_with_gaps",
+    "guest_check_statuses": [
+      {
+        "profile": "static",
+        "status": "unverified"
+      },
+      {
+        "profile": "install",
+        "status": "unverified"
+      },
+      {
+        "profile": "test",
+        "status": "unverified"
+      },
+      {
+        "profile": "integration",
+        "status": "not_applicable"
+      },
+      {
+        "profile": "build",
+        "status": "unverified"
+      },
+      {
+        "profile": "compose",
+        "status": "not_applicable"
+      },
+      {
+        "profile": "plan_references",
+        "status": "passed"
+      },
+      {
+        "profile": "traceability_links",
+        "status": "passed"
+      },
+      {
+        "profile": "runtime",
+        "status": "not_applicable"
+      },
+      {
+        "profile": "startup",
+        "status": "unverified"
+      }
+    ],
+    "host_meaning": "Host checks of unchanged guest output; does not overwrite guest unverified checks",
+    "host_status": "passed",
+    "host_test_count": 3,
+    "independent_http_checks": 6,
+    "independent_status": "passed",
+    "host_source_hashes_match_unchanged_export": true,
+    "independent_before_after_equal": true
+  },
+  "old_tracked_evidence_changed_against_HEAD": [],
+  "preexisting_public_sqlite_sidecars": [
+    "experiments/v03/prototype/20261106-152132-normal/state.sqlite-shm",
+    "experiments/v03/prototype/20261106-152132-normal/state.sqlite-wal"
+  ],
+  "space_browser_results": {
+    "space-04-final-fresh": {
+      "status": "failed",
+      "failed_checks": [
+        "real OIDC browser sign-in"
+      ],
+      "source_unchanged": true,
+      "lineage": "fresh generation",
+      "cleanup": {
+        "origin": "independent post-stop owned project query",
+        "project": "dca-7e67c1dc6752",
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "",
+        "no_owned_containers_remain": true,
+        "server_process_exit_code": 0,
+        "stop_method": "cooperative stop file",
+        "playwright_session_closed": true
+      }
+    },
+    "space-04-browser-repair": {
+      "status": "failed",
+      "failed_checks": [
+        "student visible main menu",
+        "admin visible question operations"
+      ],
+      "source_unchanged": true,
+      "lineage": "Seed continuation of space-04-final-fresh; not a new generation. Only compose.yaml, gateway/public/index.html and gateway/src/index.js changed.",
+      "cleanup": {
+        "stop_method": "cooperative stop file",
+        "server_exit_code": 0,
+        "playwright_sessions_closed": [
+          "v03space04repair",
+          "v03space04repairadmin"
+        ],
+        "owned_project": "dca-e1c4ad53bf54",
+        "post_stop_ps_exit_code": 0,
+        "post_stop_ps_stdout": "",
+        "post_stop_ps_stderr": "",
+        "no_owned_containers_remain": true
+      }
+    },
+    "space-04-ui-repair": {
+      "status": "failed",
+      "failed_checks": [
+        "student score/game recovery after reload"
+      ],
+      "source_unchanged": true,
+      "lineage": "Fresh Space04 generation followed by browser-origin Agent seed repair and this UI Agent seed repair; not another fresh generation.",
+      "cleanup": {
+        "stop_method": "cooperative stop file",
+        "server_exit_code": 0,
+        "playwright_sessions_closed": [
+          "v03space04ui",
+          "v03space04uiadmin"
+        ],
+        "owned_project": "dca-995c08348c86",
+        "post_stop_ps_exit_code": 0,
+        "post_stop_ps_stdout": "",
+        "post_stop_ps_stderr": "",
+        "no_owned_containers_remain": true
+      }
+    },
+    "space-04-state-repair": {
+      "status": "passed",
+      "failed_checks": [],
+      "source_unchanged": true,
+      "lineage": "One fresh generation plus three operator-feedback Agent seed continuations; not one fresh fully automatic success.",
+      "cleanup": {
+        "stop_method": "cooperative stop file",
+        "server_exit_code": 0,
+        "playwright_sessions_closed": [
+          "v03space04state",
+          "v03space04stateadmin"
+        ],
+        "owned_project": "dca-09afe8a77b3e",
+        "post_stop_ps_exit_code": 0,
+        "post_stop_ps_stdout": "",
+        "post_stop_ps_stderr": "",
+        "no_owned_containers_remain": true
+      }
+    }
+  },
+  "new_space_example": {
+    "export_files": 49,
+    "project_files": 46,
+    "input_files": 3,
+    "manifest_mismatches": [],
+    "raw_byte_mismatches": [],
+    "lineage": [
+      {
+        "trial": "experiments/v03/main/space-04-final-fresh",
+        "kind": "fresh_generation"
+      },
+      {
+        "trial": "experiments/v03/main/space-04-browser-repair",
+        "kind": "operator_feedback_agent_seed_continuation"
+      },
+      {
+        "trial": "experiments/v03/main/space-04-ui-repair",
+        "kind": "operator_feedback_agent_seed_continuation"
+      },
+      {
+        "trial": "experiments/v03/main/space-04-state-repair",
+        "kind": "operator_feedback_agent_seed_continuation"
+      }
+    ],
+    "policy": "One fresh generation plus three operator-feedback Agent seed continuations. Product files and original inputs copied byte-for-byte; generated source/README not manually edited. Scope-limited acceptance only."
+  },
+  "state_repair_acceptance": {
+    "receipt_status": "completed_with_gaps",
+    "responses": 40,
+    "estimated_cny": 21.164715,
+    "browser_status": "passed",
+    "browser_passed": 18,
+    "http_status": "passed",
+    "http_checks": 27
+  },
+  "local_links": {
+    "checked": 86,
+    "broken": []
+  },
+  "credential_scan": {
+    "files_scanned": 3557,
+    "exact_configured_secret_check_enabled": true,
+    "matching_filenames_only": [],
+    "matching_archive_filenames_only": []
+  },
+  "finalization": "completed after delivery_audit confirmed browser evidence, cleanup and byte-identical example export were finalized",
+  "status": "passed_with_scope_limits"
+}

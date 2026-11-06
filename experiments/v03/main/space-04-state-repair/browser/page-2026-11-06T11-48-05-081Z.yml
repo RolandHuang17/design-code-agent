@@ -1,0 +1,28 @@
+- generic [active] [ref=f3e1]:
+  - banner [ref=f3e2]:
+    - heading "Space Fractions" [level=1] [ref=f3e3]
+    - generic [ref=f3e4]:
+      - text: student
+      - button "Sign out" [ref=f3e5] [cursor=pointer]
+  - main [ref=f3e6]:
+    - generic [ref=f3e19]:
+      - heading "Help" [level=2] [ref=f3e20]
+      - paragraph [ref=f3e21]:
+        - text: A fraction like
+        - code [ref=f3e22]: 2/3
+        - text: means two parts out of three equal parts. Enter answers as
+        - code [ref=f3e23]: numerator/denominator
+        - text: (for example
+        - code [ref=f3e24]: 1/2
+        - text: ) or as a whole number (for example
+        - code [ref=f3e25]: "2"
+        - text: ).
+      - paragraph [ref=f3e26]:
+        - text: "Equivalent fractions count as correct:"
+        - code [ref=f3e27]: 1/2
+        - text: is the same as
+        - code [ref=f3e28]: 2/4
+        - text: because they name the same value.
+      - button "Back to menu" [ref=f3e29] [cursor=pointer]
+  - contentinfo [ref=f3e13]:
+    - paragraph [ref=f3e14]: Space Fractions — a sixth-grade fraction learning game.

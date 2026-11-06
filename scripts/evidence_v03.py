@@ -3,13 +3,14 @@ import argparse
 import hashlib
 import html
 import json
+import re
 from pathlib import Path
 from urllib.parse import quote
 
 
 EVIDENCE_NAMES = {'report.json', 'manifest.json', 'receipt.json', 'diagnosis.json', 'browser.json',
                   'manifest-start.json', 'summary.json', 'build-final.json', 'clean-windows.json', 'interruption.json',
-                  'result.json', 'tool-regression.json', 'upstream-reading.json', 'ci.json', 'delivery-audit.json',
+                  'result.json', 'tool-regression.json', 'upstream-reading.json', 'ci.json', 'delivery-audit.json', 'frozen-history.json',
                   'main06-summary.json', 'main06-host-checks.json', 'main06-host-independent.json'}
 EXCLUDED_PARTS = {'node_modules', '.git', '.venv', '__pycache__', 'project', 'source', 'stages', 'candidates', 'revisions', 'inputs'}
 
@@ -19,7 +20,7 @@ def evidence_files(root):
         relative = path.relative_to(root)
         if any(part in EXCLUDED_PARTS for part in relative.parts[:-1]) or path.is_symlink():
             continue
-        if path.name in EVIDENCE_NAMES or path.name.startswith('independent'):
+        if path.name in EVIDENCE_NAMES or path.name.startswith('independent') or re.fullmatch(r'checks-\d+\.json', path.name):
             yield path
 
 
@@ -33,6 +34,8 @@ def summarize(root):
     for path in evidence_files(root):
         try:
             report = json.loads(path.read_text(encoding='utf-8'))
+            if isinstance(report, list) and all(isinstance(check, dict) for check in report):
+                report = {'kind': 'original_check_batch', 'status': 'recorded_checks', 'checks': report}
             if not isinstance(report, dict):
                 raise ValueError('report is not an object')
             prototype = report.get('prototype') is True

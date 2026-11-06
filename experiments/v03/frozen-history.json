@@ -1,0 +1,17 @@
+{
+  "kind": "frozen_source_history_scan",
+  "unmerged_history_blobs_scanned": 24,
+  "matching_files": [],
+  "branches": [
+    "codex/superagent-v03",
+    "codex/runtime-diagnostics",
+    "codex/main-resource-fix-v03"
+  ],
+  "advertised_remote_heads": {
+    "codex/superagent-v03": "1f425d3bcd3b8d096cca3f14d06ff474d5a7358e",
+    "codex/runtime-diagnostics": "c3bd87d5eaa2bc603255b9d1f94e16411babad49",
+    "codex/main-resource-fix-v03": "e83107b7c8d0223a3379609f9d135a94db1e0be2"
+  },
+  "status": "passed",
+  "policy": "Original worker commit histories retained and publicly reachable; no rewrite or squash of failed experiments"
+}

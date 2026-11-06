@@ -1,0 +1,13 @@
+- generic [active] [ref=f3e1]:
+  - banner [ref=f3e2]:
+    - heading "Space Fractions" [level=1] [ref=f3e3]
+    - generic [ref=f3e4]:
+      - text: student
+      - button "Sign out" [ref=f3e5] [cursor=pointer]
+  - main [ref=f3e6]:
+    - generic [ref=f3e79]:
+      - heading "Mission Complete" [level=2] [ref=f3e80]
+      - paragraph [ref=f3e81]: "You answered all 8 question(s). Final score: 8."
+      - button "Back to menu" [ref=f3e82] [cursor=pointer]
+  - contentinfo [ref=f3e13]:
+    - paragraph [ref=f3e14]: Space Fractions — a sixth-grade fraction learning game.

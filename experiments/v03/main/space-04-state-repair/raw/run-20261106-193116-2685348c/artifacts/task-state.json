@@ -1,0 +1,89 @@
+{
+  "tasks": [
+    {
+      "id": "T01-shared-domain",
+      "state": "generated_unverified",
+      "missing": [],
+      "snapshot_id": "9663c2785295848726733b1d3e3c69b531fcd029da1cb486ff6d655b56c4287f",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T02-db-schema",
+      "state": "generated_unverified",
+      "missing": [],
+      "snapshot_id": "9663c2785295848726733b1d3e3c69b531fcd029da1cb486ff6d655b56c4287f",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T10-reference-configs",
+      "state": "generated_unverified",
+      "missing": [],
+      "snapshot_id": "9663c2785295848726733b1d3e3c69b531fcd029da1cb486ff6d655b56c4287f",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T03-fraction-service",
+      "state": "generated_unverified",
+      "missing": [],
+      "snapshot_id": "9663c2785295848726733b1d3e3c69b531fcd029da1cb486ff6d655b56c4287f",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T04-user-auth",
+      "state": "generated_unverified",
+      "missing": [],
+      "snapshot_id": "9663c2785295848726733b1d3e3c69b531fcd029da1cb486ff6d655b56c4287f",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T05-admin-service",
+      "state": "generated_unverified",
+      "missing": [],
+      "snapshot_id": "9663c2785295848726733b1d3e3c69b531fcd029da1cb486ff6d655b56c4287f",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T06-game-service",
+      "state": "generated_unverified",
+      "missing": [],
+      "snapshot_id": "9663c2785295848726733b1d3e3c69b531fcd029da1cb486ff6d655b56c4287f",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T07-gateway",
+      "state": "generated_unverified",
+      "missing": [],
+      "snapshot_id": "9663c2785295848726733b1d3e3c69b531fcd029da1cb486ff6d655b56c4287f",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T11-tests",
+      "state": "generated_unverified",
+      "missing": [],
+      "snapshot_id": "9663c2785295848726733b1d3e3c69b531fcd029da1cb486ff6d655b56c4287f",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T08-contracts",
+      "state": "generated_unverified",
+      "missing": [],
+      "snapshot_id": "9663c2785295848726733b1d3e3c69b531fcd029da1cb486ff6d655b56c4287f",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T09-compose-infra",
+      "state": "generated_unverified",
+      "missing": [],
+      "snapshot_id": "9663c2785295848726733b1d3e3c69b531fcd029da1cb486ff6d655b56c4287f",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    },
+    {
+      "id": "T12-root-docs",
+      "state": "generated_unverified",
+      "missing": [],
+      "snapshot_id": "9663c2785295848726733b1d3e3c69b531fcd029da1cb486ff6d655b56c4287f",
+      "evidence_scope": "whole-project checks; not per-task semantic proof"
+    }
+  ],
+  "snapshot_id": "9663c2785295848726733b1d3e3c69b531fcd029da1cb486ff6d655b56c4287f"
+}

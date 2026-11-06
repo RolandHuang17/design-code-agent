@@ -18,3 +18,4 @@ experiments/v03/** -text whitespace=-trailing-space
 examples/temperature-converter/** -text whitespace=-trailing-space
 examples/superagent-health/** -text whitespace=-trailing-space
 codeagent/cases/*.md -text whitespace=-trailing-space
+examples/space-fractions-v03/** -text whitespace=-trailing-space

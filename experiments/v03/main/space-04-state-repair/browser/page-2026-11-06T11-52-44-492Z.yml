@@ -1,0 +1,60 @@
+- generic [ref=f4e1]:
+  - banner [ref=f4e2]:
+    - heading "Space Fractions" [level=1] [ref=f4e3]
+    - generic [ref=f4e4]:
+      - text: admin
+      - button "Sign out" [ref=f4e5] [cursor=pointer]
+  - main [ref=f4e6]:
+    - generic [ref=f4e16]:
+      - heading "Manage Questions" [level=2] [ref=f4e17]
+      - generic [ref=f4e18]:
+        - heading "Create question" [level=3] [ref=f4e19]
+        - generic [ref=f4e20]: Prompt
+        - textbox "Prompt" [ref=f4e21]:
+          - /placeholder: e.g. 1/2 + 1/4 =
+        - generic [ref=f4e22]: Options (comma-separated)
+        - textbox "Options (comma-separated)" [ref=f4e23]:
+          - /placeholder: 3/4, 1/2, 2/4, 1/3
+        - generic [ref=f4e24]: Correct answer (a single fraction)
+        - textbox "Correct answer (a single fraction)" [ref=f4e25]:
+          - /placeholder: 3/4
+        - button "Create" [ref=f4e26] [cursor=pointer]
+      - generic [ref=f4e78]: Question deleted.
+      - generic [ref=f4e27]:
+        - heading "Existing questions" [level=3] [ref=f4e28]
+        - button "Refresh list" [active] [ref=f4e29] [cursor=pointer]
+        - list [ref=f4e30]:
+          - listitem [ref=f4e111]:
+            - generic [ref=f4e112]: What is 1/2 + 1/4?
+            - button "Edit" [ref=f4e113] [cursor=pointer]
+            - button "Delete" [ref=f4e114] [cursor=pointer]
+          - listitem [ref=f4e115]:
+            - generic [ref=f4e116]: What is 1/3 + 1/6?
+            - button "Edit" [ref=f4e117] [cursor=pointer]
+            - button "Delete" [ref=f4e118] [cursor=pointer]
+          - listitem [ref=f4e119]:
+            - generic [ref=f4e120]: What is 2/3 - 1/6?
+            - button "Edit" [ref=f4e121] [cursor=pointer]
+            - button "Delete" [ref=f4e122] [cursor=pointer]
+          - listitem [ref=f4e123]:
+            - generic [ref=f4e124]: Simplify 6/9.
+            - button "Edit" [ref=f4e125] [cursor=pointer]
+            - button "Delete" [ref=f4e126] [cursor=pointer]
+          - listitem [ref=f4e127]:
+            - generic [ref=f4e128]: What is 3/4 - 1/4?
+            - button "Edit" [ref=f4e129] [cursor=pointer]
+            - button "Delete" [ref=f4e130] [cursor=pointer]
+          - listitem [ref=f4e131]:
+            - generic [ref=f4e132]: What is 1/5 + 2/5?
+            - button "Edit" [ref=f4e133] [cursor=pointer]
+            - button "Delete" [ref=f4e134] [cursor=pointer]
+          - listitem [ref=f4e135]:
+            - generic [ref=f4e136]: What is 1/2 of 1/3?
+            - button "Edit" [ref=f4e137] [cursor=pointer]
+            - button "Delete" [ref=f4e138] [cursor=pointer]
+          - listitem [ref=f4e139]:
+            - generic [ref=f4e140]: Simplify 4/8.
+            - button "Edit" [ref=f4e141] [cursor=pointer]
+            - button "Delete" [ref=f4e142] [cursor=pointer]
+  - contentinfo [ref=f4e14]:
+    - paragraph [ref=f4e15]: Space Fractions — a sixth-grade fraction learning game.

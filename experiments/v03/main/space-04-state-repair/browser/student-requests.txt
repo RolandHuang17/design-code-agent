@@ -1,0 +1,22 @@
+### Result
+23. [POST] http://localhost:2530/realms/space-fractions/protocol/openid-connect/token => [200] OK
+24. [POST] http://localhost:2529/api/games => [201] Created
+25. [POST] http://localhost:2529/api/games/3/pause => [200] OK
+26. [POST] http://localhost:2529/api/games/3/resume => [200] OK
+27. [POST] http://localhost:2529/api/games/3/answers => [200] OK
+32. [GET] http://localhost:2529/api/games/3 => [200] OK
+33. [GET] http://localhost:2529/api/games/3/score => [200] OK
+34. [POST] http://localhost:2529/api/games => [201] Created
+35. [POST] http://localhost:2529/api/games/4/answers => [200] OK
+36. [POST] http://localhost:2529/api/games/4/answers => [200] OK
+37. [POST] http://localhost:2529/api/games/4/answers => [200] OK
+38. [POST] http://localhost:2529/api/games/4/answers => [200] OK
+39. [POST] http://localhost:2529/api/games/4/answers => [200] OK
+40. [POST] http://localhost:2529/api/games/4/answers => [200] OK
+41. [POST] http://localhost:2529/api/games/4/answers => [200] OK
+42. [POST] http://localhost:2529/api/games/4/answers => [200] OK
+43. [GET] http://localhost:2529/api/games/4/score => [200] OK
+48. [GET] http://localhost:2529/api/games/4 => [200] OK
+49. [GET] http://localhost:2529/api/games/4/score => [200] OK
+
+Note: 30 static requests not shown, run with --static option to see them.

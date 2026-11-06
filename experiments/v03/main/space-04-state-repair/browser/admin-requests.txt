@@ -1,0 +1,11 @@
+### Result
+23. [POST] http://localhost:2530/realms/space-fractions/protocol/openid-connect/token => [200] OK
+24. [GET] http://localhost:2529/api/admin/questions => [200] OK
+29. [GET] http://localhost:2529/api/admin/questions => [200] OK
+30. [POST] http://localhost:2529/api/admin/questions => [201] Created
+31. [GET] http://localhost:2529/api/admin/questions => [200] OK
+32. [PUT] http://localhost:2529/api/admin/questions/11 => [200] OK
+33. [GET] http://localhost:2529/api/admin/questions => [200] OK
+38. [GET] http://localhost:2529/api/admin/questions => [200] OK
+
+Note: 30 static requests not shown, run with --static option to see them.

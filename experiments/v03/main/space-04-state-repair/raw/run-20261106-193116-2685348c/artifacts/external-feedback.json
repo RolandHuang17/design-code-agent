@@ -1,0 +1,12 @@
+[
+  {
+    "profile": "browser_reload_server_score_recovery",
+    "status": "failed",
+    "details": "Actual student browser flow at gateway http://localhost:4259 with Keycloak http://localhost:4260:completed8questions and displayed final score8 plus Your Score8points. After entire-page reload authentication remains but View Score leaves Main Menu unchanged; prior game/score inaccessible. Recover the real authenticated game and score from server-side persisted data after reload; storing a local browser score as if it proves persistence is insufficient. Preserve authorization and independently retest actual browser score recovery. Evidence browser/score-after-reload.png and page-2026-11-06T11-27-34-614Z.yml. Earlier start/answers/pause/resume/help and pre-reload score passed and must not be erased."
+  },
+  {
+    "profile": "browser_admin_update",
+    "status": "failed",
+    "details": "Real admin/admin PKCE login succeeded. Admin UI independently passed listing, creation of a fixture question, entire-page reload retaining it, deletion and refreshed absence. No Edit/Update control is available:only Create,Refresh list,Delete. Implement real administrator editing backed by a permission-controlled server interface, and verify changed question data remains after reload. Do not claim Update passed from CRD or from browser-only edits. No product/source/DOM/CSS was manually changed. Evidence browser/admin-created.png, admin-deleted.png and saved snapshots."
+  }
+]

@@ -11,7 +11,7 @@ v0.3 提供两个独立程序，分别验收：
 
 主工具保留单控制器结构；原型借鉴 DeepSeek Super-agent 的公开系统设计，使用相同的百炼 `deepseek-v4-pro-0813`，不作为新的基础模型或性能优势声明。原型的运行结果不计入正式工具成绩。
 
-[当前验证与全部原始记录](docs/v03-validation.md) · [温度转换器完整生成示例](examples/temperature-converter/README.md) · [Super-agent 实跑与限制](docs/superagent-results.md)
+[当前验证与全部原始记录](docs/v03-validation.md) · [温度转换器完整生成示例](examples/temperature-converter/README.md) · [Space 反馈续跑示例](examples/space-fractions-v03/README.md) · [Super-agent 实跑与限制](docs/superagent-results.md)
 
 历史 v0.2 九次冻结实验、人工修正的 Space Fractions 交付副本及失败记录均保留，见 [v0.2 结果](docs/v02-results.md)。当前版本不引用旧成绩证明新程序能力。
 
