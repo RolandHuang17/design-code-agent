@@ -121,7 +121,7 @@ def run_command(argv, root: Path, cancel: threading.Event, timeout=120, *, extra
             "timed_out": timed_out, "command": argv, "output": output.decode("utf-8", errors="replace")}
 
 
-def _validate(root: Path, profile: str, cancel: threading.Event, allow_execution=False):
+def _validate(root: Path, profile: str, cancel: threading.Event, allow_execution=False, required_files=None):
     root = root.resolve()
     if profile not in PROFILES:
         raise ValueError("未知检查类型")
@@ -131,7 +131,7 @@ def _validate(root: Path, profile: str, cancel: threading.Event, allow_execution
         results = []
         files = list(project_files(root))
         names = {p.relative_to(root).as_posix() for p in files}
-        for required in ("package.json", "README.md", "traceability.json"):
+        for required in required_files if required_files is not None else ("package.json", "README.md", "traceability.json"):
             results.append({"check": f"required:{required}", "status": "passed" if required in names else "failed"})
         for path in files:
             relative = path.relative_to(root).as_posix()
@@ -245,9 +245,9 @@ def assess_test_output(result):
     return {**result, "status": "unverified", "reason": "Process exited successfully, but no recognized nonzero test execution evidence was found"}
 
 
-def validate(root: Path, profile: str, cancel: threading.Event, allow_execution=False):
+def validate(root: Path, profile: str, cancel: threading.Event, allow_execution=False, required_files=None):
     from .evidence import project_snapshot, bind_check
     root = Path(root).resolve()
     before = project_snapshot(root)
-    result = _validate(root, profile, cancel, allow_execution)
+    result = _validate(root, profile, cancel, allow_execution, required_files)
     return bind_check(result, before, project_snapshot(root))
