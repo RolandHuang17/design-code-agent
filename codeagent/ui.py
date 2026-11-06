@@ -29,27 +29,129 @@ def setup_dpi():
             pass
 
 
+class _WindowsIme:
+    """Small typed IMM surface. All handles remain owned by Windows/Tk."""
+    def __init__(self):
+        import ctypes
+        from ctypes import wintypes
+        self.ctypes, self.user, self.imm = ctypes, ctypes.windll.user32, ctypes.windll.imm32
+        self.user.GetFocus.argtypes, self.user.GetFocus.restype = [], wintypes.HWND
+        self.user.GetParent.argtypes, self.user.GetParent.restype = [wintypes.HWND], wintypes.HWND
+        self.user.GetAncestor.argtypes, self.user.GetAncestor.restype = [wintypes.HWND, wintypes.UINT], wintypes.HWND
+        self.user.IsWindow.argtypes, self.user.IsWindow.restype = [wintypes.HWND], wintypes.BOOL
+        self.user.GetWindowThreadProcessId.argtypes = [wintypes.HWND, ctypes.POINTER(wintypes.DWORD)]
+        self.user.GetWindowThreadProcessId.restype = wintypes.DWORD
+        self.imm.ImmAssociateContext.argtypes = [wintypes.HWND, ctypes.c_void_p]
+        self.imm.ImmAssociateContext.restype = ctypes.c_void_p
+        self.imm.ImmNotifyIME.argtypes = [ctypes.c_void_p, wintypes.DWORD, wintypes.DWORD, wintypes.DWORD]
+        self.imm.ImmNotifyIME.restype = wintypes.BOOL
+
+    def owned(self, window):
+        if not window or not self.user.IsWindow(window):
+            return False
+        from ctypes import wintypes
+        process = wintypes.DWORD()
+        self.user.GetWindowThreadProcessId(window, self.ctypes.byref(process))
+        return process.value == os.getpid()
+
+    def focus(self):
+        return int(self.user.GetFocus() or 0)
+
+    def parent(self, window):
+        return int(self.user.GetParent(window) or 0)
+
+    def root(self, window):
+        return int(self.user.GetAncestor(window, 2) or 0)  # GA_ROOT
+
+    def associate(self, window, context):
+        return int(self.imm.ImmAssociateContext(window, context) or 0)
+
+    def cancel_composition(self, context):
+        if context:
+            self.imm.ImmNotifyIME(context, 0x0015, 0x0004, 0)  # NI_COMPOSITIONSTR / CPS_CANCEL
+
+
+class _SecretImeGuard:
+    """Detach actual Tk native focus/ancestor contexts, then restore exact associations.
+
+    Tk keyboard focus can be an Entry while GetFocus is its client or wrapper HWND.
+    Detaching only Entry.winfo_id() therefore does not protect the native IME path.
+    No keyboard layout, IME open status, or operating-system setting is changed.
+    """
+    def __init__(self, entry, api):
+        self.entry, self.api = entry, api
+        self.saved = {}
+        self.active, self.timer = False, None
+
+    def targets(self):
+        entry_window = self.entry.winfo_id()
+        root_window = self.api.root(entry_window)
+        starts = [entry_window, self.entry.winfo_toplevel().winfo_id(), root_window]
+        focused = self.api.focus()
+        if focused and self.api.root(focused) == root_window:
+            starts.append(focused)
+        seen, result = set(), []
+        for window in starts:
+            for _ in range(32):
+                if not window or window in seen or not self.api.owned(window):
+                    break
+                seen.add(window)
+                result.append(window)
+                window = self.api.parent(window)
+        return result
+
+    def detach(self):
+        if not self.active:
+            return
+        for window in self.targets():
+            old = self.api.associate(window, 0)
+            if window not in self.saved:
+                self.saved[window] = old
+            if old:
+                self.api.cancel_composition(old)
+
+    def focus_in(self, _=None):
+        if not self.active:
+            self.active = True
+            self.detach()
+            # Tk/TSF may finish a focus transition after the widget binding.
+            self.timer = self.entry.after_idle(self.tick)
+
+    def tick(self):
+        self.timer = None
+        if self.active:
+            try:
+                if self.entry.focus_get() is self.entry:
+                    self.detach()
+                    self.timer = self.entry.after(40, self.tick)
+                else:
+                    self.restore()
+            except tk.TclError:
+                self.restore()
+
+    def restore(self, _=None):
+        self.active = False
+        if self.timer is not None:
+            try:
+                self.entry.after_cancel(self.timer)
+            except tk.TclError:
+                pass
+            self.timer = None
+        for window, context in reversed(tuple(self.saved.items())):
+            if self.api.owned(window):
+                self.api.associate(window, context)
+        self.saved.clear()
+
+
 def protect_secret(entry):
-    """Prevent Windows IME composition from exposing an ASCII API key."""
+    """Apply per-focus IMM protection; native candidate-window behavior needs OS QA."""
     if os.name != "nt":
         return
-    import ctypes
-    associate = ctypes.windll.imm32.ImmAssociateContext
-    associate.argtypes = (ctypes.c_void_p, ctypes.c_void_p)
-    associate.restype = ctypes.c_void_p
-    state = {"active": False, "context": None}
-
-    def focus_in(_):
-        if not state["active"]:
-            state.update(active=True, context=associate(entry.winfo_id(), None))
-
-    def focus_out(_):
-        if state["active"]:
-            associate(entry.winfo_id(), state["context"])
-            state.update(active=False, context=None)
-
-    entry.bind("<FocusIn>", focus_in, add="+")
-    entry.bind("<FocusOut>", focus_out, add="+")
+    guard = _SecretImeGuard(entry, _WindowsIme())
+    entry._secret_ime_guard = guard  # Keep callbacks/handle state alive with the widget.
+    entry.bind("<FocusIn>", guard.focus_in, add="+")
+    entry.bind("<FocusOut>", guard.restore, add="+")
+    entry.bind("<Destroy>", guard.restore, add="+")
 
 
 def workbench(root, title, subtitle):
