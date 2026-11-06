@@ -8,7 +8,7 @@ from urllib.parse import quote
 
 
 EVIDENCE_NAMES = {'report.json', 'manifest.json', 'receipt.json', 'diagnosis.json', 'browser.json',
-                  'manifest-start.json', 'summary.json', 'build-final.json', 'clean-windows.json'}
+                  'manifest-start.json', 'summary.json', 'build-final.json', 'clean-windows.json', 'interruption.json'}
 EXCLUDED_PARTS = {'node_modules', '.git', '.venv', '__pycache__', 'project', 'source', 'stages', 'candidates', 'revisions', 'inputs'}
 
 
@@ -42,15 +42,20 @@ def summarize(root):
             normalized_checks = []
             for check in checks:
                 result = check.get('result') if prototype and isinstance(check.get('result'), dict) else check
-                status = result.get('status', 'unverified')
+                status = ('passed' if result['passed'] else 'failed') if type(result.get('passed')) is bool else result.get('status', 'unverified')
                 if prototype and check.get('state') != 'completed':
                     status = 'unverified' if check.get('state') in ('stale', 'running', 'interrupted') else 'failed'
                 normalized_checks.append({'profile': result.get('profile', check.get('profile', result.get('check', 'unknown'))),
                                           'status': status, **({'job_state': check.get('state')} if prototype else {})})
+            recorded_status = run.get('state', 'unclassified') if prototype else report.get('status', 'unclassified')
+            if recorded_status == 'unclassified' and type(report.get('passed')) is bool:
+                recorded_status = 'passed' if report['passed'] else 'failed'
+            interruption = next((p for p in path.parents if p != root and p.is_relative_to(root) and (p / 'interruption.json').exists()), None)
+            effective_status = 'interrupted' if recorded_status == 'running' and interruption else recorded_status
             rows.append({'report': path.relative_to(root).as_posix(), 'sha256': digest(path),
                          'record_kind': report.get('kind', path.stem),
                          'program': 'prototype' if prototype else 'main_or_independent_acceptance',
-                         'status': run.get('state', 'unclassified') if prototype else report.get('status', 'unclassified'),
+                         'status': effective_status, 'recorded_status': recorded_status,
                          'verification': run.get('verification', 'not_recorded'),
                          'generation_origin': report.get('generation_origin', 'not_recorded'),
                          'turns': report.get('turns'), 'estimated_cny': report.get('run_estimated_cny'),

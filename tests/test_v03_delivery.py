@@ -13,6 +13,19 @@ from scripts.check_temperature import evaluate
 from scripts.evidence_v03 import render, summarize
 from scripts.package_v03 import package
 from scripts.check_temperature_project import check_project
+
+
+def test_index_preserves_interrupted_raw_status_and_boolean_acceptance(tmp_path):
+    trial = tmp_path / 'trial'
+    (trial / 'raw/artifacts').mkdir(parents=True)
+    (trial / 'interruption.json').write_text('{"status":"interrupted"}')
+    (trial / 'raw/artifacts/report.json').write_text('{"status":"running","checks":[]}')
+    (trial / 'independent-http.json').write_text('{"passed":true,"checks":[{"check":"health","status":200,"passed":true}]}')
+    rows = summarize(tmp_path)['reports']
+    raw = next(r for r in rows if r['report'].endswith('artifacts/report.json'))
+    assert raw['status'] == 'interrupted' and raw['recorded_status'] == 'running'
+    independent = next(r for r in rows if r['report'].endswith('independent-http.json'))
+    assert independent['status'] == 'passed' and independent['checks'][0]['status'] == 'passed'
 from scripts.export_v03_example import export
 
 
