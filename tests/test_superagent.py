@@ -140,10 +140,13 @@ def test_single_owner_lease_requires_explicit_recovery(tmp_path):
     c = Coordinator(tmp_path, lambda *args: None)
     c.create(DOCUMENTS)
     c.store.put("run", "lease", "old-process")
+    c.store.put("job", "orphan", {"state": "running", "snapshot": "old-source", "profile": "test"})
     with pytest.raises(RuntimeError, match="owned"):
         c.run()
     c.acknowledge_recovery()
     assert c.store.get("run", "lease") is None
+    assert c.store.get("job", "orphan")["state"] == "interrupted"
+    assert c.store.get("job", "orphan")["result"]["status"] == "unverified"
     c.close()
 
 

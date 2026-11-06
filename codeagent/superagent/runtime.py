@@ -103,6 +103,11 @@ class Coordinator:
                 if attempt["state"] in ("pending", "unknown"):
                     self.store.put("attempt", key, {**attempt, "state": "abandoned"})
             self.event("unknown_requests_abandoned", note="Explicit operator retry; original charges remain reserved")
+        for key, job in self.store.all("job").items():
+            if job.get("state") == "running":
+                self.store.put("job", key, {**job, "state": "interrupted", "result": {"status": "unverified",
+                    "reason": "Previous process exited before recording a result; recovery does not infer success"}})
+                self.event("check_interrupted", job_id=key, snapshot=job.get("snapshot"))
         self.store.put("run", "lease", None)
         self.event("recovery_acknowledged")
 
