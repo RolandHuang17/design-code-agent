@@ -10,6 +10,20 @@ from codeagent.engine import Agent
 from codeagent.prompts import SYSTEM
 from codeagent.provider import Cancelled
 from codeagent.runtime import ComposeSession, EnvironmentUnavailable, isolate_compose, validate_raw_scope, validate_runtime
+
+
+@pytest.mark.parametrize("filename", ["compose.yaml", "compose.yml", "docker-compose.yaml", "docker-compose.yml"])
+def test_all_compose_filenames_use_same_scope_and_command(tmp_path, filename):
+    from codeagent.checks import compose_file
+    (tmp_path / filename).write_text("services:\n  gateway:\n    image: node:22\n")
+    validate_raw_scope(tmp_path)
+    assert compose_file(tmp_path).name == filename
+    session = ComposeSession(tmp_path, tmp_path / "evidence", threading.Event(), Redactor(), backend="docker")
+    command = session.argv(["config"], original=True)
+    assert command[command.index("-f") + 1] == str(tmp_path / filename)
+    (tmp_path / filename).write_text("include: ../external.yml\nservices: {}")
+    with pytest.raises(ValueError):
+        validate_raw_scope(tmp_path)
 from codeagent.safety import Redactor
 from codeagent.tools import Toolset
 

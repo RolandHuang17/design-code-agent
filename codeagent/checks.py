@@ -16,6 +16,15 @@ from .provider import Cancelled
 from .safety import project_files
 
 PROFILES = ("static", "install", "test", "integration", "build", "compose", "auth")
+COMPOSE_NAMES = ("compose.yaml", "compose.yml", "docker-compose.yaml", "docker-compose.yml")
+
+
+def compose_file(root):
+    for name in COMPOSE_NAMES:
+        candidate = root / name
+        if candidate.is_file():
+            return candidate
+    raise ValueError("缺少 Compose 文件")
 
 
 class UniqueKeyLoader(yaml.SafeLoader):
@@ -153,7 +162,7 @@ def _validate(root: Path, profile: str, cancel: threading.Event, allow_execution
                                 raise ValueError("根 build 脚本必须实际检查或构建源码，不能只输出成功信息")
                     else:
                         parsed_yaml = list(yaml.load_all(content, Loader=UniqueKeyLoader))
-                        if path == root / "compose.yaml" or path == root / "docker-compose.yml":
+                        if path.parent == root and path.name in COMPOSE_NAMES:
                             compose_port_conflicts(parsed_yaml[0])
                     results.append({"check": relative, "status": "passed"})
                 except (ValueError, yaml.YAMLError) as exc:
@@ -184,10 +193,12 @@ def _validate(root: Path, profile: str, cancel: threading.Event, allow_execution
                 result["independent_report"] = json.loads(report_path.read_text(encoding="utf-8"))
             return {"profile": profile, **result}
     if profile == "compose":
-        if not (root / "compose.yaml").exists() and not (root / "docker-compose.yml").exists():
+        try:
+            source = compose_file(root)
+        except ValueError:
             return {"profile": profile, "status": "failed", "reason": "缺少 Compose 文件"}
         binary = shutil.which("docker")
-        argv = [binary, "compose", "config", "--quiet"] if binary else None
+        argv = [binary, "compose", "--project-directory", str(root), "-f", str(source), "config", "--quiet"] if binary else None
     else:
         npm = shutil.which("npm.cmd" if os.name == "nt" else "npm")
         binary = shutil.which("node")

@@ -44,7 +44,8 @@ def local_reference(root, name, base=None):
 
 def validate_raw_scope(root):
     """Check before `compose config`, which itself reads env_file/secrets/includes."""
-    data = yaml.load((root / "compose.yaml").read_text(encoding="utf-8"), Loader=UniqueKeyLoader)
+    from .checks import compose_file
+    data = yaml.load(compose_file(root).read_text(encoding="utf-8"), Loader=UniqueKeyLoader)
     if not isinstance(data, dict) or data.get("include"):
         raise ValueError("运行检查不支持 Compose include")
     for spec in data.get("services", {}).values():
@@ -135,15 +136,17 @@ class ComposeSession:
         self.services = []
 
     def argv(self, args, compose=True, original=False):
+        from .checks import compose_file
+        selected = compose_file(self.root) if original else self.config
         variables = [f"{k}={v}" for k, v in self.variables.items()]
         if self.backend == "wsl":
             prefix = [shutil.which("wsl.exe") or "wsl.exe", "-d", "Ubuntu", "-u", "root", "--", "env", *variables, "docker"]
-            source = wsl_path(self.root / "compose.yaml" if original else self.config)
+            source = wsl_path(selected)
             directory = wsl_path(self.root)
         else:
             # Inject only fixed fixture configuration, through `docker --...` subprocess env.
             prefix = [shutil.which("docker") or "docker"]
-            source = str(self.root / "compose.yaml" if original else self.config)
+            source = str(selected)
             directory = str(self.root)
         return prefix + (["compose", "--project-directory", directory, "-p", self.project, "-f", source] if compose else []) + args
 
